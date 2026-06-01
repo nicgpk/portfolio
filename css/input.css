@@ -1,35 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-/* Custom theme — clean, minimal, matches original */
 @theme {
-  --color-black-soft: #3e3e3e;
-  --color-gray-mid: #777;
-  --color-gray-light: #bbb;
-  --color-divider: #e7e7e7;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-bg: #08080f;
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-hover: rgba(255, 255, 255, 0.07);
+  --color-glass-border: rgba(255, 255, 255, 0.07);
+  --color-glass-border-hover: rgba(255, 255, 255, 0.14);
+  --color-text-primary: #eeeef2;
+  --color-text-secondary: #9898a8;
+  --color-text-muted: #686878;
+  --color-accent: #6c8cff;
+  --color-accent-glow: rgba(108, 140, 255, 0.15);
+  --color-glow-purple: rgba(139, 92, 246, 0.12);
+  --color-glow-blue: rgba(59, 130, 246, 0.10);
 }
 
-/* Section dividers */
+/* ---- Base ---- */
+body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+}
+
+/* Background orbs */
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.bg-orbs::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(108, 140, 255, 0.08), transparent 70%);
+  filter: blur(80px);
+}
+.bg-orbs::after {
+  content: '';
+  position: absolute;
+  bottom: -15%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.07), transparent 70%);
+  filter: blur(80px);
+}
+
+/* Additional floating orb */
+.orb-float {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.05), transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+  animation: orb-drift 20s ease-in-out infinite;
+}
+@keyframes orb-drift {
+  0%, 100% { transform: translate(-50%, -50%) translate(0, 0); }
+  25% { transform: translate(-50%, -50%) translate(60px, -40px); }
+  50% { transform: translate(-50%, -50%) translate(-30px, 50px); }
+  75% { transform: translate(-50%, -50%) translate(-50px, -30px); }
+}
+
+/* ---- Glass card ---- */
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 1rem;
+  transition: all 0.4s ease;
+}
+.glass:hover {
+  background: var(--color-glass-hover);
+  border-color: var(--color-glass-border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--color-glass-border-hover);
+}
+
+/* Glass without hover lift (for sections that shouldn't move) */
+.glass-static {
+  background: var(--color-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 1rem;
+}
+
+/* Glass header */
+.glass-header {
+  background: rgba(8, 8, 15, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ---- Floating social icons ---- */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+  color: var(--color-text-secondary);
+  transition: all 0.3s ease;
+}
+.social-icon:hover {
+  background: var(--color-glass-hover);
+  border-color: var(--color-glass-border-hover);
+  color: var(--color-text-primary);
+  box-shadow: 0 0 20px var(--color-accent-glow);
+}
+
+/* ---- Section divider (glow line) ---- */
 .section-divider {
-  @apply max-w-[958px] mx-auto h-px;
-  background: var(--color-divider);
+  max-width: 958px;
+  margin: 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
 }
 
-/* Fade-in animation — Tailwind doesn't do scroll-triggered, we use JS */
+/* ---- Fade-in ---- */
 .fade-in {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Hover scale on project images */
-.project-image:hover img {
-  transform: scale(1.02);
+/* ---- Accent text gradient ---- */
+.text-accent {
+  background: linear-gradient(135deg, #818cf8, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-.project-image img {
-  transition: transform 0.4s ease;
+
+/* ---- Project image card ---- */
+.project-image-card {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--color-glass-border);
+  transition: all 0.4s ease;
+}
+.project-image-card:hover {
+  border-color: var(--color-glass-border-hover);
+  box-shadow: 0 0 40px rgba(108, 140, 255, 0.08);
+}
+.project-image-card img {
+  transition: transform 0.5s ease;
+}
+.project-image-card:hover img {
+  transform: scale(1.03);
+}
+
+/* ---- Company logo glow ---- */
+.exp-logo {
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+.exp-item:hover .exp-logo {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* ---- Coming soon badge ---- */
+.coming-soon {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--color-text-muted);
+}
+
+/* ---- Role badge ---- */
+.role-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.375rem;
+  background: rgba(108, 140, 255, 0.08);
+  color: #94a3f8;
+  border: 1px solid rgba(108, 140, 255, 0.12);
+}
+
+/* ---- Mobile menu ---- */
+.mobile-glass {
+  background: rgba(8, 8, 15, 0.95);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+}
+
+/* ---- Nav link ---- */
+.nav-link {
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-text-primary), transparent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.nav-link:hover {
+  color: var(--color-text-primary);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+.nav-link.active {
+  color: var(--color-text-primary);
 }

@@ -15,15 +15,13 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Header scroll effect
+// Header scroll — add more opacity on scroll
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 10) {
-    header.classList.add('border-[#e7e7e7]', 'shadow-[0_1px_4px_rgba(0,0,0,0.04)]');
-    header.classList.remove('border-transparent');
+    header.style.background = 'rgba(8, 8, 15, 0.85)';
   } else {
-    header.classList.add('border-transparent');
-    header.classList.remove('border-[#e7e7e7]', 'shadow-[0_1px_4px_rgba(0,0,0,0.04)]');
+    header.style.background = 'rgba(8, 8, 15, 0.7)';
   }
 });
 
