@@ -25,15 +25,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Halftone brighten on glass hover
-const halftone = document.querySelector('.halftone-bg');
-if (halftone) {
-  document.querySelectorAll('.glass, .glass-static').forEach(el => {
-    el.addEventListener('mouseenter', () => halftone.classList.add('bright'));
-    el.addEventListener('mouseleave', () => halftone.classList.remove('bright'));
-  });
-}
-
 // Mobile menu toggle
 const menuToggle = document.getElementById('menuToggle');
 const menuClose = document.getElementById('menuClose');
