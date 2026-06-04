@@ -30,4 +30,5 @@
     el.classList.add('reveal');
     revealObserver.observe(el);
   });
+
 })();
