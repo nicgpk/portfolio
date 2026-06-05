@@ -35,17 +35,11 @@
         <div class="stat-pill"><div class="num">4.4/5</div><div class="label">Deployment ease</div></div>
         <div class="stat-pill"><div class="num">47</div><div class="label">Usability issues fixed</div></div>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="card">
-        <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.5rem;">Role / Team / Duration</p>
-        <div class="exp-row"><div class="exp-info"><div class="exp-company">UX Designer (first designer in team)</div><div class="exp-role">Agoda Engineering</div></div></div>
-        <div class="exp-row"><div class="exp-info"><div class="exp-company">Team</div><div class="exp-role">1 PO, 4–5 Engineers, 1 FE</div></div></div>
-        <div class="exp-row"><div class="exp-info"><div class="exp-company">Platform</div><div class="exp-role">Web</div></div></div>
-        <div class="exp-row"><div class="exp-info"><div class="exp-company">Duration</div><div class="exp-role">3 Quarters</div></div></div>
+      <div class="meta-row">
+        <div class="meta-item"><strong>Role</strong> UX Designer (first designer in team)</div>
+        <div class="meta-item"><strong>Team</strong> 1 PO, 4–5 Engineers, 1 FE</div>
+        <div class="meta-item"><strong>Platform</strong> Web</div>
+        <div class="meta-item"><strong>Duration</strong> 3 Quarters</div>
       </div>
     </div>
   </section>
@@ -61,15 +55,21 @@
 
   <section>
     <div class="container">
+      <div class="pull-quote">Before screens, I had to design the design practice itself.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
       <h2>The Problem</h2>
       <div class="card">
         <p class="text-body">Agoda's internal developer platform was fragmented, slow, and unscored. Creating a service took 1–2 working days. Deploying to private cloud required tribal knowledge. The team had never worked with a designer — no UX metrics, no research, no process.</p>
       </div>
       <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-top:1.5rem;margin-bottom:0.75rem;">The broken service creation flow</p>
-      <img src="images/dev_service+fix+1.png" alt="Blocked state" style="width:100%;border:1px solid var(--text);display:block;margin-bottom:1rem">
-      <img src="images/dev_service+fix+2.png" alt="Confusing flow" style="width:100%;border:1px solid var(--text);display:block;margin-bottom:1rem">
-      <img src="images/dev_service+fix+3.png" alt="No guidance" style="width:100%;border:1px solid var(--text);display:block;margin-bottom:1rem">
-      <p style="font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem;">Engineers encountered blockers with no guidance — 1–2 working days to complete a single service.</p>
+      <img src="images/dev_service+fix+1.png" alt="Blocked state" class="screenshot">
+      <img src="images/dev_service+fix+2.png" alt="Confusing flow" class="screenshot">
+      <img src="images/dev_service+fix+3.png" alt="No guidance" class="screenshot">
+      <p class="screenshot-caption">Engineers encountered blockers with no guidance — 1–2 working days to complete a single service.</p>
       <div class="card">
         <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.75rem;">Goals</p>
         <div class="card-grid card-grid-3">
@@ -84,20 +84,19 @@
   <section>
     <div class="container">
       <h2>Process</h2>
-      <img src="images/dev_pc_research.png" alt="Research synthesis" style="width:100%;border:1px solid var(--text);margin-bottom:1.5rem;display:block">
-      class="badge"
-        <img src="images/dev_ideation+service.png" alt="Ideation service" style="width:100%;border:1px solid var(--text);display:block">
-        <img src="images/dev_ideation+landing.png" alt="Ideation landing" style="width:100%;border:1px solid var(--text);display:block">
-        <img src="images/dev_ideation+landing+2.png" alt="Ideation variant" style="width:100%;border:1px solid var(--text);display:block">
-        <img src="images/dev_ideation+catalog+screen.png" alt="Ideation catalog" style="width:100%;border:1px solid var(--text);display:block">
-      </div>
+      <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.75rem;">Research synthesis</p>
+      <img src="images/dev_pc_research.png" alt="Research synthesis" class="screenshot" style="margin-bottom:1.5rem">
+      <p class="screenshot-caption">15+ developer interviews synthesized into themes</p>
+      <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.75rem;">Ideation concepts</p>
+      <img src="images/dev_ideation+service.png" alt="Ideation service" class="screenshot">
+      <img src="images/dev_ideation+landing.png" alt="Ideation landing" class="screenshot">
+      <img src="images/dev_ideation+landing+2.png" alt="Ideation variant" class="screenshot">
+      <img src="images/dev_ideation+catalog+screen.png" alt="Ideation catalog" class="screenshot" style="margin-bottom:1.5rem">
       <div class="card">
-        <div class="process-item"><div class="process-num">1</div><div class="process-text"><h4>User research &amp; domain immersion</h4><p>Interviewed 15+ developers. Learned Kubernetes, Docker, and CI/CD from scratch to earn credibility.</p></div></div>
+        <div class="process-item"><div class="process-num">1</div><div class="process-text"><h4>Domain immersion</h4><p>Interviewed 15+ developers. Learned Kubernetes, Docker, and CI/CD to earn technical credibility. <span class="num-accent">AI: accelerated K8s concept learning</span></p></div></div>
         <div class="process-item"><div class="process-num">2</div><div class="process-text"><h4>Heuristic evaluation</h4><p>Scored the platform against Nielsen's heuristics. Documented 47 usability issues.</p></div></div>
-        <div class="process-item"><div class="process-num">3</div><div class="process-text"><h4>Baseline metrics (SUS)</h4><p>Established a baseline of 61.9 to track improvement every 2 quarters.</p></div></div>
-        <div class="process-item"><div class="process-num">4</div><div class="process-text"><h4>Ideation &amp; concepting</h4><p>Explored multiple directions for service creation, catalog browsing, and deployment workflows.</p></div></div>
-        <div class="process-item"><div class="process-num">5</div><div class="process-text"><h4>Phased solutioning</h4><p>Phase 1: Quick wins to unblock developers. Phase 2: Full automation with approval workflows.</p></div></div>
-        <div class="process-item"><div class="process-num">6</div><div class="process-text"><h4>Continuous measurement</h4><p>Re-ran SUS every 2 quarters. Established a permanent measurement cadence.</p></div></div>
+        <div class="process-item"><div class="process-num">3</div><div class="process-text"><h4>Baseline &amp; measure</h4><p>Established SUS baseline (61.9). Re-ran every 2 quarters to track improvement.</p></div></div>
+        <div class="process-item"><div class="process-num">4</div><div class="process-text"><h4>Ideation &amp; phased delivery</h4><p>Phase 1: quick wins to unblock developers. Phase 2: full automation with approval workflows.</p></div></div>
       </div>
     </div>
   </section>
@@ -107,11 +106,11 @@
       <h2>Solutions</h2>
       <h3 style="font-size:0.85rem;margin-bottom:1rem">Private Cloud Deployment</h3>
       <div class="card-grid card-grid-3" style="margin-bottom:1.5rem">
-        <div><img src="images/dev_1.environment+setup+(minimum).png" alt="Environment setup" style="width:100%;border:1px solid var(--text);display:block"><p style="font-size:0.7rem;color:var(--text-muted);text-align:center;margin-top:0.5rem">1. Environment config</p></div>
-        <div><img src="images/dev_2.rollout+setup.png" alt="Rollout setup" style="width:100%;border:1px solid var(--text);display:block"><p style="font-size:0.7rem;color:var(--text-muted);text-align:center;margin-top:0.5rem">2. Rollout &amp; DC selection</p></div>
-        <div><img src="images/dev_3.review+(minimum).png" alt="Review deploy" style="width:100%;border:1px solid var(--text);display:block"><p style="font-size:0.7rem;color:var(--text-muted);text-align:center;margin-top:0.5rem">3. Review &amp; deploy</p></div>
+        <div><img src="images/dev_1.environment+setup+(minimum).png" alt="Environment setup" class="screenshot"><p class="screenshot-caption">1. Environment config</p></div>
+        <div><img src="images/dev_2.rollout+setup.png" alt="Rollout setup" class="screenshot"><p class="screenshot-caption">2. Rollout &amp; DC selection</p></div>
+        <div><img src="images/dev_3.review+(minimum).png" alt="Review deploy" class="screenshot"><p class="screenshot-caption">3. Review &amp; deploy</p></div>
       </div>
-      <img src="images/dev_private+cloud.png" alt="Cloud migration dashboard" style="max-width:480px;width:100%;border:1px solid var(--text);display:block;margin-bottom:1.5rem">
+      <img src="images/dev_private+cloud.png" alt="Cloud migration dashboard" class="screenshot" style="max-width:480px;margin-bottom:1.5rem">
     </div>
   </section>
 
@@ -119,18 +118,13 @@
     <div class="container">
       <h2>Results</h2>
       <div class="card">
-        <div class="stats-row">
-          <div class="stat-pill"><div class="num">6m 8s</div><div class="label">Avg service creation (was 1–2 days)</div></div>
-          <div class="stat-pill"><div class="num">68.8</div><div class="label">Final SUS (from 61.9)</div></div>
-          <div class="stat-pill"><div class="num">4.4/5</div><div class="label">Deployment ease rating</div></div>
-        </div>
-        <p style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin:1.5rem 0 0.75rem;">SUS over 3 quarters</p>
+        <p style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.75rem;">SUS over 3 quarters</p>
         <div class="bar-chart">
           <div class="bar-col"><div class="bar-val">61.9</div><div class="bar-bar fill" style="height:62%"></div><div class="bar-lbl">22Q4</div></div>
           <div class="bar-col"><div class="bar-val">63.4</div><div class="bar-bar fill" style="height:63%"></div><div class="bar-lbl">23Q2</div></div>
           <div class="bar-col"><div class="bar-val">68.8</div><div class="bar-bar fill" style="height:69%"></div><div class="bar-lbl">23Q4</div></div>
         </div>
-        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;">Industry average SUS: 68. On track for 70+.</p>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;">Industry average SUS: 68. Service creation from 1–2 days to 6m 8s. On track for 70+.</p>
       </div>
     </div>
   </section>
@@ -141,8 +135,8 @@
       <div class="card-grid" style="grid-template-columns:1fr 1fr">
         <div class="card"><p class="text-body"><strong>Credibility precedes craft.</strong> Learning Kubernetes and Docker wasn't optional — it was the price of entry.</p></div>
         <div class="card"><p class="text-body"><strong>Metrics create permanence.</strong> The SUS baseline turned subjective opinions into trackable numbers.</p></div>
-        <div class="card"><p class="text-body"><strong>First designer = process designer.</strong> Before screens, I had to design the design practice itself.</p></div>
         <div class="card"><p class="text-body"><strong>Phasing is everything.</strong> Quick wins built trust for bigger bets — sequencing made the difference.</p></div>
+        <div class="card"><p class="text-body"><strong>What I'd do differently:</strong> Bring in a frontend engineer earlier. I spent too much of the first quarter on visual polish when the bigger UX wins were in workflow simplification.</p></div>
       </div>
     </div>
   </section>

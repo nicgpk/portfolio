@@ -355,3 +355,27 @@ footer { padding: var(--space-2xl) 0; text-align: center; }
 }
 
 .card:hover .process-text h4 { color: var(--text); }
+
+/* ===== DETAIL PAGES ===== */
+.meta-row {
+  display: flex; flex-wrap: wrap; gap: var(--space-md) var(--space-xl);
+  margin-top: var(--space-md);
+}
+.meta-item {
+  font-size: 0.8rem; color: var(--text-dim);
+}
+.meta-item strong { color: var(--text); font-weight: 600; margin-right: 0.25rem; }
+.pull-quote {
+  text-align: center; padding: var(--space-xl) 0;
+  font-size: 1rem; color: var(--text-dim); font-style: italic;
+  max-width: 500px; margin: 0 auto; line-height: 1.7;
+}
+.pull-quote::before { content: '\201C'; font-size: 2rem; color: var(--accent); display: block; margin-bottom: 0.5rem; }
+.screenshot {
+  width: 100%; border: 1px solid var(--text);
+  display: block; margin-bottom: 0.5rem;
+}
+.screenshot-caption {
+  font-size: 0.7rem; color: var(--text-muted);
+  text-align: center; margin-bottom: 1.5rem;
+}
