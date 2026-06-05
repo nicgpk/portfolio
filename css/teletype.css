@@ -163,7 +163,7 @@ a.card:hover, .card:hover {
 @media (min-width: 900px) { .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; } }
 
 .featured {
-  background: var(--surface);
+  background: var(--surface); border: 1px solid var(--text);
   padding: var(--space-lg); display: grid; grid-template-columns: 1fr;
   gap: var(--space-lg); align-items: start; transition: box-shadow 0.3s ease;
   text-decoration: none; color: inherit; box-shadow: var(--shadow);
@@ -171,13 +171,14 @@ a.card:hover, .card:hover {
 }
 a.featured { display: grid; }
 a.featured:hover {
-  box-shadow: var(--shadow);
+  box-shadow: inset 0 0 0 1px var(--bg), inset 0 0 0 2px var(--text),
+              inset 0 0 0 3px var(--bg), inset 0 0 0 4px var(--text);
 }
 @media (min-width: 640px) { .featured { grid-template-columns: 3fr 2fr; } }
 
 /* ===== STATS ===== */
 .stat-block {
-  background: var(--bg);
+  background: var(--surface);
   padding: var(--space-lg); text-align: center; position: relative;
 }
 .stat-metric { text-align: center; padding: var(--space-md) 0; }
