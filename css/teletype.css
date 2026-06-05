@@ -249,7 +249,7 @@ a.featured:hover {
 .bar-chart { display: flex; align-items: flex-end; gap: var(--space-xs); height: 72px; }
 .bar-col { flex: 1; text-align: center; }
 .bar-val { font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 0.2rem; }
-.bar-bar { width: 100%; background: var(--border); min-height: 4px; border: 1px solid var(--text); }
+.bar-bar { width: 100%; background: var(--bg); min-height: 4px; border: 1px solid var(--text); }
 .bar-bar.fill { background: var(--accent); border-color: var(--accent); }
 .bar-lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text); margin-top: 0.4rem; }
 
