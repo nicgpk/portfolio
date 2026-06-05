@@ -253,6 +253,30 @@ a.featured:hover {
 .bar-bar.fill { background: var(--accent); border-color: var(--accent); }
 .bar-lbl { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text); margin-top: 0.4rem; }
 
+/* Horizontal bar chart */
+.bar-h {
+  display: flex; flex-direction: column; gap: var(--space-sm);
+}
+.bar-h-row {
+  display: flex; align-items: center; gap: var(--space-sm);
+}
+.bar-h-lbl {
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text); width: 80px; flex-shrink: 0; text-align: right;
+}
+.bar-h-track {
+  flex: 1; height: 20px; background: var(--bg); border: 1px solid var(--text);
+  position: relative; overflow: hidden;
+}
+.bar-h-fill {
+  height: 100%; background: var(--accent); transition: width 0.6s ease;
+}
+.bar-h-fill.empty { background: var(--border-strong); }
+.bar-h-val {
+  font-size: 0.8rem; font-weight: 600; color: var(--accent);
+  width: 56px; flex-shrink: 0; text-align: left;
+}
+
 /* ===== PROCESS STEPS ===== */
 .process-item { display: flex; gap: var(--space-sm); align-items: flex-start; margin-bottom: var(--space-md); }
 .process-item:last-child { margin-bottom: 0; }
