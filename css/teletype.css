@@ -165,7 +165,7 @@ a.card:hover, .card:hover {
 .featured {
   background: var(--surface); border: 1px solid var(--text);
   padding: var(--space-lg); display: grid; grid-template-columns: 1fr;
-  gap: var(--space-lg); align-items: start; transition: box-shadow 0.3s ease;
+  gap: var(--space-lg); align-items: center; transition: box-shadow 0.3s ease;
   text-decoration: none; color: inherit; box-shadow: var(--shadow);
   margin-bottom: var(--space-md);
 }
@@ -178,7 +178,7 @@ a.featured:hover {
 
 /* ===== STATS ===== */
 .stat-block {
-  background: var(--surface);
+  background: var(--bg);
   padding: var(--space-lg); text-align: center; position: relative;
 }
 .stat-metric { text-align: center; padding: var(--space-md) 0; }
