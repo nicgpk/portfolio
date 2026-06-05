@@ -255,17 +255,20 @@ a.featured:hover {
 
 /* Horizontal bar chart */
 .bar-h {
-  display: flex; flex-direction: column; gap: var(--space-sm);
+  display: flex; flex-direction: column; gap: var(--space-md);
 }
 .bar-h-row {
-  display: flex; align-items: center; gap: var(--space-sm);
+  display: flex; flex-direction: column; gap: 0.3rem;
 }
 .bar-h-lbl {
-  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em;
-  color: var(--text); width: 80px; flex-shrink: 0; text-align: right;
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+.bar-h-inner {
+  display: flex; align-items: center; gap: var(--space-sm);
 }
 .bar-h-track {
-  flex: 1; height: 20px; background: var(--bg); border: 1px solid var(--text);
+  flex: 1; height: 22px; background: var(--bg); border: 1px solid var(--text);
   position: relative; overflow: hidden;
 }
 .bar-h-fill {
@@ -273,7 +276,7 @@ a.featured:hover {
 }
 .bar-h-fill.empty { background: var(--border-strong); }
 .bar-h-val {
-  font-size: 0.8rem; font-weight: 600; color: var(--accent);
+  font-size: 0.85rem; font-weight: 600; color: var(--accent);
   width: 56px; flex-shrink: 0; text-align: left;
 }
 
