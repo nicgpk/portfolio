@@ -3,6 +3,7 @@
 :root {
   --bg: #faf7f0;
   --surface: #f0ece2;
+  --stat-bg: #f5f0e5;
   --text: #1a1a16;
   --text-dim: #4a4a42;
   --text-muted: #6a6a60;
@@ -21,6 +22,7 @@
 [data-theme="dark"] {
   --bg: #0a0a08;
   --surface: #12120e;
+  --stat-bg: #1a1a14;
   --text: #e0dcc8;
   --text-dim: #9a9a90;
   --text-muted: #8a8878;
@@ -178,10 +180,8 @@ a.featured:hover {
 
 /* ===== STATS ===== */
 .stat-block {
-  background: var(--bg);
+  background: var(--stat-bg);
   padding: var(--space-lg); text-align: center; position: relative;
-  outline: 1px solid var(--border-strong);
-  outline-offset: -1px;
 }
 .stat-metric { text-align: center; padding: var(--space-md) 0; }
 .stat-metric + .stat-metric { border-top: 1px dashed var(--border); }
