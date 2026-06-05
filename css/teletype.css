@@ -193,8 +193,18 @@ a.featured:hover {
   .stat-block { display: flex; align-items: flex-start; }
   .stat-metric { flex: 1; padding: 0 var(--space-sm); }
   .stat-metric + .stat-metric { border-top: none; border-left: 1px dashed var(--border); }
-  .stat-big, .stat-small { font-size: 0.8rem; }
-  .stat-sub { font-size: 0.5rem; }
+  .stat-big, .stat-small { font-size: 1rem; }
+  .stat-sub { font-size: 0.6rem; }
+}
+
+@media (max-width: 400px) {
+  .stat-big, .stat-small { font-size: 0.85rem; }
+  .stat-sub { font-size: 0.55rem; }
+  .stat-metric { padding: 0 0.35rem; overflow: hidden; }
+  .stat-block { padding: var(--space-md); }
+  .featured { padding: var(--space-md); }
+  .featured .text-body { font-size: 0.8rem; }
+  .featured h3 { font-size: 0.95rem; }
 }
 
 .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-sm); margin-bottom: var(--space-lg); }
