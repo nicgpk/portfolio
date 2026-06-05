@@ -180,6 +180,8 @@ a.featured:hover {
 .stat-block {
   background: var(--bg);
   padding: var(--space-lg); text-align: center; position: relative;
+  outline: 1px solid var(--border-strong);
+  outline-offset: -1px;
 }
 .stat-metric { text-align: center; padding: var(--space-md) 0; }
 .stat-metric + .stat-metric { border-top: 1px dashed var(--border); }
