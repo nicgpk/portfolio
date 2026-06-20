@@ -1,0 +1,113 @@
+/* programs.css — Styles for the merged Partner Programs page.
+   Loaded after teletype.css on partner-programs.html only. */
+
+:root { --surface-2: #e8e3d8; }
+[data-theme="dark"] { --surface-2: #1a1a14; }
+
+.container,
+.header-inner,
+.section-divider {
+  max-width: 960px !important;
+}
+
+/* ── Program cards (clickable grid) ── */
+.prog-grid {
+  display: flex; flex-direction: column;
+  gap: var(--space-md); margin-top: var(--space-lg);
+}
+.prog-card {
+  display: grid; grid-template-columns: 1fr 200px;
+  gap: 24px; padding: 24px;
+  border: 1px solid var(--text);
+  background: var(--surface);
+  transition: background 0.15s;
+  text-decoration: none; color: inherit;
+  box-shadow: var(--shadow);
+}
+.prog-card:hover { background: var(--surface-2); }
+.prog-card:hover .prog-name { color: var(--accent); }
+.prog-info { display: flex; flex-direction: column; gap: 8px; }
+.prog-eyebrow {
+  font-size: 0.75rem; font-weight: 500;
+  color: var(--text-muted); text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.prog-name {
+  font-size: 1.05rem; font-weight: 600;
+  color: var(--text); line-height: 1.3;
+  transition: color 0.15s;
+}
+.prog-desc { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; }
+.prog-stats { padding: 0; display: flex; flex-direction: column; }
+.prog-stat { padding: 12px 0; }
+.prog-stat + .prog-stat { border-top: 1px dashed var(--border); opacity: 0.8; }
+.prog-stat-num {
+  font-size: 1.6rem; font-weight: 700;
+  color: var(--accent); letter-spacing: -0.02em; line-height: 1;
+}
+.prog-stat-lbl {
+  font-size: 0.7rem; font-weight: 400; color: var(--text);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem;
+}
+
+@media (max-width: 639px) {
+  .prog-card { grid-template-columns: 1fr; gap: 16px; padding: var(--space-md); }
+  .prog-stats { flex-direction: row; gap: 8px; }
+  .prog-stat { flex: 1; padding: 8px 0; }
+  .prog-stat + .prog-stat { border-top: none; border-left: 1px dashed var(--border); padding-left: 8px; }
+  .prog-stat-num { font-size: 1.2rem; }
+  .prog-stat-lbl { font-size: 0.6rem; }
+}
+
+/* ── Design challenges (condensed pain points) ── */
+.pain-points { margin-top: 1.5rem; }
+.pain-points-label {
+  font-size: 0.75rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text-muted); margin-bottom: 0.65rem;
+  display: flex; align-items: center; gap: var(--space-sm);
+}
+.pain-points-label::after {
+  content: ''; flex: 1; height: 0;
+  border-top: 1px dashed var(--border-strong); opacity: 0.3;
+}
+.pain-point {
+  display: flex; align-items: flex-start; gap: 0.5rem;
+  margin-bottom: 0.5rem; font-size: 0.9rem;
+  color: var(--text-dim); line-height: 1.6;
+}
+.pain-point:last-child { margin-bottom: 0; }
+.pain-point::before {
+  content: '\2022'; color: var(--text-muted);
+  flex-shrink: 0; margin-top: 0.05rem;
+}
+
+/* ── Subsection label (inside a section, lighter than h2) ── */
+.subsection-label {
+  font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin: 2rem 0 var(--space-sm);
+  display: flex; align-items: center; gap: var(--space-sm);
+}
+.subsection-label::after {
+  content: ''; flex: 1; height: 0;
+  border-top: 1px dashed var(--border-strong); opacity: 0.3;
+}
+
+/* ── How it works cards ── */
+.how-cards { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+.how-card {
+  background: var(--surface); padding: var(--space-md);
+  border: 1px solid var(--border-strong);
+}
+.how-num {
+  font-size: 0.75rem; font-weight: 700; color: var(--text-muted);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;
+}
+.how-title {
+  font-size: 1rem; font-weight: 600; color: var(--text);
+  margin-bottom: 0.4rem; line-height: 1.35;
+}
+.how-desc { font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; }
+.how-accent { color: var(--accent); font-weight: 600; }
