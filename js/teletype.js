@@ -43,6 +43,8 @@
   window.addEventListener('scroll', function () {
     if (window.scrollY > 10) header.classList.add('scrolled');
     else header.classList.remove('scrolled');
+    if (window.scrollY > 120) header.classList.add('compact');
+    else header.classList.remove('compact');
   }, { passive: true });
 
 })();
