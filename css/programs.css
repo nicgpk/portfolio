@@ -4,94 +4,76 @@
 :root { --surface-2: #e8e3d8; }
 [data-theme="dark"] { --surface-2: #1a1a14; }
 
-/* ── Program cards (clickable grid) ── */
+/* ── Program cards (compact vertical list) ── */
 .prog-grid {
   display: flex; flex-direction: column;
-  gap: var(--space-md); margin-top: var(--space-lg);
+  gap: 0; margin-top: var(--space-lg);
+  border: 1px solid var(--text);
 }
 .prog-card {
-  display: grid; grid-template-columns: 1fr 200px;
-  gap: 24px; padding: 24px;
-  border: 1px solid var(--text);
+  display: flex; flex-direction: column;
+  gap: 0; padding: 0;
+  border: none;
+  border-bottom: 1px solid var(--border);
   background: var(--surface-light);
   transition: background 0.15s;
   text-decoration: none; color: inherit;
-  box-shadow: var(--shadow);
 }
+.prog-card:last-child { border-bottom: none; }
 .prog-card:hover { background: var(--surface); }
 .prog-card:hover .prog-name { color: var(--accent); }
-.prog-info { display: flex; flex-direction: column; gap: 8px; }
-.prog-eyebrow {
-  font-size: 0.75rem; font-weight: 500;
-  color: var(--text-muted); text-transform: uppercase;
-  letter-spacing: 0.08em;
+.prog-card-row {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px;
+}
+.prog-cat {
+  display: inline-block; font-size: 0.7rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem; border: 1px solid var(--border-strong);
+  color: var(--text-dim); flex-shrink: 0; white-space: nowrap; align-self: flex-start;
 }
 .prog-name {
-  font-size: 1.05rem; font-weight: 600;
+  font-size: 1rem; font-weight: 600;
   color: var(--text); line-height: 1.3;
-  transition: color 0.15s;
+  transition: color 0.15s; flex-shrink: 0;
 }
-.prog-desc { font-size: 1rem; color: var(--text-dim); line-height: 1.65; }
-.prog-stats { padding: 0; display: flex; flex-direction: column; }
-.prog-stat { padding: 12px 0; }
-.prog-stat + .prog-stat { border-top: 1px dashed var(--border); opacity: 0.8; }
+.prog-info { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
+.prog-desc { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; flex: 1; }
+.prog-stats { display: flex; gap: 0; flex-shrink: 0; }
+.prog-stat { text-align: left; min-width: 70px; }
+.prog-stat + .prog-stat { border-left: 1px dashed var(--border); padding-left: 12px; margin-left: 12px; }
 .prog-stat-num {
   font-size: 1.6rem; font-weight: 700;
   color: var(--accent); letter-spacing: -0.02em; line-height: 1;
 }
 .prog-stat-lbl {
   font-size: 0.7rem; font-weight: 400; color: var(--text);
-  text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem;
+  text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem;
 }
 
-@media (max-width: 639px) {
-  .prog-card { grid-template-columns: 1fr; gap: 16px; padding: var(--space-md); }
-  .prog-stats { flex-direction: row; gap: 8px; }
-  .prog-stat { flex: 1; padding: 8px 0; }
-  .prog-stat + .prog-stat { border-top: none; border-left: 1px dashed var(--border); padding-left: 8px; }
-  .prog-stat-num { font-size: 1.2rem; }
-  .prog-stat-lbl { font-size: 0.6rem; }
+@media (max-width: 767px) {
+  .prog-card-row { flex-wrap: wrap; padding: 14px 16px; gap: 10px; }
+  .prog-desc { width: 100%; flex: none; order: 3; }
+  .prog-stats { width: 100%; order: 4; }
+  .prog-stat { flex: 1; min-width: 0; text-align: left; }
+  .prog-stat + .prog-stat { padding-left: 8px; margin-left: 8px; }
 }
 
-/* ── Subsection label (inside a section, lighter than h2) ── */
-.subsection-label {
-  font-size: 0.72rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--text-muted);
-  margin: 1.25rem 0 var(--space-sm);
-  display: flex; align-items: center; gap: var(--space-sm);
+/* ── How it works (compact paragraph) ── */
+.how-text {
+  font-size: 0.85rem; color: var(--text-dim); line-height: 1.6;
+  padding: 0 20px 16px;
 }
-.subsection-label::after {
-  content: ''; flex: 1; height: 0;
-  border-top: 1px dashed var(--border-strong); opacity: 0.3;
-}
-
-/* ── How it works cards ── */
-.how-cards { display: flex; flex-direction: column; gap: 12px; width: 100%; }
-.how-card {
-  background: var(--bg); padding: var(--space-md);
-  border: 1px solid var(--border-strong);
-}
-.how-num {
-  font-size: 0.75rem; font-weight: 700; color: var(--text-muted);
-  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem;
-}
-.how-title {
-  font-size: 1rem; font-weight: 600; color: var(--text);
-  margin-bottom: 0.4rem; line-height: 1.35;
-}
-.how-desc { font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; }
-.how-accent { color: var(--accent); font-weight: 600; }
+.how-text .how-accent { color: var(--accent); font-weight: 600; }
 
 /* ── Inline expandable inside program cards ── */
 .prog-expand {
-  grid-column: 1 / -1;
-  margin-top: 4px;
+  margin: 0;
   border-top: 1px dashed var(--border);
-  padding-top: 16px;
+  padding: 0;
 }
 .prog-expand summary {
-  font-size: 0.75rem; font-weight: 500;
+  font-size: 0.7rem; font-weight: 500;
   color: var(--text-dim);
   cursor: pointer;
   text-transform: uppercase;
@@ -100,7 +82,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 0;
+  padding: 8px 20px;
   transition: color 0.15s, gap 0.2s;
   user-select: none;
 }
@@ -124,7 +106,7 @@
   transform: scale(1.2);
 }
 .prog-expand[open] summary {
-  margin-bottom: 16px;
+  margin-bottom: 0;
   color: var(--text-dim);
 }
 .prog-expand[open] summary::before {
@@ -138,3 +120,4 @@
   from { opacity: 0; transform: translateY(-4px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.prog-expand .how-text { padding: 0 20px 14px; }

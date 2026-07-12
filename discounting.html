@@ -4,15 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Discounting — Nicholas Gwee</title>
-<meta name="description" content="Discounting — 10–12% activation lift, −3% handle time, #1 complaint eliminated.">
+<meta name="description" content="Discounting — 3% handle time reduction, #1 complaint eliminated.">
 <meta property="og:title" content="Discounting — Nicholas Gwee">
-<meta property="og:description" content="Redesigned promotions and discounting — 10–12% activation lift, −3% handle time, #1 complaint eliminated.">
+<meta property="og:description" content="Redesigned promotions and discounting — 3% handle time reduction, #1 complaint eliminated.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Discounting — Nicholas Gwee">
-<meta name="twitter:description" content="Redesigned promotions and discounting — 10–12% activation lift, −3% handle time, #1 complaint eliminated.">
+<meta name="twitter:description" content="Redesigned promotions and discounting — 3% handle time reduction, #1 complaint eliminated.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%234a5a2a'/><path d='M14 10l8 6-8 6' stroke='%23faf7f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <link rel="stylesheet" href="css/teletype.css">
+  <link rel="stylesheet" href="css/discounting-ui.css?v=7">
+  <link rel="stylesheet" href="css/shadcn-mockup.css">
 </head>
 <body>
 
@@ -22,7 +24,7 @@
     <nav class="nav">
       <a href="index.html">About</a>
       <a href="projects.html" class="active">Projects</a>
-      <a href="https://drive.google.com/file/d/1PDlhEgONp5M3Bim-VA3FYt8otpxU0adE/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
+      <a href="resume.html">Resume</a>
     </nav>
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
   </div>
@@ -31,13 +33,12 @@
 <main>
   <section class="hero">
     <div class="container">
-      <a href="projects.html" class="btn" style="margin-bottom:2rem">&larr; Projects</a>
+      <a href="projects.html" class="btn" style="margin-bottom:2rem">&larr; All Projects</a>
       <div class="hero-sub">Senior Product Designer &middot; Agoda</div>
       <h1>Discounting</h1>
       <p class="hero-desc">Redesigned promotions and discounting products on a high-traffic page — reducing partner frustration, launching new discount types, and closing legacy gaps causing business loss.</p>
       <div class="stats-row">
-        <div class="stat-pill"><div class="num">10–12%</div><div class="label">Activation lift</div></div>
-        <div class="stat-pill"><div class="num">&minus;3%</div><div class="label">Handle time reduction</div></div>
+        <div class="stat-pill"><div class="num">3%</div><div class="label">Handle time reduction</div></div>
         <div class="stat-pill"><div class="num">#1</div><div class="label">Complaint eliminated</div></div>
         <div class="stat-pill"><div class="num">1.5 yrs</div><div class="label">Ongoing impact</div></div>
       </div>
@@ -57,8 +58,210 @@
       <div class="card">
         <p class="text-body">Partners didn't understand how discounts stacked, legacy promotions were confusing, and launching new discounting products meant navigating conflicting stakeholder interests on a page with direct revenue impact. As Senior Product Designer, I owned the end-to-end promotions experience across one of Agoda's highest-revenue surfaces — every change had to be surgically precise.</p>
       </div>
-      <img src="images/detail_discounting.png" alt="Discounting interface" class="screenshot" style="margin-top:1.5rem">
-      <p class="screenshot-caption">The promotions surface — high traffic, high stakes</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Design Exploration</h2>
+
+      <div class="card" style="margin-bottom:var(--space-lg)">
+        <h3>Stacking Transparency</h3>
+        <p class="text-body" style="margin-bottom:1rem">Calculator that takes a partner's active promotions and lets them simulate their net rate after discounts stack — so they understand exactly what they'll earn before committing.</p>
+        <div class="scn-wrap">
+          <div class="scn-header">
+            <div class="scn-brand">
+              <div class="scn-brand-icon">A</div>
+              Net Rate Simulator
+            </div>
+            <div class="scn-avatar">HT</div>
+          </div>
+          <div class="scn-calc">
+            <div class="scn-calc-row" style="padding-top:0">
+              <span class="scn-calc-label">Room Rate</span>
+              <input class="scn-input" type="text" value="$150.00" readonly>
+            </div>
+            <div class="scn-calc-row">
+              <label class="scn-toggle on">
+                <span class="scn-toggle-track"><span class="scn-toggle-knob"></span></span>
+                <span class="scn-calc-label">Mega Sale<span class="scn-calc-discount">15%</span></span>
+              </label>
+              <span class="scn-calc-value">-$22.50</span>
+              <span class="scn-calc-remaining">$127.50</span>
+            </div>
+            <div class="scn-calc-row">
+              <label class="scn-toggle on">
+                <span class="scn-toggle-track"><span class="scn-toggle-knob"></span></span>
+                <span class="scn-calc-label">Mobile Exclusive<span class="scn-calc-discount">10%</span></span>
+              </label>
+              <span class="scn-calc-value">-$12.75</span>
+              <span class="scn-calc-remaining">$114.75</span>
+            </div>
+            <div class="scn-calc-row">
+              <label class="scn-toggle">
+                <span class="scn-toggle-track"><span class="scn-toggle-knob"></span></span>
+                <span class="scn-calc-label">Early Bird<span class="scn-calc-discount">20%</span></span>
+              </label>
+              <span class="scn-calc-value">&mdash;</span>
+              <span class="scn-calc-remaining"></span>
+            </div>
+            <div class="scn-calc-divider"></div>
+            <div class="scn-calc-result">
+              <span class="scn-calc-result-label">Net Rate</span>
+              <span class="scn-calc-result-value">$114.75</span>
+            </div>
+          </div>
+        </div>
+        <p class="scn-mockup-caption">Example: Stacking Transparency &middot; Net Rate Simulator</p>
+      </div>
+
+      <div class="card" style="margin-bottom:var(--space-lg)">
+        <h3>Promotion Breakdown</h3>
+        <p class="text-body" style="margin-bottom:1rem">When a reservation is made, clearly show which discount was applied on which day — with the percentage and monetary value for full transparency.</p>
+        <div class="scn-wrap">
+          <div class="scn-header">
+            <div class="scn-brand">
+              <div class="scn-brand-icon">A</div>
+              <div>
+                <div>Reservation Breakdown</div>
+                <div style="font-size:11px;font-weight:400;color:var(--scn-text-muted)">Booking #AG-2358901 &middot; Jul 14 &ndash; 16, 2026 &middot; 2 nights</div>
+              </div>
+            </div>
+            <span class="scn-breakdown-total">You saved $33.75</span>
+          </div>
+          <div class="scn-breakdown-body">
+            <div class="scn-breakdown-card">
+              <div class="scn-bd-night">
+                <span class="scn-bd-night-num">Night 1</span>
+                <span class="scn-bd-date">Tue, Jul 14</span>
+              </div>
+              <div class="scn-bd-rate-row">
+                <span class="scn-bd-rate-label">Room rate</span>
+                <span class="scn-bd-rate-val">$150.00</span>
+              </div>
+              <div class="scn-bd-promo-row">
+                <div class="scn-bd-promo-info">
+                  <span class="scn-bd-promo-badge" style="background:#eff6ff;color:#2563eb">Mega Sale</span>
+                  <span class="scn-bd-promo-meta">15% off &middot; Advance booking</span>
+                </div>
+                <span class="scn-bd-savings">-$22.50</span>
+              </div>
+              <div class="scn-bd-rate-row scn-bd-rate-row-final">
+                <span class="scn-bd-rate-label">Net rate</span>
+                <span class="scn-bd-rate-val scn-bd-rate-net">$127.50</span>
+              </div>
+            </div>
+            <div class="scn-bd-connector">
+              <svg width="1" height="100%" viewBox="0 0 1 24" preserveAspectRatio="none"><line x1="0.5" y1="0" x2="0.5" y2="24" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/></svg>
+            </div>
+            <div class="scn-breakdown-card">
+              <div class="scn-bd-night">
+                <span class="scn-bd-night-num">Night 2</span>
+                <span class="scn-bd-date">Wed, Jul 15</span>
+              </div>
+              <div class="scn-bd-rate-row">
+                <span class="scn-bd-rate-label">Room rate</span>
+                <span class="scn-bd-rate-val">$150.00</span>
+              </div>
+              <div class="scn-bd-promo-row">
+                <div class="scn-bd-promo-info">
+                  <span class="scn-bd-promo-badge" style="background:#ecfdf5;color:#059669">Mobile Exclusive</span>
+                  <span class="scn-bd-promo-meta">10% off &middot; Mobile user</span>
+                </div>
+                <span class="scn-bd-savings">-$11.25</span>
+              </div>
+              <div class="scn-bd-rate-row scn-bd-rate-row-final">
+                <span class="scn-bd-rate-label">Net rate</span>
+                <span class="scn-bd-rate-val scn-bd-rate-net">$114.75</span>
+              </div>
+            </div>
+          </div>
+          <div class="scn-breakdown-footer">
+            <div class="scn-bd-summary">
+              <div class="scn-bd-summary-row">
+                <span>Total room rate</span>
+                <span>$300.00</span>
+              </div>
+              <div class="scn-bd-summary-row">
+                <span>Total discounts</span>
+                <span class="scn-bd-savings">-$33.75</span>
+              </div>
+              <div class="scn-bd-summary-row scn-bd-summary-total">
+                <span>You earned</span>
+                <span class="scn-bd-rate-net">$266.25</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="scn-mockup-caption">Example: Promotion Breakdown &middot; Reservation Detail View</p>
+      </div>
+
+      <div class="card" style="margin-bottom:var(--space-lg)">
+        <h3>Stacking Education</h3>
+        <p class="text-body" style="margin-bottom:1rem">A visual explainer showing how promotions work together — based on the booker's conditions and promotion parameters — so partners understand the stacking logic at a glance.</p>
+        <div class="scn-wrap">
+          <div class="scn-header">
+            <div class="scn-brand">
+              <div class="scn-brand-icon">A</div>
+              How Promotions Stack
+            </div>
+          </div>
+          <div class="scn-flow">
+            <div class="scn-flow-step">
+              <div class="scn-flow-num">1</div>
+              <div class="scn-flow-content">
+                <div class="scn-flow-title">Booker places conditions</div>
+                <div class="scn-flow-desc">When a guest searches, their conditions determine which promotions they qualify for.</div>
+                <div class="scn-flow-tags">
+                  <span class="scn-flow-tag active">Advance booking (2+ days)</span>
+                  <span class="scn-flow-tag active">Mobile user</span>
+                  <span class="scn-flow-tag">Country: TH</span>
+                  <span class="scn-flow-tag">Stay: 2 nights</span>
+                </div>
+              </div>
+            </div>
+            <div class="scn-flow-arrow"><svg width="14" height="20" viewBox="0 0 14 20"><line x1="7" y1="0" x2="7" y2="16" stroke="currentColor" stroke-width="1.5"/><polyline points="1,11 7,17 13,11" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <div class="scn-flow-step">
+              <div class="scn-flow-num">2</div>
+              <div class="scn-flow-content">
+                <div class="scn-flow-title">Matching promotions activate</div>
+                <div class="scn-flow-desc">Two promotions match this booker: Mega Sale (advance, 15%) and Mobile Exclusive (mobile user, 10%). Stacking applies in priority order.</div>
+              </div>
+            </div>
+            <div class="scn-flow-arrow"><svg width="14" height="20" viewBox="0 0 14 20"><line x1="7" y1="0" x2="7" y2="16" stroke="currentColor" stroke-width="1.5"/><polyline points="1,11 7,17 13,11" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <div class="scn-flow-step">
+              <div class="scn-flow-num">3</div>
+              <div class="scn-flow-content">
+                <div class="scn-flow-title">Discounts stack sequentially</div>
+                <div class="scn-flow-desc">Each discount applies to the remaining balance, not the original rate — so the partner keeps more than they would with a flat combined discount.</div>
+                <div class="scn-flow-stack">
+                  <div class="scn-flow-block rate">
+                    <span class="scn-flow-block-label">Room Rate</span>
+                    <span class="scn-flow-block-value">$150.00</span>
+                  </div>
+                  <div class="scn-flow-minus">&minus;</div>
+                  <div class="scn-flow-block discount">
+                    <span class="scn-flow-block-label">Mega Sale 15%</span>
+                    <span class="scn-flow-block-value">-$22.50</span>
+                  </div>
+                  <div class="scn-flow-minus">&minus;</div>
+                  <div class="scn-flow-block discount">
+                    <span class="scn-flow-block-label">Mobile 10%</span>
+                    <span class="scn-flow-block-value">-$12.75</span>
+                  </div>
+                  <div class="scn-flow-minus">=</div>
+                  <div class="scn-flow-block final">
+                    <span class="scn-flow-block-label">Net Rate</span>
+                    <span class="scn-flow-block-value">$114.75</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="scn-mockup-caption">Example: Stacking Education &middot; How Promotions Stack</p>
+      </div>
+
     </div>
   </section>
 
@@ -74,22 +277,10 @@
 
   <section>
     <div class="container">
-      <h2>Solutions</h2>
-      <div class="card-grid card-grid-3">
-        <div class="card"><h3>Stacking Transparency</h3><p class="text-body">Visual model showing how discounts combine with real-time rate preview.</p></div>
-        <div class="card"><h3>New Discount Types</h3><p class="text-body">Clear setup flows with eligibility rules and performance dashboards.</p></div>
-        <div class="card"><h3>Legacy Deprecation</h3><p class="text-body">Phased sunset of confusing legacy promotions with migration paths.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
       <h2>Results</h2>
       <div class="card">
         <div class="stats-row">
-          <div class="stat-pill"><div class="num">10–12%</div><div class="label">Activation lift</div></div>
-          <div class="stat-pill"><div class="num">&minus;3%</div><div class="label">Handle time reduction</div></div>
+          <div class="stat-pill"><div class="num">3%</div><div class="label">Handle time reduction</div></div>
           <div class="stat-pill"><div class="num">#1</div><div class="label">Complaint eliminated</div></div>
         </div>
         <p style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.75rem;">Partner complaint ranking</p>
@@ -109,7 +300,7 @@
             </div>
           </div>
         </div>
-        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;">The #1 partner complaint category eliminated. Activation up 10–12%, handle time down 3%.</p>
+        <p class="text-small" style="margin-top:0.75rem;">The #1 partner complaint category eliminated. Handle time down 3%.</p>
       </div>
     </div>
   </section>
