@@ -16,7 +16,7 @@
   border: none;
   border-bottom: 1px solid var(--border);
   background: var(--surface-light);
-  transition: background 0.15s;
+  transition: background 0.15s, box-shadow 0.15s;
   text-decoration: none; color: inherit;
 }
 .prog-card:last-child { border-bottom: none; }

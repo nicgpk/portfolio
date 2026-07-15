@@ -11,10 +11,11 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Discounting — Nicholas Gwee">
 <meta name="twitter:description" content="Redesigned promotions and discounting — 3% handle time reduction, #1 complaint eliminated.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%234a5a2a'/><path d='M14 10l8 6-8 6' stroke='%23faf7f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%233d4f1e'/><path d='M14 10l8 6-8 6' stroke='%23faf7f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <link rel="stylesheet" href="css/teletype.css">
-  <link rel="stylesheet" href="css/discounting-ui.css?v=7">
-  <link rel="stylesheet" href="css/shadcn-mockup.css">
+<link rel="stylesheet" href="css/disc-product.css?v=2">
+<link rel="stylesheet" href="css/discounting-ui.css?v=7">
+<link rel="stylesheet" href="css/shadcn-mockup.css">
 </head>
 <body>
 
@@ -26,7 +27,7 @@
       <a href="projects.html" class="active">Projects</a>
       <a href="resume.html">Resume</a>
     </nav>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998z"/></svg></button>
   </div>
 </header>
 
@@ -64,202 +65,276 @@
   <section>
     <div class="container">
       <h2>Design Exploration</h2>
+      <p class="text-body" style="margin-bottom:1.5rem;max-width:42rem">Three product surfaces that make stacking understandable: simulate net rate before committing, see per-night promo impact on a booking, and learn how discounts apply in sequence.</p>
 
-      <div class="card" style="margin-bottom:var(--space-lg)">
+      <div class="disc-explore-card">
         <h3>Stacking Transparency</h3>
-        <p class="text-body" style="margin-bottom:1rem">Calculator that takes a partner's active promotions and lets them simulate their net rate after discounts stack — so they understand exactly what they'll earn before committing.</p>
-        <div class="scn-wrap">
-          <div class="scn-header">
-            <div class="scn-brand">
-              <div class="scn-brand-icon">A</div>
-              Net Rate Simulator
-            </div>
-            <div class="scn-avatar">HT</div>
-          </div>
-          <div class="scn-calc">
-            <div class="scn-calc-row" style="padding-top:0">
-              <span class="scn-calc-label">Room Rate</span>
-              <input class="scn-input" type="text" value="$150.00" readonly>
-            </div>
-            <div class="scn-calc-row">
-              <label class="scn-toggle on">
-                <span class="scn-toggle-track"><span class="scn-toggle-knob"></span></span>
-                <span class="scn-calc-label">Mega Sale<span class="scn-calc-discount">15%</span></span>
-              </label>
-              <span class="scn-calc-value">-$22.50</span>
-              <span class="scn-calc-remaining">$127.50</span>
-            </div>
-            <div class="scn-calc-row">
-              <label class="scn-toggle on">
-                <span class="scn-toggle-track"><span class="scn-toggle-knob"></span></span>
-                <span class="scn-calc-label">Mobile Exclusive<span class="scn-calc-discount">10%</span></span>
-              </label>
-              <span class="scn-calc-value">-$12.75</span>
-              <span class="scn-calc-remaining">$114.75</span>
-            </div>
-            <div class="scn-calc-row">
-              <label class="scn-toggle">
-                <span class="scn-toggle-track"><span class="scn-toggle-knob"></span></span>
-                <span class="scn-calc-label">Early Bird<span class="scn-calc-discount">20%</span></span>
-              </label>
-              <span class="scn-calc-value">&mdash;</span>
-              <span class="scn-calc-remaining"></span>
-            </div>
-            <div class="scn-calc-divider"></div>
-            <div class="scn-calc-result">
-              <span class="scn-calc-result-label">Net Rate</span>
-              <span class="scn-calc-result-value">$114.75</span>
+        <p class="text-body">Calculator that takes a partner's active promotions and lets them simulate their net rate after discounts stack — so they understand exactly what they'll earn before committing.</p>
+
+        <div class="disc-product" role="img" aria-label="Net Rate Simulator for Maison Solara">
+          <div class="disc-product-stage">
+            <div class="disc-product-frame">
+              <div class="disc-product-chrome">
+                <div class="disc-product-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="disc-product-url">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  partner.agoda.com/promotions/simulator
+                </div>
+              </div>
+              <div class="disc-product-screen">
+                <div class="disc-product-toolbar">
+                  <div class="disc-product-brand">
+                    <img class="disc-product-avatar" src="images/hotel-avatar.png" alt="" width="36" height="36">
+                    <div class="disc-product-brand-text">
+                      <strong>Maison Solara</strong>
+                      <span>Net Rate Simulator</span>
+                    </div>
+                  </div>
+                  <div class="disc-product-pill primary">Apply stack</div>
+                </div>
+
+                <div class="disc-sim">
+                  <div class="disc-sim-main">
+                    <div class="disc-sim-head">
+                      <div>
+                        <h4>Active promotions</h4>
+                        <p>Toggle discounts to preview your stacked net rate</p>
+                      </div>
+                    </div>
+
+                    <div class="disc-sim-ledger">
+                      <div class="disc-rate-box">
+                        <span>Room rate</span>
+                        <strong>$150.00</strong>
+                      </div>
+
+                      <div class="disc-promo-row is-on">
+                        <div class="disc-promo-meta">
+                          <div class="disc-toggle" aria-hidden="true"></div>
+                          <div class="disc-promo-copy">
+                            <strong>Mega Sale</strong>
+                            <span>15% · Advance booking</span>
+                          </div>
+                        </div>
+                        <span class="disc-promo-cut">-$22.50</span>
+                        <span class="disc-promo-remain">$127.50</span>
+                      </div>
+
+                      <div class="disc-promo-row is-on">
+                        <div class="disc-promo-meta">
+                          <div class="disc-toggle" aria-hidden="true"></div>
+                          <div class="disc-promo-copy">
+                            <strong>Mobile Exclusive</strong>
+                            <span>10% · Mobile user</span>
+                          </div>
+                        </div>
+                        <span class="disc-promo-cut">-$12.75</span>
+                        <span class="disc-promo-remain">$114.75</span>
+                      </div>
+
+                      <div class="disc-promo-row">
+                        <div class="disc-promo-meta">
+                          <div class="disc-toggle" aria-hidden="true"></div>
+                          <div class="disc-promo-copy">
+                            <strong>Early Bird</strong>
+                            <span>20% · Not eligible tonight</span>
+                          </div>
+                        </div>
+                        <span class="disc-promo-cut">&mdash;</span>
+                        <span class="disc-promo-remain">&mdash;</span>
+                      </div>
+
+                      <div class="disc-sim-total">
+                        <div class="disc-sim-total-row">
+                          <span>Net rate</span>
+                          <strong>$114.75</strong>
+                        </div>
+                        <p class="disc-result-note">Partners keep more than a flat 25% cut because each discount applies to the remaining balance.</p>
+                        <div class="disc-result-actions">
+                          <span class="disc-btn primary">Save setup</span>
+                          <span class="disc-btn">Reset</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <p class="scn-mockup-caption">Example: Stacking Transparency &middot; Net Rate Simulator</p>
+        <p class="disc-caption">Stacking Transparency · Net Rate Simulator</p>
       </div>
 
-      <div class="card" style="margin-bottom:var(--space-lg)">
+      <div class="disc-explore-card">
         <h3>Promotion Breakdown</h3>
-        <p class="text-body" style="margin-bottom:1rem">When a reservation is made, clearly show which discount was applied on which day — with the percentage and monetary value for full transparency.</p>
-        <div class="scn-wrap">
-          <div class="scn-header">
-            <div class="scn-brand">
-              <div class="scn-brand-icon">A</div>
-              <div>
-                <div>Reservation Breakdown</div>
-                <div style="font-size:11px;font-weight:400;color:var(--scn-text-muted)">Booking #AG-2358901 &middot; Jul 14 &ndash; 16, 2026 &middot; 2 nights</div>
-              </div>
-            </div>
-            <span class="scn-breakdown-total">You saved $33.75</span>
-          </div>
-          <div class="scn-breakdown-body">
-            <div class="scn-breakdown-card">
-              <div class="scn-bd-night">
-                <span class="scn-bd-night-num">Night 1</span>
-                <span class="scn-bd-date">Tue, Jul 14</span>
-              </div>
-              <div class="scn-bd-rate-row">
-                <span class="scn-bd-rate-label">Room rate</span>
-                <span class="scn-bd-rate-val">$150.00</span>
-              </div>
-              <div class="scn-bd-promo-row">
-                <div class="scn-bd-promo-info">
-                  <span class="scn-bd-promo-badge" style="background:#eff6ff;color:#2563eb">Mega Sale</span>
-                  <span class="scn-bd-promo-meta">15% off &middot; Advance booking</span>
+        <p class="text-body">When a reservation is made, clearly show which discount was applied on which day — with the percentage and monetary value for full transparency.</p>
+
+        <div class="disc-product" role="img" aria-label="Reservation promotion breakdown">
+          <div class="disc-product-stage">
+            <div class="disc-product-frame">
+              <div class="disc-product-chrome">
+                <div class="disc-product-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="disc-product-url">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  partner.agoda.com/reservations/AG-2358901
                 </div>
-                <span class="scn-bd-savings">-$22.50</span>
               </div>
-              <div class="scn-bd-rate-row scn-bd-rate-row-final">
-                <span class="scn-bd-rate-label">Net rate</span>
-                <span class="scn-bd-rate-val scn-bd-rate-net">$127.50</span>
-              </div>
-            </div>
-            <div class="scn-bd-connector">
-              <svg width="1" height="100%" viewBox="0 0 1 24" preserveAspectRatio="none"><line x1="0.5" y1="0" x2="0.5" y2="24" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/></svg>
-            </div>
-            <div class="scn-breakdown-card">
-              <div class="scn-bd-night">
-                <span class="scn-bd-night-num">Night 2</span>
-                <span class="scn-bd-date">Wed, Jul 15</span>
-              </div>
-              <div class="scn-bd-rate-row">
-                <span class="scn-bd-rate-label">Room rate</span>
-                <span class="scn-bd-rate-val">$150.00</span>
-              </div>
-              <div class="scn-bd-promo-row">
-                <div class="scn-bd-promo-info">
-                  <span class="scn-bd-promo-badge" style="background:#ecfdf5;color:#059669">Mobile Exclusive</span>
-                  <span class="scn-bd-promo-meta">10% off &middot; Mobile user</span>
+              <div class="disc-product-screen">
+                <div class="disc-product-toolbar">
+                  <div class="disc-product-brand">
+                    <img class="disc-product-avatar" src="images/hotel-avatar.png" alt="" width="36" height="36">
+                    <div class="disc-product-brand-text">
+                      <strong>Booking #AG-2358901</strong>
+                      <span>Jul 14 – 16, 2026 · 2 nights</span>
+                    </div>
+                  </div>
+                  <span class="disc-bd-total">Discounts · $33.75</span>
                 </div>
-                <span class="scn-bd-savings">-$11.25</span>
-              </div>
-              <div class="scn-bd-rate-row scn-bd-rate-row-final">
-                <span class="scn-bd-rate-label">Net rate</span>
-                <span class="scn-bd-rate-val scn-bd-rate-net">$114.75</span>
-              </div>
-            </div>
-          </div>
-          <div class="scn-breakdown-footer">
-            <div class="scn-bd-summary">
-              <div class="scn-bd-summary-row">
-                <span>Total room rate</span>
-                <span>$300.00</span>
-              </div>
-              <div class="scn-bd-summary-row">
-                <span>Total discounts</span>
-                <span class="scn-bd-savings">-$33.75</span>
-              </div>
-              <div class="scn-bd-summary-row scn-bd-summary-total">
-                <span>You earned</span>
-                <span class="scn-bd-rate-net">$266.25</span>
+
+                <div class="disc-bd-grid">
+                  <div class="disc-bd-card is-featured">
+                    <div class="disc-bd-night">
+                      <strong>Night 1</strong>
+                      <span>Tue, Jul 14</span>
+                    </div>
+                    <div class="disc-bd-row">
+                      <span class="muted">Room rate</span>
+                      <span>$150.00</span>
+                    </div>
+                    <div class="disc-bd-promo">
+                      <span class="disc-badge blue">Mega Sale · 15%</span>
+                      <span class="cut">-$22.50</span>
+                    </div>
+                    <div class="disc-bd-row">
+                      <span class="muted">Net rate</span>
+                      <span class="net">$127.50</span>
+                    </div>
+                  </div>
+
+                  <div class="disc-bd-card">
+                    <div class="disc-bd-night">
+                      <strong>Night 2</strong>
+                      <span>Wed, Jul 15</span>
+                    </div>
+                    <div class="disc-bd-row">
+                      <span class="muted">Room rate</span>
+                      <span>$150.00</span>
+                    </div>
+                    <div class="disc-bd-promo">
+                      <span class="disc-badge green">Mobile Exclusive · 10%</span>
+                      <span class="cut">-$11.25</span>
+                    </div>
+                    <div class="disc-bd-row">
+                      <span class="muted">Net rate</span>
+                      <span class="net">$138.75</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="disc-bd-footer">
+                  <div class="disc-bd-footer-row">
+                    <span>Total room rate</span>
+                    <strong>$300.00</strong>
+                  </div>
+                  <div class="disc-bd-footer-row">
+                    <span>Total discounts</span>
+                    <strong class="cut">-$33.75</strong>
+                  </div>
+                  <div class="disc-bd-footer-row total">
+                    <span>Net earned</span>
+                    <span class="earn">$266.25</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <p class="scn-mockup-caption">Example: Promotion Breakdown &middot; Reservation Detail View</p>
+        <p class="disc-caption">Promotion Breakdown · Reservation Detail View</p>
       </div>
 
-      <div class="card" style="margin-bottom:var(--space-lg)">
+      <div class="disc-explore-card">
         <h3>Stacking Education</h3>
-        <p class="text-body" style="margin-bottom:1rem">A visual explainer showing how promotions work together — based on the booker's conditions and promotion parameters — so partners understand the stacking logic at a glance.</p>
-        <div class="scn-wrap">
-          <div class="scn-header">
-            <div class="scn-brand">
-              <div class="scn-brand-icon">A</div>
-              How Promotions Stack
-            </div>
-          </div>
-          <div class="scn-flow">
-            <div class="scn-flow-step">
-              <div class="scn-flow-num">1</div>
-              <div class="scn-flow-content">
-                <div class="scn-flow-title">Booker places conditions</div>
-                <div class="scn-flow-desc">When a guest searches, their conditions determine which promotions they qualify for.</div>
-                <div class="scn-flow-tags">
-                  <span class="scn-flow-tag active">Advance booking (2+ days)</span>
-                  <span class="scn-flow-tag active">Mobile user</span>
-                  <span class="scn-flow-tag">Country: TH</span>
-                  <span class="scn-flow-tag">Stay: 2 nights</span>
+        <p class="text-body">A visual explainer showing how promotions work together — based on the booker's conditions and promotion parameters — so partners understand the stacking logic at a glance.</p>
+
+        <div class="disc-product" role="img" aria-label="How promotions stack explainer">
+          <div class="disc-product-stage">
+            <div class="disc-product-frame">
+              <div class="disc-product-chrome">
+                <div class="disc-product-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="disc-product-url">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  partner.agoda.com/promotions/how-stacking-works
                 </div>
               </div>
-            </div>
-            <div class="scn-flow-arrow"><svg width="14" height="20" viewBox="0 0 14 20"><line x1="7" y1="0" x2="7" y2="16" stroke="currentColor" stroke-width="1.5"/><polyline points="1,11 7,17 13,11" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
-            <div class="scn-flow-step">
-              <div class="scn-flow-num">2</div>
-              <div class="scn-flow-content">
-                <div class="scn-flow-title">Matching promotions activate</div>
-                <div class="scn-flow-desc">Two promotions match this booker: Mega Sale (advance, 15%) and Mobile Exclusive (mobile user, 10%). Stacking applies in priority order.</div>
-              </div>
-            </div>
-            <div class="scn-flow-arrow"><svg width="14" height="20" viewBox="0 0 14 20"><line x1="7" y1="0" x2="7" y2="16" stroke="currentColor" stroke-width="1.5"/><polyline points="1,11 7,17 13,11" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
-            <div class="scn-flow-step">
-              <div class="scn-flow-num">3</div>
-              <div class="scn-flow-content">
-                <div class="scn-flow-title">Discounts stack sequentially</div>
-                <div class="scn-flow-desc">Each discount applies to the remaining balance, not the original rate — so the partner keeps more than they would with a flat combined discount.</div>
-                <div class="scn-flow-stack">
-                  <div class="scn-flow-block rate">
-                    <span class="scn-flow-block-label">Room Rate</span>
-                    <span class="scn-flow-block-value">$150.00</span>
+              <div class="disc-product-screen">
+                <div class="disc-product-toolbar">
+                  <div class="disc-product-brand">
+                    <img class="disc-product-avatar" src="images/hotel-avatar.png" alt="" width="36" height="36">
+                    <div class="disc-product-brand-text">
+                      <strong>Maison Solara</strong>
+                      <span>How promotions stack</span>
+                    </div>
                   </div>
-                  <div class="scn-flow-minus">&minus;</div>
-                  <div class="scn-flow-block discount">
-                    <span class="scn-flow-block-label">Mega Sale 15%</span>
-                    <span class="scn-flow-block-value">-$22.50</span>
+                </div>
+
+                <div class="disc-flow">
+                  <div class="disc-flow-step">
+                    <div class="disc-flow-num">1</div>
+                    <div class="disc-flow-body">
+                      <div class="disc-flow-title">Booker places conditions</div>
+                      <div class="disc-flow-desc">When a guest searches, their conditions determine which promotions they qualify for.</div>
+                      <div class="disc-flow-tags">
+                        <span class="disc-flow-tag active">Advance booking (2+ days)</span>
+                        <span class="disc-flow-tag active">Mobile user</span>
+                        <span class="disc-flow-tag">Country: TH</span>
+                        <span class="disc-flow-tag">Stay: 2 nights</span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="scn-flow-minus">&minus;</div>
-                  <div class="scn-flow-block discount">
-                    <span class="scn-flow-block-label">Mobile 10%</span>
-                    <span class="scn-flow-block-value">-$12.75</span>
+
+                  <div class="disc-flow-step">
+                    <div class="disc-flow-num">2</div>
+                    <div class="disc-flow-body">
+                      <div class="disc-flow-title">Matching promotions activate</div>
+                      <div class="disc-flow-desc">Mega Sale and Mobile Exclusive match. Stacking applies in priority order.</div>
+                      <div class="disc-flow-tags">
+                        <span class="disc-badge blue">Mega Sale · 15%</span>
+                        <span class="disc-badge green">Mobile Exclusive · 10%</span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="scn-flow-minus">=</div>
-                  <div class="scn-flow-block final">
-                    <span class="scn-flow-block-label">Net Rate</span>
-                    <span class="scn-flow-block-value">$114.75</span>
+
+                  <div class="disc-flow-step is-featured">
+                    <div class="disc-flow-num">3</div>
+                    <div class="disc-flow-body">
+                      <div class="disc-flow-title">Discounts stack sequentially</div>
+                      <div class="disc-flow-desc">Each discount applies to the remaining balance, not the original rate — so partners keep more than a flat combined cut.</div>
+                      <div class="disc-receipt" aria-label="Sequential stacking receipt">
+                        <div class="disc-receipt-row">
+                          <span>Room rate</span>
+                          <span class="val">$150.00</span>
+                        </div>
+                        <div class="disc-receipt-row cut">
+                          <span>Mega Sale · 15%</span>
+                          <span class="val">-$22.50</span>
+                        </div>
+                        <div class="disc-receipt-row cut">
+                          <span>Mobile Exclusive · 10%</span>
+                          <span class="val">-$12.75</span>
+                        </div>
+                        <div class="disc-receipt-row total">
+                          <span>Net rate</span>
+                          <span class="val">$114.75</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <p class="scn-mockup-caption">Example: Stacking Education &middot; How Promotions Stack</p>
+        <p class="disc-caption">Stacking Education · How Promotions Stack</p>
       </div>
 
     </div>
