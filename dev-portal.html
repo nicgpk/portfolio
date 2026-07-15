@@ -105,37 +105,41 @@
   <section>
     <div class="container">
       <h2>Results</h2>
-      <div class="card">
-        <div class="stats-row">
-          <div class="stat-pill"><div class="num">6m 8s</div><div class="label">Avg service creation (was 1–2 days)</div></div>
-          <div class="stat-pill"><div class="num">68.8</div><div class="label">Final SUS (from 61.9)</div></div>
-          <div class="stat-pill"><div class="num">4.4/5</div><div class="label">Deployment ease rating</div></div>
-        </div>
-        <p style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.75rem;">SUS over 3 quarters</p>
-        <div class="bar-h">
-          <div class="bar-h-row">
-            <div class="bar-h-lbl">22Q4</div>
-            <div class="bar-h-inner">
-              <div class="bar-h-track"><div class="bar-h-fill" style="width:90%"></div></div>
-              <div class="bar-h-val">61.9</div>
-            </div>
+      <div class="results-board">
+        <p class="results-claim">Service creation collapsed from days to minutes.</p>
+        <div class="results-metrics">
+          <div class="results-metric">
+            <div class="results-metric-value">6m 8s</div>
+            <div class="results-metric-label">Avg service creation</div>
           </div>
-          <div class="bar-h-row">
-            <div class="bar-h-lbl">23Q2</div>
-            <div class="bar-h-inner">
-              <div class="bar-h-track"><div class="bar-h-fill" style="width:92%"></div></div>
-              <div class="bar-h-val">63.4</div>
-            </div>
+          <div class="results-metric">
+            <div class="results-metric-value">68.8</div>
+            <div class="results-metric-label">Final SUS score</div>
           </div>
-          <div class="bar-h-row">
-            <div class="bar-h-lbl">23Q4</div>
-            <div class="bar-h-inner">
-              <div class="bar-h-track"><div class="bar-h-fill" style="width:100%"></div></div>
-              <div class="bar-h-val">68.8</div>
-            </div>
+          <div class="results-metric">
+            <div class="results-metric-value">4.4/5</div>
+            <div class="results-metric-label">Deployment ease</div>
           </div>
         </div>
-        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;">Industry average SUS: 68. Service creation from 1–2 days to 6m 8s. On track for 70+.</p>
+        <div class="results-trend">
+          <div class="results-trend-label">SUS over 3 quarters</div>
+          <div class="results-trend-row">
+            <span class="results-trend-stage">22Q4</span>
+            <div class="results-trend-track"><div class="results-trend-fill" style="--trend-w:61.9%"></div></div>
+            <span class="results-trend-val">61.9</span>
+          </div>
+          <div class="results-trend-row">
+            <span class="results-trend-stage">23Q2</span>
+            <div class="results-trend-track"><div class="results-trend-fill" style="--trend-w:63.4%"></div></div>
+            <span class="results-trend-val">63.4</span>
+          </div>
+          <div class="results-trend-row">
+            <span class="results-trend-stage">23Q4</span>
+            <div class="results-trend-track"><div class="results-trend-fill" style="--trend-w:68.8%"></div></div>
+            <span class="results-trend-val">68.8</span>
+          </div>
+          <p class="results-trend-note">Industry average SUS: 68. Was 1–2 days to create a service; on track for 70+.</p>
+        </div>
       </div>
     </div>
   </section>

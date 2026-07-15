@@ -4,25 +4,39 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* Theme management */
+  var ICONS = {
+    sun: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 1 0 1.06l-1.591 1.59a.75.75 0 1 1-1.06-1.061l1.59-1.591a.75.75 0 0 1 1.06 0ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 1-1.06 0l-1.59-1.591a.75.75 0 1 1 1.06-1.06l1.591 1.59a.75.75 0 0 1 0 1.061ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 1-1.061 0l-1.591-1.59a.75.75 0 0 1 1.06-1.061l1.591 1.59a.75.75 0 0 1 0 1.06ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 1 0-1.06l1.59-1.591a.75.75 0 0 1 1.061 1.06l-1.59 1.591a.75.75 0 0 1-1.06 0Z"/></svg>',
+    moon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998z"/></svg>'
+  };
+
+  function renderThemeToggle(theme) {
+    var btn = document.querySelector('.theme-toggle');
+    if (!btn) return;
+    var isDark = theme === 'dark';
+    btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.innerHTML =
+      '<span class="theme-toggle-track" aria-hidden="true">' +
+        '<span class="theme-toggle-thumb"></span>' +
+        '<span class="theme-toggle-opt sun">' + ICONS.sun + '</span>' +
+        '<span class="theme-toggle-opt moon">' + ICONS.moon + '</span>' +
+      '</span>';
+  }
+
   var savedTheme = localStorage.getItem('theme');
   if (savedTheme) {
     document.documentElement.setAttribute('data-theme', savedTheme);
   } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
-  (function () {
-    var theme = document.documentElement.getAttribute('data-theme');
-    var btn = document.querySelector('.theme-toggle');
-    if (btn) btn.innerHTML = theme === 'dark' ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>' : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  })();
+  renderThemeToggle(document.documentElement.getAttribute('data-theme'));
 
   window.toggleTheme = function () {
     var current = document.documentElement.getAttribute('data-theme');
     var next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
-    var btn = document.querySelector('.theme-toggle');
-    if (btn) btn.innerHTML = next === 'dark' ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>' : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    renderThemeToggle(next);
   };
 
   /* Header shadow on scroll */
@@ -48,11 +62,6 @@
     var outMs = animate ? 380 : 0;
     var langIndex = 0;
     var timer = null;
-    var mqNarrow = window.matchMedia('(max-width: 860px)');
-
-    function canCycleLang() {
-      return !mqNarrow.matches;
-    }
 
     var copy = {
       brandMeta: {
@@ -247,7 +256,6 @@
     }
 
     function tick() {
-      if (!canCycleLang()) return;
       swapTo((langIndex + 1) % langs.length);
       timer = window.setTimeout(tick, holdMs);
     }
@@ -257,36 +265,12 @@
       applyLang(langs[0]);
       if (animate) root.classList.add('is-lang-in');
       if (timer) window.clearTimeout(timer);
-      timer = null;
-      if (!canCycleLang()) return;
       timer = window.setTimeout(tick, firstHoldMs);
-    }
-
-    function onViewportChange() {
-      if (canCycleLang()) {
-        if (!timer) {
-          langIndex = 0;
-          applyLang('en');
-          timer = window.setTimeout(tick, firstHoldMs);
-        }
-      } else {
-        if (timer) {
-          window.clearTimeout(timer);
-          timer = null;
-        }
-        langIndex = 0;
-        applyLang('en');
-        root.classList.remove('is-lang-out');
-        if (animate) root.classList.add('is-lang-in');
-      }
-      syncLangPill(root.getAttribute('data-lang') || 'en');
     }
 
     window.addEventListener('resize', function () {
       syncLangPill(root.getAttribute('data-lang') || 'en');
     });
-    if (mqNarrow.addEventListener) mqNarrow.addEventListener('change', onViewportChange);
-    else mqNarrow.addListener(onViewportChange);
 
     begin();
     window.requestAnimationFrame(function () {
@@ -395,7 +379,7 @@
     document.querySelectorAll('.reveal').forEach(function (el) {
       el.classList.add('visible', 'is-inview');
     });
-    document.querySelectorAll('.hero-product, .disc-product, .disc-explore-card').forEach(function (el) {
+    document.querySelectorAll('.hero-product, .disc-product, .disc-explore-card, .results-board').forEach(function (el) {
       el.classList.add('is-inview');
     });
     return;
@@ -447,9 +431,19 @@
     observer.observe(el);
   });
 
-  document.querySelectorAll('.pull-quote, .stats-row, .bar-h, .bar-chart, .logo-row, .resume-header').forEach(function (el) {
+  document.querySelectorAll('.pull-quote, .stats-row, .bar-h, .bar-chart, .logo-row, .resume-header, .results-board').forEach(function (el) {
     el.classList.add('motion-item');
     observer.observe(el);
+  });
+
+  document.querySelectorAll('.results-metric').forEach(function (el, idx) {
+    el.style.setProperty('--motion-i', String(Math.min(idx, 4)));
+  });
+  document.querySelectorAll('.results-delta-row').forEach(function (el, idx) {
+    el.style.setProperty('--motion-i', String(Math.min(idx + 2, 5)));
+  });
+  document.querySelectorAll('.results-trend-row').forEach(function (el, idx) {
+    el.style.setProperty('--motion-i', String(Math.min(idx + 1, 4)));
   });
 
   document.querySelectorAll('.hero .reveal').forEach(function (el) {

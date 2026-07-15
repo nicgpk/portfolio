@@ -849,7 +849,15 @@
   .hero-product-stage {
     padding-top: 0;
   }
-  .hero-product-lang { display: none; }
+  .hero-product-lang {
+    display: inline-flex;
+    height: 26px;
+    flex-shrink: 0;
+  }
+  .hero-product-lang span {
+    font-size: 9px;
+    padding: 3px 6px;
+  }
   .hero-product-main {
     padding: 14px 12px 28px;
     gap: 12px;
@@ -866,7 +874,8 @@
   }
   .hero-product-tools {
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     gap: 8px;
     flex: 1 1 100%;
   }
@@ -956,7 +965,7 @@
   .hero-product-url { font-size: 10px; }
   .hero-product-tools .hero-product-search { display: none; }
   .hero-product-tools {
-    justify-content: flex-end;
+    justify-content: space-between;
   }
   .hero-product-brand-text span { display: none; }
   .hero-product-kpis { grid-template-columns: 1fr; }

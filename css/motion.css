@@ -82,13 +82,17 @@
   transform: translateY(1px) scale(0.98);
 }
 
-.js-motion .social-icon:hover,
-.js-motion .theme-toggle:hover {
+.js-motion .social-icon:hover {
   transform: translateY(-2px);
 }
-.js-motion .social-icon:active,
-.js-motion .theme-toggle:active {
+.js-motion .social-icon:active {
   transform: translateY(0) scale(0.96);
+}
+.js-motion .theme-toggle:hover {
+  transform: none;
+}
+.js-motion .theme-toggle:active {
+  transform: scale(0.97);
 }
 
 .js-motion .featured,
@@ -351,6 +355,41 @@
   transform: scaleX(1);
 }
 
+/* Results outcome board */
+.js-motion .results-metric-value {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.55s var(--ease-out-expo),
+    transform 0.55s var(--ease-out-expo);
+  transition-delay: calc(var(--motion-i, 0) * 60ms);
+}
+.js-motion .results-board.is-inview .results-metric-value {
+  opacity: 1;
+  transform: none;
+}
+.js-motion .results-trend-fill {
+  transform: scaleX(0.06);
+  transition: transform 0.9s var(--ease-out-expo);
+  transition-delay: calc(var(--motion-i, 0) * 80ms);
+}
+.js-motion .results-board.is-inview .results-trend-fill,
+.js-motion .results-trend.is-inview .results-trend-fill {
+  transform: scaleX(1);
+}
+.js-motion .results-delta-row {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.5s var(--ease-out-expo),
+    transform 0.5s var(--ease-out-expo);
+  transition-delay: calc(var(--motion-i, 0) * 70ms);
+}
+.js-motion .results-board.is-inview .results-delta-row {
+  opacity: 1;
+  transform: none;
+}
+
 /* Resume list polish */
 .js-motion .resume-item,
 .js-motion .resume-edu-item {
@@ -386,7 +425,10 @@
   .js-motion .disc-product .disc-promo-row,
   .js-motion .disc-product .disc-rate-box,
   .js-motion .disc-explore-card,
-  .js-motion .bar-h-fill {
+  .js-motion .bar-h-fill,
+  .js-motion .results-metric-value,
+  .js-motion .results-trend-fill,
+  .js-motion .results-delta-row {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
