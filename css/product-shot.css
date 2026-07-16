@@ -1,0 +1,178 @@
+/* product-shot.css — Shared browser frame for case-study screenshots */
+
+.product-shot {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 1.25rem;
+}
+
+.product-shot-frame {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0f1115;
+  border: 1px solid rgba(26, 26, 22, 0.14);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 18px 40px -16px rgba(26, 26, 22, 0.28),
+    0 8px 16px -10px rgba(26, 26, 22, 0.14);
+}
+
+[data-theme="dark"] .product-shot-frame {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 18px 40px -16px rgba(0, 0, 0, 0.55),
+    0 8px 16px -10px rgba(0, 0, 0, 0.35);
+}
+
+.product-shot-chrome {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, #32363e 0%, #1a1d22 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+}
+
+.product-shot-dots {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+  padding-left: 2px;
+}
+
+.product-shot-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow:
+    0 0.5px 0.5px rgba(0, 0, 0, 0.35) inset,
+    0 0.5px 0 rgba(255, 255, 255, 0.2);
+}
+
+.product-shot-dots span:nth-child(1) { background: linear-gradient(180deg, #ff7b73, #ff5f57); }
+.product-shot-dots span:nth-child(2) { background: linear-gradient(180deg, #ffd060, #febc2e); }
+.product-shot-dots span:nth-child(3) { background: linear-gradient(180deg, #3ddc56, #28c840); }
+
+.product-shot-url {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  height: 26px;
+  padding: 0 12px;
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.38);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.58);
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.product-shot-url svg {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.product-shot-screen {
+  background: #eef1f5;
+  line-height: normal;
+}
+
+.product-shot-screen > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  line-height: 0;
+}
+
+.product-shot .screenshot-caption {
+  margin-top: 0.65rem;
+  margin-bottom: 0;
+}
+
+/* Stack of full-width shots */
+.product-shot-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-shot-stack .product-shot {
+  margin-bottom: 0;
+}
+
+/* Compact grid (e.g. Solutions) */
+.product-shot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-shot-grid .product-shot {
+  margin-bottom: 0;
+}
+
+.product-shot--compact .product-shot-chrome {
+  padding: 8px 10px;
+  gap: 8px;
+}
+
+.product-shot--compact .product-shot-dots span {
+  width: 8px;
+  height: 8px;
+}
+
+.product-shot--compact .product-shot-url {
+  height: 22px;
+  font-size: 9px;
+  padding: 0 8px;
+}
+
+.product-shot--compact .product-shot-url svg {
+  width: 9px;
+  height: 9px;
+}
+
+/* Tall wizard shots: cap height, scroll inside frame */
+.product-shot--scroll .product-shot-screen {
+  max-height: min(70vh, 640px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+@media (max-width: 800px) {
+  .product-shot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-shot--compact .product-shot-url {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 520px) {
+  .product-shot-chrome {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .product-shot-url {
+    font-size: 10px;
+  }
+}

@@ -12,13 +12,16 @@
 <meta name="twitter:title" content="Developer Portal &amp; Deployment — Nicholas Gwee">
 <meta name="twitter:description" content="First designer in DevOps — 6m 8s service creation, SUS 61.9 → 68.8, 4.4/5 deployment ease.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%233d4f1e'/><path d='M14 10l8 6-8 6' stroke='%23faf7f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
-<link rel="stylesheet" href="css/teletype.css">
+<link rel="stylesheet" href="css/teletype.css?v=28">
+<link rel="stylesheet" href="css/product-shot.css?v=2">
+<link rel="stylesheet" href="css/dev-product.css?v=8">
+<link rel="stylesheet" href="css/dev-flow.css?v=1">
 </head>
 <body>
 
 <header class="header">
   <div class="header-inner">
-    <a href="index.html" class="header-logo">&gt;</a>
+    <a href="index.html" class="header-logo" aria-label="Nicholas Gwee home"><span class="header-logo-mark">&gt;</span></a>
     <nav class="nav">
       <a href="index.html">About</a>
       <a href="projects.html" class="active">Projects</a>
@@ -32,7 +35,7 @@
   <section class="hero">
     <div class="container">
       <a href="projects.html" class="btn" style="margin-bottom:2rem">&larr; Projects</a>
-      <div class="hero-sub">UX Designer &middot; Agoda Engineering</div>
+      <div class="hero-sub">Senior Product Designer &middot; Agoda Engineering</div>
       <h1>Developer Portal &amp; Deployment</h1>
       <p class="hero-desc">First designer embedded in DevOps — establishing UX processes from scratch for 1,000+ engineers, migrating to private cloud, and making service creation 200&times; faster.</p>
       <div class="stats-row">
@@ -41,7 +44,7 @@
         <div class="stat-pill"><div class="num">4.4/5</div><div class="label">Deployment ease</div></div>
       </div>
       <div class="meta-row">
-        <div class="meta-item"><strong>Role</strong> UX Designer (first designer in team)</div>
+        <div class="meta-item"><strong>Role</strong> Senior Product Designer (first designer in team)</div>
         <div class="meta-item"><strong>Team</strong> 1 PO, 4–5 Engineers, 1 FE</div>
         <div class="meta-item"><strong>Platform</strong> Web</div>
         <div class="meta-item"><strong>Duration</strong> 3 Quarters</div>
@@ -52,21 +55,513 @@
   <section>
     <div class="container">
       <h2>The Problem</h2>
-      <div class="card">
-        <p class="text-body">Agoda's internal developer platform was fragmented, slow, and unscored. Creating a service took 1–2 working days. Deploying to private cloud required tribal knowledge. As the first designer embedded in the DevOps team, I established UX processes, metrics, and research cadence from scratch — self-teaching Kubernetes, Docker, and CI/CD to earn technical credibility along the way.</p>
+      <p class="text-body" style="max-width:42rem;margin-bottom:0">Agoda's internal developer platform was fragmented, slow, and unscored. Creating a service took 1–2 working days. Deploying to private cloud required tribal knowledge. As the first designer in DevOps, I had to name the pain before we could score it.</p>
+
+      <div class="problem-pillars">
+        <article class="problem-pillar">
+          <h3>DX was invisible</h3>
+          <p>No SUS baseline. Home was a flat link dump — engineers could not learn the system, and leadership could not measure whether design helped.</p>
+        </article>
+        <article class="problem-pillar">
+          <h3>No UI path to cloud</h3>
+          <p>Deploying meant Slack and tribal knowledge — no productized flow. Legacy services still sat on servers with no clear path to migrate everything to private cloud.</p>
+        </article>
+        <article class="problem-pillar">
+          <h3>Important work was buried</h3>
+          <p>The site buried what engineers needed most under flat links and noise. Nothing was structured so the critical paths — create, find, own — rose to the top.</p>
+        </article>
       </div>
-      <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-top:1.5rem;margin-bottom:0.75rem;">The broken service creation flow</p>
-      <img src="images/dev_service+fix+1.png" alt="Blocked state" class="screenshot">
-      <img src="images/dev_service+fix+2.png" alt="Confusing flow" class="screenshot">
-      <img src="images/dev_service+fix+3.png" alt="No guidance" class="screenshot">
-      <p class="screenshot-caption">Engineers encountered blockers with no guidance — 1–2 working days to complete a single service.</p>
-      <div class="card">
-        <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.75rem;">Goals</p>
-        <div class="card-grid card-grid-3">
-          <div class="card"><h3>01</h3><p style="font-size:0.85rem;color:var(--text-dim);line-height:1.6;">Improve developer experience with measurable UX metrics</p></div>
-          <div class="card"><h3>02</h3><p style="font-size:0.85rem;color:var(--text-dim);line-height:1.6;">Migrate from servers to private cloud via UI</p></div>
-          <div class="card"><h3>03</h3><p style="font-size:0.85rem;color:var(--text-dim);line-height:1.6;">Build design rhythm in a team that had never had one</p></div>
-        </div>
+
+      <div class="product-shot-stack">
+        <figure class="product-shot">
+          <div class="product-shot-frame">
+            <div class="product-shot-chrome">
+              <div class="product-shot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="product-shot-url">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Z"/></svg>
+                <span>Research · 15+ developer interviews</span>
+              </div>
+            </div>
+            <div class="product-shot-screen">
+              <img src="images/dev_pc_research.png" alt="Research synthesis board from developer interviews" width="972" height="1063" loading="lazy">
+            </div>
+          </div>
+          <figcaption class="screenshot-caption">15+ developer interviews synthesized into themes</figcaption>
+        </figure>
+      </div>
+
+      <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-top:0.5rem;margin-bottom:0.75rem;">The broken service creation flow</p>
+      <div class="product-shot-stack">
+        <figure class="product-shot">
+          <div class="product-shot-frame">
+            <div class="product-shot-chrome">
+              <div class="product-shot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="product-shot-url">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Z"/></svg>
+                <span>Create service · blocked state</span>
+              </div>
+            </div>
+            <div class="product-shot-screen">
+              <img src="images/dev_service+fix+1.png" alt="Create service flow with blockers and no guidance" width="1000" height="584" loading="lazy">
+            </div>
+          </div>
+        </figure>
+        <figure class="product-shot">
+          <div class="product-shot-frame">
+            <div class="product-shot-chrome">
+              <div class="product-shot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="product-shot-url">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Z"/></svg>
+                <span>Create service · confusing ownership</span>
+              </div>
+            </div>
+            <div class="product-shot-screen">
+              <img src="images/dev_service+fix+2.png" alt="Confusing ownership and tagging in create service" width="1000" height="584" loading="lazy">
+            </div>
+          </div>
+        </figure>
+        <figure class="product-shot">
+          <div class="product-shot-frame">
+            <div class="product-shot-chrome">
+              <div class="product-shot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="product-shot-url">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Z"/></svg>
+                <span>Create service · missing guidance</span>
+              </div>
+            </div>
+            <div class="product-shot-screen">
+              <img src="images/dev_service+fix+3.png" alt="Create service flow with no in-context documentation" width="1000" height="584" loading="lazy">
+            </div>
+          </div>
+          <figcaption class="screenshot-caption">Engineers hit blockers with no in-product path — 1–2 working days for a single service.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Goals</h2>
+      <p class="text-body" style="margin-bottom:1.5rem;max-width:42rem">Three commitments that shaped the work — each tied to the surfaces we shipped.</p>
+      <div class="goals-board">
+
+        <article class="goal-block">
+          <div class="goal-block-head">
+            <div class="goal-block-num">01</div>
+            <div class="goal-block-copy">
+              <h3>Improve developer experience with measurable UX metrics</h3>
+              <p>Replace a flat link dump with task domains and a searchable catalog — structure people can learn, and that SUS can track.</p>
+            </div>
+          </div>
+
+          <div class="flow-board" data-flow-board data-mode="before">
+            <div class="flow-board-head">
+              <div>
+                <h3>Goal 01 · Service creation as a path</h3>
+                <p>Toggle before/after, then click a node — the maze we inherited versus the guided DX path we shipped.</p>
+              </div>
+              <div class="flow-toggle" role="group" aria-label="Flow mode">
+                <button type="button" data-flow-mode="before" class="is-on" aria-pressed="true">Before</button>
+                <button type="button" data-flow-mode="after" aria-pressed="false">After</button>
+              </div>
+            </div>
+            <div class="flow-stage">
+              <div class="flow-canvas">
+                <svg class="flow-edges" data-flow-edges aria-hidden="true"></svg>
+                <div class="flow-nodes" data-flow-nodes></div>
+              </div>
+              <div class="flow-detail">
+                <div class="flow-detail-copy">
+                  <h4 data-flow-detail-title>Hunt the portal</h4>
+                  <p data-flow-detail-body>Home was a flat dump of links. Engineers could not find Create service without Slack tribal knowledge.</p>
+                </div>
+                <div class="flow-detail-meta" data-flow-detail-meta>Friction · discoverability</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-shot-stack">
+<figure class="product-shot">
+          <div class="product-shot-frame">
+            <div class="product-shot-chrome">
+              <div class="product-shot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="product-shot-url">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Z"/></svg>
+                <span>devops-portal-stg.agodadev.io/main/home</span>
+              </div>
+            </div>
+            <div class="product-shot-screen">
+              <div class="dev-ui" role="img" aria-label="Developer portal home with task domain cards">
+                <div class="dev-topbar">
+                  <div class="dev-brand"><span class="dev-brand-mark">&lt;&gt;</span> Developer portal</div>
+                  <div class="dev-topbar-right">
+                    <div class="dev-search">Search</div>
+                    <div class="dev-feedback">Give feedback</div>
+                    <div class="dev-avatar" aria-hidden="true"></div>
+                  </div>
+                </div>
+                <div class="dev-shell">
+                  <aside class="dev-sidebar">
+                    <div class="dev-welcome">Welcome!<strong>Engineer</strong></div>
+                    <div class="dev-side-label">Quick links <span class="dev-badge-new">New</span></div>
+                    <div class="dev-side-links"><a href="#">Browse OKRs</a><a href="#">devops-auto-k8s</a><a href="#">consul</a></div>
+                    <div class="dev-help"><strong>Need help?</strong><div class="dev-help-btns"><span>Developer portal</span><span>#devops_help</span></div></div>
+                  </aside>
+                  <div class="dev-main">
+                    <div class="dev-home-grid">
+                      <div class="dev-feat"><div class="dev-feat-head"><div class="dev-feat-title"><img class="dev-feat-icon" src="images/icon-dev-manage-3d.png" alt="" width="28" height="28">Manage</div><span class="dev-feat-what">What is this?</span></div><p>Manage the relevant tasks</p><ul><li>Services</li><li>Database</li><li>Ownership</li><li>Team integrations</li></ul></div>
+                      <div class="dev-feat"><div class="dev-feat-head"><div class="dev-feat-title"><img class="dev-feat-icon" src="images/icon-dev-plan-3d.png" alt="" width="28" height="28">Plan</div><span class="dev-feat-what">What is this?</span></div><p>Manage your team's OKRs</p><ul><li>OKRs</li></ul></div>
+                      <div class="dev-feat"><div class="dev-feat-head"><div class="dev-feat-title"><img class="dev-feat-icon" src="images/icon-dev-build-3d.png" alt="" width="28" height="28">Build</div><span class="dev-feat-what">What is this?</span></div><p>Testing, QA environment and versioning</p><ul><li>Korca (Testing)</li><li>Samsahai (Versioning)</li><li>Linter</li></ul></div>
+                      <div class="dev-feat"><div class="dev-feat-head"><div class="dev-feat-title"><img class="dev-feat-icon" src="images/icon-dev-secure-3d.png" alt="" width="28" height="28">Secure</div><span class="dev-feat-what">What is this?</span></div><p>Secure your app pre-deployment</p><ul><li>Service security score</li><li>Secbot</li><li>Attack simulator</li></ul></div>
+                      <div class="dev-feat"><div class="dev-feat-head"><div class="dev-feat-title"><img class="dev-feat-icon" src="images/icon-dev-monitor-3d.png" alt="" width="28" height="28">Monitor</div><span class="dev-feat-what">What is this?</span></div><p>Post-deployment monitoring</p><ul><li>NOC &amp; SRE</li></ul></div>
+                      <div class="dev-feat"><div class="dev-feat-head"><div class="dev-feat-title"><img class="dev-feat-icon" src="images/icon-dev-faq-3d.png" alt="" width="28" height="28">FAQ</div><span class="dev-feat-what">What is this?</span></div><p>Docs on the SDLC at Agoda</p><ul><li>Documentation</li><li>Developer-portal API</li></ul></div>
+                    </div>
+                    <div class="dev-fab" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="screenshot-caption">Home — task domains (Manage, Plan, Build, Secure, Monitor) instead of a flat link dump</figcaption>
+        </figure>
+<figure class="product-shot">
+          <div class="product-shot-frame">
+            <div class="product-shot-chrome">
+              <div class="product-shot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="product-shot-url">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Z"/></svg>
+                <span>devops-portal-stg.agodadev.io/catalog</span>
+              </div>
+            </div>
+            <div class="product-shot-screen">
+              <div class="dev-ui" role="img" aria-label="Component catalog with filters and ownership table">
+                <div class="dev-topbar">
+                  <div class="dev-brand"><span class="dev-brand-mark">&lt;&gt;</span> Developer portal</div>
+                  <div class="dev-nav"><span class="is-active">Catalog</span><span>Team</span><span>Development Lifecycle</span></div>
+                  <div class="dev-topbar-right">
+                    <div class="dev-search">Search</div>
+                    <div class="dev-feedback">Give feedback</div>
+                    <div class="dev-avatar" aria-hidden="true"></div>
+                  </div>
+                </div>
+                <div class="dev-shell">
+                  <aside class="dev-sidebar">
+                    <div class="dev-welcome">Welcome!<strong>Engineer</strong></div>
+                    <div class="dev-side-links"><a href="#">Browse owners</a></div>
+                    <div class="dev-help"><strong>Need help?</strong><div class="dev-help-btns"><span>Developer portal</span><span>#devops_help</span></div></div>
+                  </aside>
+                  <div class="dev-main">
+                    <div class="dev-crumb">Home <span>&gt;</span> Catalog <span>&gt;</span> Components</div>
+                    <div class="dev-page-head">
+                      <div>
+                        <h3 class="dev-page-title">Component</h3>
+                        <p class="dev-page-desc">Base catalog of all software units — support channels, system, platform, source, and compliance.</p>
+                      </div>
+                      <div class="dev-actions"><span class="dev-btn">+ Create component</span></div>
+                    </div>
+                    <div class="dev-panel">
+                      <div class="dev-tabs"><span class="dev-tab is-active">My components</span><span class="dev-tab">All components</span></div>
+                      <div class="dev-filters">
+                        <span class="dev-select">Label ▾</span>
+                        <span class="dev-select">Owner ▾</span>
+                        <span class="dev-select">Manager ▾</span>
+                        <span class="dev-select">Booking impact ▾</span>
+                        <span class="dev-search-inline">Search component name</span>
+                      </div>
+                      <div class="dev-table-wrap">
+                        <table class="dev-table">
+                          <thead><tr><th>Name</th><th>Owner</th><th>Manager</th><th>Booking impact</th><th>Source</th><th>Last commit</th></tr></thead>
+                          <tbody>
+                            <tr><td><a href="#">abacus</a><br><span class="dev-tag amber">Finance</span> <span class="dev-tag pink">Service</span></td><td><a href="#">Tax</a></td><td>Josue Martinez</td><td>impact &gt; 10%</td><td><a href="#">Gitlab ↗</a></td><td>07 Jun 2022 20:22</td></tr>
+                            <tr><td><a href="#">buckbeak</a><br><span class="dev-tag blue">Platform</span></td><td><a href="#">Payments</a></td><td>Ada Wong</td><td>impact &gt; 5%</td><td><a href="#">Gitlab ↗</a></td><td>12 Aug 2022 11:04</td></tr>
+                            <tr><td><a href="#">nginx-edge</a><br><span class="dev-tag green">Infra</span></td><td><a href="#">SRE</a></td><td>Rob Nadav</td><td>—</td><td><a href="#">Gitlab ↗</a></td><td>01 Sep 2022 09:18</td></tr>
+                            <tr><td><a href="#">consul-proxy</a><br><span class="dev-tag yellow">Internal Tools</span></td><td><a href="#">DevOps</a></td><td>Sara Lim</td><td>impact &lt; 1%</td><td><a href="#">Gitlab ↗</a></td><td>19 Oct 2022 16:41</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="dev-table-foot"><span>Showing 10 of 1,609 components</span><span>1 / 161</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="screenshot-caption">Catalog — searchable components with ownership and source of truth</figcaption>
+        </figure>
+          </div>
+        </article>
+
+        <article class="goal-block">
+          <div class="goal-block-head">
+            <div class="goal-block-num">02</div>
+            <div class="goal-block-copy">
+              <h3>Migrate from servers to private cloud via UI</h3>
+              <p>Give developers a productized deploy path — environment, canary across DCs, review — and a clear way to move every legacy service off servers onto private cloud.</p>
+            </div>
+          </div>
+                    <div class="product-shot-stack">
+        <figure class="product-shot">
+          <div class="product-shot-frame">
+            <div class="product-shot-chrome">
+              <div class="product-shot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="product-shot-url">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Z"/></svg>
+                <span>…/deploy/environment</span>
+              </div>
+            </div>
+            <div class="product-shot-screen">
+              <div class="dev-ui" role="img" aria-label="Environment setup wizard step">
+                <div class="dev-wizard">
+                  <div class="dev-wiz-bar">
+                    <span class="dev-wiz-close">×</span>
+                    <span class="dev-wiz-name">devops-safe-app</span>
+                    <div class="dev-wiz-steps"><span class="is-active">1. Environment</span><span>2. Rollout</span><span>3. Review</span></div>
+                    <div class="dev-avatar" aria-hidden="true"></div>
+                  </div>
+                  <div class="dev-wiz-body">
+                    <div class="dev-crumb">Home <span>&gt;</span> Components <span>&gt;</span> devops-safe-app</div>
+                    <div class="dev-wiz-card">
+                      <div class="dev-wiz-sec">
+                        <div class="dev-wiz-sec-head"><div><h4>Container ports</h4></div><span class="dev-docs">Link to docs ↗</span></div>
+                        <div class="dev-fields">
+                          <div class="dev-field"><label>Environment name</label><div class="dev-input is-ph">Name your environment</div></div>
+                          <div class="dev-field"><label>Cluster Pool</label><div class="dev-select-field">Mesh ▾</div></div>
+                        </div>
+                      </div>
+                      <div class="dev-wiz-sec">
+                        <div class="dev-wiz-sec-head"><div><h4>Docker image</h4></div></div>
+                        <div class="dev-fields">
+                          <div class="dev-field"><label>Repository</label><div class="dev-select-field">Select repository ▾</div></div>
+                          <div class="dev-field"><label>Image tag</label><div class="dev-select-field">98ds12df · Latest</div></div>
+                        </div>
+                      </div>
+                      <div class="dev-wiz-sec">
+                        <div class="dev-wiz-sec-head"><div><h4>Container healthchecks</h4><p>Readiness, startup and liveness probes</p></div></div>
+                        <div class="dev-fields">
+                          <div class="dev-field"><label>Readiness</label><div class="dev-select-field">Exec ▾</div></div>
+                          <div class="dev-field"><label>Command</label><div class="dev-input is-ph">127.0.0.1:3000</div></div>
+                        </div>
+                      </div>
+                      <div class="dev-wiz-sec">
+                        <div class="dev-wiz-sec-head"><div><h4>Container resource</h4><p>Resources per pod</p></div></div>
+                        <div class="dev-fields">
+                          <div class="dev-field"><label>CPU requests</label><div class="dev-select-field">24 Core</div></div>
+                          <div class="dev-field"><label>Memory requests</label><div class="dev-select-field">24 Gi</div></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dev-wiz-foot"><span class="dev-btn">Next →</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="screenshot-caption">1. Environment config</figcaption>
+        </figure>
+        <figure class="product-shot">
+          <div class="product-shot-frame">
+            <div class="product-shot-chrome">
+              <div class="product-shot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="product-shot-url">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Z"/></svg>
+                <span>…/deploy/rollout</span>
+              </div>
+            </div>
+            <div class="product-shot-screen">
+              <div class="dev-ui" role="img" aria-label="Rollout setup wizard with canary and DC targets">
+                <div class="dev-wizard">
+                  <div class="dev-wiz-bar">
+                    <span class="dev-wiz-close">×</span>
+                    <span class="dev-wiz-name">devops-safe-app</span>
+                    <div class="dev-wiz-steps"><span>1. Environment</span><span class="is-active">2. Rollout</span><span>3. Review</span></div>
+                    <div class="dev-avatar" aria-hidden="true"></div>
+                  </div>
+                  <div class="dev-wiz-body">
+                    <div class="dev-wiz-card">
+                      <div class="dev-wiz-sec">
+                        <div class="dev-wiz-sec-head"><div><h4>Deployment strategy</h4><p>All fields required unless optional</p></div><span class="dev-docs">Link to docs ↗</span></div>
+                        <div class="dev-seg"><span class="is-on">Canary</span><span>Rolling update</span></div>
+                        <div class="dev-canary">
+                          <div class="dev-canary-row"><div class="dev-input">10</div>%</div>
+                          <div class="dev-canary-row"><div class="dev-input">20</div>%</div>
+                          <div class="dev-canary-row"><div class="dev-input">30</div>%</div>
+                        </div>
+                      </div>
+                      <div class="dev-wiz-sec">
+                        <div class="dev-wiz-sec-head"><div><h4>Targets setup</h4><p>Replicas and order priority per DC</p></div></div>
+                        <table class="dev-targets">
+                          <thead><tr><th>Targets</th><th>Replicas</th><th>Order</th></tr></thead>
+                          <tbody>
+                            <tr><td>HK · Hong Kong</td><td><span class="dev-num">10</span></td><td><span class="dev-num">1</span></td></tr>
+                            <tr><td>SG · Singapore</td><td><span class="dev-num">10</span></td><td><span class="dev-num">2</span></td></tr>
+                            <tr><td>AM · Amsterdam</td><td><span class="dev-num">10</span></td><td><span class="dev-num">2</span></td></tr>
+                            <tr><td>AS · Ashburn</td><td><span class="dev-num">10</span></td><td><span class="dev-num">2</span></td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="dev-wiz-sec">
+                        <div class="dev-wiz-sec-head"><div><h4>Deployment monitoring</h4></div></div>
+                        <div class="dev-monitor-box">
+                          <span>Applied to all environments</span>
+                          <div class="dev-field" style="margin-bottom:8px"><label>Slack channel</label><div class="dev-input">#defaulted_to_component_slackchannel</div></div>
+                          <div class="dev-fields">
+                            <div class="dev-field"><label>Ramp up</label><div class="dev-input">300 · 5mins</div></div>
+                            <div class="dev-field"><label>Monitoring</label><div class="dev-input">900 · 15mins</div></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dev-wiz-foot"><span class="dev-btn">Next →</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="screenshot-caption">2. Rollout &amp; DC selection</figcaption>
+        </figure>
+        <figure class="product-shot">
+          <div class="product-shot-frame">
+            <div class="product-shot-chrome">
+              <div class="product-shot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="product-shot-url">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Z"/></svg>
+                <span>…/deploy/review</span>
+              </div>
+            </div>
+            <div class="product-shot-screen">
+              <div class="dev-ui" role="img" aria-label="Review and deploy confirmation">
+                <div class="dev-wizard">
+                  <div class="dev-wiz-bar">
+                    <span class="dev-wiz-close">×</span>
+                    <span class="dev-wiz-name">devops-safe-app</span>
+                    <div class="dev-wiz-steps"><span>1. Environment</span><span>2. Rollout</span><span class="is-active">3. Review</span></div>
+                    <div class="dev-avatar" aria-hidden="true"></div>
+                  </div>
+                  <div class="dev-wiz-body">
+                    <div class="dev-wiz-card">
+                      <h3 class="dev-page-title" style="font-size:16px;margin-bottom:12px">devops-safe-app</h3>
+                      <div class="dev-review-block">
+                        <h5>Environment setup</h5>
+                        <dl class="dev-kv">
+                          <div><dt>Environment name</dt><dd>staging-mesh</dd></div>
+                          <div><dt>Cluster Pool</dt><dd>Mesh</dd></div>
+                          <div><dt>Repository</dt><dd>actions/ansible-runner</dd></div>
+                          <div><dt>Image tag</dt><dd>98ds12df · Latest</dd></div>
+                          <div><dt>CPU / Memory</dt><dd>24 Core · 24 Gi</dd></div>
+                          <div><dt>Readiness</dt><dd>exec · command abc</dd></div>
+                        </dl>
+                      </div>
+                      <div class="dev-review-block">
+                        <h5>Rollout setup</h5>
+                        <dl class="dev-kv">
+                          <div><dt>Strategy</dt><dd>Canary</dd></div>
+                          <div><dt>Steps</dt><dd>10% → 20% → 30%</dd></div>
+                          <div><dt>Timeout</dt><dd>900 · 15mins</dd></div>
+                          <div><dt>Slack</dt><dd>#devops_safe_app</dd></div>
+                        </dl>
+                        <table class="dev-targets">
+                          <thead><tr><th>Targets</th><th>Replicas</th><th>Order</th></tr></thead>
+                          <tbody>
+                            <tr><td>HK · Hong Kong</td><td>10</td><td>1</td></tr>
+                            <tr><td>SG · Singapore</td><td>10</td><td>2</td></tr>
+                            <tr><td>AM · Amsterdam</td><td>10</td><td>1</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="dev-wiz-foot"><span class="dev-btn">Deploy</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="screenshot-caption">3. Review &amp; deploy</figcaption>
+        </figure>
+          </div>
+</article>
+
+        <article class="goal-block">
+          <div class="goal-block-head">
+            <div class="goal-block-num">03</div>
+            <div class="goal-block-copy">
+              <h3>Restructure information so the important work surfaces</h3>
+              <p>Rebuild IA so developers see what matters first — clear hierarchy, less noise, and the critical paths easy to find.</p>
+            </div>
+          </div>
+          <div class="product-shot-stack">
+<figure class="product-shot">
+          <div class="product-shot-frame">
+            <div class="product-shot-chrome">
+              <div class="product-shot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="product-shot-url">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Z"/></svg>
+                <span>devops-portal-stg.agodadev.io/catalog/abacus</span>
+              </div>
+            </div>
+            <div class="product-shot-screen">
+              <div class="dev-ui" role="img" aria-label="Service detail for abacus with environments table">
+                <div class="dev-topbar">
+                  <div class="dev-brand"><span class="dev-brand-mark">&lt;&gt;</span> Developer portal</div>
+                  <div class="dev-nav"><span class="is-active">Catalog</span><span>Team</span><span>Development Lifecycle</span></div>
+                  <div class="dev-topbar-right">
+                    <div class="dev-search">Search</div>
+                    <div class="dev-feedback">Give feedback</div>
+                    <div class="dev-avatar" aria-hidden="true"></div>
+                  </div>
+                </div>
+                <div class="dev-shell">
+                  <aside class="dev-sidebar">
+                    <div class="dev-welcome">Welcome!<strong>Engineer</strong></div>
+                    <nav class="dev-side-nav" aria-label="Service nav">
+                      <div class="dev-side-item">Catalog</div>
+                      <div class="dev-side-item is-active">Deployment</div>
+                      <div class="dev-side-sub"><span class="is-active">Private Cloud</span><span>Cspider</span></div>
+                      <div class="dev-side-item">Integrations</div>
+                      <div class="dev-side-item">Security</div>
+                    </nav>
+                    <div class="dev-help"><strong>Need help?</strong><div class="dev-help-btns"><span>Developer portal</span><span>#devops_help</span></div></div>
+                  </aside>
+                  <div class="dev-main">
+                    <div class="dev-crumb">Home <span>&gt;</span> Catalog <span>&gt;</span> abacus</div>
+                    <div class="dev-page-head">
+                      <div>
+                        <h3 class="dev-page-title">abacus <span class="dev-tag blue">Finance</span><span class="dev-tag amber">AP-Payout</span><span class="dev-tag pink">Service</span></h3>
+                        <p class="dev-page-desc">Base catalog of all software units in Agoda — support channels, systems, source, and compliance in one place.</p>
+                      </div>
+                      <div class="dev-actions">
+                        <span class="dev-btn">Monitoring</span>
+                        <span class="dev-btn">Quick Deploy</span>
+                        <span class="dev-btn">+ New Environment</span>
+                      </div>
+                    </div>
+                    <div class="dev-banner"><span class="dev-banner-dot">i</span><div>Request for infra is a required re-deployment step. You may also request for more resource. <a href="#">Requesting resource</a></div></div>
+                    <div class="dev-panel">
+                      <div class="dev-tabs"><span class="dev-tab is-active">Environments</span><span class="dev-tab">Recent activity</span></div>
+                      <div class="dev-table-wrap">
+                        <table class="dev-table">
+                          <thead><tr><th>Environment</th><th>Cluster pool</th><th>Image version</th><th>Pods</th><th>Update by</th><th>Env status</th></tr></thead>
+                          <tbody>
+                            <tr><td>buckbeak</td><td>mesh</td><td><span class="dev-ver">latest</span></td><td>10/10</td><td>darrell.by…</td><td><span class="dev-status"><span class="dev-dot green"></span>Desired</span></td></tr>
+                            <tr><td>buckbeak-2</td><td>qa</td><td><span class="dev-ver">latest</span></td><td>20/20</td><td>nic.gwee…</td><td><span class="dev-status"><span class="dev-dot amber"></span>In progress</span></td></tr>
+                            <tr><td>buckbeak_test</td><td>stream</td><td><span class="dev-ver">45fd2jnh1</span></td><td>15/15</td><td>sara.lim…</td><td><span class="dev-status"><span class="dev-dot blue"></span>Pending</span></td></tr>
+                            <tr><td>default</td><td>corp</td><td><span class="dev-ver">latest</span></td><td>8/8</td><td>rob.nad…</td><td><span class="dev-status"><span class="dev-dot green"></span>Desired</span></td></tr>
+                            <tr><td>nginx</td><td>user</td><td><span class="dev-ver">latest</span></td><td>3/4</td><td>ada.wong…</td><td><span class="dev-status"><span class="dev-dot red"></span>Error</span></td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="dev-table-foot"><span>Showing 10 of 15 environments</span><span>1 / 2</span></div>
+                    </div>
+                    <div class="dev-fab" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="screenshot-caption">Service detail — environments, monitoring, and deployment in one place</figcaption>
+        </figure>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -74,31 +569,10 @@
   <section>
     <div class="container">
       <h2>Process</h2>
-      <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.75rem;">Research synthesis</p>
-      <img src="images/dev_pc_research.png" alt="Research synthesis" class="screenshot" style="margin-bottom:1.5rem">
-      <p class="screenshot-caption">15+ developer interviews synthesized into themes</p>
-      <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.75rem;">Ideation concepts</p>
-      <img src="images/dev_ideation+service.png" alt="Ideation service" class="screenshot">
-      <img src="images/dev_ideation+landing.png" alt="Ideation landing" class="screenshot">
-      <img src="images/dev_ideation+landing+2.png" alt="Ideation variant" class="screenshot">
-      <img src="images/dev_ideation+catalog+screen.png" alt="Ideation catalog" class="screenshot" style="margin-bottom:1.5rem">
-      <div class="process-item"><div class="process-num">1</div><div class="process-text"><h4>Domain immersion</h4><p>Interviewed 15+ developers. Learned Kubernetes, Docker, and CI/CD to earn technical credibility. <span class="num-accent">Supported by Agoda research team</span></p></div></div>
+      <div class="process-item"><div class="process-num">1</div><div class="process-text"><h4>Domain immersion</h4><p>Interviewed 15+ developers. Learned Kubernetes, Docker, and CI/CD to earn technical credibility.</p></div></div>
       <div class="process-item"><div class="process-num">2</div><div class="process-text"><h4>Heuristic evaluation</h4><p>Scored the platform against Nielsen's heuristics. Documented 47 usability issues.</p></div></div>
       <div class="process-item"><div class="process-num">3</div><div class="process-text"><h4>Baseline &amp; measure</h4><p>Established SUS baseline (61.9). Re-ran every 2 quarters to track improvement.</p></div></div>
       <div class="process-item"><div class="process-num">4</div><div class="process-text"><h4>Ideation &amp; phased delivery</h4><p>Phase 1: quick wins to unblock developers. Phase 2: full automation with approval workflows.</p></div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2>Solutions</h2>
-      <h3 style="font-size:0.85rem;margin-bottom:1rem">Private Cloud Deployment</h3>
-      <div class="card-grid card-grid-3" style="margin-bottom:1.5rem">
-        <div><img src="images/dev_1.environment+setup+(minimum).png" alt="Environment setup" class="screenshot"><p class="screenshot-caption">1. Environment config</p></div>
-        <div><img src="images/dev_2.rollout+setup.png" alt="Rollout setup" class="screenshot"><p class="screenshot-caption">2. Rollout &amp; DC selection</p></div>
-        <div><img src="images/dev_3.review+(minimum).png" alt="Review deploy" class="screenshot"><p class="screenshot-caption">3. Review &amp; deploy</p></div>
-      </div>
-      <img src="images/dev_private+cloud.png" alt="Cloud migration dashboard" class="screenshot" style="max-width:480px;margin-bottom:1.5rem">
     </div>
   </section>
 
@@ -168,6 +642,7 @@
 <div class="footer-links"><a href="mailto:nicholasgweepk@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/nicholasgwee/">LinkedIn</a> · <a href="https://github.com/nicgpk">GitHub</a></div>
 </footer>
 
-<script src="js/teletype.js"></script>
+<script src="js/teletype.js?v=20"></script>
+<script src="js/dev-flow.js"></script>
 </body>
 </html>

@@ -1,6 +1,25 @@
 /* resume.css — ATS-parseable resume page. Loaded after teletype.css. */
 
-.resume { max-width: 800px; margin: 0 auto; padding: 2rem 0; }
+.resume {
+  --r-name: 1.875rem;
+  --r-role: 0.95rem;
+  --r-job: 1.05rem;
+  --r-body: 0.95rem;
+  --r-meta: 0.85rem;
+  --r-label: 0.85rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.resume .text-body {
+  font-size: var(--r-body);
+  line-height: 1.65;
+}
+.resume .text-small {
+  font-size: var(--r-meta);
+  line-height: 1.5;
+}
 
 .resume-header {
   text-align: left;
@@ -23,25 +42,28 @@
   margin-bottom: 0.25rem;
 }
 .resume-header h1 {
-  font-size: 1.75rem;
+  font-size: var(--r-name);
   margin-bottom: 0;
   line-height: 1.15;
   min-width: 0;
 }
 .resume-header .resume-title {
-  font-size: 0.85rem;
+  font-size: var(--r-role);
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
-  margin-top: 0.55rem;
+  margin-top: 0.45rem;
   margin-bottom: 1rem;
+  line-height: 1.4;
 }
 .resume-contact {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 0.5rem 1.5rem;
-  font-size: 0.8rem;
+  gap: 0.5rem 1.25rem;
+  font-size: var(--r-meta);
+  line-height: 1.5;
   color: var(--text-dim);
 }
 .resume-contact a {
@@ -55,14 +77,16 @@
 
 .resume-section { margin-bottom: 2rem; }
 .resume-section h2 {
-  font-size: 0.8rem;
+  font-size: var(--r-label);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
   display: block;
+  line-height: 1.4;
 }
 .resume-section h2::before,
 .resume-section h2::after { display: none; }
@@ -73,14 +97,17 @@
   margin: 0;
 }
 .resume-section ul li {
-  font-size: 0.85rem;
+  font-size: var(--r-body);
   color: var(--text-dim);
-  line-height: 1.6;
-  margin-bottom: 0.2rem;
+  line-height: 1.65;
+  margin-bottom: 0.35rem;
 }
 .resume-section ul li a {
   color: var(--accent);
   text-decoration: none;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: inherit;
 }
 .resume-section ul li a:hover {
   text-decoration: underline;
@@ -88,12 +115,12 @@
 
 h3.resume-subheader {
   font-family: inherit;
-  font-size: 0.72rem;
-  font-weight: 500;
+  font-size: var(--r-label);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-dim);
-  margin: 0.85rem 0 0.35rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin: 1rem 0 0.45rem;
   padding: 0;
   border: none;
   line-height: 1.4;
@@ -116,21 +143,23 @@ h3.resume-subheader::after {
   align-items: baseline;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 .resume-item-title {
-  font-size: 1rem;
+  font-size: var(--r-job);
   font-weight: 600;
   color: var(--text);
+  line-height: 1.35;
 }
 .resume-item-org {
   font-weight: 400;
   color: var(--text-dim);
 }
 .resume-item-date {
-  font-size: 0.75rem;
+  font-size: var(--r-meta);
   color: var(--text-muted);
   white-space: nowrap;
+  line-height: 1.35;
 }
 
 .resume-edu-item {
@@ -139,8 +168,8 @@ h3.resume-subheader::after {
   border-bottom: 1px dashed var(--border);
 }
 .resume-edu-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-.resume-edu-item .resume-item-title { font-size: 0.95rem; }
-.resume-edu-item .resume-item-date { font-size: 0.75rem; }
+.resume-edu-item .resume-item-title { font-size: var(--r-job); }
+.resume-edu-item .resume-item-date { font-size: var(--r-meta); }
 
 .resume-skills-group {
   display: flex;
@@ -151,20 +180,22 @@ h3.resume-subheader::after {
 }
 .resume-skills-group:last-child { margin-bottom: 0; }
 .resume-skill-label {
-  font-size: 0.7rem;
+  font-size: var(--r-label);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-muted);
-  min-width: 70px;
+  min-width: 5.5rem;
+  line-height: 1.4;
 }
 .resume-skill {
-  font-size: 0.8rem;
+  font-size: var(--r-meta);
   font-weight: 500;
   padding: 0.2rem 0.6rem;
   border: 1px solid var(--border-strong);
   color: var(--text-dim);
   background: var(--surface);
+  line-height: 1.4;
 }
 
 .resume-download {
@@ -177,6 +208,7 @@ h3.resume-subheader::after {
 }
 .resume-download-btn {
   margin: 0;
+  font-size: var(--r-meta);
   line-height: 1.2;
   transition:
     background-color 0.2s ease,
@@ -194,6 +226,10 @@ h3.resume-subheader::after {
 }
 
 @media (max-width: 600px) {
+  .resume {
+    --r-name: 1.65rem;
+    --r-job: 1rem;
+  }
   .resume-header-name-row {
     flex-direction: column;
     align-items: stretch;

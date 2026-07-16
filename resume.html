@@ -18,8 +18,8 @@
 <meta name="twitter:title" content="Nicholas Gwee — Product Design Lead | Resume">
 <meta name="twitter:description" content="Product Design Lead with 11 years experience. $521M+ in revenue influenced. Agoda, GovTech, OCBC, Lucasfilm.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%233d4f1e'/><path d='M14 10l8 6-8 6' stroke='%23faf7f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
-<link rel="stylesheet" href="css/teletype.css">
-<link rel="stylesheet" href="css/resume.css">
+<link rel="stylesheet" href="css/teletype.css?v=28">
+<link rel="stylesheet" href="css/resume.css?v=2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -80,7 +80,7 @@
 
 <header class="header">
   <div class="header-inner">
-    <a href="index.html" class="header-logo">&gt;</a>
+    <a href="index.html" class="header-logo" aria-label="Nicholas Gwee home"><span class="header-logo-mark">&gt;</span></a>
     <nav class="nav">
       <a href="index.html">About</a>
       <a href="projects.html">Projects</a>
@@ -271,7 +271,7 @@
   <div class="footer-links"><a href="mailto:nicholasgweepk@gmail.com">Email</a> &middot; <a href="https://www.linkedin.com/in/nicholasgwee/">LinkedIn</a> &middot; <a href="https://github.com/nicgpk">GitHub</a></div>
 </footer>
 
-<script src="js/teletype.js"></script>
+<script src="js/teletype.js?v=20"></script>
 <script>
 function downloadResume() {
   var resumeContent = document.getElementById('resume-content').cloneNode(true);
@@ -284,30 +284,30 @@ function downloadResume() {
   html += '.resume-header { text-align: left; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid #000; }';
   html += '.resume-header-top { display: block; }';
   html += '.resume-download { display: none; }';
-  html += '.resume-header h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }';
-  html += '.resume-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: #555; margin-bottom: 1rem; }';
-  html += '.resume-contact { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.75rem; color: #333; }';
+  html += '.resume-header h1 { font-size: 1.75rem; margin-bottom: 0.25rem; line-height: 1.15; }';
+  html += '.resume-title { font-size: 0.95rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0.45rem 0 1rem; }';
+  html += '.resume-contact { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: #333; }';
   html += '.resume-contact a { color: #333; text-decoration: none; }';
   html += '.resume-section { margin-bottom: 1.5rem; }';
-  html += '.resume-section h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: #000; border-bottom: 1px solid #999; padding-bottom: 0.5rem; margin-bottom: 0.75rem; }';
+  html += '.resume-section h2 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #000; border-bottom: 1px solid #999; padding-bottom: 0.5rem; margin-bottom: 0.75rem; }';
   html += '.resume-section ul { list-style: disc; padding-left: 1.25rem; margin: 0; }';
-  html += '.resume-section ul li { font-size: 0.85rem; color: #333; line-height: 1.5; margin-bottom: 0.2rem; }';
-  html += '.resume-section ul li a { color: #000; }';
-  html += '.resume-subheader { font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: #555; margin: 0.75rem 0 0.35rem; }';
+  html += '.resume-section ul li { font-size: 0.95rem; color: #333; line-height: 1.55; margin-bottom: 0.3rem; }';
+  html += '.resume-section ul li a { color: #000; font-weight: 600; font-size: inherit; }';
+  html += '.resume-subheader { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0.85rem 0 0.4rem; }';
   html += '.resume-item { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px dashed #ccc; }';
   html += '.resume-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }';
   html += '.resume-item-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.35rem; }';
-  html += '.resume-item-title { font-size: 1rem; font-weight: 600; color: #000; }';
+  html += '.resume-item-title { font-size: 1.05rem; font-weight: 600; color: #000; }';
   html += '.resume-item-org { font-weight: 400; color: #555; }';
-  html += '.resume-item-date { font-size: 0.75rem; color: #555; white-space: nowrap; }';
+  html += '.resume-item-date { font-size: 0.85rem; color: #555; white-space: nowrap; }';
   html += '.resume-item-current { }';
   html += '.resume-edu-item { margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px dashed #ccc; }';
   html += '.resume-edu-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }';
   html += '.resume-skills-group { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }';
-  html += '.resume-skill-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #555; min-width: 70px; }';
-  html += '.resume-skill { font-size: 0.75rem; padding: 0.15rem 0.5rem; border: 1px solid #ccc; color: #333; }';
-  html += '.text-body { font-size: 0.85rem; color: #333; line-height: 1.5; }';
-  html += '.text-small { font-size: 0.75rem; color: #555; }';
+  html += '.resume-skill-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #555; min-width: 5.5rem; }';
+  html += '.resume-skill { font-size: 0.85rem; padding: 0.15rem 0.5rem; border: 1px solid #ccc; color: #333; }';
+  html += '.text-body { font-size: 0.95rem; color: #333; line-height: 1.55; }';
+  html += '.text-small { font-size: 0.85rem; color: #555; }';
   html += '@media print { @page { margin: 0; } }';
   html += '</style></head><body>';
   html += '<div class="resume">' + resumeContent.innerHTML + '</div>';

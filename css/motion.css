@@ -8,7 +8,7 @@
   --motion-slow: 700ms;
 }
 
-/* ----- Safe scroll reveals (only hide when JS motion is enabled) ----- */
+/* ----- Scroll earners only (featured, products, results) ----- */
 .js-motion .motion-item {
   opacity: 0;
   transform: translateY(18px);
@@ -16,13 +16,11 @@
     opacity var(--motion-slow) var(--ease-out-expo),
     transform var(--motion-slow) var(--ease-out-expo);
   transition-delay: calc(var(--motion-i, 0) * 55ms);
-  will-change: opacity, transform;
 }
 
 .js-motion .motion-item.is-inview {
   opacity: 1;
   transform: none;
-  will-change: auto;
 }
 
 .js-motion .motion-item.is-inview:hover,
@@ -30,30 +28,36 @@
   transition-delay: 0ms;
 }
 
-.js-motion .motion-item--left {
-  transform: translateX(-16px);
-}
-.js-motion .motion-item--left.is-inview {
-  transform: none;
-}
-
-.js-motion .motion-item--scale {
-  transform: translateY(14px) scale(0.98);
-}
-.js-motion .motion-item--scale.is-inview {
-  transform: none;
-}
-
-/* Keep legacy .reveal working alongside new system */
-.js-motion .reveal:not(.hero-sub):not(h1):not(.hero-desc) {
+/* Featured project cards — clearer slide-up on scroll */
+.js-motion .featured.motion-item {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(40px);
   transition:
-    opacity var(--motion-slow) var(--ease-out-expo),
-    transform var(--motion-slow) var(--ease-out-expo);
+    opacity 780ms var(--ease-out-expo),
+    transform 780ms var(--ease-out-expo),
+    box-shadow var(--motion-med) var(--ease-out-expo),
+    border-color var(--motion-fast) ease;
+  transition-delay: calc(var(--motion-i, 0) * 90ms);
 }
-.js-motion .reveal.visible,
-.js-motion .reveal.is-inview {
+.js-motion .featured.motion-item.is-inview {
+  opacity: 1;
+  transform: none;
+}
+.js-motion .featured.motion-item.is-inview:hover,
+.js-motion .featured.motion-item.is-inview:focus-visible {
+  transform: translateY(-3px);
+  transition-delay: 0ms;
+}
+
+.js-motion .featured .featured-shot {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 720ms var(--ease-out-expo),
+    transform 720ms var(--ease-out-expo);
+  transition-delay: calc(var(--motion-i, 0) * 90ms + 140ms);
+}
+.js-motion .featured.is-inview .featured-shot {
   opacity: 1;
   transform: none;
 }
@@ -71,8 +75,7 @@
     background-color var(--motion-fast) ease,
     border-color var(--motion-fast) ease,
     color var(--motion-fast) ease,
-    box-shadow var(--motion-fast) ease,
-    padding var(--motion-fast) ease;
+    box-shadow var(--motion-fast) ease;
 }
 
 .js-motion .btn:hover {
@@ -99,18 +102,14 @@
 .js-motion .card,
 .js-motion a.card {
   transition:
-    opacity var(--motion-slow) var(--ease-out-expo),
     transform var(--motion-med) var(--ease-out-expo),
     box-shadow var(--motion-med) var(--ease-out-expo),
     border-color var(--motion-fast) ease;
-  transition-delay: calc(var(--motion-i, 0) * 55ms);
 }
 
-.js-motion .featured:hover,
 .js-motion .card:hover,
 .js-motion a.card:hover {
   transform: translateY(-3px);
-  transition-delay: 0ms;
 }
 
 .js-motion .exp-row:hover,
@@ -132,10 +131,11 @@
 }
 
 /* ----- Hero product mockup choreography ----- */
+/* Visible by default so first paint is never an empty shell */
 .js-motion .hero-product .hero-product-frame {
-  opacity: 0;
-  --enter-rx: 1.75deg;
-  --enter-y: 28px;
+  opacity: 1;
+  --enter-rx: 0deg;
+  --enter-y: 0px;
   transition:
     opacity 0.75s var(--ease-out-expo),
     transform 0.75s var(--ease-out-expo),
@@ -164,8 +164,8 @@
 .js-motion .hero-product .hero-product-toolbar,
 .js-motion .hero-product .hero-product-section-head,
 .js-motion .hero-product .hero-product-peek {
-  opacity: 0;
-  transform: translateY(14px);
+  opacity: 1;
+  transform: none;
 }
 
 .js-motion .hero-product.is-inview .hero-product-toolbar {
@@ -215,19 +215,14 @@
   transform: translateY(-3px);
 }
 
-/* ----- Discounting product choreography ----- */
+/* ----- Discounting product — visible shell, choreography on reveal ----- */
 .js-motion .disc-product .disc-product-frame {
-  opacity: 0;
-  transform: translateY(24px);
+  opacity: 1;
+  transform: none;
   transition:
     opacity 0.7s var(--ease-out-expo),
     transform 0.7s var(--ease-out-expo),
     box-shadow 0.35s ease;
-}
-
-.js-motion .disc-product.is-inview .disc-product-frame {
-  opacity: 1;
-  transform: none;
 }
 
 .js-motion .disc-product .disc-product-toolbar,
@@ -238,8 +233,8 @@
 .js-motion .disc-product .disc-flow-step,
 .js-motion .disc-product .disc-promo-row,
 .js-motion .disc-product .disc-rate-box {
-  opacity: 0;
-  transform: translateY(12px);
+  opacity: 1;
+  transform: none;
 }
 
 .js-motion .disc-product.is-inview .disc-product-toolbar {
@@ -307,19 +302,6 @@
 }
 .js-motion .disc-toggle::after {
   transition: left var(--motion-fast) var(--ease-out-quart), right var(--motion-fast) var(--ease-out-quart);
-}
-
-/* Explore cards stagger on case study pages */
-.js-motion .disc-explore-card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.65s var(--ease-out-expo),
-    transform 0.65s var(--ease-out-expo);
-}
-.js-motion .disc-explore-card.is-inview {
-  opacity: 1;
-  transform: none;
 }
 
 @keyframes motion-rise {
@@ -390,14 +372,6 @@
   transform: none;
 }
 
-/* Resume list polish */
-.js-motion .resume-item,
-.js-motion .resume-edu-item {
-  transition: border-color var(--motion-fast) ease;
-}
-
-/* Soft page ambient: subtle logo row hover already exists */
-
 @media (max-width: 860px) {
   .js-motion .hero-product .hero-product-frame,
   .js-motion .hero-product.is-inview .hero-product-frame,
@@ -408,7 +382,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .js-motion .motion-item,
-  .js-motion .reveal,
+  .js-motion .featured .featured-shot,
   .js-motion .hero-product .hero-product-frame,
   .js-motion .hero-product .hero-product-kpi,
   .js-motion .hero-product .hero-product-card,
@@ -424,11 +398,12 @@
   .js-motion .disc-product .disc-flow-step,
   .js-motion .disc-product .disc-promo-row,
   .js-motion .disc-product .disc-rate-box,
-  .js-motion .disc-explore-card,
   .js-motion .bar-h-fill,
   .js-motion .results-metric-value,
   .js-motion .results-trend-fill,
-  .js-motion .results-delta-row {
+  .js-motion .results-delta-row,
+  .js-motion .hero-desc.reveal,
+  .js-motion .hero-actions.reveal {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
