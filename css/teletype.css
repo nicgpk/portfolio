@@ -587,13 +587,52 @@ a.featured:hover {
   .featured-metrics .lbl { font-size: 0.7rem; }
 }
 
-.stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-sm); margin-bottom: var(--space-lg); }
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
 .stat-pill {
   background: var(--surface); border: 1px solid var(--border);
   padding: var(--space-md); text-align: center; box-shadow: var(--shadow);
 }
 .stat-pill .num { font-size: 1.6rem; font-weight: 700; color: var(--accent); letter-spacing: -0.02em; }
 .stat-pill .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text); margin-top: 0.25rem; }
+
+@media (max-width: 640px) {
+  .stats-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+  .stats-row .stat-pill {
+    display: grid;
+    grid-template-columns: minmax(4.5rem, auto) minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem 1rem;
+    text-align: left;
+    padding: 0.85rem 1rem;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .stats-row .stat-pill:last-child { border-bottom: 0; }
+  .stats-row .stat-pill .num {
+    font-size: 1.35rem;
+    line-height: 1.15;
+  }
+  .stats-row .stat-pill .label {
+    margin-top: 0;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+}
 
 /* ===== GOALS BOARD (open, no nested cards) ===== */
 .goals-board {
