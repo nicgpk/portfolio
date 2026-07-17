@@ -1,6 +1,18 @@
 (function () {
   'use strict';
 
+  /* Microsoft Clarity — paste project ID from clarity.microsoft.com → Settings → Overview */
+  var CLARITY_PROJECT_ID = 'xnujw7czxv';
+  var clarityHost = window.location.hostname;
+  var clarityLocal = clarityHost === 'localhost' || clarityHost === '127.0.0.1';
+  if (CLARITY_PROJECT_ID && !clarityLocal) {
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', CLARITY_PROJECT_ID);
+  }
+
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* Theme management — build once; CSS reacts to data-theme */
