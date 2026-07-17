@@ -45,8 +45,14 @@
 }
 .js-motion .featured.motion-item.is-inview:hover,
 .js-motion .featured.motion-item.is-inview:focus-visible {
-  transform: translateY(-3px);
+  transform: none;
   transition-delay: 0ms;
+}
+@media (hover: hover) and (pointer: fine) {
+  .js-motion .featured.motion-item.is-inview:hover,
+  .js-motion .featured.motion-item.is-inview:focus-visible {
+    transform: translateY(-3px);
+  }
 }
 
 .js-motion .featured .featured-shot {
@@ -78,15 +84,8 @@
     box-shadow var(--motion-fast) ease;
 }
 
-.js-motion .btn:hover {
-  transform: translateY(-1px);
-}
 .js-motion .btn:active {
   transform: translateY(1px) scale(0.98);
-}
-
-.js-motion .social-icon:hover {
-  transform: translateY(-2px);
 }
 .js-motion .social-icon:active {
   transform: translateY(0) scale(0.96);
@@ -108,26 +107,45 @@
 }
 
 .js-motion .card:hover,
-.js-motion a.card:hover {
-  transform: translateY(-3px);
-}
-
+.js-motion a.card:hover,
 .js-motion .exp-row:hover,
 .js-motion .process-row:hover,
-.js-motion .process-item:hover {
-  transform: translateX(4px);
+.js-motion .process-item:hover,
+.js-motion .stat-pill:hover,
+.js-motion .stat-block:hover,
+.js-motion .btn:hover,
+.js-motion .social-icon:hover,
+.js-motion .header-logo:hover {
+  transform: none;
 }
 
-.js-motion .stat-pill:hover,
-.js-motion .stat-block:hover {
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .js-motion .card:hover,
+  .js-motion a.card:hover {
+    transform: translateY(-3px);
+  }
+  .js-motion .exp-row:hover,
+  .js-motion .process-row:hover,
+  .js-motion .process-item:hover {
+    transform: translateX(4px);
+  }
+  .js-motion .stat-pill:hover,
+  .js-motion .stat-block:hover {
+    transform: translateY(-2px);
+  }
+  .js-motion .btn:hover {
+    transform: translateY(-1px);
+  }
+  .js-motion .social-icon:hover {
+    transform: translateY(-2px);
+  }
+  .js-motion .header-logo:hover {
+    transform: scale(1.04);
+  }
 }
 
 .js-motion .header-logo {
   transition: opacity var(--motion-fast) ease, transform var(--motion-fast) var(--ease-out-quart);
-}
-.js-motion .header-logo:hover {
-  transform: scale(1.04);
 }
 
 /* ----- Hero product mockup choreography ----- */

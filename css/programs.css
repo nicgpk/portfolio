@@ -148,12 +148,15 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   list-style: none;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0.55rem 1.25rem;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.75rem 1.25rem;
   transition: color 0.15s, gap 0.2s;
   user-select: none;
+  box-sizing: border-box;
 }
 .prog-expand summary::before {
   content: '+';
@@ -191,6 +194,98 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 .prog-expand .how-text { padding: 0 1.25rem 1rem; }
+
+/* ── partner-programs.html extras (from deck) ── */
+.prog-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.pain-points { margin-top: 2.5rem; }
+.pain-points-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.pain-points-label::after {
+  content: '';
+  flex: 1;
+  height: 0;
+  border-top: 1px dashed var(--border-strong);
+  opacity: 0.3;
+}
+.pain-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.pain-point:last-child { margin-bottom: 0; }
+.pain-point::before {
+  content: '\B7';
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+.how-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+.how-card {
+  background: var(--surface);
+  padding: var(--space-md);
+  border: 1px solid var(--border-strong);
+}
+.how-num {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.how-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+}
+.how-desc {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.how-accent { color: var(--accent); font-weight: 600; }
+.source {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+  margin-top: var(--space-xl);
+  letter-spacing: 0.03em;
+}
+.source::before { content: 'Source: '; font-weight: 600; }
+
+@media (max-width: 767px) {
+  .pain-points { margin-top: 1.75rem; }
+  .how-cards { gap: 0.85rem; }
+  .how-card { padding: 0.85rem 1rem; }
+  .prog-eyebrow { font-size: 0.7rem; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .prog-expand > *:not(summary) { animation: none; }

@@ -782,7 +782,7 @@
 @media (max-width: 520px) {
   .disc-product-screen { padding: 12px; }
   .disc-product-chrome { padding: 8px 10px; }
-  .disc-product-url { font-size: 10px; }
+  .disc-product-url { font-size: 12px; }
   .disc-product-brand-text span { display: none; }
   .disc-product-toolbar {
     flex-wrap: wrap;

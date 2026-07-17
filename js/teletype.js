@@ -3,23 +3,37 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Theme management */
-  var ICONS = {
-    sun: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 1 0 1.06l-1.591 1.59a.75.75 0 1 1-1.06-1.061l1.59-1.591a.75.75 0 0 1 1.06 0ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 1-1.06 0l-1.59-1.591a.75.75 0 1 1 1.06-1.06l1.591 1.59a.75.75 0 0 1 0 1.061ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 1-1.061 0l-1.591-1.59a.75.75 0 0 1 1.06-1.061l1.591 1.59a.75.75 0 0 1 0 1.06ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 1 0-1.06l1.59-1.591a.75.75 0 0 1 1.061 1.06l-1.59 1.591a.75.75 0 0 1-1.06 0Z"/></svg>',
-    moon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998z"/></svg>'
+  /* Theme management — build once; CSS reacts to data-theme */
+  var THEME_ICONS = {
+    sun:
+      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+        '<circle cx="12" cy="12" r="4"/>' +
+        '<path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M5.05 5.05l1.77 1.77M17.18 17.18l1.77 1.77M18.95 5.05l-1.77 1.77M6.82 17.18l-1.77 1.77" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+      '</svg>',
+    moon:
+      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+        '<path d="M12.8 3.2a8.8 8.8 0 1 0 8 12.2A6.9 6.9 0 0 1 12.8 3.2Z"/>' +
+      '</svg>'
   };
 
-  function renderThemeToggle(theme) {
+  function syncThemeToggle(theme) {
     var btn = document.querySelector('.theme-toggle');
     if (!btn) return;
     var isDark = theme === 'dark';
     btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
     btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  function mountThemeToggle() {
+    var btn = document.querySelector('.theme-toggle');
+    if (!btn || btn.dataset.mounted === '1') return;
+    btn.dataset.mounted = '1';
+    btn.type = 'button';
     btn.innerHTML =
       '<span class="theme-toggle-track" aria-hidden="true">' +
-        '<span class="theme-toggle-thumb"></span>' +
-        '<span class="theme-toggle-opt sun">' + ICONS.sun + '</span>' +
-        '<span class="theme-toggle-opt moon">' + ICONS.moon + '</span>' +
+        '<span class="theme-toggle-glider"></span>' +
+        '<span class="theme-toggle-opt" data-opt="light">' + THEME_ICONS.sun + '</span>' +
+        '<span class="theme-toggle-opt" data-opt="dark">' + THEME_ICONS.moon + '</span>' +
       '</span>';
   }
 
@@ -29,14 +43,15 @@
   } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
-  renderThemeToggle(document.documentElement.getAttribute('data-theme'));
+  mountThemeToggle();
+  syncThemeToggle(document.documentElement.getAttribute('data-theme'));
 
   window.toggleTheme = function () {
     var current = document.documentElement.getAttribute('data-theme');
     var next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
-    renderThemeToggle(next);
+    syncThemeToggle(next);
   };
 
   /* Header shadow on scroll */
@@ -75,6 +90,8 @@
     var desc = document.querySelector('.hero-desc.reveal');
     var actions = document.querySelector('.hero-actions.reveal');
     var followersShown = false;
+    /* Character teletype causes wrap jumps on narrow screens — fade full title instead */
+    var useFade = reduceMotion || window.matchMedia('(max-width: 640px)').matches;
 
     function showFollowers() {
       if (followersShown) return;
@@ -97,16 +114,20 @@
       showFollowers();
     }
 
-    if (reduceMotion) {
-      if (sub) sub.classList.add('is-ready', 'visible', 'is-inview');
-      el.classList.add('is-live', 'is-done');
-      out.textContent = full;
-      showFollowers();
-      return;
-    }
-
     if (desc) desc.classList.add('is-waiting');
     if (actions) actions.classList.add('is-waiting');
+
+    if (useFade) {
+      out.textContent = full;
+      window.requestAnimationFrame(function () {
+        if (sub) sub.classList.add('is-ready', 'visible', 'is-inview');
+        window.setTimeout(function () {
+          el.classList.add('is-live', 'is-done');
+          window.setTimeout(showFollowers, 280);
+        }, sub ? 200 : 80);
+      });
+      return;
+    }
 
     /* Gentler ease — less early character clumping */
     function easeOut(t) {
@@ -153,9 +174,10 @@
 
     var animate = !reduceMotion;
     var langs = ['en', 'th', 'zh'];
-    var holdMs = 3200;
-    var firstHoldMs = 3000;
-    var outMs = animate ? 380 : 0;
+    var isCoarse = window.matchMedia('(pointer: coarse), (max-width: 860px)').matches;
+    var holdMs = isCoarse ? 7000 : 3200;
+    var firstHoldMs = isCoarse ? 4500 : 3000;
+    var outMs = animate ? (isCoarse ? 220 : 380) : 0;
     var langIndex = 0;
     var timer = null;
     var onScreen = true;
@@ -515,6 +537,15 @@
       });
     })();
   })();
+
+  /* Don't download icons inside CSS-hidden secondary cards on small screens */
+  if (window.matchMedia('(max-width: 860px)').matches) {
+    document.querySelectorAll('.hero-product-card.is-secondary img').forEach(function (img) {
+      img.removeAttribute('src');
+      img.removeAttribute('srcset');
+      img.setAttribute('data-deferred', '1');
+    });
+  }
 
   /* Motion pass — scroll earners only: featured, products, charts/results */
   if (reduceMotion) {
