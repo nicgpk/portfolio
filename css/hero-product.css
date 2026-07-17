@@ -1102,7 +1102,7 @@
 
 @media (max-width: 520px) {
   .hero-product {
-    padding: 0 12px;
+    padding: 0 16px;
   }
   .hero-product-chrome { padding: 8px 10px; gap: 8px; }
   .hero-product-url { font-size: 12px; }
