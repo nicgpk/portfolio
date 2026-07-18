@@ -1,5 +1,5 @@
 /* programs.css — Styles for the merged Partner Programs page.
-   Loaded after teletype.css on partner-programs.html only. */
+   Loaded after teletype.css on partner-growth-programs.html. */
 
 :root { --surface-2: #e8e3d8; }
 [data-theme="dark"] { --surface-2: #1a1a14; }
