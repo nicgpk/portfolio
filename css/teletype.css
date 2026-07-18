@@ -203,6 +203,55 @@ html[data-theme='dark'] .theme-toggle-opt[data-opt='dark'] {
 /* ===== SECTIONS ===== */
 section { padding: var(--space-2xl) 0; }
 .hero { padding-top: 9rem; padding-bottom: var(--space-3xl); }
+
+/* Site-wide cursor-follow halftone — desktop / fine pointer only (JS gates) */
+html {
+  --halftone-dot: color-mix(in srgb, var(--text) 13%, transparent);
+  --halftone-dot-soft: color-mix(in srgb, var(--text) 6%, transparent);
+  --hx: 50%;
+  --hy: 40%;
+}
+[data-theme="dark"] {
+  --halftone-dot: color-mix(in srgb, var(--text) 18%, transparent);
+  --halftone-dot-soft: color-mix(in srgb, var(--text) 9%, transparent);
+}
+.page-halftone {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  background-image:
+    radial-gradient(circle, var(--halftone-dot) 0.9px, transparent 1.1px),
+    radial-gradient(circle, var(--halftone-dot-soft) 0.7px, transparent 1px);
+  background-size: 7px 7px, 7px 7px;
+  background-position: 0 0, 3.5px 3.5px;
+  -webkit-mask-image: radial-gradient(
+    circle 112px at var(--hx) var(--hy),
+    #000 0%,
+    #000 28%,
+    transparent 72%
+  );
+  mask-image: radial-gradient(
+    circle 112px at var(--hx) var(--hy),
+    #000 0%,
+    #000 28%,
+    transparent 72%
+  );
+}
+.page-halftone.is-active {
+  opacity: 1;
+}
+body > header,
+body > main,
+body > footer {
+  position: relative;
+  z-index: 1;
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .page-halftone { display: none; }
+}
 .hero--page {
   padding-bottom: var(--space-lg);
 }
@@ -1002,12 +1051,13 @@ a.featured:hover {
 .social-row--quiet .social-icon {
   width: 44px;
   height: 44px;
-  color: var(--text-muted);
-  border-color: var(--border);
+  color: var(--text);
+  border-color: var(--text);
 }
 .social-row--quiet .social-icon:hover {
-  color: var(--text);
-  border-color: var(--border-strong);
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
 }
 .social-icon {
   width: 44px; height: 44px; border: 1px solid var(--border-strong);

@@ -996,17 +996,17 @@
   .hero-product-screen {
     max-height: none;
   }
-  /* Fade content into the tab bar */
+  /* Fade content into the tab bar — same soft falloff as desktop, parked above the nav */
   .hero-product-screen::after {
     display: block;
-    bottom: 0;
-    height: 110px;
+    bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+    height: 96px;
     z-index: 4;
     background: linear-gradient(
       180deg,
       transparent 0%,
-      color-mix(in srgb, var(--hp-bg) 55%, transparent) 42%,
-      var(--hp-bg) 78%
+      color-mix(in srgb, var(--hp-bg) 55%, transparent) 40%,
+      var(--hp-bg) 100%
     );
   }
   .hero-product-tabbar {
@@ -1019,11 +1019,11 @@
     z-index: 5;
     margin: 0;
     padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
-    background: color-mix(in srgb, var(--hp-panel) 94%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--hp-panel);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border-top: 1px solid rgba(15, 20, 25, 0.08);
-    box-shadow: 0 -8px 24px rgba(15, 20, 25, 0.06);
+    box-shadow: none;
   }
   .hero-product-tab {
     display: flex;
@@ -1061,7 +1061,7 @@
   }
   .hero-product-main {
     flex: 1 1 auto;
-    padding-bottom: 72px;
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
   }
   .hero-product-frame,
   .hero-product:hover .hero-product-frame,

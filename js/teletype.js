@@ -15,6 +15,62 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Site-wide cursor-follow halftone */
+  (function initPageHalftone() {
+    if (reduceMotion) return;
+    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+    if (!document.body) return;
+
+    var layer = document.querySelector('.page-halftone');
+    if (!layer) {
+      layer = document.createElement('div');
+      layer.className = 'page-halftone';
+      layer.setAttribute('aria-hidden', 'true');
+      document.body.insertBefore(layer, document.body.firstChild);
+    }
+
+    var root = document.documentElement;
+    var target = { x: 0.5, y: 0.4 };
+    var current = { x: 0.5, y: 0.4 };
+    var raf = 0;
+
+    function apply() {
+      root.style.setProperty('--hx', (current.x * 100).toFixed(2) + '%');
+      root.style.setProperty('--hy', (current.y * 100).toFixed(2) + '%');
+    }
+
+    function tick() {
+      current.x += (target.x - current.x) * 0.14;
+      current.y += (target.y - current.y) * 0.14;
+      apply();
+      if (Math.abs(target.x - current.x) > 0.001 || Math.abs(target.y - current.y) > 0.001) {
+        raf = window.requestAnimationFrame(tick);
+        return;
+      }
+      raf = 0;
+      current.x = target.x;
+      current.y = target.y;
+      apply();
+    }
+
+    function kick() {
+      if (!raf) raf = window.requestAnimationFrame(tick);
+    }
+
+    window.addEventListener('pointermove', function (e) {
+      var w = window.innerWidth || 1;
+      var h = window.innerHeight || 1;
+      target.x = e.clientX / w;
+      target.y = e.clientY / h;
+      layer.classList.add('is-active');
+      kick();
+    }, { passive: true });
+
+    document.documentElement.addEventListener('pointerleave', function () {
+      layer.classList.remove('is-active');
+    });
+  })();
+
   /* Theme management — build once; CSS reacts to data-theme */
   var THEME_ICONS = {
     sun:

@@ -1,6 +1,8 @@
 /* resume.css — ATS-parseable resume page. Loaded after teletype.css. */
 
 .resume {
+  --r-font-body: 'IBM Plex Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  --r-font-display: 'IBM Plex Serif', Georgia, serif;
   --r-name: 1.875rem;
   --r-role: 0.95rem;
   --r-job: 1.05rem;
@@ -10,15 +12,18 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem 0;
+  font-family: var(--r-font-body);
 }
 
 .resume .text-body {
   font-size: var(--r-body);
   line-height: 1.65;
+  font-family: var(--r-font-body);
 }
 .resume .text-small {
   font-size: var(--r-meta);
   line-height: 1.5;
+  font-family: var(--r-font-body);
 }
 
 .resume-header {
@@ -42,12 +47,14 @@
   margin-bottom: 0.25rem;
 }
 .resume-header h1 {
+  font-family: var(--r-font-display);
   font-size: var(--r-name);
   margin-bottom: 0;
   line-height: 1.15;
   min-width: 0;
 }
 .resume-header .resume-title {
+  font-family: var(--r-font-body);
   font-size: var(--r-role);
   font-weight: 500;
   text-transform: uppercase;
@@ -94,6 +101,7 @@
 
 .resume-section { margin-bottom: 2rem; }
 .resume-section h2 {
+  font-family: var(--r-font-body);
   font-size: var(--r-label);
   font-weight: 600;
   text-transform: uppercase;
@@ -162,17 +170,35 @@ h3.resume-subheader::after {
   gap: 0.5rem;
   margin-bottom: 0.4rem;
 }
-.resume-item-title {
+.resume-item-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+  min-width: 0;
+  flex: 1 1 14rem;
+}
+.resume-item-role {
+  font-family: var(--r-font-body);
   font-size: var(--r-job);
   font-weight: 600;
   color: var(--text);
   line-height: 1.35;
-  min-width: 0;
-  flex: 1 1 14rem;
 }
-.resume-item-org {
+.resume-item-company,
+.resume-item-location {
+  font-size: var(--r-job);
   font-weight: 400;
   color: var(--text-dim);
+  line-height: 1.35;
+}
+.resume-item-role + .resume-item-company::before {
+  content: '- ';
+  color: var(--text-muted);
+}
+.resume-item-company + .resume-item-location::before {
+  content: ', ';
+  color: var(--text-muted);
 }
 .resume-item-date {
   font-size: var(--r-meta);
@@ -188,7 +214,7 @@ h3.resume-subheader::after {
   border-bottom: 1px dashed var(--border);
 }
 .resume-edu-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-.resume-edu-item .resume-item-title { font-size: var(--r-job); }
+.resume-edu-item .resume-item-role { font-size: var(--r-job); }
 .resume-edu-item .resume-item-date { font-size: var(--r-meta); }
 
 .resume-skills-group {
@@ -341,13 +367,13 @@ h3.resume-subheader::after {
     gap: 0.2rem;
     margin-bottom: 0.55rem;
   }
-  .resume-item-title {
+  .resume-item-heading {
     flex: none;
     width: 100%;
   }
-  .resume-item-org {
-    display: block;
-    margin-top: 0.15rem;
+  .resume-item-company,
+  .resume-item-location {
+    display: inline;
   }
   .resume-item-date {
     white-space: normal;
@@ -388,8 +414,17 @@ h3.resume-subheader::after {
   .header { display: none; }
   footer { display: none; }
   body::before, body::after { display: none; }
-  .resume { padding-top: 0; max-width: 100%; }
-  body { background: #fff !important; color: #000 !important; font-size: 11pt; line-height: 1.4; }
+  .resume { padding-top: 0; max-width: 100%; font-family: var(--r-font-body); }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-family: 'IBM Plex Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace !important;
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+  .resume-header h1 {
+    font-family: 'IBM Plex Serif', Georgia, serif !important;
+  }
   .resume-header { border-bottom: 2px solid #000; }
   .resume-title { color: #555 !important; }
   .resume-section h2 { color: #000 !important; border-bottom: 1px solid #999; }
@@ -399,6 +434,9 @@ h3.resume-subheader::after {
   .resume-section ul { list-style: disc !important; }
   .resume-section ul li { color: #333 !important; }
   .resume-item-title { color: #000 !important; }
+  .resume-item-role { color: #000 !important; }
+  .resume-item-company,
+  .resume-item-location,
   .resume-item-org { color: #555 !important; }
   .resume-item-date { color: #555 !important; }
   .resume-contact, .resume-contact-item { color: #333 !important; }
