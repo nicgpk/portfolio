@@ -11,6 +11,8 @@
   gap: 0;
   margin-top: var(--space-lg);
   border: 1px solid var(--text);
+  border-radius: var(--radius-surface);
+  overflow: hidden;
 }
 .prog-card {
   display: flex;

@@ -14,6 +14,18 @@
   margin: 0 auto;
   padding: 2rem 0;
   font-family: var(--r-font-body);
+  text-align: left;
+}
+.resume,
+.resume h1,
+.resume h2,
+.resume h3,
+.resume p,
+.resume li,
+.resume .resume-title,
+.resume .text-body,
+.resume .text-small {
+  text-align: left;
 }
 
 .resume .text-body {
@@ -54,6 +66,7 @@
   margin-bottom: 0;
   line-height: 1.15;
   min-width: 0;
+  text-align: left;
 }
 .resume-header .resume-title {
   font-family: var(--r-font-chrome);
@@ -457,5 +470,5 @@ h3.resume-subheader::after {
   a { color: #000 !important; text-decoration: none !important; }
   *, *::before, *::after { background: transparent !important; box-shadow: none !important; }
   html, body, main, .resume, .container, section, .card, .stats-row, .meta-row { background: #fff !important; }
-  .stat-pill, .social-row, .logo-row, .sub-divider, .live-badge { background: none !important; border-color: #ccc !important; }
+  .stat-pill, .social-row, .live-badge { background: none !important; border-color: #ccc !important; }
 }

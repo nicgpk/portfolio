@@ -64,6 +64,7 @@
 .flow-toggle {
   display: inline-flex;
   border: 1px solid var(--border-strong);
+  border-radius: var(--radius-control);
   overflow: hidden;
   flex-shrink: 0;
 }

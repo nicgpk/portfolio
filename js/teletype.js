@@ -133,6 +133,55 @@
     }, { passive: true });
   }
 
+  /* Mobile floating dock — home quick links after hero actions leave view */
+  (function initMobileDock() {
+    var dock = document.querySelector('[data-mobile-dock]');
+    var actions = document.querySelector('.hero-actions');
+    if (!dock || !actions) return;
+
+    dock.hidden = false;
+    var actionsVisible = true;
+    var nearBottom = false;
+    var mq = window.matchMedia('(max-width: 860px)');
+
+    function sync() {
+      var show = mq.matches && !actionsVisible && !nearBottom;
+      dock.classList.toggle('is-visible', show);
+      dock.setAttribute('aria-hidden', show ? 'false' : 'true');
+    }
+
+    if ('IntersectionObserver' in window) {
+      var actionsObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          actionsVisible = entry.isIntersecting;
+        });
+        sync();
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+
+      var bottomSentinel = document.querySelector('footer') || document.querySelector('section:last-of-type');
+      var bottomObs = bottomSentinel ? new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          nearBottom = entry.isIntersecting;
+        });
+        sync();
+      }, { rootMargin: '0px 0px 0px 0px', threshold: 0.15 }) : null;
+
+      actionsObs.observe(actions);
+      if (bottomObs && bottomSentinel) bottomObs.observe(bottomSentinel);
+    } else {
+      window.addEventListener('scroll', function () {
+        var rect = actions.getBoundingClientRect();
+        actionsVisible = rect.bottom > 80;
+        nearBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 160);
+        sync();
+      }, { passive: true });
+    }
+
+    if (mq.addEventListener) mq.addEventListener('change', sync);
+    else if (mq.addListener) mq.addListener(sync);
+    sync();
+  })();
+
   /* Hero title — smooth teletype + staggered cascade */
   (function initHeroTeletype() {
     var el = document.querySelector('h1[data-teletype]');
