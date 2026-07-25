@@ -402,14 +402,15 @@ h1.teletype.is-done .teletype-caret {
   }
   .nav a::after { bottom: 10px; }
   .header.compact .header-inner { height: 52px; }
-  .hero { padding-top: calc(6.5rem + env(safe-area-inset-top, 0px)); padding-bottom: var(--space-2xl); }
+  .hero { padding-top: calc(5.25rem + env(safe-area-inset-top, 0px)); padding-bottom: var(--space-2xl); }
   h1 {
     font-size: clamp(1.35rem, 1rem + 2.8vw, 1.75rem);
     letter-spacing: -0.015em;
   }
-  /* Reserve two lines so title wrap doesn't jump under the cascade */
+  /* Title fits one line at mobile sizes — don't reserve a phantom second line */
   h1.teletype {
-    min-height: 2.3em;
+    min-height: 1.2em;
+    margin-bottom: var(--space-sm);
   }
   h1.teletype .teletype-caret {
     display: none;
@@ -417,6 +418,15 @@ h1.teletype.is-done .teletype-caret {
   .hero-desc {
     font-size: 0.95rem;
     margin-bottom: var(--space-lg);
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+  .hero-actions .social-row--quiet {
+    justify-content: center;
   }
   .social-row {
     flex-wrap: wrap;
@@ -1367,23 +1377,22 @@ a.featured:hover {
   justify-content: flex-start;
   gap: var(--space-sm);
 }
-.social-row--quiet .social-icon {
+.social-icon {
   width: 44px;
   height: 44px;
+  border: 1px solid var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text);
-  border-color: var(--text);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
-.social-row--quiet .social-icon:hover {
+.social-icon:hover {
   background: var(--text);
   color: var(--bg);
   border-color: var(--text);
 }
-.social-icon {
-  width: 44px; height: 44px; border: 1px solid var(--border-strong);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--text-dim); text-decoration: none; transition: all 0.15s;
-}
-.social-icon:hover { border-color: var(--text); color: var(--text); }
 .social-icon svg { transition: transform 0.3s ease; }
 @media (hover: hover) and (pointer: fine) {
   .social-icon:hover svg { transform: rotate(-8deg) scale(1.1); }
