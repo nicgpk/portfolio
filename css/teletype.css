@@ -268,8 +268,8 @@ section:last-of-type { padding-bottom: var(--space-3xl); }
 /* ===== TYPOGRAPHY ===== */
 h1 {
   font-family: 'IBM Plex Serif', Georgia, serif;
-  font-size: clamp(2.6rem, 2rem + 4vw, 3.8rem); font-weight: 700;
-  line-height: 1.08; letter-spacing: -0.03em;
+  font-size: clamp(2.1rem, 1.7rem + 2.5vw, 3rem); font-weight: 700;
+  line-height: 1.1; letter-spacing: -0.025em;
   margin-bottom: var(--space-md); text-wrap: balance;
 }
 h2 {
@@ -371,8 +371,8 @@ h1.teletype.is-done .teletype-caret {
   .header.compact .header-inner { height: 52px; }
   .hero { padding-top: calc(6.5rem + env(safe-area-inset-top, 0px)); padding-bottom: var(--space-2xl); }
   h1 {
-    font-size: clamp(2rem, 1.4rem + 5vw, 2.8rem);
-    letter-spacing: -0.025em;
+    font-size: clamp(1.55rem, 1.15rem + 3.5vw, 2.1rem);
+    letter-spacing: -0.02em;
   }
   /* Reserve two lines so title wrap doesn't jump under the cascade */
   h1.teletype {

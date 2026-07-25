@@ -891,11 +891,42 @@
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
-    padding: 0 16px;
+    padding: 0 20px;
     perspective: none;
   }
   .hero-product-stage {
     padding-top: 0;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  /* Phone device: hide desktop browser chrome */
+  .hero-product-chrome {
+    display: none;
+  }
+  /* Kill desktop halftone overlay — do not reuse for the island */
+  .hero-product-screen::before {
+    content: none;
+    display: none;
+  }
+  /* Dynamic island lives on the frame, not the screen */
+  .hero-product-frame::after {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92px;
+    height: 26px;
+    border-radius: 20px;
+    background: #0a0a0c;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+    z-index: 6;
+    pointer-events: none;
+  }
+  /* Soft under-glow off — reads as a weird top/bottom haze on phones */
+  .hero-product-stage::before {
+    display: none;
   }
   /* Mobile mockup type: 12px base inside main */
   .hero-product-url { font-size: 12px; }
@@ -915,7 +946,7 @@
   .hero-product-wallet-text strong { font-size: 13px; }
   .hero-product-main {
     font-size: 12px;
-    padding: 14px 12px 28px;
+    padding: 44px 12px 28px;
     gap: 12px;
     min-height: 0;
   }
@@ -996,63 +1027,23 @@
   .hero-product-screen {
     max-height: none;
   }
-  /* Fade content into the tab bar — same soft falloff as desktop, parked above the nav */
+  /* Crop below the featured promotion card */
+  .hero-product-peek,
+  .hero-product-tabbar {
+    display: none;
+  }
+  /* Soft fade at the bottom edge of the cropped phone */
   .hero-product-screen::after {
     display: block;
-    bottom: calc(56px + env(safe-area-inset-bottom, 0px));
-    height: 96px;
+    bottom: 0;
+    height: 64px;
     z-index: 4;
     background: linear-gradient(
       180deg,
       transparent 0%,
-      color-mix(in srgb, var(--hp-bg) 55%, transparent) 40%,
+      color-mix(in srgb, var(--hp-bg) 55%, transparent) 45%,
       var(--hp-bg) 100%
     );
-  }
-  .hero-product-tabbar {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 5;
-    margin: 0;
-    padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
-    background: var(--hp-panel);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-top: 1px solid rgba(15, 20, 25, 0.08);
-    box-shadow: none;
-  }
-  .hero-product-tab {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    min-width: 0;
-    padding: 6px 2px;
-    color: var(--hp-muted);
-    text-align: center;
-  }
-  .hero-product-tab svg {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-  }
-  .hero-product-tab > span {
-    font-size: 11px;
-    font-weight: 550;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .hero-product-tab.is-active {
-    color: var(--hp-blue);
   }
   .hero-product-screen {
     display: flex;
@@ -1061,7 +1052,7 @@
   }
   .hero-product-main {
     flex: 1 1 auto;
-    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: 18px;
   }
   .hero-product-frame,
   .hero-product:hover .hero-product-frame,
@@ -1074,7 +1065,25 @@
     --enter-rx: 0deg !important;
     --enter-y: 0px !important;
     transform: none;
-    border-radius: 12px;
+    border-radius: 42px;
+    border: 10px solid #1c1c1e;
+    background: #1c1c1e;
+    box-shadow:
+      0 0 0 1px #3a3a3c,
+      0 28px 56px -18px rgba(0, 0, 0, 0.55),
+      0 12px 24px -10px rgba(0, 0, 0, 0.35);
+  }
+  .hero-product-screen {
+    border-radius: 0;
+  }
+  [data-theme="dark"] .hero-product-frame,
+  [data-theme="dark"] .hero-product:hover .hero-product-frame {
+    border-color: #0a0a0c;
+    background: #0a0a0c;
+    box-shadow:
+      0 0 0 1px #2c2c2e,
+      0 28px 56px -18px rgba(0, 0, 0, 0.75),
+      0 12px 24px -10px rgba(0, 0, 0, 0.5);
   }
   .hero-product-tr {
     grid-template-columns: minmax(0, 1.4fr) 3.75rem 3.5rem;
@@ -1103,6 +1112,9 @@
 @media (max-width: 520px) {
   .hero-product {
     padding: 0 16px;
+  }
+  .hero-product-stage {
+    max-width: 300px;
   }
   .hero-product-chrome { padding: 8px 10px; gap: 8px; }
   .hero-product-url { font-size: 12px; }
@@ -1198,7 +1210,7 @@
   }
   .hero-product-main {
     font-size: 12px;
-    padding: 12px 10px 24px;
+    padding: 42px 10px 16px;
     min-width: 0;
   }
   .hero-product-peek .hero-product-tr span:nth-child(3) { display: none; }
