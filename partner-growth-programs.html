@@ -18,10 +18,13 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%234a5a2a'/><path d='M14 10l8 6-8 6' stroke='%23faf7f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/teletype.css?v=47">
-<link rel="stylesheet" href="css/programs.css?v=5">
-<link rel="stylesheet" href="css/hero-product.css?v=29">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexserif/v20/jizAREVNn1dOx-zrZ2X3pZvkTi2k_iI0q1s.woff2">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="css/teletype.css?v=77">
+<link rel="stylesheet" href="css/programs.css?v=6">
+<link rel="stylesheet" href="css/hero-product.css?v=30">
 <link rel="stylesheet" href="css/shadcn-mockup.css">
 </head>
 <body>
@@ -71,8 +74,174 @@
 
   <section>
     <div class="container">
-      <h2>Design Exploration</h2>
-      <p class="text-body" style="margin-bottom:1.25rem;max-width:42rem">A property-first hub: Maison Solara lands on recommended actions with clear outcomes, then can scan the full program catalog underneath.</p>
+      <h2>Process</h2>
+      <div class="exp-timeline" role="list">
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Research &amp; benchmarking</div>
+            <p class="text-body">Synthesized partner pain points, support tickets, and NPS data. Analyzed how leading platforms structure program discovery. <span class="num-accent">Partnered with Agoda research team</span></p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Concept &amp; stakeholder alignment</div>
+            <p class="text-body">Explored multiple IA models and program comparison layouts. Ran weekly syncs with 5+ program owners to surface tradeoffs early.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">User testing &amp; iteration</div>
+            <p class="text-body">Tested with 8 partners across 3 markets. Validated comprehension of program differences, CTAs, and navigation flow.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Ruthless prioritisation &amp; launch</div>
+            <p class="text-body">Mapped features on impact/effort matrix. Shipped MVP in 1 quarter by scoping ruthlessly. A/B tested Dec 2025 – Jan 2026.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>The Programs</h2>
+      <p class="text-body" style="margin-bottom:1.5rem">Eight programs that create value for property partners and Agoda — through visibility, smarter pricing, discounts, distribution, and prepaid commitments. Each designed as part of a cohesive experience within the unified program hub.</p>
+      <div class="prog-grid">
+
+        <div class="prog-card">
+          <div class="prog-card-row">
+            <div class="prog-info"><span class="prog-cat">Conversion</span>
+            <div class="prog-name">Promotions</div></div>
+            <p class="prog-desc">Property sets a discount — Agoda adds a deal badge, boosts rank, and amplifies across email, push, and deal pages.</p>
+            <div class="prog-stats">
+              <div class="prog-stat"><div class="prog-stat-num">$233M</div><div class="prog-stat-lbl">Est. revenue</div></div>
+            </div>
+          </div>
+          <details class="prog-expand">
+            <summary>How it works</summary>
+            <p class="how-text">Property chooses a <span class="how-accent">discount type and depth</span> (e.g. 15% off for app users, 20% off for 30+ day advance bookings). Agoda adds a <span class="how-accent">deal label</span> in search results, applies a ranking boost, and surfaces it in email, push, and deal pages. Four types: <span class="how-accent">Mega Sale</span> (755M+ impressions), <span class="how-accent">Seasonal</span> ($89.7M), <span class="how-accent">Always-on</span> ($29M), <span class="how-accent">Targeted</span> ($114.2M, 72% penetration).</p>
+          </details>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-row">
+            <div class="prog-info"><span class="prog-cat">Marketing</span>
+            <div class="prog-name">Agoda Growth Program</div></div>
+            <p class="prog-desc">Pay a higher commission — Agoda deploys the full marketing suite: ranking boost, ad spend, Preferred Partner badge.</p>
+            <div class="prog-stats">
+              <div class="prog-stat"><div class="prog-stat-num">$131M</div><div class="prog-stat-lbl">Est. revenue</div></div>
+            </div>
+          </div>
+          <details class="prog-expand">
+            <summary>How it works</summary>
+            <p class="how-text">Property commits to a higher commission, typically <span class="how-accent">10–15% INM</span>. Agoda deploys the full marketing stack: higher search rank, increased ad spend on Google &amp; Kayak, wider affiliate reach, and a <span class="how-accent">Preferred Partner badge</span> on every result. Partners see <span class="how-accent">+10% avg booking uplift</span> and 1.8&times; more PPC/MSE ad spend.</p>
+          </details>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-row">
+            <div class="prog-info"><span class="prog-cat">Prepaid</span>
+            <div class="prog-name">Agoda Advanced</div></div>
+            <p class="prog-desc">Pay upfront — Agoda deducts from the balance per booking. AGP or Maximum Gain variant.</p>
+            <div class="prog-stats">
+              <div class="prog-stat"><div class="prog-stat-num">$120M</div><div class="prog-stat-lbl">Est. revenue</div></div>
+            </div>
+          </div>
+          <details class="prog-expand">
+            <summary>How it works</summary>
+            <p class="how-text">Property makes a lump-sum prepayment, <span class="how-accent">auto-renewed when balance hits 90%</span>. Two variants: <span class="how-accent">AGP variant</span> (Preferred Partner badge, ranking boost, ad spend) or <span class="how-accent">Maximum Gain variant</span> (net rate improvement, 10,000+ affiliate distribution). Balance is consumed by net earnings of eligible bookings per booking.</p>
+          </details>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-row">
+            <div class="prog-info"><span class="prog-cat">Distribution</span>
+            <div class="prog-name">Maximum Gain</div></div>
+            <p class="prog-desc">Share wholesale rates — distributed to 10,000+ affiliate partners across airlines, banks, loyalty apps, and OTAs.</p>
+            <div class="prog-stats">
+              <div class="prog-stat"><div class="prog-stat-num">$75M</div><div class="prog-stat-lbl">Est. revenue</div></div>
+            </div>
+          </div>
+          <details class="prog-expand">
+            <summary>How it works</summary>
+            <p class="how-text">Property sets a <span class="how-accent">minimum 1% discount</span> off their standard rate — no lock-in, no extra paperwork. Rates go live across <span class="how-accent">airlines, banks, regional OTAs, loyalty apps, and super apps</span> via the Booking Holdings affiliate network. Bookings arrive from audiences the property couldn't reach directly.</p>
+          </details>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-row">
+            <div class="prog-info"><span class="prog-cat">Visibility</span>
+            <div class="prog-name">Boost Rank</div></div>
+            <p class="prog-desc">Run short campaigns targeting specific audiences and stay dates — paying only when a booking lands. No lock-in.</p>
+            <div class="prog-stats">
+              <div class="prog-stat"><div class="prog-stat-num">$67M</div><div class="prog-stat-lbl">Est. revenue</div></div>
+            </div>
+          </div>
+          <details class="prog-expand">
+            <summary>How it works</summary>
+            <p class="how-text">Property creates a campaign with a <span class="how-accent">target audience</span> (e.g. Singapore guests, next 30 days) and budget. When the target guest searches, the property is pushed <span class="how-accent">higher in results</span>. INM is charged <span class="how-accent">per booking</span>, not per impression — if no guest books, no cost.</p>
+          </details>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-row">
+            <div class="prog-info"><span class="prog-cat">Placement</span>
+            <div class="prog-name">Sponsored Listing</div></div>
+            <p class="prog-desc">Buy the top 1–3 slot in city search results — above all organic results, on every platform.</p>
+            <div class="prog-stats">
+              <div class="prog-stat"><div class="prog-stat-num">$17M</div><div class="prog-stat-lbl">Est. revenue</div></div>
+            </div>
+          </div>
+          <details class="prog-expand">
+            <summary>How it works</summary>
+            <p class="how-text">Property picks a <span class="how-accent">city, date range, and slot</span> (top 1–3), priced upfront. For every matching search, the property appears in the <span class="how-accent">sponsored top 3</span> — above all organic results, on all platforms. Best for <span class="how-accent">peak dates</span> or new market entry.</p>
+          </details>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-row">
+            <div class="prog-info"><span class="prog-cat">Rate Automation</span>
+            <div class="prog-name">Dynamic Rates</div></div>
+            <p class="prog-desc">Activate once — auto-adjusts the Agoda rate whenever a wholesaler undercuts, winning the booking back to direct.</p>
+            <div class="prog-stats">
+              <div class="prog-stat"><div class="prog-stat-num">$7.5M</div><div class="prog-stat-lbl">Est. revenue</div></div>
+            </div>
+          </div>
+          <details class="prog-expand">
+            <summary>How it works</summary>
+            <p class="how-text">Property activates once in YCS. The system monitors the Agoda rate against <span class="how-accent">wholesaler (SuperAgg) rates</span> continuously. When a wholesaler undercuts, it <span class="how-accent">closes the gap automatically</span> — up to 2% below the wholesaler, capped at 25% off. The guest sees the better rate on Agoda and books direct.</p>
+          </details>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-row">
+            <div class="prog-info"><span class="prog-cat">Branded Storefront</span>
+            <div class="prog-name">Flagship Store</div></div>
+            <p class="prog-desc">Bespoke branded storefront for hotel chains — dedicated search suggestion, store page, and homepage banner.</p>
+            <div class="prog-stats">
+              <div class="prog-stat"><div class="prog-stat-num">30&times;</div><div class="prog-stat-lbl">ROAS avg</div></div>
+            </div>
+          </div>
+          <details class="prog-expand">
+            <summary>How it works</summary>
+            <p class="how-text">BD team pitches and closes a bespoke deal — the chain agrees an <span class="how-accent">INM% and contract term</span>. Agoda builds a <span class="how-accent">dedicated store page, branded search suggestion, and homepage banner</span>. Live partners see <span class="how-accent">+29% net room nights, +32% revenue, 30&times; ROAS</span>, and 160k+ daily impressions.</p>
+          </details>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Design Solution</h2>
+      <p class="text-body" style="margin-bottom:1.25rem">A property-first hub: Maison Solara lands on recommended actions with clear outcomes, then can scan the full program catalog underneath.</p>
 
       <div class="hero-product hero-product--embed" role="img" aria-label="Partner Programs product interface mockup for Maison Solara">
         <div class="hero-product-stage">
@@ -254,158 +423,6 @@
 
   <section>
     <div class="container">
-      <h2>The Programs</h2>
-      <p class="text-body" style="margin-bottom:1.5rem">Eight programs that create value for property partners and Agoda — through visibility, smarter pricing, discounts, distribution, and prepaid commitments. Each designed as part of a cohesive experience within the unified program hub.</p>
-      <div class="prog-grid">
-
-        <div class="prog-card">
-          <div class="prog-card-row">
-            <div class="prog-info"><span class="prog-cat">Conversion</span>
-            <div class="prog-name">Promotions</div></div>
-            <p class="prog-desc">Property sets a discount — Agoda adds a deal badge, boosts rank, and amplifies across email, push, and deal pages.</p>
-            <div class="prog-stats">
-              <div class="prog-stat"><div class="prog-stat-num">$233M</div><div class="prog-stat-lbl">Est. revenue</div></div>
-            </div>
-          </div>
-          <details class="prog-expand">
-            <summary>How it works</summary>
-            <p class="how-text">Property chooses a <span class="how-accent">discount type and depth</span> (e.g. 15% off for app users, 20% off for 30+ day advance bookings). Agoda adds a <span class="how-accent">deal label</span> in search results, applies a ranking boost, and surfaces it in email, push, and deal pages. Four types: <span class="how-accent">Mega Sale</span> (755M+ impressions), <span class="how-accent">Seasonal</span> ($89.7M), <span class="how-accent">Always-on</span> ($29M), <span class="how-accent">Targeted</span> ($114.2M, 72% penetration).</p>
-          </details>
-        </div>
-
-        <div class="prog-card">
-          <div class="prog-card-row">
-            <div class="prog-info"><span class="prog-cat">Marketing</span>
-            <div class="prog-name">Agoda Growth Program</div></div>
-            <p class="prog-desc">Pay a higher commission — Agoda deploys the full marketing suite: ranking boost, ad spend, Preferred Partner badge.</p>
-            <div class="prog-stats">
-              <div class="prog-stat"><div class="prog-stat-num">$131M</div><div class="prog-stat-lbl">Est. revenue</div></div>
-            </div>
-          </div>
-          <details class="prog-expand">
-            <summary>How it works</summary>
-            <p class="how-text">Property commits to a higher commission, typically <span class="how-accent">10–15% INM</span>. Agoda deploys the full marketing stack: higher search rank, increased ad spend on Google &amp; Kayak, wider affiliate reach, and a <span class="how-accent">Preferred Partner badge</span> on every result. Partners see <span class="how-accent">+10% avg booking uplift</span> and 1.8&times; more PPC/MSE ad spend.</p>
-          </details>
-        </div>
-
-        <div class="prog-card">
-          <div class="prog-card-row">
-            <div class="prog-info"><span class="prog-cat">Prepaid</span>
-            <div class="prog-name">Agoda Advanced</div></div>
-            <p class="prog-desc">Pay upfront — Agoda deducts from the balance per booking. AGP or Maximum Gain variant.</p>
-            <div class="prog-stats">
-              <div class="prog-stat"><div class="prog-stat-num">$120M</div><div class="prog-stat-lbl">Est. revenue</div></div>
-            </div>
-          </div>
-          <details class="prog-expand">
-            <summary>How it works</summary>
-            <p class="how-text">Property makes a lump-sum prepayment, <span class="how-accent">auto-renewed when balance hits 90%</span>. Two variants: <span class="how-accent">AGP variant</span> (Preferred Partner badge, ranking boost, ad spend) or <span class="how-accent">Maximum Gain variant</span> (net rate improvement, 10,000+ affiliate distribution). Balance is consumed by net earnings of eligible bookings per booking.</p>
-          </details>
-        </div>
-
-        <div class="prog-card">
-          <div class="prog-card-row">
-            <div class="prog-info"><span class="prog-cat">Distribution</span>
-            <div class="prog-name">Maximum Gain</div></div>
-            <p class="prog-desc">Share wholesale rates — distributed to 10,000+ affiliate partners across airlines, banks, loyalty apps, and OTAs.</p>
-            <div class="prog-stats">
-              <div class="prog-stat"><div class="prog-stat-num">$75M</div><div class="prog-stat-lbl">Est. revenue</div></div>
-            </div>
-          </div>
-          <details class="prog-expand">
-            <summary>How it works</summary>
-            <p class="how-text">Property sets a <span class="how-accent">minimum 1% discount</span> off their standard rate — no lock-in, no extra paperwork. Rates go live across <span class="how-accent">airlines, banks, regional OTAs, loyalty apps, and super apps</span> via the Booking Holdings affiliate network. Bookings arrive from audiences the property couldn't reach directly.</p>
-          </details>
-        </div>
-
-        <div class="prog-card">
-          <div class="prog-card-row">
-            <div class="prog-info"><span class="prog-cat">Visibility</span>
-            <div class="prog-name">Boost Rank</div></div>
-            <p class="prog-desc">Run short campaigns targeting specific audiences and stay dates — paying only when a booking lands. No lock-in.</p>
-            <div class="prog-stats">
-              <div class="prog-stat"><div class="prog-stat-num">$67M</div><div class="prog-stat-lbl">Est. revenue</div></div>
-            </div>
-          </div>
-          <details class="prog-expand">
-            <summary>How it works</summary>
-            <p class="how-text">Property creates a campaign with a <span class="how-accent">target audience</span> (e.g. Singapore guests, next 30 days) and budget. When the target guest searches, the property is pushed <span class="how-accent">higher in results</span>. INM is charged <span class="how-accent">per booking</span>, not per impression — if no guest books, no cost.</p>
-          </details>
-        </div>
-
-        <div class="prog-card">
-          <div class="prog-card-row">
-            <div class="prog-info"><span class="prog-cat">Placement</span>
-            <div class="prog-name">Sponsored Listing</div></div>
-            <p class="prog-desc">Buy the top 1–3 slot in city search results — above all organic results, on every platform.</p>
-            <div class="prog-stats">
-              <div class="prog-stat"><div class="prog-stat-num">$17M</div><div class="prog-stat-lbl">Est. revenue</div></div>
-            </div>
-          </div>
-          <details class="prog-expand">
-            <summary>How it works</summary>
-            <p class="how-text">Property picks a <span class="how-accent">city, date range, and slot</span> (top 1–3), priced upfront. For every matching search, the property appears in the <span class="how-accent">sponsored top 3</span> — above all organic results, on all platforms. Best for <span class="how-accent">peak dates</span> or new market entry.</p>
-          </details>
-        </div>
-
-        <div class="prog-card">
-          <div class="prog-card-row">
-            <div class="prog-info"><span class="prog-cat">Rate Automation</span>
-            <div class="prog-name">Dynamic Rates</div></div>
-            <p class="prog-desc">Activate once — auto-adjusts the Agoda rate whenever a wholesaler undercuts, winning the booking back to direct.</p>
-            <div class="prog-stats">
-              <div class="prog-stat"><div class="prog-stat-num">$7.5M</div><div class="prog-stat-lbl">Est. revenue</div></div>
-            </div>
-          </div>
-          <details class="prog-expand">
-            <summary>How it works</summary>
-            <p class="how-text">Property activates once in YCS. The system monitors the Agoda rate against <span class="how-accent">wholesaler (SuperAgg) rates</span> continuously. When a wholesaler undercuts, it <span class="how-accent">closes the gap automatically</span> — up to 2% below the wholesaler, capped at 25% off. The guest sees the better rate on Agoda and books direct.</p>
-          </details>
-        </div>
-
-        <div class="prog-card">
-          <div class="prog-card-row">
-            <div class="prog-info"><span class="prog-cat">Branded Storefront</span>
-            <div class="prog-name">Flagship Store</div></div>
-            <p class="prog-desc">Bespoke branded storefront for hotel chains — dedicated search suggestion, store page, and homepage banner.</p>
-            <div class="prog-stats">
-              <div class="prog-stat"><div class="prog-stat-num">30&times;</div><div class="prog-stat-lbl">ROAS avg</div></div>
-            </div>
-          </div>
-          <details class="prog-expand">
-            <summary>How it works</summary>
-            <p class="how-text">BD team pitches and closes a bespoke deal — the chain agrees an <span class="how-accent">INM% and contract term</span>. Agoda builds a <span class="how-accent">dedicated store page, branded search suggestion, and homepage banner</span>. Live partners see <span class="how-accent">+29% net room nights, +32% revenue, 30&times; ROAS</span>, and 160k+ daily impressions.</p>
-          </details>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2>Process</h2>
-      <div class="process-item"><div class="process-num">1</div><div class="process-text"><h4>Research &amp; benchmarking</h4><p>Synthesized partner pain points, support tickets, and NPS data. Analyzed how leading platforms structure program discovery. <span class="num-accent">Partnered with Agoda research team</span></p></div></div>
-      <div class="process-item"><div class="process-num">2</div><div class="process-text"><h4>Concept &amp; stakeholder alignment</h4><p>Explored multiple IA models and program comparison layouts. Ran weekly syncs with 5+ program owners to surface tradeoffs early.</p></div></div>
-      <div class="process-item"><div class="process-num">3</div><div class="process-text"><h4>User testing &amp; iteration</h4><p>Tested with 8 partners across 3 markets. Validated comprehension of program differences, CTAs, and navigation flow.</p></div></div>
-      <div class="process-item"><div class="process-num">4</div><div class="process-text"><h4>Ruthless prioritisation &amp; launch</h4><p>Mapped features on impact/effort matrix. Shipped MVP in 1 quarter by scoping ruthlessly. A/B tested Dec 2025 – Jan 2026.</p></div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2>Solutions</h2>
-      <div class="card-grid">
-        <div class="card"><h3>Unified Program Hub</h3><p class="text-body">Single landing page surfacing all growth programs — replacing 5+ separate entry points.</p></div>
-        <div class="card"><h3>Program Comparison</h3><p class="text-body">Side-by-side view of program benefits, requirements, and expected outcomes.</p></div>
-        <div class="card"><h3>Clear Activation Path</h3><p class="text-body">Each program with a single primary CTA, eligibility indicators, and estimated time commitment.</p></div>
-        <div class="card"><h3>Program Playbook</h3><p class="text-body">Co-owned with product — a feature playbook informed by prior experiments and a program lifecycle (incubation, proof of concept, scaling, mature). Each phase prescribes different needs against core partner program tenets.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
       <h2>Results</h2>
       <div class="results-board">
         <p class="results-claim">A unified program hub grounded in co-owned tenets and a shared lifecycle design pattern.</p>
@@ -425,17 +442,6 @@
         </div>
         <p class="results-support">Spanning incubation through maturity — every dollar from mutual value between properties and Agoda.</p>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2>Reflections</h2>
-      <div class="process-row"><h3>Ruthless scoping is a design skill</h3><p class="text-body">Shipping MVP in 1 quarter meant saying no to 70% of the wishlist. Scope discipline created space for quality.</p></div>
-      <div class="process-row"><h3>Business owners are users too</h3><p class="text-body">The hardest problem wasn't the UI — it was balancing 5+ stakeholder incentives. Alignment was the real design work.</p></div>
-      <div class="process-row"><h3>A $521M revenue line built on mutual value</h3><p class="text-body">Every dollar comes from a property that got something real back: more bookings, better visibility, more distribution.</p></div>
-      <div class="process-row"><h3>Mentorship amplified impact</h3><p class="text-body">Coaching a junior designer multiplied our output and built capability that outlasted the project.</p></div>
-      <div class="process-row"><h3>What I'd do differently</h3><p class="text-body">Validate the IA with a card sort before visual design. We got it right, but it took more iteration than necessary.</p></div>
     </div>
   </section>
 

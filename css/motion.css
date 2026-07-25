@@ -119,15 +119,28 @@
   transform: none;
 }
 
+.js-motion .exp-marker,
+.js-motion .exp-company {
+  transition:
+    border-color var(--motion-fast) ease,
+    color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .js-motion .card:hover,
   .js-motion a.card:hover {
     transform: translateY(-3px);
   }
-  .js-motion .exp-row:hover,
   .js-motion .process-row:hover,
   .js-motion .process-item:hover {
     transform: translateX(4px);
+  }
+  .js-motion .exp-row:hover .exp-marker {
+    border-color: var(--text);
+  }
+  .js-motion .exp-row:hover .exp-company {
+    color: var(--text);
   }
   .js-motion .stat-pill:hover,
   .js-motion .stat-block:hover {

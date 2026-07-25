@@ -18,11 +18,14 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%234a5a2a'/><path d='M14 10l8 6-8 6' stroke='%23faf7f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/teletype.css?v=47">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexserif/v20/jizAREVNn1dOx-zrZ2X3pZvkTi2k_iI0q1s.woff2">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="css/teletype.css?v=77">
 <link rel="stylesheet" href="css/product-shot.css?v=3">
 <link rel="stylesheet" href="css/dev-product.css?v=8">
-<link rel="stylesheet" href="css/dev-flow.css?v=1">
+<link rel="stylesheet" href="css/dev-flow.css?v=5">
 </head>
 <body>
 
@@ -62,11 +65,11 @@
   <section>
     <div class="container">
       <h2>The Problem</h2>
-      <p class="text-body" style="max-width:42rem;margin-bottom:0">Agoda's internal developer platform was fragmented, slow, and unscored. Creating a service took 1–2 working days. Deploying to private cloud required tribal knowledge. As the first designer in DevOps, I had to name the pain before we could score it.</p>
+      <p class="text-body" style="margin-bottom:0">Agoda's internal developer platform was fragmented, slow, and unscored. Creating a service took 1–2 working days. Deploying to private cloud required tribal knowledge. As the first designer in DevOps, I had to name the pain before we could score it.</p>
 
       <div class="problem-pillars">
         <article class="problem-pillar">
-          <h3>DX was invisible</h3>
+          <h3>Developer Experience was invisible</h3>
           <p>No SUS baseline. Home was a flat link dump — engineers could not learn the system, and leadership could not measure whether design helped.</p>
         </article>
         <article class="problem-pillar">
@@ -97,7 +100,7 @@
         </figure>
       </div>
 
-      <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-top:0.5rem;margin-bottom:0.75rem;">The broken service creation flow</p>
+      <p class="text-small" style="text-transform:uppercase;letter-spacing:0.1em;margin-top:0.5rem;margin-bottom:0.75rem;">The broken service creation flow</p>
       <div class="product-shot-stack">
         <figure class="product-shot">
           <div class="product-shot-frame">
@@ -148,8 +151,44 @@
 
   <section>
     <div class="container">
+      <h2>Process</h2>
+      <div class="exp-timeline" role="list">
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Domain immersion</div>
+            <p class="text-body">Interviewed 15+ developers. Learned Kubernetes, Docker, and CI/CD to earn technical credibility.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Heuristic evaluation</div>
+            <p class="text-body">Scored the platform against Nielsen's heuristics. Documented 47 usability issues.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Baseline &amp; measure</div>
+            <p class="text-body">Established SUS baseline (61.9). Re-ran every 2 quarters to track improvement.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Ideation &amp; phased delivery</div>
+            <p class="text-body">Phase 1: quick wins to unblock developers. Phase 2: full automation with approval workflows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
       <h2>Goals</h2>
-      <p class="text-body" style="margin-bottom:1.5rem;max-width:42rem">Three commitments that shaped the work — each tied to the surfaces we shipped.</p>
+      <p class="text-body" style="margin-bottom:1.5rem">Three commitments that shaped the work — each tied to the surfaces we shipped.</p>
       <div class="goals-board">
 
         <article class="goal-block">
@@ -164,27 +203,15 @@
           <div class="flow-board" data-flow-board data-mode="before">
             <div class="flow-board-head">
               <div>
-                <h3>Goal 01 · Service creation as a path</h3>
-                <p>Toggle before/after, then click a node — the maze we inherited versus the guided DX path we shipped.</p>
+                <h3>Service creation as a path</h3>
+                <p>Same six beats — toggle to watch the maze become a guided path.</p>
               </div>
               <div class="flow-toggle" role="group" aria-label="Flow mode">
                 <button type="button" data-flow-mode="before" class="is-on" aria-pressed="true">Before</button>
                 <button type="button" data-flow-mode="after" aria-pressed="false">After</button>
               </div>
             </div>
-            <div class="flow-stage">
-              <div class="flow-canvas">
-                <svg class="flow-edges" data-flow-edges aria-hidden="true"></svg>
-                <div class="flow-nodes" data-flow-nodes></div>
-              </div>
-              <div class="flow-detail">
-                <div class="flow-detail-copy">
-                  <h4 data-flow-detail-title>Hunt the portal</h4>
-                  <p data-flow-detail-body>Home was a flat dump of links. Engineers could not find Create service without Slack tribal knowledge.</p>
-                </div>
-                <div class="flow-detail-meta" data-flow-detail-meta>Friction · discoverability</div>
-              </div>
-            </div>
+            <ol class="flow-list" data-flow-list></ol>
           </div>
 
           <div class="product-shot-stack">
@@ -575,16 +602,6 @@
 
   <section>
     <div class="container">
-      <h2>Process</h2>
-      <div class="process-item"><div class="process-num">1</div><div class="process-text"><h4>Domain immersion</h4><p>Interviewed 15+ developers. Learned Kubernetes, Docker, and CI/CD to earn technical credibility.</p></div></div>
-      <div class="process-item"><div class="process-num">2</div><div class="process-text"><h4>Heuristic evaluation</h4><p>Scored the platform against Nielsen's heuristics. Documented 47 usability issues.</p></div></div>
-      <div class="process-item"><div class="process-num">3</div><div class="process-text"><h4>Baseline &amp; measure</h4><p>Established SUS baseline (61.9). Re-ran every 2 quarters to track improvement.</p></div></div>
-      <div class="process-item"><div class="process-num">4</div><div class="process-text"><h4>Ideation &amp; phased delivery</h4><p>Phase 1: quick wins to unblock developers. Phase 2: full automation with approval workflows.</p></div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
       <h2>Results</h2>
       <div class="results-board">
         <p class="results-claim">Service creation collapsed from days to minutes.</p>
@@ -625,16 +642,6 @@
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <h2>Reflections</h2>
-      <div class="process-row"><h3>Credibility precedes craft</h3><p class="text-body">Learning Kubernetes and Docker wasn't optional — it was the price of entry to earn developer trust.</p></div>
-      <div class="process-row"><h3>Metrics create permanence</h3><p class="text-body">The SUS baseline turned subjective opinions into trackable numbers that outlasted the project.</p></div>
-      <div class="process-row"><h3>Phasing is everything</h3><p class="text-body">Quick wins built trust for bigger bets — sequencing made the difference between adoption and resistance.</p></div>
-      <div class="process-row"><h3>What I'd do differently</h3><p class="text-body">Bring in a frontend engineer earlier. I spent too much of the first quarter on visual polish when the bigger UX wins were in workflow simplification.</p></div>
-    </div>
-  </section>
-
   <hr class="section-divider">
 
   <section>
@@ -650,6 +657,6 @@
 </footer>
 
 <script src="js/teletype.js?v=29"></script>
-<script src="js/dev-flow.js"></script>
+<script src="js/dev-flow.js?v=2"></script>
 </body>
 </html>

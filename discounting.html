@@ -18,9 +18,12 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%234a5a2a'/><path d='M14 10l8 6-8 6' stroke='%23faf7f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/teletype.css?v=47">
-<link rel="stylesheet" href="css/disc-product.css?v=3">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexserif/v20/jizAREVNn1dOx-zrZ2X3pZvkTi2k_iI0q1s.woff2">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="css/teletype.css?v=77">
+<link rel="stylesheet" href="css/disc-product.css?v=5">
 <link rel="stylesheet" href="css/discounting-ui.css?v=7">
 <link rel="stylesheet" href="css/shadcn-mockup.css">
 </head>
@@ -71,8 +74,44 @@
 
   <section>
     <div class="container">
-      <h2>Design Exploration</h2>
-      <p class="text-body" style="margin-bottom:1.5rem;max-width:42rem">Three product surfaces that make stacking understandable: simulate net rate before committing, see per-night promo impact on a booking, and learn how discounts apply in sequence.</p>
+      <h2>Process</h2>
+      <div class="exp-timeline" role="list">
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Benchmarking &amp; alignment</div>
+            <p class="text-body">Studied how leading platforms handle discount UX. Ran workshops with 5+ business owners to align on partner impact. <span class="num-accent">Partnered with Agoda research team</span></p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">User testing</div>
+            <p class="text-body">Tested discount stacking explanations with 12 partners. Iterated until comprehension hit target.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Experimentation</div>
+            <p class="text-body">Shipped behind feature flags. Measured handle time, activation rates, and complaint volume.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Iterative refinement</div>
+            <p class="text-body">Continuous improvement based on support tickets and agent feedback over 1.5 years.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Design Solution</h2>
+      <p class="text-body" style="margin-bottom:1.5rem">Three product surfaces that make stacking understandable: simulate net rate before committing, see per-night promo impact on a booking, and learn how discounts apply in sequence.</p>
 
       <div class="disc-explore-card">
         <h3>Stacking Transparency</h3>
@@ -349,16 +388,6 @@
 
   <section>
     <div class="container">
-      <h2>Process</h2>
-      <div class="process-item"><div class="process-num">1</div><div class="process-text"><h4>Benchmarking &amp; alignment</h4><p>Studied how leading platforms handle discount UX. Ran workshops with 5+ business owners to align on partner impact. <span class="num-accent">Partnered with Agoda research team</span></p></div></div>
-      <div class="process-item"><div class="process-num">2</div><div class="process-text"><h4>User testing</h4><p>Tested discount stacking explanations with 12 partners. Iterated until comprehension hit target.</p></div></div>
-      <div class="process-item"><div class="process-num">3</div><div class="process-text"><h4>Experimentation</h4><p>Shipped behind feature flags. Measured handle time, activation rates, and complaint volume.</p></div></div>
-      <div class="process-item"><div class="process-num">4</div><div class="process-text"><h4>Iterative refinement</h4><p>Continuous improvement based on support tickets and agent feedback over 1.5 years.</p></div></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
       <h2>Results</h2>
       <div class="results-board">
         <p class="results-claim">The #1 partner complaint category eliminated.</p>
@@ -388,16 +417,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2>Reflections</h2>
-      <div class="process-row"><h3>Removing > Adding</h3><p class="text-body">Deprecating legacy promotions was harder than launching new ones. Sunset planning is design work too.</p></div>
-      <div class="process-row"><h3>Trust is currency</h3><p class="text-body">Design rationale backed by evidence turned adversaries into allies across conflicting interests.</p></div>
-      <div class="process-row"><h3>Persistence compounds</h3><p class="text-body">1.5 years of small wins added up to double-digit activation gains.</p></div>
-      <div class="process-row"><h3>What I'd do differently</h3><p class="text-body">Run a pricing perception study earlier. Some partners didn't trust the stacking logic even when it was correct — we fixed this reactively instead of proactively.</p></div>
     </div>
   </section>
 

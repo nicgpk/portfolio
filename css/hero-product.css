@@ -1032,16 +1032,19 @@
   .hero-product-tabbar {
     display: none;
   }
-  /* Soft fade at the bottom edge of the cropped phone */
+  .hero-product-cards {
+    margin-bottom: 0;
+  }
+  /* Soft fade clipped under the promo card */
   .hero-product-screen::after {
     display: block;
     bottom: 0;
-    height: 64px;
+    height: 28px;
     z-index: 4;
     background: linear-gradient(
       180deg,
       transparent 0%,
-      color-mix(in srgb, var(--hp-bg) 55%, transparent) 45%,
+      color-mix(in srgb, var(--hp-bg) 70%, transparent) 55%,
       var(--hp-bg) 100%
     );
   }
@@ -1052,7 +1055,8 @@
   }
   .hero-product-main {
     flex: 1 1 auto;
-    padding-bottom: 18px;
+    min-height: 0;
+    padding-bottom: 6px;
   }
   .hero-product-frame,
   .hero-product:hover .hero-product-frame,
@@ -1210,8 +1214,9 @@
   }
   .hero-product-main {
     font-size: 12px;
-    padding: 42px 10px 16px;
+    padding: 42px 10px 6px;
     min-width: 0;
+    min-height: 0;
   }
   .hero-product-peek .hero-product-tr span:nth-child(3) { display: none; }
   .hero-product-tr {

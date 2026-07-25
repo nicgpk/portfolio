@@ -18,9 +18,12 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%234a5a2a'/><path d='M14 10l8 6-8 6' stroke='%23faf7f0' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/teletype.css?v=47">
-<link rel="stylesheet" href="css/hero-product.css?v=29">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/ibmplexserif/v20/jizAREVNn1dOx-zrZ2X3pZvkTi2k_iI0q1s.woff2">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="css/teletype.css?v=77">
+<link rel="stylesheet" href="css/hero-product.css?v=30">
 </head>
 <body>
 
@@ -245,35 +248,47 @@
   <section>
     <div class="container">
       <h2>Experience</h2>
-      <div class="exp-row">
-        <div class="exp-dot"></div><div class="exp-info">
-          <div class="exp-company">Agoda, <span>Bangkok</span></div>
-          <div class="exp-role">Product Design Lead <span class="live-badge" style="margin-top:0"><span class="live-dot"></span> Current</span></div>
-        </div><div class="exp-date">Oct 2025 – Present</div>
-      </div>
-      <div class="exp-row">
-        <div class="exp-dot"></div><div class="exp-info">
-          <div class="exp-company">Agoda, <span>Bangkok</span></div>
-          <div class="exp-role">Senior Product Designer</div>
-        </div><div class="exp-date">Aug 2022 – Oct 2025</div>
-      </div>
-      <div class="exp-row">
-        <div class="exp-dot"></div><div class="exp-info">
-          <div class="exp-company">GovTech, <span>Singapore</span></div>
-          <div class="exp-role">UX Designer</div>
-        </div><div class="exp-date">Jul 2019 – Aug 2022</div>
-      </div>
-      <div class="exp-row">
-        <div class="exp-dot"></div><div class="exp-info">
-          <div class="exp-company">OCBC Bank, <span>Singapore</span></div>
-          <div class="exp-role">UX Designer</div>
-        </div><div class="exp-date">Aug 2018 – Jul 2019</div>
-      </div>
-      <div class="exp-row">
-        <div class="exp-dot"></div><div class="exp-info">
-          <div class="exp-company">Lucasfilm – Disney, <span>Singapore</span></div>
-          <div class="exp-role">Look Development Designer</div>
-        </div><div class="exp-date">Aug 2015 – Jul 2018</div>
+      <div class="exp-timeline" role="list">
+        <div class="exp-row is-current" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Agoda <span>– Bookings Holdings</span></div>
+            <div class="exp-role">Product Design Lead</div>
+          </div>
+          <div class="exp-date">Oct 2025 – Present</div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Agoda <span>– Bookings Holdings</span></div>
+            <div class="exp-role">Senior Product Designer</div>
+          </div>
+          <div class="exp-date">Aug 2022 – Oct 2025</div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">GovTech, <span>Singapore</span></div>
+            <div class="exp-role">UX Designer</div>
+          </div>
+          <div class="exp-date">Jul 2019 – Aug 2022</div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">OCBC Bank, <span>Singapore</span></div>
+            <div class="exp-role">UX Designer</div>
+          </div>
+          <div class="exp-date">Aug 2018 – Jul 2019</div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Lucasfilm – Disney, <span>Singapore</span></div>
+            <div class="exp-role">Look Development Designer</div>
+          </div>
+          <div class="exp-date">Aug 2015 – Jul 2018</div>
+        </div>
       </div>
     </div>
   </section>
@@ -282,29 +297,49 @@
   <section>
     <div class="container">
       <h2>Process</h2>
-      <div class="process-row">
-        <h3>Adaptive, not rigid</h3>
-        <p class="text-body">I match the methodology to the challenge: which tools to use, how to sequence research, and when to move fast versus go deep.</p>
-      </div>
-      <div class="process-row">
-        <h3>Championing the user</h3>
-        <p class="text-body">I stay close to real users through discovery interviews, usability testing, funnel analysis, clickstreams, and NPS signals.</p>
-      </div>
-      <div class="process-row">
-        <h3>Think long, ship smart</h3>
-        <p class="text-body">I hold a longer term vision while sequencing work that still delivers value in the near term.</p>
-      </div>
-      <div class="process-row">
-        <h3>Navigating tradeoffs</h3>
-        <p class="text-body">I make the best call given real constraints: time, capacity, data confidence, and stakeholder alignment.</p>
-      </div>
-      <div class="process-row">
-        <h3>Designing for business outcomes</h3>
-        <p class="text-body">Design initiatives stay tied to clear goals: conversion, retention, revenue, and operational efficiency.</p>
-      </div>
-      <div class="process-row">
-        <h3>Building effective teams</h3>
-        <p class="text-body">I hire, coach, and create conditions for designers to do their best work so craft and impact scale beyond any one person.</p>
+      <div class="exp-timeline" role="list">
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Adaptive, not rigid</div>
+            <p class="text-body">I match the methodology to the challenge: which tools to use, how to sequence research, and when to move fast versus go deep.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Championing the user</div>
+            <p class="text-body">I stay close to real users through discovery interviews, usability testing, funnel analysis, clickstreams, and NPS signals.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Think long, ship smart</div>
+            <p class="text-body">I hold a longer term vision while sequencing work that still delivers value in the near term.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Navigating tradeoffs</div>
+            <p class="text-body">I make the best call given real constraints: time, capacity, data confidence, and stakeholder alignment.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Designing for business outcomes</div>
+            <p class="text-body">Design initiatives stay tied to clear goals: conversion, retention, revenue, and operational efficiency.</p>
+          </div>
+        </div>
+        <div class="exp-row" role="listitem">
+          <div class="exp-marker" aria-hidden="true"></div>
+          <div class="exp-info">
+            <div class="exp-company">Building effective teams</div>
+            <p class="text-body">I hire, coach, and create conditions for designers to do their best work so craft and impact scale beyond any one person.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -321,7 +356,7 @@
       </div>
 
       <div class="sub-divider text-center">
-        <p style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.5rem;">Augmented by</p>
+        <p class="text-small" style="text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.5rem;">Augmented by</p>
         <p class="text-body">I use AI agents daily — Claude, Cursor, and others — to prototype faster, write better code, and stay focused on the work that matters.</p>
         <div class="logo-row">
           <img src="images/logo_claude2.png" alt="Claude">
@@ -336,7 +371,7 @@
   <section>
     <div class="container" style="text-align:center">
       <h2 style="justify-content:center">Let's connect</h2>
-      <p style="font-size:1rem;color:var(--text-dim);line-height:1.6;margin:0 0 1.5rem;">I'm always open to interesting conversations about design, product strategy, or new opportunities.</p>
+      <p class="text-body text-center" style="margin:0 0 1.5rem;">I'm always open to interesting conversations about design, product strategy, or new opportunities.</p>
       <div class="social-row">
         <a href="mailto:nicholasgweepk@gmail.com" class="social-icon" title="Email">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"/><path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z"/></svg>
