@@ -378,9 +378,8 @@
         th: 'เปิดส่วนลด พร้อมป้ายดีล ดันอันดับ และกระจายผ่านอีเมล/พุชของ Agoda',
         zh: '开通折扣即可获得特惠标识、排名提升，以及 Agoda 邮件/推送分发。'
       },
-      statPen: { en: 'Max penetration', th: 'การครอบคลุมสูงสุด', zh: '最高渗透' },
-      statRev: { en: 'By revenue', th: 'ตามรายได้', zh: '按收入' },
-      statLift: { en: 'Est. uplift', th: 'คาดการณ์เพิ่มขึ้น', zh: '预计提升' },
+      statRev: { en: 'Room nights', th: 'จำนวนห้องค้างคืน', zh: '间夜量' },
+      statLift: { en: 'Net revenue', th: 'รายได้สุทธิ', zh: '净收入' },
       btnActivate: { en: 'Activate', th: 'เปิดใช้', zh: '启用' },
       btnCompare: { en: 'Compare', th: 'เปรียบเทียบ', zh: '对比' },
       mktName: {
@@ -417,9 +416,9 @@
       },
       statEstRev: { en: 'Est. revenue', th: 'รายได้โดยประมาณ', zh: '预计收入' },
       boostRevNum: {
-        en: '$67M',
-        th: '฿2.3B',
-        zh: '¥4.8亿'
+        en: '12%',
+        th: '12%',
+        zh: '12%'
       },
       statSearch: { en: 'Search lift', th: 'ค้นหาเพิ่มขึ้น', zh: '搜索提升' },
       allTitle: { en: 'All programs', th: 'โปรแกรมทั้งหมด', zh: '全部计划' },

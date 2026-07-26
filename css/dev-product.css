@@ -1107,6 +1107,30 @@
   .dev-catalog-cards { grid-template-columns: 1fr 1fr; }
   .dev-nav { display: none; }
   .dev-fields { grid-template-columns: 1fr; }
+  .dev-topbar {
+    gap: 8px;
+    padding: 0 10px;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .dev-brand {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dev-topbar-right {
+    min-width: 0;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+  }
+  .dev-search {
+    min-width: 0;
+    flex: 1 1 auto;
+    max-width: 140px;
+  }
+  .dev-feedback {
+    display: none;
+  }
 }
 
 @media (max-width: 520px) {
@@ -1114,4 +1138,7 @@
   .dev-catalog-cards { grid-template-columns: 1fr; }
   .dev-actions { display: none; }
   .dev-page-title { font-size: 16px; }
+  .dev-search {
+    max-width: 96px;
+  }
 }

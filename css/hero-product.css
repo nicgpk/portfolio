@@ -1,4 +1,5 @@
-/* hero-product.css — Homepage product shot. Scoped; does not affect case-study mockups. */
+/* hero-product.css — Partner Growth product UI.
+   Tokens are shared so cards/badges also work in playbook mocks (.pb-ui). */
 
 .hero-product {
   display: block;
@@ -126,7 +127,9 @@
   opacity: 0.7;
 }
 
-.hero-product-screen {
+/* Shared tokens for hero product chrome + playbook pattern examples */
+.hero-product-screen,
+.pb-ui {
   --hp-bg: #eef1f5;
   --hp-panel: #ffffff;
   --hp-ink: #0f1419;
@@ -137,6 +140,9 @@
   --hp-green: #059669;
   --hp-orange: #ea580c;
   --hp-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans Thai', 'Thonburi', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+}
+
+.hero-product-screen {
   position: relative;
   background: var(--hp-bg);
   font-family: var(--hp-font);
@@ -470,7 +476,7 @@
   border-radius: 8px;
   border: 1px solid rgba(15, 20, 25, 0.12);
   background: linear-gradient(180deg, #ffffff 0%, #f2f3f5 100%);
-  color: var(--hp-ink);
+  color: var(--hp-ink, #0f1419);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.9) inset,
     0 1px 2px rgba(15, 20, 25, 0.06),
@@ -673,7 +679,7 @@
 .hero-product-card p.meta {
   margin-top: 2px;
   font-size: 11px;
-  color: var(--hp-muted);
+  color: var(--hp-muted, #667085);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -695,9 +701,10 @@
   letter-spacing: 0.01em;
   border: 1px solid rgba(15, 20, 25, 0.08);
   background: rgba(15, 20, 25, 0.04);
-  color: var(--hp-muted);
+  color: var(--hp-muted, #667085);
   flex-shrink: 0;
   line-height: 1.2;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .hero-product-badge::before {
@@ -712,20 +719,20 @@
 
 .hero-product-badge.on {
   background: #ecfdf5;
-  color: var(--hp-green);
+  color: var(--hp-green, #059669);
   border-color: rgba(5, 150, 105, 0.12);
 }
 
 .hero-product-badge.rec {
   background: #eff6ff;
-  color: var(--hp-blue);
+  color: var(--hp-blue, #2563eb);
   border-color: rgba(37, 99, 235, 0.14);
 }
 
 .hero-product-card .desc {
   margin: 0;
   font-size: 12px;
-  color: var(--hp-muted);
+  color: var(--hp-muted, #667085);
   line-height: 1.45;
   min-height: calc(12px * 1.45 * 3); /* reserve 3 lines so all cards align */
   display: -webkit-box;
@@ -736,7 +743,7 @@
 
 .hero-product-card-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   gap: 0;
   margin-top: auto;
   padding: 0;
@@ -749,7 +756,7 @@
 }
 
 .hero-product-card.is-featured .hero-product-card-stats {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 }
 
 .hero-product-card-stats > div {
@@ -805,6 +812,8 @@
   height: 30px;
   padding: 0 8px;
   font-size: 11.5px;
+  line-height: 1;
+  box-sizing: border-box;
   width: 100%;
   min-width: 0;
   overflow: hidden;
@@ -986,7 +995,7 @@
   .hero-product-card.is-featured { grid-row: auto; }
   .hero-product-card.is-secondary { display: none; }
   .hero-product-card.is-featured .hero-product-card-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   }
   /* Card chrome at 12px base */
   .hero-product-card h5,
