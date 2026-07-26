@@ -1,3 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /partner-programs.html
+Disallow: /files/ats-resume.html
+
 Sitemap: https://nicgpk.github.io/portfolio/sitemap.xml
