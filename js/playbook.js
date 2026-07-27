@@ -3,8 +3,7 @@
   var root = document.querySelector('[data-pb-playbook]');
   if (!root) return;
 
-  var home = root.querySelector('[data-pb-home]');
-  var detail = root.querySelector('[data-pb-detail]');
+  var modal = root.querySelector('[data-pb-modal]');
   var back = root.querySelector('[data-pb-back]');
   var nextBtn = root.querySelector('[data-pb-next]');
   var prevBtn = root.querySelector('[data-pb-prev]');
@@ -456,10 +455,11 @@
     });
     render(pattern);
     root.classList.add('is-detail');
-    detail.hidden = false;
-    if (home) home.setAttribute('hidden', '');
     stripRecs();
     updateNextButton();
+    if (modal && !modal.open && typeof modal.showModal === 'function') {
+      modal.showModal();
+    }
     if (back && typeof back.focus === 'function') {
       try { back.focus(); } catch (err) { /* ignore */ }
     }
@@ -488,16 +488,18 @@
   }
 
   function closePattern() {
+    if (modal && modal.open && typeof modal.close === 'function') {
+      modal.close();
+      return;
+    }
     root.classList.remove('is-detail');
-    detail.hidden = true;
-    if (home) home.removeAttribute('hidden');
     openButtons.forEach(function (btn) {
       btn.classList.remove('is-active');
     });
     currentId = null;
     stripRecs();
     if (lastTrigger && typeof lastTrigger.focus === 'function') {
-      lastTrigger.focus();
+      try { lastTrigger.focus(); } catch (err) { /* ignore */ }
     }
   }
 
@@ -528,9 +530,22 @@
     }
   });
 
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && root.classList.contains('is-detail')) {
-      closePattern();
-    }
-  });
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        modal.close();
+      }
+    });
+    modal.addEventListener('close', function () {
+      root.classList.remove('is-detail');
+      openButtons.forEach(function (btn) {
+        btn.classList.remove('is-active');
+      });
+      currentId = null;
+      stripRecs();
+      if (lastTrigger && typeof lastTrigger.focus === 'function') {
+        try { lastTrigger.focus(); } catch (err) { /* ignore */ }
+      }
+    });
+  }
 })();
