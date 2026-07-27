@@ -143,8 +143,9 @@
 
 /* Shared liquid halftone overlay across all covers */
 .pb-cover-atmosphere::after {
-  inset: -20%;
-  background: url("../images/pb-cover-halftone.webp") center / 220% auto no-repeat;
+  inset: -5%;
+  background: url("../images/pb-cover-halftone.webp") center / cover no-repeat;
+  background-size: 115%;
   opacity: var(--pb-halftone-opacity);
   mix-blend-mode: var(--pb-halftone-blend);
   filter: contrast(1.05);
@@ -316,8 +317,7 @@
 }
 
 .pb-cover--pat-1 .pb-cover-atmosphere::after {
-  background-position: 12% 18%;
-  transform: scale(1.35) rotate(-4deg);
+  background-position: 18% 22%;
 }
 
 .pb-cover--pat-2 .pb-cover-atmosphere::before {
@@ -331,8 +331,7 @@
 }
 
 .pb-cover--pat-2 .pb-cover-atmosphere::after {
-  background-position: 78% 32%;
-  transform: scale(1.4) rotate(6deg);
+  background-position: 72% 38%;
 }
 
 .pb-cover--pat-3 .pb-cover-atmosphere::before {
@@ -341,8 +340,7 @@
 }
 
 .pb-cover--pat-3 .pb-cover-atmosphere::after {
-  background-position: 40% 70%;
-  transform: scale(1.45) rotate(-8deg);
+  background-position: 42% 68%;
 }
 
 .pb-cover--pat-4 .pb-cover-atmosphere::before {
@@ -356,8 +354,7 @@
 }
 
 .pb-cover--pat-4 .pb-cover-atmosphere::after {
-  background-position: 88% 80%;
-  transform: scale(1.5) rotate(10deg);
+  background-position: 82% 55%;
 }
 
 .pb-cover--pat-5 .pb-cover-atmosphere::before {
@@ -371,8 +368,8 @@
 }
 
 .pb-cover--pat-5 .pb-cover-atmosphere::after {
-  background-position: 22% 55%;
-  transform: scaleX(-1.35) scale(1.35);
+  background-position: 28% 48%;
+  transform: scaleX(-1);
 }
 
 .pb-cover--pat-6 .pb-cover-atmosphere::before {
@@ -387,8 +384,7 @@
 }
 
 .pb-cover--pat-6 .pb-cover-atmosphere::after {
-  background-position: 60% 20%;
-  transform: scale(1.48) rotate(-12deg);
+  background-position: 58% 30%;
 }
 
 .pb-cover--pat-7 .pb-cover-atmosphere::before {
@@ -397,12 +393,11 @@
 }
 
 .pb-cover--pat-7 .pb-cover-atmosphere::after {
-  background-position: 30% 90%;
-  transform: scale(1.55) rotate(3deg);
+  background-position: 35% 72%;
 }
 
 .pb-cover:hover .pb-cover-atmosphere::after {
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  transition: opacity 0.35s ease;
   opacity: calc(var(--pb-halftone-opacity) + 0.06);
 }
 
