@@ -1600,10 +1600,6 @@
 }
 
 @media (max-width: 800px) {
-  .pb-ui {
-    padding: 1rem;
-  }
-
   .pb-tenet {
     grid-template-columns: 1fr;
   }
