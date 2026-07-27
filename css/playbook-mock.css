@@ -316,8 +316,17 @@ html.pb-modal-open {
 }
 
 .pb-modal {
-  width: min(920px, calc(100vw - 2rem));
+  --pb-close-size: 40px;
+  --pb-close-inset: 0.65rem;
+  --pb-modal-pad-x: 1.15rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: min(920px, calc(100% - 2rem));
+  max-width: calc(100% - 2rem);
+  /* vh fallback, then dvh accounting for notches / home indicator */
   max-height: min(90vh, 900px);
+  max-height: min(90dvh, calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 2rem), 900px);
   margin: auto;
   padding: 0;
   border: 1px solid rgba(15, 20, 25, 0.12);
@@ -339,7 +348,10 @@ html.pb-modal-open {
   position: relative;
   display: flex;
   flex-direction: column;
-  max-height: min(90vh, 900px);
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  max-height: 100%;
   overflow: hidden;
   padding: 0;
   background: var(--pb-card, #fff);
@@ -347,14 +359,14 @@ html.pb-modal-open {
 
 .pb-close {
   position: absolute;
-  top: 0.65rem;
-  right: 0.65rem;
+  top: var(--pb-close-inset);
+  right: var(--pb-close-inset);
   z-index: 30;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: var(--pb-close-size);
+  height: var(--pb-close-size);
   margin: 0;
   padding: 0;
   border: none;
@@ -364,6 +376,7 @@ html.pb-modal-open {
   font: inherit;
   cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .pb-close:hover {
@@ -389,12 +402,23 @@ html.pb-modal-open {
 .pb-detail-main {
   flex: 1 1 auto;
   min-height: 0;
+  overflow-x: hidden;
   overflow-y: auto;
-  padding: 1rem 1.15rem 0.75rem;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem var(--pb-modal-pad-x) 0.75rem;
 }
 
 .pb-detail-head {
-  padding-right: 2.25rem;
+  /* Reserve space so absolute close never overlaps eyebrow/title */
+  padding-right: calc(var(--pb-close-size) + var(--pb-close-inset) + 0.5rem);
+  min-width: 0;
+}
+
+.pb-detail-head .pb-eyebrow,
+.pb-detail-head .pb-title,
+.pb-detail-head .pb-lede {
+  overflow-wrap: break-word;
 }
 
 .pb-modal .pb-nav {
@@ -404,7 +428,7 @@ html.pb-modal-open {
   z-index: 20;
   flex-shrink: 0;
   margin: 0;
-  padding: 0.65rem 1.15rem calc(0.85rem + env(safe-area-inset-bottom, 0px));
+  padding: 0.65rem var(--pb-modal-pad-x) 0.85rem;
   border-top: 1px solid var(--pb-line, #e5e7eb);
   background: color-mix(in srgb, var(--pb-card, #fff) 92%, transparent);
   backdrop-filter: blur(12px) saturate(1.3);
@@ -432,7 +456,8 @@ html.pb-modal-open {
   align-items: center;
   gap: 0.4rem;
   margin: 0;
-  height: 32px;
+  min-height: 36px;
+  height: 36px;
   padding: 0 14px;
   border: 1px solid rgba(15, 20, 25, 0.9);
   border-radius: 999px;
@@ -449,6 +474,7 @@ html.pb-modal-open {
     0 1px 2px rgba(15, 20, 25, 0.18),
     0 2px 0 rgba(15, 20, 25, 0.10);
   transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .pb-nav-seq {
@@ -1614,8 +1640,19 @@ html.pb-modal-open {
 
 @media (max-width: 480px) {
   .pb-modal {
-    width: calc(100vw - 1rem);
-    max-height: calc(100vh - 1rem);
+    --pb-close-size: 44px;
+    --pb-close-inset: 0.5rem;
+    --pb-modal-pad-x: 0.85rem;
+    width: calc(100% - 1rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+    max-width: calc(100% - 1rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+    /* Margins clear insets; max-height matches remaining visible space */
+    max-height: calc(100vh - max(0.5rem, env(safe-area-inset-top, 0px)) - max(0.5rem, env(safe-area-inset-bottom, 0px)));
+    max-height: calc(100dvh - max(0.5rem, env(safe-area-inset-top, 0px)) - max(0.5rem, env(safe-area-inset-bottom, 0px)));
+    max-height: calc(100svh - max(0.5rem, env(safe-area-inset-top, 0px)) - max(0.5rem, env(safe-area-inset-bottom, 0px)));
+    margin:
+      max(0.5rem, env(safe-area-inset-top, 0px))
+      auto
+      max(0.5rem, env(safe-area-inset-bottom, 0px));
     border-radius: 14px;
   }
 
@@ -1624,7 +1661,7 @@ html.pb-modal-open {
   }
 
   .pb-detail-main {
-    padding: 0.85rem 0.85rem 0.65rem;
+    padding: 0.85rem var(--pb-modal-pad-x) 0.65rem;
   }
 
   .pb-modal .pb-nav {
@@ -1636,7 +1673,8 @@ html.pb-modal-open {
     z-index: 40;
     order: initial;
     margin: 0;
-    padding: 0.55rem max(12px, env(safe-area-inset-left)) calc(0.65rem + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-right));
+    /* Modal margin already clears device insets; keep a touch-friendly bar */
+    padding: 0.65rem var(--pb-modal-pad-x) 0.75rem;
     background: color-mix(in srgb, var(--pb-card, #fff) 92%, transparent);
     backdrop-filter: blur(20px) saturate(1.4);
     -webkit-backdrop-filter: blur(20px) saturate(1.4);
@@ -1653,11 +1691,6 @@ html.pb-modal-open {
     flex-direction: column;
   }
 
-  .pb-close {
-    top: 0.5rem;
-    right: 0.5rem;
-  }
-
   .pb-nav {
     flex-wrap: nowrap;
     align-items: center;
@@ -1668,13 +1701,16 @@ html.pb-modal-open {
 
   .pb-nav-seq {
     flex: 1 1 auto;
+    min-width: 0;
     gap: 0.4rem;
   }
 
   .pb-prev,
   .pb-next {
     flex: 1 1 0;
-    height: 36px;
+    min-width: 0;
+    min-height: 44px;
+    height: 44px;
     justify-content: center;
     padding: 0 0.5rem;
     font-size: var(--text-xs);
