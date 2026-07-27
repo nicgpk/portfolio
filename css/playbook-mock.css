@@ -122,11 +122,11 @@
 
 /* Shared liquid halftone overlay across all covers */
 .pb-cover-atmosphere::after {
-  inset: -8%;
-  background: url("../images/pb-cover-halftone.webp") center / cover no-repeat;
-  opacity: 0.38;
+  inset: -20%;
+  background: url("../images/pb-cover-halftone.webp") center / 220% auto no-repeat;
+  opacity: 0.18;
   mix-blend-mode: soft-light;
-  filter: contrast(1.15) brightness(1.05);
+  filter: contrast(1.08) brightness(1.02);
 }
 
 .pb-cover-copy {
@@ -220,7 +220,7 @@
 
 .pb-cover--pat-1 .pb-cover-atmosphere::after {
   background-position: 12% 18%;
-  transform: scale(1.08) rotate(-4deg);
+  transform: scale(1.35) rotate(-4deg);
 }
 
 .pb-cover--pat-2 .pb-cover-atmosphere::before {
@@ -235,7 +235,7 @@
 
 .pb-cover--pat-2 .pb-cover-atmosphere::after {
   background-position: 78% 32%;
-  transform: scale(1.12) rotate(6deg);
+  transform: scale(1.4) rotate(6deg);
 }
 
 .pb-cover--pat-3 .pb-cover-atmosphere::before {
@@ -245,7 +245,7 @@
 
 .pb-cover--pat-3 .pb-cover-atmosphere::after {
   background-position: 40% 70%;
-  transform: scale(1.15) rotate(-8deg);
+  transform: scale(1.45) rotate(-8deg);
 }
 
 .pb-cover--pat-4 .pb-cover-atmosphere::before {
@@ -260,7 +260,7 @@
 
 .pb-cover--pat-4 .pb-cover-atmosphere::after {
   background-position: 88% 80%;
-  transform: scale(1.2) rotate(10deg);
+  transform: scale(1.5) rotate(10deg);
 }
 
 .pb-cover--pat-5 .pb-cover-atmosphere::before {
@@ -275,7 +275,7 @@
 
 .pb-cover--pat-5 .pb-cover-atmosphere::after {
   background-position: 22% 55%;
-  transform: scaleX(-1.1) scale(1.1);
+  transform: scaleX(-1.35) scale(1.35);
 }
 
 .pb-cover--pat-6 .pb-cover-atmosphere::before {
@@ -291,7 +291,7 @@
 
 .pb-cover--pat-6 .pb-cover-atmosphere::after {
   background-position: 60% 20%;
-  transform: scale(1.18) rotate(-12deg);
+  transform: scale(1.48) rotate(-12deg);
 }
 
 .pb-cover--pat-7 .pb-cover-atmosphere::before {
@@ -301,12 +301,12 @@
 
 .pb-cover--pat-7 .pb-cover-atmosphere::after {
   background-position: 30% 90%;
-  transform: scale(1.25) rotate(3deg);
+  transform: scale(1.55) rotate(3deg);
 }
 
 .pb-cover:hover .pb-cover-atmosphere::after {
   transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
-  opacity: 0.46;
+  opacity: 0.24;
 }
 
 @media (prefers-reduced-motion: reduce) {
