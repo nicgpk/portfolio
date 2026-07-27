@@ -12,7 +12,7 @@
   --r-label: 0.85rem;
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 0 0 2rem;
   font-family: var(--r-font-body);
   text-align: left;
 }
@@ -296,7 +296,7 @@ h3.resume-subheader::after {
     --r-body: 0.9rem;
     --r-meta: 0.82rem;
     --r-label: 0.78rem;
-    padding: 0.25rem 0 1.25rem;
+    padding: 0 0 1.25rem;
   }
 
   .resume-header {
