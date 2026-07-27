@@ -1638,21 +1638,26 @@ html.pb-modal-open {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px), ((hover: none) and (pointer: coarse)) {
+  /*
+   * Fallback layout for phones. Primary fit is applied inline from
+   * playbook.js via visualViewport (URL bar / bottom toolbar).
+   */
   .pb-modal {
     --pb-close-size: 44px;
     --pb-close-inset: 0.5rem;
     --pb-modal-pad-x: 0.85rem;
-    width: calc(100% - 1rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
-    max-width: calc(100% - 1rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
-    /* Margins clear insets; max-height matches remaining visible space */
-    max-height: calc(100vh - max(0.5rem, env(safe-area-inset-top, 0px)) - max(0.5rem, env(safe-area-inset-bottom, 0px)));
-    max-height: calc(100dvh - max(0.5rem, env(safe-area-inset-top, 0px)) - max(0.5rem, env(safe-area-inset-bottom, 0px)));
-    max-height: calc(100svh - max(0.5rem, env(safe-area-inset-top, 0px)) - max(0.5rem, env(safe-area-inset-bottom, 0px)));
-    margin:
-      max(0.5rem, env(safe-area-inset-top, 0px))
-      auto
-      max(0.5rem, env(safe-area-inset-bottom, 0px));
+    --pb-modal-gap: 0.5rem;
+    position: fixed;
+    inset: auto;
+    top: var(--pb-modal-gap);
+    left: var(--pb-modal-gap);
+    right: var(--pb-modal-gap);
+    bottom: auto;
+    width: auto;
+    max-width: none;
+    max-height: calc(100svh - (var(--pb-modal-gap) * 2));
+    margin: 0;
     border-radius: 14px;
   }
 
@@ -1673,8 +1678,11 @@ html.pb-modal-open {
     z-index: 40;
     order: initial;
     margin: 0;
-    /* Modal margin already clears device insets; keep a touch-friendly bar */
-    padding: 0.65rem var(--pb-modal-pad-x) 0.75rem;
+    padding:
+      0.65rem
+      max(var(--pb-modal-pad-x), env(safe-area-inset-right, 0px))
+      calc(0.75rem + env(safe-area-inset-bottom, 0px))
+      max(var(--pb-modal-pad-x), env(safe-area-inset-left, 0px));
     background: color-mix(in srgb, var(--pb-card, #fff) 92%, transparent);
     backdrop-filter: blur(20px) saturate(1.4);
     -webkit-backdrop-filter: blur(20px) saturate(1.4);

@@ -19,6 +19,94 @@
   }).filter(Boolean);
   var lastTrigger = null;
   var currentId = null;
+  var unbindVisualViewport = null;
+  var lockedScrollY = 0;
+
+  function isPhoneViewport() {
+    try {
+      return window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)').matches;
+    } catch (err) {
+      return window.innerWidth <= 768;
+    }
+  }
+
+  function clearModalViewportStyles() {
+    if (!modal) return;
+    [
+      'position', 'inset', 'top', 'left', 'right', 'bottom',
+      'width', 'max-width', 'max-height', 'height', 'margin', 'transform'
+    ].forEach(function (prop) {
+      modal.style.removeProperty(prop);
+    });
+  }
+
+  /* Pin dialog to the visible phone screen — CSS svh/safe-area miss browser chrome */
+  function syncModalToVisualViewport() {
+    if (!modal || !modal.open) return;
+    if (!isPhoneViewport()) {
+      clearModalViewportStyles();
+      return;
+    }
+    var vv = window.visualViewport;
+    var gap = 8;
+    var top = ((vv && vv.offsetTop) || 0) + gap;
+    var left = ((vv && vv.offsetLeft) || 0) + gap;
+    var width = ((vv && vv.width) || window.innerWidth) - gap * 2;
+    var height = ((vv && vv.height) || window.innerHeight) - gap * 2;
+    modal.style.setProperty('position', 'fixed');
+    modal.style.setProperty('inset', 'auto');
+    modal.style.setProperty('top', top + 'px');
+    modal.style.setProperty('left', left + 'px');
+    modal.style.setProperty('right', 'auto');
+    modal.style.setProperty('bottom', 'auto');
+    modal.style.setProperty('width', Math.max(0, width) + 'px');
+    modal.style.setProperty('max-width', 'none');
+    modal.style.setProperty('max-height', Math.max(0, height) + 'px');
+    modal.style.setProperty('height', 'auto');
+    modal.style.setProperty('margin', '0');
+    modal.style.setProperty('transform', 'none');
+  }
+
+  function lockPageScroll() {
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + lockedScrollY + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+  }
+
+  function unlockPageScroll() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    window.scrollTo(0, lockedScrollY);
+  }
+
+  function bindVisualViewport() {
+    if (unbindVisualViewport) unbindVisualViewport();
+    syncModalToVisualViewport();
+    var onChange = function () { syncModalToVisualViewport(); };
+    var vv = window.visualViewport;
+    if (vv) {
+      vv.addEventListener('resize', onChange);
+      vv.addEventListener('scroll', onChange);
+    }
+    window.addEventListener('resize', onChange);
+    window.addEventListener('orientationchange', onChange);
+    unbindVisualViewport = function () {
+      if (vv) {
+        vv.removeEventListener('resize', onChange);
+        vv.removeEventListener('scroll', onChange);
+      }
+      window.removeEventListener('resize', onChange);
+      window.removeEventListener('orientationchange', onChange);
+      clearModalViewportStyles();
+      unbindVisualViewport = null;
+    };
+  }
 
   /* Shared UI bits reused across pattern mocks */
   function discountSlider(value) {
@@ -459,7 +547,13 @@
     updateNextButton();
     if (modal && !modal.open && typeof modal.showModal === 'function') {
       document.documentElement.classList.add('pb-modal-open');
+      if (isPhoneViewport()) lockPageScroll();
       modal.showModal();
+      bindVisualViewport();
+      requestAnimationFrame(function () {
+        syncModalToVisualViewport();
+        requestAnimationFrame(syncModalToVisualViewport);
+      });
     }
     if (back && typeof back.focus === 'function') {
       try { back.focus(); } catch (err) { /* ignore */ }
@@ -536,6 +630,8 @@
       }
     });
     modal.addEventListener('close', function () {
+      if (unbindVisualViewport) unbindVisualViewport();
+      if (document.body.style.position === 'fixed') unlockPageScroll();
       document.documentElement.classList.remove('pb-modal-open');
       root.classList.remove('is-detail');
       openButtons.forEach(function (btn) {
