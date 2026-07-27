@@ -56,6 +56,9 @@
 }
 
 .pb-cover {
+  --pb-atm-1: #1f2418;
+  --pb-atm-2: #3d4a28;
+  --pb-atm-3: #6a7a48;
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -67,10 +70,10 @@
   overflow: hidden;
   cursor: pointer;
   text-align: left;
-  color: #fff;
+  color: #faf7f0;
   isolation: isolate;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
-  box-shadow: 0 10px 28px -18px rgba(15, 20, 25, 0.45);
+  box-shadow: 0 10px 28px -18px rgba(26, 26, 22, 0.35);
 }
 
 .pb-cover:nth-child(-n + 3) {
@@ -83,11 +86,11 @@
 
 .pb-cover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 32px -16px rgba(15, 20, 25, 0.5);
+  box-shadow: 0 16px 32px -16px rgba(26, 26, 22, 0.42);
 }
 
 .pb-cover:focus-visible {
-  outline: 2px solid var(--pb-blue);
+  outline: 2px solid var(--accent, #4a5a2a);
   outline-offset: 3px;
 }
 
@@ -96,7 +99,7 @@
 }
 
 .pb-cover.is-active {
-  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline: 2px solid rgba(250, 247, 240, 0.55);
   outline-offset: -2px;
 }
 
@@ -104,24 +107,14 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background:
-    radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.22), transparent 42%),
-    linear-gradient(160deg, var(--pb-atm-1), var(--pb-atm-2) 55%, var(--pb-atm-3));
+  background: linear-gradient(160deg, var(--pb-atm-1), var(--pb-atm-2) 52%, var(--pb-atm-3));
 }
 
+.pb-cover-atmosphere::before,
 .pb-cover-atmosphere::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    repeating-linear-gradient(
-      -32deg,
-      transparent,
-      transparent 17px,
-      rgba(255, 255, 255, 0.045) 17px,
-      rgba(255, 255, 255, 0.045) 18px
-    );
-  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -133,7 +126,7 @@
   gap: 0.25rem;
   width: 100%;
   padding: 1rem 1.05rem 1.05rem;
-  background: linear-gradient(to top, rgba(8, 12, 22, 0.72) 0%, rgba(8, 12, 22, 0.28) 55%, transparent 100%);
+  background: linear-gradient(to top, rgba(26, 26, 22, 0.78) 0%, rgba(26, 26, 22, 0.32) 55%, transparent 100%);
 }
 
 .pb-cover-cue {
@@ -141,7 +134,8 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.8;
+  opacity: 0.78;
+  color: color-mix(in srgb, #faf7f0 88%, #9fd45a 12%);
 }
 
 .pb-cover-title {
@@ -159,47 +153,138 @@
   text-wrap: pretty;
 }
 
-/* Tenet atmospheres */
-.pb-cover--activate {
-  --pb-atm-1: #152238;
-  --pb-atm-2: #3d5f96;
-  --pb-atm-3: #8eb0d8;
+/* Olive / stone / ink atmospheres — portfolio theme */
+.pb-cover--pat-1 {
+  --pb-atm-1: #1f2418;
+  --pb-atm-2: #3d4a28;
+  --pb-atm-3: #6a7a48;
 }
 
-.pb-cover--activate:nth-child(2) {
-  --pb-atm-1: #1a2a44;
-  --pb-atm-2: #4a6fa8;
-  --pb-atm-3: #7aa0d0;
+.pb-cover--pat-2 {
+  --pb-atm-1: #252820;
+  --pb-atm-2: #4a5340;
+  --pb-atm-3: #7a8068;
 }
 
-.pb-cover--activate:nth-child(3) {
-  --pb-atm-1: #182840;
-  --pb-atm-2: #5a82b8;
-  --pb-atm-3: #90b4dc;
+.pb-cover--pat-3 {
+  --pb-atm-1: #1a1a16;
+  --pb-atm-2: #3a3830;
+  --pb-atm-3: #5a564c;
 }
 
-.pb-cover--manage {
-  --pb-atm-1: #1e3348;
-  --pb-atm-2: #3d6a78;
-  --pb-atm-3: #7aadb8;
+.pb-cover--pat-4 {
+  --pb-atm-1: #2a3020;
+  --pb-atm-2: #4a5a2a;
+  --pb-atm-3: #7a8a4a;
 }
 
-.pb-cover--track {
-  --pb-atm-1: #243848;
-  --pb-atm-2: #4a7a6a;
-  --pb-atm-3: #8abb9a;
+.pb-cover--pat-5 {
+  --pb-atm-1: #22201c;
+  --pb-atm-2: #454038;
+  --pb-atm-3: #6e6858;
 }
 
-.pb-cover--deactivate:nth-child(6) {
-  --pb-atm-1: #3a2430;
-  --pb-atm-2: #8a4a5c;
-  --pb-atm-3: #c48898;
+.pb-cover--pat-6 {
+  --pb-atm-1: #1c2018;
+  --pb-atm-2: #354028;
+  --pb-atm-3: #5c6a40;
 }
 
-.pb-cover--deactivate:nth-child(7) {
-  --pb-atm-1: #342838;
-  --pb-atm-2: #7a5a88;
-  --pb-atm-3: #b89ac8;
+.pb-cover--pat-7 {
+  --pb-atm-1: #201e1a;
+  --pb-atm-2: #3f3c34;
+  --pb-atm-3: #686258;
+}
+
+/* Distinct geometric patterns per card */
+.pb-cover--pat-1 .pb-cover-atmosphere::after {
+  background:
+    radial-gradient(circle at 82% 16%, rgba(250, 247, 240, 0.18), transparent 38%),
+    repeating-linear-gradient(
+      -28deg,
+      transparent,
+      transparent 16px,
+      rgba(250, 247, 240, 0.05) 16px,
+      rgba(250, 247, 240, 0.05) 17px
+    );
+}
+
+.pb-cover--pat-2 .pb-cover-atmosphere::before {
+  background:
+    radial-gradient(circle at 18% 78%, rgba(250, 247, 240, 0.12), transparent 36%),
+    radial-gradient(circle at 88% 22%, rgba(159, 212, 90, 0.12), transparent 32%);
+}
+
+.pb-cover--pat-2 .pb-cover-atmosphere::after {
+  background-image: radial-gradient(rgba(250, 247, 240, 0.16) 1px, transparent 1px);
+  background-size: 14px 14px;
+  opacity: 0.55;
+  mask-image: linear-gradient(135deg, transparent 20%, #000 70%);
+}
+
+.pb-cover--pat-3 .pb-cover-atmosphere::after {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 22px,
+      rgba(250, 247, 240, 0.06) 22px,
+      rgba(250, 247, 240, 0.06) 23px
+    ),
+    linear-gradient(to top, rgba(26, 26, 22, 0.15), transparent 55%);
+}
+
+.pb-cover--pat-4 .pb-cover-atmosphere::before {
+  background:
+    radial-gradient(ellipse 80% 70% at 110% -10%, rgba(250, 247, 240, 0.16), transparent 50%),
+    radial-gradient(circle at 8% 100%, rgba(74, 90, 42, 0.55), transparent 42%);
+}
+
+.pb-cover--pat-4 .pb-cover-atmosphere::after {
+  inset: 12% -8% -20% 35%;
+  border: 1px solid rgba(250, 247, 240, 0.14);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.pb-cover--pat-5 .pb-cover-atmosphere::after {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 11px,
+      rgba(250, 247, 240, 0.055) 11px,
+      rgba(250, 247, 240, 0.055) 12px
+    );
+  mask-image: linear-gradient(to left, #000 40%, transparent 95%);
+}
+
+.pb-cover--pat-6 .pb-cover-atmosphere::before {
+  background:
+    linear-gradient(135deg, rgba(250, 247, 240, 0.08) 0 25%, transparent 25% 50%, rgba(250, 247, 240, 0.05) 50% 75%, transparent 75%);
+  background-size: 28px 28px;
+  opacity: 0.7;
+}
+
+.pb-cover--pat-6 .pb-cover-atmosphere::after {
+  background: radial-gradient(circle at 70% 30%, rgba(250, 247, 240, 0.14), transparent 40%);
+}
+
+.pb-cover--pat-7 .pb-cover-atmosphere::before {
+  background:
+    linear-gradient(115deg, transparent 42%, rgba(250, 247, 240, 0.07) 42% 58%, transparent 58%),
+    linear-gradient(205deg, transparent 55%, rgba(159, 212, 90, 0.08) 55% 70%, transparent 70%);
+}
+
+.pb-cover--pat-7 .pb-cover-atmosphere::after {
+  background:
+    repeating-linear-gradient(
+      -48deg,
+      transparent,
+      transparent 10px,
+      rgba(250, 247, 240, 0.04) 10px,
+      rgba(250, 247, 240, 0.04) 11px
+    );
 }
 
 @media (max-width: 800px) {
