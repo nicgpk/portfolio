@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="css/programs.css?v=7">
 <link rel="stylesheet" href="css/hero-product.css?v=35">
 <link rel="stylesheet" href="css/product-shot.css?v=4">
-<link rel="stylesheet" href="css/playbook-mock.css?v=78">
+<link rel="stylesheet" href="css/playbook-mock.css?v=79">
 <link rel="stylesheet" href="css/shadcn-mockup.css">
 </head>
 <body>
@@ -130,145 +130,103 @@
       <h2>Program tenets &amp; patterns</h2>
       <p class="text-body" style="margin-bottom:1.25rem">Four co-owned tenets and seven repeatable lifecycle flows. The shared design system that lets mature and scaling programs ship consistently, instead of reinventing every funnel.</p>
 
-      <figure class="product-shot">
-        <div class="product-shot-frame">
-          <div class="product-shot-chrome">
-            <div class="product-shot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-            <div class="product-shot-url">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4Z"/></svg>
-              <span>partner.agoda.com/playbook/patterns</span>
-            </div>
-          </div>
-          <div class="product-shot-screen">
-            <div class="pb-ui" data-pb-playbook>
-              <div class="pb-home" data-pb-home>
-                <p class="pb-eyebrow">Partner program product playbook</p>
-                <h3 class="pb-title">Reusable product design patterns</h3>
-                <p class="pb-lede">Four tenets and seven repeatable flows for scaling and mature partner programs.</p>
+      <div class="pb-ui" data-pb-playbook>
+        <div class="pb-home" data-pb-home>
+          <p class="pb-eyebrow">Partner program product playbook</p>
+          <h3 class="pb-title">Reusable product design patterns</h3>
+          <p class="pb-lede">Four tenets and seven repeatable flows for scaling and mature partner programs.</p>
 
-                <div class="pb-table">
-                  <div class="pb-tenet">
-                    <div class="pb-tenet-label">
-                      <span class="pb-num">01</span>
-                      <strong>Self-activate program with confidence</strong>
-                    </div>
-                    <div class="pb-flows">
-                      <button type="button" class="pb-row" data-pb-open="discover">
-                        <div>
-                          <p class="pb-flow-title">Easily discoverable</p>
-                          <p class="pb-flow-desc">Program discovery, entry points, and relevance signals.</p>
-                        </div>
-                        <div class="pb-stage">Scaling + Maturity</div>
-                        <span class="pb-pill pb-pill--open">Open pattern</span>
-                      </button>
-                      <button type="button" class="pb-row" data-pb-open="confidence">
-                        <div>
-                          <p class="pb-flow-title">Convincing pre-activation confidence</p>
-                          <p class="pb-flow-desc">Benefits, ROI, eligibility, FAQs, and comparison patterns.</p>
-                        </div>
-                        <div class="pb-stage">Scaling + Maturity</div>
-                        <span class="pb-pill pb-pill--open">Open pattern</span>
-                      </button>
-                      <button type="button" class="pb-row" data-pb-open="activate">
-                        <div>
-                          <p class="pb-flow-title">Self-serve activation</p>
-                          <p class="pb-flow-desc">Terms, configuration, confirmation, and activation states.</p>
-                        </div>
-                        <div class="pb-stage">Scaling + Maturity</div>
-                        <span class="pb-pill pb-pill--open">Open pattern</span>
-                      </button>
-                    </div>
-                  </div>
+          <div class="pb-grid" data-pb-grid>
+            <!-- Row 1: Activate -->
+            <button type="button" class="pb-cover pb-cover--activate" data-pb-open="discover" data-pb-tenet="activate">
+              <span class="pb-cover-atmosphere" aria-hidden="true"></span>
+              <span class="pb-cover-copy">
+                <span class="pb-cover-cue">01 · Activate</span>
+                <span class="pb-cover-title">Easily discoverable</span>
+                <span class="pb-cover-blurb">Program discovery, entry points, and relevance signals.</span>
+              </span>
+            </button>
+            <button type="button" class="pb-cover pb-cover--activate" data-pb-open="confidence" data-pb-tenet="activate">
+              <span class="pb-cover-atmosphere" aria-hidden="true"></span>
+              <span class="pb-cover-copy">
+                <span class="pb-cover-cue">01 · Activate</span>
+                <span class="pb-cover-title">Convincing pre-activation confidence</span>
+                <span class="pb-cover-blurb">Benefits, ROI, eligibility, FAQs, and comparison patterns.</span>
+              </span>
+            </button>
+            <button type="button" class="pb-cover pb-cover--activate" data-pb-open="activate" data-pb-tenet="activate">
+              <span class="pb-cover-atmosphere" aria-hidden="true"></span>
+              <span class="pb-cover-copy">
+                <span class="pb-cover-cue">01 · Activate</span>
+                <span class="pb-cover-title">Self-serve activation</span>
+                <span class="pb-cover-blurb">Terms, configuration, confirmation, and activation states.</span>
+              </span>
+            </button>
 
-                  <div class="pb-tenet">
-                    <div class="pb-tenet-label">
-                      <span class="pb-num">02</span>
-                      <strong>Manage program with flexibility</strong>
-                    </div>
-                    <div class="pb-flows">
-                      <button type="button" class="pb-row" data-pb-open="settings">
-                        <div>
-                          <p class="pb-flow-title">Program settings to fine-tune setup</p>
-                          <p class="pb-flow-desc">Fencing, pause, blackout dates, versions, and program controls.</p>
-                        </div>
-                        <div class="pb-stage">Maturity</div>
-                        <span class="pb-pill pb-pill--open">Open pattern</span>
-                      </button>
-                    </div>
-                  </div>
+            <!-- Row 2: Manage + Track -->
+            <button type="button" class="pb-cover pb-cover--manage" data-pb-open="settings" data-pb-tenet="manage">
+              <span class="pb-cover-atmosphere" aria-hidden="true"></span>
+              <span class="pb-cover-copy">
+                <span class="pb-cover-cue">02 · Manage</span>
+                <span class="pb-cover-title">Program settings to fine-tune setup</span>
+                <span class="pb-cover-blurb">Fencing, pause, blackout dates, versions, and program controls.</span>
+              </span>
+            </button>
+            <button type="button" class="pb-cover pb-cover--track" data-pb-open="analytics" data-pb-tenet="track">
+              <span class="pb-cover-atmosphere" aria-hidden="true"></span>
+              <span class="pb-cover-copy">
+                <span class="pb-cover-cue">03 · Track</span>
+                <span class="pb-cover-title">Program performance analytics</span>
+                <span class="pb-cover-blurb">Impact KPIs, comparisons, reporting, and recommendations.</span>
+              </span>
+            </button>
 
-                  <div class="pb-tenet">
-                    <div class="pb-tenet-label">
-                      <span class="pb-num">03</span>
-                      <strong>Track performance clearly</strong>
-                    </div>
-                    <div class="pb-flows">
-                      <button type="button" class="pb-row" data-pb-open="analytics">
-                        <div>
-                          <p class="pb-flow-title">Program performance analytics</p>
-                          <p class="pb-flow-desc">Impact KPIs, comparisons, reporting, and recommendations.</p>
-                        </div>
-                        <div class="pb-stage">Maturity</div>
-                        <span class="pb-pill pb-pill--open">Open pattern</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="pb-tenet">
-                    <div class="pb-tenet-label">
-                      <span class="pb-num">04</span>
-                      <strong>Deactivate program when needed</strong>
-                    </div>
-                    <div class="pb-flows">
-                      <button type="button" class="pb-row" data-pb-open="deactivate">
-                        <div>
-                          <p class="pb-flow-title">Self-serve deactivation</p>
-                          <p class="pb-flow-desc">Reason capture, impact disclosure, confirmation, and follow-up.</p>
-                        </div>
-                        <div class="pb-stage">Maturity</div>
-                        <span class="pb-pill pb-pill--open">Open pattern</span>
-                      </button>
-                      <button type="button" class="pb-row" data-pb-open="retention">
-                        <div>
-                          <p class="pb-flow-title">Counter-offer for retention</p>
-                          <p class="pb-flow-desc">Targeted alternatives that match the program and reason for leaving.</p>
-                        </div>
-                        <div class="pb-stage">Maturity</div>
-                        <span class="pb-pill pb-pill--open">Open pattern</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="pb-detail" data-pb-detail hidden>
-                <div class="pb-nav">
-                  <button type="button" class="pb-back" data-pb-back title="Back to all patterns">
-                    <svg class="pb-back-icon" aria-hidden="true" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5 8 2l5.5 4.5"/><path d="M4 6v7h8V6"/></svg>
-                    <span class="pb-back-text">Home</span>
-                  </button>
-                  <div class="pb-nav-seq">
-                    <button type="button" class="pb-prev" data-pb-prev>
-                      <span aria-hidden="true">&larr;</span> Previous
-                    </button>
-                    <button type="button" class="pb-next" data-pb-next>
-                      Next <span aria-hidden="true">&rarr;</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="pb-detail-head">
-                  <p class="pb-eyebrow" data-pb-tenet></p>
-                  <h3 class="pb-title" data-pb-title></h3>
-                  <p class="pb-lede" data-pb-summary></p>
-                </div>
-                <div class="pb-ex" data-pb-ex aria-hidden="true"></div>
-                <ol class="pb-steps" data-pb-steps></ol>
-              </div>
-            </div>
+            <!-- Row 3: Deactivate -->
+            <button type="button" class="pb-cover pb-cover--deactivate" data-pb-open="deactivate" data-pb-tenet="deactivate">
+              <span class="pb-cover-atmosphere" aria-hidden="true"></span>
+              <span class="pb-cover-copy">
+                <span class="pb-cover-cue">04 · Deactivate</span>
+                <span class="pb-cover-title">Self-serve deactivation</span>
+                <span class="pb-cover-blurb">Reason capture, impact disclosure, confirmation, and follow-up.</span>
+              </span>
+            </button>
+            <button type="button" class="pb-cover pb-cover--deactivate" data-pb-open="retention" data-pb-tenet="deactivate">
+              <span class="pb-cover-atmosphere" aria-hidden="true"></span>
+              <span class="pb-cover-copy">
+                <span class="pb-cover-cue">04 · Deactivate</span>
+                <span class="pb-cover-title">Counter-offer for retention</span>
+                <span class="pb-cover-blurb">Targeted alternatives that match the program and reason for leaving.</span>
+              </span>
+            </button>
           </div>
         </div>
-      </figure>
-      <p class="screenshot-caption">Internal playbook — four tenets mapped to reusable lifecycle patterns across scaling and mature programs</p>
+
+        <dialog class="pb-modal" data-pb-modal aria-labelledby="pb-modal-title">
+          <div class="pb-detail" data-pb-detail>
+            <div class="pb-nav">
+              <button type="button" class="pb-back" data-pb-back title="Back to all patterns">
+                <svg class="pb-back-icon" aria-hidden="true" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5 8 2l5.5 4.5"/><path d="M4 6v7h8V6"/></svg>
+                <span class="pb-back-text">Home</span>
+              </button>
+              <div class="pb-nav-seq">
+                <button type="button" class="pb-prev" data-pb-prev>
+                  <span aria-hidden="true">&larr;</span> Previous
+                </button>
+                <button type="button" class="pb-next" data-pb-next>
+                  Next <span aria-hidden="true">&rarr;</span>
+                </button>
+              </div>
+            </div>
+            <div class="pb-detail-head">
+              <p class="pb-eyebrow" data-pb-tenet></p>
+              <h3 class="pb-title" id="pb-modal-title" data-pb-title></h3>
+              <p class="pb-lede" data-pb-summary></p>
+            </div>
+            <div class="pb-ex" data-pb-ex aria-hidden="true"></div>
+            <ol class="pb-steps" data-pb-steps></ol>
+          </div>
+        </dialog>
+      </div>
     </div>
   </section>
 
@@ -623,6 +581,6 @@
 </footer>
 
 <script src="js/teletype.js?v=33"></script>
-<script src="js/playbook.js?v=78"></script>
+<script src="js/playbook.js?v=79"></script>
 </body>
 </html>
