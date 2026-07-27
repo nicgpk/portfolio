@@ -1,5 +1,6 @@
 /* programs.css — Styles for the merged Partner Programs page.
-   Loaded after teletype.css on partner-growth-programs.html. */
+   Loaded after teletype.css on partner-growth-programs.html.
+   Weight/color roles inherit teletype: body 400+ink · cue 600+muted · title 700+ink. */
 
 :root { --surface-2: #e8e3d8; }
 [data-theme="dark"] { --surface-2: #1a1a14; }
@@ -43,21 +44,21 @@
   max-width: 100%;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  font-weight: 600;
+  font-weight: var(--weight-cue);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-cue);
   padding: 0.15rem 0.45rem;
   border: 1px solid var(--border-strong);
-  color: var(--text-dim);
+  color: var(--text-muted);
   white-space: nowrap;
 }
 .prog-name {
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  font-weight: 600;
+  font-weight: var(--weight-cue);
   color: var(--text);
   line-height: 1.3;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tracking-tight);
   transition: color 0.15s;
   text-wrap: balance;
 }
@@ -70,8 +71,9 @@
 .prog-desc {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  color: var(--text-dim);
+  font-size: var(--text-base);
+  font-weight: var(--weight-body);
+  color: var(--text);
   line-height: 1.55;
   min-width: 0;
   text-wrap: pretty;
@@ -101,19 +103,19 @@
 .prog-stat-num {
   font-family: var(--font-mono);
   font-size: var(--text-lg);
-  font-weight: 700;
+  font-weight: var(--weight-title);
   color: var(--accent);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-tight);
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 .prog-stat-lbl {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  font-weight: 500;
+  font-weight: var(--weight-cue);
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-cue);
   margin-top: 0.3rem;
   line-height: 1.3;
 }
@@ -134,12 +136,13 @@
 
 /* ── How it works (compact paragraph) ── */
 .how-text {
-  font-size: 0.85rem;
-  color: var(--text-dim);
+  font-size: var(--text-base);
+  font-weight: var(--weight-body);
+  color: var(--text);
   line-height: 1.6;
   padding: 0 1.25rem 1rem;
 }
-.how-text .how-accent { color: var(--accent); font-weight: 600; }
+.how-text .how-accent { color: var(--accent); font-weight: var(--weight-cue); }
 
 /* ── Inline expandable inside program cards ── */
 .prog-expand {
@@ -148,12 +151,12 @@
   padding: 0;
 }
 .prog-expand summary {
-  font-size: 0.7rem;
-  font-weight: 500;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-cue);
   color: var(--text-muted);
   cursor: pointer;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-cue);
   list-style: none;
   display: flex;
   align-items: center;
@@ -172,8 +175,8 @@
   justify-content: center;
   width: 16px;
   height: 16px;
-  font-size: 0.85rem;
-  font-weight: 400;
+  font-size: var(--text-base);
+  font-weight: var(--weight-body);
   line-height: 1;
   transition: transform 0.25s ease;
 }
@@ -187,7 +190,7 @@
 }
 .prog-expand[open] summary {
   margin-bottom: 0;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 .prog-expand[open] summary::before {
   content: '\2212';
@@ -204,18 +207,18 @@
 
 /* ── partner-programs.html extras (from deck) ── */
 .prog-eyebrow {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--text-dim);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-cue);
+  color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-cue);
 }
 .pain-points { margin-top: 2.5rem; }
 .pain-points-label {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-cue);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tracking-cue);
   color: var(--text-muted);
   margin-bottom: 0.65rem;
   display: flex;
@@ -234,8 +237,9 @@
   align-items: flex-start;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--text-dim);
+  font-size: var(--text-base);
+  font-weight: var(--weight-body);
+  color: var(--text);
   line-height: 1.6;
 }
 .pain-point:last-child { margin-bottom: 0; }
@@ -258,40 +262,40 @@
   border: 1px solid var(--border-strong);
 }
 .how-num {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-dim);
-  letter-spacing: 0.1em;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-cue);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-cue);
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
 .how-title {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: var(--text-base);
+  font-weight: var(--weight-cue);
   color: var(--text);
   margin-bottom: 0.4rem;
   line-height: 1.35;
 }
 .how-desc {
-  font-size: 0.9rem;
-  color: var(--text-dim);
+  font-size: var(--text-base);
+  font-weight: var(--weight-body);
+  color: var(--text);
   line-height: 1.6;
 }
-.how-accent { color: var(--accent); font-weight: 600; }
+.how-accent { color: var(--accent); font-weight: var(--weight-cue); }
 .source {
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-body);
   color: var(--text-muted);
-  opacity: 0.8;
   margin-top: var(--space-xl);
-  letter-spacing: 0.03em;
+  letter-spacing: 0;
 }
-.source::before { content: 'Source: '; font-weight: 600; }
+.source::before { content: 'Source: '; font-weight: var(--weight-cue); }
 
 @media (max-width: 767px) {
   .pain-points { margin-top: 1.75rem; }
   .how-cards { gap: 0.85rem; }
   .how-card { padding: 0.85rem 1rem; }
-  .prog-eyebrow { font-size: 0.7rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
