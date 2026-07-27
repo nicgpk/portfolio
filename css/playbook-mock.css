@@ -80,7 +80,13 @@
   grid-column: span 2;
 }
 
-.pb-cover:nth-child(n + 4) {
+.pb-cover:nth-child(4),
+.pb-cover:nth-child(5) {
+  grid-column: 1 / -1;
+  min-height: 148px;
+}
+
+.pb-cover:nth-child(n + 6) {
   grid-column: span 3;
 }
 
@@ -322,7 +328,9 @@
   }
 
   .pb-cover:nth-child(-n + 3),
-  .pb-cover:nth-child(n + 4) {
+  .pb-cover:nth-child(4),
+  .pb-cover:nth-child(5),
+  .pb-cover:nth-child(n + 6) {
     grid-column: auto;
   }
 
