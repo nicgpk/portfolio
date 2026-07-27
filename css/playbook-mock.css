@@ -247,6 +247,10 @@
 
 /* Home stays visible behind modal dialog (see .pb-modal) */
 
+html.pb-modal-open {
+  overflow: hidden;
+}
+
 .pb-modal {
   width: min(920px, calc(100vw - 2rem));
   max-height: min(90vh, 900px);

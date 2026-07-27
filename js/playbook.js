@@ -449,7 +449,7 @@
     var pattern = patterns[id];
     if (!pattern) return;
     currentId = id;
-    lastTrigger = trigger || lastTrigger || null;
+    if (trigger) lastTrigger = trigger;
     openButtons.forEach(function (btn) {
       btn.classList.toggle('is-active', btn.getAttribute('data-pb-open') === id);
     });
@@ -458,6 +458,7 @@
     stripRecs();
     updateNextButton();
     if (modal && !modal.open && typeof modal.showModal === 'function') {
+      document.documentElement.classList.add('pb-modal-open');
       modal.showModal();
     }
     if (back && typeof back.focus === 'function') {
@@ -469,8 +470,7 @@
     var idx = patternOrder.indexOf(currentId);
     if (idx < 0 || idx >= patternOrder.length - 1) return;
     var nextId = patternOrder[idx + 1];
-    var nextTrigger = root.querySelector('[data-pb-open="' + nextId + '"]');
-    openPattern(nextId, nextTrigger);
+    openPattern(nextId);
     if (nextBtn && typeof nextBtn.focus === 'function') {
       try { nextBtn.focus(); } catch (err) { /* ignore */ }
     }
@@ -480,8 +480,7 @@
     var idx = patternOrder.indexOf(currentId);
     if (idx <= 0) return;
     var prevId = patternOrder[idx - 1];
-    var prevTrigger = root.querySelector('[data-pb-open="' + prevId + '"]');
-    openPattern(prevId, prevTrigger);
+    openPattern(prevId);
     if (prevBtn && typeof prevBtn.focus === 'function') {
       try { prevBtn.focus(); } catch (err) { /* ignore */ }
     }
@@ -537,6 +536,7 @@
       }
     });
     modal.addEventListener('close', function () {
+      document.documentElement.classList.remove('pb-modal-open');
       root.classList.remove('is-detail');
       openButtons.forEach(function (btn) {
         btn.classList.remove('is-active');
