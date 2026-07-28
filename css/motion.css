@@ -403,6 +403,20 @@
   transform: none;
 }
 
+/* Process tooling strip — subtle staggered rise on scroll */
+.js-motion .ai-tools .ai-tool {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 480ms var(--ease-out-expo),
+    transform 480ms var(--ease-out-expo);
+  transition-delay: calc(var(--motion-i, 0) * 70ms);
+}
+.js-motion .ai-tools.is-inview .ai-tool {
+  opacity: 1;
+  transform: none;
+}
+
 @media (max-width: 860px) {
   .js-motion .hero-product .hero-product-frame,
   .js-motion .hero-product.is-inview .hero-product-frame,
@@ -433,6 +447,7 @@
   .js-motion .results-metric-value,
   .js-motion .results-trend-fill,
   .js-motion .results-delta-row,
+  .js-motion .ai-tools .ai-tool,
   .js-motion .hero-desc.reveal,
   .js-motion .hero-actions.reveal {
     opacity: 1 !important;

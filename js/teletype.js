@@ -722,6 +722,13 @@
     }
   });
 
+  document.querySelectorAll('.ai-tools').forEach(function (el) {
+    el.querySelectorAll('.ai-tool').forEach(function (tool, idx) {
+      tool.style.setProperty('--motion-i', String(Math.min(idx, 6)));
+    });
+    observer.observe(el);
+  });
+
   /* Featured project cards: clear any legacy scale sizing; crop is CSS-only */
   document.querySelectorAll('.featured-shot').forEach(function (shot) {
     shot.style.height = '';
