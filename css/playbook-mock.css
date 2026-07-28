@@ -320,7 +320,7 @@ html.pb-modal-open {
   --pb-close-inset: 0.65rem;
   --pb-modal-pad-x: 1.15rem;
   box-sizing: border-box;
-  display: flex;
+  /* Only flex when open — display:flex here would override dialog:not([open]){display:none} */
   flex-direction: column;
   width: min(920px, calc(100% - 2rem));
   max-width: calc(100% - 2rem);
@@ -337,6 +337,10 @@ html.pb-modal-open {
     0 24px 64px -24px rgba(15, 20, 25, 0.45),
     0 8px 24px -12px rgba(15, 20, 25, 0.2);
   overflow: hidden;
+}
+
+.pb-modal[open] {
+  display: flex;
 }
 
 .pb-modal::backdrop {

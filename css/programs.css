@@ -144,8 +144,9 @@
 }
 .how-text .how-accent { color: var(--accent); font-weight: var(--weight-cue); }
 
-/* ── Inline expandable inside program cards ── */
+/* ── Inline expandable inside program cards (hidden — too much detail) ── */
 .prog-expand {
+  display: none;
   margin: 0;
   border-top: 1px dashed var(--border);
   padding: 0;
