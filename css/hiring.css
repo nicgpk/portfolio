@@ -138,3 +138,10 @@ footer{max-width:1280px;padding:38px 48px 48px;margin:auto;text-align:left;displ
 @media(max-width:767px){.dev-wiz-bar{height:auto;min-height:44px;flex-wrap:wrap;padding-block:10px}.dev-wiz-steps{position:static;transform:none;order:4;flex-basis:100%;justify-content:space-between;gap:8px;white-space:normal}.dev-wiz-steps span.is-active{padding-bottom:4px;margin-bottom:0}.dev-wiz-name{min-width:0;overflow-wrap:anywhere;flex-shrink:1}}
 
 .header .nav a{display:inline-flex;align-items:center;min-height:44px}
+
+/* Artifact compositions follow each product's original visual language. */
+.hero-artifact{background:#1b232f;padding:12px 12px 0}.hero-artifact img{aspect-ratio:1000/517}.hero-artifact figcaption{color:#d4dce7;padding:16px 8px}.hero-artifact figcaption a{color:#edf1f8}
+.work-grid{grid-template-columns:.9fr 1.1fr;gap:72px 52px}.work-entry--0 .work-image{background:transparent;padding:0;border-radius:0}.work-entry--0 .work-image img{border-radius:0}.work-entry--1{padding-top:48px}.work-entry--1 .work-image{background:var(--surface-light);border:1px solid var(--border);padding:16px;height:300px}.work-entry--2 .work-image{background:#1b232f;padding:12px;height:360px}.work-entry--2 .work-image img{border-radius:0}
+.case-evidence{border-block:1px solid var(--border);margin:24px 0;background:transparent}.case-evidence>summary{padding:18px 4px;min-height:56px;font-size:17px;font-weight:500;color:var(--text);cursor:pointer;list-style-position:inside}.case-evidence>summary:hover{color:var(--accent)}.case-evidence-body{padding:12px 0 24px}.case-evidence-body>.product-shot-stack{margin-top:0}.case-evidence .case-evidence{margin-inline:16px}.goal-block:has(.case-evidence){padding-bottom:24px}
+@media(max-width:767px){.work-grid{grid-template-columns:1fr;gap:44px}.work-entry--1{padding-top:0}.work-entry--1 .work-image{height:auto;min-height:220px}.work-entry--2 .work-image{height:auto;min-height:240px}.hero-artifact{padding:10px 10px 0}.hero-artifact figcaption{padding:14px 4px;font-size:12px}.case-evidence>summary{font-size:16px}}
+@media print{.case-evidence-body{display:block!important}}

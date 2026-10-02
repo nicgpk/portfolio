@@ -1,24 +1,221 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-02T00:00:00Z",
+  "generatedAt": "2026-10-02T14:06:38.322Z",
   "title": "Design System: Nicholas Gwee",
   "extensions": {
-    "motion": [{"name":"artifact-enter","value":"650ms cubic-bezier(.16,1,.3,1)","purpose":"One immediately visible opening artifact settles into position; disabled for reduced motion."}],
-    "breakpoints": [{"name":"mobile","value":"767px"},{"name":"compact-desktop","value":"1024px"}],
-    "shadows": []
+    "motion": [
+      {
+        "name": "control-color",
+        "value": "180ms ease",
+        "purpose": "Navigation and action feedback only; disabled for reduced motion. Priority artifact stays still."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "767px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1024px"
+      },
+      {
+        "name": "wide-display",
+        "value": "1600px"
+      }
+    ],
+    "shadows": [
+      {
+        "name": "glass-depth",
+        "value": "0 16px 48px rgba(31,49,75,.1)",
+        "purpose": "Soft offset depth for floating navigation and the opening artifact."
+      },
+      {
+        "name": "glass-depth-dark",
+        "value": "0 16px 48px rgba(0,0,0,.22)",
+        "purpose": "Dark-theme floating navigation and opening artifact."
+      }
+    ],
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Primary",
+        "canonical": "#264b75"
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Background",
+        "canonical": "#f3f5f8"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "canonical": "#e7ebf1"
+      },
+      "surface-light": {
+        "role": "neutral",
+        "displayName": "Surface Light",
+        "canonical": "#fafbfd"
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Text",
+        "canonical": "#151a23"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "canonical": "#505969"
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Border",
+        "canonical": "#cdd4df"
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Border Strong",
+        "canonical": "#a1afc1"
+      },
+      "dark-background": {
+        "role": "neutral",
+        "displayName": "Dark Background",
+        "canonical": "#11151c"
+      },
+      "dark-surface": {
+        "role": "neutral",
+        "displayName": "Dark Surface",
+        "canonical": "#242d3a"
+      },
+      "dark-surface-light": {
+        "role": "neutral",
+        "displayName": "Dark Surface Light",
+        "canonical": "#1a202a"
+      },
+      "dark-border": {
+        "role": "neutral",
+        "displayName": "Dark Border",
+        "canonical": "#354152"
+      },
+      "dark-border-strong": {
+        "role": "neutral",
+        "displayName": "Dark Border Strong",
+        "canonical": "#61748e"
+      },
+      "dark-text": {
+        "role": "neutral",
+        "displayName": "Dark Text",
+        "canonical": "#edf2f9"
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "Dark Muted",
+        "canonical": "#b8c3d4"
+      },
+      "dark-primary": {
+        "role": "primary",
+        "displayName": "Dark Primary",
+        "canonical": "#a9c8f1"
+      },
+      "glass-fill": {
+        "role": "neutral",
+        "displayName": "Glass Fill",
+        "canonical": "rgba(249,251,255,.82)"
+      },
+      "glass-solid": {
+        "role": "neutral",
+        "displayName": "Glass Solid",
+        "canonical": "#f9fbff"
+      },
+      "glass-edge": {
+        "role": "neutral",
+        "displayName": "Glass Edge",
+        "canonical": "rgba(255,255,255,.85)"
+      },
+      "dark-glass-fill": {
+        "role": "neutral",
+        "displayName": "Dark Glass Fill",
+        "canonical": "rgba(29,37,49,.85)"
+      },
+      "dark-glass-solid": {
+        "role": "neutral",
+        "displayName": "Dark Glass Solid",
+        "canonical": "#1d2531"
+      },
+      "dark-glass-edge": {
+        "role": "neutral",
+        "displayName": "Dark Glass Edge",
+        "canonical": "rgba(203,220,247,.2)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Homepage role",
+        "purpose": "Large light IBM Plex Sans role heading."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable supporting evidence and case narrative."
+      }
+    }
   },
   "components": [
-    {"name":"Primary button","kind":"button","refersTo":"button-primary","description":"Confident work navigation.","html":"<a class=\"ds-primary\" href=\"#\">View my work</a>","css":".ds-primary{display:inline-flex;align-items:center;min-height:48px;padding:12px 23px;background:var(--text);color:var(--bg);border-radius:8px;text-decoration:none;font:600 15px 'IBM Plex Sans',sans-serif}.ds-primary:hover{background:var(--accent)}.ds-primary:focus-visible{outline:3px solid var(--accent);outline-offset:5px}"},
-    {"name":"Artifact mat","kind":"custom","description":"Tonal framing preserves the whole product screenshot.","html":"<figure class=\"ds-artifact\"><p>Original product artifact</p><figcaption>Project context</figcaption></figure>","css":".ds-artifact{background:var(--surface);color:var(--text);padding:22px;border-radius:12px;font:16px 'IBM Plex Sans',sans-serif}.ds-artifact figcaption{font-size:13px;color:var(--text-muted);margin-top:14px}"},
-    {"name":"Text link","kind":"button","description":"Secondary navigation action.","html":"<a class=\"ds-link\" href=\"#\">Resume</a>","css":".ds-link{display:inline-flex;align-items:center;min-height:44px;font:600 15px 'IBM Plex Sans',sans-serif;color:var(--text);text-underline-offset:.25em;text-decoration-color:var(--border-strong)}.ds-link:hover{color:var(--accent)}.ds-link:focus-visible{outline:3px solid var(--accent);outline-offset:5px}"},
-    {"name":"Primary navigation","kind":"nav","description":"Persistent About, Projects, Resume navigation.","html":"<nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#\" aria-current=\"page\">About</a><a href=\"#\">Projects</a><a href=\"#\">Resume</a></nav>","css":".ds-nav{display:flex;gap:28px}.ds-nav a{display:flex;align-items:center;min-height:44px;font:400 15px 'IBM Plex Sans',sans-serif;color:var(--text);text-decoration:none}.ds-nav a[aria-current]{color:var(--accent)}.ds-nav a:hover{text-decoration:underline}.ds-nav a:focus-visible{outline:3px solid var(--accent);outline-offset:5px}"}
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Confident work navigation.",
+      "html": "<a class=\"ds-primary\" href=\"#\">View my work</a>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;min-height:48px;padding:12px 26px;background:var(--text,#151a23);color:var(--bg,#f3f5f8);border-radius:999px;text-decoration:none;font:500 15px 'IBM Plex Sans',sans-serif}.ds-primary:hover{background:var(--accent,#264b75)}.ds-primary:focus-visible{outline:3px solid var(--accent,#264b75);outline-offset:5px}@media(prefers-reduced-motion:no-preference){.ds-primary{transition:background-color .18s ease}.ds-primary:active{transform:translateY(1px)}}"
+    },
+    {
+      "name": "Glass artifact frame",
+      "kind": "custom",
+      "description": "Original screenshots remain unobscured, supported by a restrained translucent outer frame.",
+      "html": "<figure class=\"ds-artifact\"><p>Original product artifact</p><figcaption>Project context</figcaption></figure>",
+      "css": ".ds-artifact{background:var(--glass-solid,#f9fbff);color:var(--text,#151a23);padding:12px;border-radius:20px;border:1px solid var(--glass-edge,rgba(255,255,255,.85));box-shadow:var(--glass-shadow,0 16px 48px rgba(31,49,75,.1));font-family:'IBM Plex Sans',sans-serif}.ds-artifact figcaption{font-size:13px;color:var(--text-muted,#505969)}@supports(backdrop-filter:blur(1px)){.ds-artifact{background:var(--glass-fill,rgba(249,251,255,.82));backdrop-filter:blur(14px)}}@media(prefers-reduced-transparency:reduce){.ds-artifact{background:var(--glass-solid,#f9fbff);backdrop-filter:none}}"
+    },
+    {
+      "name": "Text link",
+      "kind": "button",
+      "description": "Secondary navigation action.",
+      "html": "<a class=\"ds-link\" href=\"#\">Resume</a>",
+      "css": ".ds-link{display:inline-flex;align-items:center;min-height:44px;font:400 15px 'IBM Plex Sans',sans-serif;color:var(--text,#151a23);text-underline-offset:.25em;text-decoration:underline;text-decoration-color:var(--border-strong,#a1afc1)}.ds-link:hover{color:var(--accent,#264b75)}.ds-link:focus-visible{outline:3px solid var(--accent,#264b75);outline-offset:5px}"
+    },
+    {
+      "name": "Primary navigation",
+      "kind": "nav",
+      "description": "Persistent About, Projects, Resume navigation.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#\" aria-current=\"page\">About</a><a href=\"#\">Projects</a><a href=\"#\">Resume</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:32px;min-height:64px;padding:0 24px;background:var(--glass-solid,#f9fbff);border:1px solid var(--glass-edge,rgba(255,255,255,.85));border-radius:20px;box-shadow:var(--glass-shadow,0 16px 48px rgba(31,49,75,.1))}.ds-nav a{display:flex;align-items:center;min-height:44px;font:400 15px 'IBM Plex Sans',sans-serif;color:var(--text,#151a23);text-decoration:none}.ds-nav a[aria-current],.ds-nav a:hover{color:var(--accent,#264b75)}.ds-nav a:focus-visible{outline:3px solid var(--accent,#264b75);outline-offset:5px}@supports(backdrop-filter:blur(1px)){.ds-nav{background:var(--glass-fill,rgba(249,251,255,.82));backdrop-filter:blur(22px) saturate(130%)}}@media(prefers-reduced-transparency:reduce){.ds-nav{background:var(--glass-solid,#f9fbff);backdrop-filter:none}}@media(max-width:767px){.ds-nav{min-height:60px;padding-inline:16px;gap:14px;border-radius:16px}.ds-nav a{font-size:13px}}@media(prefers-reduced-motion:no-preference){.ds-nav a{transition:color .18s ease}}",
+      "refersTo": "navigation"
+    },
+    {
+      "name": "Evidence disclosure",
+      "kind": "custom",
+      "description": "Native, keyboard-operable access to deeper case evidence.",
+      "html": "<details class=\"ds-evidence\"><summary>View supporting evidence</summary><div class=\"ds-evidence-body\">Original product evidence and labeled reconstructions.</div></details>",
+      "css": ".ds-evidence{border-block:1px solid var(--border,#cdd4df);margin:20px 0;color:var(--text,#151a23);font-family:\"IBM Plex Sans\",sans-serif}.ds-evidence>summary{padding:18px 4px;min-height:56px;font-size:17px;font-weight:500;cursor:pointer;list-style-position:inside}.ds-evidence>summary:hover{color:var(--accent,#264b75)}.ds-evidence>summary:focus-visible{outline:3px solid var(--accent,#264b75);outline-offset:5px}.ds-evidence-body{padding:12px 0 24px}@media(max-width:767px){.ds-evidence>summary{font-size:16px;padding-block:16px}}"
+    }
   ],
   "narrative": {
-    "northStar":"Editorial product dossier",
-    "overview":"Precise, credible, and crafted. Original product artifacts carry the visual character, supported by substantial sans typography and restrained olive surfaces. Content stays visible before animation or JavaScript runs. Product reconstructions retain their independent UI language and are explicitly labelled.",
-    "keyCharacteristics":["Original artifacts","Immediate comprehension","Specific decisions","Restrained motion"],
-    "rules":[],
-    "dos":["Do lead with supplied artifacts and preserve their visual evidence.","Do use dated, qualified project outcomes and specific decision summaries.","Do maintain both themes, clear focus, and immediately visible text."],
-    "donts":["Don't invent metrics, testimonials, projects, roles, or illustrative product evidence.","Don't replace original project imagery with decorative stock or generated screenshots."]
+    "northStar": "Modern minimal glass, original product evidence",
+    "overview": "Wide, light-weight sans typography and generous whitespace establish identity quickly for recruiters, design leaders and hiring teams. Floating frosted navigation and restrained artifact frames introduce depth; the original screenshots stay unobscured.",
+    "keyCharacteristics": [
+      "Cool neutral surfaces and a slate-blue accent.",
+      "Large, light IBM Plex Sans headings with quiet supporting type.",
+      "Original product evidence framed with restrained glass.",
+      "Distinct compositions for each selected project."
+    ],
+    "rules": [],
+    "dos": [
+      "Lead with supplied product artifacts, dated results and decision summaries.",
+      "Preserve routes, legal text, roles, original assets and reconstruction labels.",
+      "Keep content visible with no JavaScript, no blur support, and both themes."
+    ],
+    "donts": [
+      "Do not invent project outcomes, research, testimonials or contributions.",
+      "Do not obscure source evidence with glass or generated screenshots."
+    ]
   }
 }

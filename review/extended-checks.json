@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-02T14:06:55.614Z",
+  "report": [
+    {
+      "width": 390,
+      "normalMotion": true,
+      "heroSource": "developer-catalog-400.webp",
+      "homeHeight": 6410
+    },
+    {
+      "width": 390,
+      "keyboardNavigation": "Projects and Resume via Tab/Enter",
+      "dialog": "Keyboard open, contained Tab cycle, Escape, focus restored"
+    },
+    {
+      "width": 390,
+      "route": "partner-growth-programs.html",
+      "closedHeight": 7037,
+      "expandedHeight": 9185,
+      "expandedViolations": []
+    },
+    {
+      "width": 390,
+      "route": "discounting.html",
+      "closedHeight": 5492,
+      "expandedHeight": 7450,
+      "expandedViolations": []
+    },
+    {
+      "width": 390,
+      "route": "dev-portal.html",
+      "closedHeight": 7038,
+      "expandedHeight": 13311,
+      "expandedViolations": []
+    },
+    {
+      "width": 390,
+      "disclosure": "Tab/Enter expands, Space collapses"
+    },
+    {
+      "width": 390,
+      "reducedTransparency": "Solid navigation, no blur"
+    },
+    {
+      "width": 768,
+      "normalMotion": true,
+      "heroSource": "developer-catalog-700.webp",
+      "homeHeight": 5753
+    },
+    {
+      "width": 768,
+      "keyboardNavigation": "Projects and Resume via Tab/Enter",
+      "dialog": "Keyboard open, contained Tab cycle, Escape, focus restored"
+    },
+    {
+      "width": 768,
+      "route": "partner-growth-programs.html",
+      "closedHeight": 6286,
+      "expandedHeight": 8002,
+      "expandedViolations": []
+    },
+    {
+      "width": 768,
+      "route": "discounting.html",
+      "closedHeight": 4730,
+      "expandedHeight": 6595,
+      "expandedViolations": []
+    },
+    {
+      "width": 768,
+      "route": "dev-portal.html",
+      "closedHeight": 6108,
+      "expandedHeight": 12743,
+      "expandedViolations": []
+    },
+    {
+      "width": 768,
+      "disclosure": "Tab/Enter expands, Space collapses"
+    },
+    {
+      "width": 768,
+      "reducedTransparency": "Solid navigation, no blur"
+    },
+    {
+      "width": 1440,
+      "normalMotion": true,
+      "heroSource": "developer-catalog-1000.webp",
+      "homeHeight": 6187
+    },
+    {
+      "width": 1440,
+      "keyboardNavigation": "Projects and Resume via Tab/Enter",
+      "dialog": "Keyboard open, contained Tab cycle, Escape, focus restored"
+    },
+    {
+      "width": 1440,
+      "route": "partner-growth-programs.html",
+      "closedHeight": 5665,
+      "expandedHeight": 7291,
+      "expandedViolations": []
+    },
+    {
+      "width": 1440,
+      "route": "discounting.html",
+      "closedHeight": 4762,
+      "expandedHeight": 6422,
+      "expandedViolations": []
+    },
+    {
+      "width": 1440,
+      "route": "dev-portal.html",
+      "closedHeight": 5771,
+      "expandedHeight": 13405,
+      "expandedViolations": []
+    },
+    {
+      "width": 1440,
+      "disclosure": "Tab/Enter expands, Space collapses"
+    },
+    {
+      "width": 1440,
+      "reducedTransparency": "Solid navigation, no blur"
+    }
+  ],
+  "noJSDisclosure": true
+}

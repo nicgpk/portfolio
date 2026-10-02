@@ -24,11 +24,11 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" sizes="192x192" href="apple-touch-icon.png">
 <link rel="stylesheet" href="css/motion.css?v=7">
-<link rel="stylesheet" href="css/teletype.css?v=111">
 <link rel="stylesheet" href="css/product-shot.css?v=4">
 <link rel="stylesheet" href="css/dev-product.css?v=9">
 <link rel="stylesheet" href="css/dev-flow.css?v=12">
-<link rel="stylesheet" href="css/hiring.css?v=1">
+<link rel="preload" href="fonts/ibm-plex-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/portfolio.css?v=2">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -82,7 +82,7 @@
         <p class="text-body">Agoda's internal developer platform was fragmented, slow, and unscored. Creating a service took 1-2 working days; deploying to private cloud meant Slack and tribal knowledge. Home was a flat link dump with no SUS baseline - engineers couldn't find critical paths, and leadership couldn't measure whether design helped. As the first designer in DevOps, I had to name the pain before we could score it.</p>
       </div>
 
-      <div class="product-shot-stack">
+      <details class="case-evidence"><summary>View interview synthesis</summary><div class="case-evidence-body"><div class="product-shot-stack">
         <figure class="product-shot">
           <div class="product-shot-frame">
             <div class="product-shot-chrome">
@@ -98,10 +98,10 @@
           </div>
           <figcaption class="screenshot-caption">15+ developer interviews synthesized into themes</figcaption>
         </figure>
-      </div>
+      </div></div></details>
 
       <p class="text-small" style="text-transform:uppercase;letter-spacing:var(--tracking-cue);margin-top:0.5rem;margin-bottom:0.75rem;">The broken service creation flow</p>
-      <div class="product-shot-stack">
+      <details class="case-evidence"><summary>View the original service-creation blockers</summary><div class="case-evidence-body"><div class="product-shot-stack">
         <figure class="product-shot">
           <div class="product-shot-frame">
             <div class="product-shot-chrome">
@@ -145,7 +145,7 @@
           </div>
           <figcaption class="screenshot-caption">Engineers hit blockers with no in-product path - 1-2 working days for a single service.</figcaption>
         </figure>
-      </div>
+      </div></div></details>
     </div>
   </section>
 
@@ -214,7 +214,7 @@
             <ol class="flow-list" data-flow-list></ol>
           </div>
 
-          <div class="product-shot-stack">
+          <details class="case-evidence"><summary>Inspect the landing and catalog examples</summary><div class="case-evidence-body"><div class="product-shot-stack">
 <figure class="product-shot">
           <div class="product-shot-frame">
             <div class="product-shot-chrome">
@@ -322,7 +322,7 @@
           </div>
           <figcaption class="screenshot-caption">Catalog - searchable components with ownership and source of truth</figcaption>
         </figure>
-          </div>
+          </div></div></details>
         </article>
 
         <article class="goal-block">
@@ -333,7 +333,7 @@
               <p>Give developers a productized deploy path - environment, canary across DCs, review - and a clear way to move every legacy service off servers onto private cloud.</p>
             </div>
           </div>
-                    <div class="product-shot-stack">
+                    <details class="case-evidence"><summary>Inspect the three deployment steps</summary><div class="case-evidence-body"><div class="product-shot-stack">
         <figure class="product-shot">
           <div class="product-shot-frame">
             <div class="product-shot-chrome">
@@ -511,7 +511,7 @@
           </div>
           <figcaption class="screenshot-caption">3. Review &amp; deploy</figcaption>
         </figure>
-          </div>
+          </div></div></details>
 </article>
 
         <article class="goal-block">
@@ -522,7 +522,7 @@
               <p>Rebuild IA so developers see what matters first - clear hierarchy, less noise, and the critical paths easy to find.</p>
             </div>
           </div>
-          <div class="product-shot-stack">
+          <details class="case-evidence"><summary>Inspect the component detail example</summary><div class="case-evidence-body"><div class="product-shot-stack">
 <figure class="product-shot">
           <div class="product-shot-frame">
             <div class="product-shot-chrome">
@@ -593,7 +593,7 @@
           </div>
           <figcaption class="screenshot-caption">Service detail - environments, monitoring, and deployment in one place</figcaption>
         </figure>
-          </div>
+          </div></div></details>
         </article>
 
       </div>

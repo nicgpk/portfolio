@@ -1,0 +1,26 @@
+{
+  "origin": "Existing repository product design artifact; no generated or external visual material",
+  "source": "images/dev_ideation+catalog+screen.png",
+  "sourceSha256": "40ff3fe567fbff6d1df34663f931020e3f68a29ae1682cb21b82fa8944d789d7",
+  "transform": "Full composition resized to400/700/1000px width and encoded as lossless WebP; original PNG retained",
+  "derivatives": [
+    {
+      "path": "images/developer-catalog-400.webp",
+      "width": 400,
+      "bytes": 22416,
+      "sha256": "93bf8184fb2efedd048ed0a01ff38b048fbf8b37736a745bdce5738ce12c65f4"
+    },
+    {
+      "path": "images/developer-catalog-700.webp",
+      "width": 700,
+      "bytes": 51298,
+      "sha256": "950c4ec2e7783a99b390e45e8fcbf08df520223e91ec1e967b1f43567e2b1499"
+    },
+    {
+      "path": "images/developer-catalog-1000.webp",
+      "width": 1000,
+      "bytes": 77442,
+      "sha256": "cb04fbcd610cda0c166378043d501f1499b37cc9edb3cc64d8c717c0d550947c"
+    }
+  ]
+}

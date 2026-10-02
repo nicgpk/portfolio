@@ -4,7 +4,9 @@
   "scripts": {
     "preview": "node scripts/preview.cjs",
     "test": "node scripts/verify.cjs",
-    "check:html": "html-validate --config .htmlvalidate.json *.html"
+    "check:html": "html-validate --config .htmlvalidate.json *.html",
+    "build:css": "node scripts/build-css.cjs",
+    "test:extended": "node scripts/verify-extended.cjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",

@@ -22,11 +22,13 @@ The resume's eight-pattern claim conflicts with the Partner case's seven. Preser
 
 Reviewed current portfolio references for immediate identity, artifact scale, and concrete project context: [Alex Cornell](https://www.alexcornell.com/), [Tobias van Schneider](https://vanschneider.com/), and [Pablo Stanley](https://www.pablostanley.com/). The independent source audit supplied these verified references. [Femke](https://femke.design/) was also read for emphasis on strategic influence; its current site is education-focused rather than a case-study portfolio. No reference assets or layouts were copied.
 
-## Direction contract
+## Current direction contract
 
-Experience mode. Audience: recruiters scanning quickly and design teams evaluating ownership and judgment. Seven considered systems: project monograph, exhibition catalog, typographic design journal, annotated systems atlas, editorial product dossier, process storyboard, and comparative design review. The Impeccable concept seed assigned candidate five (key `3b82474a`): editorial product dossier. The downloaded engine worked from a workspace cache after the default cache failed. Its unrelated sculpture/alphabet/rail challengers were declined for weaker recruiter identification and product clarity; retain their discipline of purposeful sequencing, typographic commitment, and clear navigation without importing their visual motifs.
+The user explicitly superseded editorial restraint with a modern, minimal glass UI redesign. Experience mode for recruiter scanning and hiring-team evidence. Native CSS retains IBM Plex and the supplied identity; no framework migration. Wide display type, floating frosted navigation, cool neutral depth and original large-scale artifacts replace the initial split-hero visual system. Glass frames source evidence; it never overlays screenshot content. Default and reduced-transparency fills are solid.
 
-Visual variance 7, motion intensity 3, density 3. Native CSS with retained IBM Plex; no framework migration. First viewport: immediate name and role beside a large original program artifact, with work and resume actions. Visitor path: selected work, experience, working principles, archive, contact. Case studies: original artifact, ownership / choice / evidence summary, existing detailed process and product examples, qualified results. Signature interaction: modest image magnification on hover and one immediately-visible artifact entrance, both respecting reduced motion. Risk: original artifacts have varying age/resolution; precise screenshot text requires opening the original image.
+The opening uses the existing Developer Portal catalog (images/dev_ideation+catalog+screen.png), with400/700/1000px lossless WebP derivatives. The Partner overview remains the first feature; Discounting and Developer Portal have distinct lighter and darker compositions. Case facts and results remain visible. Native disclosures retain dense research, program details and reconstructed product examples, with no-JavaScript and keyboard access. No original source asset is removed.
+
+Visual variance7, motion intensity2, density3. Priority artwork stays still; color feedback supports control interaction. Original artifacts have varying resolution, so case hero links expose full-size source files.
 
 ## Verification scope
 
