@@ -131,3 +131,10 @@ footer{max-width:1280px;padding:38px 48px 48px;margin:auto;text-align:left;displ
  footer{padding:28px 22px 36px;flex-direction:column;gap:14px}.text-body{font-size:16px}
 }
 @media print{.skip-link,.case-jumps{display:none}.container{max-width:100%;padding-inline:0}.case-hero .container{display:block}.case-artifact{max-width:500px}.work-grid{display:block}.work-entry{break-inside:avoid;margin-bottom:24px}body{background:white;color:black}}
+
+/* Review fixes: keep navigation legible and source artifacts accessible. */
+.header .header-logo,[data-theme='dark'] .header .header-logo{color:var(--text)}
+.case-artifact>a{display:block}.artifact-fullsize{display:inline-block;margin-left:8px;color:var(--text);text-decoration:underline;min-height:24px}
+@media(max-width:767px){.dev-wiz-bar{height:auto;min-height:44px;flex-wrap:wrap;padding-block:10px}.dev-wiz-steps{position:static;transform:none;order:4;flex-basis:100%;justify-content:space-between;gap:8px;white-space:normal}.dev-wiz-steps span.is-active{padding-bottom:4px;margin-bottom:0}.dev-wiz-name{min-width:0;overflow-wrap:anywhere;flex-shrink:1}}
+
+.header .nav a{display:inline-flex;align-items:center;min-height:44px}
