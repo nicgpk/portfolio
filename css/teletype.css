@@ -1,4 +1,4 @@
-@import url('motion.css?v=7');
+/* Motion is loaded explicitly by each portfolio page. */
 
 :root {
   --bg: #faf7f0;
