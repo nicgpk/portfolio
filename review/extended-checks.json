@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-02T15:51:31.283Z",
+  "report": [
+    {
+      "width": 390,
+      "normalMotion": true,
+      "heroSource": "Labeled Partner Growth concept; original project design linked",
+      "homeHeight": 9739
+    },
+    {
+      "width": 390,
+      "keyboardNavigation": "Projects and Resume via Tab/Enter",
+      "dialog": "Keyboard open, contained Tab cycle, Escape, focus restored"
+    },
+    {
+      "width": 390,
+      "route": "partner-growth-programs.html",
+      "closedHeight": 8482,
+      "expandedHeight": 11063,
+      "expandedViolations": []
+    },
+    {
+      "width": 390,
+      "route": "discounting.html",
+      "closedHeight": 7017,
+      "expandedHeight": 8974,
+      "expandedViolations": []
+    },
+    {
+      "width": 390,
+      "route": "dev-portal.html",
+      "closedHeight": 8151,
+      "expandedHeight": 14424,
+      "expandedViolations": []
+    },
+    {
+      "width": 390,
+      "disclosure": "Tab/Enter expands, Space collapses"
+    },
+    {
+      "width": 390,
+      "reducedTransparency": "Solid navigation, no blur; opaque red Partner hero preserves white text contrast"
+    },
+    {
+      "width": 768,
+      "normalMotion": true,
+      "heroSource": "Labeled Partner Growth concept; original project design linked",
+      "homeHeight": 8591
+    },
+    {
+      "width": 768,
+      "keyboardNavigation": "Projects and Resume via Tab/Enter",
+      "dialog": "Keyboard open, contained Tab cycle, Escape, focus restored"
+    },
+    {
+      "width": 768,
+      "route": "partner-growth-programs.html",
+      "closedHeight": 7783,
+      "expandedHeight": 9898,
+      "expandedViolations": []
+    },
+    {
+      "width": 768,
+      "route": "discounting.html",
+      "closedHeight": 5829,
+      "expandedHeight": 7694,
+      "expandedViolations": []
+    },
+    {
+      "width": 768,
+      "route": "dev-portal.html",
+      "closedHeight": 7219,
+      "expandedHeight": 13853,
+      "expandedViolations": []
+    },
+    {
+      "width": 768,
+      "disclosure": "Tab/Enter expands, Space collapses"
+    },
+    {
+      "width": 768,
+      "reducedTransparency": "Solid navigation, no blur; opaque red Partner hero preserves white text contrast"
+    },
+    {
+      "width": 1440,
+      "normalMotion": true,
+      "heroSource": "Labeled Partner Growth concept; original project design linked",
+      "homeHeight": 9153
+    },
+    {
+      "width": 1440,
+      "keyboardNavigation": "Projects and Resume via Tab/Enter",
+      "dialog": "Keyboard open, contained Tab cycle, Escape, focus restored"
+    },
+    {
+      "width": 1440,
+      "route": "partner-growth-programs.html",
+      "closedHeight": 7204,
+      "expandedHeight": 9229,
+      "expandedViolations": []
+    },
+    {
+      "width": 1440,
+      "route": "discounting.html",
+      "closedHeight": 5889,
+      "expandedHeight": 7549,
+      "expandedViolations": []
+    },
+    {
+      "width": 1440,
+      "route": "dev-portal.html",
+      "closedHeight": 6911,
+      "expandedHeight": 14545,
+      "expandedViolations": []
+    },
+    {
+      "width": 1440,
+      "disclosure": "Tab/Enter expands, Space collapses"
+    },
+    {
+      "width": 1440,
+      "reducedTransparency": "Solid navigation, no blur; opaque red Partner hero preserves white text contrast"
+    }
+  ],
+  "noJSDisclosure": true
+}

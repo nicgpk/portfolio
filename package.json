@@ -1,0 +1,20 @@
+{
+  "name": "nicholas-gwee-portfolio",
+  "private": true,
+  "scripts": {
+    "preview": "node scripts/preview.cjs",
+    "test": "node scripts/verify.cjs",
+    "check:html": "html-validate --config .htmlvalidate.json *.html",
+    "build:css": "node scripts/build-css.cjs",
+    "test:extended": "node scripts/verify-extended.cjs",
+    "test:concepts": "node scripts/verify-concepts.cjs",
+    "test:roles": "node scripts/verify-role-metadata.cjs",
+    "test:craft-motion": "node scripts/verify-craft-motion.cjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "html-validate": "11.16.1",
+    "lighthouse": "13.5.0",
+    "playwright": "1.63.0"
+  }
+}

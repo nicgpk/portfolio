@@ -1,0 +1,281 @@
+{
+  "date": "2026-10-02T15:52:06.918Z",
+  "report": [
+    {
+      "route": "index.html",
+      "width": 390,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 51,
+      "contrast": 15.94,
+      "errors": []
+    },
+    {
+      "route": "projects.html",
+      "width": 390,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 51,
+      "contrast": 15.94,
+      "errors": []
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "width": 390,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 51,
+      "contrast": 15.94,
+      "errors": []
+    },
+    {
+      "route": "discounting.html",
+      "width": 390,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 51,
+      "contrast": 15.94,
+      "errors": []
+    },
+    {
+      "route": "dev-portal.html",
+      "width": 390,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 51,
+      "contrast": 15.94,
+      "errors": []
+    },
+    {
+      "route": "resume.html",
+      "width": 390,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 51,
+      "contrast": 15.94,
+      "errors": []
+    },
+    {
+      "route": "index.html",
+      "width": 1440,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 60,
+      "contrast": 15.94,
+      "errors": []
+    },
+    {
+      "route": "projects.html",
+      "width": 1440,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 60,
+      "contrast": 15.94,
+      "errors": []
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "width": 1440,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 60,
+      "contrast": 15.94,
+      "errors": []
+    },
+    {
+      "route": "discounting.html",
+      "width": 1440,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 60,
+      "contrast": 15.94,
+      "errors": []
+    },
+    {
+      "route": "dev-portal.html",
+      "width": 1440,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 60,
+      "contrast": 15.94,
+      "errors": []
+    },
+    {
+      "route": "resume.html",
+      "width": 1440,
+      "computed": {
+        "theme": "dark",
+        "mark": "rgb(237, 242, 249)",
+        "parent": "rgb(237, 242, 249)",
+        "semantic": "#edf2f9"
+      },
+      "foregroundPixel": [
+        237,
+        242,
+        249
+      ],
+      "backgroundPixel": [
+        23,
+        23,
+        23
+      ],
+      "lightPixels": 60,
+      "contrast": 15.94,
+      "errors": []
+    }
+  ]
+}

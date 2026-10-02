@@ -1,0 +1,290 @@
+[
+  {
+    "width": 390,
+    "theme": "light",
+    "route": "index.html",
+    "order": [
+      {
+        "titleBottom": 2873.78125,
+        "roleTop": 2883.78125,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 4396.34375,
+        "roleTop": 4406.34375,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 5860.90625,
+        "roleTop": 5870.90625,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "theme": "light",
+    "route": "projects.html",
+    "order": [
+      {
+        "titleBottom": 1662.515625,
+        "roleTop": 1672.515625,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 3185.078125,
+        "roleTop": 3195.078125,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 4649.640625,
+        "roleTop": 4659.640625,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "theme": "dark",
+    "route": "index.html",
+    "order": [
+      {
+        "titleBottom": 2873.78125,
+        "roleTop": 2883.78125,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 4396.34375,
+        "roleTop": 4406.34375,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 5860.90625,
+        "roleTop": 5870.90625,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  },
+  {
+    "width": 390,
+    "theme": "dark",
+    "route": "projects.html",
+    "order": [
+      {
+        "titleBottom": 1662.515625,
+        "roleTop": 1672.515625,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 3185.078125,
+        "roleTop": 3195.078125,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 4649.640625,
+        "roleTop": 4659.640625,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "theme": "light",
+    "route": "index.html",
+    "order": [
+      {
+        "titleBottom": 2528.3125,
+        "roleTop": 2546.3125,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 3800.390625,
+        "roleTop": 3818.390625,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 5217.1875,
+        "roleTop": 5235.1875,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "theme": "light",
+    "route": "projects.html",
+    "order": [
+      {
+        "titleBottom": 1459.15625,
+        "roleTop": 1477.15625,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 2731.234375,
+        "roleTop": 2749.234375,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 4148.03125,
+        "roleTop": 4166.03125,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "theme": "dark",
+    "route": "index.html",
+    "order": [
+      {
+        "titleBottom": 2528.3125,
+        "roleTop": 2546.3125,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 3800.390625,
+        "roleTop": 3818.390625,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 5217.1875,
+        "roleTop": 5235.1875,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "theme": "dark",
+    "route": "projects.html",
+    "order": [
+      {
+        "titleBottom": 1459.15625,
+        "roleTop": 1477.15625,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 2731.234375,
+        "roleTop": 2749.234375,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 4148.03125,
+        "roleTop": 4166.03125,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "route": "index.html",
+    "order": [
+      {
+        "titleBottom": 2756.703125,
+        "roleTop": 2774.703125,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 4130.859375,
+        "roleTop": 4148.859375,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 5717.859375,
+        "roleTop": 5735.859375,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "route": "projects.html",
+    "order": [
+      {
+        "titleBottom": 1592.953125,
+        "roleTop": 1610.953125,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 2967.109375,
+        "roleTop": 2985.109375,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 4554.109375,
+        "roleTop": 4572.109375,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "route": "index.html",
+    "order": [
+      {
+        "titleBottom": 2756.703125,
+        "roleTop": 2774.703125,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 4130.859375,
+        "roleTop": 4148.859375,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 5717.859375,
+        "roleTop": 5735.859375,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "route": "projects.html",
+    "order": [
+      {
+        "titleBottom": 1592.953125,
+        "roleTop": 1610.953125,
+        "role": "Product Design Lead at Agoda"
+      },
+      {
+        "titleBottom": 2967.109375,
+        "roleTop": 2985.109375,
+        "role": "Senior Product Designer at Agoda"
+      },
+      {
+        "titleBottom": 4554.109375,
+        "roleTop": 4572.109375,
+        "role": "Senior Product Designer at Agoda Engineering"
+      }
+    ],
+    "axe": 0,
+    "overflow": false
+  }
+]

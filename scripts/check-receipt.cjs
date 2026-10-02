@@ -1,0 +1,1 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');const s=fs.readFileSync('discounting.html','utf8');assert.equal(22.5+15,37.5);assert.equal(127.5+135,262.5);assert.ok(s.includes('$37.50')&&s.includes('$262.50'));assert.ok(!s.includes('33.75')&&!s.includes('266.25'));console.log('Illustrative receipt: discount $37.50; net $262.50; dependent labels consistent.');

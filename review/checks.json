@@ -1,0 +1,390 @@
+{
+  "report": [
+    {
+      "route": "index.html",
+      "theme": "light",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Product Design Lead",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "projects.html",
+      "theme": "light",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Projects",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "theme": "light",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Partner Growth Programs",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "discounting.html",
+      "theme": "light",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Discounting",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "dev-portal.html",
+      "theme": "light",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Developer Portal & Deployment",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "resume.html",
+      "theme": "light",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Nicholas Gwee",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "index.html",
+      "theme": "light",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Product Design Lead",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "projects.html",
+      "theme": "light",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Projects",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "theme": "light",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Partner Growth Programs",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "discounting.html",
+      "theme": "light",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Discounting",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "dev-portal.html",
+      "theme": "light",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Developer Portal & Deployment",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "resume.html",
+      "theme": "light",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Nicholas Gwee",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "index.html",
+      "theme": "dark",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Product Design Lead",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "projects.html",
+      "theme": "dark",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Projects",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "theme": "dark",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Partner Growth Programs",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "discounting.html",
+      "theme": "dark",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Discounting",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "dev-portal.html",
+      "theme": "dark",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Developer Portal & Deployment",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "resume.html",
+      "theme": "dark",
+      "width": 390,
+      "layout": {
+        "width": 390,
+        "scroll": 390,
+        "brokenImages": [],
+        "heading": "Nicholas Gwee",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "index.html",
+      "theme": "dark",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Product Design Lead",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "projects.html",
+      "theme": "dark",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Projects",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "theme": "dark",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Partner Growth Programs",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "discounting.html",
+      "theme": "dark",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Discounting",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "dev-portal.html",
+      "theme": "dark",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Developer Portal & Deployment",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    },
+    {
+      "route": "resume.html",
+      "theme": "dark",
+      "width": 1440,
+      "layout": {
+        "width": 1440,
+        "scroll": 1440,
+        "brokenImages": [],
+        "heading": "Nicholas Gwee",
+        "main": 1,
+        "links": []
+      },
+      "errors": [],
+      "failures": [],
+      "violations": []
+    }
+  ],
+  "interactionChecks": "No-JS navigation, theme toggle, pattern dialog open/Escape",
+  "date": "2026-10-02T15:51:45.544Z"
+}

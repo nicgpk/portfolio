@@ -1,0 +1,183 @@
+{
+  "date": "2026-10-02T15:51:44.624Z",
+  "report": [
+    {
+      "route": "index.html",
+      "width": 390,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "width": 390,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "discounting.html",
+      "width": 390,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "dev-portal.html",
+      "width": 390,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "index.html",
+      "width": 390,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "width": 390,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "discounting.html",
+      "width": 390,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "dev-portal.html",
+      "width": 390,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "index.html",
+      "width": 768,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "width": 768,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "discounting.html",
+      "width": 768,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "dev-portal.html",
+      "width": 768,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "index.html",
+      "width": 768,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "width": 768,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "discounting.html",
+      "width": 768,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "dev-portal.html",
+      "width": 768,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "index.html",
+      "width": 1440,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "width": 1440,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "discounting.html",
+      "width": 1440,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "dev-portal.html",
+      "width": 1440,
+      "theme": "light",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "index.html",
+      "width": 1440,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "width": 1440,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "discounting.html",
+      "width": 1440,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "route": "dev-portal.html",
+      "width": 1440,
+      "theme": "dark",
+      "axe": [],
+      "overflow": false
+    },
+    {
+      "normalMotion": true,
+      "reducedMotion": "zero running animations after live preference change"
+    },
+    {
+      "rapidInteraction": "one final panel, no input blocked"
+    },
+    {
+      "noJS": "static example, inactive calculator controls, original source link"
+    }
+  ]
+}
