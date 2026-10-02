@@ -23,3 +23,5 @@ Review evidence is in `review/final/` and `review/checks.json`. Read `docs/hirin
 For shared CSS changes, run `npm run build:css`. Run `npm run test:extended` for normal motion, 768px layout, expanded evidence, keyboard navigation/dialog focus, and reduced-transparency checks. The original source PNGs remain unchanged; responsive hero derivatives resize those same pixels.
 
 The current project covers are clearly labeled semantic HTML interface explorations using only existing project content. Original artifacts stay accessible in the case studies. Run `npm run test:concepts` for live search, calculator combinations, keyboard deployment steps, rapid input, no-JS fallback, motion/reduced-motion and 390/768/1440 light/dark checks. `npm run test:roles` verifies role metadata stays below each project title. Current concept screenshots and reports are in `review/concepts/` and `review/concept-checks.json`.
+
+The bold revision restores Partner Growth Programs to the home hero. Compare the prior and current direction in `review/color-revision/`; the latest verification includes live motion interruption and the opaque hero under reduced transparency.

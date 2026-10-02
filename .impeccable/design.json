@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-02T14:51:36.255Z",
+  "generatedAt": "2026-10-02T15:21:46.275Z",
   "title": "Design System: Nicholas Gwee",
   "extensions": {
     "motion": [
@@ -11,8 +11,8 @@
       },
       {
         "name": "lead-project-arrival",
-        "value": "650ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "One native-scroll intersection arrival: opacity .86, translateY(24px) scale(.985) settle to rest."
+        "value": "780ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Already-visible lead operating surface: translateX(-64px) scale(.965), opacity .94 to rest. Focus/pointer interrupts; live reduced motion cancels and disconnects observation."
       },
       {
         "name": "calculator-feedback",
@@ -54,213 +54,688 @@
         "name": "case-concept-depth",
         "value": "0 24px 70px rgba(23,40,55,.12)",
         "purpose": "Standalone case exploration; removed on mobile."
+      },
+      {
+        "name": "work-operating-depth",
+        "value": "0 20px 48px rgba(0,0,0,.15)",
+        "purpose": "Inset work operating surfaces; removed on mobile."
       }
     ],
     "colorMeta": {
       "primary": {
         "role": "primary",
-        "displayName": "Primary",
-        "canonical": "#264b75"
+        "displayName": "Deep Brick Red",
+        "canonical": "#a82412",
+        "tonalRamp": [
+          "oklch(15% 0.1706 31.15)",
+          "oklch(25% 0.1706 31.15)",
+          "oklch(35% 0.1706 31.15)",
+          "oklch(45% 0.1706 31.15)",
+          "oklch(55% 0.1706 31.15)",
+          "oklch(68% 0.1706 31.15)",
+          "oklch(82% 0.1706 31.15)",
+          "oklch(95% 0.1706 31.15)"
+        ]
       },
       "background": {
         "role": "neutral",
         "displayName": "Background",
-        "canonical": "#f3f5f8"
+        "canonical": "#fff",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "surface": {
         "role": "neutral",
         "displayName": "Surface",
-        "canonical": "#e7ebf1"
+        "canonical": "#ededed",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "surface-light": {
         "role": "neutral",
         "displayName": "Surface Light",
-        "canonical": "#fafbfd"
+        "canonical": "#fafafa",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "text": {
         "role": "neutral",
         "displayName": "Text",
-        "canonical": "#151a23"
+        "canonical": "#101010",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "muted": {
         "role": "neutral",
         "displayName": "Muted",
-        "canonical": "#505969"
+        "canonical": "#4b4b4b",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "border": {
         "role": "neutral",
         "displayName": "Border",
-        "canonical": "#cdd4df"
+        "canonical": "#d6d6d6",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "border-strong": {
         "role": "neutral",
         "displayName": "Border Strong",
-        "canonical": "#a1afc1"
+        "canonical": "#929292",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "dark-background": {
         "role": "neutral",
         "displayName": "Dark Background",
-        "canonical": "#11151c"
+        "canonical": "#090909",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "dark-surface": {
         "role": "neutral",
         "displayName": "Dark Surface",
-        "canonical": "#242d3a"
+        "canonical": "#242424",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "dark-surface-light": {
         "role": "neutral",
         "displayName": "Dark Surface Light",
-        "canonical": "#1a202a"
+        "canonical": "#171717",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "dark-border": {
         "role": "neutral",
         "displayName": "Dark Border",
-        "canonical": "#354152"
+        "canonical": "#414141",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "dark-border-strong": {
         "role": "neutral",
         "displayName": "Dark Border Strong",
-        "canonical": "#61748e"
+        "canonical": "#818181",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "dark-text": {
         "role": "neutral",
         "displayName": "Dark Text",
-        "canonical": "#edf2f9"
+        "canonical": "#edf2f9",
+        "tonalRamp": [
+          "oklch(15% 0.0108 256.70)",
+          "oklch(25% 0.0108 256.70)",
+          "oklch(35% 0.0108 256.70)",
+          "oklch(45% 0.0108 256.70)",
+          "oklch(55% 0.0108 256.70)",
+          "oklch(68% 0.0108 256.70)",
+          "oklch(82% 0.0108 256.70)",
+          "oklch(95% 0.0108 256.70)"
+        ]
       },
       "dark-muted": {
         "role": "neutral",
         "displayName": "Dark Muted",
-        "canonical": "#b8c3d4"
+        "canonical": "#c5c5c5",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "dark-primary": {
         "role": "primary",
-        "displayName": "Dark Primary",
-        "canonical": "#a9c8f1"
+        "displayName": "Pale Coral",
+        "canonical": "#ff9b86",
+        "tonalRamp": [
+          "oklch(15% 0.1243 32.67)",
+          "oklch(25% 0.1243 32.67)",
+          "oklch(35% 0.1243 32.67)",
+          "oklch(45% 0.1243 32.67)",
+          "oklch(55% 0.1243 32.67)",
+          "oklch(68% 0.1243 32.67)",
+          "oklch(82% 0.1243 32.67)",
+          "oklch(95% 0.1243 32.67)"
+        ]
       },
       "glass-fill": {
         "role": "neutral",
         "displayName": "Glass Fill",
-        "canonical": "rgba(249,251,255,.82)"
+        "canonical": "rgba(255,255,255,.86)",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "glass-solid": {
         "role": "neutral",
         "displayName": "Glass Solid",
-        "canonical": "#f9fbff"
+        "canonical": "#fff",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "glass-edge": {
         "role": "neutral",
         "displayName": "Glass Edge",
-        "canonical": "rgba(255,255,255,.85)"
+        "canonical": "rgba(255,255,255,.88)",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "dark-glass-fill": {
         "role": "neutral",
         "displayName": "Dark Glass Fill",
-        "canonical": "rgba(29,37,49,.85)"
+        "canonical": "rgba(23,23,23,.88)",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "dark-glass-solid": {
         "role": "neutral",
         "displayName": "Dark Glass Solid",
-        "canonical": "#1d2531"
+        "canonical": "#171717",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "dark-glass-edge": {
         "role": "neutral",
         "displayName": "Dark Glass Edge",
-        "canonical": "rgba(203,220,247,.2)"
+        "canonical": "rgba(255,255,255,.18)",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "program-canvas": {
-        "role": "neutral",
-        "displayName": "Program Canvas",
-        "canonical": "#dfeadf"
+        "role": "primary",
+        "displayName": "Vermilion Field",
+        "canonical": "#cf3218",
+        "tonalRamp": [
+          "oklch(15% 0.1970 31.94)",
+          "oklch(25% 0.1970 31.94)",
+          "oklch(35% 0.1970 31.94)",
+          "oklch(45% 0.1970 31.94)",
+          "oklch(55% 0.1970 31.94)",
+          "oklch(68% 0.1970 31.94)",
+          "oklch(82% 0.1970 31.94)",
+          "oklch(95% 0.1970 31.94)"
+        ]
       },
       "pricing-canvas": {
-        "role": "neutral",
-        "displayName": "Pricing Canvas",
-        "canonical": "#e6e4f1"
+        "role": "secondary",
+        "displayName": "Electric Violet Field",
+        "canonical": "#4725c5",
+        "tonalRamp": [
+          "oklch(15% 0.2251 281.13)",
+          "oklch(25% 0.2251 281.13)",
+          "oklch(35% 0.2251 281.13)",
+          "oklch(45% 0.2251 281.13)",
+          "oklch(55% 0.2251 281.13)",
+          "oklch(68% 0.2251 281.13)",
+          "oklch(82% 0.2251 281.13)",
+          "oklch(95% 0.2251 281.13)"
+        ]
       },
       "developer-canvas": {
-        "role": "neutral",
-        "displayName": "Developer Canvas",
-        "canonical": "#263849"
+        "role": "tertiary",
+        "displayName": "Strong Blue Field",
+        "canonical": "#075db8",
+        "tonalRamp": [
+          "oklch(15% 0.1612 255.81)",
+          "oklch(25% 0.1612 255.81)",
+          "oklch(35% 0.1612 255.81)",
+          "oklch(45% 0.1612 255.81)",
+          "oklch(55% 0.1612 255.81)",
+          "oklch(68% 0.1612 255.81)",
+          "oklch(82% 0.1612 255.81)",
+          "oklch(95% 0.1612 255.81)"
+        ]
       },
       "program-fill": {
         "role": "neutral",
         "displayName": "Program Fill",
-        "canonical": "#f4f9f4"
+        "canonical": "#fff",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "program-ink": {
         "role": "neutral",
         "displayName": "Program Ink",
-        "canonical": "#182b29"
+        "canonical": "#151515",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "program-muted": {
         "role": "neutral",
         "displayName": "Program Muted",
-        "canonical": "#4c625d"
+        "canonical": "#525252",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "program-line": {
         "role": "neutral",
         "displayName": "Program Line",
-        "canonical": "#c7d7d1"
+        "canonical": "#dadada",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
       },
       "pricing-ink": {
         "role": "neutral",
         "displayName": "Pricing Ink",
-        "canonical": "#21253e"
+        "canonical": "#21253e",
+        "tonalRamp": [
+          "oklch(15% 0.0467 275.94)",
+          "oklch(25% 0.0467 275.94)",
+          "oklch(35% 0.0467 275.94)",
+          "oklch(45% 0.0467 275.94)",
+          "oklch(55% 0.0467 275.94)",
+          "oklch(68% 0.0467 275.94)",
+          "oklch(82% 0.0467 275.94)",
+          "oklch(95% 0.0467 275.94)"
+        ]
       },
       "pricing-muted": {
         "role": "neutral",
         "displayName": "Pricing Muted",
-        "canonical": "#596078"
+        "canonical": "#596078",
+        "tonalRamp": [
+          "oklch(15% 0.0395 272.18)",
+          "oklch(25% 0.0395 272.18)",
+          "oklch(35% 0.0395 272.18)",
+          "oklch(45% 0.0395 272.18)",
+          "oklch(55% 0.0395 272.18)",
+          "oklch(68% 0.0395 272.18)",
+          "oklch(82% 0.0395 272.18)",
+          "oklch(95% 0.0395 272.18)"
+        ]
       },
       "pricing-line": {
         "role": "neutral",
         "displayName": "Pricing Line",
-        "canonical": "#daddec"
+        "canonical": "#daddec",
+        "tonalRamp": [
+          "oklch(15% 0.0207 276.93)",
+          "oklch(25% 0.0207 276.93)",
+          "oklch(35% 0.0207 276.93)",
+          "oklch(45% 0.0207 276.93)",
+          "oklch(55% 0.0207 276.93)",
+          "oklch(68% 0.0207 276.93)",
+          "oklch(82% 0.0207 276.93)",
+          "oklch(95% 0.0207 276.93)"
+        ]
       },
       "pricing-receipt": {
         "role": "neutral",
         "displayName": "Pricing Receipt",
-        "canonical": "#f1f2f9"
+        "canonical": "#f1f2f9",
+        "tonalRamp": [
+          "oklch(15% 0.0094 279.69)",
+          "oklch(25% 0.0094 279.69)",
+          "oklch(35% 0.0094 279.69)",
+          "oklch(45% 0.0094 279.69)",
+          "oklch(55% 0.0094 279.69)",
+          "oklch(68% 0.0094 279.69)",
+          "oklch(82% 0.0094 279.69)",
+          "oklch(95% 0.0094 279.69)"
+        ]
       },
       "pricing-selected": {
         "role": "neutral",
         "displayName": "Pricing Selected",
-        "canonical": "#5548be"
+        "canonical": "#5548be",
+        "tonalRamp": [
+          "oklch(15% 0.1778 282.48)",
+          "oklch(25% 0.1778 282.48)",
+          "oklch(35% 0.1778 282.48)",
+          "oklch(45% 0.1778 282.48)",
+          "oklch(55% 0.1778 282.48)",
+          "oklch(68% 0.1778 282.48)",
+          "oklch(82% 0.1778 282.48)",
+          "oklch(95% 0.1778 282.48)"
+        ]
       },
       "calculator-feedback": {
         "role": "neutral",
         "displayName": "Calculator Feedback",
-        "canonical": "#e0dcfa"
+        "canonical": "#e0dcfa",
+        "tonalRamp": [
+          "oklch(15% 0.0409 291.68)",
+          "oklch(25% 0.0409 291.68)",
+          "oklch(35% 0.0409 291.68)",
+          "oklch(45% 0.0409 291.68)",
+          "oklch(55% 0.0409 291.68)",
+          "oklch(68% 0.0409 291.68)",
+          "oklch(82% 0.0409 291.68)",
+          "oklch(95% 0.0409 291.68)"
+        ]
       },
       "developer-fill": {
         "role": "neutral",
         "displayName": "Developer Fill",
-        "canonical": "#17212a"
+        "canonical": "#17212a",
+        "tonalRamp": [
+          "oklch(15% 0.0224 246.06)",
+          "oklch(25% 0.0224 246.06)",
+          "oklch(35% 0.0224 246.06)",
+          "oklch(45% 0.0224 246.06)",
+          "oklch(55% 0.0224 246.06)",
+          "oklch(68% 0.0224 246.06)",
+          "oklch(82% 0.0224 246.06)",
+          "oklch(95% 0.0224 246.06)"
+        ]
       },
       "developer-ink": {
         "role": "neutral",
         "displayName": "Developer Ink",
-        "canonical": "#f0f3f7"
+        "canonical": "#f0f3f7",
+        "tonalRamp": [
+          "oklch(15% 0.0062 255.48)",
+          "oklch(25% 0.0062 255.48)",
+          "oklch(35% 0.0062 255.48)",
+          "oklch(45% 0.0062 255.48)",
+          "oklch(55% 0.0062 255.48)",
+          "oklch(68% 0.0062 255.48)",
+          "oklch(82% 0.0062 255.48)",
+          "oklch(95% 0.0062 255.48)"
+        ]
       },
       "developer-muted": {
         "role": "neutral",
         "displayName": "Developer Muted",
-        "canonical": "#aeb9c7"
+        "canonical": "#aeb9c7",
+        "tonalRamp": [
+          "oklch(15% 0.0234 254.42)",
+          "oklch(25% 0.0234 254.42)",
+          "oklch(35% 0.0234 254.42)",
+          "oklch(45% 0.0234 254.42)",
+          "oklch(55% 0.0234 254.42)",
+          "oklch(68% 0.0234 254.42)",
+          "oklch(82% 0.0234 254.42)",
+          "oklch(95% 0.0234 254.42)"
+        ]
       },
       "developer-line": {
         "role": "neutral",
         "displayName": "Developer Line",
-        "canonical": "#374350"
+        "canonical": "#374350",
+        "tonalRamp": [
+          "oklch(15% 0.0273 250.61)",
+          "oklch(25% 0.0273 250.61)",
+          "oklch(35% 0.0273 250.61)",
+          "oklch(45% 0.0273 250.61)",
+          "oklch(55% 0.0273 250.61)",
+          "oklch(68% 0.0273 250.61)",
+          "oklch(82% 0.0273 250.61)",
+          "oklch(95% 0.0273 250.61)"
+        ]
       },
       "developer-selected": {
         "role": "neutral",
         "displayName": "Developer Selected",
-        "canonical": "#2b3b4b"
+        "canonical": "#2b3b4b",
+        "tonalRamp": [
+          "oklch(15% 0.0351 248.88)",
+          "oklch(25% 0.0351 248.88)",
+          "oklch(35% 0.0351 248.88)",
+          "oklch(45% 0.0351 248.88)",
+          "oklch(55% 0.0351 248.88)",
+          "oklch(68% 0.0351 248.88)",
+          "oklch(82% 0.0351 248.88)",
+          "oklch(95% 0.0351 248.88)"
+        ]
       },
       "concept-focus": {
         "role": "neutral",
         "displayName": "Concept Focus",
-        "canonical": "#3b78c8"
+        "canonical": "#3b78c8",
+        "tonalRamp": [
+          "oklch(15% 0.1391 256.19)",
+          "oklch(25% 0.1391 256.19)",
+          "oklch(35% 0.1391 256.19)",
+          "oklch(45% 0.1391 256.19)",
+          "oklch(55% 0.1391 256.19)",
+          "oklch(68% 0.1391 256.19)",
+          "oklch(82% 0.1391 256.19)",
+          "oklch(95% 0.1391 256.19)"
+        ]
+      },
+      "opening": {
+        "role": "neutral",
+        "displayName": "Editorial Black",
+        "canonical": "#080808",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "opening-text": {
+        "role": "neutral",
+        "displayName": "opening text",
+        "canonical": "#fff",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "opening-muted": {
+        "role": "neutral",
+        "displayName": "opening muted",
+        "canonical": "#d7d7d7",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(68% 0.0000 89.88)",
+          "oklch(82% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "hero-button-hover": {
+        "role": "neutral",
+        "displayName": "hero button hover",
+        "canonical": "#ffb39f",
+        "tonalRamp": [
+          "oklch(15% 0.0937 35.34)",
+          "oklch(25% 0.0937 35.34)",
+          "oklch(35% 0.0937 35.34)",
+          "oklch(45% 0.0937 35.34)",
+          "oklch(55% 0.0937 35.34)",
+          "oklch(68% 0.0937 35.34)",
+          "oklch(82% 0.0937 35.34)",
+          "oklch(95% 0.0937 35.34)"
+        ]
       }
     },
     "typographyMeta": {
@@ -283,6 +758,14 @@
       "net-rate": {
         "displayName": "net rate",
         "purpose": "Local operating exploration typography."
+      },
+      "canvas-display": {
+        "displayName": "Canvas Display",
+        "purpose": "Large white aria-hidden visual project titles alongside semantic work headings."
+      },
+      "hero-project": {
+        "displayName": "Partner Hero Project",
+        "purpose": "Existing Partner Growth identity beside focused discovery."
       }
     }
   },
@@ -291,30 +774,30 @@
       "name": "Primary button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Confident work navigation.",
-      "html": "<a class=\"ds-primary\" href=\"#\">View my work</a>",
-      "css": ".ds-primary{display:inline-flex;align-items:center;min-height:48px;padding:12px 26px;background:var(--text,#151a23);color:var(--bg,#f3f5f8);border-radius:999px;text-decoration:none;font:500 15px 'IBM Plex Sans',sans-serif}.ds-primary:hover{background:var(--accent,#264b75)}.ds-primary:focus-visible{outline:3px solid var(--accent,#264b75);outline-offset:5px}@media(prefers-reduced-motion:no-preference){.ds-primary{transition:background-color .18s ease}.ds-primary:active{transform:scale(.98)}}"
+      "description": "Pill work action with semantic default and white-on-black opening variant.",
+      "html": "<a class=\"ds-primary\" href=\"#\">View my work</a><div class=\"ds-opening-action\"><a class=\"ds-primary ds-hero-action\" href=\"#\">View my work</a></div>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;min-height:48px;padding:12px 26px;background:var(--text,#101010);color:var(--bg,#fff);border-radius:999px;text-decoration:none;font:500 15px 'IBM Plex Sans',sans-serif}.ds-primary:hover{background:var(--accent,#a82412)}.ds-primary:focus-visible{outline:3px solid var(--accent,#a82412);outline-offset:5px}@media(prefers-reduced-motion:no-preference){.ds-primary{transition:background-color .18s ease}.ds-primary:active{transform:scale(.98)}}.ds-opening-action{background:#080808;padding:24px;margin-top:16px}.ds-hero-action{background:#fff;color:#101010;border:1px solid #fff}.ds-hero-action:hover{background:#ffb39f;border-color:#ffb39f}"
     },
     {
       "name": "Glass artifact frame",
       "kind": "custom",
       "description": "Existing source case screenshots retain unobscured supporting frames; new operating canvases use tonal separation.",
       "html": "<figure class=\"ds-artifact\"><p>Original product artifact</p><figcaption>Project context</figcaption></figure>",
-      "css": ".ds-artifact{background:var(--glass-solid,#f9fbff);color:var(--text,#151a23);padding:12px;border-radius:20px;border:1px solid var(--glass-edge,rgba(255,255,255,.85));box-shadow:var(--glass-shadow,0 16px 48px rgba(31,49,75,.1));font-family:'IBM Plex Sans',sans-serif}.ds-artifact figcaption{font-size:13px;color:var(--text-muted,#505969)}@supports(backdrop-filter:blur(1px)){.ds-artifact{background:var(--glass-fill,rgba(249,251,255,.82));backdrop-filter:blur(14px)}}@media(prefers-reduced-transparency:reduce){.ds-artifact{background:var(--glass-solid,#f9fbff);backdrop-filter:none}}"
+      "css": ".ds-artifact{background:var(--glass-solid,#fff);color:var(--text,#101010);padding:12px;border-radius:20px;border:1px solid var(--glass-edge,rgba(255,255,255,.88));box-shadow:var(--glass-shadow,0 16px 48px rgba(31,49,75,.1));font-family:'IBM Plex Sans',sans-serif}.ds-artifact figcaption{font-size:13px;color:var(--text-muted,#4b4b4b)}@supports(backdrop-filter:blur(1px)){.ds-artifact{background:var(--glass-fill,rgba(255,255,255,.86));backdrop-filter:blur(14px)}}@media(prefers-reduced-transparency:reduce){.ds-artifact{background:var(--glass-solid,#fff);backdrop-filter:none}}"
     },
     {
       "name": "Text link",
       "kind": "button",
       "description": "Secondary navigation action.",
       "html": "<a class=\"ds-link\" href=\"#\">Resume</a>",
-      "css": ".ds-link{display:inline-flex;align-items:center;min-height:44px;font:400 15px 'IBM Plex Sans',sans-serif;color:var(--text,#151a23);text-underline-offset:.25em;text-decoration:underline;text-decoration-color:var(--border-strong,#a1afc1)}.ds-link:hover{color:var(--accent,#264b75)}.ds-link:focus-visible{outline:3px solid var(--accent,#264b75);outline-offset:5px}"
+      "css": ".ds-link{display:inline-flex;align-items:center;min-height:44px;font:400 15px 'IBM Plex Sans',sans-serif;color:var(--text,#101010);text-underline-offset:.25em;text-decoration:underline;text-decoration-color:var(--border-strong,#929292)}.ds-link:hover{color:var(--accent,#a82412)}.ds-link:focus-visible{outline:3px solid var(--accent,#a82412);outline-offset:5px}"
     },
     {
       "name": "Primary navigation",
       "kind": "nav",
       "description": "Persistent About, Projects, Resume navigation.",
       "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#\" aria-current=\"page\">About</a><a href=\"#\">Projects</a><a href=\"#\">Resume</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:32px;min-height:64px;padding:0 24px;background:var(--glass-solid,#f9fbff);border:1px solid var(--glass-edge,rgba(255,255,255,.85));border-radius:20px;box-shadow:var(--glass-shadow,0 16px 48px rgba(31,49,75,.1))}.ds-nav a{display:flex;align-items:center;min-height:44px;font:400 15px 'IBM Plex Sans',sans-serif;color:var(--text,#151a23);text-decoration:none}.ds-nav a[aria-current],.ds-nav a:hover{color:var(--accent,#264b75)}.ds-nav a:focus-visible{outline:3px solid var(--accent,#264b75);outline-offset:5px}@supports(backdrop-filter:blur(1px)){.ds-nav{background:var(--glass-fill,rgba(249,251,255,.82));backdrop-filter:blur(22px) saturate(130%)}}@media(prefers-reduced-transparency:reduce){.ds-nav{background:var(--glass-solid,#f9fbff);backdrop-filter:none}}@media(max-width:767px){.ds-nav{min-height:60px;padding-inline:16px;gap:14px;border-radius:16px}.ds-nav a{font-size:13px}}@media(prefers-reduced-motion:no-preference){.ds-nav a{transition:color .18s ease}}",
+      "css": ".ds-nav{display:flex;align-items:center;gap:32px;min-height:64px;padding:0 24px;background:var(--glass-solid,#fff);border:1px solid var(--glass-edge,rgba(255,255,255,.88));border-radius:20px;box-shadow:var(--glass-shadow,0 16px 48px rgba(31,49,75,.1))}.ds-nav a{display:flex;align-items:center;min-height:44px;font:400 15px 'IBM Plex Sans',sans-serif;color:var(--text,#101010);text-decoration:none}.ds-nav a[aria-current],.ds-nav a:hover{color:var(--accent,#a82412)}.ds-nav a:focus-visible{outline:3px solid var(--accent,#a82412);outline-offset:5px}@supports(backdrop-filter:blur(1px)){.ds-nav{background:var(--glass-fill,rgba(255,255,255,.86));backdrop-filter:blur(22px) saturate(130%)}}@media(prefers-reduced-transparency:reduce){.ds-nav{background:var(--glass-solid,#fff);backdrop-filter:none}}@media(max-width:767px){.ds-nav{min-height:60px;padding-inline:16px;gap:14px;border-radius:16px}.ds-nav a{font-size:13px}}@media(prefers-reduced-motion:no-preference){.ds-nav a{transition:color .18s ease}}",
       "refersTo": "navigation"
     },
     {
@@ -322,14 +805,14 @@
       "kind": "custom",
       "description": "Native, keyboard-operable access to deeper case evidence.",
       "html": "<details class=\"ds-evidence\"><summary>View supporting evidence</summary><div class=\"ds-evidence-body\">Original product evidence and labeled reconstructions.</div></details>",
-      "css": ".ds-evidence{border-block:1px solid var(--border,#cdd4df);margin:20px 0;color:var(--text,#151a23);font-family:\"IBM Plex Sans\",sans-serif}.ds-evidence>summary{padding:18px 4px;min-height:56px;font-size:17px;font-weight:500;cursor:pointer;list-style-position:inside}.ds-evidence>summary:hover{color:var(--accent,#264b75)}.ds-evidence>summary:focus-visible{outline:3px solid var(--accent,#264b75);outline-offset:5px}.ds-evidence-body{padding:12px 0 24px}@media(max-width:767px){.ds-evidence>summary{font-size:16px;padding-block:16px}}"
+      "css": ".ds-evidence{border-block:1px solid var(--border,#d6d6d6);margin:20px 0;color:var(--text,#101010);font-family:\"IBM Plex Sans\",sans-serif}.ds-evidence>summary{padding:18px 4px;min-height:56px;font-size:17px;font-weight:500;cursor:pointer;list-style-position:inside}.ds-evidence>summary:hover{color:var(--accent,#a82412)}.ds-evidence>summary:focus-visible{outline:3px solid var(--accent,#a82412);outline-offset:5px}.ds-evidence-body{padding:12px 0 24px}@media(max-width:767px){.ds-evidence>summary{font-size:16px;padding-block:16px}}"
     },
     {
-      "name": "Program discovery",
+      "name": "Partner hero and program discovery",
       "kind": "input",
-      "description": "Disabled search preview and native details represent the local eight-program exploration.",
-      "html": "<section class=\"ds-growth\"><label>Search programs<input disabled type=\"search\" placeholder=\"Try visibility or promotions\"></label><details open><summary>Promotions</summary><p>Property sets a discount; Agoda adds a deal badge.</p></details><p>Visual exploration; sample values.</p></section>",
-      "css": ".ds-growth{font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.45;border-radius:12px;padding:24px;background:#f4f9f4;color:#182b29}.ds-growth input{display:block;background:#fff;color:#182b29;border:1px solid #c7d7d1;border-radius:8px;padding:11px 14px;margin:6px 0 20px}.ds-growth summary{padding:16px 0;border-block:1px solid #c7d7d1;cursor:pointer}.ds-growth summary:hover{text-decoration:underline}.ds-growth summary:focus-visible{outline:3px solid #3b78c8;outline-offset:3px}"
+      "description": "Red three-program Partner hero plus distinct selected-work search preview; native details work without JavaScript.",
+      "html": "<section class=\"ds-partner-hero\"><div class=\"ds-partner-copy\"><h2>Partner Growth Programs</h2><p>One experience across eight programs.</p><small>Updated interface concept based on the original project.</small></div><div class=\"ds-growth\"><strong>Partner growth</strong><h3>Find the right next step.</h3><details open><summary>Promotions</summary><p>Property sets a discount - Agoda adds a deal badge, boosts rank, and amplifies across email, push, and deal pages.</p></details><details><summary>Agoda Growth Program</summary><p>Pay a higher commission - Agoda deploys the full marketing suite: ranking boost, ad spend, Preferred Partner badge.</p></details><details><summary>Agoda Advanced</summary><p>Pay upfront - Agoda deducts from the balance per booking. AGP or Maximum Gain variant.</p></details></div><p class=\"ds-caption\">Visual exploration · Program selection</p></section><section class=\"ds-program-canvas\"><span class=\"ds-canvas-title\" aria-hidden=\"true\">Partner Growth</span><div class=\"ds-growth ds-work-growth\"><label>Search programs<input disabled type=\"search\" placeholder=\"Try visibility or promotions\"></label><details><summary>Promotions</summary><p>Property sets a discount; Agoda adds a deal badge.</p></details></div><p class=\"ds-caption\">Updated interface concept based on the original project.</p></section>",
+      "css": ".ds-growth{font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.45;border-radius:12px;padding:24px;background:#fff;color:#151515}.ds-growth input{display:block;background:#fff;color:#151515;border:1px solid #dadada;border-radius:8px;padding:11px 14px;margin:6px 0 20px}.ds-growth summary{padding:16px 0;border-block:1px solid #dadada;cursor:pointer}.ds-growth summary:hover{text-decoration:underline}.ds-growth summary:focus-visible{outline:3px solid #3b78c8;outline-offset:3px}.ds-partner-hero,.ds-program-canvas{background:#cf3218;color:#fff;padding:32px;font-family:\"IBM Plex Sans\",sans-serif}.ds-partner-hero{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;border-radius:12px}.ds-partner-copy h2{font-size:clamp(32px,5.5vw,64px);font-weight:500;line-height:1.04;letter-spacing:-.035em;margin:0 0 24px}.ds-partner-copy p{font-size:18px}.ds-partner-copy small{display:block;font-size:12px;margin-top:32px}.ds-partner-hero .ds-growth{margin-top:48px;border-radius:8px}.ds-growth h3{font-size:27px;font-weight:500}.ds-growth input{border-color:#bdbdbd}.ds-growth input:focus-visible{outline:3px solid #3b78c8;outline-offset:3px}.ds-growth summary:active{color:#a72a16}.ds-caption{font-size:12px;grid-column:1/-1}.ds-program-canvas{margin-top:24px}.ds-canvas-title{display:block;font-size:clamp(40px,7.6vw,80px);font-weight:600;line-height:.95;letter-spacing:-.04em;text-transform:uppercase;margin-bottom:36px}.ds-work-growth{width:82%;margin-left:auto;box-shadow:0 20px 48px rgba(0,0,0,.15);border-radius:8px}@media(max-width:767px){.ds-partner-hero{display:block;border-radius:0;padding:32px 24px}.ds-partner-hero .ds-growth{margin-top:32px}.ds-program-canvas{padding:32px 24px}.ds-work-growth{width:auto;box-shadow:none}}@media(prefers-reduced-transparency:reduce){.ds-partner-hero{background:#cf3218!important}.ds-partner-copy h2{color:#fff!important}}"
     },
     {
       "name": "Sequential rate receipt",
@@ -347,23 +830,42 @@
     }
   ],
   "narrative": {
-    "northStar": "Bold identity, independent operating canvases",
-    "overview": "Oversized uppercase IBM Plex Sans establishes a clear role identity over a cool neutral ground. Independent green, lavender and midnight canvases give the work room to operate; restrained floating navigation carries the supporting glass treatment. Original case evidence remains accessible alongside clearly labeled interface explorations.\n\nThe user-pinned Tobias van Schneider reference informs bold hierarchy and generously scaled project presentation; Apple-like motion informs purposeful state feedback. These are inspirations, not imported assets or feature claims. The latest direction contract in `.impeccable/surfaces/portfolio-hiring.md` supersedes the earlier lightweight, screenshot-led opening.",
+    "northStar": "High contrast, working evidence",
+    "overview": "A stark black opening and oversized white IBM Plex Sans establish a confident editorial identity. Vivid red, violet and blue fields give existing project content dramatic scale; asymmetric operating surfaces make each project feel authored. Glass supports navigation and preserved source artifact frames without setting the visual ceiling.\n\nThe owner rejected the muted, safe pass and pinned Tobias van Schneider as a reference. The current direction takes contrast, conviction and scale from that reference while using existing content and artifacts. Updated interface concepts are labeled, original designs remain linked, and factual project evidence stays qualified.",
     "keyCharacteristics": [
-      "Bold 600-weight uppercase role identity with quiet supporting type.",
-      "Independent project canvases with distinct program, pricing and developer palettes.",
-      "Semantic operating examples beside preserved original evidence.",
-      "Purposeful scroll arrival and immediate, interruptible control feedback."
+      "Oversized uppercase role typography on a black opening.",
+      "A vivid red Partner Growth hero and distinct full-width project fields.",
+      "Asymmetric operating surfaces beside large visual project titles.",
+      "Purposeful, interruptible motion with live reduced-motion cancellation."
     ],
-    "rules": [],
+    "rules": [
+      {
+        "name": "The Conviction Rule",
+        "body": "Preserve the vivid project fields and stark opening established by the owner's correction; do not soften them into the rejected muted world.",
+        "section": "colors"
+      },
+      {
+        "name": "The Evidence Hierarchy Rule",
+        "body": "Large visual titles establish project identity; semantic headings, decisions and qualified evidence carry the readable case story.",
+        "section": "typography"
+      },
+      {
+        "name": "The Supporting Glass Rule",
+        "body": "Glass belongs to navigation and existing artifact framing; vivid project fields carry the presentation.",
+        "section": "elevation"
+      }
+    ],
     "dos": [
-      "Do lead with factual ownership, decisions and qualified evidence.",
-      "Do label new interface explorations and sample values, and retain original design links.",
-      "Do keep essential content and native disclosures visible without JavaScript and respect live reduced-motion changes."
+      "Do retain decisive contrast and independently colored project fields.",
+      "Do label interface explorations and keep original designs accessible.",
+      "Do keep controls keyboard accessible and respect live reduced-motion changes.",
+      "Do preserve qualified ownership, project facts and existing source assets."
     ],
     "donts": [
-      "Do not invent project outcomes, research, testimonials or contributions.",
-      "Do not obscure original evidence or present explorations as shipped redesigns."
+      "Don't return to the muted palette rejected by the owner.",
+      "Don't replace the Partner Growth hero with Developer Portal.",
+      "Don't invent outcomes, research, testimonials or shipped redesign claims.",
+      "Don't obscure source screenshots with glass or import reference-site assets."
     ]
   }
 }

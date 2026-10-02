@@ -1,0 +1,22 @@
+{
+  "base": "abf55fd8383bf3b76552976b472812ed0bbc38dd",
+  "report": [
+    {
+      "route": "partner-growth-programs.html",
+      "mainText": "exact unchanged normalized main text including existing exploration",
+      "characters": 10675
+    },
+    {
+      "route": "discounting.html",
+      "mainText": "exact unchanged normalized main text including existing exploration",
+      "characters": 5562
+    },
+    {
+      "route": "dev-portal.html",
+      "mainText": "exact unchanged normalized main text including existing exploration",
+      "characters": 8974
+    }
+  ],
+  "sourceImages": "unchanged",
+  "hero": "Partner Growth Programs restored, original artifact linked"
+}

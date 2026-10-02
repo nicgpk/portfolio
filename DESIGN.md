@@ -1,36 +1,40 @@
 ---
 name: Nicholas Gwee portfolio
-description: Bold typographic portfolio with independent operating canvases
+description: Stark editorial typography and vivid asymmetric operating canvases
 colors:
-  primary: "#264b75"
-  background: "#f3f5f8"
-  surface: "#e7ebf1"
-  surface-light: "#fafbfd"
-  text: "#151a23"
-  muted: "#505969"
-  border: "#cdd4df"
-  border-strong: "#a1afc1"
-  dark-background: "#11151c"
-  dark-surface: "#242d3a"
-  dark-surface-light: "#1a202a"
-  dark-border: "#354152"
-  dark-border-strong: "#61748e"
+  opening: "#080808"
+  opening-text: "#fff"
+  opening-muted: "#d7d7d7"
+  hero-button-hover: "#ffb39f"
+  primary: "#a82412"
+  background: "#fff"
+  surface: "#ededed"
+  surface-light: "#fafafa"
+  text: "#101010"
+  muted: "#4b4b4b"
+  border: "#d6d6d6"
+  border-strong: "#929292"
+  dark-background: "#090909"
+  dark-surface: "#242424"
+  dark-surface-light: "#171717"
+  dark-border: "#414141"
+  dark-border-strong: "#818181"
   dark-text: "#edf2f9"
-  dark-muted: "#b8c3d4"
-  dark-primary: "#a9c8f1"
-  glass-fill: "rgba(249,251,255,.82)"
-  glass-solid: "#f9fbff"
-  glass-edge: "rgba(255,255,255,.85)"
-  dark-glass-fill: "rgba(29,37,49,.85)"
-  dark-glass-solid: "#1d2531"
-  dark-glass-edge: "rgba(203,220,247,.2)"
-  program-canvas: "#dfeadf"
-  pricing-canvas: "#e6e4f1"
-  developer-canvas: "#263849"
-  program-fill: "#f4f9f4"
-  program-ink: "#182b29"
-  program-muted: "#4c625d"
-  program-line: "#c7d7d1"
+  dark-muted: "#c5c5c5"
+  dark-primary: "#ff9b86"
+  glass-fill: "rgba(255,255,255,.86)"
+  glass-solid: "#fff"
+  glass-edge: "rgba(255,255,255,.88)"
+  dark-glass-fill: "rgba(23,23,23,.88)"
+  dark-glass-solid: "#171717"
+  dark-glass-edge: "rgba(255,255,255,.18)"
+  program-canvas: "#cf3218"
+  pricing-canvas: "#4725c5"
+  developer-canvas: "#075db8"
+  program-fill: "#fff"
+  program-ink: "#151515"
+  program-muted: "#525252"
+  program-line: "#dadada"
   pricing-ink: "#21253e"
   pricing-muted: "#596078"
   pricing-line: "#daddec"
@@ -44,11 +48,21 @@ colors:
   developer-selected: "#2b3b4b"
   concept-focus: "#3b78c8"
 typography:
+  canvas-display:
+    fontSize: "clamp(3rem, 7.6vw, 7rem)"
+    fontWeight: 600
+    lineHeight: 0.95
+    letterSpacing: "-0.04em"
+  hero-project:
+    fontSize: "clamp(3.2rem, 5.5vw, 5.1rem)"
+    fontWeight: 500
+    lineHeight: 1.04
+    letterSpacing: "-0.035em"
   display:
     fontFamily: "IBM Plex Sans, Segoe UI, sans-serif"
-    fontSize: "clamp(3.4rem, 8.2vw, 7.1rem)"
+    fontSize: "clamp(4rem, 10.7vw, 10rem)"
     fontWeight: 600
-    lineHeight: 0.98
+    lineHeight: 0.92
     letterSpacing: "-0.04em"
   concept-title:
     fontSize: "clamp(24px, 3vw, 36px)"
@@ -81,7 +95,7 @@ typography:
   evidence:
     fontSize: "21px"
   identity:
-    fontSize: "22px"
+    fontSize: "20px"
   mark-mobile:
     fontSize: "24px"
   mark:
@@ -93,17 +107,17 @@ typography:
   case-mobile:
     fontSize: "2.8rem"
   project-display:
-    fontSize: "clamp(2rem, 3.25vw, 3rem)"
+    fontSize: "clamp(2.4rem, 4.6vw, 4rem)"
   section-display:
-    fontSize: "clamp(2.5rem, 4.5vw, 4.2rem)"
+    fontSize: "clamp(3.5rem, 7vw, 6rem)"
   case-display:
     fontSize: "clamp(2.8rem, 4.5vw, 4.5rem)"
   page-display:
     fontSize: "clamp(3.5rem, 7vw, 6rem)"
   wide-display:
-    fontSize: "clamp(3.4rem, 8.2vw, 7.1rem)"
+    fontSize: "clamp(4rem, 10.7vw, 10rem)"
   compact-display:
-    fontSize: "clamp(3.25rem, 14vw, 5.5rem)"
+    fontSize: "clamp(3.4rem, 14.3vw, 6rem)"
   body:
     fontFamily: "IBM Plex Sans, Segoe UI, sans-serif"
     fontSize: "17px"
@@ -112,10 +126,12 @@ typography:
 rounded:
   control: "999px"
   surface: "20px"
-  hero: "16px"
+  hero: "12px"
   concept: "12px"
+  work-concept: "8px"
+  canvas: "0px"
   concept-mobile: "8px"
-  canvas-mobile: "10px"
+  canvas-mobile: "0px"
   input: "8px"
   sidebar-control: "6px"
   switch: "30px"
@@ -127,8 +143,8 @@ spacing:
   section: "96px"
   project-gap: "112px"
   project-gap-mobile: "64px"
-  program-canvas-inset: "48px"
-  pricing-canvas-inset: "56px"
+  program-canvas-inset: "64px 72px"
+  pricing-canvas-inset: "64px 72px"
   concept-inset: "32px"
 components:
   button-primary:
@@ -148,53 +164,105 @@ components:
 
 ## Overview
 
-**Creative North Star: "Bold identity, independent operating canvases"**
+**Creative North Star: "High contrast, working evidence"**
 
-Oversized uppercase IBM Plex Sans establishes a clear role identity over a cool neutral ground. Independent green, lavender and midnight canvases give the work room to operate; restrained floating navigation carries the supporting glass treatment. Original case evidence remains accessible alongside clearly labeled interface explorations.
+A stark black opening and oversized white IBM Plex Sans establish a confident editorial identity. Vivid red, violet and blue fields give existing project content dramatic scale; asymmetric operating surfaces make each project feel authored. Glass supports navigation and preserved source artifact frames without setting the visual ceiling.
 
-The user-pinned Tobias van Schneider reference informs bold hierarchy and generously scaled project presentation; Apple-like motion informs purposeful state feedback. These are inspirations, not imported assets or feature claims. The latest direction contract in `.impeccable/surfaces/portfolio-hiring.md` supersedes the earlier lightweight, screenshot-led opening.
+The owner rejected the muted, safe pass and pinned Tobias van Schneider as a reference. The current direction takes contrast, conviction and scale from that reference while using existing content and artifacts. Updated interface concepts are labeled, original designs remain linked, and factual project evidence stays qualified.
 
 **Key Characteristics:**
 
-- Bold 600-weight uppercase role identity with quiet supporting type.
-- Independent project canvases with distinct program, pricing and developer palettes.
-- Semantic operating examples beside preserved original evidence.
-- Purposeful scroll arrival and immediate, interruptible control feedback.
+- Oversized uppercase role typography on a black opening.
+- A vivid red Partner Growth hero and distinct full-width project fields.
+- Asymmetric operating surfaces beside large visual project titles.
+- Purposeful, interruptible motion with live reduced-motion cancellation.
 
 ## Colors
 
-Cool neutral light/dark site surfaces and a slate-blue navigation accent support independently colored project canvases. Program discovery uses muted green with forest ink; pricing uses lavender, indigo controls and a pale receipt; developer uses midnight with cool light text. These local palettes stay independent of site theme. Site semantic colors originate in css/glass.css; concept palettes and final cascade overrides originate in css/project-concepts.css. Frontmatter records intentional color additions flagged by the detector.
+The palette combines stark neutral grounds with confident independent project fields. Frontmatter records the final cascade from css/project-concepts.css, overriding the earlier cool glass palette. The existing detector reports 48 advisory additions in palette, type and radius. These are intentional: vivid canvas and neutral-theme colors implement the owner's stronger direction; display scales establish hierarchy; square canvas edges and inset corners distinguish project fields from navigation. They are documented choices, not unexplained token drift.
+
+### Primary
+
+Deep brick red is the site accent; pale coral is its dark-theme counterpart. Vermilion red carries both the Partner Growth hero and its selected-work canvas.
+
+### Secondary
+
+Electric violet carries pricing; strong blue carries developer. Their white visual titles and captions sit outside operating interfaces whose local palettes remain readable and independent of site theme.
+
+### Neutral
+
+Black opening, white light-mode ground and near-black dark-mode ground establish the frame. Partner content uses white, charcoal ink and neutral dividers. Pricing retains its pale receipt and indigo controls; developer retains midnight fill and cool light text. Glass fill, edge and opaque fallback remain theme-aware.
+
+**The Conviction Rule.** Preserve the vivid project fields and stark opening established by the owner's correction; do not soften them into the rejected muted world.
 
 ## Typography
 
-Self-hosted IBM Plex Sans carries the interface and display, with Segoe UI and sans-serif fallbacks. The homepage role is uppercase, 600-weight, tightly tracked and nearly solid in line height. Desktop and mobile display sizes are recorded in frontmatter; compact desktop uses 9vw, and mobile line height is 1.02. Selected-work, page and case headings use 500 weight. Concept titles use 500 weight and compact negative tracking; net-rate figures use tabular numerals. Mono remains within source product examples and data; the supplied resume retains IBM Plex Serif. Body text stays readable and supporting.
+**Display Font:** self-hosted IBM Plex Sans, with Segoe UI and sans-serif fallbacks.
+**Body Font:** IBM Plex Sans with the same fallbacks.
+**Label/Mono Font:** existing source examples retain mono; the supplied resume retains IBM Plex Serif.
+
+The role display is uppercase, weight 600, tightly tracked and almost solid in line height. Its desktop clamp reaches 10rem, compact desktop uses 11vw, and mobile uses the compact-display token with a .95 line height. Project canvas titles are visual duplicates hidden from assistive technology; semantic headings remain in the work copy. Hero project and work headings use weight 500. Net-rate figures use tabular numerals. Small interface and supporting body type contrast with the large display scale.
+
+**The Evidence Hierarchy Rule.** Large visual titles establish project identity; semantic headings, decisions and qualified evidence carry the readable case story.
 
 ## Layout
 
-The full-width typographic opening precedes a large semantic dark developer catalog exploration, offset right. Selected projects form successive large independent canvases. Desktop work copy uses two columns with a 72px gap; titles precede factual role metadata. At 1024px the gap becomes 40px and canvas insets become 28px. At 767px and below, copy and operating layouts stack, canvas insets become 12px, and project spacing follows the mobile token. The main container remains at most 1328px with 72px desktop, 40px compact and 24px mobile gutters. Case exploration containers are at most 1168px. Original evidence and native disclosures remain in case pages.
+The opening places identity and role first, contribution and actions next, then a red Partner Growth composition. The hero uses .85fr / 1.15fr columns with a 56px gap: existing project title and decision at left, a focused three-program surface lower at right. Its original detail_partner_overview image remains linked. Selected work uses a distinct catalog showing four programs on desktop and three on mobile at rest; the case contains all eight.
+
+The main container is capped at 1328px, with 72px desktop, 40px compact and 24px mobile gutters. Work canvases expand through those gutters, use square outer edges, and carry large white visual titles. Desktop operating surfaces occupy 82%, 90% and 86% with alternating offsets; compact desktop uses 94%, mobile 100%. Canvas padding is 64px 72px desktop, 48px 40px compact, and 32px 24px mobile. The hero becomes full-width and stacked on mobile with 32px 24px padding. Work copy uses two columns with a 72px desktop gap, 40px compact, and stacks on mobile. Project spacing remains 112px desktop and 64px mobile. Case exploration containers remain capped at 1168px.
 
 ## Elevation & Depth
 
-Independent canvases rely on tonal separation and generous inset space. The semantic opening has no shadow; floating navigation retains its glass fill, highlight edge, solid fallback, 22px blur and theme-aware soft depth. Existing source case artifact frames retain their supporting treatment. Standalone case concepts use 0 24px 70px rgba(23,40,55,.12), removed on mobile. Glass never overlays source screenshot content.
+Bold color fields and asymmetric placement establish the main depth. The Partner hero has no shadow or backdrop blur. Work operating surfaces carry modest dark depth, removed on mobile. Navigation retains floating glass, a highlight edge, opaque fallback and 22px blur; existing case artifact frames support clear screenshot interiors. Reduced transparency keeps the Partner hero opaque red and its project title white.
+
+### Shadow Vocabulary
+
+- **Floating glass:** `0 16px 48px rgba(31,49,75,.1)`; dark theme uses `0 16px 48px rgba(0,0,0,.22)`.
+- **Work operating surface:** `0 20px 48px rgba(0,0,0,.15)`, removed on mobile.
+- **Standalone case concept:** `0 24px 70px rgba(23,40,55,.12)`, removed on mobile.
+
+**The Supporting Glass Rule.** Glass belongs to navigation and existing artifact framing; vivid project fields carry the presentation.
 
 ## Shapes
 
-Primary actions remain pills. Navigation retains 20px desktop and 16px mobile corners. The semantic opening uses 16px corners; local concepts and desktop project canvases use 12px, with 8px concept and 10px canvas corners on mobile. Search fields use 8px corners, sidebar controls 6px, and switches a 30px capsule with a circular thumb. Source-defined additions distinguish navigation from operating examples.
+Primary actions remain pills. Navigation retains 20px desktop and 16px mobile corners. The Partner hero uses 12px desktop corners and square mobile edges. Work canvases have square edges at every width; inset work surfaces use 8px corners. Standalone concepts retain 12px desktop and 8px mobile corners. Search fields use 8px, sidebar controls 6px, and switches a 30px capsule with a circular thumb. Original artifact frame shapes remain preserved.
 
 ## Components
 
-Primary actions retain 15px / 500 type, 12px 26px padding and a 48px minimum height. Navigation remains fixed, 64px desktop and 60px mobile, with 32px / 14px gaps. Text links and native evidence disclosures retain visible keyboard focus. Site focus uses the semantic accent; operating controls use the concept focus token.
+### Buttons and links
 
-Partner discovery searches eight native program details; resting home previews show a selection and the case contains all eight. Pricing demonstrates sequential discounts with immediate values: $150.00 to $127.50 to $114.75 when both eligible promotions are on. The unavailable promotion remains disabled. Developer catalog search and Environment / Rollout / Review controls update local detail panels while service identity stays anchored. Controls start disabled and are enabled by JavaScript; static examples, native details and original source links remain available without it. These are labeled explorations with sample values and perform no remote actions.
+Primary actions use 15px / 500 type, 12px 26px padding and a 48px minimum height. The black opening uses a white primary button with dark text and pale coral hover. Elsewhere buttons use semantic foreground/background tokens. Text links and native evidence disclosures retain visible keyboard focus. Site focus uses the semantic accent; operating controls use concept focus blue.
 
-Motion is confined to purpose: one lead-project scroll arrival (650ms), calculator feedback (220ms) after immediate value updates, and interruptible developer detail arrival (300ms). Control color and switch feedback use 180ms. The semantic priority hero has no entrance effect. Reduced motion disables CSS effects and cancels active JavaScript animations when the preference changes.
+### Navigation and source frames
 
-Build maintenance: edit css/teletype.css, css/hiring.css, css/glass.css and css/project-concepts.css, then run npm run build:css. Generated css/portfolio.css preserves their cascade with concept overrides last. Case reconstruction stylesheets remain separate. Local interactions live in js/project-concepts.js; the single scroll arrival lives in js/portfolio-motion.js.
+Fixed navigation is 64px desktop and 60px mobile, with 32px / 14px gaps. It uses theme-aware glass with an opaque fallback. Existing case artifact frames support clear original screenshots and accessible captions.
+
+### Partner Growth composition and discovery
+
+The red hero pairs the existing title and decision with a three-program focus. It labels the updated concept and links the original design. Selected-work discovery offers a distinct searchable catalog; native details remain usable without JavaScript and the case contains eight programs. Inputs begin disabled and JavaScript enables local controls. No remote actions occur.
+
+### Pricing and developer operating surfaces
+
+Pricing updates sequential discounts immediately: $150.00 to $127.50 to $114.75 with both eligible promotions on. The unavailable promotion stays disabled. Developer search and Environment / Rollout / Review controls update local panels while service identity stays anchored. These remain labeled explorations with sample values and original evidence.
+
+### Motion
+
+A single lead-project operating surface arrives laterally over 780ms using cubic-bezier(.16,1,.3,1), from translateX(-64px), scale(.965) and opacity .94 to rest. The surface is already visible; focus or pointer input cancels it. Live reduced-motion changes disconnect observation and cancel active motion. The priority hero has no entrance effect. Calculator feedback remains 220ms after immediate values, developer panel arrival remains 300ms and interruptible, and control feedback uses 180ms. Reduced motion disables CSS effects and active JavaScript animations.
+
+Build maintenance: edit css/teletype.css, css/hiring.css, css/glass.css and css/project-concepts.css, then run npm run build:css. Generated css/portfolio.css preserves concept overrides last. Controls live in js/project-concepts.js; the single project arrival lives in js/portfolio-motion.js. This document captures the current code; review and performance evidence are tracked in review/ and are not design tokens.
 
 ## Do's and Don'ts
 
-- Do lead with factual ownership, decisions and qualified evidence.
-- Do label new interface explorations and sample values, and retain original design links.
-- Do keep essential content and native disclosures visible without JavaScript and respect live reduced-motion changes.
-- Do not invent project outcomes, research, testimonials or contributions.
-- Do not obscure original evidence or present explorations as shipped redesigns.
+### Do:
+
+- Do retain decisive contrast and independently colored project fields.
+- Do label interface explorations and keep original designs accessible.
+- Do keep controls keyboard accessible and respect live reduced-motion changes.
+- Do preserve qualified ownership, project facts and existing source assets.
+
+### Don't:
+
+- Don't return to the muted palette rejected by the owner.
+- Don't replace the Partner Growth hero with Developer Portal.
+- Don't invent outcomes, research, testimonials or shipped redesign claims.
+- Don't obscure source screenshots with glass or import reference-site assets.
