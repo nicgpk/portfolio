@@ -38,7 +38,7 @@ colors:
   pricing-ink: "#21253e"
   pricing-muted: "#596078"
   pricing-line: "#daddec"
-  pricing-receipt: "#f1f2f9"
+  pricing-receipt: "#eeedf6"
   pricing-selected: "#5548be"
   calculator-feedback: "#e0dcfa"
   developer-fill: "#17212a"
@@ -156,8 +156,8 @@ components:
   navigation:
     backgroundColor: "{colors.glass-solid}"
     textColor: "{colors.text}"
-    rounded: "{rounded.surface}"
-    height: "64px"
+    rounded: "{rounded.control}"
+    height: "72px"
 ---
 
 # Design System: Nicholas Gwee
@@ -207,17 +207,18 @@ The role display is uppercase, weight 600, tightly tracked and almost solid in l
 
 ## Layout
 
-The opening places identity and role first, contribution and actions next, then a red Partner Growth composition. The hero uses .85fr / 1.15fr columns with a 56px gap: existing project title and decision at left, a focused three-program surface lower at right. Its original detail_partner_overview image remains linked. Selected work uses a distinct catalog showing four programs on desktop and three on mobile at rest; the case contains all eight.
+The opening places identity and role first, contribution and actions next, then a red Partner Growth composition. The hero uses .85fr / 1.15fr columns with a 56px gap: existing project title and decision at left, a focused three-program surface lower at right. Its original detail_partner_overview image remains linked. Selected work uses a distinct Promotions detail surface with How it works / Promotion types controls, property and Agoda responsibilities, and four existing promotion types. The case retains the eight-program catalog.
 
-The main container is capped at 1328px, with 72px desktop, 40px compact and 24px mobile gutters. Work canvases expand through those gutters, use square outer edges, and carry large white visual titles. Desktop operating surfaces occupy 82%, 90% and 86% with alternating offsets; compact desktop uses 94%, mobile 100%. Canvas padding is 64px 72px desktop, 48px 40px compact, and 32px 24px mobile. The hero becomes full-width and stacked on mobile with 32px 24px padding. Work copy uses two columns with a 72px desktop gap, 40px compact, and stacks on mobile. Project spacing remains 112px desktop and 64px mobile. Case exploration containers remain capped at 1168px.
+The main container is capped at 1328px, with 72px desktop, 40px compact and 24px mobile gutters. Work canvases expand through those gutters, use square outer edges, and carry large white visual titles. Desktop operating surfaces occupy 82%, 90% and 86% with alternating offsets; compact desktop uses 94%, mobile 100%. Canvas padding is 64px 72px desktop, 48px 40px compact, and 32px 24px mobile. The hero becomes full-width and stacked on mobile with 32px 24px padding. Work copy uses 1.3fr / .8fr columns with a 64px gap and stacks on mobile. Each project has one colored evidence card containing its existing metric and adjacent qualification; metric and context remain together. Project spacing remains 112px desktop and 64px mobile. Case exploration containers remain capped at 1168px.
 
 ## Elevation & Depth
 
-Bold color fields and asymmetric placement establish the main depth. The Partner hero has no shadow or backdrop blur. Work operating surfaces carry modest dark depth, removed on mobile. Navigation retains floating glass, a highlight edge, opaque fallback and 22px blur; existing case artifact frames support clear screenshot interiors. Reduced transparency keeps the Partner hero opaque red and its project title white.
+Bold color fields and asymmetric placement establish the main depth. The Partner hero has no shadow or backdrop blur. Work operating surfaces carry modest dark depth, removed on mobile. Navigation uses a translucent outer shell, reflection highlight, inset edges, opaque logo and theme controls, and a translucent navigation capsule over 28px blur with 155% saturation. Unsupported blur and reduced transparency use opaque fallback; existing case artifact frames support clear screenshot interiors. Reduced transparency keeps the Partner hero opaque red and its project title white.
 
 ### Shadow Vocabulary
 
-- **Floating glass:** `0 16px 48px rgba(31,49,75,.1)`; dark theme uses `0 16px 48px rgba(0,0,0,.22)`.
+- **Navigation shell:** `0 12px 36px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.8), inset 0 -1px 0 rgba(255,255,255,.16)`; dark theme strengthens the outer shadow to .35 and adjusts inset highlights.
+- **Source-frame glass:** `0 16px 48px rgba(31,49,75,.1)`; dark theme uses `0 16px 48px rgba(0,0,0,.22)`.
 - **Work operating surface:** `0 20px 48px rgba(0,0,0,.15)`, removed on mobile.
 - **Standalone case concept:** `0 24px 70px rgba(23,40,55,.12)`, removed on mobile.
 
@@ -225,7 +226,7 @@ Bold color fields and asymmetric placement establish the main depth. The Partner
 
 ## Shapes
 
-Primary actions remain pills. Navigation retains 20px desktop and 16px mobile corners. The Partner hero uses 12px desktop corners and square mobile edges. Work canvases have square edges at every width; inset work surfaces use 8px corners. Standalone concepts retain 12px desktop and 8px mobile corners. Search fields use 8px, sidebar controls 6px, and switches a 30px capsule with a circular thumb. Original artifact frame shapes remain preserved.
+Primary actions remain pills. Navigation uses a 40px outer radius, a 30px capsule and 24px link corners; separate logo and theme controls are circular. The theme control shows one centered current-theme icon; the legacy glider is hidden. Evidence cards have 12px corners. The Partner hero uses 12px desktop corners and square mobile edges. Work canvases have square edges at every width; inset work surfaces use 8px corners. Standalone concepts retain 12px desktop and 8px mobile corners. Search fields use 8px, sidebar controls 6px, and switches a 30px capsule with a circular thumb. Original artifact frame shapes remain preserved.
 
 ## Components
 
@@ -235,21 +236,21 @@ Primary actions use 15px / 500 type, 12px 26px padding and a 48px minimum height
 
 ### Navigation and source frames
 
-Fixed navigation is 64px desktop and 60px mobile, with 32px / 14px gaps. It uses theme-aware glass with an opaque fallback. Existing case artifact frames support clear original screenshots and accessible captions.
+Fixed navigation is 72px desktop and 62px mobile, capped at 720px. Its three-column layout uses 44px controls and 18px gaps, becoming 36px controls and 8px gaps on mobile. Active links invert foreground and background; hover uses the semantic surface. The outer glass transmits the canvas, while separate controls preserve reading contrast. Existing case artifact frames support clear original screenshots and accessible captions.
 
 ### Partner Growth composition and discovery
 
-The red hero pairs the existing title and decision with a three-program focus. It labels the updated concept and links the original design. Selected-work discovery offers a distinct searchable catalog; native details remain usable without JavaScript and the case contains eight programs. Inputs begin disabled and JavaScript enables local controls. No remote actions occur.
+The red hero pairs the existing title and decision with a three-program focus. It labels the updated concept and links the original design. Selected-work detail separates the warm Promotions introduction from mechanics and types; the hero retains its catalog focus. Case catalog native disclosures remain usable without JavaScript and contain eight programs. Inputs begin disabled and JavaScript enables local controls. No remote actions occur.
 
 ### Pricing and developer operating surfaces
 
-Pricing updates sequential discounts immediately: $150.00 to $127.50 to $114.75 with both eligible promotions on. The unavailable promotion stays disabled. Developer search and Environment / Rollout / Review controls update local panels while service identity stays anchored. These remain labeled explorations with sample values and original evidence.
+Pricing updates sequential discounts immediately: $150.00 to $127.50 to $114.75 with both eligible promotions on. The receipt explicitly displays the subtotal after the first discount and uses tabular amounts. The unavailable promotion stays disabled. Developer catalog headers align Component, Team / Owner and Source above rows; service identity and configuration use distinct typographic hierarchy. Developer search and Environment / Rollout / Review controls update local panels while service identity stays anchored. These remain labeled explorations with sample values and original evidence.
 
 ### Motion
 
-A single lead-project operating surface arrives laterally over 780ms using cubic-bezier(.16,1,.3,1), from translateX(-64px), scale(.965) and opacity .94 to rest. The surface is already visible; focus or pointer input cancels it. Live reduced-motion changes disconnect observation and cancel active motion. The priority hero has no entrance effect. Calculator feedback remains 220ms after immediate values, developer panel arrival remains 300ms and interruptible, and control feedback uses 180ms. Reduced motion disables CSS effects and active JavaScript animations.
+Three already-visible inner details have distinct arrivals using cubic-bezier(.16,1,.3,1): Partner mechanics moves laterally over 760ms (56px desktop / 20px mobile); pricing receipt rises and scales over 720ms (38px / 20px and .965); developer step panel resolves perspective over 680ms (7deg / 3deg rotation and 24px rise). Each begins at .94 opacity. First focus or pointer input cancels its arrival. Passive native scroll moves only decorative, assistive-technology-hidden canvas titles: Partner and pricing move horizontally in opposite directions, developer vertically. Travel is smaller on mobile. Live reduced motion disconnects observation, removes scroll listeners, cancels animations and resets decorative transforms. The priority hero has no entrance effect, and essential content is visible before enhancement or without JavaScript. Calculator feedback remains 220ms after immediate values, developer control-panel arrival remains 300ms and interruptible, and ordinary control feedback uses 180ms. Reduced motion disables CSS effects and active JavaScript animations.
 
-Build maintenance: edit css/teletype.css, css/hiring.css, css/glass.css and css/project-concepts.css, then run npm run build:css. Generated css/portfolio.css preserves concept overrides last. Controls live in js/project-concepts.js; the single project arrival lives in js/portfolio-motion.js. This document captures the current code; review and performance evidence are tracked in review/ and are not design tokens.
+Build maintenance: edit css/teletype.css, css/hiring.css, css/glass.css and css/project-concepts.css, then run npm run build:css. Generated css/portfolio.css preserves concept overrides last. Controls live in js/project-concepts.js; project arrivals and decorative scroll transforms live in js/portfolio-motion.js. This document captures the current code; review and performance evidence are tracked in review/craft-motion/ and are not design tokens. Before/after captures and testing reports there establish review evidence; this document does not assert unperformed checks.
 
 ## Do's and Don'ts
 

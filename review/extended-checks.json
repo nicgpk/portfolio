@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-02T15:14:33.481Z",
+  "date": "2026-10-02T15:51:31.283Z",
   "report": [
     {
       "width": 390,
       "normalMotion": true,
       "heroSource": "Labeled Partner Growth concept; original project design linked",
-      "homeHeight": 8993
+      "homeHeight": 9739
     },
     {
       "width": 390,
@@ -15,22 +15,22 @@
     {
       "width": 390,
       "route": "partner-growth-programs.html",
-      "closedHeight": 8478,
-      "expandedHeight": 11059,
+      "closedHeight": 8482,
+      "expandedHeight": 11063,
       "expandedViolations": []
     },
     {
       "width": 390,
       "route": "discounting.html",
-      "closedHeight": 6857,
-      "expandedHeight": 8815,
+      "closedHeight": 7017,
+      "expandedHeight": 8974,
       "expandedViolations": []
     },
     {
       "width": 390,
       "route": "dev-portal.html",
-      "closedHeight": 8097,
-      "expandedHeight": 14370,
+      "closedHeight": 8151,
+      "expandedHeight": 14424,
       "expandedViolations": []
     },
     {
@@ -45,7 +45,7 @@
       "width": 768,
       "normalMotion": true,
       "heroSource": "Labeled Partner Growth concept; original project design linked",
-      "homeHeight": 8227
+      "homeHeight": 8591
     },
     {
       "width": 768,
@@ -55,22 +55,22 @@
     {
       "width": 768,
       "route": "partner-growth-programs.html",
-      "closedHeight": 7777,
-      "expandedHeight": 9892,
+      "closedHeight": 7783,
+      "expandedHeight": 9898,
       "expandedViolations": []
     },
     {
       "width": 768,
       "route": "discounting.html",
-      "closedHeight": 5734,
-      "expandedHeight": 7599,
+      "closedHeight": 5829,
+      "expandedHeight": 7694,
       "expandedViolations": []
     },
     {
       "width": 768,
       "route": "dev-portal.html",
-      "closedHeight": 7142,
-      "expandedHeight": 13777,
+      "closedHeight": 7219,
+      "expandedHeight": 13853,
       "expandedViolations": []
     },
     {
@@ -85,7 +85,7 @@
       "width": 1440,
       "normalMotion": true,
       "heroSource": "Labeled Partner Growth concept; original project design linked",
-      "homeHeight": 8944
+      "homeHeight": 9153
     },
     {
       "width": 1440,
@@ -95,22 +95,22 @@
     {
       "width": 1440,
       "route": "partner-growth-programs.html",
-      "closedHeight": 7198,
-      "expandedHeight": 9223,
+      "closedHeight": 7204,
+      "expandedHeight": 9229,
       "expandedViolations": []
     },
     {
       "width": 1440,
       "route": "discounting.html",
-      "closedHeight": 5808,
-      "expandedHeight": 7468,
+      "closedHeight": 5889,
+      "expandedHeight": 7549,
       "expandedViolations": []
     },
     {
       "width": 1440,
       "route": "dev-portal.html",
-      "closedHeight": 6834,
-      "expandedHeight": 14468,
+      "closedHeight": 6911,
+      "expandedHeight": 14545,
       "expandedViolations": []
     },
     {

@@ -1,0 +1,41 @@
+{
+  "base": "001ecfee8e2ac8f6c54c7eef0f06555cf4d38aee",
+  "reports": [
+    {
+      "route": "partner-growth-programs.html",
+      "originalCaseNarrative": "exact normalized match",
+      "characters": 8249
+    },
+    {
+      "route": "discounting.html",
+      "originalCaseNarrative": "exact normalized match",
+      "characters": 4240
+    },
+    {
+      "route": "dev-portal.html",
+      "originalCaseNarrative": "exact normalized match",
+      "characters": 7170
+    },
+    {
+      "route": "index.html",
+      "class": "work-evidence",
+      "originalEvidence": "exact match"
+    },
+    {
+      "route": "index.html",
+      "class": "work-context",
+      "originalEvidence": "exact match"
+    },
+    {
+      "route": "projects.html",
+      "class": "work-evidence",
+      "originalEvidence": "exact match"
+    },
+    {
+      "route": "projects.html",
+      "class": "work-context",
+      "originalEvidence": "exact match"
+    }
+  ],
+  "originalImageAssets": "unchanged"
+}

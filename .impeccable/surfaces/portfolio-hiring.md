@@ -44,3 +44,7 @@ FORM: user-pinned Tobias van Schneider reference; code-led. Fresh private browse
 SIGNATURE: one 780ms operating-surface arrival moves laterally into the first project canvas, linking its oversized project title to the working interface. The surface is already visible. Focus/pointer input interrupts it, and reduced motion cancels it. Existing immediate calculator feedback (220ms) and interruptible step panels (300ms) remain.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+
+## Current refinement contract
+
+Keep bold Partner hero and vivid project fields. Selected Partner becomes a Promotions detail (shared responsibilities and four existing types) rather than discovery. Existing metric statements and context share one colored card per project. Three concept families gain stronger operating hierarchy; no new features, claims or commercial actions. Navigation is a compact translucent glass layer with blur/highlights/depth and readable control surfaces. Differentiated natural-scroll choreography links Growth responsibilities, Pricing calculation and Developer review; essential content stays visible, inputs interrupt animation, and reduced preferences/no-JS retain static truth. Finish with fresh independent review and updated DESIGN.md/sidecar.

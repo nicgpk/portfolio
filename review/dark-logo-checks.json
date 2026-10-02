@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-02T15:11:43.911Z",
+  "date": "2026-10-02T15:52:06.918Z",
   "report": [
     {
       "route": "index.html",
@@ -16,12 +16,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 50,
-      "contrast": 16.23,
+      "lightPixels": 51,
+      "contrast": 15.94,
       "errors": []
     },
     {
@@ -39,12 +39,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 50,
-      "contrast": 16.23,
+      "lightPixels": 51,
+      "contrast": 15.94,
       "errors": []
     },
     {
@@ -62,12 +62,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 50,
-      "contrast": 16.23,
+      "lightPixels": 51,
+      "contrast": 15.94,
       "errors": []
     },
     {
@@ -85,12 +85,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 50,
-      "contrast": 16.23,
+      "lightPixels": 51,
+      "contrast": 15.94,
       "errors": []
     },
     {
@@ -108,12 +108,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 50,
-      "contrast": 16.23,
+      "lightPixels": 51,
+      "contrast": 15.94,
       "errors": []
     },
     {
@@ -131,12 +131,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 50,
-      "contrast": 16.23,
+      "lightPixels": 51,
+      "contrast": 15.94,
       "errors": []
     },
     {
@@ -154,12 +154,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 63,
-      "contrast": 16.23,
+      "lightPixels": 60,
+      "contrast": 15.94,
       "errors": []
     },
     {
@@ -177,12 +177,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 63,
-      "contrast": 16.23,
+      "lightPixels": 60,
+      "contrast": 15.94,
       "errors": []
     },
     {
@@ -200,12 +200,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 63,
-      "contrast": 16.23,
+      "lightPixels": 60,
+      "contrast": 15.94,
       "errors": []
     },
     {
@@ -223,12 +223,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 63,
-      "contrast": 16.23,
+      "lightPixels": 60,
+      "contrast": 15.94,
       "errors": []
     },
     {
@@ -246,12 +246,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 63,
-      "contrast": 16.23,
+      "lightPixels": 60,
+      "contrast": 15.94,
       "errors": []
     },
     {
@@ -269,12 +269,12 @@
         249
       ],
       "backgroundPixel": [
-        21,
-        21,
-        21
+        23,
+        23,
+        23
       ],
-      "lightPixels": 63,
-      "contrast": 16.23,
+      "lightPixels": 60,
+      "contrast": 15.94,
       "errors": []
     }
   ]

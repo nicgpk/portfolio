@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-02T16:01:08.979Z",
+  "report": [
+    {
+      "width": 320,
+      "theme": "light",
+      "glass": {
+        "fill": "rgba(220, 230, 242, 0.18)",
+        "blur": "blur(28px) saturate(1.55)",
+        "width": 300
+      },
+      "metricContext": "preserved",
+      "detailKeyboard": "four existing types, immediate switching",
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "glass": {
+        "fill": "rgba(35, 43, 56, 0.22)",
+        "blur": "blur(28px) saturate(1.55)",
+        "width": 300
+      },
+      "metricContext": "preserved",
+      "detailKeyboard": "four existing types, immediate switching",
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "glass": {
+        "fill": "rgba(220, 230, 242, 0.18)",
+        "blur": "blur(28px) saturate(1.55)",
+        "width": 370
+      },
+      "metricContext": "preserved",
+      "detailKeyboard": "four existing types, immediate switching",
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "glass": {
+        "fill": "rgba(35, 43, 56, 0.22)",
+        "blur": "blur(28px) saturate(1.55)",
+        "width": 370
+      },
+      "metricContext": "preserved",
+      "detailKeyboard": "four existing types, immediate switching",
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "glass": {
+        "fill": "rgba(220, 230, 242, 0.18)",
+        "blur": "blur(28px) saturate(1.55)",
+        "width": 720
+      },
+      "metricContext": "preserved",
+      "detailKeyboard": "four existing types, immediate switching",
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "glass": {
+        "fill": "rgba(35, 43, 56, 0.22)",
+        "blur": "blur(28px) saturate(1.55)",
+        "width": 720
+      },
+      "metricContext": "preserved",
+      "detailKeyboard": "four existing types, immediate switching",
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "glass": {
+        "fill": "rgba(220, 230, 242, 0.18)",
+        "blur": "blur(28px) saturate(1.55)",
+        "width": 720
+      },
+      "metricContext": "preserved",
+      "detailKeyboard": "four existing types, immediate switching",
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "glass": {
+        "fill": "rgba(35, 43, 56, 0.22)",
+        "blur": "blur(28px) saturate(1.55)",
+        "width": 720
+      },
+      "metricContext": "preserved",
+      "detailKeyboard": "four existing types, immediate switching",
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "scene": 0,
+      "motion": "distinct region arrival active, focus interrupts immediately"
+    },
+    {
+      "scene": 1,
+      "motion": "distinct region arrival active, focus interrupts immediately"
+    },
+    {
+      "scene": 2,
+      "motion": "distinct region arrival active, focus interrupts immediately"
+    },
+    {
+      "reducedMotion": "scroll-linked title transforms reset, native reading order intact"
+    }
+  ],
+  "noJS": "static cards/detail/text, inactive enhanced controls"
+}

@@ -8,7 +8,8 @@
     "build:css": "node scripts/build-css.cjs",
     "test:extended": "node scripts/verify-extended.cjs",
     "test:concepts": "node scripts/verify-concepts.cjs",
-    "test:roles": "node scripts/verify-role-metadata.cjs"
+    "test:roles": "node scripts/verify-role-metadata.cjs",
+    "test:craft-motion": "node scripts/verify-craft-motion.cjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",

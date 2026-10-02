@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-02T15:21:46.275Z",
+  "generatedAt": "2026-10-02T16:00:53.284Z",
   "title": "Design System: Nicholas Gwee",
   "extensions": {
     "motion": [
@@ -8,11 +8,6 @@
         "name": "control-feedback",
         "value": "180ms ease",
         "purpose": "Control colors and switch feedback; disabled for reduced motion."
-      },
-      {
-        "name": "lead-project-arrival",
-        "value": "780ms cubic-bezier(.16,1,.3,1)",
-        "purpose": "Already-visible lead operating surface: translateX(-64px) scale(.965), opacity .94 to rest. Focus/pointer interrupts; live reduced motion cancels and disconnects observation."
       },
       {
         "name": "calculator-feedback",
@@ -23,6 +18,26 @@
         "name": "developer-detail-arrival",
         "value": "300ms cubic-bezier(.16,1,.3,1)",
         "purpose": "Interruptible detail opacity and 6px arrival; service identity remains anchored."
+      },
+      {
+        "name": "partner-detail-arrival",
+        "value": "760ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Visible mechanics enters from 56px / 20px horizontally at .94 opacity; first focus or pointer input cancels."
+      },
+      {
+        "name": "pricing-receipt-arrival",
+        "value": "720ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Visible receipt rises 38px / 20px and scales from .965 at .94 opacity; first input cancels."
+      },
+      {
+        "name": "developer-perspective-arrival",
+        "value": "680ms cubic-bezier(.16,1,.3,1)",
+        "purpose": "Visible step panel resolves perspective(1000px), rotateX(7deg / 3deg) and translateY(24px); first input cancels."
+      },
+      {
+        "name": "decorative-scroll-titles",
+        "value": "70px desktop / 18px mobile range; developer 65% of range",
+        "purpose": "Passive native scroll moves only decorative titles: opposite horizontal Partner/pricing travel and vertical developer travel. Live reduced motion cancels all arrivals, disconnects observation and resets transforms."
       }
     ],
     "breakpoints": [
@@ -59,6 +74,11 @@
         "name": "work-operating-depth",
         "value": "0 20px 48px rgba(0,0,0,.15)",
         "purpose": "Inset work operating surfaces; removed on mobile."
+      },
+      {
+        "name": "navigation-shell",
+        "value": "0 12px 36px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.8),inset 0 -1px 0 rgba(255,255,255,.16)",
+        "purpose": "Translucent navigation outer shell; dark outer shadow uses .35."
       }
     ],
     "colorMeta": {
@@ -545,7 +565,7 @@
       "pricing-receipt": {
         "role": "neutral",
         "displayName": "Pricing Receipt",
-        "canonical": "#f1f2f9",
+        "canonical": "#eeedf6",
         "tonalRamp": [
           "oklch(15% 0.0094 279.69)",
           "oklch(25% 0.0094 279.69)",
@@ -795,9 +815,9 @@
     {
       "name": "Primary navigation",
       "kind": "nav",
-      "description": "Persistent About, Projects, Resume navigation.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#\" aria-current=\"page\">About</a><a href=\"#\">Projects</a><a href=\"#\">Resume</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:32px;min-height:64px;padding:0 24px;background:var(--glass-solid,#fff);border:1px solid var(--glass-edge,rgba(255,255,255,.88));border-radius:20px;box-shadow:var(--glass-shadow,0 16px 48px rgba(31,49,75,.1))}.ds-nav a{display:flex;align-items:center;min-height:44px;font:400 15px 'IBM Plex Sans',sans-serif;color:var(--text,#101010);text-decoration:none}.ds-nav a[aria-current],.ds-nav a:hover{color:var(--accent,#a82412)}.ds-nav a:focus-visible{outline:3px solid var(--accent,#a82412);outline-offset:5px}@supports(backdrop-filter:blur(1px)){.ds-nav{background:var(--glass-fill,rgba(255,255,255,.86));backdrop-filter:blur(22px) saturate(130%)}}@media(prefers-reduced-transparency:reduce){.ds-nav{background:var(--glass-solid,#fff);backdrop-filter:none}}@media(max-width:767px){.ds-nav{min-height:60px;padding-inline:16px;gap:14px;border-radius:16px}.ds-nav a{font-size:13px}}@media(prefers-reduced-motion:no-preference){.ds-nav a{transition:color .18s ease}}",
+      "description": "Translucent reflective shell, separate opaque controls and navigation capsule; solid accessibility fallback. Circular theme control displays one centered current-theme icon with no glider.",
+      "html": "<div class=\"ds-nav-shell\"><a class=\"ds-logo\" href=\"#\" aria-label=\"Home\">NG</a><nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#\" aria-current=\"page\">About</a><a href=\"#\">Projects</a><a href=\"#\">Resume</a></nav><button class=\"ds-theme\" type=\"button\" aria-label=\"Change theme\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998z\"/></svg></button></div>",
+      "css": ".ds-nav-shell{display:grid;grid-template-columns:44px 1fr 44px;gap:18px;align-items:center;position:relative;padding:10px 14px;max-width:720px;border-radius:40px;background:rgba(220,230,242,.18);border:1px solid rgba(255,255,255,.7);box-shadow:0 12px 36px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.8),inset 0 -1px 0 rgba(255,255,255,.16);backdrop-filter:blur(28px) saturate(155%);font-family:\"IBM Plex Sans\",sans-serif}.ds-nav-shell:before{content:\"\";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(125deg,rgba(255,255,255,.24),transparent 42%,rgba(255,255,255,.08))}.ds-logo,.ds-theme{display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:var(--glass-solid,#fff);color:var(--text,#101010);text-decoration:none}.ds-nav{display:flex;justify-content:center;gap:4px;padding:4px;border-radius:30px;background:rgba(255,255,255,.78)}.ds-nav a{display:grid;place-items:center;min-height:36px;min-width:86px;padding:6px 18px;font-size:14px;border-radius:24px;color:var(--text,#101010);text-decoration:none}.ds-nav a[aria-current]{background:var(--text,#101010);color:var(--bg,#fff)}.ds-nav a:hover{background:var(--surface,#ededed);color:var(--text,#101010)}.ds-nav-shell a:focus-visible,.ds-theme:focus-visible{outline:3px solid var(--accent,#a82412);outline-offset:4px}@media(max-width:767px){.ds-nav-shell{grid-template-columns:36px 1fr 36px;gap:8px;padding:8px}.ds-logo,.ds-theme{width:36px;height:36px}.ds-nav{gap:0;padding:3px}.ds-nav a{min-width:0;min-height:34px;padding:5px 10px;font-size:12px}}@supports not(backdrop-filter:blur(1px)){.ds-nav-shell{background:var(--glass-solid,#fff)}}@media(prefers-reduced-transparency:reduce){.ds-nav-shell,.ds-nav{background:var(--glass-solid,#fff);backdrop-filter:none}.ds-nav-shell:before{display:none}}",
       "refersTo": "navigation"
     },
     {
@@ -808,25 +828,39 @@
       "css": ".ds-evidence{border-block:1px solid var(--border,#d6d6d6);margin:20px 0;color:var(--text,#101010);font-family:\"IBM Plex Sans\",sans-serif}.ds-evidence>summary{padding:18px 4px;min-height:56px;font-size:17px;font-weight:500;cursor:pointer;list-style-position:inside}.ds-evidence>summary:hover{color:var(--accent,#a82412)}.ds-evidence>summary:focus-visible{outline:3px solid var(--accent,#a82412);outline-offset:5px}.ds-evidence-body{padding:12px 0 24px}@media(max-width:767px){.ds-evidence>summary{font-size:16px;padding-block:16px}}"
     },
     {
-      "name": "Partner hero and program discovery",
+      "name": "Partner hero catalog",
       "kind": "input",
-      "description": "Red three-program Partner hero plus distinct selected-work search preview; native details work without JavaScript.",
-      "html": "<section class=\"ds-partner-hero\"><div class=\"ds-partner-copy\"><h2>Partner Growth Programs</h2><p>One experience across eight programs.</p><small>Updated interface concept based on the original project.</small></div><div class=\"ds-growth\"><strong>Partner growth</strong><h3>Find the right next step.</h3><details open><summary>Promotions</summary><p>Property sets a discount - Agoda adds a deal badge, boosts rank, and amplifies across email, push, and deal pages.</p></details><details><summary>Agoda Growth Program</summary><p>Pay a higher commission - Agoda deploys the full marketing suite: ranking boost, ad spend, Preferred Partner badge.</p></details><details><summary>Agoda Advanced</summary><p>Pay upfront - Agoda deducts from the balance per booking. AGP or Maximum Gain variant.</p></details></div><p class=\"ds-caption\">Visual exploration · Program selection</p></section><section class=\"ds-program-canvas\"><span class=\"ds-canvas-title\" aria-hidden=\"true\">Partner Growth</span><div class=\"ds-growth ds-work-growth\"><label>Search programs<input disabled type=\"search\" placeholder=\"Try visibility or promotions\"></label><details><summary>Promotions</summary><p>Property sets a discount; Agoda adds a deal badge.</p></details></div><p class=\"ds-caption\">Updated interface concept based on the original project.</p></section>",
+      "description": "Red three-program hero catalog; selected work uses a separate Promotions detail.",
+      "html": "<section class=\"ds-partner-hero\"><div class=\"ds-partner-copy\"><h2>Partner Growth Programs</h2><p>One experience across eight programs.</p><small>Updated interface concept based on the original project.</small></div><div class=\"ds-growth\"><strong>Partner growth</strong><h3>Find the right next step.</h3><details open><summary>Promotions</summary><p>Property sets a discount - Agoda adds a deal badge, boosts rank, and amplifies across email, push, and deal pages.</p></details><details><summary>Agoda Growth Program</summary><p>Pay a higher commission - Agoda deploys the full marketing suite: ranking boost, ad spend, Preferred Partner badge.</p></details><details><summary>Agoda Advanced</summary><p>Pay upfront - Agoda deducts from the balance per booking. AGP or Maximum Gain variant.</p></details></div><p class=\"ds-caption\">Visual exploration · Program selection</p></section>",
       "css": ".ds-growth{font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.45;border-radius:12px;padding:24px;background:#fff;color:#151515}.ds-growth input{display:block;background:#fff;color:#151515;border:1px solid #dadada;border-radius:8px;padding:11px 14px;margin:6px 0 20px}.ds-growth summary{padding:16px 0;border-block:1px solid #dadada;cursor:pointer}.ds-growth summary:hover{text-decoration:underline}.ds-growth summary:focus-visible{outline:3px solid #3b78c8;outline-offset:3px}.ds-partner-hero,.ds-program-canvas{background:#cf3218;color:#fff;padding:32px;font-family:\"IBM Plex Sans\",sans-serif}.ds-partner-hero{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;border-radius:12px}.ds-partner-copy h2{font-size:clamp(32px,5.5vw,64px);font-weight:500;line-height:1.04;letter-spacing:-.035em;margin:0 0 24px}.ds-partner-copy p{font-size:18px}.ds-partner-copy small{display:block;font-size:12px;margin-top:32px}.ds-partner-hero .ds-growth{margin-top:48px;border-radius:8px}.ds-growth h3{font-size:27px;font-weight:500}.ds-growth input{border-color:#bdbdbd}.ds-growth input:focus-visible{outline:3px solid #3b78c8;outline-offset:3px}.ds-growth summary:active{color:#a72a16}.ds-caption{font-size:12px;grid-column:1/-1}.ds-program-canvas{margin-top:24px}.ds-canvas-title{display:block;font-size:clamp(40px,7.6vw,80px);font-weight:600;line-height:.95;letter-spacing:-.04em;text-transform:uppercase;margin-bottom:36px}.ds-work-growth{width:82%;margin-left:auto;box-shadow:0 20px 48px rgba(0,0,0,.15);border-radius:8px}@media(max-width:767px){.ds-partner-hero{display:block;border-radius:0;padding:32px 24px}.ds-partner-hero .ds-growth{margin-top:32px}.ds-program-canvas{padding:32px 24px}.ds-work-growth{width:auto;box-shadow:none}}@media(prefers-reduced-transparency:reduce){.ds-partner-hero{background:#cf3218!important}.ds-partner-copy h2{color:#fff!important}}"
     },
     {
       "name": "Sequential rate receipt",
       "kind": "custom",
       "description": "Static sample receipt; portfolio controls update the sequential discounts locally.",
-      "html": "<section class=\"ds-receipt\"><p>Calculation</p><dl><div><dt>Room rate</dt><dd>$150.00</dd></div><div><dt>Mega Sale - 15%</dt><dd>-$22.50</dd></div><div><dt>Mobile Exclusive - 10%</dt><dd>-$12.75</dd></div></dl><p>Net rate</p><strong>$114.75</strong><p>Illustrative calculation. No promotion is saved.</p></section>",
-      "css": ".ds-receipt{font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.45;border-radius:12px;padding:24px;background:#f1f2f9;color:#21253e}.ds-receipt dl>div{display:flex;justify-content:space-between;padding:12px 0;font-size:13px}.ds-receipt dd{margin:0;font-variant-numeric:tabular-nums}.ds-receipt strong{font-size:44px;line-height:1.1;font-weight:500;letter-spacing:-.04em;font-variant-numeric:tabular-nums}"
+      "html": "<section class=\"ds-receipt\"><p>Calculation</p><dl><div><dt>Room rate</dt><dd>$150.00</dd></div><div><dt>Mega Sale - 15%</dt><dd>-$22.50</dd></div><div class=\"ds-subtotal\"><dt>After first discount</dt><dd>$127.50</dd></div><div><dt>Mobile Exclusive - 10%</dt><dd>-$12.75</dd></div></dl><p>Net rate</p><strong>$114.75</strong><p>Illustrative calculation. No promotion is saved.</p></section>",
+      "css": ".ds-receipt{font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.45;border-radius:12px;padding:24px;background:#eeedf6;color:#21253e}.ds-receipt dl>div{display:flex;justify-content:space-between;padding:12px 0;font-size:13px}.ds-receipt dd{margin:0;font-variant-numeric:tabular-nums}.ds-receipt strong{font-size:58px;line-height:1.1;font-weight:500;letter-spacing:-.04em;font-variant-numeric:tabular-nums}.ds-receipt .ds-subtotal{border-block:1px solid #c3c2d2;margin:8px 0;color:#52556c;font-size:12px}"
     },
     {
       "name": "Developer step identity",
       "kind": "custom",
       "description": "Static preview of anchored service identity and step controls awaiting enhancement.",
-      "html": "<section class=\"ds-developer\"><strong>devops-safe-app</strong><p>staging-mesh · Draft example</p><div><button disabled aria-pressed=\"true\">1 Environment</button><button disabled aria-pressed=\"false\">2 Rollout</button><button disabled aria-pressed=\"false\">3 Review</button></div><p>Environment setup</p><p>Visual exploration; sample values.</p></section>",
-      "css": ".ds-developer{font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.45;border-radius:12px;padding:24px;background:#17212a;color:#f0f3f7}.ds-developer>strong{font-size:20px;font-weight:500}.ds-developer p{color:#aeb9c7;font-size:12px}.ds-developer button{background:transparent;color:#b4bfcd;border:0;border-bottom:2px solid transparent;min-height:44px;padding:0 8px;font:12px \"IBM Plex Sans\",sans-serif}.ds-developer button[aria-pressed=true]{color:#fff;border-bottom-color:#abd4fa}.ds-developer button:enabled:hover{color:#fff}.ds-developer button:focus-visible{outline:3px solid #3b78c8;outline-offset:3px}"
+      "html": "<section class=\"ds-developer\"><strong>devops-safe-app</strong><p>staging-mesh · Draft example</p><div><button disabled aria-pressed=\"true\">1 Environment</button><button disabled aria-pressed=\"false\">2 Rollout</button><button disabled aria-pressed=\"false\">3 Review</button></div><p>Environment setup</p><div class=\"ds-list-head\"><span>Component</span><span>Team / Owner</span><span>Source</span></div><p>Visual exploration; sample values.</p></section>",
+      "css": ".ds-developer{font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.45;border-radius:12px;padding:24px;background:#17212a;color:#f0f3f7}.ds-developer>strong{font-size:20px;font-weight:500}.ds-developer p{color:#aeb9c7;font-size:12px}.ds-developer button{background:transparent;color:#b4bfcd;border:0;border-bottom:2px solid transparent;min-height:44px;padding:0 8px;font:12px \"IBM Plex Sans\",sans-serif}.ds-developer button[aria-pressed=true]{color:#fff;border-bottom-color:#abd4fa}.ds-developer button:enabled:hover{color:#fff}.ds-developer button:focus-visible{outline:3px solid #3b78c8;outline-offset:3px}.ds-developer>strong{font-size:25px}.ds-list-head{display:grid;grid-template-columns:1fr 1fr auto;gap:16px;padding:12px 0;color:#bcc9d8;font-size:11px}"
+    },
+    {
+      "name": "Partner Promotions detail",
+      "kind": "custom",
+      "description": "Selected-work detail separates existing property and Agoda mechanics from four promotion types. Static preview; portfolio controls enable locally.",
+      "html": "<section class=\"ds-detail\"><div class=\"ds-intro\"><a href=\"#\">All growth programs</a><h3>Promotions</h3><p class=\"ds-category\">Conversion</p><p>Choose the discount. Make the offer easier to discover.</p><small>Updated interface concept based on the original project.</small></div><div class=\"ds-mechanics\"><div class=\"ds-tabs\"><button disabled aria-pressed=\"true\">How it works</button><button disabled aria-pressed=\"false\">Promotion types</button></div><h4>One offer. Shared responsibilities.</h4><dl><dt>Property</dt><dd>Choose the discount type and depth.</dd><dt>Agoda</dt><dd>Deal label, ranking boost, email, push and deal pages.</dd></dl></div></section>",
+      "css": ".ds-detail{display:grid;grid-template-columns:.9fr 1.1fr;border-radius:8px;overflow:hidden;background:#fff;color:#151515;font-family:\"IBM Plex Sans\",sans-serif}.ds-intro{padding:36px;background:#fff4ee;border-right:1px solid #e1cbc2}.ds-intro>a{font-size:12px;color:#97230e;text-underline-offset:4px}.ds-intro h3{font-size:42px;font-weight:500;margin:28px 0 10px}.ds-category,.ds-intro small{font-size:12px;color:#70564e}.ds-intro>p:not(.ds-category){font-size:19px;line-height:1.4}.ds-mechanics{padding:32px}.ds-tabs{display:flex;gap:20px;border-bottom:1px solid #ddd;margin-bottom:32px}.ds-tabs button{min-height:44px;padding:0 0 14px;border:0;border-bottom:2px solid transparent;background:none;color:#525252;font-size:13px}.ds-tabs button[aria-pressed=true]{color:#9a250f;border-color:#b12c13}.ds-tabs button:enabled:hover{color:#9a250f}.ds-tabs button:focus-visible,.ds-intro>a:focus-visible{outline:3px solid #3b78c8;outline-offset:2px}.ds-mechanics h4{font-size:24px;font-weight:500;line-height:1.2;letter-spacing:-.02em}.ds-mechanics dt{padding-top:20px;border-top:1px solid #ddd;font-size:12px;color:#6b534c}.ds-mechanics dd{font-size:16px;line-height:1.5;margin:8px 0 20px}@media(max-width:767px){.ds-detail{display:block}.ds-intro,.ds-mechanics{padding:24px}.ds-intro{border-right:0;border-bottom:1px solid #e1cbc2}.ds-intro h3{font-size:34px}}"
+    },
+    {
+      "name": "Qualified project evidence",
+      "kind": "card",
+      "description": "One project-colored card keeps existing evidence and qualification together.",
+      "html": "<aside class=\"ds-metric\" aria-label=\"Partner Growth evidence and context\"><p class=\"ds-value\">MVP launched Q1 2026</p><p>$521M+ in 2025 program portfolio revenue; this describes portfolio scale, not incremental revenue from the new hub.</p></aside>",
+      "css": ".ds-metric{background:#cf3218;color:#fff;padding:28px;border-radius:12px;font-family:\"IBM Plex Sans\",sans-serif}.ds-metric .ds-value{font-size:clamp(24px,2.8vw,36px);line-height:1.2;font-weight:500;margin:0 0 20px}.ds-metric>p:last-child{font-size:14px;line-height:1.65;margin:0;max-width:38ch}@media(max-width:767px){.ds-metric{padding:24px}.ds-metric .ds-value{font-size:28px}}"
     }
   ],
   "narrative": {
