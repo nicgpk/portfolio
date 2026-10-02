@@ -6,7 +6,9 @@
     "test": "node scripts/verify.cjs",
     "check:html": "html-validate --config .htmlvalidate.json *.html",
     "build:css": "node scripts/build-css.cjs",
-    "test:extended": "node scripts/verify-extended.cjs"
+    "test:extended": "node scripts/verify-extended.cjs",
+    "test:concepts": "node scripts/verify-concepts.cjs",
+    "test:roles": "node scripts/verify-role-metadata.cjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",

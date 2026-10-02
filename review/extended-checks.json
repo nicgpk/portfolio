@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-02T14:06:55.614Z",
+  "date": "2026-10-02T14:39:22.713Z",
   "report": [
     {
       "width": 390,
       "normalMotion": true,
-      "heroSource": "developer-catalog-400.webp",
-      "homeHeight": 6410
+      "heroSource": "Labeled semantic HTML concept; original catalog image link preserved",
+      "homeHeight": 8291
     },
     {
       "width": 390,
@@ -15,22 +15,22 @@
     {
       "width": 390,
       "route": "partner-growth-programs.html",
-      "closedHeight": 7037,
-      "expandedHeight": 9185,
+      "closedHeight": 8478,
+      "expandedHeight": 11059,
       "expandedViolations": []
     },
     {
       "width": 390,
       "route": "discounting.html",
-      "closedHeight": 5492,
-      "expandedHeight": 7450,
+      "closedHeight": 6857,
+      "expandedHeight": 8815,
       "expandedViolations": []
     },
     {
       "width": 390,
       "route": "dev-portal.html",
-      "closedHeight": 7038,
-      "expandedHeight": 13311,
+      "closedHeight": 8097,
+      "expandedHeight": 14370,
       "expandedViolations": []
     },
     {
@@ -44,8 +44,8 @@
     {
       "width": 768,
       "normalMotion": true,
-      "heroSource": "developer-catalog-700.webp",
-      "homeHeight": 5753
+      "heroSource": "Labeled semantic HTML concept; original catalog image link preserved",
+      "homeHeight": 7530
     },
     {
       "width": 768,
@@ -55,22 +55,22 @@
     {
       "width": 768,
       "route": "partner-growth-programs.html",
-      "closedHeight": 6286,
-      "expandedHeight": 8002,
+      "closedHeight": 7777,
+      "expandedHeight": 9892,
       "expandedViolations": []
     },
     {
       "width": 768,
       "route": "discounting.html",
-      "closedHeight": 4730,
-      "expandedHeight": 6595,
+      "closedHeight": 5734,
+      "expandedHeight": 7599,
       "expandedViolations": []
     },
     {
       "width": 768,
       "route": "dev-portal.html",
-      "closedHeight": 6108,
-      "expandedHeight": 12743,
+      "closedHeight": 7142,
+      "expandedHeight": 13777,
       "expandedViolations": []
     },
     {
@@ -84,8 +84,8 @@
     {
       "width": 1440,
       "normalMotion": true,
-      "heroSource": "developer-catalog-1000.webp",
-      "homeHeight": 6187
+      "heroSource": "Labeled semantic HTML concept; original catalog image link preserved",
+      "homeHeight": 7915
     },
     {
       "width": 1440,
@@ -95,22 +95,22 @@
     {
       "width": 1440,
       "route": "partner-growth-programs.html",
-      "closedHeight": 5665,
-      "expandedHeight": 7291,
+      "closedHeight": 7198,
+      "expandedHeight": 9223,
       "expandedViolations": []
     },
     {
       "width": 1440,
       "route": "discounting.html",
-      "closedHeight": 4762,
-      "expandedHeight": 6422,
+      "closedHeight": 5808,
+      "expandedHeight": 7468,
       "expandedViolations": []
     },
     {
       "width": 1440,
       "route": "dev-portal.html",
-      "closedHeight": 5771,
-      "expandedHeight": 13405,
+      "closedHeight": 6834,
+      "expandedHeight": 14468,
       "expandedViolations": []
     },
     {

@@ -29,7 +29,7 @@ const pages=['index.html','projects.html','partner-growth-programs.html','discou
  // Check navigation without JavaScript and the theme control's actual state change.
  const nojs=await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:844}});
  await nojs.route('https://**/*',r=>r.abort()); await nojs.goto('http://127.0.0.1:4173/');
- assert.equal(await nojs.locator('h1').innerText(),'Product Design Lead');
+ assert.equal(await nojs.locator('h1').textContent(),'Product Design Lead');
  await nojs.locator('.hero-actions .btn').click(); assert.match(nojs.url(),/projects\.html$/); await nojs.close();
  const keyboard=await browser.newPage();await keyboard.route('https://**/*',r=>r.abort());
  await keyboard.goto('http://127.0.0.1:4173/partner-growth-programs.html');

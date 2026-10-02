@@ -1,0 +1,21 @@
+{
+  "base": "eef6661cf2c5f8ac221e6ba25f996620a29c1a29",
+  "report": [
+    {
+      "route": "partner-growth-programs.html",
+      "originalCaseText": "exact unchanged normalized main text excluding new labeled concept section",
+      "characters": 8940
+    },
+    {
+      "route": "discounting.html",
+      "originalCaseText": "exact unchanged normalized main text excluding new labeled concept section",
+      "characters": 4765
+    },
+    {
+      "route": "dev-portal.html",
+      "originalCaseText": "exact unchanged normalized main text excluding new labeled concept section",
+      "characters": 7648
+    }
+  ],
+  "existingImageAssets": "unchanged"
+}

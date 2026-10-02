@@ -21,3 +21,5 @@ Browser tests use installed Chrome on Windows. Set `CHROME_PATH` to an installed
 Review evidence is in `review/final/` and `review/checks.json`. Read `docs/hiring-redesign-audit.md` for content provenance, factual caveats, and design direction. The WebP artifacts are lossless conversions of the existing PNG assets; originals remain available.
 
 For shared CSS changes, run `npm run build:css`. Run `npm run test:extended` for normal motion, 768px layout, expanded evidence, keyboard navigation/dialog focus, and reduced-transparency checks. The original source PNGs remain unchanged; responsive hero derivatives resize those same pixels.
+
+The current project covers are clearly labeled semantic HTML interface explorations using only existing project content. Original artifacts stay accessible in the case studies. Run `npm run test:concepts` for live search, calculator combinations, keyboard deployment steps, rapid input, no-JS fallback, motion/reduced-motion and 390/768/1440 light/dark checks. `npm run test:roles` verifies role metadata stays below each project title. Current concept screenshots and reports are in `review/concepts/` and `review/concept-checks.json`.
