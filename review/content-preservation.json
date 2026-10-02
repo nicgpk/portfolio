@@ -1,0 +1,40 @@
+{
+  "index.html": {
+    "originalContentPreserved": true,
+    "baseline": "9cd719f",
+    "changesToOriginal": "base href for static and dynamic asset paths, and noindex only"
+  },
+  "projects.html": {
+    "originalContentPreserved": true,
+    "baseline": "9cd719f",
+    "changesToOriginal": "base href for static and dynamic asset paths, and noindex only"
+  },
+  "partner-growth-programs.html": {
+    "originalContentPreserved": true,
+    "baseline": "9cd719f",
+    "changesToOriginal": "base href for static and dynamic asset paths, and noindex only"
+  },
+  "discounting.html": {
+    "originalContentPreserved": true,
+    "baseline": "9cd719f",
+    "changesToOriginal": "base href for static and dynamic asset paths, and noindex only"
+  },
+  "dev-portal.html": {
+    "originalContentPreserved": true,
+    "baseline": "9cd719f",
+    "changesToOriginal": "base href for static and dynamic asset paths, and noindex only"
+  },
+  "files/NicholasGwee_Resume.pdf": {
+    "unchanged": true
+  },
+  "files/ats-resume.html": {
+    "unchanged": true
+  },
+  "partner-programs.html": {
+    "unchanged": true
+  },
+  "resume.html": {
+    "mainTextPreserved": true,
+    "changes": "common navigation, main anchor and formatting"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "artifacts": [
+    {
+      "width": 390,
+      "pattern": 0,
+      "url": "http://127.0.0.1:4183/images/icon-promo-3d.webp",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "pattern": 0,
+      "url": "http://127.0.0.1:4183/images/icon-growth-3d.webp",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "pattern": 0,
+      "url": "http://127.0.0.1:4183/images/icon-boost-3d.webp",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "pattern": 1,
+      "url": "http://127.0.0.1:4183/images/icon-promo-3d.webp",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "pattern": 6,
+      "url": "http://127.0.0.1:4183/images/icon-promo-3d.webp",
+      "status": 200
+    },
+    {
+      "width": 390,
+      "pattern": 6,
+      "url": "http://127.0.0.1:4183/images/icon-boost-3d.webp",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "pattern": 0,
+      "url": "http://127.0.0.1:4183/images/icon-promo-3d.webp",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "pattern": 0,
+      "url": "http://127.0.0.1:4183/images/icon-growth-3d.webp",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "pattern": 0,
+      "url": "http://127.0.0.1:4183/images/icon-boost-3d.webp",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "pattern": 1,
+      "url": "http://127.0.0.1:4183/images/icon-promo-3d.webp",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "pattern": 6,
+      "url": "http://127.0.0.1:4183/images/icon-promo-3d.webp",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "pattern": 6,
+      "url": "http://127.0.0.1:4183/images/icon-boost-3d.webp",
+      "status": 200
+    }
+  ],
+  "brokenLinks": []
+}
