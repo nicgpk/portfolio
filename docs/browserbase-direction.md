@@ -4,6 +4,8 @@ Reference reviewed on 3 October 2026: https://www.browserbase.com/.
 
 Current hero follow-up: the user requested monochrome halftone clouds and a more comprehensive cursor effect. A full-hero WebGL field now animates cloud sampling and fading etch trails, with responsive static posters and a quiet center for the copy. The original pixel landscape described below is historical; `cloud-art-direction.md` documents its replacement, image provenance and interaction checks. Other decisions below remain applicable.
 
+Selected-work follow-up: `firecrawl-refinement.md` documents the current centered section heading, integrated neutral panels and single orange accent below the unchanged hero. The earlier pale blue, lavender and green home covers are historical. Case content and evidence context remain preserved.
+
 The reference uses orange headline bands, a white page with fine structural rules, pale blue product surfaces, pixelated landscape illustrations, compact navigation and concise product demonstrations. This portfolio translates that language into an original presentation of Nicholas Gwee's work. Browserbase's brand, copy, assets and business claims are not used.
 
 ## Design decisions
