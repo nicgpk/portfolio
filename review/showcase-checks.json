@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-03T06:12:09.060Z",
+  "checkedAt": "2026-10-03T13:00:18.296Z",
   "browser": "Project-local Chromium on Windows",
   "viewports": [
     {
@@ -33,12 +33,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99810126582278
+            "widthPercent": 85
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49303797468355
+            "widthPercent": 76.5
           }
         ]
       },
@@ -50,43 +50,43 @@
           {
             "tag": "DIV",
             "class": "showcase-track is-gallery-ready",
-            "clientWidth": 288,
-            "scrollWidth": 776
+            "clientWidth": 286,
+            "scrollWidth": 800
           }
         ],
         "cards": [
           {
-            "left": 24,
-            "right": 264,
-            "top": 383.34375,
-            "bottom": 2174.78125,
+            "left": 23,
+            "right": 275,
+            "top": 882.453125,
+            "bottom": 1659.296875,
             "position": "static"
           },
           {
-            "left": 284,
-            "right": 524,
-            "top": 383.34375,
-            "bottom": 2136.96875,
+            "left": 291,
+            "right": 543,
+            "top": 882.453125,
+            "bottom": 1675.3125,
             "position": "static"
           },
           {
-            "left": 544,
-            "right": 784,
-            "top": 383.34375,
-            "bottom": 1125.5,
+            "left": 559,
+            "right": 811,
+            "top": 882.453125,
+            "bottom": 1673.015625,
             "position": "static"
           }
         ],
         "rail": {
-          "left": 16,
-          "right": 304,
-          "clientWidth": 288,
-          "scrollWidth": 776,
+          "left": 17,
+          "right": 303,
+          "clientWidth": 286,
+          "scrollWidth": 800,
           "scrollLeft": 0,
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll or swipe sideways to explore.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
+            "Scroll over the projects to explore. Swipe on touch screens.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -94,80 +94,80 @@
       },
       "gestures": {
         "verticalWheelDelta": 240,
-        "horizontalWheelDelta": 260
+        "horizontalWheelDelta": 268
       },
       "navigation": [
         {
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 488
+          "max": 514
         },
         {
           "action": "ArrowRight",
           "project": "discount",
-          "left": 260,
-          "max": 488
+          "left": 268,
+          "max": 514
         },
         {
           "action": "ArrowLeft",
           "project": "growth",
           "left": 0,
-          "max": 488
+          "max": 514
         },
         {
           "action": "End",
           "project": "developer",
-          "left": 488,
-          "max": 488
+          "left": 514,
+          "max": 514
         },
         {
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 488
+          "max": 514
         },
         {
           "action": "Next project",
           "project": "discount",
-          "left": 258,
-          "max": 488
+          "left": 267,
+          "max": 514
         },
         {
           "action": "Next project",
           "project": "developer",
-          "left": 488,
-          "max": 488
+          "left": 511,
+          "max": 514
         },
         {
           "action": "Previous project",
           "project": "discount",
-          "left": 260,
-          "max": 488
+          "left": 268,
+          "max": 514
         },
         {
           "action": "Previous project",
           "project": "growth",
-          "left": 2,
-          "max": 488
+          "left": 0,
+          "max": 514
         }
       ],
       "focus": [
         {
           "project": "growth",
           "box": {
-            "x": 24,
-            "y": 380.34375,
-            "width": 240,
-            "height": 232.765625
+            "x": 23,
+            "y": 533.453125,
+            "width": 252,
+            "height": 266.71875
           },
           "title": {
-            "x": 24,
-            "y": 399.34375,
-            "width": 240,
-            "height": 71.375
+            "x": 23,
+            "y": 569.453125,
+            "width": 252,
+            "height": 73.4375
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 320,
             "height": 800
@@ -176,18 +176,18 @@
         {
           "project": "discount",
           "box": {
-            "x": 24,
-            "y": 342.34375,
-            "width": 240,
-            "height": 197.078125
+            "x": 23,
+            "y": 533.453125,
+            "width": 252,
+            "height": 246
           },
           "title": {
-            "x": 24,
-            "y": 358.34375,
-            "width": 240,
-            "height": 35.6875
+            "x": 23,
+            "y": 585.453125,
+            "width": 252,
+            "height": 36.71875
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 320,
             "height": 800
@@ -196,18 +196,18 @@
         {
           "project": "developer",
           "box": {
-            "x": 56,
-            "y": 193.34375,
-            "width": 240,
-            "height": 177.28125
+            "x": 45,
+            "y": 533.453125,
+            "width": 252,
+            "height": 223.90625
           },
           "title": {
-            "x": 56,
-            "y": 242.34375,
-            "width": 240,
-            "height": 35.6875
+            "x": 45,
+            "y": 585.453125,
+            "width": 252,
+            "height": 36.71875
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 320,
             "height": 800
@@ -247,12 +247,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.9956937799043
+            "widthPercent": 85
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49521531100478
+            "widthPercent": 76.49888888888889
           }
         ]
       },
@@ -264,43 +264,43 @@
           {
             "tag": "DIV",
             "class": "showcase-track is-gallery-ready",
-            "clientWidth": 351,
-            "scrollWidth": 965
+            "clientWidth": 356,
+            "scrollWidth": 1010
           }
         ],
         "cards": [
           {
-            "left": 27.5,
-            "right": 330.5,
-            "top": 353.34375,
-            "bottom": 1912.328125,
+            "left": 23,
+            "right": 345,
+            "top": 826.75,
+            "bottom": 1578.296875,
             "position": "static"
           },
           {
-            "left": 350.5,
-            "right": 653.5,
-            "top": 353.34375,
-            "bottom": 1880.53125,
+            "left": 361,
+            "right": 683,
+            "top": 826.75,
+            "bottom": 1567.609375,
             "position": "static"
           },
           {
-            "left": 673.5,
-            "right": 976.5,
-            "top": 353.34375,
-            "bottom": 1092.953125,
+            "left": 699,
+            "right": 1021,
+            "top": 826.75,
+            "bottom": 1579.21875,
             "position": "static"
           }
         ],
         "rail": {
-          "left": 19.5,
-          "right": 370.5,
-          "clientWidth": 351,
-          "scrollWidth": 965,
+          "left": 17,
+          "right": 373,
+          "clientWidth": 356,
+          "scrollWidth": 1010,
           "scrollLeft": 0,
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll or swipe sideways to explore.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
+            "Scroll over the projects to explore. Swipe on touch screens.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -308,81 +308,81 @@
       },
       "gestures": {
         "verticalWheelDelta": 240,
-        "horizontalWheelDelta": 323,
-        "touchSwipeDelta": 323
+        "horizontalWheelDelta": 338,
+        "touchSwipeDelta": 338
       },
       "navigation": [
         {
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 614
+          "max": 654
         },
         {
           "action": "ArrowRight",
           "project": "discount",
-          "left": 323,
-          "max": 614
+          "left": 338,
+          "max": 654
         },
         {
           "action": "ArrowLeft",
           "project": "growth",
           "left": 0,
-          "max": 614
+          "max": 654
         },
         {
           "action": "End",
           "project": "developer",
-          "left": 614,
-          "max": 614
+          "left": 654,
+          "max": 654
         },
         {
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 614
+          "max": 654
         },
         {
           "action": "Next project",
           "project": "discount",
-          "left": 317,
-          "max": 614
+          "left": 338,
+          "max": 654
         },
         {
           "action": "Next project",
           "project": "developer",
-          "left": 610,
-          "max": 614
+          "left": 654,
+          "max": 654
         },
         {
           "action": "Previous project",
           "project": "discount",
-          "left": 325,
-          "max": 614
+          "left": 338,
+          "max": 654
         },
         {
           "action": "Previous project",
           "project": "growth",
-          "left": 6,
-          "max": 614
+          "left": 0,
+          "max": 654
         }
       ],
       "focus": [
         {
           "project": "growth",
           "box": {
-            "x": 27.5,
-            "y": 340.34375,
-            "width": 303,
-            "height": 223.46875
+            "x": 23,
+            "y": 577.75,
+            "width": 322,
+            "height": 266.71875
           },
           "title": {
-            "x": 27.5,
-            "y": 366.34375,
-            "width": 303,
-            "height": 81.875
+            "x": 23,
+            "y": 613.75,
+            "width": 265.1875,
+            "height": 73.4375
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 390,
             "height": 844
@@ -391,18 +391,18 @@
         {
           "project": "discount",
           "box": {
-            "x": 27.5,
-            "y": 203.34375,
-            "width": 303,
-            "height": 182.53125
+            "x": 23,
+            "y": 577.75,
+            "width": 322,
+            "height": 207.90625
           },
           "title": {
-            "x": 27.5,
-            "y": 263.34375,
-            "width": 303,
-            "height": 40.9375
+            "x": 23,
+            "y": 613.75,
+            "width": 265.1875,
+            "height": 36.71875
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 390,
             "height": 844
@@ -411,18 +411,18 @@
         {
           "project": "developer",
           "box": {
-            "x": 59.5,
-            "y": 159.34375,
-            "width": 303,
-            "height": 162.734375
+            "x": 45,
+            "y": 577.75,
+            "width": 322,
+            "height": 185.8125
           },
           "title": {
-            "x": 59.5,
-            "y": 193.34375,
-            "width": 303,
-            "height": 40.9375
+            "x": 45,
+            "y": 613.75,
+            "width": 265.1875,
+            "height": 36.71875
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 390,
             "height": 844
@@ -462,12 +462,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99504526284043
+            "widthPercent": 84.99825965889313
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49779071381727
+            "widthPercent": 76.49676296554124
           }
         ]
       },
@@ -479,43 +479,43 @@
           {
             "tag": "DIV",
             "class": "showcase-track is-gallery-ready",
-            "clientWidth": 707,
-            "scrollWidth": 1912
+            "clientWidth": 710,
+            "scrollWidth": 1989
           }
         ],
         "cards": [
           {
-            "left": 38.71875,
-            "right": 649.28125,
-            "top": 378.375,
-            "bottom": 1585.8125,
+            "left": 37,
+            "right": 676,
+            "top": 905.4375,
+            "bottom": 1435.3125,
             "position": "static"
           },
           {
-            "left": 681.28125,
-            "right": 1291.84375,
-            "top": 378.375,
-            "bottom": 1422.421875,
+            "left": 704,
+            "right": 1343,
+            "top": 905.4375,
+            "bottom": 1438.21875,
             "position": "static"
           },
           {
-            "left": 1323.84375,
-            "right": 1934.40625,
-            "top": 378.375,
-            "bottom": 985.25,
+            "left": 1371,
+            "right": 2010,
+            "top": 905.4375,
+            "bottom": 1499.71875,
             "position": "static"
           }
         ],
         "rail": {
-          "left": 30.71875,
-          "right": 737.28125,
-          "clientWidth": 707,
-          "scrollWidth": 1912,
+          "left": 29,
+          "right": 739,
+          "clientWidth": 710,
+          "scrollWidth": 1989,
           "scrollLeft": 0,
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll or swipe sideways to explore.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
+            "Scroll over the projects to explore. Swipe on touch screens.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -530,73 +530,73 @@
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 1205
+          "max": 1279
         },
         {
           "action": "ArrowRight",
           "project": "discount",
-          "left": 643,
-          "max": 1205
+          "left": 667,
+          "max": 1279
         },
         {
           "action": "ArrowLeft",
           "project": "growth",
           "left": 0,
-          "max": 1205
+          "max": 1279
         },
         {
           "action": "End",
           "project": "developer",
-          "left": 1205,
-          "max": 1205
+          "left": 1279,
+          "max": 1279
         },
         {
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 1205
+          "max": 1279
         },
         {
           "action": "Next project",
           "project": "discount",
-          "left": 641,
-          "max": 1205
+          "left": 658,
+          "max": 1279
         },
         {
           "action": "Next project",
           "project": "developer",
-          "left": 1204,
-          "max": 1205
+          "left": 1274,
+          "max": 1279
         },
         {
           "action": "Previous project",
           "project": "discount",
-          "left": 643,
-          "max": 1205
+          "left": 672,
+          "max": 1279
         },
         {
           "action": "Previous project",
           "project": "growth",
-          "left": 2,
-          "max": 1205
+          "left": 5,
+          "max": 1279
         }
       ],
       "focus": [
         {
           "project": "growth",
           "box": {
-            "x": 38.71875,
-            "y": 274.375,
-            "width": 610.5625,
-            "height": 150.28125
+            "x": 37,
+            "y": 513.25,
+            "width": 191.875,
+            "height": 386.25
           },
           "title": {
-            "x": 38.71875,
-            "y": 391.0625,
-            "width": 351.03125,
-            "height": 96.59375
+            "x": 37,
+            "y": 588.4375,
+            "width": 191.875,
+            "height": 106.875
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 768,
             "height": 900
@@ -605,18 +605,18 @@
         {
           "project": "discount",
           "box": {
-            "x": 38.28125,
-            "y": 155.375,
-            "width": 610.5625,
-            "height": 150.28125
+            "x": 37,
+            "y": 475.515625,
+            "width": 191.875,
+            "height": 350.625
           },
           "title": {
-            "x": 38.28125,
-            "y": 243.359375,
-            "width": 351.03125,
-            "height": 48.296875
+            "x": 37,
+            "y": 586.703125,
+            "width": 191.875,
+            "height": 71.25
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 768,
             "height": 900
@@ -625,18 +625,18 @@
         {
           "project": "developer",
           "box": {
-            "x": 118.84375,
-            "y": 121.375,
-            "width": 610.5625,
-            "height": 128.1875
+            "x": 92,
+            "y": 503.0625,
+            "width": 191.875,
+            "height": 303.03125
           },
           "title": {
-            "x": 118.84375,
-            "y": 181.265625,
-            "width": 351.03125,
-            "height": 48.296875
+            "x": 92,
+            "y": 587.25,
+            "width": 191.875,
+            "height": 71.25
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 768,
             "height": 900
@@ -676,12 +676,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99941248406091
+            "widthPercent": 84.99839885721201
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49936243640684
+            "widthPercent": 76.4993558536157
           }
         ]
       },
@@ -693,50 +693,50 @@
           {
             "tag": "DIV",
             "class": "showcase-track is-gallery-ready",
-            "clientWidth": 1325,
-            "scrollWidth": 3766
+            "clientWidth": 1222,
+            "scrollWidth": 3525
           }
         ],
         "cards": [
           {
-            "left": 65.59375,
-            "right": 1294.40625,
-            "top": 355.28125,
-            "bottom": 1351.8125,
+            "left": 117,
+            "right": 1268,
+            "top": 974.84375,
+            "bottom": 1543.34375,
             "position": "static"
           },
           {
-            "left": 1326.40625,
-            "right": 2555.21875,
-            "top": 355.28125,
-            "bottom": 1317.9375,
+            "left": 1296,
+            "right": 2447,
+            "top": 974.84375,
+            "bottom": 1569.125,
             "position": "static"
           },
           {
-            "left": 2587.21875,
-            "right": 3816.03125,
-            "top": 355.28125,
-            "bottom": 950.625,
+            "left": 2475,
+            "right": 3626,
+            "top": 974.84375,
+            "bottom": 1462.84375,
             "position": "static"
           }
         ],
         "rail": {
-          "left": 57.59375,
-          "right": 1382.40625,
-          "clientWidth": 1325,
-          "scrollWidth": 3766,
+          "left": 109,
+          "right": 1331,
+          "clientWidth": 1222,
+          "scrollWidth": 3525,
           "scrollLeft": 0,
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll or swipe sideways to explore.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
+            "Scroll over the projects to explore. Swipe on touch screens.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
         "dimensionalResources": []
       },
       "gestures": {
-        "verticalWheelDelta": 240,
+        "verticalWheelDelta": 0,
         "horizontalWheelDelta": 0,
         "shiftWheelDelta": 0
       },
@@ -745,73 +745,73 @@
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         },
         {
           "action": "ArrowRight",
           "project": "discount",
-          "left": 1261,
-          "max": 2441
+          "left": 1179,
+          "max": 2303
         },
         {
           "action": "ArrowLeft",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         },
         {
           "action": "End",
           "project": "developer",
-          "left": 2441,
-          "max": 2441
+          "left": 2303,
+          "max": 2303
         },
         {
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         },
         {
           "action": "Next project",
           "project": "discount",
-          "left": 1244,
-          "max": 2441
+          "left": 1172,
+          "max": 2303
         },
         {
           "action": "Next project",
           "project": "developer",
-          "left": 2441,
-          "max": 2441
+          "left": 2303,
+          "max": 2303
         },
         {
           "action": "Previous project",
           "project": "discount",
-          "left": 1261,
-          "max": 2441
+          "left": 1179,
+          "max": 2303
         },
         {
           "action": "Previous project",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         }
       ],
       "focus": [
         {
           "project": "growth",
           "box": {
-            "x": 65.59375,
-            "y": 249.28125,
-            "width": 1228.8125,
-            "height": 187.71875
+            "x": 117,
+            "y": 563.578125,
+            "width": 349.359375,
+            "height": 333.015625
           },
           "title": {
-            "x": 65.59375,
-            "y": 359.875,
-            "width": 568.5,
-            "height": 142.125
+            "x": 117,
+            "y": 624.171875,
+            "width": 343.1875,
+            "height": 95.03125
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 1440,
             "height": 900
@@ -820,18 +820,18 @@
         {
           "project": "discount",
           "box": {
-            "x": 65.40625,
-            "y": 147.28125,
-            "width": 1228.8125,
-            "height": 128.1875
+            "x": 117,
+            "y": 556.125,
+            "width": 349.359375,
+            "height": 261.703125
           },
           "title": {
-            "x": 65.40625,
-            "y": 207.40625,
-            "width": 568.5,
-            "height": 71.0625
+            "x": 117,
+            "y": 656.71875,
+            "width": 343.1875,
+            "height": 47.515625
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 1440,
             "height": 900
@@ -840,18 +840,18 @@
         {
           "project": "developer",
           "box": {
-            "x": 146.21875,
-            "y": 126.28125,
-            "width": 1228.8125,
-            "height": 116.65625
+            "x": 172,
+            "y": 449.890625,
+            "width": 349.359375,
+            "height": 237.90625
           },
           "title": {
-            "x": 146.21875,
-            "y": 148.875,
-            "width": 568.5,
-            "height": 71.0625
+            "x": 172,
+            "y": 519.484375,
+            "width": 343.1875,
+            "height": 47.515625
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 1440,
             "height": 900
@@ -891,12 +891,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99932820051382
+            "widthPercent": 85.00007289302704
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.50004682238843
+            "widthPercent": 76.49977403161613
           }
         ]
       },
@@ -908,43 +908,43 @@
           {
             "tag": "DIV",
             "class": "showcase-track is-gallery-ready",
-            "clientWidth": 777,
-            "scrollWidth": 2122
+            "clientWidth": 786,
+            "scrollWidth": 2217
           }
         ],
         "cards": [
           {
-            "left": 41.75,
-            "right": 722.25,
-            "top": 378.375,
-            "bottom": 1503.421875,
+            "left": 37,
+            "right": 752,
+            "top": 914.96875,
+            "bottom": 1444.84375,
             "position": "static"
           },
           {
-            "left": 754.25,
-            "right": 1434.75,
-            "top": 378.375,
-            "bottom": 1379.03125,
+            "left": 780,
+            "right": 1495,
+            "top": 914.96875,
+            "bottom": 1447.75,
             "position": "static"
           },
           {
-            "left": 1466.75,
-            "right": 2147.25,
-            "top": 378.375,
-            "bottom": 985.25,
+            "left": 1523,
+            "right": 2238,
+            "top": 914.96875,
+            "bottom": 1509.25,
             "position": "static"
           }
         ],
         "rail": {
-          "left": 33.75,
-          "right": 810.25,
-          "clientWidth": 777,
-          "scrollWidth": 2122,
+          "left": 29,
+          "right": 815,
+          "clientWidth": 786,
+          "scrollWidth": 2217,
           "scrollLeft": 0,
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll or swipe sideways to explore.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
+            "Scroll over the projects to explore. Swipe on touch screens.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -959,73 +959,73 @@
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 1345
+          "max": 1431
         },
         {
           "action": "ArrowRight",
           "project": "discount",
-          "left": 713,
-          "max": 1345
+          "left": 743,
+          "max": 1431
         },
         {
           "action": "ArrowLeft",
           "project": "growth",
           "left": 0,
-          "max": 1345
+          "max": 1431
         },
         {
           "action": "End",
           "project": "developer",
-          "left": 1345,
-          "max": 1345
+          "left": 1431,
+          "max": 1431
         },
         {
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 1345
+          "max": 1431
         },
         {
           "action": "Next project",
           "project": "discount",
-          "left": 707,
-          "max": 1345
+          "left": 732,
+          "max": 1431
         },
         {
           "action": "Next project",
           "project": "developer",
-          "left": 1343,
-          "max": 1345
+          "left": 1431,
+          "max": 1431
         },
         {
           "action": "Previous project",
           "project": "discount",
-          "left": 714,
-          "max": 1345
+          "left": 743,
+          "max": 1431
         },
         {
           "action": "Previous project",
           "project": "growth",
           "left": 0,
-          "max": 1345
+          "max": 1431
         }
       ],
       "focus": [
         {
           "project": "growth",
           "box": {
-            "x": 41.75,
-            "y": 152.375,
-            "width": 680.5,
-            "height": 150.28125
+            "x": 37,
+            "y": 89.78125,
+            "width": 215.4375,
+            "height": 386.25
           },
           "title": {
-            "x": 41.75,
-            "y": 201.0625,
-            "width": 386.390625,
-            "height": 96.59375
+            "x": 37,
+            "y": 164.96875,
+            "width": 215.4375,
+            "height": 106.875
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 844,
             "height": 390
@@ -1034,18 +1034,18 @@
         {
           "project": "discount",
           "box": {
-            "x": 41.25,
-            "y": 125.375,
-            "width": 680.5,
-            "height": 150.28125
+            "x": 37,
+            "y": 143.9375,
+            "width": 215.4375,
+            "height": 326.828125
           },
           "title": {
-            "x": 41.25,
-            "y": 207.359375,
-            "width": 386.390625,
-            "height": 48.296875
+            "x": 37,
+            "y": 199.125,
+            "width": 215.4375,
+            "height": 71.25
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 844,
             "height": 390
@@ -1054,18 +1054,18 @@
         {
           "project": "developer",
           "box": {
-            "x": 121.75,
-            "y": 118.375,
-            "width": 680.5,
-            "height": 128.1875
+            "x": 92,
+            "y": 217.59375,
+            "width": 215.4375,
+            "height": 303.03125
           },
           "title": {
-            "x": 121.75,
-            "y": 171.265625,
-            "width": 386.390625,
-            "height": 48.296875
+            "x": 92,
+            "y": 292.78125,
+            "width": 215.4375,
+            "height": 71.25
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 844,
             "height": 390
@@ -1105,12 +1105,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99941248406091
+            "widthPercent": 84.99839885721201
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49936243640684
+            "widthPercent": 76.4993558536157
           }
         ]
       },
@@ -1122,50 +1122,50 @@
           {
             "tag": "DIV",
             "class": "showcase-track is-gallery-ready",
-            "clientWidth": 1325,
-            "scrollWidth": 3766
+            "clientWidth": 1222,
+            "scrollWidth": 3525
           }
         ],
         "cards": [
           {
-            "left": 65.59375,
-            "right": 1294.40625,
-            "top": 355.28125,
-            "bottom": 1351.8125,
+            "left": 117,
+            "right": 1268,
+            "top": 974.84375,
+            "bottom": 1543.34375,
             "position": "static"
           },
           {
-            "left": 1326.40625,
-            "right": 2555.21875,
-            "top": 355.28125,
-            "bottom": 1317.9375,
+            "left": 1296,
+            "right": 2447,
+            "top": 974.84375,
+            "bottom": 1569.125,
             "position": "static"
           },
           {
-            "left": 2587.21875,
-            "right": 3816.03125,
-            "top": 355.28125,
-            "bottom": 950.625,
+            "left": 2475,
+            "right": 3626,
+            "top": 974.84375,
+            "bottom": 1462.84375,
             "position": "static"
           }
         ],
         "rail": {
-          "left": 57.59375,
-          "right": 1382.40625,
-          "clientWidth": 1325,
-          "scrollWidth": 3766,
+          "left": 109,
+          "right": 1331,
+          "clientWidth": 1222,
+          "scrollWidth": 3525,
           "scrollLeft": 0,
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll or swipe sideways to explore.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
+            "Scroll over the projects to explore. Swipe on touch screens.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
         "dimensionalResources": []
       },
       "gestures": {
-        "verticalWheelDelta": 240,
+        "verticalWheelDelta": 0,
         "horizontalWheelDelta": 0
       },
       "navigation": [
@@ -1173,73 +1173,73 @@
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         },
         {
           "action": "ArrowRight",
           "project": "discount",
-          "left": 1261,
-          "max": 2441
+          "left": 1179,
+          "max": 2303
         },
         {
           "action": "ArrowLeft",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         },
         {
           "action": "End",
           "project": "developer",
-          "left": 2441,
-          "max": 2441
+          "left": 2303,
+          "max": 2303
         },
         {
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         },
         {
           "action": "Next project",
           "project": "discount",
-          "left": 1244,
-          "max": 2441
+          "left": 1168,
+          "max": 2303
         },
         {
           "action": "Next project",
           "project": "developer",
-          "left": 2441,
-          "max": 2441
+          "left": 2303,
+          "max": 2303
         },
         {
           "action": "Previous project",
           "project": "discount",
-          "left": 1261,
-          "max": 2441
+          "left": 1179,
+          "max": 2303
         },
         {
           "action": "Previous project",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         }
       ],
       "focus": [
         {
           "project": "growth",
           "box": {
-            "x": 65.59375,
-            "y": 342.28125,
-            "width": 1228.8125,
-            "height": 187.71875
+            "x": 117,
+            "y": 262.578125,
+            "width": 349.359375,
+            "height": 333.015625
           },
           "title": {
-            "x": 65.59375,
-            "y": 372.875,
-            "width": 568.5,
-            "height": 142.125
+            "x": 117,
+            "y": 324.171875,
+            "width": 343.1875,
+            "height": 95.03125
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 1440,
             "height": 600
@@ -1248,18 +1248,18 @@
         {
           "project": "discount",
           "box": {
-            "x": 65.40625,
-            "y": 249.28125,
-            "width": 1228.8125,
-            "height": 128.1875
+            "x": 117,
+            "y": 274.125,
+            "width": 349.359375,
+            "height": 261.703125
           },
           "title": {
-            "x": 65.40625,
-            "y": 340.40625,
-            "width": 568.5,
-            "height": 71.0625
+            "x": 117,
+            "y": 335.71875,
+            "width": 343.1875,
+            "height": 47.515625
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 1440,
             "height": 600
@@ -1268,18 +1268,18 @@
         {
           "project": "developer",
           "box": {
-            "x": 146.21875,
-            "y": 160.28125,
-            "width": 1228.8125,
-            "height": 116.65625
+            "x": 172,
+            "y": 228.890625,
+            "width": 349.359375,
+            "height": 237.90625
           },
           "title": {
-            "x": 146.21875,
-            "y": 195.875,
-            "width": 568.5,
-            "height": 71.0625
+            "x": 172,
+            "y": 287.484375,
+            "width": 343.1875,
+            "height": 47.515625
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 1440,
             "height": 600
@@ -1321,12 +1321,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 85
+            "widthPercent": 84.99459459459459
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49684210526316
+            "widthPercent": 76.4990990990991
           }
         ]
       },
@@ -1338,43 +1338,43 @@
           {
             "tag": "DIV",
             "class": "showcase-track",
-            "clientWidth": 288,
-            "scrollWidth": 872
+            "clientWidth": 286,
+            "scrollWidth": 866
           }
         ],
         "cards": [
           {
-            "left": 24,
-            "right": 296,
-            "top": 353.34375,
-            "bottom": 1974.015625,
+            "left": 23,
+            "right": 297,
+            "top": 828.453125,
+            "bottom": 1580,
             "position": "static"
           },
           {
-            "left": 316,
-            "right": 588,
-            "top": 353.34375,
-            "bottom": 1921.28125,
+            "left": 313,
+            "right": 587,
+            "top": 828.453125,
+            "bottom": 1597.3125,
             "position": "static"
           },
           {
-            "left": 608,
-            "right": 880,
-            "top": 353.34375,
-            "bottom": 1075.703125,
+            "left": 603,
+            "right": 877,
+            "top": 828.453125,
+            "bottom": 1619.015625,
             "position": "static"
           }
         ],
         "rail": {
-          "left": 16,
-          "right": 304,
-          "clientWidth": 288,
-          "scrollWidth": 872,
+          "left": 17,
+          "right": 303,
+          "clientWidth": 286,
+          "scrollWidth": 866,
           "scrollLeft": 0,
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll or swipe sideways to explore.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
+            "Scroll over the projects to explore. Swipe on touch screens.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -1382,24 +1382,24 @@
       },
       "gestures": {
         "verticalWheelDelta": 240,
-        "horizontalWheelDelta": 292
+        "horizontalWheelDelta": 290
       },
       "focus": [
         {
           "project": "growth",
           "box": {
-            "x": 24,
-            "y": 87.34375,
-            "width": 272,
-            "height": 232.765625
+            "x": 23,
+            "y": 111.453125,
+            "width": 274,
+            "height": 266.71875
           },
           "title": {
-            "x": 24,
-            "y": 91.34375,
-            "width": 272,
-            "height": 71.375
+            "x": 23,
+            "y": 137.453125,
+            "width": 265.1875,
+            "height": 73.4375
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 320,
             "height": 800
@@ -1408,18 +1408,18 @@
         {
           "project": "discount",
           "box": {
-            "x": 24,
-            "y": 104.34375,
-            "width": 272,
-            "height": 177.28125
+            "x": 23,
+            "y": 118.453125,
+            "width": 274,
+            "height": 223.90625
           },
           "title": {
-            "x": 24,
-            "y": 120.34375,
-            "width": 272,
-            "height": 35.6875
+            "x": 23,
+            "y": 169.453125,
+            "width": 265.1875,
+            "height": 36.71875
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 320,
             "height": 800
@@ -1428,18 +1428,18 @@
         {
           "project": "developer",
           "box": {
-            "x": 24,
-            "y": 115.34375,
-            "width": 272,
-            "height": 157.484375
+            "x": 23,
+            "y": 118.453125,
+            "width": 274,
+            "height": 223.90625
           },
           "title": {
-            "x": 24,
-            "y": 129.34375,
-            "width": 272,
-            "height": 35.6875
+            "x": 23,
+            "y": 170.453125,
+            "width": 265.1875,
+            "height": 36.71875
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 320,
             "height": 800
@@ -1478,12 +1478,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99751037344399
+            "widthPercent": 84.99589041095889
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49751037344399
+            "widthPercent": 76.49828767123287
           }
         ]
       },
@@ -1495,43 +1495,43 @@
           {
             "tag": "DIV",
             "class": "showcase-track",
-            "clientWidth": 351,
-            "scrollWidth": 1061
+            "clientWidth": 356,
+            "scrollWidth": 1076
           }
         ],
         "cards": [
           {
-            "left": 27.5,
-            "right": 362.5,
-            "top": 353.34375,
-            "bottom": 1763.359375,
+            "left": 23,
+            "right": 367,
+            "top": 813.546875,
+            "bottom": 1543,
             "position": "static"
           },
           {
-            "left": 382.5,
-            "right": 717.5,
-            "top": 353.34375,
-            "bottom": 1787.140625,
+            "left": 383,
+            "right": 727,
+            "top": 813.546875,
+            "bottom": 1540.015625,
             "position": "static"
           },
           {
-            "left": 737.5,
-            "right": 1072.5,
-            "top": 353.34375,
-            "bottom": 1076.953125,
+            "left": 743,
+            "right": 1087,
+            "top": 813.546875,
+            "bottom": 1566.015625,
             "position": "static"
           }
         ],
         "rail": {
-          "left": 19.5,
-          "right": 370.5,
-          "clientWidth": 351,
-          "scrollWidth": 1061,
+          "left": 17,
+          "right": 373,
+          "clientWidth": 356,
+          "scrollWidth": 1076,
           "scrollLeft": 0,
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll or swipe sideways to explore.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
+            "Scroll over the projects to explore. Swipe on touch screens.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -1545,18 +1545,18 @@
         {
           "project": "growth",
           "box": {
-            "x": 27.5,
-            "y": 217.34375,
-            "width": 335,
-            "height": 223.46875
+            "x": 23,
+            "y": 104.546875,
+            "width": 344,
+            "height": 244.625
           },
           "title": {
-            "x": 27.5,
-            "y": 192.34375,
-            "width": 327.59375,
-            "height": 81.875
+            "x": 23,
+            "y": 124.546875,
+            "width": 265.1875,
+            "height": 73.4375
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 390,
             "height": 844
@@ -1565,18 +1565,18 @@
         {
           "project": "discount",
           "box": {
-            "x": 27.5,
-            "y": 271.34375,
-            "width": 335,
-            "height": 182.53125
+            "x": 23,
+            "y": 117.546875,
+            "width": 344,
+            "height": 207.90625
           },
           "title": {
-            "x": 27.5,
-            "y": 287.34375,
-            "width": 327.59375,
-            "height": 40.9375
+            "x": 23,
+            "y": 151.546875,
+            "width": 265.1875,
+            "height": 36.71875
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 390,
             "height": 844
@@ -1585,18 +1585,18 @@
         {
           "project": "developer",
           "box": {
-            "x": 27.5,
-            "y": 316.34375,
-            "width": 335,
-            "height": 162.734375
+            "x": 23,
+            "y": 117.546875,
+            "width": 344,
+            "height": 185.8125
           },
           "title": {
-            "x": 27.5,
-            "y": 320.34375,
-            "width": 327.59375,
-            "height": 40.9375
+            "x": 23,
+            "y": 153.546875,
+            "width": 265.1875,
+            "height": 36.71875
           },
-          "navBottom": 70,
+          "navBottom": 64,
           "viewport": {
             "width": 390,
             "height": 844
@@ -1635,12 +1635,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99490627901075
+            "widthPercent": 84.99710789766407
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49830151351314
+            "widthPercent": 76.49810901001112
           }
         ]
       },
@@ -1652,43 +1652,43 @@
           {
             "tag": "DIV",
             "class": "showcase-track",
-            "clientWidth": 777,
-            "scrollWidth": 2362
+            "clientWidth": 786,
+            "scrollWidth": 2382
           }
         ],
         "cards": [
           {
-            "left": 41.75,
-            "right": 802.25,
-            "top": 378.375,
-            "bottom": 1482.421875,
+            "left": 37,
+            "right": 807,
+            "top": 914.96875,
+            "bottom": 1444.84375,
             "position": "static"
           },
           {
-            "left": 834.25,
-            "right": 1594.75,
-            "top": 378.375,
-            "bottom": 1323.828125,
+            "left": 835,
+            "right": 1605,
+            "top": 914.96875,
+            "bottom": 1447.75,
             "position": "static"
           },
           {
-            "left": 1626.75,
-            "right": 2387.25,
-            "top": 378.375,
-            "bottom": 985.25,
+            "left": 1633,
+            "right": 2403,
+            "top": 914.96875,
+            "bottom": 1509.25,
             "position": "static"
           }
         ],
         "rail": {
-          "left": 33.75,
-          "right": 810.25,
-          "clientWidth": 777,
-          "scrollWidth": 2362,
+          "left": 29,
+          "right": 815,
+          "clientWidth": 786,
+          "scrollWidth": 2382,
           "scrollLeft": 0,
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll or swipe sideways to explore.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
+            "Scroll over the projects to explore. Swipe on touch screens.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -1702,18 +1702,18 @@
         {
           "project": "growth",
           "box": {
-            "x": 41.75,
-            "y": 141.375,
-            "width": 760.5,
-            "height": 150.28125
+            "x": 37,
+            "y": 63.484375,
+            "width": 232.5,
+            "height": 326.828125
           },
           "title": {
-            "x": 41.75,
-            "y": 153.0625,
-            "width": 386.390625,
-            "height": 96.59375
+            "x": 37,
+            "y": 137.671875,
+            "width": 232.5,
+            "height": 71.25
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 844,
             "height": 390
@@ -1722,18 +1722,18 @@
         {
           "project": "discount",
           "box": {
-            "x": 41.25,
-            "y": 166.375,
-            "width": 760.5,
-            "height": 128.1875
+            "x": 306,
+            "y": 98.75,
+            "width": 232.5,
+            "height": 291.203125
           },
           "title": {
-            "x": 41.25,
-            "y": 212.265625,
-            "width": 386.390625,
-            "height": 48.296875
+            "x": 306,
+            "y": 171.9375,
+            "width": 232.5,
+            "height": 35.625
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 844,
             "height": 390
@@ -1742,18 +1742,18 @@
         {
           "project": "developer",
           "box": {
-            "x": 41.75,
-            "y": 176.375,
-            "width": 760.5,
-            "height": 128.1875
+            "x": 306,
+            "y": 123.59375,
+            "width": 232.5,
+            "height": 303.03125
           },
           "title": {
-            "x": 41.75,
-            "y": 223.265625,
-            "width": 386.390625,
-            "height": 48.296875
+            "x": 306,
+            "y": 198.78125,
+            "width": 232.5,
+            "height": 71.25
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 844,
             "height": 390
@@ -1792,12 +1792,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99941248406091
+            "widthPercent": 84.99931525418044
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49936243640684
+            "widthPercent": 76.49896449662798
           }
         ]
       },
@@ -1809,43 +1809,43 @@
           {
             "tag": "DIV",
             "class": "showcase-track",
-            "clientWidth": 1325,
-            "scrollWidth": 4006
+            "clientWidth": 1222,
+            "scrollWidth": 3690
           }
         ],
         "cards": [
           {
-            "left": 65.59375,
-            "right": 1374.40625,
-            "top": 355.28125,
-            "bottom": 1351.8125,
+            "left": 117,
+            "right": 1323,
+            "top": 974.84375,
+            "bottom": 1543.34375,
             "position": "static"
           },
           {
-            "left": 1406.40625,
-            "right": 2715.21875,
-            "top": 355.28125,
-            "bottom": 1317.9375,
+            "left": 1351,
+            "right": 2557,
+            "top": 974.84375,
+            "bottom": 1569.125,
             "position": "static"
           },
           {
-            "left": 2747.21875,
-            "right": 4056.03125,
-            "top": 355.28125,
-            "bottom": 950.625,
+            "left": 2585,
+            "right": 3791,
+            "top": 974.84375,
+            "bottom": 1462.84375,
             "position": "static"
           }
         ],
         "rail": {
-          "left": 57.59375,
-          "right": 1382.40625,
-          "clientWidth": 1325,
-          "scrollWidth": 4006,
+          "left": 109,
+          "right": 1331,
+          "clientWidth": 1222,
+          "scrollWidth": 3690,
           "scrollLeft": 0,
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll or swipe sideways to explore.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
+            "Scroll over the projects to explore. Swipe on touch screens.\n            Keyboard: focus the gallery and use Left and Right arrows, Home or\n            End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -1859,18 +1859,18 @@
         {
           "project": "growth",
           "box": {
-            "x": 65.59375,
-            "y": 252.28125,
-            "width": 1308.8125,
-            "height": 187.71875
+            "x": 117,
+            "y": 213.578125,
+            "width": 366.40625,
+            "height": 333.015625
           },
           "title": {
-            "x": 65.59375,
-            "y": 239.875,
-            "width": 568.5,
-            "height": 142.125
+            "x": 117,
+            "y": 265.171875,
+            "width": 343.1875,
+            "height": 95.03125
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 1440,
             "height": 900
@@ -1879,18 +1879,18 @@
         {
           "project": "discount",
           "box": {
-            "x": 65.40625,
-            "y": 293.28125,
-            "width": 1308.8125,
-            "height": 128.1875
+            "x": 537,
+            "y": 268.125,
+            "width": 366.40625,
+            "height": 261.703125
           },
           "title": {
-            "x": 65.40625,
-            "y": 303.40625,
-            "width": 568.5,
-            "height": 71.0625
+            "x": 537,
+            "y": 322.71875,
+            "width": 343.1875,
+            "height": 47.515625
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 1440,
             "height": 900
@@ -1899,18 +1899,18 @@
         {
           "project": "developer",
           "box": {
-            "x": 66.21875,
-            "y": 328.28125,
-            "width": 1308.8125,
-            "height": 116.65625
+            "x": 537,
+            "y": 228.890625,
+            "width": 366.40625,
+            "height": 237.90625
           },
           "title": {
-            "x": 66.21875,
-            "y": 336.875,
-            "width": 568.5,
-            "height": 71.0625
+            "x": 537,
+            "y": 286.484375,
+            "width": 343.1875,
+            "height": 47.515625
           },
-          "navBottom": 88,
+          "navBottom": 72,
           "viewport": {
             "width": 1440,
             "height": 900
@@ -1935,62 +1935,62 @@
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         },
         {
           "action": "ArrowRight",
           "project": "discount",
-          "left": 1261,
-          "max": 2441
+          "left": 1179,
+          "max": 2303
         },
         {
           "action": "ArrowLeft",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         },
         {
           "action": "End",
           "project": "developer",
-          "left": 2441,
-          "max": 2441
+          "left": 2303,
+          "max": 2303
         },
         {
           "action": "Home",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         },
         {
           "action": "Next project",
           "project": "discount",
-          "left": 1261,
-          "max": 2441
+          "left": 1179,
+          "max": 2303
         },
         {
           "action": "Next project",
           "project": "developer",
-          "left": 2441,
-          "max": 2441
+          "left": 2303,
+          "max": 2303
         },
         {
           "action": "Previous project",
           "project": "discount",
-          "left": 1261,
-          "max": 2441
+          "left": 1179,
+          "max": 2303
         },
         {
           "action": "Previous project",
           "project": "growth",
           "left": 0,
-          "max": 2441
+          "max": 2303
         }
       ]
     },
     {
       "preference": "Reduced transparency",
       "readable": true,
-      "navBackground": "rgb(248, 249, 252)",
+      "navBackground": "rgb(255, 255, 255)",
       "backdropFilter": "none"
     }
   ],
@@ -2002,8 +2002,8 @@
       },
       "project": "discount",
       "height": {
-        "railHeight": 1548,
-        "cardHeight": 1527.1875,
+        "railHeight": 761,
+        "cardHeight": 740.859375,
         "padding": 20
       }
     },
@@ -2014,27 +2014,27 @@
       },
       "project": "discount",
       "height": {
-        "railHeight": 983,
-        "cardHeight": 962.65625,
+        "railHeight": 615,
+        "cardHeight": 594.28125,
         "padding": 20
       }
     }
   ],
   "deepSwipe": [
     {
-      "beforeY": 1300,
-      "afterY": 235,
+      "beforeY": 1481,
+      "afterY": 709,
       "visible": {
-        "top": 118.34375,
-        "bottom": 857.953125,
-        "headingTop": 134.34375,
-        "headingBottom": 175.28125,
-        "navBottom": 70,
+        "top": 117.75,
+        "bottom": 870.21875,
+        "headingTop": 153.75,
+        "headingBottom": 190.46875,
+        "navBottom": 64,
         "viewportHeight": 844
       },
       "height": {
-        "railHeight": 760,
-        "cardHeight": 739.609375,
+        "railHeight": 773,
+        "cardHeight": 752.46875,
         "padding": 20
       }
     }
@@ -2044,240 +2044,240 @@
       "project": "growth",
       "width": 390,
       "imageSize": {
-        "width": 304,
-        "height": 1560
+        "width": 322,
+        "height": 753
       },
       "geometry": {
         "article": {
-          "x": 27.5,
-          "y": 106.34375,
-          "width": 303,
-          "height": 1558.984375,
-          "bottom": 1665.328125
+          "x": 23,
+          "y": 117.75,
+          "width": 322,
+          "height": 751.546875,
+          "bottom": 869.296875
         },
         "art": {
-          "x": 27.5,
-          "y": 329.8125,
-          "width": 303,
-          "height": 1303.515625,
-          "bottom": 1633.328125
+          "x": 23,
+          "y": 384.46875,
+          "width": 322,
+          "height": 444.046875,
+          "bottom": 828.515625
         },
         "panel": {
-          "x": 45.5,
-          "y": 347.8125,
-          "width": 267,
-          "height": 1267.515625,
-          "bottom": 1615.328125
+          "x": 34,
+          "y": 399.46875,
+          "width": 300,
+          "height": 414.046875,
+          "bottom": 813.515625
         },
         "caption": {
-          "x": 27.5,
-          "y": 1633.328125,
-          "width": 303,
-          "height": 32,
-          "bottom": 1665.328125
+          "x": 23,
+          "y": 840.515625,
+          "width": 322,
+          "height": 28.78125,
+          "bottom": 869.296875
         },
         "fonts": "loaded",
-        "viewportHeight": 1759
+        "viewportHeight": 953
       }
     },
     {
       "project": "discount",
       "width": 390,
       "imageSize": {
-        "width": 304,
-        "height": 1528
+        "width": 322,
+        "height": 742
       },
       "geometry": {
         "article": {
-          "x": 27.5,
-          "y": 120.34375,
-          "width": 303,
-          "height": 1527.1875,
-          "bottom": 1647.53125
+          "x": 23,
+          "y": 117.75,
+          "width": 322,
+          "height": 740.859375,
+          "bottom": 858.609375
         },
         "art": {
-          "x": 27.5,
-          "y": 302.875,
-          "width": 303,
-          "height": 1328.65625,
-          "bottom": 1631.53125
+          "x": 23,
+          "y": 325.65625,
+          "width": 322,
+          "height": 492.171875,
+          "bottom": 817.828125
         },
         "panel": {
-          "x": 45.5,
-          "y": 320.875,
-          "width": 267,
-          "height": 1292.65625,
-          "bottom": 1613.53125
+          "x": 34,
+          "y": 340.65625,
+          "width": 300,
+          "height": 462.171875,
+          "bottom": 802.828125
         },
         "caption": {
-          "x": 27.5,
-          "y": 1631.53125,
-          "width": 303,
-          "height": 16,
-          "bottom": 1647.53125
+          "x": 23,
+          "y": 829.828125,
+          "width": 322,
+          "height": 28.78125,
+          "bottom": 858.609375
         },
         "fonts": "loaded",
-        "viewportHeight": 1759
+        "viewportHeight": 953
       }
     },
     {
       "project": "developer",
       "width": 390,
       "imageSize": {
-        "width": 304,
-        "height": 740
+        "width": 322,
+        "height": 754
       },
       "geometry": {
         "article": {
-          "x": 59.5,
-          "y": 118.34375,
-          "width": 303,
-          "height": 739.609375,
-          "bottom": 857.953125
+          "x": 45,
+          "y": 117.75,
+          "width": 322,
+          "height": 752.46875,
+          "bottom": 870.21875
         },
         "art": {
-          "x": 59.5,
-          "y": 281.078125,
-          "width": 303,
-          "height": 544.875,
-          "bottom": 825.953125
+          "x": 45,
+          "y": 303.5625,
+          "width": 322,
+          "height": 525.875,
+          "bottom": 829.4375
         },
         "panel": {
-          "x": 77.5,
-          "y": 299.078125,
-          "width": 267,
-          "height": 508.875,
-          "bottom": 807.953125
+          "x": 56,
+          "y": 318.5625,
+          "width": 300,
+          "height": 495.875,
+          "bottom": 814.4375
         },
         "caption": {
-          "x": 59.5,
-          "y": 825.953125,
-          "width": 303,
-          "height": 32,
-          "bottom": 857.953125
+          "x": 45,
+          "y": 841.4375,
+          "width": 322,
+          "height": 28.78125,
+          "bottom": 870.21875
         },
         "fonts": "loaded",
-        "viewportHeight": 1759
+        "viewportHeight": 953
       }
     },
     {
       "project": "growth",
       "width": 1440,
       "imageSize": {
-        "width": 1230,
-        "height": 997
+        "width": 1151,
+        "height": 570
       },
       "geometry": {
         "article": {
-          "x": 65.59375,
-          "y": 78.28125,
-          "width": 1228.8125,
-          "height": 996.53125,
-          "bottom": 1074.8125
+          "x": 117,
+          "y": 117.84375,
+          "width": 1151,
+          "height": 568.5,
+          "bottom": 686.34375
         },
         "art": {
-          "x": 65.59375,
-          "y": 266,
-          "width": 1228.8125,
-          "height": 790.125,
-          "bottom": 1056.125
+          "x": 490.359375,
+          "y": 117.84375,
+          "width": 777.640625,
+          "height": 540.5,
+          "bottom": 658.34375
         },
         "panel": {
-          "x": 150,
-          "y": 302,
-          "width": 1060,
-          "height": 718.125,
-          "bottom": 1020.125
+          "x": 515.359375,
+          "y": 150.84375,
+          "width": 727.640625,
+          "height": 474.5,
+          "bottom": 625.34375
         },
         "caption": {
-          "x": 65.59375,
-          "y": 1056.125,
-          "width": 462,
-          "height": 18.6875,
-          "bottom": 1074.8125
+          "x": 490.359375,
+          "y": 670.34375,
+          "width": 420,
+          "height": 16,
+          "bottom": 686.34375
         },
         "fonts": "loaded",
-        "viewportHeight": 1197
+        "viewportHeight": 900
       }
     },
     {
       "project": "discount",
       "width": 1440,
       "imageSize": {
-        "width": 1230,
-        "height": 963
+        "width": 1151,
+        "height": 596
       },
       "geometry": {
         "article": {
-          "x": 65.40625,
-          "y": 119.28125,
-          "width": 1228.8125,
-          "height": 962.65625,
-          "bottom": 1081.9375
+          "x": 117,
+          "y": 117.84375,
+          "width": 1151,
+          "height": 594.28125,
+          "bottom": 712.125
         },
         "art": {
-          "x": 65.40625,
-          "y": 247.46875,
-          "width": 1228.8125,
-          "height": 815.78125,
-          "bottom": 1063.25
+          "x": 490.359375,
+          "y": 117.84375,
+          "width": 777.640625,
+          "height": 566.28125,
+          "bottom": 684.125
         },
         "panel": {
-          "x": 167.8125,
-          "y": 283.46875,
-          "width": 1024,
-          "height": 743.78125,
-          "bottom": 1027.25
+          "x": 515.359375,
+          "y": 150.84375,
+          "width": 727.640625,
+          "height": 500.28125,
+          "bottom": 651.125
         },
         "caption": {
-          "x": 65.40625,
-          "y": 1063.25,
-          "width": 462,
-          "height": 18.6875,
-          "bottom": 1081.9375
+          "x": 490.359375,
+          "y": 696.125,
+          "width": 420,
+          "height": 16,
+          "bottom": 712.125
         },
         "fonts": "loaded",
-        "viewportHeight": 1197
+        "viewportHeight": 900
       }
     },
     {
       "project": "developer",
       "width": 1440,
       "imageSize": {
-        "width": 1230,
-        "height": 596
+        "width": 1151,
+        "height": 489
       },
       "geometry": {
         "article": {
-          "x": 146.21875,
-          "y": 118.28125,
-          "width": 1228.8125,
-          "height": 595.34375,
-          "bottom": 713.625
+          "x": 172,
+          "y": 117.84375,
+          "width": 1151,
+          "height": 488,
+          "bottom": 605.84375
         },
         "art": {
-          "x": 146.21875,
-          "y": 234.9375,
-          "width": 1228.8125,
+          "x": 545.359375,
+          "y": 117.84375,
+          "width": 777.640625,
           "height": 460,
-          "bottom": 694.9375
+          "bottom": 577.84375
         },
         "panel": {
-          "x": 350.625,
-          "y": 274.921875,
-          "width": 820,
+          "x": 570.359375,
+          "y": 157.828125,
+          "width": 727.640625,
           "height": 380.03125,
-          "bottom": 654.953125
+          "bottom": 537.859375
         },
         "caption": {
-          "x": 146.21875,
-          "y": 694.9375,
-          "width": 462,
-          "height": 18.6875,
-          "bottom": 713.625
+          "x": 545.359375,
+          "y": 589.84375,
+          "width": 420,
+          "height": 16,
+          "bottom": 605.84375
         },
         "fonts": "loaded",
-        "viewportHeight": 1197
+        "viewportHeight": 900
       }
     }
   ],

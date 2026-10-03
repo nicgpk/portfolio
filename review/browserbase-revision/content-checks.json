@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "baseline": "9b6249b",
+  "checks": [
+    "partner-growth-programs.html: case-framing unchanged",
+    "partner-growth-programs.html: decisions-section unchanged",
+    "partner-growth-programs.html: evidence-card unchanged",
+    "partner-growth-programs.html: supporting-artifacts unchanged",
+    "partner-growth-programs.html: original artifact and contact links preserved",
+    "discounting.html: case-framing unchanged",
+    "discounting.html: decisions-section unchanged",
+    "discounting.html: evidence-card unchanged",
+    "discounting.html: supporting-artifacts unchanged",
+    "discounting.html: original artifact and contact links preserved",
+    "dev-portal.html: case-framing unchanged",
+    "dev-portal.html: decisions-section unchanged",
+    "dev-portal.html: evidence-card unchanged",
+    "dev-portal.html: supporting-artifacts unchanged",
+    "dev-portal.html: original artifact and contact links preserved",
+    "Resume main content and every pre-existing link preserved",
+    "All eight original program names, categories, descriptions and mechanics preserved",
+    "Archived originals, resume files and calculation helper unchanged"
+  ]
+}

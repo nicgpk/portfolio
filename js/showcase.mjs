@@ -1,6 +1,6 @@
 import { motionPaused } from "./kinetics.mjs";
 
-// The gallery uses native overflow. Its position never follows document scrolling.
+// Native overflow for touch/trackpads, with scoped mouse-wheel paging on desktop.
 for (const root of document.querySelectorAll(".project-showcase")) {
   const track = root.querySelector(".showcase-track");
   track.classList.add("is-gallery-ready");
@@ -69,6 +69,44 @@ for (const root of document.querySelectorAll(".project-showcase")) {
   for (const control of [previous, next, status]) control.hidden = false;
   previous.addEventListener("click", () => go(nearest() - 1));
   next.addEventListener("click", () => go(nearest() + 1));
+  const wheelPointer = matchMedia("(hover: hover) and (pointer: fine)");
+  let wheelLockedUntil = 0;
+  let wheelDirection = 0;
+  let wheelTarget = 0;
+  track.addEventListener(
+    "wheel",
+    (event) => {
+      // Keep zoom, modified input and horizontal trackpad gestures native.
+      if (
+        !wheelPointer.matches ||
+        innerWidth < 900 ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.altKey ||
+        event.shiftKey ||
+        Math.abs(event.deltaX) > 0.5 ||
+        !event.deltaY
+      )
+        return;
+      const direction = Math.sign(event.deltaY);
+      const now = performance.now();
+      // A wheel burst advances one project rather than skipping every case.
+      if (now < wheelLockedUntil && direction === wheelDirection) {
+        event.preventDefault();
+        return;
+      }
+      const current = now < wheelLockedUntil ? wheelTarget : nearest();
+      const target = current + direction;
+      // At either end, the same wheel gesture continues normal page scrolling.
+      if (target < 0 || target >= cards.length) return;
+      event.preventDefault();
+      wheelDirection = direction;
+      wheelTarget = target;
+      wheelLockedUntil = now + 450;
+      go(target);
+    },
+    { passive: false },
+  );
   track.addEventListener(
     "scroll",
     () => {
@@ -97,6 +135,17 @@ for (const root of document.querySelectorAll(".project-showcase")) {
     if (!(event.key in keys)) return;
     event.preventDefault();
     go(keys[event.key], false);
+    // Keyboard navigation must bring the new title into the reading area.
+    const index = Math.max(0, Math.min(cards.length - 1, keys[event.key]));
+    const link = cards[index].querySelector(".showcase-card-link");
+    const heading = link.querySelector("h3").getBoundingClientRect();
+    const nav = document.querySelector(".site-nav").getBoundingClientRect();
+    if (heading.top < nav.bottom + 16 || heading.bottom > innerHeight - 24)
+      link.scrollIntoView({
+        block: "start",
+        inline: "nearest",
+        behavior: "instant",
+      });
   });
   track.addEventListener("focusin", (event) => {
     const card = event.target.closest(".showcase-card");

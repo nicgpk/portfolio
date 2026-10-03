@@ -1,37 +1,39 @@
 # Final review
 
-Branch: codex/portfolio-bold-redesign, based on main 9cd719f. Delivery remains a local preview and open draft PR. No merge, auto-merge, deployment or production source change.
+Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. Delivery is a local preview and open draft PR. No merge, auto-merge, deployment or production source change.
 
 ## Current visual direction
 
-Home presents three large interface compositions in a native horizontal gallery with a hidden scrollbar. The latest feedback restores this format while keeping the approved product examples. Growth and discount covers and functional case-study examples use a structured program catalog and a financial workbench. Identity, type, navigation, roles, ownership, cases and contact/resume links remain. Partner Growth Programs is first; its discovery cover differs from the index's suite diagram.
+The [Browserbase reference](https://www.browserbase.com/) informs a framed white layout, orange headline highlights, pale blue surfaces, fine rules and pixel illustration. An original vector landscape gives Partner Growth Programs the flagship opening. The selected-work entry uses a compact program browser, avoiding a repeated hero composition. The original monospace `>` logo remains across all six routes with its 44px home-link target.
 
-The original monospace `>` logo is restored across all six routes, including the resume, with its 44px home-link target. The shared authoring source retains the original mark when pages are regenerated.
+Horizontal project compositions pair role and ownership with revised product examples. Growth has a searchable catalog, category filters and expandable mechanics for the eight existing programs. Discounting uses an ordered financial receipt with exact deductions, remaining balances and proportional bars. The approved dark Developer Portal concept retains its environment, rollout and review workflow. Shared case headers, colored evidence panels, leadership, experience, archive and contact follow the new visual system.
 
-The covers use existing workflow content: Promotions, Agoda Growth Program and Boost Rank; $150 × 0.85 × 0.90 = $114.75 before commission and taxes; staging-mesh, 24 cores, 24 Gi and original Canary settings. All are labeled Updated concept. Rendering uses HTML/CSS/SVG with no generated-icon requests or new runtime package. The previous gallery is preserved in commercial-revision/before/.
-
-Phones get readable columns. Text, numbers and settings stay stationary; selected lines and proportional bars have bounded entry responses. Full interactions and contextual evidence remain in their existing routes.
-
-The catalog preserves all eight program names/categories/descriptions/mechanics, plus search, category filtering, empty states and native disclosure. The calculator retains the original input, selections, disabled Early Bird context, reset, validation and calculation helper. Its financial receipt labels deductions explicitly; the home cover also shows exact remaining balances. No-JavaScript uses a static calculator example, avoiding editable fields with stale totals. New styles are scoped and loaded only on home and their case routes; Developer Portal and the detailed index remain unchanged. Reference decisions are in ../docs/product-interface-refinement.md, and this pass's before captures are in product-ui-revision/before/.
+All concepts are labeled. The previews use existing content: Promotions, Agoda Growth Program and Boost Rank; $150 × 0.85 × 0.90 = $114.75 before commission and taxes; staging-mesh, 24 cores, 24 Gi and the original Canary settings. The landscape is original decorative artwork, not an outcome chart. Rendering uses HTML/CSS/SVG with local fonts and no new runtime dependency. Design decisions and provenance are in `../docs/browserbase-direction.md`.
 
 ## Scrolling and access
 
-The gallery uses native horizontal overflow with proximity snapping and no visible scrollbar. A next-card peek, 44px previous/next controls and a project indicator provide orientation. ArrowLeft/Right/Home/End apply only when the gallery itself has focus; Tab reveals each case link. Vertical page scrolling stays native and independent, with no wheel interception or sticky mapping. The selected card's natural height controls the gallery after scrolling settles; a deep swipe to an otherwise entirely offscreen shorter project reveals its title. Resize retains the selected project. With JavaScript disabled, full-width cards allow the browser to reveal each focused case link; native sideways scrolling remains and enhanced controls are hidden.
+The gallery uses native horizontal overflow, proximity snapping and a hidden scrollbar. On desktop at 900px or wider with a fine pointer, an unmodified vertical mouse wheel advances one project per bounded burst while over the gallery. At the first/last project, outward wheel input resumes ordinary page scrolling. Horizontal gestures, modified input, zoom, touch and input elsewhere remain native. Previous/next controls, a project indicator and a next-card peek provide alternatives and orientation.
 
-All work provides direct index access. Headers/CTAs form concise focus targets; decorative art is a sibling, so focused titles remain readable in short viewports and without JavaScript. A conditional keyboard-focus reveal clears fixed navigation when needed. The previous vertical composition is preserved in scrollbar-revision/before/.
+ArrowLeft/Right/Home/End apply when the gallery itself has focus; Tab reveals case links. Keyboard navigation brings the selected heading below the fixed navigation. The selected card controls the gallery's natural height after scrolling settles. Resize preserves selection. Without JavaScript, native sideways scrolling and full-width case links remain available; enhanced controls are hidden. No-JavaScript calculator inputs are inactive and accompanied by a labeled static example rather than stale editable totals.
 
-Pause, OS reduced motion, forced colors and opaque reduced-transparency navigation remain available. Content never depends on animation. The index spring stops at rest/offscreen/hidden; the media preference stays cached outside active frames.
+The hero signal animation ends after ten seconds; rate bars reveal once. Text is immediately readable. Persistent pause, OS reduced motion, reduced-transparency navigation and forced-colors fallbacks remain. The detailed-index spring stops at rest, offscreen and when hidden.
 
-## Evidence
+## Content preservation
 
-- Logo follow-up: logo-checks.json records all six routes at 320/390/1440 pixels, original mark/style, 44px target, keyboard home access, navigation fit and zero automated navigation WCAG A/AA violations. Opening screenshots are refreshed; the broader interface evidence below is from the preceding interface review.
-- Page generation and four calculation tests pass.
-- checks.json and layout-checks.json cover six routes at 320/390/768/1440: automated WCAG A/AA, overflow, links, browser errors, functional concepts, focus contrast and local throttled performance.
-- showcase-checks.json covers native horizontal gestures, hidden scrollbar, buttons/keyboard navigation, independent vertical page movement, no global overflow, six viewport sizes including short landscape, visible focused titles, no JavaScript, pause, reduced motion and opaque navigation.
-- kinetic-checks.json covers eight keyboard program selections, exact/edge-case rates, workflow stages, spring settling and persistent pause. Original-artifact checks verify archived playbook links, dynamic images, Escape and restored focus.
-- No runtime route requests the generated 3D cutouts. Refreshed covers, before/after captures and showcase-motion.webm document the current home. motion-demo.webm records the detailed index.
-- Dependencies remain project-local. Exact mobile cold-cache lab conditions and observations are in checks.json; these are not production scores.
+`browserbase-revision/content-checks.json` records comparison against the preceding revision `9b6249b`: all three cases' problem/role framing, decisions, evidence and supporting artifacts have unchanged normalized text. Original-artifact/contact/download links, the resume main content, all eight program records, original files and the calculation helper are preserved.
+
+Portfolio revenue remains business scale rather than a causal result of the later hub launch. Conflicting source rankings and missing measurement details remain disclosed. Program estimates are not summed or reconciled to the portfolio total. Updated per-night calculations correct the historical arithmetic discrepancy; originals remain accessible.
+
+## Verification
+
+- Page generation and all four calculation tests pass.
+- `checks.json` and `layout-checks.json`: six routes at 320/390/768/1440 pixels; zero automated WCAG A/AA violations, document overflow, broken local links or page errors. Functional search/filter/disclosure, calculation validation/reset, developer workflow, keyboard focus and preference fallbacks pass.
+- `showcase-checks.json`: six viewport sizes including short landscape, native horizontal gestures, desktop wheel behavior, buttons, keyboard focus, resize, hidden scrollbar, no JavaScript, pause and preferences. Discount bars match the remaining-rate proportions; decorative covers have no focusable controls.
+- `browserbase-revision/wheel-after.json`: regular wheel advances projects in normal and reduced motion; document position stays stable inside the gallery and releases at both ends. The reproduced pre-fix failure is in `wheel-before.json`.
+- `kinetic-checks.json`: all eight keyboard program selections, calculation edge cases, workflow stages, settled motion and persistent pause. Original-artifact checks pass for seven playbook links, images, Escape and restored focus.
+- Local mobile cold-cache observation: LCP 2.1 seconds, CLS 0.0060, 349,322 resource bytes and 13 requests at 390px, 4× CPU slowdown, 1.6Mbps and 150ms latency. This is one local Chromium lab observation, not a production score.
+- Before/after screenshots and motion recordings are linked from `index.html`. The immediately preceding design is in `browserbase-revision/before/`; current openings and covers are in `browserbase-revision/after/`, with full routes and concepts in `after/`.
 
 ## Remaining limitations
 
-Safari, Firefox, actual mobile devices and real screen-reader sessions were not tested. Mobile views are browser-emulated. Automated rules do not establish complete accessibility or recruiter response. Production performance is unmeasured. Without JavaScript, the native gallery retains the tallest card's height; case links remain accessible. Source omissions/conflicting metric details remain disclosed. Preserved originals retain historical styling, external font references and numerical discrepancies. Home scenes are visual previews; full interactions live in the index/cases. Concepts do not enroll properties, save settings, connect to Agoda or deploy infrastructure.
+Safari, Firefox, real mobile devices, real screen-reader sessions and recruiter response are unverified. Automated checks do not establish complete accessibility. Production performance is unmeasured. A purely vertical desktop trackpad gesture is indistinguishable from vertical mouse-wheel input and follows the same gallery paging behavior; horizontal trackpad gestures stay native. Without JavaScript, the gallery retains the tallest card's height. Preserved originals retain historical styling, external font references and numerical discrepancies. Home scenes are previews; full interactions live in the index and cases. Concepts do not enroll properties, save settings, connect to Agoda or deploy infrastructure.

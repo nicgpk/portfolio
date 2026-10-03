@@ -297,7 +297,7 @@ for (const [route, control, surface] of [
   );
 }
 report.interactions.push(
-  "Keyboard focus outlines exceed 3:1 contrast on the page and acid, orchid and cobalt evidence panels.",
+  "Keyboard focus outlines exceed 3:1 contrast on the page and all three colored evidence panels.",
 );
 const nojs = await browser.newContext({
   javaScriptEnabled: false,
@@ -340,8 +340,8 @@ assert.equal(
 );
 assert.equal(
   await page
-    .locator(".cover-program--selected")
-    .evaluate((e) => getComputedStyle(e, "::before").animationName),
+    .locator(".landscape-signal path")
+    .evaluate((e) => getComputedStyle(e).animationName),
   "none",
 );
 const session = await page.context().newCDPSession(page);
@@ -361,7 +361,7 @@ assert.equal(
   await page
     .locator(".site-nav")
     .evaluate((e) => getComputedStyle(e).backgroundColor),
-  "rgb(248, 249, 252)",
+  "rgb(255, 255, 255)",
 );
 report.interactions.push(
   "Reduced motion and opaque reduced-transparency fallback passed.",

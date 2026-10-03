@@ -1,6 +1,6 @@
 # Nicholas Gwee — portfolio
 
-Static personal portfolio. No framework, build step or runtime package is required to serve the committed HTML, CSS and JavaScript.
+Static personal portfolio. Serve the committed HTML, CSS and JavaScript without a framework or runtime package.
 
 ## Local preview
 
@@ -11,11 +11,27 @@ npm ci
 npm run preview
 ```
 
-Open http://127.0.0.1:4183/. The server listens only on the local computer. The existing resume PDF and ATS resume remain in `files/`.
+Open http://127.0.0.1:4183/. The server listens only on the local computer. The resume PDF and ATS resume remain in `files/`.
+
+## Current design
+
+The [Browserbase reference](https://www.browserbase.com/) informs orange headline bands, a framed white layout, fine grid lines, pale blue surfaces and an original pixel landscape. Partner Growth Programs leads the opening. Three horizontal project panels pair concise ownership with updated interface concepts. The original `>` logo remains throughout. Decisions and provenance are in `docs/browserbase-direction.md`.
+
+Scroll over the gallery with a regular mouse wheel on desktop to advance projects. At either end the page continues scrolling. Horizontal trackpad input and touch stay native; previous/next buttons and focused-gallery Left/Right/Home/End also work. The scrollbar is hidden. Mobile vertical scrolling stays native. No-JavaScript sideways scrolling and case links remain available.
+
+Growth's full concept provides search, categories and expandable mechanics for all eight existing programs. Discounting retains sequential calculation, validation, reset, existing promotions and eligibility context; its static preview shows exact remaining-rate proportions. Developer Portal retains its environment, rollout and review workflow. All concepts are labeled and use existing content and settings. They do not enroll properties, save settings or deploy infrastructure.
+
+Cases retain problem, role, decisions, evidence and outcomes. Each project has one colored evidence panel with its original context. The $521M+ figure describes 2025 program portfolio revenue, not revenue caused by the 2026 hub. The discount complaint ranking conflict remains disclosed. Program estimates are not summed or reconciled to that total. Updated per-night calculations correct the original arithmetic discrepancy. Full original cases and artifacts remain at `originals/`.
+
+## Authoring
+
+`scripts/build-pages.py` and `scripts/studio_design.py` generate the five portfolio pages from audited content and original metadata. Run `npm run build:pages` after authoring changes. The resume body is preserved separately. The original vector landscape is committed and can be regenerated with `python scripts/build-landscape.py` using Python's standard library.
+
+`css/studio.css` defines the current shared visual system over existing case and concept styles. `js/showcase.mjs` handles gallery navigation; `js/kinetics.mjs` handles bounded motion and persistent pause. Fonts and review dependencies are project-local. No global package or new runtime dependency is required.
 
 ## Review
 
-All review dependencies live in this project's `node_modules/`. No global packages are required. For browser checks, install Chromium into the project cache:
+Install the review browser inside the project cache:
 
 ```powershell
 $env:PLAYWRIGHT_BROWSERS_PATH = "$PWD/node_modules/.cache/ms-playwright"
@@ -26,28 +42,10 @@ npm run review
 
 On macOS/Linux, use `PLAYWRIGHT_BROWSERS_PATH="$PWD/node_modules/.cache/ms-playwright" ./node_modules/.bin/playwright install chromium`.
 
-The preview must be running for `npm run review`. It checks six routes at 320, 390, 768 and 1440 pixels, axe WCAG A/AA rules, local links, calculator math, discovery filtering, developer walkthrough, keyboard skip navigation, no-JavaScript content, and reduced-motion/transparency behavior. The kinetic review checks the full work-index program selections, rate calculations, workflow stages, settled animation frames and pause persistence. The showcase review checks native horizontal gallery navigation with a hidden scrollbar, normal vertical page scrolling, absence of global horizontal overflow, visible keyboard focus, no-JavaScript access, exact discount proportions and preference fallbacks across six viewport sizes, including short landscape views. Original-artifact checks cover archived playbook links, dynamic images, Escape and focus restoration. `review/checks.json`, `review/kinetic-checks.json` and `review/showcase-checks.json` contain current evidence.
+The preview must be running. Reviews cover six routes at 320/390/768/1440 pixels, automated WCAG A/AA rules, local links, calculations, filtering, developer workflow, keyboard focus, no-JavaScript, pause and preference fallbacks. Gallery checks cover short viewports, wheel boundary release, horizontal trackpad input, emulated touch, resizing and exact discount proportions. Original-artifact checks cover archived playbook links, images, Escape and restored focus.
 
-Open http://127.0.0.1:4183/review/index.html for before/after screenshots. `review/before/` holds the original main revision. Current captures in `review/after/` include full desktop/mobile pages, each `showcase-` cover, concept details, `showcase-motion.webm` and the detailed-index recording `motion-demo.webm`. `review/commercial-revision/before/` preserves the rejected 3D/horizontal version. Earlier revision folders and `horizontal-` captures remain historical evidence. Cropped project captures hide fixed navigation; full-page captures wait for deferred research images to load.
-
-## Authoring & content
-
-`scripts/build-pages.py` is the authoring source for the five redesigned pages. It uses Python's standard library and the original page metadata, without third-party Python dependencies. `npm run build:pages` regenerates and formats the pages. CSS and interaction modules are edited directly. The résumé body is preserved; only its navigation is replaced.
-
-Complete existing case studies and product artifacts remain at `originals/`. Their internal routes return to the current portfolio. These snapshots retain the original interface, calculations and source discrepancies; they are explicitly original artifacts, rather than additional updated concepts. IBM Plex fonts are locally hosted with their OFL license.
-
-Home leads with a native horizontal gallery of three projects, starting with Partner Growth Programs. Its scrollbar is hidden; a next-card peek, previous/next controls and a project indicator make it discoverable. Trackpad, horizontal wheel and touch gestures remain native. Focus the gallery for Left/Right/Home/End navigation, or Tab through case links. Each header links to its full case study. Large interface covers show a structured growth catalog, a discount workbench with an ordered financial receipt, and existing deployment settings. The first two covers match their working case-study examples. Their layouts recompose on phones. All work opens the detailed index; home preview graphics are decorative and explicitly labeled Updated concept.
-
-`js/showcase.mjs` adds bounded entry accents, accessible gallery controls and keeps focused titles clear of fixed navigation. The gallery fits the selected card after a pan settles, avoiding empty space beneath shorter previews. A deep swipe that would leave the new card entirely above the viewport reveals its title. Ordinary page scrolling never drives gallery position; there is no wheel interception or sticky mapping. With no JavaScript, full-width cards retain native sideways scrolling and browser keyboard focus reveal, while enhanced controls are hidden. `js/kinetics.mjs` handles the detailed-index springs and persistent pause. `css/showcase.css` controls the covers and preference fallbacks. Scoped `css/growth-ui.css` and `css/discount-ui.css` load only where their interfaces appear; the approved product graphics and Developer Portal's page remain intact. With JavaScript disabled, the calculator shows a static example instead of editable inputs with stale totals. The earlier document-linked horizontal module, dimensional assets and their provenance remain historical resources; current pages do not load them. Detailed program browsing, editable rate calculations and deployment controls remain in `projects.html` and the full case studies.
-
-Original mockup captures remain archived with provenance in `review/work-artifacts.json`. Full original artifacts remain accessible from each project. Rauno's home and Craft are the primary references for the user's chosen direction; research and limits are in `docs/portfolio-reference-review.md`.
-
-The latest growth/discount interface references and decisions are documented in `docs/product-interface-refinement.md`. Their preceding covers and full concepts are preserved in `review/product-ui-revision/before/`.
-
-The user subsequently requested the horizontal format again with its scrollbar hidden. The preceding vertical layout is preserved in `review/scrollbar-revision/before/`; current gallery evidence is in `review/after/`.
-
-The evidence cards preserve reported results and context. The $521M+ figure describes 2025 program portfolio revenue, not a causal result of the 2026 hub. The discount complaint ranking conflicts in the source, and program estimates are not summed or reconciled to the portfolio total. Updated discount calculations fix the original per-night arithmetic discrepancy. Concepts perform local simulations and do not enroll properties, save settings or deploy infrastructure.
+Open http://127.0.0.1:4183/review/index.html for before/after screenshots and recordings. The original main revision is in `review/before/`; the immediately preceding design is in `review/browserbase-revision/before/`. Current full pages and concepts are in `review/after/`. Earlier revision directories remain historical evidence. Results are in `review/checks.json`, `review/kinetic-checks.json`, `review/showcase-checks.json`, and `review/browserbase-revision/wheel-after.json`.
 
 ## Delivery limits
 
-Reviewed in Chromium on Windows. Browser automation cannot replace recruiter feedback, screen-reader review on actual devices, or Safari/Firefox testing. Local lab performance is not a production Lighthouse score or real-user measurement. Preserved originals and the resume retain legacy styling, typography and scripts. New portfolio runtime needs no third-party JavaScript packages. No production publication, merge or auto-merge is part of this branch.
+Reviewed in Chromium on Windows with emulated mobile views. Safari, Firefox, actual devices, real screen-reader sessions and recruiter response remain unverified. Local lab performance is not production measurement. Preserved originals and the resume retain legacy content styling and scripts. Work stays on the separate redesign branch in an open draft PR; no merge or production publication is included.

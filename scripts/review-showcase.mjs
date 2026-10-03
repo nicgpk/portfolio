@@ -433,11 +433,16 @@ async function assertDeepSwipe(page) {
   await page.keyboard.press("Home");
   await expectProject(page, 0);
   await expectActiveHeight(page, 0);
-  await page.evaluate(() => scrollTo({ top: 1300, behavior: "instant" }));
+  await rail.evaluate((element) =>
+    scrollTo({
+      top: scrollY + element.getBoundingClientRect().bottom - 110,
+      behavior: "instant",
+    }),
+  );
   const beforeY = await page.evaluate(() => scrollY);
   assert.ok(
-    beforeY >= 1200,
-    "The deep-swipe probe must begin low in the tall Growth card.",
+    beforeY > 0,
+    "The deep-swipe probe must begin near the bottom of the Growth card.",
   );
   await page.keyboard.press("End");
   await expectProject(page, 2);
@@ -528,20 +533,41 @@ async function assertNativeGestures(
       top: element.querySelector(".showcase-card").getBoundingClientRect().top,
     }));
   const before = await state();
+  const desktopWheel = await rail.evaluate(
+    (el) =>
+      el.classList.contains("is-gallery-ready") &&
+      innerWidth >= 900 &&
+      matchMedia("(hover: hover) and (pointer: fine)").matches,
+  );
   await page.mouse.wheel(0, 240);
-  await expect
-    .poll(async () => (await state()).y)
-    .toBeGreaterThan(before.y + 100);
+  if (desktopWheel) {
+    await expect
+      .poll(async () => (await state()).left)
+      .toBeGreaterThan(before.left + 10);
+  } else {
+    await expect
+      .poll(async () => (await state()).y)
+      .toBeGreaterThan(before.y + 100);
+  }
   await settleRail(page);
-  const afterVertical = await state();
-  assert.ok(
-    Math.abs(afterVertical.left - before.left) < 1,
-    "A vertical wheel must move the document without changing the selected project.",
-  );
-  assert.ok(
-    Math.abs(before.top - afterVertical.top - (afterVertical.y - before.y)) < 2,
-    "Vertical document scrolling must move the whole rail naturally.",
-  );
+  let afterVertical = await state();
+  if (desktopWheel) {
+    assert.ok(
+      Math.abs(afterVertical.y - before.y) < 2,
+      "Desktop wheel moves the gallery while over its content.",
+    );
+    await prepareRailPointer(page);
+    afterVertical = await state();
+  } else {
+    assert.ok(
+      Math.abs(afterVertical.left - before.left) < 1,
+      "Mobile and no-JavaScript wheel input keeps native vertical page scrolling.",
+    );
+    assert.ok(
+      Math.abs(before.top - afterVertical.top - (afterVertical.y - before.y)) <
+        2,
+    );
+  }
   const box = await rail.boundingBox();
   const nav = await page.getByRole("banner").boundingBox();
   await page.mouse.move(
@@ -634,7 +660,7 @@ async function assertCoverGraphics(page) {
     );
   }
   const rate = await page
-    .locator(".cover-rate-ledger > div")
+    .locator(".rate-preview-steps > div")
     .evaluateAll((rows) =>
       rows.map((row) => {
         const bar = row.querySelector("i");

@@ -115,6 +115,7 @@
     <link rel="stylesheet" href="css/showcase.css" />
     <link rel="stylesheet" href="css/growth-ui.css" />
     <link rel="stylesheet" href="css/discount-ui.css" />
+    <link rel="stylesheet" href="css/studio.css" />
     <link
       rel="preload"
       as="font"
@@ -128,6 +129,8 @@
     <header class="site-nav">
       <a class="wordmark" href="index.html" aria-label="Nicholas Gwee home"
         ><span class="header-logo-mark" aria-hidden="true">&gt;</span></a
+      ><span class="nav-identity"
+        >Nicholas Gwee<small>Product Design Lead</small></span
       >
       <nav aria-label="Main navigation">
         <a href="projects.html">Work</a><a href="index.html#about">About</a
@@ -147,17 +150,50 @@
       Motion off
     </button>
     <main id="main" class="portfolio-home">
-      <section class="portfolio-masthead">
-        <div>
-          <p class="eyebrow">Product Design Lead · Bangkok, Thailand</p>
-          <h1>Nicholas Gwee<span aria-hidden="true">.</span></h1>
+      <section class="studio-hero" aria-labelledby="hero-title">
+        <div class="hero-overline">
+          <span>Nicholas Gwee · Product Design Lead</span
+          ><span>Bangkok, Thailand</span>
         </div>
-        <div class="masthead-intent">
-          <p>
-            I lead design teams and own product strategy that turns hard user
-            and business problems into measurable outcomes.
+        <div class="hero-message">
+          <p class="eyebrow">Featured work · Agoda</p>
+          <h1 id="hero-title">
+            A clearer path<br /><span>to partner growth.</span>
+          </h1>
+          <p class="hero-description">
+            Design strategy, information architecture and interaction design for
+            Agoda’s partner growth program suite.
           </p>
-          <a class="text-link" href="resume.html">Experience &amp; resume ↗</a>
+          <div class="hero-actions">
+            <a class="studio-button" href="partner-growth-programs.html"
+              >Explore Partner Growth Programs
+              <span aria-hidden="true">↗</span></a
+            ><a class="hero-secondary" href="#work"
+              >More selected work <span aria-hidden="true">↓</span></a
+            >
+          </div>
+        </div>
+        <div class="hero-landscape" aria-hidden="true">
+          <img
+            src="images/program-landscape.svg"
+            width="1200"
+            height="300"
+            fetchpriority="high"
+            alt=""
+          /><span class="landscape-label landscape-label--one"
+            >Promotions <b>↗</b></span
+          ><span class="landscape-label landscape-label--two"
+            >Agoda Growth Program <b>↗</b></span
+          ><span class="landscape-label landscape-label--three"
+            >Boost Rank <b>↗</b></span
+          ><svg class="landscape-signal" viewBox="0 0 1200 300">
+            <path d="M100 270H285V206H590V130H840V70H1130" />
+          </svg>
+        </div>
+        <div class="hero-footnote">
+          <span>Partner Growth Programs</span
+          ><span>One hub. Eight existing programs.</span
+          ><span>Product strategy + interface craft</span>
         </div>
       </section>
       <section
@@ -166,7 +202,7 @@
         aria-labelledby="work-title"
       >
         <div class="showcase-toolbar">
-          <h2 id="work-title">Selected work</h2>
+          <h2 id="work-title">Selected <span>work.</span></h2>
           <div class="showcase-navigation">
             <span
               data-showcase-status
@@ -199,7 +235,9 @@
           </div>
         </div>
         <p class="showcase-hint" id="gallery-instructions">
-          Scroll or swipe sideways to explore.<span class="sr-only">
+          Scroll over the projects to explore. Swipe on touch screens.<span
+            class="sr-only"
+          >
             Keyboard: focus the gallery and use Left and Right arrows, Home or
             End. Tab through project links to read each case study.</span
           >
@@ -237,127 +275,59 @@
               data-cover-scene
               aria-hidden="true"
             >
-              <div class="cover-browser growth-studio growth-studio--cover">
-                <div class="app-bar cover-chrome">
-                  <span class="app-mark" aria-hidden="true"
-                    >a<span>●</span></span
-                  ><strong>Partner growth</strong
-                  ><span class="app-account"
-                    ><small>Sample property</small>Maison Solara</span
-                  >
+              <div class="product-preview catalog-preview">
+                <div class="product-titlebar">
+                  <span class="product-brand">a<span>●</span></span
+                  ><strong>Partner growth</strong><span>Program catalog</span>
                 </div>
-                <div class="app-layout">
-                  <aside class="app-side">
-                    <span>Property</span><span>Reservations</span
-                    ><span>Calendar</span><strong>Growth programs</strong
-                    ><span>Payout</span>
-                  </aside>
-                  <div class="app-content">
-                    <div class="growth-page-heading">
-                      <h4>Growth programs</h4>
-                      <p>
-                        Discover programs and review their existing mechanics.
-                      </p>
-                    </div>
-                    <div class="growth-catalog">
-                      <div class="discovery-controls growth-static-controls">
-                        <div class="search-field">
-                          <span class="growth-control-label"
-                            >Search programs</span
-                          >
-                          <div class="growth-static-control cover-search">
-                            <svg viewBox="0 0 24 24">
-                              <circle cx="10.5" cy="10.5" r="6.5" />
-                              <path d="m15.5 15.5 5 5" /></svg
-                            ><span>Search programs</span>
-                          </div>
-                        </div>
-                        <div class="category-field">
-                          <span class="growth-control-label">Category</span>
-                          <div class="growth-static-control">
-                            <span>All categories</span
-                            ><svg viewBox="0 0 24 24">
-                              <path d="m7 10 5 5 5-5" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="growth-list-header">
-                        <strong>Program catalog</strong
-                        ><span class="search-count">3 of 8 programs</span>
-                      </div>
-                      <div class="program-grid">
-                        <div class="growth-cover-resource">
-                          <div class="cover-program cover-program--selected">
-                            <svg class="program-icon" viewBox="0 0 48 48">
-                              <use
-                                href="images/program-symbols.svg#promotion"
-                              /></svg
-                            ><span class="growth-row-main"
-                              ><strong>Promotions</strong
-                              ><span class="growth-row-description"
-                                >Property sets a discount. Agoda adds a deal
-                                badge, boosts rank, and amplifies across email,
-                                push, and deal pages.</span
-                              ></span
-                            ><span class="growth-category">Conversion</span
-                            ><svg
-                              class="growth-disclosure growth-disclosure--open"
-                              viewBox="0 0 24 24"
-                            >
-                              <path d="m9 5 7 7-7 7" />
-                            </svg>
-                          </div>
-                          <div class="program-detail">
-                            <p class="growth-detail-label">Program mechanics</p>
-                            <p>
-                              Choose a discount type and depth: Mega Sale,
-                              Seasonal, Always-on or Targeted. Existing examples
-                              include app-user and advance-booking discounts.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="growth-cover-resource">
-                          <div class="cover-program">
-                            <svg class="program-icon" viewBox="0 0 48 48">
-                              <use
-                                href="images/program-symbols.svg#growth"
-                              /></svg
-                            ><span class="growth-row-main"
-                              ><strong>Agoda Growth Program</strong
-                              ><span class="growth-row-description"
-                                >A higher commission funds ranking boost, ad
-                                spend and a Preferred Partner badge.</span
-                              ></span
-                            ><span class="growth-category">Marketing</span
-                            ><svg class="growth-disclosure" viewBox="0 0 24 24">
-                              <path d="m9 5 7 7-7 7" />
-                            </svg>
-                          </div>
-                        </div>
-                        <div class="growth-cover-resource">
-                          <div class="cover-program">
-                            <svg class="program-icon" viewBox="0 0 48 48">
-                              <use
-                                href="images/program-symbols.svg#boost"
-                              /></svg
-                            ><span class="growth-row-main"
-                              ><strong>Boost Rank</strong
-                              ><span class="growth-row-description"
-                                >Target audiences and stay dates. Pay only when
-                                a booking lands, with no lock-in.</span
-                              ></span
-                            ><span class="growth-category">Visibility</span
-                            ><svg class="growth-disclosure" viewBox="0 0 24 24">
-                              <path d="m9 5 7 7-7 7" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="growth-preview-note">
-                      Updated concept · Original program mechanics.
-                    </p>
+                <div class="catalog-preview-body">
+                  <div class="catalog-preview-intro">
+                    <p>GROW YOUR PROPERTY</p>
+                    <h4>Find your next<br />growth opportunity.</h4>
+                    <span class="catalog-pixel" aria-hidden="true">↗</span>
+                  </div>
+                  <div class="catalog-preview-search">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="10" cy="10" r="6" />
+                      <path d="m15 15 5 5" /></svg
+                    >Search programs<span>All categories⌄</span>
+                  </div>
+                  <div class="catalog-preview-row">
+                    <span class="catalog-glyph catalog-glyph--0"
+                      ><svg viewBox="0 0 48 48">
+                        <use
+                          href="images/program-symbols.svg#promotion"
+                        /></svg></span
+                    ><span
+                      ><small>Conversion</small
+                      ><strong>Promotions</strong></span
+                    ><span class="catalog-row-arrow">↗</span>
+                  </div>
+                  <div class="catalog-preview-row">
+                    <span class="catalog-glyph catalog-glyph--1"
+                      ><svg viewBox="0 0 48 48">
+                        <use
+                          href="images/program-symbols.svg#growth"
+                        /></svg></span
+                    ><span
+                      ><small>Marketing</small
+                      ><strong>Agoda Growth Program</strong></span
+                    ><span class="catalog-row-arrow">↗</span>
+                  </div>
+                  <div class="catalog-preview-row">
+                    <span class="catalog-glyph catalog-glyph--2"
+                      ><svg viewBox="0 0 48 48">
+                        <use
+                          href="images/program-symbols.svg#boost"
+                        /></svg></span
+                    ><span
+                      ><small>Visibility</small
+                      ><strong>Boost Rank</strong></span
+                    ><span class="catalog-row-arrow">↗</span>
+                  </div>
+                  <div class="product-preview-note">
+                    <span>Showing 3 of 8 programs</span
+                    ><span>Discover · Compare · Review</span>
                   </div>
                 </div>
               </div>
@@ -392,95 +362,42 @@
               data-cover-scene
               aria-hidden="true"
             >
-              <div class="cover-rate discount-studio discount-studio--cover">
-                <div class="discount-app-header">
-                  <div class="discount-app-heading">
-                    <svg class="discount-app-icon" viewBox="0 0 24 24">
-                      <rect x="5" y="3" width="14" height="18" rx="2" />
-                      <path d="M8 7h8M8 11h2m4 0h2m-8 4h2m4 0h2" /></svg
-                    ><strong class="discount-app-title"
-                      >Net Rate Simulator</strong
-                    >
-                  </div>
-                  <span class="discount-currency">USD / night</span>
+              <div class="product-preview rate-preview">
+                <div class="product-titlebar">
+                  <span class="rate-preview-mark" aria-hidden="true">%</span
+                  ><strong>Net Rate Simulator</strong><span>USD / night</span>
                 </div>
-                <div class="discount-workspace">
-                  <div class="discount-settings">
-                    <p class="discount-section-title">Discount setup</p>
-                    <p class="discount-field-label">Room rate (USD)</p>
-                    <div class="discount-static-field">
-                      <span>$150.00</span
-                      ><span class="discount-field-unit">USD</span>
+                <div class="rate-preview-body">
+                  <p class="rate-preview-eyebrow">ROOM RATE AFTER DISCOUNTS</p>
+                  <div class="rate-preview-result">
+                    <strong>$114.75</strong
+                    ><span>23.5%<small>effective discount</small></span>
+                  </div>
+                  <p class="rate-preview-exclusion">
+                    Before commission and taxes
+                  </p>
+                  <div class="rate-preview-steps">
+                    <div>
+                      <span>Starting room rate</span><strong>$150.00</strong
+                      ><i style="--rate-width: 100%"></i>
                     </div>
-                    <p class="discount-field-help">
-                      Per night, before commission and taxes.
-                    </p>
-                    <p class="discount-field-label discount-promotions-label">
-                      Discounts applied in order
-                    </p>
-                    <div class="discount-static-promotion">
-                      <span class="discount-check">✓</span
-                      ><span
-                        ><strong>Mega Sale</strong
-                        ><small>Advance booking</small></span
-                      ><b class="discount-percent">15%</b>
+                    <div>
+                      <span>Mega Sale <b>15%</b></span
+                      ><strong>$127.50</strong><small>−$22.50</small
+                      ><i style="--rate-width: 85%"></i>
                     </div>
-                    <div class="discount-static-promotion">
-                      <span class="discount-check">✓</span
-                      ><span
-                        ><strong>Mobile Exclusive</strong
-                        ><small>Mobile user</small></span
-                      ><b class="discount-percent">10%</b>
+                    <div>
+                      <span>Mobile Exclusive <b>10%</b></span
+                      ><strong>$114.75</strong><small>−$12.75</small
+                      ><i style="--rate-width: 76.5%"></i>
                     </div>
                   </div>
-                  <div class="discount-summary">
-                    <p class="discount-section-title">Calculation breakdown</p>
-                    <div class="discount-ledger-heading">
-                      <span>Applied in order</span><span>Remaining rate</span>
-                    </div>
-                    <div
-                      class="cover-rate-ledger discount-ledger discount-balance-ledger"
-                    >
-                      <div>
-                        <span
-                          ><span>Starting room rate</span
-                          ><small>Before discounts</small></span
-                        ><strong>$150.00</strong
-                        ><i style="--rate-width: 100%"></i>
-                      </div>
-                      <div>
-                        <span
-                          ><span>Mega Sale · 15%</span
-                          ><small>Deduction: −$22.50</small></span
-                        ><strong>$127.50</strong
-                        ><i style="--rate-width: 85%"></i>
-                      </div>
-                      <div>
-                        <span
-                          ><span>Mobile Exclusive · 10%</span
-                          ><small>Deduction: −$12.75</small></span
-                        ><strong>$114.75</strong
-                        ><i style="--rate-width: 76.5%"></i>
-                      </div>
-                    </div>
-                    <div class="discount-total">
-                      <span class="calc-result-label"
-                        >Room rate after discounts</span
-                      ><strong class="discount-net">$114.75</strong>
-                      <p class="calc-effective">23.5% effective discount</p>
-                    </div>
-                    <p class="discount-exclusions">
-                      Before commission and taxes.
-                    </p>
-                    <div class="calc-formula">150 × 0.85 × 0.90 = 114.75</div>
-                    <p class="discount-rule">
-                      Each discount applies to the remaining balance.
-                    </p>
+                  <div class="rate-preview-formula">
+                    150 × 0.85 × 0.90 = 114.75
                   </div>
-                </div>
-                <div class="discount-app-footer">
-                  <span>Illustrative room rate</span
-                  ><span>Sequential discounts</span>
+                  <p class="product-preview-note">
+                    Each discount applies to the remaining balance.
+                  </p>
                 </div>
               </div>
             </div>
@@ -548,6 +465,7 @@
           </article>
         </div>
       </section>
+      <div class="studio-divider" aria-hidden="true"><i></i><i></i><i></i></div>
       <section class="about-section" id="about">
         <div class="leadership-copy">
           <p class="eyebrow">Design leadership</p>

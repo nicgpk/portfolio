@@ -296,7 +296,7 @@
     "Sequential calculator, toggles, invalid rate, reset, zero and rounding passed.",
     "Developer validation, forward/back, preserved values, review and preview-only completion passed.",
     "Keyboard forward/back step titles stay visible below the navigation at 390 and 1440 pixels.",
-    "Keyboard focus outlines exceed 3:1 contrast on the page and acid, orchid and cobalt evidence panels.",
+    "Keyboard focus outlines exceed 3:1 contrast on the page and all three colored evidence panels.",
     "No-JavaScript content and static examples remain readable.",
     "Keyboard skip navigation passed.",
     "Reduced motion and opaque reduced-transparency fallback passed."
@@ -327,19 +327,23 @@
       "status": 200
     },
     {
+      "url": "http://127.0.0.1:4183/css/studio.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/program-landscape.svg",
+      "status": 200
+    },
+    {
       "url": "http://127.0.0.1:4183/js/folio.mjs",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/fonts/ibm-plex-sans.woff2",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/fonts/ibm-plex-mono.woff2",
-      "status": 200
-    },
-    {
       "url": "http://127.0.0.1:4183/js/calculations.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/fonts/ibm-plex-sans.woff2",
       "status": 200
     },
     {
@@ -349,15 +353,19 @@
     {
       "url": "http://127.0.0.1:4183/js/showcase.mjs",
       "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/fonts/ibm-plex-mono.woff2",
+      "status": 200
     }
   ],
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 1456,
-      "cls": 0.008662780448717948,
-      "resourceBytes": 187986,
-      "requestCount": 11
+      "lcpMs": 2100,
+      "cls": 0.006021354166666666,
+      "resourceBytes": 349322,
+      "requestCount": 13
     }
   ],
   "errors": [],
