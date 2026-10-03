@@ -343,20 +343,20 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/js/showcase.mjs",
+      "url": "http://127.0.0.1:4183/js/kinetics.mjs",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/js/kinetics.mjs",
+      "url": "http://127.0.0.1:4183/js/showcase.mjs",
       "status": 200
     }
   ],
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 1564,
-      "cls": 0.00032592592592592596,
-      "resourceBytes": 181687,
+      "lcpMs": 1456,
+      "cls": 0.008662780448717948,
+      "resourceBytes": 187986,
       "requestCount": 11
     }
   ],

@@ -44,6 +44,9 @@ for (const width of [320, 390, 768, 1440]) {
       scrollWidth: document.documentElement.scrollWidth,
       overflow: [...document.querySelectorAll("main *")]
         .filter((el) => {
+          // Offscreen gallery cards are intentionally contained by native overflow.
+          if (el.closest(".showcase-track") && !el.matches(".showcase-track"))
+            return false;
           const r = el.getBoundingClientRect();
           return (
             r.width &&

@@ -14,7 +14,7 @@ Reviewed on 3 October 2026. The user explicitly chose a Rauno-inspired direction
 
 Three interface covers explain the existing work: property growth discovery, a sequential discount ledger and a deployment preview. Color identifies the project; shared type and motion timing maintain consistency. Full updated interfaces and originals remain accessible from the cases.
 
-Rauno's home uses large white cards on gray, with oversized type and isolated graphics. The user tried that horizontal format, then rejected its scrolling behavior in this portfolio. The current version takes clarity and focused interface detail from the reference while using a native vertical project sequence. Craft videos were previously observed starting/stopping with viewport visibility. This portfolio uses bounded entry/input responses, pause/reduced motion, and an index spring that stops at rest.
+Rauno's home uses large white cards on gray, with oversized type and isolated graphics. The user clarified that the horizontal format should remain, with its scrollbar hidden. The current gallery uses native sideways scrolling, a next-card peek and accessible controls, while ordinary vertical scrolling stays independent. It does not revive the earlier sticky document-to-horizontal mapping. Craft videos were previously observed starting/stopping with viewport visibility. This portfolio uses bounded entry/input responses, pause/reduced motion, and an index spring that stops at rest.
 
 Earlier [Tobias van Schneider](https://vanschneider.com/) and [Ryan Spencer](https://rnspencer.com/) research supported distinct project chapters and clear ownership. The current visual reference is Rauno, following the user's updated preference.
 
@@ -30,6 +30,6 @@ An earlier study measured Rauno's cards at 1200 by 720 with 40px gaps, and obser
 
 ## Latest review
 
-Home and Craft were visually inspected again on 3 October 2026 through the in-app browser, alongside a fresh read of primary pages. Their disciplined type, quiet surfaces and focused interface detail guide the current compositions. Vertical reading order is our response to the user's feedback; it is not presented as Rauno's recommended navigation.
+Home and Craft were visually inspected again on 3 October 2026 through the in-app browser, alongside a fresh read of primary pages. Their disciplined type, quiet surfaces and focused interface detail guide the current compositions. The current native gallery is an original adaptation of the user's requested horizontal format, rather than a copy of Rauno's scrolling implementation.
 
 The later growth/discount refinement uses [Shopify Admin's search/filter patterns](https://help.shopify.com/en/manual/shopify-admin/productivity-tools/searching-filtering-views) and [Stripe Billing's financial interface examples](https://stripe.com/billing) to strengthen the product UI. Both primary references were read and visually inspected. Their specific application and factual boundaries are documented in [product-interface-refinement.md](product-interface-refinement.md). Developer Portal's approved composition remains intact.

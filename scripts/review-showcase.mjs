@@ -44,6 +44,8 @@ const report = {
   viewports: [],
   noJavaScript: [],
   preferences: [],
+  resizing: [],
+  deepSwipe: [],
   captures: [],
   errors: [],
   limitations:
@@ -108,15 +110,29 @@ async function assertReadable(page) {
       heading: await heading.innerText(),
     });
   }
-  await expect(
-    page.getByRole("button", { name: /^(Previous|Next) project$/i }),
-  ).toHaveCount(0);
+  await expect(page.locator("[data-showcase-prev]")).toHaveCount(1);
+  await expect(page.locator("[data-showcase-next]")).toHaveCount(1);
   return evidence;
 }
 
-async function assertNoHorizontalScroll(page) {
+async function assertRailLayout(page) {
+  const rail = page.getByRole("region", {
+    name: "Selected projects",
+    exact: true,
+  });
+  await expect(rail).toHaveCount(1);
+  await expect(page.locator(".showcase-track")).toHaveCount(1);
+  await expect(rail).toHaveClass(/showcase-track/);
+  await expect(rail).toHaveAttribute("tabindex", "0");
   const metrics = await page.evaluate(() => {
     const root = document.querySelector(".project-showcase");
+    const rail = root.querySelector(".showcase-track");
+    const railStyle = getComputedStyle(rail);
+    const railBox = rail.getBoundingClientRect();
+    const instructions = (rail.getAttribute("aria-describedby") || "")
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((id) => document.getElementById(id)?.textContent.trim());
     const horizontalContainers = [root, ...root.querySelectorAll("*")]
       .filter((element) => element instanceof HTMLElement)
       .filter(
@@ -134,6 +150,8 @@ async function assertNoHorizontalScroll(page) {
       (element) => {
         const box = element.getBoundingClientRect();
         return {
+          left: box.left,
+          right: box.right,
           top: box.top,
           bottom: box.bottom,
           position: getComputedStyle(element).position,
@@ -146,6 +164,17 @@ async function assertNoHorizontalScroll(page) {
       scrollX,
       horizontalContainers,
       cards,
+      rail: {
+        left: railBox.left,
+        right: railBox.right,
+        clientWidth: rail.clientWidth,
+        scrollWidth: rail.scrollWidth,
+        scrollLeft: rail.scrollLeft,
+        scrollbarWidth: railStyle.scrollbarWidth,
+        webkitScrollbarDisplay: getComputedStyle(rail, "::-webkit-scrollbar")
+          .display,
+        instructions,
+      },
       horizontalModuleLoaded: performance
         .getEntriesByType("resource")
         .some((entry) => /\/horizontal-work\.mjs(?:[?#]|$)/.test(entry.name)),
@@ -167,10 +196,26 @@ async function assertNoHorizontalScroll(page) {
     Math.abs(metrics.scrollX) < 1,
     "The document must not scroll horizontally.",
   );
-  assert.deepEqual(
-    metrics.horizontalContainers,
-    [],
-    "Project covers must not contain a horizontal scrolling region.",
+  assert.equal(
+    metrics.horizontalContainers.length,
+    1,
+    "The project track must be the only horizontal scrolling region in the showcase.",
+  );
+  assert.match(metrics.horizontalContainers[0].class, /showcase-track/);
+  assert.ok(
+    metrics.rail.left >= -1 && metrics.rail.right <= metrics.viewportWidth + 1,
+  );
+  assert.ok(metrics.rail.scrollWidth > metrics.rail.clientWidth + 1);
+  assert.equal(
+    metrics.rail.scrollbarWidth,
+    "none",
+    "The native rail scrollbar must be hidden.",
+  );
+  assert.equal(metrics.rail.webkitScrollbarDisplay, "none");
+  assert.ok(
+    metrics.rail.instructions.length &&
+      metrics.rail.instructions.every(Boolean),
+    "The focusable rail needs visible instructions linked by aria-describedby.",
   );
   assert.equal(
     metrics.horizontalModuleLoaded,
@@ -185,15 +230,396 @@ async function assertNoHorizontalScroll(page) {
   for (let i = 0; i < metrics.cards.length; i++) {
     assert.ok(
       !["fixed", "sticky"].includes(metrics.cards[i].position),
-      "Project covers must follow native vertical document scrolling.",
+      "Project covers must remain in ordinary document flow.",
     );
     if (i)
       assert.ok(
-        metrics.cards[i].top >= metrics.cards[i - 1].bottom - 1,
-        "Project covers must form a vertical sequence.",
+        metrics.cards[i].left >= metrics.cards[i - 1].right - 1 &&
+          Math.abs(metrics.cards[i].top - metrics.cards[0].top) < 1,
+        "Project covers must form a horizontal sequence.",
       );
   }
   return metrics;
+}
+
+async function expectProject(page, index) {
+  const rail = page.locator(".showcase-track");
+  await expect(page.locator("[data-showcase-position]")).toHaveText(
+    `${index + 1} of 3`,
+  );
+  let revealGeometry;
+  try {
+    await expect
+      .poll(
+        async () => {
+          const track = await rail.boundingBox();
+          const card = await page
+            .locator(".showcase-card")
+            .nth(index)
+            .boundingBox();
+          revealGeometry = {
+            project: projects[index].name,
+            viewport: page.viewportSize(),
+            track,
+            card,
+            scrollLeft: await rail.evaluate((element) => element.scrollLeft),
+          };
+          return (
+            !!track &&
+            !!card &&
+            card.x >= track.x - 1 &&
+            card.x + card.width <= track.x + track.width + 1
+          );
+        },
+        {
+          message: `Selected ${projects[index].name} card must fit inside the rail.`,
+        },
+      )
+      .toBe(true);
+  } catch (error) {
+    error.message += `\nReveal geometry: ${JSON.stringify(revealGeometry)}`;
+    throw error;
+  }
+  const previous = page.locator("[data-showcase-prev]");
+  const next = page.locator("[data-showcase-next]");
+  if (index === 0) await expect(previous).toBeDisabled();
+  else await expect(previous).toBeEnabled();
+  if (index === 2) await expect(next).toBeDisabled();
+  else await expect(next).toBeEnabled();
+  return rail.evaluate((element) => ({
+    left: element.scrollLeft,
+    max: element.scrollWidth - element.clientWidth,
+  }));
+}
+
+async function assertRailNavigation(page) {
+  const rail = page.locator(".showcase-track");
+  const previous = page.getByRole("button", {
+    name: "Previous project",
+    exact: true,
+  });
+  const next = page.getByRole("button", { name: "Next project", exact: true });
+  await expect(previous).toBeVisible();
+  await expect(next).toBeVisible();
+  await expect(page.locator("[data-showcase-status]")).toBeVisible();
+  await rail.focus();
+  await expect(rail).toBeFocused();
+  const steps = [];
+  for (const [key, index] of [
+    ["Home", 0],
+    ["ArrowRight", 1],
+    ["ArrowLeft", 0],
+    ["End", 2],
+    ["Home", 0],
+  ]) {
+    await page.keyboard.press(key);
+    steps.push({
+      action: key,
+      project: projects[index].name,
+      ...(await expectProject(page, index)),
+    });
+    await expect(rail).toBeFocused();
+  }
+  for (const [control, index] of [
+    [next, 1],
+    [next, 2],
+    [previous, 1],
+    [previous, 0],
+  ]) {
+    await control.click();
+    steps.push({
+      action: await control.getAttribute("aria-label"),
+      project: projects[index].name,
+      ...(await expectProject(page, index)),
+    });
+  }
+  const firstLink = page.locator(".showcase-card-link").first();
+  await firstLink.focus();
+  await expectProject(page, 0);
+  await page.evaluate(() => {
+    window.showcaseLinkKeyProbe = null;
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        window.showcaseLinkKeyProbe = {
+          key: event.key,
+          prevented: event.defaultPrevented,
+        };
+      },
+      { once: true },
+    );
+  });
+  await page.keyboard.press("ArrowRight");
+  assert.deepEqual(
+    await page.evaluate(() => window.showcaseLinkKeyProbe),
+    { key: "ArrowRight", prevented: false },
+    "Gallery shortcuts must not intercept keys from a case-study link.",
+  );
+  await expect(firstLink).toBeFocused();
+  await settleRail(page);
+  return steps;
+}
+
+async function settleRail(page) {
+  let previous;
+  let stable = 0;
+  await expect
+    .poll(
+      async () => {
+        const current = await page
+          .locator(".showcase-track")
+          .evaluate((rail) => ({ x: rail.scrollLeft, y: scrollY }));
+        stable =
+          previous &&
+          Math.abs(current.x - previous.x) < 0.5 &&
+          Math.abs(current.y - previous.y) < 0.5
+            ? stable + 1
+            : 0;
+        previous = current;
+        return stable >= 3;
+      },
+      {
+        timeout: 5000,
+        intervals: [100],
+        message:
+          "Native fling/snap must settle before the next navigation action.",
+      },
+    )
+    .toBe(true);
+}
+
+async function expectActiveHeight(page, index) {
+  let geometry;
+  try {
+    await expect
+      .poll(
+        async () => {
+          geometry = await page
+            .locator(".showcase-track")
+            .evaluate((track, index) => {
+              const card = track.querySelectorAll(".showcase-card")[index];
+              const style = getComputedStyle(track);
+              return {
+                railHeight: track.getBoundingClientRect().height,
+                cardHeight: card.getBoundingClientRect().height,
+                padding:
+                  parseFloat(style.paddingTop) +
+                  parseFloat(style.paddingBottom),
+              };
+            }, index);
+          return (
+            Math.abs(
+              geometry.railHeight -
+                Math.ceil(geometry.cardHeight) -
+                geometry.padding,
+            ) < 2
+          );
+        },
+        {
+          message: `The rail must fit the selected ${projects[index].name} card after scrolling settles.`,
+        },
+      )
+      .toBe(true);
+  } catch (error) {
+    error.message += `\nHeight geometry: ${JSON.stringify({ project: projects[index].name, viewport: page.viewportSize(), ...geometry })}`;
+    throw error;
+  }
+  return geometry;
+}
+
+async function assertDeepSwipe(page) {
+  const rail = page.locator(".showcase-track");
+  await rail.focus();
+  await page.keyboard.press("Home");
+  await expectProject(page, 0);
+  await expectActiveHeight(page, 0);
+  await page.evaluate(() => scrollTo({ top: 1300, behavior: "instant" }));
+  const beforeY = await page.evaluate(() => scrollY);
+  assert.ok(
+    beforeY >= 1200,
+    "The deep-swipe probe must begin low in the tall Growth card.",
+  );
+  await page.keyboard.press("End");
+  await expectProject(page, 2);
+  const height = await expectActiveHeight(page, 2);
+  const visible = await page
+    .locator(".showcase-card")
+    .nth(2)
+    .evaluate((card) => {
+      const box = card.getBoundingClientRect();
+      const heading = card.querySelector("h3").getBoundingClientRect();
+      const nav = document.querySelector(".site-nav").getBoundingClientRect();
+      return {
+        top: box.top,
+        bottom: box.bottom,
+        headingTop: heading.top,
+        headingBottom: heading.bottom,
+        navBottom: nav.bottom,
+        viewportHeight: innerHeight,
+      };
+    });
+  assert.ok(
+    visible.headingTop >= visible.navBottom - 1 &&
+      visible.headingBottom <= visible.viewportHeight + 1 &&
+      visible.bottom > visible.navBottom + 80,
+    `Selecting the shorter Developer card deep in Growth must reveal real content: ${JSON.stringify(visible)}`,
+  );
+  return {
+    beforeY,
+    afterY: await page.evaluate(() => scrollY),
+    visible,
+    height,
+  };
+}
+
+async function assertResponsiveSelection(page) {
+  const rail = page.locator(".showcase-track");
+  await rail.focus();
+  await page.keyboard.press("Home");
+  await page.keyboard.press("ArrowRight");
+  await expectProject(page, 1);
+  const results = [];
+  for (const viewport of [
+    { width: 390, height: 844 },
+    { width: 1440, height: 900 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await expectProject(page, 1);
+    const height = await expectActiveHeight(page, 1);
+    await assertRailLayout(page);
+    results.push({ viewport, project: "discount", height });
+  }
+  return results;
+}
+
+async function prepareRailPointer(page) {
+  const rail = page.locator(".showcase-track");
+  await rail.evaluate((element) => {
+    element.scrollTo({ left: 0, behavior: "instant" });
+    element.scrollIntoView({
+      block: "start",
+      inline: "nearest",
+      behavior: "instant",
+    });
+  });
+  const box = await rail.boundingBox();
+  const nav = await page.getByRole("banner").boundingBox();
+  const point = {
+    x: box.x + box.width / 2,
+    y: Math.min(
+      page.viewportSize().height - 24,
+      Math.max(nav.y + nav.height + 24, box.y + 72),
+    ),
+  };
+  await page.mouse.move(point.x, point.y);
+  await settleRail(page);
+  return { rail, point };
+}
+
+async function assertNativeGestures(
+  page,
+  { shift = false, touch = false } = {},
+) {
+  const { rail } = await prepareRailPointer(page);
+  const state = () =>
+    rail.evaluate((element) => ({
+      y: scrollY,
+      left: element.scrollLeft,
+      top: element.querySelector(".showcase-card").getBoundingClientRect().top,
+    }));
+  const before = await state();
+  await page.mouse.wheel(0, 240);
+  await expect
+    .poll(async () => (await state()).y)
+    .toBeGreaterThan(before.y + 100);
+  await settleRail(page);
+  const afterVertical = await state();
+  assert.ok(
+    Math.abs(afterVertical.left - before.left) < 1,
+    "A vertical wheel must move the document without changing the selected project.",
+  );
+  assert.ok(
+    Math.abs(before.top - afterVertical.top - (afterVertical.y - before.y)) < 2,
+    "Vertical document scrolling must move the whole rail naturally.",
+  );
+  const box = await rail.boundingBox();
+  const nav = await page.getByRole("banner").boundingBox();
+  await page.mouse.move(
+    box.x + box.width / 2,
+    Math.min(
+      page.viewportSize().height - 24,
+      Math.max(nav.y + nav.height + 24, box.y + 72),
+    ),
+  );
+  await page.mouse.wheel(240, 0);
+  await expect
+    .poll(async () => (await state()).left)
+    .toBeGreaterThan(afterVertical.left + 10);
+  await settleRail(page);
+  const afterHorizontal = await state();
+  assert.ok(
+    Math.abs(afterHorizontal.y - afterVertical.y) < 2,
+    "Native horizontal wheel scrolling must not move the document.",
+  );
+  assert.ok(Math.abs(await page.evaluate(() => scrollX)) < 1);
+  const evidence = {
+    verticalWheelDelta: afterVertical.y - before.y,
+    horizontalWheelDelta: afterHorizontal.left - afterVertical.left,
+  };
+  if (shift) {
+    await prepareRailPointer(page);
+    const shiftedBefore = await state();
+    await page.keyboard.down("Shift");
+    try {
+      await page.mouse.wheel(0, 240);
+    } finally {
+      await page.keyboard.up("Shift");
+    }
+    await expect
+      .poll(async () => (await state()).left)
+      .toBeGreaterThan(shiftedBefore.left + 10);
+    await settleRail(page);
+    const shiftedAfter = await state();
+    assert.ok(Math.abs(shiftedAfter.y - shiftedBefore.y) < 2);
+    evidence.shiftWheelDelta = shiftedAfter.left - shiftedBefore.left;
+  }
+  if (touch) {
+    const { point } = await prepareRailPointer(page);
+    const touchBefore = await state();
+    const touchBox = await rail.boundingBox();
+    const startX = touchBox.x + touchBox.width - 28;
+    const session = await page.context().newCDPSession(page);
+    try {
+      await session.send("Input.dispatchTouchEvent", {
+        type: "touchStart",
+        touchPoints: [{ x: startX, y: point.y }],
+      });
+      for (let step = 1; step <= 6; step++) {
+        await session.send("Input.dispatchTouchEvent", {
+          type: "touchMove",
+          touchPoints: [{ x: startX - (240 * step) / 6, y: point.y }],
+        });
+        await page.waitForTimeout(20);
+      }
+      await session.send("Input.dispatchTouchEvent", {
+        type: "touchEnd",
+        touchPoints: [],
+      });
+      await expect
+        .poll(async () => (await state()).left)
+        .toBeGreaterThan(touchBefore.left + 10);
+      await settleRail(page);
+      const touchAfter = await state();
+      assert.ok(
+        Math.abs(touchAfter.y - touchBefore.y) < 3,
+        "An emulated horizontal touch swipe must pan the rail without moving the document.",
+      );
+      evidence.touchSwipeDelta = touchAfter.left - touchBefore.left;
+    } finally {
+      await session.detach();
+    }
+  }
+  return evidence;
 }
 
 async function assertCoverGraphics(page) {
@@ -264,6 +690,11 @@ async function assertNoCoverAnimations(page) {
 
 async function focusCards(page) {
   const results = [];
+  const rail = page.locator(".showcase-track");
+  await rail.evaluate((element) =>
+    element.scrollTo({ left: 0, behavior: "instant" }),
+  );
+  await rail.focus();
   for (let i = 0; i < projects.length; i++) {
     const link = page.locator(".project-showcase .showcase-card-link").nth(i);
     // Use native Tab focus so the browser's own reveal behavior is covered,
@@ -289,22 +720,27 @@ async function focusCards(page) {
             const nav = await page.getByRole("banner").boundingBox();
             const title = await link.getByRole("heading").first().boundingBox();
             const box = await link.boundingBox();
+            const track = await rail.boundingBox();
             const viewport = page.viewportSize();
             focusGeometry = {
               project: projects[i].name,
               nav,
               title,
               box,
+              track,
               viewport,
             };
             return (
               !!nav &&
               !!title &&
               !!box &&
+              !!track &&
               title.y >= nav.y + nav.height - 1 &&
               title.y + title.height <= viewport.height + 1 &&
               box.x >= -1 &&
-              box.x + box.width <= viewport.width + 1
+              box.x + box.width <= viewport.width + 1 &&
+              title.x >= track.x - 1 &&
+              title.x + title.width <= track.x + track.width + 1
             );
           },
           {
@@ -382,9 +818,21 @@ async function captureCards(page, width) {
   try {
     for (let i = 0; i < projects.length; i++) {
       const card = capture.page.locator(".showcase-card").nth(i);
-      await card.evaluate((element) =>
-        element.scrollIntoView({ block: "start", behavior: "instant" }),
+      const rail = capture.page.locator(".showcase-track");
+      await rail.focus();
+      await capture.page.keyboard.press("Home");
+      for (let step = 0; step < i; step++)
+        await capture.page.keyboard.press("ArrowRight");
+      await expectProject(capture.page, i);
+      await expectActiveHeight(capture.page, i);
+      await rail.evaluate((element) =>
+        element.scrollIntoView({
+          block: "start",
+          inline: "nearest",
+          behavior: "instant",
+        }),
       );
+      await capture.page.evaluate(() => document.activeElement?.blur());
       await capture.page.evaluate(
         () =>
           new Promise((resolve) =>
@@ -421,6 +869,11 @@ async function captureCards(page, width) {
         geometry.article.y >= 0 &&
           geometry.article.bottom <= geometry.viewportHeight,
         `The whole article must be painted in the capture viewport: ${JSON.stringify(geometry)}`,
+      );
+      assert.ok(
+        geometry.article.x >= 0 &&
+          geometry.article.x + geometry.article.width <= width + 1,
+        "The whole selected article must be painted horizontally in the capture viewport.",
       );
       assert.ok(
         geometry.panel.y >= geometry.art.y &&
@@ -491,47 +944,53 @@ async function main() {
     const currentPage = current.page;
     const content = await assertReadable(currentPage);
     const graphics = await assertCoverGraphics(currentPage);
-    const layout = await assertNoHorizontalScroll(currentPage);
-    const before = await currentPage.evaluate(() => ({
-      y: scrollY,
-      top: document.querySelector(".showcase-card").getBoundingClientRect().top,
-    }));
-    await currentPage.mouse.move(
-      viewport.width / 2,
-      Math.min(viewport.height - 20, viewport.height * 0.75),
-    );
-    await currentPage.mouse.wheel(0, 420);
-    await expect
-      .poll(() => currentPage.evaluate(() => scrollY))
-      .toBeGreaterThan(before.y + 200);
-    const after = await currentPage.evaluate(() => ({
-      y: scrollY,
-      top: document.querySelector(".showcase-card").getBoundingClientRect().top,
-    }));
+    const layout = await assertRailLayout(currentPage);
+    await expectActiveHeight(currentPage, 0);
     assert.ok(
-      Math.abs(before.top - after.top - (after.y - before.y)) < 2,
-      "Native vertical scroll must move the cover with the document.",
+      Math.abs(layout.rail.scrollLeft) < 1,
+      "The opening project must load at the start of the rail.",
     );
-    await currentPage.mouse.wheel(250, 0);
-    await assertNoHorizontalScroll(currentPage);
+    assert.ok(
+      layout.cards[1].left < layout.rail.right - 2,
+      "The next-card peek must suggest horizontal scrolling.",
+    );
+    const gestures = await assertNativeGestures(currentPage, {
+      shift: viewport === desktop,
+      touch: viewport.width === 390,
+    });
+    const navigation = await assertRailNavigation(currentPage);
     const focus = await focusCards(currentPage);
+    await expectActiveHeight(currentPage, 2);
+    await assertRailLayout(currentPage);
     const axeViolations = await runAxe(currentPage);
     report.viewports.push({
       viewport,
       content,
       graphics,
       layout,
-      nativeWheelDelta: after.y - before.y,
+      gestures,
+      navigation,
       focus,
       axeViolations,
     });
     if (viewport.width === 390 || viewport === desktop)
       await captureCards(currentPage, viewport.width);
+    if (viewport.width === 390)
+      report.deepSwipe.push(await assertDeepSwipe(currentPage));
     if (current !== primary) await closeContext(current.context);
   }
 
+  report.resizing.push(...(await assertResponsiveSelection(page)));
+
   const toggle = page.locator("[data-motion-toggle]");
   await page.locator(".showcase-card-link").first().focus();
+  await expectProject(page, 0);
+  const beforePause = await page
+    .locator(".showcase-track")
+    .evaluate((rail) => ({
+      left: rail.scrollLeft,
+      height: rail.getBoundingClientRect().height,
+    }));
   await toggle.click();
   await expect(page.locator("html")).toHaveAttribute("data-motion", "off");
   await assertReadable(page);
@@ -545,6 +1004,16 @@ async function main() {
     );
   assert.equal(pausedAnimations, 0);
   await assertNoCoverAnimations(page);
+  await expectProject(page, 0);
+  const afterPause = await page.locator(".showcase-track").evaluate((rail) => ({
+    left: rail.scrollLeft,
+    height: rail.getBoundingClientRect().height,
+  }));
+  assert.ok(
+    Math.abs(afterPause.left - beforePause.left) < 1 &&
+      Math.abs(afterPause.height - beforePause.height) < 1,
+    "Pausing motion must preserve the selected card and its layout.",
+  );
   await page.screenshot({
     path: join(afterDirectory, "showcase-motion-paused-1440.png"),
   });
@@ -571,6 +1040,8 @@ async function main() {
     );
   assert.ok(transforms.every((transform) => transform === "none"));
   const reducedAnimations = await assertNoCoverAnimations(page);
+  await expectProject(page, 0);
+  const reducedNavigation = await assertRailNavigation(page);
   await page.screenshot({
     path: join(afterDirectory, "showcase-reduced-motion-1440.png"),
   });
@@ -579,6 +1050,7 @@ async function main() {
     readable: true,
     transforms,
     animations: reducedAnimations,
+    navigation: reducedNavigation,
   });
 
   const media = await primary.context.newCDPSession(page);
@@ -624,9 +1096,22 @@ async function main() {
     const staticPage = await createPage(viewport, { javaScriptEnabled: false });
     const content = await assertReadable(staticPage.page);
     const graphics = await assertCoverGraphics(staticPage.page);
-    const layout = await assertNoHorizontalScroll(staticPage.page);
+    const layout = await assertRailLayout(staticPage.page);
+    await expect(staticPage.page.locator("[data-showcase-prev]")).toBeHidden();
+    await expect(staticPage.page.locator("[data-showcase-next]")).toBeHidden();
+    await expect(
+      staticPage.page.locator("[data-showcase-status]"),
+    ).toBeHidden();
+    const gestures = await assertNativeGestures(staticPage.page);
     const focus = await focusCards(staticPage.page);
-    report.noJavaScript.push({ viewport, content, graphics, layout, focus });
+    report.noJavaScript.push({
+      viewport,
+      content,
+      graphics,
+      layout,
+      gestures,
+      focus,
+    });
     await closeContext(staticPage.context);
   }
 

@@ -4,7 +4,7 @@ Audience: recruiters and design hiring teams assessing Nicholas Gwee's ownership
 
 ## Current direction
 
-The user rejected the rendered 3D icons and awkward horizontal scrolling, while asking to retain the rest and improve the finish. Rauno remains the assumed primary reference. Compact identity, IBM Plex type, frosted navigation, concise cases and localized vivid colors remain. Home uses a native vertical sequence.
+The user rejected the rendered 3D icons, refined the product examples, then clarified that the horizontal format should remain with its scrollbar hidden. Rauno remains the primary visual reference. Compact identity, IBM Plex type, frosted navigation, concise cases and localized vivid colors remain. Home uses a native horizontal project gallery.
 
 Each project has its existing role/ownership, a large title, direct case-study link and distinct interface cover. Partner Growth Programs remains first. Its acid-yellow scene contains a structured catalog with property context, search/category controls, readable program descriptions and expanded Promotions mechanics. Discounting pairs rate setup and the two existing selections with an ordered receipt, exact deductions and a $114.75 result. Developer Portal uses the existing environment and Canary settings in a dark interface and remains unchanged by the latest refinement.
 
@@ -22,7 +22,9 @@ Wide headers precede generous canvases. Phones recompose each interface as reada
 
 Words, values and settings remain visible and stationary. Selected-row/stage accents draw once on entry; bars settle to authored proportions. Case-study arrows respond on hover. Existing index springs remain bounded and stop at rest. Pause, reduced motion, reduced transparency and forced colors remain supported.
 
-Scrolling remains native, with no horizontal rail, scroll-linked mapping or wheel interception. Project headers and CTAs form concise focus targets, so keyboard users reach the title without focusing an oversized decorative canvas. No-JavaScript content retains links and readable previews. All work opens the detailed index.
+The horizontal gallery hides its scrollbar and provides a next-card peek, 44px previous/next controls and a project indicator. Trackpad, touch and horizontal wheel gestures use native overflow with proximity snapping. Normal vertical page scrolling is untouched: no wheel interception or scroll-linked mapping. Arrow keys/Home/End work when the gallery itself has focus; Tab reveals each case link. The gallery fits the settled selected card's natural height, preserving full graphics and avoiding blank space beneath shorter cards. Only a deep sideways change that would leave the new project entirely above the viewport reveals its title.
+
+Project headers and CTAs form concise focus targets, so keyboard users reach the title without focusing an oversized decorative canvas. No-JavaScript content retains native sideways scrolling, links and readable previews; enhanced controls remain hidden. All work opens the detailed index. Pause and reduced motion turn smooth gallery movement off without changing its layout or selected project.
 
 ## Factual boundaries and review
 
