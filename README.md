@@ -15,7 +15,7 @@ Open http://127.0.0.1:4183/. The server listens only on the local computer. The 
 
 ## Current design
 
-The [Browserbase reference](https://www.browserbase.com/) informs orange headline bands, a framed white layout, fine grid lines and pale blue product surfaces. The hero now uses monochrome halftone clouds with subtle desktop cursor drift and light, replacing the earlier pixel landscape. Partner Growth Programs leads the opening. Three horizontal project panels pair concise ownership with updated interface concepts. The original `>` logo remains throughout. Decisions and provenance are in `docs/browserbase-direction.md` and `docs/cloud-art-direction.md`.
+The [Browserbase reference](https://www.browserbase.com/) informs orange headline bands, a framed white layout, fine grid lines and pale blue product surfaces. The hero now uses a full monochrome halftone field with animated cloud sampling and fading cursor etch trails. A quiet center keeps the content readable. Partner Growth Programs leads the opening. Three horizontal project panels pair concise ownership with updated interface concepts. The original `>` logo remains throughout. Decisions and provenance are in `docs/browserbase-direction.md` and `docs/cloud-art-direction.md`.
 
 Scroll over the gallery with a regular mouse wheel on desktop to advance projects. At either end the page continues scrolling. Horizontal trackpad input and touch stay native; previous/next buttons and focused-gallery Left/Right/Home/End also work. The scrollbar is hidden. Mobile vertical scrolling stays native. No-JavaScript sideways scrolling and case links remain available.
 
@@ -25,9 +25,9 @@ Cases retain problem, role, decisions, evidence and outcomes. Each project has o
 
 ## Authoring
 
-`scripts/build-pages.py` and `scripts/studio_design.py` generate the five portfolio pages from audited content and original metadata. Run `npm run build:pages` after authoring changes. The resume body is preserved separately. Responsive generated cloud images are committed in `images/hero-clouds-*.webp`; their prompt and provenance are documented. The earlier vector landscape and generator remain historical source.
+`scripts/build-pages.py` and `scripts/studio_design.py` generate the five portfolio pages from audited content and original metadata. Run `npm run build:pages` after authoring changes. The resume body is preserved separately. The generated source cloud image and shader-rendered static posters are committed in `images/`; their prompt and provenance are documented. With the preview running, use `node scripts/build-cloud-poster.mjs` to regenerate the responsive posters. The earlier vector landscape and generator remain historical source.
 
-`css/studio.css` defines the current shared visual system over existing case and concept styles. `js/showcase.mjs` handles gallery navigation; `js/kinetics.mjs` handles bounded motion and persistent pause; `js/clouds.mjs` adds event-driven desktop cloud response. Fonts and review dependencies are project-local. No global package or new runtime dependency is required.
+`css/studio.css` defines the current shared visual system over existing case and concept styles. `js/showcase.mjs` handles gallery navigation; `js/kinetics.mjs` handles bounded motion and persistent pause; `js/clouds.mjs` lazily initializes the original WebGL renderer in `js/halftone.mjs`. Desktop hero drawing is capped at 24fps and stops offscreen, when hidden or paused. Touch, narrow views, reduced motion, no JavaScript and unavailable graphics retain a static halftone poster. Fonts and review dependencies are project-local. No global package or new runtime dependency is required.
 
 ## Review
 
@@ -44,7 +44,9 @@ On macOS/Linux, use `PLAYWRIGHT_BROWSERS_PATH="$PWD/node_modules/.cache/ms-playw
 
 The preview must be running. Reviews cover six routes at 320/390/768/1440 pixels, automated WCAG A/AA rules, local links, calculations, filtering, developer workflow, keyboard focus, no-JavaScript, pause and preference fallbacks. Gallery checks cover short viewports, wheel boundary release, horizontal trackpad input, emulated touch, resizing and exact discount proportions. Original-artifact checks cover archived playbook links, images, Escape and restored focus.
 
-Open http://127.0.0.1:4183/review/index.html for before/after screenshots and recordings. The original main revision is in `review/before/`; the immediately preceding design is in `review/browserbase-revision/before/`. Current full pages and concepts are in `review/after/`. Earlier revision directories remain historical evidence. Results are in `review/checks.json`, `review/kinetic-checks.json`, `review/showcase-checks.json`, and `review/browserbase-revision/wheel-after.json`.
+Open http://127.0.0.1:4183/review/index.html for before/after screenshots and recordings. The original main revision is in `review/before/`; the preceding hero is in `review/etch-revision/before/`. Current full pages and concepts are in `review/after/`, with the current opening, cursor recording and rendering checks in `review/etch-revision/`. Earlier revision directories remain historical evidence. Other results are in `review/checks.json`, `review/kinetic-checks.json`, `review/showcase-checks.json`, and `review/browserbase-revision/wheel-after.json`.
+
+The optional `node scripts/review-cloud-performance.mjs` records a warm desktop pointer/rendering observation. It measures draw submissions and main-thread activity rather than GPU time or guaranteed visual frame rate.
 
 ## Delivery limits
 

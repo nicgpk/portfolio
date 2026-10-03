@@ -88,42 +88,49 @@
       ><a href="checks.json">Verification results</a
       ><a href="../docs/browserbase-direction.md">Design direction</a>
     </nav>
-    <h2>Current refinement: monochrome halftone clouds</h2>
+    <h2>Current refinement: animated halftone and etched trails</h2>
     <p>
-      A monochrome halftone screens the cloud background. On desktop, the cursor
-      creates subtle cloud drift and localized light while content stays still.
-      Pause, reduced motion and touch keep the art static.
+      A full monochrome field animates cloud sampling and dot density. On
+      desktop, the cursor exposes a contrasting ink treatment that dissolves
+      into the clouds. A quiet center keeps the copy readable; text and labels
+      stay still. Pause, reduced motion, touch and unavailable graphics use a
+      static poster.
     </p>
     <p>
-      <a href="cloud-revision/checks.json">Interaction checks</a> ·
-      <a href="cloud-revision/after/cursor-demo.webm">Cursor recording</a> ·
+      <a href="etch-revision/checks.json">Interaction checks</a> ·
+      <a href="etch-revision/content-checks.json">Content preservation</a> ·
+      <a href="etch-revision/after/cursor-demo.webm">Cursor recording</a> ·
+      <a href="etch-revision/performance.json">Desktop rendering observation</a>
+      ·
       <a href="../docs/cloud-art-direction.md">Artwork and generation prompt</a>
     </p>
     <div class="comparison">
       <figure>
-        <a href="halftone-revision/before/opening-1440.png"
+        <a href="etch-revision/before/opening-1440.png"
           ><img
-            src="halftone-revision/before/opening-1440.png"
+            src="etch-revision/before/opening-1440.png"
             width="1440"
             height="1000"
-            alt="Previous smooth monochrome cloud background"
+            alt="Previous monochrome cloud image through a uniform CSS dot mask"
         /></a>
-        <figcaption>Before · smooth monochrome clouds.</figcaption>
+        <figcaption>Before · uniform CSS dot mask and slight drift.</figcaption>
       </figure>
       <figure>
-        <a href="cloud-revision/after/opening-1440.png"
+        <a href="etch-revision/after/opening-1440.png"
           ><img
-            src="cloud-revision/after/opening-1440.png"
+            src="etch-revision/after/opening-1440.png"
             width="1440"
             height="1000"
-            alt="Current monochrome halftone clouds with unchanged orange headline"
+            alt="Full hero with varying halftone density, recognizable cloud shapes and a quiet center around the orange headline"
         /></a>
-        <figcaption>After · halftone clouds with cursor response.</figcaption>
+        <figcaption>
+          After · full animated field and fading etched trails.
+        </figcaption>
       </figure>
     </div>
     <p>
-      Mobile: <a href="halftone-revision/before/opening-390.png">before</a> ·
-      <a href="cloud-revision/after/opening-390.png">after</a>.
+      Mobile: <a href="etch-revision/before/opening-390.png">before</a> ·
+      <a href="etch-revision/after/opening-390.png">after</a>.
     </p>
     <h2>Previous direction: Browserbase-inspired pixel landscape</h2>
     <p>

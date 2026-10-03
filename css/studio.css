@@ -82,8 +82,6 @@ body.folio {
   margin: 72px auto 0;
   border-inline: 1px solid var(--line);
   background: #f4f4f2;
-  background-image: radial-gradient(#15191814 0.6px, transparent 0.85px);
-  background-size: 5px 5px;
   overflow: clip;
   isolation: isolate;
 }
@@ -102,6 +100,20 @@ body.folio {
   z-index: 2;
   text-align: center;
   padding: 44px 24px 0;
+}
+.hero-message::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -12px 8% -20px;
+  background: radial-gradient(
+    ellipse,
+    #f4f4f2fa 0%,
+    #f4f4f2ee 44%,
+    #f4f4f299 65%,
+    #f4f4f200 80%
+  );
+  pointer-events: none;
 }
 .hero-message .eyebrow {
   color: #34454d;
@@ -174,44 +186,32 @@ body.folio {
   z-index: 1;
   pointer-events: none;
 }
-.cloud-atmosphere {
-  position: absolute;
-  inset: -85px -6% -30px;
-  mask-image: linear-gradient(transparent, #000 38%);
-  -webkit-mask-image: linear-gradient(transparent, #000 38%);
+.hero-stage {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
 }
-.cloud-atmosphere img {
+.cloud-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.cloud-poster,
+.cloud-canvas {
   position: absolute;
   width: 100%;
   height: 100%;
   inset: 0;
-  object-fit: cover;
-  object-position: center 58%;
-  /* Screen the cloud tones into ink dots; the source image stays untouched. */
-  filter: grayscale(1) contrast(1.8) brightness(0.82);
-  mask-image: radial-gradient(
-    circle,
-    #000 1.35px,
-    #000e 1.5px,
-    transparent 1.7px
-  );
-  mask-size: 4px 4px;
-  -webkit-mask-image: radial-gradient(
-    circle,
-    #000 1.35px,
-    #000e 1.5px,
-    transparent 1.7px
-  );
-  -webkit-mask-size: 4px 4px;
+  object-fit: fill;
 }
-.cloud-light {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 440px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, #fff 0, #fff8 28%, #fff0 68%);
+.cloud-canvas {
+  opacity: 0;
+}
+.cloud-field.is-active .cloud-canvas {
+  opacity: 1;
+}
+.cloud-field.is-active .cloud-poster {
   opacity: 0;
 }
 .landscape-label {
@@ -1385,6 +1385,16 @@ body.folio {
   .hero-message {
     padding: 32px 18px 0;
   }
+  .hero-message::before {
+    inset: -10px -8% -16px;
+    background: radial-gradient(
+      ellipse,
+      #f4f4f2fc 0%,
+      #f4f4f2f5 55%,
+      #f4f4f2bb 72%,
+      #f4f4f200 90%
+    );
+  }
   .hero-message .eyebrow {
     font-size: 10px;
     margin-bottom: 18px;
@@ -1412,9 +1422,6 @@ body.folio {
   .hero-landscape {
     margin-top: 0;
     height: 165px;
-  }
-  .cloud-atmosphere {
-    inset: -48px -35% -15px;
   }
   .landscape-label {
     font-size: 8px;
@@ -1803,6 +1810,7 @@ body.folio {
     forced-color-adjust: none;
   }
   .hero-landscape,
+  .cloud-field,
   .catalog-pixel,
   .studio-divider {
     display: none;

@@ -2,7 +2,7 @@
 
 Reference reviewed on 3 October 2026: https://www.browserbase.com/.
 
-Current hero follow-up: the user requested monochrome clouds and cursor interaction. The original pixel landscape described below is now historical; `cloud-art-direction.md` documents its replacement, image provenance and interaction checks. Other decisions below remain applicable.
+Current hero follow-up: the user requested monochrome halftone clouds and a more comprehensive cursor effect. A full-hero WebGL field now animates cloud sampling and fading etch trails, with responsive static posters and a quiet center for the copy. The original pixel landscape described below is historical; `cloud-art-direction.md` documents its replacement, image provenance and interaction checks. Other decisions below remain applicable.
 
 The reference uses orange headline bands, a white page with fine structural rules, pale blue product surfaces, pixelated landscape illustrations, compact navigation and concise product demonstrations. This portfolio translates that language into an original presentation of Nicholas Gwee's work. Browserbase's brand, copy, assets and business claims are not used.
 
@@ -22,10 +22,10 @@ The mouse-wheel failure reproduced as horizontal position 0 before and after a v
 
 With a desktop fine pointer at 900px or wider, unmodified vertical wheel input over the gallery advances one project per bounded wheel burst. At either end it releases to ordinary page scrolling. Horizontal trackpad input, modified gestures, zoom, touch and wheel input elsewhere remain native. Previous/next and focused-gallery ArrowLeft/Right/Home/End remain available. Keyboard changes reveal the selected title below navigation. The scrollbar stays hidden.
 
-The signal-path animation runs for ten seconds; discount bars reveal once on entry. Text is present immediately. Persistent pause, OS reduced motion, opaque reduced-transparency navigation, no-JavaScript content and forced-colors fallback remain. No runtime package was added.
+The original signal-path animation runs for ten seconds; discount bars reveal once on entry. The current desktop cloud field draws while the hero is visible, capped at 24fps, and stops offscreen or when paused/hidden. Touch, narrow views, reduced motion and unavailable WebGL retain a static poster. Text is present immediately. Persistent pause, opaque reduced-transparency navigation, no-JavaScript content and forced-colors fallback remain. No runtime package was added.
 
 ## Content and review boundaries
 
 All cases retain their problem, role, decisions, metrics and contextual caveats. Portfolio revenue remains business scale, not a causal result of the later hub launch. Updated concepts are labeled and link to original artifacts. The resume body, downloads and contact destinations are preserved.
 
-Before this pass: `review/browserbase-revision/before/`. Current opening and covers: `review/browserbase-revision/after/`; full routes and concepts: `review/after/`. Windows Chromium with emulated mobile views does not establish Safari, Firefox, real-device or screen-reader behavior. Local performance is not production measurement.
+Before the initial Browserbase direction: `review/browserbase-revision/before/`. The current hero refinement is compared in `review/etch-revision/`; full routes and concepts are in `review/after/`. Windows Chromium with emulated mobile views does not establish Safari, Firefox, real-device or screen-reader behavior. Local performance is not production measurement.

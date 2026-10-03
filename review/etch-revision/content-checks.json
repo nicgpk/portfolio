@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "baseline": "5c6509a6e6838683890ac8da933371f202c66baf",
+  "routes": [
+    {
+      "route": "index.html",
+      "normalizedTextUnchanged": true,
+      "hrefsUnchanged": true
+    },
+    {
+      "route": "projects.html",
+      "normalizedTextUnchanged": true,
+      "hrefsUnchanged": true
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "normalizedTextUnchanged": true,
+      "hrefsUnchanged": true
+    },
+    {
+      "route": "discounting.html",
+      "normalizedTextUnchanged": true,
+      "hrefsUnchanged": true
+    },
+    {
+      "route": "dev-portal.html",
+      "normalizedTextUnchanged": true,
+      "hrefsUnchanged": true
+    },
+    {
+      "route": "resume.html",
+      "normalizedTextUnchanged": true,
+      "hrefsUnchanged": true
+    }
+  ]
+}

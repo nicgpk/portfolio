@@ -303,7 +303,7 @@
   ],
   "requests": [
     {
-      "url": "http://127.0.0.1:4183/images/hero-clouds-800.webp",
+      "url": "http://127.0.0.1:4183/images/hero-halftone-800.png",
       "status": 200
     },
     {
@@ -311,11 +311,11 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/css/folio.css",
+      "url": "http://127.0.0.1:4183/css/editorial.css",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/css/editorial.css",
+      "url": "http://127.0.0.1:4183/css/folio.css",
       "status": 200
     },
     {
@@ -335,11 +335,27 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/images/hero-clouds-800.webp",
+      "url": "http://127.0.0.1:4183/images/hero-halftone-800.png",
       "status": 200
     },
     {
       "url": "http://127.0.0.1:4183/js/folio.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/js/calculations.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/js/kinetics.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/js/clouds.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/js/showcase.mjs",
       "status": 200
     },
     {
@@ -349,30 +365,14 @@
     {
       "url": "http://127.0.0.1:4183/fonts/ibm-plex-mono.woff2",
       "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/js/calculations.mjs",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/js/clouds.mjs",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/js/kinetics.mjs",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/js/showcase.mjs",
-      "status": 200
     }
   ],
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 1672,
-      "cls": 0.006021354166666666,
-      "resourceBytes": 241964,
+      "lcpMs": 1928,
+      "cls": 0.005607465277777777,
+      "resourceBytes": 310272,
       "requestCount": 14
     }
   ],

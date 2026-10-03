@@ -1,124 +1,153 @@
 import { motionPaused } from "./kinetics.mjs";
 
-// Decorative, event-driven cloud drift. No canvas loop, scroll capture or custom cursor.
 const hero = document.querySelector("[data-cloud-scene]");
 if (hero) {
-  const art = hero.querySelector(".cloud-atmosphere");
-  const light = hero.querySelector(".cloud-light");
-  const field = hero.querySelector(".hero-landscape");
+  const stage = hero.querySelector(".hero-stage");
+  const field = hero.querySelector(".cloud-field");
+  const canvas = field.querySelector("canvas");
   const fine = matchMedia("(hover: hover) and (pointer: fine)");
-  const contrast = matchMedia("(forced-colors: active)");
-  let visible = true;
-  let frame = 0;
-  let lastTime = 0;
-  let rect;
-  let fieldRect;
-  let pointer = null;
-  let current = [0, 0, 0, 0, 0];
-  let target = [...current];
-  const enabled = () =>
+  const forced = matchMedia("(forced-colors: active)");
+  let visible = false,
+    renderer = null,
+    loading = false,
+    failed = false;
+  let frame = 0,
+    lastDraw = -100,
+    time = 0,
+    lastTick = 0,
+    rect;
+  let points = [];
+  const canAnimate = () =>
     visible &&
     fine.matches &&
-    !contrast.matches &&
+    innerWidth >= 900 &&
+    !forced.matches &&
     !motionPaused() &&
-    !document.hidden;
-
-  function paint() {
-    art.style.transform = `translate3d(${current[0].toFixed(2)}px,${current[1].toFixed(2)}px,0)`;
-    light.style.transform = `translate3d(${current[2].toFixed(2)}px,${current[3].toFixed(2)}px,0) translate(-50%,-50%)`;
-    light.style.opacity = current[4].toFixed(3);
-  }
-  function reset() {
+    !document.hidden &&
+    !failed;
+  function stop() {
     cancelAnimationFrame(frame);
     frame = 0;
-    lastTime = 0;
-    pointer = null;
-    current = [0, 0, 0, 0, 0];
-    target = [...current];
-    art.style.removeProperty("transform");
-    light.style.removeProperty("transform");
-    light.style.removeProperty("opacity");
+    lastTick = 0;
+    points = [];
+    field.classList.remove("is-active");
+  }
+  function dimensions() {
+    rect = stage.getBoundingClientRect();
+    const scale = Math.min(devicePixelRatio || 1, 1.25, 1440 / rect.width);
+    canvas.width = Math.round(rect.width * scale);
+    canvas.height = Math.round(rect.height * scale);
+    lastDraw = -100;
   }
   function schedule() {
-    if (enabled() && !frame) frame = requestAnimationFrame(tick);
+    if (renderer && canAnimate() && !frame) frame = requestAnimationFrame(tick);
   }
-  function tick(time) {
+  function tick(now) {
     frame = 0;
-    if (!enabled()) return reset();
-    if (pointer) {
-      if (!rect) {
-        rect = hero.getBoundingClientRect();
-        fieldRect = field.getBoundingClientRect();
+    if (!canAnimate()) return stop();
+    time += lastTick ? Math.min(now - lastTick, 100) / 1000 : 0;
+    lastTick = now;
+    if (now - lastDraw >= 1000 / 24) {
+      points = points.filter((p) => time - p.time < 1.8);
+      if (!renderer.draw(rect.width, rect.height, time, points)) {
+        failed = true;
+        return stop();
       }
-      const x = Math.max(
-        -1,
-        Math.min(1, ((pointer.x - rect.left) / rect.width) * 2 - 1),
-      );
-      const y = Math.max(
-        -1,
-        Math.min(1, ((pointer.y - rect.top) / rect.height) * 2 - 1),
-      );
-      target = [
-        -x * 28,
-        -y * 12,
-        pointer.x - fieldRect.left,
-        pointer.y - fieldRect.top,
-        0.32,
-      ];
+      field.classList.add("is-active");
+      lastDraw = now;
     }
-    const ease =
-      1 - Math.exp(-Math.min(time - (lastTime || time - 16), 40) / 100);
-    lastTime = time;
-    let moving = false;
-    current = current.map((value, i) => {
-      const difference = target[i] - value;
-      if (Math.abs(difference) < (i === 4 ? 0.002 : 0.05)) return target[i];
-      moving = true;
-      return value + difference * ease;
-    });
-    paint();
-    if (moving) schedule();
-    else lastTime = 0;
+    schedule();
   }
-  hero.addEventListener(
+  async function sync() {
+    if (!canAnimate()) return stop();
+    if (!renderer && !loading) {
+      loading = true;
+      try {
+        const [{ createHalftoneRenderer }, image] = await Promise.all([
+          import("./halftone.mjs"),
+          new Promise((resolve, reject) => {
+            const image = new Image();
+            image.onload = () => resolve(image);
+            image.onerror = reject;
+            image.src = "images/hero-clouds-1600.webp";
+          }),
+        ]);
+        renderer = createHalftoneRenderer(canvas, image);
+        failed = !renderer;
+        if (renderer) dimensions();
+      } catch {
+        failed = true;
+      }
+      loading = false;
+    }
+    schedule();
+  }
+  stage.addEventListener(
     "pointermove",
     (event) => {
-      if (!enabled() || event.pointerType === "touch") return;
-      pointer = { x: event.clientX, y: event.clientY };
-      schedule();
+      if (!canAnimate() || !renderer || event.pointerType === "touch") return;
+      if (!rect) dimensions();
+      const p = {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+        time,
+      };
+      const previous = points[0];
+      if (previous) {
+        const steps = Math.min(
+          16,
+          Math.ceil(Math.hypot(p.x - previous.x, p.y - previous.y) / 28),
+        );
+        for (let i = 1; i <= steps; i++) {
+          const f = i / steps;
+          points.unshift({
+            x: previous.x + (p.x - previous.x) * f,
+            y: previous.y + (p.y - previous.y) * f,
+            time,
+          });
+        }
+      } else points.unshift(p);
+      points = points.slice(0, 16);
     },
     { passive: true },
   );
-  hero.addEventListener("pointerleave", () => {
-    pointer = null;
-    target = [0, 0, current[2], current[3], 0];
-    schedule();
-  });
-  // Scrolling should not move the art or keep a cursor highlight behind.
+  // Leaving lets the trail decay naturally; scrolling never maps to the artwork.
   addEventListener(
     "scroll",
     () => {
-      rect = null;
-      reset();
+      rect = stage.getBoundingClientRect();
+      points = [];
     },
     { passive: true },
   );
-  addEventListener(
-    "resize",
-    () => {
-      rect = null;
-      reset();
-    },
-    { passive: true },
-  );
-  for (const preference of [fine, contrast])
-    preference.addEventListener("change", reset);
-  document.addEventListener("portfolio:motionchange", reset);
-  document.addEventListener("visibilitychange", reset);
+  new ResizeObserver(() => {
+    if (renderer) dimensions();
+    sync();
+  }).observe(stage);
+  for (const preference of [fine, forced])
+    preference.addEventListener("change", sync);
+  document.addEventListener("portfolio:motionchange", sync);
+  document.addEventListener("visibilitychange", sync);
+  canvas.addEventListener("webglcontextlost", () => {
+    failed = true;
+    stop();
+  });
+  addEventListener("pagehide", () => {
+    stop();
+    renderer?.dispose();
+    renderer = null;
+  });
+  addEventListener("pageshow", sync);
   if ("IntersectionObserver" in window) {
-    new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      if (!visible) reset();
-    }).observe(hero);
+    new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        sync();
+      },
+      { threshold: 0.02 },
+    ).observe(stage);
+  } else {
+    visible = true;
+    sync();
   }
 }
