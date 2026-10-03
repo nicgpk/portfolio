@@ -15,7 +15,7 @@ Open http://127.0.0.1:4183/. The server listens only on the local computer. The 
 
 ## Current design
 
-The [Browserbase reference](https://www.browserbase.com/) informs orange headline bands, a framed white layout, fine grid lines and pale blue product surfaces. The hero now uses monochrome clouds with subtle desktop cursor drift and light, replacing the earlier pixel landscape. Partner Growth Programs leads the opening. Three horizontal project panels pair concise ownership with updated interface concepts. The original `>` logo remains throughout. Decisions and provenance are in `docs/browserbase-direction.md` and `docs/cloud-art-direction.md`.
+The [Browserbase reference](https://www.browserbase.com/) informs orange headline bands, a framed white layout, fine grid lines and pale blue product surfaces. The hero now uses monochrome halftone clouds with subtle desktop cursor drift and light, replacing the earlier pixel landscape. Partner Growth Programs leads the opening. Three horizontal project panels pair concise ownership with updated interface concepts. The original `>` logo remains throughout. Decisions and provenance are in `docs/browserbase-direction.md` and `docs/cloud-art-direction.md`.
 
 Scroll over the gallery with a regular mouse wheel on desktop to advance projects. At either end the page continues scrolling. Horizontal trackpad input and touch stay native; previous/next buttons and focused-gallery Left/Right/Home/End also work. The scrollbar is hidden. Mobile vertical scrolling stays native. No-JavaScript sideways scrolling and case links remain available.
 

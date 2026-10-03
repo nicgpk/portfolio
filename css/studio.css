@@ -82,6 +82,8 @@ body.folio {
   margin: 72px auto 0;
   border-inline: 1px solid var(--line);
   background: #f4f4f2;
+  background-image: radial-gradient(#15191814 0.6px, transparent 0.85px);
+  background-size: 5px 5px;
   overflow: clip;
   isolation: isolate;
 }
@@ -185,7 +187,22 @@ body.folio {
   inset: 0;
   object-fit: cover;
   object-position: center 58%;
-  filter: grayscale(1);
+  /* Screen the cloud tones into ink dots; the source image stays untouched. */
+  filter: grayscale(1) contrast(1.8) brightness(0.82);
+  mask-image: radial-gradient(
+    circle,
+    #000 1.35px,
+    #000e 1.5px,
+    transparent 1.7px
+  );
+  mask-size: 4px 4px;
+  -webkit-mask-image: radial-gradient(
+    circle,
+    #000 1.35px,
+    #000e 1.5px,
+    transparent 1.7px
+  );
+  -webkit-mask-size: 4px 4px;
 }
 .cloud-light {
   position: absolute;
