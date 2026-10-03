@@ -7,9 +7,9 @@ process.env.PLAYWRIGHT_BROWSERS_PATH = fileURLToPath(
   new URL("../node_modules/.cache/ms-playwright", import.meta.url),
 );
 const baseline =
-  process.env.CONCEPT_BASELINE || "63d1ff9e3236cb743e27875ee358c1b9c7a99692";
+  process.env.CONCEPT_BASELINE || "4fc8baca5422aeef51638d3dd2f0fc3afee138e8";
 const base = "http://127.0.0.1:4183";
-const directory = "review/concept-refinement/after";
+const directory = "review/developer-system/after";
 await mkdir(directory, { recursive: true });
 const browser = await chromium.launch();
 const report = {
@@ -105,9 +105,9 @@ try {
             JSON.stringify([...b.querySelectorAll(selector)].map(text)),
         }));
         const links = (doc) =>
-          [...doc.querySelectorAll("a[href]")].map((e) =>
-            e.getAttribute("href"),
-          );
+          [...doc.querySelectorAll("a[href]")]
+            .filter((e) => !e.closest(".case-section-nav"))
+            .map((e) => e.getAttribute("href"));
         const programs = (doc) =>
           [...doc.querySelectorAll("[data-program]")].map((e) => ({
             name: e.dataset.name,
@@ -158,6 +158,29 @@ try {
     );
     if (route === "index") assert.ok(audit.heroMarkupUnchanged);
     report.content.push(audit);
+    if (!["index", "projects", "resume"].includes(route)) {
+      const navigation = page.getByRole("navigation", {
+        name: "Case study sections",
+      });
+      await expect(navigation.locator("a")).toHaveCount(4);
+      for (const link of await navigation.locator("a").all()) {
+        const href = await link.getAttribute("href");
+        await expect(page.locator(href)).toHaveCount(1);
+      }
+      await navigation
+        .getByRole("link", { name: "Try the concept" })
+        .press("Enter");
+      await expect(page).toHaveURL(/#concept$/);
+      const heading = await page.locator(".concept-heading").boundingBox();
+      const nav = await page.locator(".site-nav").boundingBox();
+      assert.ok(
+        heading.y >= nav.y + nav.height,
+        "Case navigation must reveal the concept heading below the fixed navigation.",
+      );
+      report.interactions.push(
+        `${route}: four valid section links and keyboard access to the concept passed.`,
+      );
+    }
   }
   assert.deepEqual(externalFonts, []);
   for (const font of [
@@ -359,7 +382,7 @@ try {
   throw error;
 } finally {
   await writeFile(
-    "review/concept-refinement/checks.json",
+    "review/developer-system/checks.json",
     JSON.stringify(report, null, 2) + "\n",
   );
   await browser.close();

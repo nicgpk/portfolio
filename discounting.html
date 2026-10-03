@@ -76,6 +76,7 @@
     <link rel="stylesheet" href="css/discount-ui.css" />
     <link rel="stylesheet" href="css/studio.css" />
     <link rel="stylesheet" href="css/concepts.css" />
+    <link rel="stylesheet" href="css/project-system.css" />
     <link
       rel="preload"
       as="font"
@@ -129,6 +130,13 @@
         >
       </section>
       <div class="case-body">
+        <nav class="case-section-nav" aria-label="Case study sections">
+          <a href="#decisions">Problem &amp; role</a
+          ><a href="#choices">Key choices</a><a href="#evidence">Evidence</a
+          ><a href="#concept"
+            >Try the concept <span aria-hidden="true">↗</span></a
+          >
+        </nav>
         <section class="case-framing" id="decisions">
           <div>
             <p class="eyebrow">The problem</p>
@@ -150,7 +158,7 @@
             >
           </div>
         </section>
-        <section class="decisions-section">
+        <section class="decisions-section" id="choices">
           <p class="eyebrow">Key choices</p>
           <article class="decision">
             <span aria-hidden="true">↳</span>
@@ -182,6 +190,7 @@
         </section>
         <section
           class="evidence-card evidence--discount"
+          id="evidence"
           aria-labelledby="evidence-title"
         >
           <p class="eyebrow">
