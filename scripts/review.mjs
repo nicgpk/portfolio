@@ -249,7 +249,7 @@ for (const name of [
   }
 }
 for (const [route, control, surface] of [
-  ["index", ".hero-stage-caption > a:first-child", ".hero-stage"],
+  ["index", ".work-flagship .artifact-caption > a", "body.folio"],
   ["partner-growth-programs", ".evidence-card summary", ".evidence-card"],
   ["discounting", ".evidence-card summary", ".evidence-card"],
   ["dev-portal", ".evidence-card summary", ".evidence-card"],
@@ -331,7 +331,7 @@ assert.equal(
 );
 assert.equal(
   await page
-    .locator(".hero-interface")
+    .locator(".flagship-interface")
     .evaluate((e) => getComputedStyle(e).transform),
   "none",
 );

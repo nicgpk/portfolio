@@ -307,11 +307,11 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/css/folio.css",
+      "url": "http://127.0.0.1:4183/css/editorial.css",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/css/editorial.css",
+      "url": "http://127.0.0.1:4183/css/folio.css",
       "status": 200
     },
     {
@@ -341,15 +341,23 @@
     {
       "url": "http://127.0.0.1:4183/fonts/ibm-plex-mono.woff2",
       "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/fonts/ibm-plex-serif.woff2",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/work-discount-original.jpg",
+      "status": 200
     }
   ],
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 1176,
-      "cls": 0,
-      "resourceBytes": 134469,
-      "requestCount": 9
+      "lcpMs": 1216,
+      "cls": 0.0005647863247863249,
+      "resourceBytes": 221767,
+      "requestCount": 11
     }
   ],
   "errors": [],

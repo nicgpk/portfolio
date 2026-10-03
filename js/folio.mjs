@@ -37,7 +37,7 @@ if (stage) {
   schedule();
 }
 // Layered reveal applies a brief positional settling to artwork, never to text.
-const art = document.querySelectorAll(".growth-map,.discount-art,.dev-art");
+const art = document.querySelectorAll(".flagship-art,.discount-art,.dev-art");
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
     (entries) =>

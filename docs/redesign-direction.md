@@ -8,11 +8,15 @@ Keep the static architecture and existing routes. Work from main on codex/portfo
 
 Primary reference: https://vanschneider.com/ — expressive typography and project-specific art direction, interpreted through this portfolio's own accommodation and developer artifacts.
 
-Palette: cobalt #1938ed, orange #ff6534, orchid #d7b6ff, paper #f8f9fc, ink #11131b, lime #c9f467. Oversized heavy sans for display, locally hosted IBM Plex Sans for reading, IBM Plex Mono for data. Floating frosted navigation with an opaque fallback.
+Visual language: a refined product gallery, developed as a new local draft after the flat-panel direction was rejected. Product Design Lead and Nicholas Gwee form a compact masthead. Medium-weight local IBM Plex Sans is paired with italic IBM Plex Serif accents. Story text sits on a pale canvas; vivid color belongs to the interfaces and their scenes. Floating frosted navigation retains its opaque fallback.
 
-Signature: Nicholas Gwee is the main headline, with Product Design Lead directly beneath it. The hero pairs this dark identity panel with an orange Partner Growth Programs canvas and a layered discovery interface. Selected work uses dark editorial panels and vivid artifact canvases: orange for growth, orchid for discounting and cobalt for developer workflows. The flagship's eight-program composition avoids repeating its hero interface. Full concepts use dark application frames on their project colors. About pairs lime display typography with an orchid experience panel.
+Partner Growth Programs appears once and leads with an explicitly labeled updated discovery concept, using the existing first three program workflows. Its shaped lime/green backdrop provides depth without enclosing the title and ownership in a painted panel. Discounting pairs the illustrative sequential calculation with its original Net Rate Simulator on an offset purple scene. Developer Portal shows its original review mockup on a crisp dark stage. The two original images are clearly labeled illustrative/example data, not production screenshots. The capture manifest also retains the original growth mockup for comparison.
 
-Scroll motion only changes decorative composition. Text stays readable at first paint. Native scrolling, focus visibility, mobile layout, reduced motion and reduced transparency are baseline requirements. No animation framework or runtime dependencies.
+On mobile, the program preview arrives before ownership details; its actual program cards are prioritized over app-introduction text. Case studies share the lighter typography and retain one colored evidence card each. Full updated concepts remain interactive and separately labeled, with originals accessible.
+
+References: [Tobias van Schneider](https://vanschneider.com/) for expressive typographic contrast and project chapters, [Rauno Freiberg](https://rauno.me/) for concise identity and bold graphic contrast, and [Ryan Spencer](https://rnspencer.com/) for product imagery and clear case-study context. See `portfolio-reference-review.md` for research and limits. These inform the candidate; they do not establish user approval.
+
+Scroll motion changes decorative composition only. Text is immediately readable. Native scrolling, focus visibility, mobile layouts, reduced motion and reduced transparency are baseline requirements. No animation framework or runtime dependencies.
 
 ## Content and concepts
 

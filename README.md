@@ -28,13 +28,15 @@ On macOS/Linux, use `PLAYWRIGHT_BROWSERS_PATH="$PWD/node_modules/.cache/ms-playw
 
 The preview must be running for `npm run review`. It checks six routes at 320, 390, 768 and 1440 pixels, axe WCAG A/AA rules, local links, calculator math, discovery filtering, developer walkthrough, keyboard skip navigation, no-JavaScript content, and reduced-motion/transparency behavior. It also records a throttled Chromium performance observation. `review/checks.json` contains the evidence.
 
-Open http://127.0.0.1:4183/review/index.html for before/after screenshots. `review/before/` holds the original main revision; `review/after/` holds desktop/mobile full pages, selected work and concept details. `review/color-revision/before/` preserves the earlier hero and color direction. Cropped artifact captures hide fixed navigation; full-page captures wait for deferred research images to load.
+Open http://127.0.0.1:4183/review/index.html for before/after screenshots. `review/before/` holds the original main revision; `review/after/` holds desktop/mobile full pages, selected work and concept details. `review/gallery-revision/before/` preserves the rejected flat-panel draft; `review/work-first/before/` preserves the previous identity hero; `review/color-revision/before/` preserves the earlier color direction. Cropped artifact captures hide fixed navigation; full-page captures wait for deferred research images to load.
 
 ## Authoring & content
 
 `scripts/build-pages.py` is the authoring source for the five redesigned pages. It uses Python's standard library and the original page metadata, without third-party Python dependencies. `npm run build:pages` regenerates and formats the pages. CSS and interaction modules are edited directly. The résumé body is preserved; only its navigation is replaced.
 
 Complete existing case studies and product artifacts remain at `originals/`. Their internal routes return to the current portfolio. These snapshots retain the original interface, calculations and source discrepancies; they are explicitly original artifacts, rather than additional updated concepts. IBM Plex fonts are locally hosted with their OFL license.
+
+Home leads with a labeled updated program-discovery concept. Discounting and Developer Portal use rendered captures of original portfolio mockups, with adjacent captions identifying illustrative data and example settings. The provenance manifest is `review/work-artifacts.json`. To regenerate those three JPEGs while the local preview runs, use `node scripts/capture-work-artifacts.mjs`; it uses the project-local browser dependency. Captures preserve the original interface rather than depicting an additional shipped contribution. Reference research and the current product-gallery candidate are documented in `docs/portfolio-reference-review.md`.
 
 The evidence cards preserve reported results and context. The $521M+ figure describes 2025 program portfolio revenue, not a causal result of the 2026 hub. The discount complaint ranking conflicts in the source, and program estimates are not summed or reconciled to the portfolio total. Updated discount calculations fix the original per-night arithmetic discrepancy. Concepts perform local simulations and do not enroll properties, save settings or deploy infrastructure.
 
