@@ -2,6 +2,8 @@
 
 Reference reviewed on 3 October 2026: https://www.browserbase.com/.
 
+Current hero follow-up: the user requested monochrome clouds and cursor interaction. The original pixel landscape described below is now historical; `cloud-art-direction.md` documents its replacement, image provenance and interaction checks. Other decisions below remain applicable.
+
 The reference uses orange headline bands, a white page with fine structural rules, pale blue product surfaces, pixelated landscape illustrations, compact navigation and concise product demonstrations. This portfolio translates that language into an original presentation of Nicholas Gwee's work. Browserbase's brand, copy, assets and business claims are not used.
 
 ## Design decisions

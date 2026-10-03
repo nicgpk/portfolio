@@ -15,7 +15,7 @@ Open http://127.0.0.1:4183/. The server listens only on the local computer. The 
 
 ## Current design
 
-The [Browserbase reference](https://www.browserbase.com/) informs orange headline bands, a framed white layout, fine grid lines, pale blue surfaces and an original pixel landscape. Partner Growth Programs leads the opening. Three horizontal project panels pair concise ownership with updated interface concepts. The original `>` logo remains throughout. Decisions and provenance are in `docs/browserbase-direction.md`.
+The [Browserbase reference](https://www.browserbase.com/) informs orange headline bands, a framed white layout, fine grid lines and pale blue product surfaces. The hero now uses monochrome clouds with subtle desktop cursor drift and light, replacing the earlier pixel landscape. Partner Growth Programs leads the opening. Three horizontal project panels pair concise ownership with updated interface concepts. The original `>` logo remains throughout. Decisions and provenance are in `docs/browserbase-direction.md` and `docs/cloud-art-direction.md`.
 
 Scroll over the gallery with a regular mouse wheel on desktop to advance projects. At either end the page continues scrolling. Horizontal trackpad input and touch stay native; previous/next buttons and focused-gallery Left/Right/Home/End also work. The scrollbar is hidden. Mobile vertical scrolling stays native. No-JavaScript sideways scrolling and case links remain available.
 
@@ -25,9 +25,9 @@ Cases retain problem, role, decisions, evidence and outcomes. Each project has o
 
 ## Authoring
 
-`scripts/build-pages.py` and `scripts/studio_design.py` generate the five portfolio pages from audited content and original metadata. Run `npm run build:pages` after authoring changes. The resume body is preserved separately. The original vector landscape is committed and can be regenerated with `python scripts/build-landscape.py` using Python's standard library.
+`scripts/build-pages.py` and `scripts/studio_design.py` generate the five portfolio pages from audited content and original metadata. Run `npm run build:pages` after authoring changes. The resume body is preserved separately. Responsive generated cloud images are committed in `images/hero-clouds-*.webp`; their prompt and provenance are documented. The earlier vector landscape and generator remain historical source.
 
-`css/studio.css` defines the current shared visual system over existing case and concept styles. `js/showcase.mjs` handles gallery navigation; `js/kinetics.mjs` handles bounded motion and persistent pause. Fonts and review dependencies are project-local. No global package or new runtime dependency is required.
+`css/studio.css` defines the current shared visual system over existing case and concept styles. `js/showcase.mjs` handles gallery navigation; `js/kinetics.mjs` handles bounded motion and persistent pause; `js/clouds.mjs` adds event-driven desktop cloud response. Fonts and review dependencies are project-local. No global package or new runtime dependency is required.
 
 ## Review
 

@@ -4,11 +4,11 @@ Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. Delivery is a 
 
 ## Current visual direction
 
-The [Browserbase reference](https://www.browserbase.com/) informs a framed white layout, orange headline highlights, pale blue surfaces, fine rules and pixel illustration. An original vector landscape gives Partner Growth Programs the flagship opening. The selected-work entry uses a compact program browser, avoiding a repeated hero composition. The original monospace `>` logo remains across all six routes with its 44px home-link target.
+The [Browserbase reference](https://www.browserbase.com/) informs a framed white layout, orange headline highlights, pale blue product surfaces and fine rules. Monochrome cloud artwork now gives Partner Growth Programs the flagship opening, replacing the colored pixel landscape. Desktop cursor movement adds slight drift and local light while text and labels stay stationary. The selected-work entry uses a compact program browser, avoiding a repeated hero composition. The original monospace `>` logo remains across all six routes with its 44px home-link target.
 
 Horizontal project compositions pair role and ownership with revised product examples. Growth has a searchable catalog, category filters and expandable mechanics for the eight existing programs. Discounting uses an ordered financial receipt with exact deductions, remaining balances and proportional bars. The approved dark Developer Portal concept retains its environment, rollout and review workflow. Shared case headers, colored evidence panels, leadership, experience, archive and contact follow the new visual system.
 
-All concepts are labeled. The previews use existing content: Promotions, Agoda Growth Program and Boost Rank; $150 × 0.85 × 0.90 = $114.75 before commission and taxes; staging-mesh, 24 cores, 24 Gi and the original Canary settings. The landscape is original decorative artwork, not an outcome chart. Rendering uses HTML/CSS/SVG with local fonts and no new runtime dependency. Design decisions and provenance are in `../docs/browserbase-direction.md`.
+All concepts are labeled. The previews use existing content: Promotions, Agoda Growth Program and Boost Rank; $150 × 0.85 × 0.90 = $114.75 before commission and taxes; staging-mesh, 24 cores, 24 Gi and the original Canary settings. The cloud image is generated decorative artwork, not a project artifact. Responsive WebP assets are 38KB/14KB. Rendering uses HTML/CSS/SVG with local fonts and no new runtime dependency. Design decisions and provenance are in `../docs/browserbase-direction.md` and `../docs/cloud-art-direction.md`.
 
 ## Scrolling and access
 
@@ -31,7 +31,8 @@ Portfolio revenue remains business scale rather than a causal result of the late
 - `showcase-checks.json`: six viewport sizes including short landscape, native horizontal gestures, desktop wheel behavior, buttons, keyboard focus, resize, hidden scrollbar, no JavaScript, pause and preferences. Discount bars match the remaining-rate proportions; decorative covers have no focusable controls.
 - `browserbase-revision/wheel-after.json`: regular wheel advances projects in normal and reduced motion; document position stays stable inside the gallery and releases at both ends. The reproduced pre-fix failure is in `wheel-before.json`.
 - `kinetic-checks.json`: all eight keyboard program selections, calculation edge cases, workflow stages, settled motion and persistent pause. Original-artifact checks pass for seven playbook links, images, Escape and restored focus.
-- Local mobile cold-cache observation: LCP 2.1 seconds, CLS 0.0060, 349,322 resource bytes and 13 requests at 390px, 4× CPU slowdown, 1.6Mbps and 150ms latency. This is one local Chromium lab observation, not a production score.
+- Cloud-specific checks in `cloud-revision/checks.json` pass for cursor response, stationary text/labels, idle frame settling, pointer exit, pause, live reduced motion, touch/no-JavaScript and forced colors. Screenshots and a cursor recording are in `cloud-revision/`.
+- Latest local mobile cold-cache observation: LCP 1.672 seconds, CLS 0.0060, 241,964 resource bytes and 14 requests at 390px, 4× CPU slowdown, 1.6Mbps and 150ms latency. This is one local Chromium lab observation, not a production score.
 - Before/after screenshots and motion recordings are linked from `index.html`. The immediately preceding design is in `browserbase-revision/before/`; current openings and covers are in `browserbase-revision/after/`, with full routes and concepts in `after/`.
 
 ## Remaining limitations

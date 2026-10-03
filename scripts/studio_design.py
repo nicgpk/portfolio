@@ -3,10 +3,10 @@ from html import escape
 
 
 def flagship_hero():
-    return '''<section class="studio-hero" aria-labelledby="hero-title">
+    return '''<section class="studio-hero" data-cloud-scene aria-labelledby="hero-title">
 <div class="hero-overline"><span>Nicholas Gwee · Product Design Lead</span><span>Bangkok, Thailand</span></div>
 <div class="hero-message"><p class="eyebrow">Featured work · Agoda</p><h1 id="hero-title">A clearer path<br><span>to partner growth.</span></h1><p class="hero-description">Design strategy, information architecture and interaction design for Agoda’s partner growth program suite.</p><div class="hero-actions"><a class="studio-button" href="partner-growth-programs.html">Explore Partner Growth Programs <span aria-hidden="true">↗</span></a><a class="hero-secondary" href="#work">More selected work <span aria-hidden="true">↓</span></a></div></div>
-<div class="hero-landscape" aria-hidden="true"><img src="images/program-landscape.svg" width="1200" height="300" fetchpriority="high" alt=""><span class="landscape-label landscape-label--one">Promotions <b>↗</b></span><span class="landscape-label landscape-label--two">Agoda Growth Program <b>↗</b></span><span class="landscape-label landscape-label--three">Boost Rank <b>↗</b></span><svg class="landscape-signal" viewBox="0 0 1200 300"><path d="M100 270H285V206H590V130H840V70H1130"/></svg></div>
+<div class="hero-landscape" aria-hidden="true"><div class="cloud-atmosphere"><img src="images/hero-clouds-1600.webp" srcset="images/hero-clouds-800.webp 800w, images/hero-clouds-1600.webp 1600w" sizes="(max-width: 600px) 720px, (max-width: 1280px) 112vw, 1440px" width="1600" height="533" fetchpriority="high" alt=""></div><div class="cloud-light"></div><span class="landscape-label landscape-label--one">Promotions <b>↗</b></span><span class="landscape-label landscape-label--two">Agoda Growth Program <b>↗</b></span><span class="landscape-label landscape-label--three">Boost Rank <b>↗</b></span><svg class="landscape-signal" viewBox="0 0 1200 300"><path d="M100 270H285V206H590V130H840V70H1130"/></svg></div>
 <div class="hero-footnote"><span>Partner Growth Programs</span><span>One hub. Eight existing programs.</span><span>Product strategy + interface craft</span></div></section>'''
 
 

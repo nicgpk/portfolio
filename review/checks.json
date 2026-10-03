@@ -303,6 +303,10 @@
   ],
   "requests": [
     {
+      "url": "http://127.0.0.1:4183/images/hero-clouds-800.webp",
+      "status": 200
+    },
+    {
       "url": "http://127.0.0.1:4183/index.html",
       "status": 200
     },
@@ -331,7 +335,7 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/images/program-landscape.svg",
+      "url": "http://127.0.0.1:4183/images/hero-clouds-800.webp",
       "status": 200
     },
     {
@@ -339,11 +343,19 @@
       "status": 200
     },
     {
+      "url": "http://127.0.0.1:4183/fonts/ibm-plex-sans.woff2",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/fonts/ibm-plex-mono.woff2",
+      "status": 200
+    },
+    {
       "url": "http://127.0.0.1:4183/js/calculations.mjs",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/fonts/ibm-plex-sans.woff2",
+      "url": "http://127.0.0.1:4183/js/clouds.mjs",
       "status": 200
     },
     {
@@ -353,19 +365,15 @@
     {
       "url": "http://127.0.0.1:4183/js/showcase.mjs",
       "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/fonts/ibm-plex-mono.woff2",
-      "status": 200
     }
   ],
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 2100,
+      "lcpMs": 1672,
       "cls": 0.006021354166666666,
-      "resourceBytes": 349322,
-      "requestCount": 13
+      "resourceBytes": 241964,
+      "requestCount": 14
     }
   ],
   "errors": [],
