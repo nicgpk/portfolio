@@ -138,14 +138,23 @@ select:focus-visible {
   text-decoration: none;
 }
 .site-nav .wordmark {
-  font-family: var(--display);
-  font-size: 28px;
-  letter-spacing: -0.08em;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  flex-shrink: 0;
+  font: 700 16px/1 var(--mono);
+  letter-spacing: 0;
+  color: #1a1a16;
+  transition: opacity 0.2s;
 }
-.wordmark span {
-  font-size: 18px;
-  vertical-align: top;
+.site-nav .wordmark:hover {
+  opacity: 0.6;
+}
+.wordmark .header-logo-mark {
+  font: inherit;
+  line-height: 1;
   letter-spacing: 0;
 }
 .site-nav nav {
@@ -1617,9 +1626,6 @@ select:focus-visible {
     padding: 6px 8px 6px 16px;
     gap: 12px;
     border-radius: 18px;
-  }
-  .site-nav .wordmark {
-    font-size: 25px;
   }
   .site-nav nav {
     gap: 16px;

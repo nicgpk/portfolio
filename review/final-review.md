@@ -6,6 +6,8 @@ Branch: codex/portfolio-bold-redesign, based on main 9cd719f. Delivery remains a
 
 Home presents three large interface compositions in a native horizontal gallery with a hidden scrollbar. The latest feedback restores this format while keeping the approved product examples. Growth and discount covers and functional case-study examples use a structured program catalog and a financial workbench. Identity, type, navigation, roles, ownership, cases and contact/resume links remain. Partner Growth Programs is first; its discovery cover differs from the index's suite diagram.
 
+The original monospace `>` logo is restored across all six routes, including the resume, with its 44px home-link target. The shared authoring source retains the original mark when pages are regenerated.
+
 The covers use existing workflow content: Promotions, Agoda Growth Program and Boost Rank; $150 × 0.85 × 0.90 = $114.75 before commission and taxes; staging-mesh, 24 cores, 24 Gi and original Canary settings. All are labeled Updated concept. Rendering uses HTML/CSS/SVG with no generated-icon requests or new runtime package. The previous gallery is preserved in commercial-revision/before/.
 
 Phones get readable columns. Text, numbers and settings stay stationary; selected lines and proportional bars have bounded entry responses. Full interactions and contextual evidence remain in their existing routes.
@@ -22,6 +24,7 @@ Pause, OS reduced motion, forced colors and opaque reduced-transparency navigati
 
 ## Evidence
 
+- Logo follow-up: logo-checks.json records all six routes at 320/390/1440 pixels, original mark/style, 44px target, keyboard home access, navigation fit and zero automated navigation WCAG A/AA violations. Opening screenshots are refreshed; the broader interface evidence below is from the preceding interface review.
 - Page generation and four calculation tests pass.
 - checks.json and layout-checks.json cover six routes at 320/390/768/1440: automated WCAG A/AA, overflow, links, browser errors, functional concepts, focus contrast and local throttled performance.
 - showcase-checks.json covers native horizontal gestures, hidden scrollbar, buttons/keyboard navigation, independent vertical page movement, no global overflow, six viewport sizes including short landscape, visible focused titles, no JavaScript, pause, reduced motion and opaque navigation.

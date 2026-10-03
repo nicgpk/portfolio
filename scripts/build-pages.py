@@ -18,7 +18,7 @@ def head(name):
 
 def nav(active=''):
     return f'''<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-nav"><a class="wordmark" href="index.html" aria-label="Nicholas Gwee home">ng<span aria-hidden="true">↗</span></a>
+<header class="site-nav"><a class="wordmark" href="index.html" aria-label="Nicholas Gwee home"><span class="header-logo-mark" aria-hidden="true">&gt;</span></a>
 <nav aria-label="Main navigation"><a href="projects.html" {'aria-current="page"' if active=='work' else ''}>Work</a><a href="index.html#about" {'aria-current="page"' if active=='about' else ''}>About</a><a href="resume.html" {'aria-current="page"' if active=='resume' else ''}>Resume</a></nav>
 <a class="nav-contact" href="mailto:nicholasgweepk@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a></header><button type="button" class="motion-control" data-motion-toggle aria-pressed="false" disabled>Motion off</button>'''
 

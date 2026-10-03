@@ -1,0 +1,476 @@
+{
+  "passed": true,
+  "checkedAt": "2026-10-03T06:23:17.741Z",
+  "cases": [
+    {
+      "route": "index",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 86.6875,
+          "right": 214.875
+        },
+        {
+          "left": 228.546875,
+          "right": 299
+        }
+      ],
+      "viewport": 320,
+      "pageWidth": 320,
+      "keyboardHome": true
+    },
+    {
+      "route": "projects",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 86.6875,
+          "right": 214.875
+        },
+        {
+          "left": 228.546875,
+          "right": 299
+        }
+      ],
+      "viewport": 320,
+      "pageWidth": 320,
+      "keyboardHome": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 86.6875,
+          "right": 214.875
+        },
+        {
+          "left": 228.546875,
+          "right": 299
+        }
+      ],
+      "viewport": 320,
+      "pageWidth": 320,
+      "keyboardHome": true
+    },
+    {
+      "route": "discounting",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 86.6875,
+          "right": 214.875
+        },
+        {
+          "left": 228.546875,
+          "right": 299
+        }
+      ],
+      "viewport": 320,
+      "pageWidth": 320,
+      "keyboardHome": true
+    },
+    {
+      "route": "dev-portal",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 86.6875,
+          "right": 214.875
+        },
+        {
+          "left": 228.546875,
+          "right": 299
+        }
+      ],
+      "viewport": 320,
+      "pageWidth": 320,
+      "keyboardHome": true
+    },
+    {
+      "route": "resume",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 86.6875,
+          "right": 214.875
+        },
+        {
+          "left": 228.546875,
+          "right": 299
+        }
+      ],
+      "viewport": 320,
+      "pageWidth": 320,
+      "keyboardHome": true
+    },
+    {
+      "route": "index",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 106.859375,
+          "right": 243.046875
+        },
+        {
+          "left": 276.90625,
+          "right": 369
+        }
+      ],
+      "viewport": 390,
+      "pageWidth": 390,
+      "keyboardHome": true
+    },
+    {
+      "route": "projects",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 106.859375,
+          "right": 243.046875
+        },
+        {
+          "left": 276.90625,
+          "right": 369
+        }
+      ],
+      "viewport": 390,
+      "pageWidth": 390,
+      "keyboardHome": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 106.859375,
+          "right": 243.046875
+        },
+        {
+          "left": 276.90625,
+          "right": 369
+        }
+      ],
+      "viewport": 390,
+      "pageWidth": 390,
+      "keyboardHome": true
+    },
+    {
+      "route": "discounting",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 106.859375,
+          "right": 243.046875
+        },
+        {
+          "left": 276.90625,
+          "right": 369
+        }
+      ],
+      "viewport": 390,
+      "pageWidth": 390,
+      "keyboardHome": true
+    },
+    {
+      "route": "dev-portal",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 106.859375,
+          "right": 243.046875
+        },
+        {
+          "left": 276.90625,
+          "right": 369
+        }
+      ],
+      "viewport": 390,
+      "pageWidth": 390,
+      "keyboardHome": true
+    },
+    {
+      "route": "resume",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 29,
+          "right": 73
+        },
+        {
+          "left": 106.859375,
+          "right": 243.046875
+        },
+        {
+          "left": 276.90625,
+          "right": 369
+        }
+      ],
+      "viewport": 390,
+      "pageWidth": 390,
+      "keyboardHome": true
+    },
+    {
+      "route": "index",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 395,
+          "right": 439
+        },
+        {
+          "left": 600.015625,
+          "right": 773.578125
+        },
+        {
+          "left": 934.578125,
+          "right": 1057
+        }
+      ],
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "keyboardHome": true
+    },
+    {
+      "route": "projects",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 395,
+          "right": 439
+        },
+        {
+          "left": 600.015625,
+          "right": 773.578125
+        },
+        {
+          "left": 934.578125,
+          "right": 1057
+        }
+      ],
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "keyboardHome": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 395,
+          "right": 439
+        },
+        {
+          "left": 600.015625,
+          "right": 773.578125
+        },
+        {
+          "left": 934.578125,
+          "right": 1057
+        }
+      ],
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "keyboardHome": true
+    },
+    {
+      "route": "discounting",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 395,
+          "right": 439
+        },
+        {
+          "left": 600.015625,
+          "right": 773.578125
+        },
+        {
+          "left": 934.578125,
+          "right": 1057
+        }
+      ],
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "keyboardHome": true
+    },
+    {
+      "route": "dev-portal",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 395,
+          "right": 439
+        },
+        {
+          "left": 600.015625,
+          "right": 773.578125
+        },
+        {
+          "left": 934.578125,
+          "right": 1057
+        }
+      ],
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "keyboardHome": true
+    },
+    {
+      "route": "resume",
+      "width": 44,
+      "height": 44,
+      "font": "PlexMono, monospace",
+      "size": "16px",
+      "weight": "700",
+      "spacing": "normal",
+      "navBounds": [
+        {
+          "left": 395,
+          "right": 439
+        },
+        {
+          "left": 600.015625,
+          "right": 773.578125
+        },
+        {
+          "left": 934.578125,
+          "right": 1057
+        }
+      ],
+      "viewport": 1440,
+      "pageWidth": 1440,
+      "keyboardHome": true
+    }
+  ],
+  "navigationAxeViolations": 0,
+  "limitations": ["Chromium only."]
+}
