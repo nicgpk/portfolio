@@ -5,48 +5,7 @@
       "width": 320,
       "viewport": 320,
       "scrollWidth": 320,
-      "overflow": [
-        {
-          "tag": "ARTICLE",
-          "cls": "rail-card rail-card--discount"
-        },
-        {
-          "tag": "A",
-          "cls": "rail-card-link"
-        },
-        {
-          "tag": "DIV",
-          "cls": "rail-card-copy"
-        },
-        {
-          "tag": "P",
-          "cls": "rail-role"
-        },
-        {
-          "tag": "H3",
-          "cls": ""
-        },
-        {
-          "tag": "P",
-          "cls": "rail-ownership"
-        },
-        {
-          "tag": "SPAN",
-          "cls": "rail-case-link"
-        },
-        {
-          "tag": "SPAN",
-          "cls": ""
-        },
-        {
-          "tag": "DIV",
-          "cls": "rail-card-art"
-        },
-        {
-          "tag": "P",
-          "cls": "rail-concept-label"
-        }
-      ]
+      "overflow": []
     },
     {
       "name": "projects",
@@ -88,48 +47,7 @@
       "width": 390,
       "viewport": 390,
       "scrollWidth": 390,
-      "overflow": [
-        {
-          "tag": "ARTICLE",
-          "cls": "rail-card rail-card--discount"
-        },
-        {
-          "tag": "A",
-          "cls": "rail-card-link"
-        },
-        {
-          "tag": "DIV",
-          "cls": "rail-card-copy"
-        },
-        {
-          "tag": "P",
-          "cls": "rail-role"
-        },
-        {
-          "tag": "H3",
-          "cls": ""
-        },
-        {
-          "tag": "P",
-          "cls": "rail-ownership"
-        },
-        {
-          "tag": "SPAN",
-          "cls": "rail-case-link"
-        },
-        {
-          "tag": "SPAN",
-          "cls": ""
-        },
-        {
-          "tag": "DIV",
-          "cls": "rail-card-art"
-        },
-        {
-          "tag": "P",
-          "cls": "rail-concept-label"
-        }
-      ]
+      "overflow": []
     },
     {
       "name": "projects",
@@ -171,48 +89,7 @@
       "width": 768,
       "viewport": 768,
       "scrollWidth": 768,
-      "overflow": [
-        {
-          "tag": "ARTICLE",
-          "cls": "rail-card rail-card--discount"
-        },
-        {
-          "tag": "A",
-          "cls": "rail-card-link"
-        },
-        {
-          "tag": "DIV",
-          "cls": "rail-card-copy"
-        },
-        {
-          "tag": "P",
-          "cls": "rail-role"
-        },
-        {
-          "tag": "H3",
-          "cls": ""
-        },
-        {
-          "tag": "P",
-          "cls": "rail-ownership"
-        },
-        {
-          "tag": "SPAN",
-          "cls": "rail-case-link"
-        },
-        {
-          "tag": "SPAN",
-          "cls": ""
-        },
-        {
-          "tag": "DIV",
-          "cls": "rail-card-art"
-        },
-        {
-          "tag": "P",
-          "cls": "rail-concept-label"
-        }
-      ]
+      "overflow": []
     },
     {
       "name": "projects",
@@ -254,48 +131,7 @@
       "width": 1440,
       "viewport": 1440,
       "scrollWidth": 1440,
-      "overflow": [
-        {
-          "tag": "ARTICLE",
-          "cls": "rail-card rail-card--discount"
-        },
-        {
-          "tag": "A",
-          "cls": "rail-card-link"
-        },
-        {
-          "tag": "DIV",
-          "cls": "rail-card-copy"
-        },
-        {
-          "tag": "P",
-          "cls": "rail-role"
-        },
-        {
-          "tag": "H3",
-          "cls": ""
-        },
-        {
-          "tag": "P",
-          "cls": "rail-ownership"
-        },
-        {
-          "tag": "DIV",
-          "cls": "rail-card-art"
-        },
-        {
-          "tag": "P",
-          "cls": "rail-concept-label"
-        },
-        {
-          "tag": "DIV",
-          "cls": "rail-rate-art graphic-scene"
-        },
-        {
-          "tag": "DIV",
-          "cls": "rate-ladder"
-        }
-      ]
+      "overflow": []
     },
     {
       "name": "projects",
@@ -479,15 +315,7 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/css/dimensional.css",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/images/dimensional/promotion.webp",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/images/dimensional/growth.webp",
+      "url": "http://127.0.0.1:4183/css/showcase.css",
       "status": 200
     },
     {
@@ -495,35 +323,11 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/images/dimensional/boost.webp",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/images/dimensional/prepaid.webp",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/images/dimensional/distribution.webp",
-      "status": 200
-    },
-    {
       "url": "http://127.0.0.1:4183/js/calculations.mjs",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/fonts/ibm-plex-sans.woff2",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/images/dimensional/placement.webp",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/images/dimensional/rates.webp",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/images/dimensional/storefront.webp",
+      "url": "http://127.0.0.1:4183/js/showcase.mjs",
       "status": 200
     },
     {
@@ -531,11 +335,7 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/js/horizontal-work.mjs",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/images/dimensional/property.webp",
+      "url": "http://127.0.0.1:4183/fonts/ibm-plex-sans.woff2",
       "status": 200
     },
     {
@@ -546,10 +346,10 @@
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 1504,
-      "cls": 0.017952314814814817,
-      "resourceBytes": 271349,
-      "requestCount": 18
+      "lcpMs": 1468,
+      "cls": 0,
+      "resourceBytes": 157407,
+      "requestCount": 9
     }
   ],
   "errors": [],

@@ -12,9 +12,9 @@ Reviewed on 3 October 2026. The user explicitly chose a Rauno-inspired direction
 
 ## Applied direction
 
-Three original graphics explain the existing work: an eight-program property hub, a sequential discount ladder and an environment-to-review signal path. Color identifies the project; shared type, rules and motion timing maintain consistency. Full updated interfaces and original artifacts remain accessible from the case studies.
+Three interface covers explain the existing work: property growth discovery, a sequential discount ledger and a deployment preview. Color identifies the project; shared type and motion timing maintain consistency. Full updated interfaces and originals remain accessible from the cases.
 
-Rauno's current home uses large white cards on gray, with oversized type, isolated graphics and native vertical document scrolling mapped to horizontal movement. The user explicitly requested that format. This portfolio now adopts a horizontally moving project row on desktop, native swipe scrolling on mobile, and unpinned horizontal fallbacks for reduced motion and no JavaScript. It adds explicit card controls, visible focus, selected-card retention on resize and a direct All work route. Craft study videos were observed starting and stopping as tiles entered and left the viewport. This portfolio uses bounded entry/input responses and stops its animation-frame loop when settled, offscreen or hidden, with explicit pause and reduced-motion controls.
+Rauno's home uses large white cards on gray, with oversized type and isolated graphics. The user tried that horizontal format, then rejected its scrolling behavior in this portfolio. The current version takes clarity and focused interface detail from the reference while using a native vertical project sequence. Craft videos were previously observed starting/stopping with viewport visibility. This portfolio uses bounded entry/input responses, pause/reduced motion, and an index spring that stops at rest.
 
 Earlier [Tobias van Schneider](https://vanschneider.com/) and [Ryan Spencer](https://rnspencer.com/) research supported distinct project chapters and clear ownership. The current visual reference is Rauno, following the user's updated preference.
 
@@ -26,4 +26,8 @@ Local desktop/mobile screenshots, a recorded interaction review and machine-read
 
 ## Horizontal follow-up study
 
-The current home was measured again in separate Chromium. Its base cards are 1200 by 720 with 40px gaps; desktop scrolling changes horizontal translation and scale. Labels retain a readable size. Mobile uses native horizontal movement with smaller cards. This portfolio adapts the card sequence and native-document mapping while keeping its ownership text readable, its card size stable, and vertical content after the projects. Reference captures are local research only and are not committed as portfolio assets.
+An earlier study measured Rauno's cards at 1200 by 720 with 40px gaps, and observed horizontal translation/scale driven by desktop scrolling. That mapping was implemented here and superseded after user feedback. Reference captures remain local research, rather than portfolio assets.
+
+## Latest review
+
+Home and Craft were visually inspected again on 3 October 2026 through the in-app browser, alongside a fresh read of primary pages. Their disciplined type, quiet surfaces and focused interface detail guide the current compositions. Vertical reading order is our response to the user's feedback; it is not presented as Rauno's recommended navigation.

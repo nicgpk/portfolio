@@ -249,7 +249,11 @@ for (const name of [
   }
 }
 for (const [route, control, surface] of [
-  ["index", ".rail-card:first-child .rail-card-link", ".rail-card"],
+  [
+    "index",
+    ".showcase-card:first-of-type .showcase-card-link",
+    ".portfolio-home",
+  ],
   ["partner-growth-programs", ".evidence-card summary", ".evidence-card"],
   ["discounting", ".evidence-card summary", ".evidence-card"],
   ["dev-portal", ".evidence-card summary", ".evidence-card"],
@@ -331,8 +335,8 @@ assert.equal(
 );
 assert.equal(
   await page
-    .locator(".kinetic-disc")
-    .evaluate((e) => getComputedStyle(e).transform),
+    .locator(".cover-program--selected")
+    .evaluate((e) => getComputedStyle(e, "::before").animationName),
   "none",
 );
 const session = await page.context().newCDPSession(page);

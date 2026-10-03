@@ -112,7 +112,7 @@
 
     <link rel="stylesheet" href="css/folio.css" />
     <link rel="stylesheet" href="css/editorial.css" />
-    <link rel="stylesheet" href="css/dimensional.css" />
+    <link rel="stylesheet" href="css/showcase.css" />
     <link
       rel="preload"
       as="font"
@@ -159,514 +159,221 @@
         </div>
       </section>
       <section
-        class="selected-work project-rail"
+        class="selected-work project-showcase"
         id="work"
-        data-project-rail
         aria-labelledby="work-title"
       >
-        <div class="rail-stage">
-          <div class="rail-toolbar">
-            <h2 id="work-title">Selected work</h2>
-            <div class="rail-navigation">
-              <span data-rail-status aria-live="polite">1 of 3</span
-              ><button
-                type="button"
-                data-rail-prev
-                aria-label="Previous project"
-                disabled
-              >
-                <span aria-hidden="true">←</span></button
-              ><button
-                type="button"
-                data-rail-next
-                aria-label="Next project"
-                disabled
-              >
-                <span aria-hidden="true">→</span></button
-              ><a href="projects.html">All work ↗</a>
+        <div class="showcase-toolbar">
+          <h2 id="work-title">Selected work</h2>
+          <a href="projects.html">All work <span aria-hidden="true">↗</span></a>
+        </div>
+        <article class="showcase-card showcase-card--growth">
+          <a class="showcase-card-link" href="partner-growth-programs.html"
+            ><div class="showcase-card-header">
+              <div class="showcase-heading">
+                <p class="showcase-role">
+                  Product Design Lead · Partner experience
+                </p>
+                <h3>Partner Growth Programs.</h3>
+              </div>
+              <div class="showcase-summary">
+                <p>
+                  I owned design strategy, information architecture and
+                  interaction design for the partner growth program suite.
+                </p>
+                <span class="showcase-case-link"
+                  >Read the case study <span aria-hidden="true">↗</span></span
+                >
+              </div>
+            </div></a
+          >
+          <div
+            class="showcase-art showcase-art--growth"
+            data-cover-scene
+            aria-hidden="true"
+          >
+            <div class="cover-browser">
+              <div class="cover-chrome">
+                <span class="cover-app-mark">a<span>●</span></span
+                ><strong>Partner growth</strong><span>Maison Solara</span>
+              </div>
+              <div class="cover-discovery">
+                <div class="cover-discovery-title">
+                  <div>
+                    <p>Grow your property</p>
+                    <h4>Find your next<br />growth opportunity.</h4>
+                  </div>
+                  <span class="cover-program-count">8 programs</span>
+                </div>
+                <div class="cover-search">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="10" cy="10" r="6" />
+                    <path d="m15 15 5 5" /></svg
+                  ><span>Search programs</span>
+                </div>
+                <div class="cover-programs">
+                  <div class="cover-program cover-program--selected">
+                    <svg viewBox="0 0 48 48">
+                      <use href="images/program-symbols.svg#promotion" />
+                    </svg>
+                    <div>
+                      <small>Conversion</small><strong>Promotions</strong>
+                    </div>
+                    <span>↗</span>
+                  </div>
+                  <div class="cover-program-detail">
+                    Choose a discount type and depth.<br />Review the existing
+                    program mechanics.
+                  </div>
+                  <div class="cover-program">
+                    <svg viewBox="0 0 48 48">
+                      <use href="images/program-symbols.svg#growth" />
+                    </svg>
+                    <div>
+                      <small>Marketing</small
+                      ><strong>Agoda Growth Program</strong>
+                    </div>
+                    <span>↗</span>
+                  </div>
+                  <div class="cover-program">
+                    <svg viewBox="0 0 48 48">
+                      <use href="images/program-symbols.svg#boost" />
+                    </svg>
+                    <div>
+                      <small>Visibility</small><strong>Boost Rank</strong>
+                    </div>
+                    <span>↗</span>
+                  </div>
+                </div>
+                <div class="cover-program-footer">
+                  <span>Explore all programs</span><span>→</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div
-            class="rail-viewport"
-            data-rail-viewport
-            tabindex="0"
-            role="region"
-            aria-label="Selected projects, horizontal gallery"
-            aria-describedby="rail-instructions"
-          >
-            <article class="rail-card rail-card--growth" data-rail-card>
-              <a class="rail-card-link" href="partner-growth-programs.html"
-                ><div class="rail-card-copy">
-                  <p class="rail-role">
-                    Product Design Lead · Partner experience
-                  </p>
-                  <h3>
-                    Partner Growth<br />
-                    Programs.
-                  </h3>
-                  <p class="rail-ownership">
-                    I owned design strategy, information architecture and
-                    interaction design for the partner growth program suite.
-                  </p>
-                  <span class="rail-case-link"
-                    >Read the case study <span aria-hidden="true">↗</span></span
-                  >
-                </div>
-                <div class="rail-card-art">
-                  <p class="rail-concept-label">
-                    Updated concept · Eight programs. One property-centered hub.
-                  </p>
-                  <div class="flagship-art graphic-scene" data-kinetic-scene>
-                    <span class="graphic-label"
-                      >Updated concept · Eight programs. One property-centered
-                      hub.</span
-                    ><svg
-                      class="kinetic-disc"
-                      data-kinetic
-                      viewBox="0 0 600 600"
-                      aria-hidden="true"
-                    >
-                      <circle class="growth-disc" cx="300" cy="300" r="280" />
-                      <path
-                        class="program-ray selected"
-                        data-ray="0"
-                        d="M300 300 L300 86"
-                      />
-                      <path
-                        class="program-ray"
-                        data-ray="1"
-                        d="M300 300 L450 149"
-                      />
-                      <path
-                        class="program-ray"
-                        data-ray="2"
-                        d="M300 300 L514 300"
-                      />
-                      <path
-                        class="program-ray"
-                        data-ray="3"
-                        d="M300 300 L450 450"
-                      />
-                      <path
-                        class="program-ray"
-                        data-ray="4"
-                        d="M300 300 L300 514"
-                      />
-                      <path
-                        class="program-ray"
-                        data-ray="5"
-                        d="M300 300 L149 450"
-                      />
-                      <path
-                        class="program-ray"
-                        data-ray="6"
-                        d="M300 300 L86 300"
-                      />
-                      <path
-                        class="program-ray"
-                        data-ray="7"
-                        d="M300 300 L149 149"
-                      />
-                      <g
-                        class="program-node selected"
-                        data-symbol="0"
-                        transform="translate(300 86)"
-                      >
-                        <circle r="58" />
-                        <use
-                          class="program-vector"
-                          href="images/program-symbols.svg#promotion"
-                          x="-23"
-                          y="-23"
-                          width="46"
-                          height="46"
-                        />
-                        <image
-                          class="program-object"
-                          href="images/dimensional/promotion.webp"
-                          x="-52"
-                          y="-52"
-                          width="104"
-                          height="104"
-                          preserveAspectRatio="xMidYMid meet"
-                        />
-                      </g>
-                      <g
-                        class="program-node"
-                        data-symbol="1"
-                        transform="translate(450 149)"
-                      >
-                        <circle r="58" />
-                        <use
-                          class="program-vector"
-                          href="images/program-symbols.svg#growth"
-                          x="-23"
-                          y="-23"
-                          width="46"
-                          height="46"
-                        />
-                        <image
-                          class="program-object"
-                          href="images/dimensional/growth.webp"
-                          x="-52"
-                          y="-52"
-                          width="104"
-                          height="104"
-                          preserveAspectRatio="xMidYMid meet"
-                        />
-                      </g>
-                      <g
-                        class="program-node"
-                        data-symbol="2"
-                        transform="translate(514 300)"
-                      >
-                        <circle r="58" />
-                        <use
-                          class="program-vector"
-                          href="images/program-symbols.svg#boost"
-                          x="-23"
-                          y="-23"
-                          width="46"
-                          height="46"
-                        />
-                        <image
-                          class="program-object"
-                          href="images/dimensional/boost.webp"
-                          x="-52"
-                          y="-52"
-                          width="104"
-                          height="104"
-                          preserveAspectRatio="xMidYMid meet"
-                        />
-                      </g>
-                      <g
-                        class="program-node"
-                        data-symbol="3"
-                        transform="translate(450 450)"
-                      >
-                        <circle r="58" />
-                        <use
-                          class="program-vector"
-                          href="images/program-symbols.svg#prepaid"
-                          x="-23"
-                          y="-23"
-                          width="46"
-                          height="46"
-                        />
-                        <image
-                          class="program-object"
-                          href="images/dimensional/prepaid.webp"
-                          x="-52"
-                          y="-52"
-                          width="104"
-                          height="104"
-                          preserveAspectRatio="xMidYMid meet"
-                        />
-                      </g>
-                      <g
-                        class="program-node"
-                        data-symbol="4"
-                        transform="translate(300 514)"
-                      >
-                        <circle r="58" />
-                        <use
-                          class="program-vector"
-                          href="images/program-symbols.svg#distribution"
-                          x="-23"
-                          y="-23"
-                          width="46"
-                          height="46"
-                        />
-                        <image
-                          class="program-object"
-                          href="images/dimensional/distribution.webp"
-                          x="-52"
-                          y="-52"
-                          width="104"
-                          height="104"
-                          preserveAspectRatio="xMidYMid meet"
-                        />
-                      </g>
-                      <g
-                        class="program-node"
-                        data-symbol="5"
-                        transform="translate(149 450)"
-                      >
-                        <circle r="58" />
-                        <use
-                          class="program-vector"
-                          href="images/program-symbols.svg#placement"
-                          x="-23"
-                          y="-23"
-                          width="46"
-                          height="46"
-                        />
-                        <image
-                          class="program-object"
-                          href="images/dimensional/placement.webp"
-                          x="-52"
-                          y="-52"
-                          width="104"
-                          height="104"
-                          preserveAspectRatio="xMidYMid meet"
-                        />
-                      </g>
-                      <g
-                        class="program-node"
-                        data-symbol="6"
-                        transform="translate(86 300)"
-                      >
-                        <circle r="58" />
-                        <use
-                          class="program-vector"
-                          href="images/program-symbols.svg#rates"
-                          x="-23"
-                          y="-23"
-                          width="46"
-                          height="46"
-                        />
-                        <image
-                          class="program-object"
-                          href="images/dimensional/rates.webp"
-                          x="-52"
-                          y="-52"
-                          width="104"
-                          height="104"
-                          preserveAspectRatio="xMidYMid meet"
-                        />
-                      </g>
-                      <g
-                        class="program-node"
-                        data-symbol="7"
-                        transform="translate(149 149)"
-                      >
-                        <circle r="58" />
-                        <use
-                          class="program-vector"
-                          href="images/program-symbols.svg#storefront"
-                          x="-23"
-                          y="-23"
-                          width="46"
-                          height="46"
-                        />
-                        <image
-                          class="program-object"
-                          href="images/dimensional/storefront.webp"
-                          x="-52"
-                          y="-52"
-                          width="104"
-                          height="104"
-                          preserveAspectRatio="xMidYMid meet"
-                        />
-                      </g>
-                      <g class="property-node">
-                        <rect
-                          class="program-vector"
-                          x="260"
-                          y="260"
-                          width="80"
-                          height="80"
-                        />
-                        <path
-                          class="program-vector"
-                          d="m280 299 20-17 20 17v24h-40Zm15 24v-15h10v15"
-                        />
-                        <image
-                          class="property-object"
-                          href="images/dimensional/property.webp"
-                          x="218"
-                          y="210"
-                          width="164"
-                          height="164"
-                          preserveAspectRatio="xMidYMid meet"
-                        />
-                        <text x="300" y="393" text-anchor="middle">
-                          Property
-                        </text>
-                      </g>
-                    </svg>
-                  </div>
-                </div></a
-              >
-            </article>
-            <article class="rail-card rail-card--discount" data-rail-card>
-              <a class="rail-card-link" href="discounting.html"
-                ><div class="rail-card-copy">
-                  <p class="rail-role">
-                    Senior Product Designer · Pricing &amp; promotions
-                  </p>
-                  <h3>
-                    Discounting<br />
-                    2.0.
-                  </h3>
-                  <p class="rail-ownership">
-                    I led design across a high-revenue partner surface, aligning
-                    product and business owners.
-                  </p>
-                  <span class="rail-case-link"
-                    >Read the case study <span aria-hidden="true">↗</span></span
-                  >
-                </div>
-                <div class="rail-card-art">
-                  <p class="rail-concept-label">
-                    Updated concept · Make the economics visible before
-                    commitment.
-                  </p>
-                  <div
-                    class="rail-rate-art graphic-scene"
-                    data-kinetic-scene
-                    data-kinetic-numeric
-                  >
-                    <div class="rate-ladder" data-kinetic>
-                      <div class="rate-step">
-                        <span>Illustrative room rate</span
-                        ><strong>$150.00</strong>
-                        <div class="rate-track">
-                          <span style="width: 100%"></span>
-                        </div>
-                      </div>
-                      <div class="rate-step">
-                        <span>After Mega Sale · 15%</span
-                        ><strong>$127.50</strong>
-                        <div class="rate-track">
-                          <span style="width: 85%"></span>
-                        </div>
-                      </div>
-                      <div class="rate-step">
-                        <span>Then Mobile Exclusive · 10%</span
-                        ><strong>$114.75</strong>
-                        <div class="rate-track">
-                          <span style="width: 76.5%"></span>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="rail-art-note">
-                      Each discount applies to the remaining balance.<br />Before
-                      commission and taxes.
-                    </p>
-                  </div>
-                </div></a
-              >
-            </article>
-            <article class="rail-card rail-card--dev" data-rail-card>
-              <a class="rail-card-link" href="dev-portal.html"
-                ><div class="rail-card-copy">
-                  <p class="rail-role">
-                    Senior Product Designer · Developer experience
-                  </p>
-                  <h3>
-                    Developer<br />
-                    Portal.
-                  </h3>
-                  <p class="rail-ownership">
-                    I led 0-to-1 design as the first designer in DevOps.
-                  </p>
-                  <span class="rail-case-link"
-                    >Read the case study <span aria-hidden="true">↗</span></span
-                  >
-                </div>
-                <div class="rail-card-art">
-                  <p class="rail-concept-label">
-                    Updated concept · A guided path from environment setup to
-                    deployment review.
-                  </p>
-                  <div
-                    class="dev-art graphic-scene"
-                    data-flow-preview
-                    data-kinetic-scene
-                  >
-                    <p class="graphic-label">
-                      Updated concept · Deployment workflow · example settings
-                    </p>
-                    <svg
-                      class="flow-diagram"
-                      data-kinetic
-                      viewBox="0 0 600 220"
-                      aria-hidden="true"
-                    >
-                      <defs>
-                        <linearGradient id="flow-face" x2="1" y2="1">
-                          <stop stop-color="#465162" />
-                          <stop offset="0.45" stop-color="#232a37" />
-                          <stop offset="1" stop-color="#10151f" />
-                        </linearGradient>
-                        <linearGradient id="flow-top" x2="1" y2="1">
-                          <stop stop-color="#a2adbe" />
-                          <stop offset="1" stop-color="#4c5769" />
-                        </linearGradient>
-                        <radialGradient
-                          id="flow-surface"
-                          cx="30%"
-                          cy="25%"
-                          r="85%"
-                        >
-                          <stop stop-color="#ffb08a" />
-                          <stop offset="0.55" stop-color="#ff6534" />
-                          <stop offset="1" stop-color="#e7491e" />
-                        </radialGradient>
-                      </defs>
-                      <path class="flow-wire" d="M80 110H520" />
-                      <path
-                        class="flow-loop"
-                        d="M80 110V35H520V110M300 110v75h220V110"
-                      />
-                      <g class="flow-signal">
-                        <circle cx="80" cy="110" r="50" />
-                        <path d="m65 110 12 12 19-24" />
-                      </g>
-                      <g class="flow-node">
-                        <g class="flow-block">
-                          <path
-                            class="flow-block-top"
-                            d="M56 86l10-12h48l-10 12Z"
-                          />
-                          <path
-                            class="flow-block-side"
-                            d="M104 86l10-12v48l-10 12Z"
-                          />
-                          <rect x="56" y="86" width="48" height="48" />
-                        </g>
-                        <g class="flow-block">
-                          <path
-                            class="flow-block-top"
-                            d="M276 86l10-12h48l-10 12Z"
-                          />
-                          <path
-                            class="flow-block-side"
-                            d="M324 86l10-12v48l-10 12Z"
-                          />
-                          <rect x="276" y="86" width="48" height="48" />
-                        </g>
-                        <g class="flow-block">
-                          <path
-                            class="flow-block-top"
-                            d="M496 86l10-12h48l-10 12Z"
-                          />
-                          <path
-                            class="flow-block-side"
-                            d="M544 86l10-12v48l-10 12Z"
-                          />
-                          <rect x="496" y="86" width="48" height="48" />
-                        </g>
-                      </g>
-                    </svg>
-                    <div class="rail-flow-labels">
-                      <span>Environment</span><span>Rollout</span
-                      ><span>Review</span>
-                    </div>
-                  </div>
-                </div></a
-              >
-            </article>
-          </div>
-          <p class="rail-instructions" id="rail-instructions">
-            <span class="rail-scroll-hint">Scroll sideways to explore</span
-            ><span
-              >Arrow keys or project controls
-              <span aria-hidden="true">↔</span></span
-            >
+          <p class="showcase-caption">
+            Updated concept · Program discovery · Existing content and
+            mechanics.
           </p>
-        </div>
+        </article>
+        <article class="showcase-card showcase-card--discount">
+          <a class="showcase-card-link" href="discounting.html"
+            ><div class="showcase-card-header">
+              <div class="showcase-heading">
+                <p class="showcase-role">
+                  Senior Product Designer · Pricing &amp; promotions
+                </p>
+                <h3>Discounting 2.0.</h3>
+              </div>
+              <div class="showcase-summary">
+                <p>
+                  I led design across a high-revenue partner surface, aligning
+                  product and business owners.
+                </p>
+                <span class="showcase-case-link"
+                  >Read the case study <span aria-hidden="true">↗</span></span
+                >
+              </div>
+            </div></a
+          >
+          <div
+            class="showcase-art showcase-art--discount"
+            data-cover-scene
+            aria-hidden="true"
+          >
+            <div class="cover-rate">
+              <div class="cover-rate-header">
+                <span>Net Rate Simulator</span><span>USD</span>
+              </div>
+              <div class="cover-rate-result">
+                <p>Room rate after discounts</p>
+                <strong>$114.75<span> / night</span></strong>
+                <p>Before commission and taxes</p>
+              </div>
+              <div class="cover-rate-sequence">
+                <span>$150.00</span><span>× 0.85</span><span>× 0.90</span>
+              </div>
+              <div class="cover-rate-ledger">
+                <div>
+                  <span>Starting room rate</span><strong>$150.00</strong
+                  ><i style="--rate-width: 100%"></i>
+                </div>
+                <div>
+                  <span>Mega Sale · 15%</span><strong>$127.50</strong
+                  ><i style="--rate-width: 85%"></i>
+                </div>
+                <div>
+                  <span>Mobile Exclusive · 10%</span><strong>$114.75</strong
+                  ><i style="--rate-width: 76.5%"></i>
+                </div>
+              </div>
+              <p class="cover-rate-note">
+                Each discount applies to the remaining balance.
+              </p>
+            </div>
+          </div>
+          <p class="showcase-caption">
+            Updated concept · Sequential stacking · Illustrative room rate.
+          </p>
+        </article>
+        <article class="showcase-card showcase-card--dev">
+          <a class="showcase-card-link" href="dev-portal.html"
+            ><div class="showcase-card-header">
+              <div class="showcase-heading">
+                <p class="showcase-role">
+                  Senior Product Designer · Developer experience
+                </p>
+                <h3>Developer Portal.</h3>
+              </div>
+              <div class="showcase-summary">
+                <p>I led 0-to-1 design as the first designer in DevOps.</p>
+                <span class="showcase-case-link"
+                  >Read the case study <span aria-hidden="true">↗</span></span
+                >
+              </div>
+            </div></a
+          >
+          <div
+            class="showcase-art showcase-art--dev"
+            data-cover-scene
+            aria-hidden="true"
+          >
+            <div class="cover-deploy">
+              <div class="cover-deploy-header">
+                <svg viewBox="0 0 24 24"><path d="m12 3 10 18H2Z" /></svg
+                ><span>Developer Portal</span><span>Example settings</span>
+              </div>
+              <div class="cover-deploy-steps">
+                <span>Environment</span
+                ><span class="cover-stage-active">Rollout</span
+                ><span>Review</span>
+              </div>
+              <div class="cover-deploy-body">
+                <div class="cover-environment">
+                  <p>Environment</p>
+                  <h4>staging-mesh</h4>
+                  <div><span>24 cores</span><span>24 Gi</span></div>
+                </div>
+                <div class="cover-canary">
+                  <p>Rollout strategy</p>
+                  <h4>Canary</h4>
+                  <div class="cover-canary-sequence">
+                    <span>10%</span><span>20%</span><span>30%</span>
+                  </div>
+                  <div class="cover-canary-track"><i></i><i></i><i></i></div>
+                  <p>300s ramp up · 900s monitoring</p>
+                </div>
+              </div>
+              <div class="cover-deploy-footer">
+                <span>Hong Kong · Singapore · Amsterdam</span
+                ><span>10 replicas each</span>
+              </div>
+            </div>
+          </div>
+          <p class="showcase-caption">
+            Updated concept · Deployment workflow · Existing example settings.
+          </p>
+        </article>
       </section>
       <section class="about-section" id="about">
         <div class="leadership-copy">

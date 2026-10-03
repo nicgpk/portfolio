@@ -1,0 +1,1564 @@
+{
+  "checkedAt": "2026-10-03T05:25:16.574Z",
+  "browser": "Project-local Chromium on Windows",
+  "viewports": [
+    {
+      "viewport": {
+        "width": 320,
+        "height": 800,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 85
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49478260869564
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 320,
+        "documentWidth": 320,
+        "scrollX": 0,
+        "horizontalContainers": [],
+        "cards": [
+          {
+            "top": 315.34375,
+            "bottom": 1113,
+            "position": "static"
+          },
+          {
+            "top": 1169,
+            "bottom": 2019.390625,
+            "position": "static"
+          },
+          {
+            "top": 2075.390625,
+            "bottom": 2797.75,
+            "position": "static"
+          }
+        ],
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "nativeWheelDelta": 420,
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 16,
+            "y": 222.34375,
+            "width": 288,
+            "height": 232.765625
+          },
+          "title": {
+            "x": 16,
+            "y": 238.34375,
+            "width": 285.59375,
+            "height": 71.375
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 16,
+            "y": 222,
+            "width": 288,
+            "height": 177.28125
+          },
+          "title": {
+            "x": 16,
+            "y": 238,
+            "width": 285.59375,
+            "height": 35.6875
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 16,
+            "y": 222.390625,
+            "width": 288,
+            "height": 157.484375
+          },
+          "title": {
+            "x": 16,
+            "y": 238.390625,
+            "width": 285.59375,
+            "height": 35.6875
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        }
+      ],
+      "axeViolations": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.9956678700361
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49494584837545
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 390,
+        "documentWidth": 390,
+        "scrollX": 0,
+        "horizontalContainers": [],
+        "cards": [
+          {
+            "top": 315.34375,
+            "bottom": 1090.546875,
+            "position": "static"
+          },
+          {
+            "top": 1146.546875,
+            "bottom": 2026.234375,
+            "position": "static"
+          },
+          {
+            "top": 2082.234375,
+            "bottom": 2805.84375,
+            "position": "static"
+          }
+        ],
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "nativeWheelDelta": 420,
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 19.5,
+            "y": 222.34375,
+            "width": 351,
+            "height": 223.46875
+          },
+          "title": {
+            "x": 19.5,
+            "y": 238.34375,
+            "width": 327.59375,
+            "height": 81.875
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 19.5,
+            "y": 221.546875,
+            "width": 351,
+            "height": 182.53125
+          },
+          "title": {
+            "x": 19.5,
+            "y": 237.546875,
+            "width": 327.59375,
+            "height": 40.9375
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 19.5,
+            "y": 222.234375,
+            "width": 351,
+            "height": 162.734375
+          },
+          "title": {
+            "x": 19.5,
+            "y": 238.234375,
+            "width": 327.59375,
+            "height": 40.9375
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      ],
+      "axeViolations": []
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99975303431026
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49605079410695
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 768,
+        "documentWidth": 768,
+        "scrollX": 0,
+        "horizontalContainers": [],
+        "cards": [
+          {
+            "top": 338.78125,
+            "bottom": 1073.671875,
+            "position": "static"
+          },
+          {
+            "top": 1149.671875,
+            "bottom": 1873.21875,
+            "position": "static"
+          },
+          {
+            "top": 1949.21875,
+            "bottom": 2556.09375,
+            "position": "static"
+          }
+        ],
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "nativeWheelDelta": 420,
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 30.71875,
+            "y": 267.78125,
+            "width": 706.5625,
+            "height": 150.28125
+          },
+          "title": {
+            "x": 30.71875,
+            "y": 293.46875,
+            "width": 386.390625,
+            "height": 96.59375
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 30.71875,
+            "y": 221.671875,
+            "width": 706.5625,
+            "height": 150.28125
+          },
+          "title": {
+            "x": 30.71875,
+            "y": 295.65625,
+            "width": 386.390625,
+            "height": 48.296875
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 30.71875,
+            "y": 222.21875,
+            "width": 706.5625,
+            "height": 128.1875
+          },
+          "title": {
+            "x": 30.71875,
+            "y": 274.109375,
+            "width": 386.390625,
+            "height": 48.296875
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        }
+      ],
+      "axeViolations": []
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "mobile": false
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99781945050152
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49925861317051
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 1440,
+        "documentWidth": 1440,
+        "scrollX": 0,
+        "horizontalContainers": [],
+        "cards": [
+          {
+            "top": 315.6875,
+            "bottom": 1096.015625,
+            "position": "static"
+          },
+          {
+            "top": 1172.015625,
+            "bottom": 1881.46875,
+            "position": "static"
+          },
+          {
+            "top": 1957.46875,
+            "bottom": 2552.8125,
+            "position": "static"
+          }
+        ],
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "nativeWheelDelta": 420,
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 57.59375,
+            "y": 223.6875,
+            "width": 1324.8125,
+            "height": 187.71875
+          },
+          "title": {
+            "x": 57.59375,
+            "y": 241.28125,
+            "width": 568.5,
+            "height": 142.125
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 57.59375,
+            "y": 222.015625,
+            "width": 1324.8125,
+            "height": 128.1875
+          },
+          "title": {
+            "x": 57.59375,
+            "y": 251.140625,
+            "width": 568.5,
+            "height": 71.0625
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 57.59375,
+            "y": 222.46875,
+            "width": 1324.8125,
+            "height": 116.65625
+          },
+          "title": {
+            "x": 57.59375,
+            "y": 240.0625,
+            "width": 568.5,
+            "height": 71.0625
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        }
+      ],
+      "axeViolations": []
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99445574193145
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49665581324275
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 844,
+        "documentWidth": 844,
+        "scrollX": 0,
+        "horizontalContainers": [],
+        "cards": [
+          {
+            "top": 338.78125,
+            "bottom": 1073.671875,
+            "position": "static"
+          },
+          {
+            "top": 1149.671875,
+            "bottom": 1851.125,
+            "position": "static"
+          },
+          {
+            "top": 1927.125,
+            "bottom": 2511.90625,
+            "position": "static"
+          }
+        ],
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "nativeWheelDelta": 420,
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 33.75,
+            "y": 221.78125,
+            "width": 776.5,
+            "height": 150.28125
+          },
+          "title": {
+            "x": 33.75,
+            "y": 247.46875,
+            "width": 386.390625,
+            "height": 96.59375
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 33.75,
+            "y": 221.671875,
+            "width": 776.5,
+            "height": 128.1875
+          },
+          "title": {
+            "x": 33.75,
+            "y": 273.5625,
+            "width": 386.390625,
+            "height": 48.296875
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 33.75,
+            "y": 222.125,
+            "width": 776.5,
+            "height": 106.09375
+          },
+          "title": {
+            "x": 33.75,
+            "y": 251.921875,
+            "width": 386.390625,
+            "height": 48.296875
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        }
+      ],
+      "axeViolations": []
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 600,
+        "mobile": false
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99781945050152
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49925861317051
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 1440,
+        "documentWidth": 1440,
+        "scrollX": 0,
+        "horizontalContainers": [],
+        "cards": [
+          {
+            "top": 315.6875,
+            "bottom": 1096.015625,
+            "position": "static"
+          },
+          {
+            "top": 1172.015625,
+            "bottom": 1881.46875,
+            "position": "static"
+          },
+          {
+            "top": 1957.46875,
+            "bottom": 2552.8125,
+            "position": "static"
+          }
+        ],
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "nativeWheelDelta": 420,
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 57.59375,
+            "y": 223.6875,
+            "width": 1324.8125,
+            "height": 187.71875
+          },
+          "title": {
+            "x": 57.59375,
+            "y": 241.28125,
+            "width": 568.5,
+            "height": 142.125
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 1440,
+            "height": 600
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 57.59375,
+            "y": 222.015625,
+            "width": 1324.8125,
+            "height": 128.1875
+          },
+          "title": {
+            "x": 57.59375,
+            "y": 251.140625,
+            "width": 568.5,
+            "height": 71.0625
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 1440,
+            "height": 600
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 57.59375,
+            "y": 222.46875,
+            "width": 1324.8125,
+            "height": 116.65625
+          },
+          "title": {
+            "x": 57.59375,
+            "y": 240.0625,
+            "width": 568.5,
+            "height": 71.0625
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 1440,
+            "height": 600
+          }
+        }
+      ],
+      "axeViolations": []
+    }
+  ],
+  "noJavaScript": [
+    {
+      "viewport": {
+        "width": 320,
+        "height": 800,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 85
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49478260869564
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 320,
+        "documentWidth": 320,
+        "scrollX": 0,
+        "horizontalContainers": [],
+        "cards": [
+          {
+            "top": 315.34375,
+            "bottom": 1113,
+            "position": "static"
+          },
+          {
+            "top": 1169,
+            "bottom": 2019.390625,
+            "position": "static"
+          },
+          {
+            "top": 2075.390625,
+            "bottom": 2797.75,
+            "position": "static"
+          }
+        ],
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 16,
+            "y": 315.34375,
+            "width": 288,
+            "height": 232.765625
+          },
+          "title": {
+            "x": 16,
+            "y": 331.34375,
+            "width": 285.59375,
+            "height": 71.375
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 16,
+            "y": 638,
+            "width": 288,
+            "height": 177.28125
+          },
+          "title": {
+            "x": 16,
+            "y": 704,
+            "width": 285.59375,
+            "height": 35.6875
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 16,
+            "y": 453.390625,
+            "width": 288,
+            "height": 157.484375
+          },
+          "title": {
+            "x": 16,
+            "y": 476.390625,
+            "width": 285.59375,
+            "height": 35.6875
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.9956678700361
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49494584837545
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 390,
+        "documentWidth": 390,
+        "scrollX": 0,
+        "horizontalContainers": [],
+        "cards": [
+          {
+            "top": 315.34375,
+            "bottom": 1090.546875,
+            "position": "static"
+          },
+          {
+            "top": 1146.546875,
+            "bottom": 2026.234375,
+            "position": "static"
+          },
+          {
+            "top": 2082.234375,
+            "bottom": 2805.84375,
+            "position": "static"
+          }
+        ],
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 19.5,
+            "y": 315.34375,
+            "width": 351,
+            "height": 223.46875
+          },
+          "title": {
+            "x": 19.5,
+            "y": 331.34375,
+            "width": 327.59375,
+            "height": 81.875
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 19.5,
+            "y": 597.546875,
+            "width": 351,
+            "height": 182.53125
+          },
+          "title": {
+            "x": 19.5,
+            "y": 649.546875,
+            "width": 327.59375,
+            "height": 40.9375
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 19.5,
+            "y": 595.234375,
+            "width": 351,
+            "height": 162.734375
+          },
+          "title": {
+            "x": 19.5,
+            "y": 751.234375,
+            "width": 327.59375,
+            "height": 40.9375
+          },
+          "navBottom": 70,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99445574193145
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49665581324275
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 844,
+        "documentWidth": 844,
+        "scrollX": 0,
+        "horizontalContainers": [],
+        "cards": [
+          {
+            "top": 338.78125,
+            "bottom": 1073.671875,
+            "position": "static"
+          },
+          {
+            "top": 1149.671875,
+            "bottom": 1851.125,
+            "position": "static"
+          },
+          {
+            "top": 1927.125,
+            "bottom": 2511.90625,
+            "position": "static"
+          }
+        ],
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 33.75,
+            "y": 239.78125,
+            "width": 776.5,
+            "height": 150.28125
+          },
+          "title": {
+            "x": 33.75,
+            "y": 265.46875,
+            "width": 386.390625,
+            "height": 96.59375
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 33.75,
+            "y": 241.671875,
+            "width": 776.5,
+            "height": 128.1875
+          },
+          "title": {
+            "x": 33.75,
+            "y": 293.5625,
+            "width": 386.390625,
+            "height": 48.296875
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 33.75,
+            "y": 253.125,
+            "width": 776.5,
+            "height": 106.09375
+          },
+          "title": {
+            "x": 33.75,
+            "y": 283.921875,
+            "width": 386.390625,
+            "height": 48.296875
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "mobile": false
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99781945050152
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49925861317051
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 1440,
+        "documentWidth": 1440,
+        "scrollX": 0,
+        "horizontalContainers": [],
+        "cards": [
+          {
+            "top": 315.6875,
+            "bottom": 1096.015625,
+            "position": "static"
+          },
+          {
+            "top": 1172.015625,
+            "bottom": 1881.46875,
+            "position": "static"
+          },
+          {
+            "top": 1957.46875,
+            "bottom": 2552.8125,
+            "position": "static"
+          }
+        ],
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 57.59375,
+            "y": 315.6875,
+            "width": 1324.8125,
+            "height": 187.71875
+          },
+          "title": {
+            "x": 57.59375,
+            "y": 333.28125,
+            "width": 568.5,
+            "height": 142.125
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 57.59375,
+            "y": 672.015625,
+            "width": 1324.8125,
+            "height": 128.1875
+          },
+          "title": {
+            "x": 57.59375,
+            "y": 743.140625,
+            "width": 568.5,
+            "height": 71.0625
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 57.59375,
+            "y": 503.46875,
+            "width": 1324.8125,
+            "height": 116.65625
+          },
+          "title": {
+            "x": 57.59375,
+            "y": 523.0625,
+            "width": 568.5,
+            "height": 71.0625
+          },
+          "navBottom": 88,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        }
+      ]
+    }
+  ],
+  "preferences": [
+    {
+      "preference": "User pause",
+      "readable": true,
+      "runningAnimations": 0
+    },
+    {
+      "preference": "Reduced motion during interaction",
+      "readable": true,
+      "transforms": [],
+      "animations": []
+    },
+    {
+      "preference": "Reduced transparency",
+      "readable": true,
+      "navBackground": "rgb(248, 249, 252)",
+      "backdropFilter": "none"
+    }
+  ],
+  "captures": [
+    {
+      "project": "growth",
+      "width": 390,
+      "imageSize": {
+        "width": 352,
+        "height": 776
+      },
+      "geometry": {
+        "article": {
+          "x": 19.5,
+          "y": 110.34375,
+          "width": 351,
+          "height": 775.203125,
+          "bottom": 885.546875
+        },
+        "art": {
+          "x": 19.5,
+          "y": 333.8125,
+          "width": 351,
+          "height": 535.734375,
+          "bottom": 869.546875
+        },
+        "panel": {
+          "x": 37.5,
+          "y": 351.8125,
+          "width": 315,
+          "height": 499.734375,
+          "bottom": 851.546875
+        },
+        "caption": {
+          "x": 19.5,
+          "y": 869.546875,
+          "width": 351,
+          "height": 16,
+          "bottom": 885.546875
+        },
+        "fonts": "loaded",
+        "viewportHeight": 1080
+      }
+    },
+    {
+      "project": "discount",
+      "width": 390,
+      "imageSize": {
+        "width": 352,
+        "height": 881
+      },
+      "geometry": {
+        "article": {
+          "x": 19.5,
+          "y": 109.546875,
+          "width": 351,
+          "height": 879.6875,
+          "bottom": 989.234375
+        },
+        "art": {
+          "x": 19.5,
+          "y": 292.078125,
+          "width": 351,
+          "height": 681.15625,
+          "bottom": 973.234375
+        },
+        "panel": {
+          "x": 37.5,
+          "y": 310.078125,
+          "width": 315,
+          "height": 645.15625,
+          "bottom": 955.234375
+        },
+        "caption": {
+          "x": 19.5,
+          "y": 973.234375,
+          "width": 351,
+          "height": 16,
+          "bottom": 989.234375
+        },
+        "fonts": "loaded",
+        "viewportHeight": 1080
+      }
+    },
+    {
+      "project": "developer",
+      "width": 390,
+      "imageSize": {
+        "width": 352,
+        "height": 724
+      },
+      "geometry": {
+        "article": {
+          "x": 19.5,
+          "y": 110.234375,
+          "width": 351,
+          "height": 723.609375,
+          "bottom": 833.84375
+        },
+        "art": {
+          "x": 19.5,
+          "y": 272.96875,
+          "width": 351,
+          "height": 544.875,
+          "bottom": 817.84375
+        },
+        "panel": {
+          "x": 37.5,
+          "y": 290.96875,
+          "width": 315,
+          "height": 508.875,
+          "bottom": 799.84375
+        },
+        "caption": {
+          "x": 19.5,
+          "y": 817.84375,
+          "width": 351,
+          "height": 16,
+          "bottom": 833.84375
+        },
+        "fonts": "loaded",
+        "viewportHeight": 1080
+      }
+    },
+    {
+      "project": "growth",
+      "width": 1440,
+      "imageSize": {
+        "width": 1326,
+        "height": 782
+      },
+      "geometry": {
+        "article": {
+          "x": 57.59375,
+          "y": 109.6875,
+          "width": 1324.8125,
+          "height": 780.328125,
+          "bottom": 890.015625
+        },
+        "art": {
+          "x": 57.59375,
+          "y": 297.40625,
+          "width": 1324.8125,
+          "height": 573.921875,
+          "bottom": 871.328125
+        },
+        "panel": {
+          "x": 360,
+          "y": 333.40625,
+          "width": 720,
+          "height": 501.921875,
+          "bottom": 835.328125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 871.328125,
+          "width": 462,
+          "height": 18.6875,
+          "bottom": 890.015625
+        },
+        "fonts": "loaded",
+        "viewportHeight": 981
+      }
+    },
+    {
+      "project": "discount",
+      "width": 1440,
+      "imageSize": {
+        "width": 1326,
+        "height": 710
+      },
+      "geometry": {
+        "article": {
+          "x": 57.59375,
+          "y": 110.015625,
+          "width": 1324.8125,
+          "height": 709.453125,
+          "bottom": 819.46875
+        },
+        "art": {
+          "x": 57.59375,
+          "y": 238.203125,
+          "width": 1324.8125,
+          "height": 562.578125,
+          "bottom": 800.78125
+        },
+        "panel": {
+          "x": 330,
+          "y": 274.203125,
+          "width": 780,
+          "height": 490.578125,
+          "bottom": 764.78125
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 800.78125,
+          "width": 462,
+          "height": 18.6875,
+          "bottom": 819.46875
+        },
+        "fonts": "loaded",
+        "viewportHeight": 981
+      }
+    },
+    {
+      "project": "developer",
+      "width": 1440,
+      "imageSize": {
+        "width": 1326,
+        "height": 596
+      },
+      "geometry": {
+        "article": {
+          "x": 57.59375,
+          "y": 110.46875,
+          "width": 1324.8125,
+          "height": 595.34375,
+          "bottom": 705.8125
+        },
+        "art": {
+          "x": 57.59375,
+          "y": 227.125,
+          "width": 1324.8125,
+          "height": 460,
+          "bottom": 687.125
+        },
+        "panel": {
+          "x": 310,
+          "y": 267.109375,
+          "width": 820,
+          "height": 380.03125,
+          "bottom": 647.140625
+        },
+        "caption": {
+          "x": 57.59375,
+          "y": 687.125,
+          "width": 462,
+          "height": 18.6875,
+          "bottom": 705.8125
+        },
+        "fonts": "loaded",
+        "viewportHeight": 981
+      }
+    }
+  ],
+  "errors": [],
+  "limitations": "Desktop and emulated mobile Chromium; real devices, Safari, Firefox and screen-reader announcements are not verified.",
+  "passed": true
+}

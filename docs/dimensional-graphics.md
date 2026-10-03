@@ -1,5 +1,7 @@
 # Dimensional graphics
 
+Historical experiment, superseded by the interface-cover direction after user feedback. Current pages do not load these assets or `css/dimensional.css`. This record retains the asset provenance.
+
 The user's requested 3D direction keeps the quiet horizontal gallery and replaces the eight flat program glyphs with a coordinated family of cobalt enamel objects. A larger hotel model anchors the property-centered hub. The same objects appear in the discovery interface, using existing program names and mechanics. All imagery is decorative and does not imply new features, contributions or outcomes.
 
 ## Materials and scale
