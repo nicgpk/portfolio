@@ -479,7 +479,31 @@
       "status": 200
     },
     {
+      "url": "http://127.0.0.1:4183/css/dimensional.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/dimensional/promotion.webp",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/dimensional/growth.webp",
+      "status": 200
+    },
+    {
       "url": "http://127.0.0.1:4183/js/folio.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/dimensional/boost.webp",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/dimensional/prepaid.webp",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/dimensional/distribution.webp",
       "status": 200
     },
     {
@@ -487,7 +511,19 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/js/horizontal-work.mjs",
+      "url": "http://127.0.0.1:4183/fonts/ibm-plex-sans.woff2",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/dimensional/placement.webp",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/dimensional/rates.webp",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/dimensional/storefront.webp",
       "status": 200
     },
     {
@@ -495,7 +531,11 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/fonts/ibm-plex-sans.woff2",
+      "url": "http://127.0.0.1:4183/js/horizontal-work.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/dimensional/property.webp",
       "status": 200
     },
     {
@@ -506,10 +546,10 @@
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 1264,
-      "cls": 0,
-      "resourceBytes": 147446,
-      "requestCount": 8
+      "lcpMs": 1504,
+      "cls": 0.017952314814814817,
+      "resourceBytes": 271349,
+      "requestCount": 18
     }
   ],
   "errors": [],

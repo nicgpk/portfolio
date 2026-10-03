@@ -4,9 +4,11 @@ Audience: recruiters, design leaders and hiring teams assessing Nicholas Gwee's 
 
 ## Horizontal direction
 
-The user explicitly requested Rauno's horizontal project-card format. A compact name/role introduction leads into three large white graphic cards on a cool gray canvas. Partner Growth Programs comes first, with the next project peeking into view. Large regular-weight IBM Plex Sans, original vector graphics and quiet labels carry the visual identity.
+The user explicitly requested Rauno's horizontal project-card format. A compact name/role introduction leads into three large white graphic cards on a cool gray canvas. Partner Growth Programs comes first, with the next project peeking into view. Large regular-weight IBM Plex Sans, custom dimensional graphics and quiet labels carry the visual identity.
 
 Growth uses the acid-yellow eight-program property hub. Discounting shows the cobalt $150 to $127.50 to $114.75 sequential rate ladder, before commission and taxes. Developer Portal uses a coral signal along environment, rollout and review. Each card contains the project name, role, an existing ownership statement, an updated-concept label and one coherent link to its full case study. No metrics or shipped contributions were added.
+
+The latest graphics use a generated cobalt enamel/aluminum icon family, a larger central property model, proportional extruded rate bars and graphite workflow blocks. The same program cutouts appear in discovery; forced colors restore vector symbols. The nine 256px transparent WebP assets total 118,634 bytes. Exact prompts, provenance and rendering limits are in `dimensional-graphics.md`.
 
 Detailed program selections, editable calculations and workflow controls live in `projects.html` and the case studies. All work is directly available beside the gallery. Concise decision-led cases and contextual evidence cards remain intact, with original artifacts accessible.
 
