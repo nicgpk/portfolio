@@ -1,6 +1,7 @@
 import { stackDiscounts } from "./calculations.mjs";
 
 import { motionPaused } from "./kinetics.mjs";
+import "./horizontal-work.mjs";
 
 document.querySelectorAll("[data-discovery]").forEach((root) => {
   const search = root.querySelector("[data-program-search]"),

@@ -1,10 +1,12 @@
 // A single spring language for the portfolio's three factual diagrams.
 export const motion = matchMedia("(prefers-reduced-motion: reduce)");
+let reducedMotion = motion.matches;
 let userPaused = false;
 try {
   userPaused = localStorage.getItem("portfolio-motion") === "off";
 } catch {}
-export const motionPaused = () => motion.matches || userPaused;
+// Read stable state in the frame loop; media-change events update the preference.
+export const motionPaused = () => reducedMotion || userPaused;
 const controls = [...document.querySelectorAll("[data-motion-toggle]")];
 const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
 const states = [...document.querySelectorAll("[data-kinetic-scene]")].map(
@@ -40,7 +42,9 @@ function tick() {
           (innerHeight / 2 - (rect.top + rect.height / 2)) / innerHeight,
         ),
       );
-      const numeric = state.scene.hasAttribute("data-rate-graphic");
+      const numeric =
+        state.scene.hasAttribute("data-rate-graphic") ||
+        state.scene.hasAttribute("data-kinetic-numeric");
       target.set(state, [
         state.pointer.x * (numeric ? 7 : 20),
         state.pointer.y * 12 + progress * 12,
@@ -92,9 +96,9 @@ function reset() {
 function syncMotion() {
   document.documentElement.dataset.motion = motionPaused() ? "off" : "on";
   controls.forEach((control) => {
-    control.disabled = motion.matches;
+    control.disabled = reducedMotion;
     control.setAttribute("aria-pressed", String(motionPaused()));
-    control.textContent = motion.matches
+    control.textContent = reducedMotion
       ? "Motion off"
       : userPaused
         ? "Resume motion"
@@ -102,6 +106,7 @@ function syncMotion() {
   });
   if (motionPaused()) reset();
   else schedule(true);
+  document.dispatchEvent(new Event("portfolio:motionchange"));
 }
 controls.forEach((control) =>
   control.addEventListener("click", () => {
@@ -112,7 +117,10 @@ controls.forEach((control) =>
     syncMotion();
   }),
 );
-motion.addEventListener("change", syncMotion);
+motion.addEventListener("change", (event) => {
+  reducedMotion = event.matches;
+  syncMotion();
+});
 syncMotion();
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(

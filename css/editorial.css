@@ -977,3 +977,332 @@ html[data-motion="off"] [data-kinetic] {
     outline-color: Highlight;
   }
 }
+
+/* Large project covers: native horizontal rail, enhanced by document scrolling. */
+.portfolio-home {
+  background: #eceef2;
+}
+.portfolio-home .portfolio-masthead {
+  padding: 112px 4vw 22px;
+}
+.portfolio-home .masthead-intent {
+  max-width: 470px;
+}
+.project-rail {
+  --rail-card-width: min(82vw, 1140px);
+  --rail-gap: 28px;
+  --rail-card-height: clamp(430px, calc(100svh - 325px), 650px);
+  padding: 0 4vw 45px;
+  position: relative;
+}
+.rail-stage {
+  min-width: 0;
+}
+.project-rail.is-scroll-linked {
+  padding-bottom: 0;
+}
+.is-scroll-linked .rail-stage {
+  position: sticky;
+  top: 104px;
+}
+.rail-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+.rail-toolbar h2 {
+  font: 12px/1.5 var(--body);
+  letter-spacing: 0;
+}
+.rail-navigation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+.rail-navigation [data-rail-status] {
+  font: 11px/1.5 var(--mono);
+  margin-right: 12px;
+  min-width: 6ch;
+}
+.rail-navigation button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #b8bec9 !important;
+  border-radius: 50%;
+  color: var(--ink);
+  background: transparent;
+  font-size: 19px;
+}
+.rail-navigation button:hover:enabled {
+  background: var(--ink);
+  color: white;
+}
+.rail-navigation button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.rail-navigation > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-left: 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.rail-viewport {
+  display: flex;
+  gap: var(--rail-gap);
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #7d8592 transparent;
+  padding-bottom: 14px;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: 0;
+  -webkit-overflow-scrolling: touch;
+}
+.is-scroll-linked .rail-viewport {
+  scroll-snap-type: none;
+}
+.rail-viewport::after {
+  content: "";
+  flex: 0 0 max(0px, calc(100% - var(--rail-card-width) - var(--rail-gap)));
+}
+.rail-card {
+  flex: 0 0 var(--rail-card-width);
+  height: var(--rail-card-height);
+  min-width: 0;
+  background: white;
+  scroll-snap-align: start;
+  border-radius: 3px;
+}
+.rail-card-link {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: 28px;
+  height: 100%;
+  padding: 32px 36px;
+  color: var(--ink);
+}
+.rail-card-copy,
+.rail-card-art {
+  min-width: 0;
+}
+.rail-role {
+  font-size: 11px;
+  line-height: 1.5;
+  max-width: 30ch;
+  margin-bottom: 22px;
+}
+.rail-card-copy h3 {
+  font: 400 clamp(52px, 5.5vw, 84px)/1.03 var(--display);
+  letter-spacing: -0.06em;
+  margin-bottom: 25px;
+}
+.rail-ownership {
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 37ch;
+}
+.rail-case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  min-height: 44px;
+  margin-top: 14px;
+  border-bottom: 1px solid currentColor;
+  font-size: 12px;
+  font-weight: 500;
+}
+.rail-case-link > span {
+  font-size: 20px;
+  transition: transform 0.3s;
+}
+.rail-card-link:hover .rail-case-link > span {
+  transform: translate(3px, -3px);
+}
+.rail-card-link:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: -5px;
+}
+.rail-viewport:focus-visible {
+  outline: 3px solid var(--cobalt);
+  outline-offset: 4px;
+}
+.rail-concept-label {
+  font: 10px/1.6 var(--mono);
+  letter-spacing: 0;
+  color: #46505d;
+  margin-bottom: 18px;
+  max-width: 49ch;
+}
+.rail-card-art .graphic-label {
+  display: none;
+}
+.rail-card-art .graphic-scene {
+  grid-column: auto;
+  grid-row: auto;
+  padding: 0;
+}
+.rail-card--growth .rail-card-art {
+  width: 100%;
+  max-width: min(100%, calc(var(--rail-card-height) - 100px));
+  justify-self: center;
+}
+.rail-card-art .kinetic-disc {
+  width: 100%;
+}
+.rail-rate-art .rate-ladder {
+  gap: 16px;
+  margin: 0 0 20px;
+}
+.rail-rate-art .rate-step strong {
+  font-size: clamp(48px, 4.7vw, 70px);
+}
+.rail-rate-art .rate-step > span {
+  font-size: 10px;
+}
+.rail-rate-art .rate-track {
+  height: 9px;
+}
+.rail-art-note {
+  font-size: 10px;
+  line-height: 1.7;
+  color: #46505d;
+}
+.rail-card-art .flow-diagram {
+  margin: 24px 0;
+}
+.rail-flow-labels {
+  display: flex;
+  justify-content: space-between;
+  font: 11px/1.5 var(--mono);
+  padding: 0 2%;
+}
+html:not([data-motion="off"]) .rail-card-art .is-inview .flow-signal {
+  animation: rail-signal-pass 1.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes rail-signal-pass {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(440px);
+  }
+}
+.rail-instructions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font: 10px/1.5 var(--mono);
+  color: #46505d;
+  margin-top: 12px;
+}
+@media (max-width: 1023px), (max-height: 699px) {
+  .project-rail {
+    --rail-card-width: 86vw;
+    --rail-card-height: 540px;
+  }
+  .rail-card-link {
+    padding: 24px;
+    gap: 18px;
+  }
+  .rail-card-copy h3 {
+    font-size: clamp(40px, 6vw, 58px);
+  }
+}
+@media (max-width: 650px) {
+  .portfolio-home .portfolio-masthead {
+    padding: 105px 5vw 20px;
+  }
+  .project-rail {
+    --rail-card-width: 86vw;
+    --rail-gap: 14px;
+    --rail-card-height: auto;
+    padding: 0 5vw 35px;
+  }
+  .rail-toolbar {
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .rail-toolbar h2 {
+    font-size: 11px;
+  }
+  .rail-navigation {
+    gap: 6px;
+  }
+  .rail-navigation [data-rail-status] {
+    margin-right: 0;
+    font-size: 9px;
+  }
+  .rail-navigation > a {
+    margin-left: 4px;
+    font-size: 10px;
+  }
+  .rail-navigation button {
+    width: 36px;
+    height: 44px;
+    border-radius: 7px;
+  }
+  .rail-card {
+    min-height: 550px;
+  }
+  .rail-card-link {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    padding: 22px;
+    gap: 24px;
+    align-items: center;
+  }
+  .rail-role {
+    font-size: 10px;
+    margin-bottom: 14px;
+    max-width: none;
+  }
+  .rail-card-copy h3 {
+    font-size: clamp(35px, 10vw, 46px);
+    margin-bottom: 16px;
+  }
+  .rail-card-copy h3 br {
+    display: none;
+  }
+  .rail-ownership {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .rail-case-link {
+    margin-top: 8px;
+    font-size: 11px;
+  }
+  .rail-concept-label {
+    font-size: 9px;
+    margin-bottom: 12px;
+  }
+  .rail-card--growth .rail-card-art {
+    max-width: 240px;
+  }
+  .rail-rate-art .rate-ladder {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .rail-rate-art .rate-step strong {
+    font-size: 48px;
+    margin: 5px 0;
+  }
+  .rail-flow-labels {
+    font-size: 9px;
+  }
+  .rail-instructions {
+    font-size: 9px;
+    gap: 15px;
+  }
+  .rail-instructions > span:last-child {
+    display: none;
+  }
+}

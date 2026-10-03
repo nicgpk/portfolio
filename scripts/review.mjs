@@ -249,7 +249,7 @@ for (const name of [
   }
 }
 for (const [route, control, surface] of [
-  ["index", ".work-flagship .artifact-caption > a", "body.folio"],
+  ["index", ".rail-card:first-child .rail-card-link", ".rail-card"],
   ["partner-growth-programs", ".evidence-card summary", ".evidence-card"],
   ["discounting", ".evidence-card summary", ".evidence-card"],
   ["dev-portal", ".evidence-card summary", ".evidence-card"],

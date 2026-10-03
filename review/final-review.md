@@ -1,35 +1,35 @@
 # Final review
 
-Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. Delivery is a local preview and an open draft PR. No merge, auto-merge, production deployment or Pages-source change is authorized.
+Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. Delivery remains a local preview and open draft PR. No merge, auto-merge, deployment or production source change.
 
-## Visual and hiring review
+## Current visual direction
 
-This version follows the user's explicit request for a simple Rauno-inspired direction with motion and new graphics. A compact name/role masthead leads directly into one Partner Growth Programs chapter. Large regular-weight local sans, thin rules and a pale canvas support three original compositions: an acid-yellow eight-program property hub, a cobalt sequential rate ladder and a coral developer-workflow signal. There is no separate repeating hero.
+The user explicitly requested horizontal project cards like Rauno. Home now presents three large white covers on gray, with a compact name/role masthead and Partner Growth Programs first. A visible neighboring card, position count, Previous/Next and All work make the sequence clear. Each coherent card link contains the existing role and ownership, custom graphic and updated-concept label.
 
-All eight program glyphs are original SVG drawings. They also replace older raster icons in the discovery concept. Home graphics are labeled updated concepts, reuse existing descriptions, percentages and workflow settings, and link to original artifacts. Case studies retain concise decisions, explicit ownership and contextual evidence cards. The previous gallery is retained in `rauno-revision/before/`; original main is in `before/`.
+The graphics remain original: an acid-yellow eight-program property hub, cobalt sequential rate ladder and coral developer signal. Detailed interactions stay in the work index and full case studies. No factual content, metrics, contributions, original artifacts, routes, resume or contact links were replaced. There is no separate repetitive hero. The prior vertical version is preserved in `horizontal-revision/before/`.
 
-Independent visual review found no material desktop/mobile blocker. Diagrams communicate distinct project stories, identity and case-study links stay clear, and the static fallback retains meaning. This is a local craft review, not recruiter testing. Primary sources and study limits are in `../docs/portfolio-reference-review.md`.
+Independent visual review found no material desktop/tablet/mobile readability blocker. Independent interaction review prompted fixes for selected-card retention on resizing and destination focus when using a shortcut from a card link. Their regressions are included in the horizontal browser review.
 
-## Motion and interaction
+The review also isolated a Chromium media-notification race when repeatedly reading the media query in active animation frames. Motion now reads an event-updated preference value; the regression changes the preference while a spring is moving.
 
-Native scrolling is preserved. Decorative graphics respond to scroll and fine-pointer movement through a bounded spring. Connections reveal, rate bars react to calculations and the developer signal moves to the selected stage. Body copy and amounts remain readable. Animation frames stop at rest, offscreen and while hidden. Pause persists across reloads; OS reduced motion takes precedence. Reduced transparency makes navigation opaque.
+## Scrolling and motion
 
-`kinetic-checks.json` verifies pointer response and frame-loop settling, native wheel scrolling, all eight keyboard program selections, home calculation edge cases, keyboard workflow selection, pause persistence, resume and reduced motion. `after/motion-demo.webm` records the local interaction review; pauses include verification waits and it is not an edited promotional animation. Without JavaScript, home rate inputs are inactive and a static-example note explains the fixed result.
+Native desktop document scrolling drives the row's horizontal position within a sticky stage. There is no wheel/touch cancellation. Horizontal gestures synchronize with the document position. Scrolling past the final project reaches normal document content. Card focus, arrow keys, Home/End and Previous/Next reveal destinations without a keyboard trap.
 
-## Verification
+Phones use native swipe scrolling. Reduced motion, explicit pause, no JavaScript and smaller/shorter viewports use an unpinned native horizontal gallery. Pausing/resuming retains the selected project and OS reduced motion takes precedence. Resize retains the selected project. Decorative spring motion settles at rest; the developer signal crosses its diagram once on entry. Reduced transparency retains opaque navigation.
 
-- Page generation succeeds. Four calculation tests pass: sequential stacking, currency rounding, zero/full discounts and invalid inputs.
-- Six routes at 320/390/768/1440 pixels: no global overflow, automated WCAG A/AA violations, broken main-route local links or JavaScript page errors.
-- Case-study discovery search/filter/details, calculator toggles/reset/zero/invalid/fractional amounts and developer validation/forward/back/review pass. Keyboard step headings stay visible below navigation on mobile and desktop.
-- Home rate controls verify the 15% then 10% stack ($150 to $127.50 to $114.75), each toggle, fractional cents, zero, empty, negative, precision and upper-limit errors. The updated booking example correctly uses $15 for 10% of $150 and totals $262.50 after discounts.
-- No-JavaScript readability, keyboard skip navigation, visible focus, reduced-motion and reduced-transparency pass. Focus outlines exceed 3:1 contrast on the page and colored evidence panels.
-- All seven archived playbook patterns load dynamic images at mobile and desktop; Escape restores focus. Original static local links pass.
-- Original artifacts are compared with baseline in `content-preservation.json`. Resume PDF, ATS resume and legacy redirect are unchanged. Resume factual text and links remain preserved.
-- Project-local dependency audit reports no vulnerabilities. The new runtime uses static assets and native JavaScript with no runtime package dependency.
-- Cold-cache Chromium mobile observation: 1.540 seconds LCP, zero initial layout shift, 135,372 bytes across seven requested resources, with 4x CPU throttling, 1.6Mbps bandwidth and 150ms RTT. This is a laboratory observation, not a production score. Exact latest measurements are in `checks.json`.
+## Verification evidence
 
-Full-page screenshots load deferred research images. Performance navigation uses normal loading. Prior snapshots and the original mockup provenance manifest remain available.
+- Page generation and four calculation tests pass.
+- Six routes at 320/390/768/1440 pixels: automated WCAG A/AA rules, overflow, local links and browser errors are recorded in `checks.json` and `layout-checks.json`.
+- The normal-motion desktop rail also receives an automated WCAG A/AA audit. `horizontal-checks.json` covers initial scroll position, native wheel progression, card controls, card focus, Home/End destination focus, desktop/mobile/back resizing, pause/reduced-motion retention, scrolling beyond the rail, emulated touch swipe and no-JavaScript card links.
+- Full discovery, calculator and developer interactions, keyboard step visibility, static rate fallback, edge-case calculations, spring settling and pause persistence are recorded in `kinetic-checks.json` and `checks.json`. The detailed index retains the controls previously shown on home.
+- Original artifact links, seven archived playbook patterns, dynamic images and Escape/focus restoration are checked. Baseline preservation is recorded in `content-preservation.json`; the original artifacts and resume files were not edited by this revision.
+- Dependency audit reports no vulnerabilities. All dependencies are project-local; the runtime uses native JavaScript and static assets.
+- Exact cold-cache Chromium mobile laboratory observations are in `checks.json`, with 4x CPU throttling, 1.6Mbps bandwidth and 150ms RTT. These are not production performance scores.
+
+`after/horizontal-motion.webm` records the home interaction checks, including verification pauses. `after/motion-demo.webm` records the detailed work-index interaction checks. Separate desktop/mobile captures show every card, since full-page screenshots cannot expose an entire horizontal row at once. Reduced-motion captures document the native fallback; `horizontal-opening-1440.png` shows normal motion.
 
 ## Remaining limitations
 
-Safari, Firefox, actual mobile devices and real screen-reader sessions were not tested. Automated rules do not establish full accessibility. Recruiter response and production performance were not measured. Source omissions and conflicting metric details remain disclosed; no missing baselines, sample sizes or outcomes were invented. Preserved originals retain historical styles, external font references and arithmetic discrepancies. Concepts do not enroll properties, save configurations, connect to Agoda or deploy infrastructure. Motion is concentrated in graphics and controls; content stays still and touch gets scroll/selection responses rather than pointer tilt.
+Safari, Firefox, actual mobile devices and real screen-reader sessions were not tested. Touch is browser-emulated. Automated rules do not establish full accessibility. Recruiter response and production performance were not measured. Source omissions/conflicting metric details remain disclosed. Preserved originals retain historical styling, external font references and arithmetic discrepancies. Concepts do not enroll properties, save settings, connect to Agoda or deploy infrastructure. Horizontal presentation requires discovery; All work provides a direct overview.

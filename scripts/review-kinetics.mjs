@@ -31,7 +31,7 @@ page.on("pageerror", (error) => errors.push(error.message));
 const checks = [];
 const nojs = await browser.newContext({ javaScriptEnabled: false });
 const staticPage = await nojs.newPage();
-await staticPage.goto("http://127.0.0.1:4183/");
+await staticPage.goto("http://127.0.0.1:4183/projects.html");
 await expect(staticPage.locator("#graphic-rate")).toBeDisabled();
 await expect(
   staticPage.locator("[data-rate-graphic] noscript .rate-explanation"),
@@ -41,7 +41,7 @@ await nojs.close();
 checks.push(
   "No-JavaScript rate inputs are inactive and the fixed calculation is explicitly labeled.",
 );
-await page.goto("http://127.0.0.1:4183/");
+await page.goto("http://127.0.0.1:4183/projects.html");
 await page.evaluate(() => document.fonts.ready);
 const disc = page.locator(".kinetic-disc");
 await page.waitForTimeout(1300);
@@ -120,7 +120,7 @@ for (const value of ["", "-1", "1.111", "1000001"]) {
 await rate.locator("#graphic-rate").fill("150");
 await expect(rate.locator("[data-rate-net]")).toHaveText("$114.75");
 checks.push(
-  "Home rate graphic handles both toggles, sequential cents, zero, empty, negative, precision and upper limits.",
+  "Work-index rate graphic handles both toggles, sequential cents, zero, empty, negative, precision and upper limits.",
 );
 
 const flow = page.locator("[data-flow-preview]");

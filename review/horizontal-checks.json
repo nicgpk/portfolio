@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "The normal-motion desktop gallery starts at the top with visible identity and passes automated WCAG A/AA rules.",
+    "Native vertical wheel movement advances the horizontal row while the document has no horizontal overflow.",
+    "Resizing desktop to mobile and back retains the selected Developer Portal card.",
+    "Arrow keys, Home/End, Previous/Next and card focus reveal all three complete cards below the navigation.",
+    "Shortcuts from a card link move keyboard focus to the newly visible project.",
+    "Pause/resume retains the current project; reduced motion uses an unpinned native horizontal gallery with instant controls.",
+    "Scrolling beyond the final project reaches the rest of the document; there is no scroll trap.",
+    "Emulated touch swipe advances the mobile gallery; buttons and focus reach every project without page overflow.",
+    "Without JavaScript the native horizontal gallery and all case-study links remain accessible."
+  ],
+  "errors": [],
+  "limitations": "Chromium desktop and emulated touch only; real devices and screen readers are untested."
+}
