@@ -1,0 +1,294 @@
+{
+  "layouts": [
+    {
+      "name": "index",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "overflow": []
+    },
+    {
+      "name": "projects",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "overflow": []
+    },
+    {
+      "name": "partner-growth-programs",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "overflow": []
+    },
+    {
+      "name": "discounting",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "overflow": []
+    },
+    {
+      "name": "dev-portal",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "overflow": []
+    },
+    {
+      "name": "resume",
+      "width": 320,
+      "viewport": 320,
+      "scrollWidth": 320,
+      "overflow": []
+    },
+    {
+      "name": "index",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "overflow": []
+    },
+    {
+      "name": "projects",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "overflow": []
+    },
+    {
+      "name": "partner-growth-programs",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "overflow": []
+    },
+    {
+      "name": "discounting",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "overflow": []
+    },
+    {
+      "name": "dev-portal",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "overflow": []
+    },
+    {
+      "name": "resume",
+      "width": 390,
+      "viewport": 390,
+      "scrollWidth": 390,
+      "overflow": []
+    },
+    {
+      "name": "index",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "overflow": []
+    },
+    {
+      "name": "projects",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "overflow": []
+    },
+    {
+      "name": "partner-growth-programs",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "overflow": []
+    },
+    {
+      "name": "discounting",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "overflow": []
+    },
+    {
+      "name": "dev-portal",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "overflow": []
+    },
+    {
+      "name": "resume",
+      "width": 768,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "overflow": []
+    },
+    {
+      "name": "index",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "overflow": []
+    },
+    {
+      "name": "projects",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "overflow": []
+    },
+    {
+      "name": "partner-growth-programs",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "overflow": []
+    },
+    {
+      "name": "discounting",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "overflow": []
+    },
+    {
+      "name": "dev-portal",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "overflow": []
+    },
+    {
+      "name": "resume",
+      "width": 1440,
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "overflow": []
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "index",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "name": "projects",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "name": "partner-growth-programs",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "name": "discounting",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "name": "dev-portal",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "name": "resume",
+      "width": 320,
+      "violations": []
+    },
+    {
+      "name": "index",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "name": "projects",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "name": "partner-growth-programs",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "name": "discounting",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "name": "dev-portal",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "name": "resume",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "name": "index",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "name": "projects",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "name": "partner-growth-programs",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "name": "discounting",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "name": "dev-portal",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "name": "resume",
+      "width": 768,
+      "violations": []
+    },
+    {
+      "name": "index",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "name": "projects",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "name": "partner-growth-programs",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "name": "discounting",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "name": "dev-portal",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "name": "resume",
+      "width": 1440,
+      "violations": []
+    }
+  ]
+}

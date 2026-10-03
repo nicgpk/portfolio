@@ -1,0 +1,26 @@
+[
+  {
+    "path": "images/work-growth-original.jpg",
+    "source": "originals/partner-growth-programs.html",
+    "selector": ".hero-product-frame",
+    "width": 864,
+    "height": 722,
+    "note": "Rendered original portfolio artifact; existing illustrative UI data, not measured outcomes."
+  },
+  {
+    "path": "images/work-discount-original.jpg",
+    "source": "originals/discounting.html",
+    "selector": ".disc-product-frame",
+    "width": 912,
+    "height": 532,
+    "note": "Rendered original portfolio artifact; existing illustrative UI data, not measured outcomes."
+  },
+  {
+    "path": "images/work-dev-original.jpg",
+    "source": "originals/dev-portal.html",
+    "selector": ".dev-ui[aria-label=\"Review and deploy confirmation\"]",
+    "width": 910,
+    "height": 532,
+    "note": "Rendered original portfolio artifact; existing illustrative UI data, not measured outcomes."
+  }
+]

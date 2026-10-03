@@ -1,0 +1,12 @@
+{
+  "scenario": "One warm local Windows Chromium desktop observation, 1440 x 1000, unthrottled, moving the pointer across the visible hero. GPU frame time is not measured.",
+  "durationSeconds": 4.244,
+  "canvasDraws": 85,
+  "observedDrawsPerSecond": 20,
+  "mainThreadTaskMilliseconds": 1015.8,
+  "scriptMilliseconds": 60.7,
+  "drawRateCap": 24,
+  "canvasWidth": 1278,
+  "canvasHeight": 650,
+  "limitations": "Main-thread activity includes browser work and automation. Draw submission rate is not a guaranteed visual frame rate. Actual hardware, GPU time and power consumption remain unmeasured."
+}

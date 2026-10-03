@@ -1,0 +1,14 @@
+{
+  "browser": "Chromium on Windows",
+  "checks": [
+    "No-JavaScript rate inputs are inactive and the fixed calculation is explicitly labeled.",
+    "Pointer spring changes the graphic, then animation frames stop at rest.",
+    "Native wheel scrolling advances the document without interception.",
+    "All eight programs are keyboard selectable; descriptions and highlighted glyphs agree.",
+    "Work-index rate graphic handles both toggles, sequential cents, zero, empty, negative, precision and upper limits.",
+    "Keyboard workflow selection moves the signal to the matching environment, rollout and review example.",
+    "Keyboard pause persists after reload, stops animation frames and resumes; OS reduced motion disables effects while controls still work."
+  ],
+  "errors": [],
+  "limitation": "Recorded interactions are a local review, not real-device or screen-reader validation."
+}

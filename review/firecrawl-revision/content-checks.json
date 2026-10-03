@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "baseline": "a3004d5a0f105b6308b1dc1f5515d9a8e7c879bd",
+  "note": "Only the gallery instruction/control order changes. Audited section text and all link destinations remain unchanged.",
+  "results": [
+    {
+      "route": "index.html",
+      "sections": [
+        {
+          "selector": ".studio-hero",
+          "normalizedTextUnchanged": true
+        },
+        {
+          "selector": ".site-nav",
+          "normalizedTextUnchanged": true
+        },
+        {
+          "selector": "#work-title",
+          "normalizedTextUnchanged": true
+        },
+        {
+          "selector": "#gallery-instructions",
+          "normalizedTextUnchanged": true
+        },
+        {
+          "selector": ".showcase-navigation",
+          "normalizedTextUnchanged": true
+        },
+        {
+          "selector": ".showcase-card",
+          "normalizedTextUnchanged": true
+        },
+        {
+          "selector": ".about-section",
+          "normalizedTextUnchanged": true
+        },
+        {
+          "selector": ".archive",
+          "normalizedTextUnchanged": true
+        },
+        {
+          "selector": ".folio-footer",
+          "normalizedTextUnchanged": true
+        }
+      ],
+      "hrefsUnchanged": true,
+      "heroMarkupUnchanged": true
+    },
+    {
+      "route": "projects.html",
+      "sections": [
+        {
+          "selector": "body",
+          "normalizedTextUnchanged": true
+        }
+      ],
+      "hrefsUnchanged": true
+    },
+    {
+      "route": "partner-growth-programs.html",
+      "sections": [
+        {
+          "selector": "body",
+          "normalizedTextUnchanged": true
+        }
+      ],
+      "hrefsUnchanged": true
+    },
+    {
+      "route": "discounting.html",
+      "sections": [
+        {
+          "selector": "body",
+          "normalizedTextUnchanged": true
+        }
+      ],
+      "hrefsUnchanged": true
+    },
+    {
+      "route": "dev-portal.html",
+      "sections": [
+        {
+          "selector": "body",
+          "normalizedTextUnchanged": true
+        }
+      ],
+      "hrefsUnchanged": true
+    },
+    {
+      "route": "resume.html",
+      "sections": [
+        {
+          "selector": "body",
+          "normalizedTextUnchanged": true
+        }
+      ],
+      "hrefsUnchanged": true
+    }
+  ]
+}

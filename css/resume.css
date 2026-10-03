@@ -434,7 +434,7 @@ h3.resume-subheader::after {
   body {
     background: #fff !important;
     color: #000 !important;
-    font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif !important;
+    font-family: var(--r-font-body) !important;
     font-size: 11pt;
     line-height: 1.4;
   }

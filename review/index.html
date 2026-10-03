@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Portfolio before &amp; after</title>
+    <style>
+      body {
+        font:
+          16px/1.5 Arial,
+          sans-serif;
+        background: #f8f9fc;
+        color: #11131b;
+        max-width: 1400px;
+        margin: auto;
+        padding: 40px 24px;
+      }
+      h1 {
+        font-size: 48px;
+        letter-spacing: -0.05em;
+        line-height: 1;
+      }
+      a {
+        color: #1938ed;
+      }
+      nav {
+        display: flex;
+        gap: 20px;
+        margin: 25px 0;
+      }
+      .comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        border: 1px solid #c9cdda;
+      }
+      figure {
+        margin: 0;
+      }
+      figcaption {
+        margin: 12px 0;
+        font-size: 13px;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 35px;
+      }
+      .gallery a {
+        display: block;
+        margin: 8px 0;
+      }
+      h2 {
+        margin-top: 50px;
+      }
+      ul {
+        line-height: 1.8;
+      }
+      a:focus-visible {
+        outline: 3px solid #e62579;
+        outline-offset: 4px;
+      }
+      @media (max-width: 700px) {
+        .comparison,
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+        h1 {
+          font-size: 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Portfolio.<br />Before &amp; after.</h1>
+    <p>
+      Baseline: main at 9cd719f. Redesign: codex/portfolio-bold-redesign.
+      Captured locally in Chromium; reduced motion keeps screenshots stable.
+    </p>
+    <nav>
+      <a href="../index.html">Open preview</a
+      ><a href="checks.json">Verification results</a
+      ><a href="../docs/browserbase-direction.md">Design direction</a>
+    </nav>
+    <h2>Current refinement: Developer Portal styling across every project</h2>
+    <p>
+      Charcoal workspaces, fine borders, orange state cues and Ubuntu Mono
+      paired with Manrope now connect the home previews to the full concepts.
+      Case studies share dark openings, orange evidence cards and direct section
+      navigation. The content remains grounded in the source portfolio.
+    </p>
+    <p>
+      <a href="../docs/developer-project-system.md">Design and source notes</a>
+      ·
+      <a href="developer-system/checks.json">Content and interaction audit</a> ·
+      <a href="final-review.md">Verification and limitations</a>
+    </p>
+    <h3>Home preview · catalog and program details</h3>
+    <div class="comparison">
+      <figure>
+        <a href="developer-system/before/showcase-growth-1440.png"
+          ><img
+            src="developer-system/before/showcase-growth-1440.png"
+            width="1164"
+            height="623"
+            alt="Before: light Growth preview with decorative heading and three program rows"
+        /></a>
+        <figcaption>Before · light program preview.</figcaption>
+      </figure>
+      <figure>
+        <a href="developer-system/after/showcase-growth-1440.png"
+          ><img
+            src="developer-system/after/showcase-growth-1440.png"
+            width="1164"
+            height="738"
+            alt="After: charcoal Growth workspace with program list beside selected program details"
+        /></a>
+        <figcaption>
+          After · task-focused composition using the Developer Portal system.
+        </figcaption>
+      </figure>
+    </div>
+    <p>
+      Other home panels:
+      <a href="developer-system/after/showcase-discount-1440.png"
+        >Discounting</a
+      >
+      ·
+      <a href="developer-system/after/showcase-developer-1440.png"
+        >Developer Portal</a
+      >. Mobile:
+      <a href="developer-system/after/showcase-growth-390.png">Growth</a> ·
+      <a href="developer-system/after/showcase-discount-390.png">Discounting</a>
+      ·
+      <a href="developer-system/after/showcase-developer-390.png"
+        >Developer Portal</a
+      >.
+    </p>
+    <h3>Matching individual concepts</h3>
+    <div class="gallery">
+      <figure>
+        <a
+          href="developer-system/after/concept-partner-growth-programs-1440.png"
+          ><img
+            src="developer-system/after/concept-partner-growth-programs-1440.png"
+            width="1198"
+            height="1525"
+            alt="Growth full concept in the shared charcoal and orange interface system"
+        /></a>
+        <figcaption>
+          Growth ·
+          <a
+            href="developer-system/before/concept-partner-growth-programs-1440.png"
+            >before</a
+          >
+          ·
+          <a
+            href="developer-system/after/concept-partner-growth-programs-390.png"
+            >mobile</a
+          >
+          · <a href="../partner-growth-programs.html#concept">try it</a>
+        </figcaption>
+      </figure>
+      <figure>
+        <a href="developer-system/after/concept-discounting-1440.png"
+          ><img
+            src="developer-system/after/concept-discounting-1440.png"
+            width="1198"
+            height="1197"
+            alt="Discounting full concept in the shared charcoal and orange interface system"
+        /></a>
+        <figcaption>
+          Discounting ·
+          <a href="developer-system/before/concept-discounting-1440.png"
+            >before</a
+          >
+          ·
+          <a href="developer-system/after/concept-discounting-390.png"
+            >mobile</a
+          >
+          · <a href="../discounting.html#concept">try it</a>
+        </figcaption>
+      </figure>
+      <figure>
+        <a href="developer-system/after/concept-dev-portal-1440.png"
+          ><img
+            src="developer-system/after/concept-dev-portal-1440.png"
+            width="1198"
+            height="1329"
+            alt="Developer Portal full concept in the shared charcoal and orange interface system"
+        /></a>
+        <figcaption>
+          Developer Portal ·
+          <a href="developer-system/before/concept-dev-portal-1440.png"
+            >before</a
+          >
+          ·
+          <a href="developer-system/after/concept-dev-portal-390.png">mobile</a>
+          · <a href="../dev-portal.html#concept">try it</a>
+        </figcaption>
+      </figure>
+    </div>
+    <p>
+      Full case studies:
+      <a href="developer-system/after/partner-growth-programs-1440.png"
+        >Growth</a
+      >
+      · <a href="developer-system/after/discounting-1440.png">Discounting</a> ·
+      <a href="developer-system/after/dev-portal-1440.png">Developer Portal</a>.
+      Each has matching framing and direct navigation to problem, choices,
+      evidence and concept.
+    </p>
+    <h2>Previous refinement: clearer concepts, Ubuntu Mono + Manrope</h2>
+    <p>
+      Developer Portal sets the interface standard: deliberate groups, precise
+      values and visible workflow state. Ubuntu Mono handles utility type and
+      calculations; Manrope handles headings and reading text. Original facts,
+      settings, case content and link destinations are preserved against
+      63d1ff9.
+    </p>
+    <p>
+      <a href="../docs/concept-refinement.md">UX and typography decisions</a> ·
+      <a href="concept-refinement/checks.json"
+        >Content and interaction checks</a
+      >
+      ·
+      <a href="final-review.md">Review and remaining limitations</a>
+    </p>
+    <h3>Partner Growth · scan, filter, understand</h3>
+    <div class="comparison">
+      <figure>
+        <a
+          href="concept-refinement/before/concept-partner-growth-programs-1440.png"
+          ><img
+            src="concept-refinement/before/concept-partner-growth-programs-1440.png"
+            width="1198"
+            height="1913"
+            alt="Previous Growth concept with large program tiles"
+        /></a>
+        <figcaption>Before · large tiles.</figcaption>
+      </figure>
+      <figure>
+        <a
+          href="concept-refinement/after/concept-partner-growth-programs-1440.png"
+          ><img
+            src="concept-refinement/after/concept-partner-growth-programs-1440.png"
+            width="1198"
+            height="1525"
+            alt="Refined Growth concept with aligned resources, search and categories"
+        /></a>
+        <figcaption>
+          After · aligned resources and clear filter recovery.
+        </figcaption>
+      </figure>
+    </div>
+    <p>
+      Mobile:
+      <a
+        href="concept-refinement/before/concept-partner-growth-programs-390.png"
+        >before</a
+      >
+      ·
+      <a href="concept-refinement/after/concept-partner-growth-programs-390.png"
+        >after</a
+      >.
+      <a href="concept-refinement/after/growth-details-1440.png"
+        >Expanded mechanics</a
+      >
+      · <a href="../partner-growth-programs.html#concept">Try the concept</a>.
+    </p>
+    <h3>Discounting · a result with an explainable receipt</h3>
+    <div class="comparison">
+      <figure>
+        <a href="concept-refinement/before/concept-discounting-1440.png"
+          ><img
+            src="concept-refinement/before/concept-discounting-1440.png"
+            width="1198"
+            height="1069"
+            alt="Previous Discounting concept with totals below a deduction list"
+        /></a>
+        <figcaption>Before · deductions before the result.</figcaption>
+      </figure>
+      <figure>
+        <a href="concept-refinement/after/concept-discounting-1440.png"
+          ><img
+            src="concept-refinement/after/concept-discounting-1440.png"
+            width="1198"
+            height="1197"
+            alt="Refined Discounting concept with result first, percentage bases and remaining balances"
+        /></a>
+        <figcaption>
+          After · result first, exact bases, cuts and balances.
+        </figcaption>
+      </figure>
+    </div>
+    <p>
+      Mobile:
+      <a href="concept-refinement/before/concept-discounting-390.png">before</a>
+      ·
+      <a href="concept-refinement/after/concept-discounting-390.png">after</a>.
+      <a href="../discounting.html#concept">Try the calculator</a>.
+    </p>
+    <h3>Developer Portal · clearer progression and complete review</h3>
+    <div class="comparison">
+      <figure>
+        <a href="concept-refinement/before/concept-dev-portal-1440.png"
+          ><img
+            src="concept-refinement/before/concept-dev-portal-1440.png"
+            width="1198"
+            height="1179"
+            alt="Previous Developer Portal environment setup"
+        /></a>
+        <figcaption>Before · approved dark composition.</figcaption>
+      </figure>
+      <figure>
+        <a href="concept-refinement/after/concept-dev-portal-1440.png"
+          ><img
+            src="concept-refinement/after/concept-dev-portal-1440.png"
+            width="1198"
+            height="1329"
+            alt="Refined Developer Portal with numbered steps and grouped environment and resource fields"
+        /></a>
+        <figcaption>After · grouped fields and explicit next steps.</figcaption>
+      </figure>
+    </div>
+    <p>
+      Mobile:
+      <a href="concept-refinement/before/concept-dev-portal-390.png">before</a>
+      · <a href="concept-refinement/after/concept-dev-portal-390.png">after</a>.
+      <a href="concept-refinement/after/developer-rollout-1440.png">Rollout</a>
+      ·
+      <a href="concept-refinement/after/developer-review-1440.png"
+        >Complete review</a
+      >
+      · <a href="../dev-portal.html#concept">Try the workflow</a>.
+    </p>
+    <div class="gallery">
+      <figure>
+        <a href="concept-refinement/after/showcase-growth-1440.png"
+          ><img
+            src="concept-refinement/after/showcase-growth-1440.png"
+            width="1164"
+            height="623"
+            alt="Growth home preview with the new typography"
+        /></a>
+        <figcaption>
+          Growth preview ·
+          <a href="concept-refinement/after/showcase-growth-390.png">mobile</a>
+        </figcaption>
+      </figure>
+      <figure>
+        <a href="concept-refinement/after/showcase-discount-1440.png"
+          ><img
+            src="concept-refinement/after/showcase-discount-1440.png"
+            width="1164"
+            height="649"
+            alt="Discounting home preview with Ubuntu Mono values"
+        /></a>
+        <figcaption>
+          Discounting preview ·
+          <a href="concept-refinement/after/showcase-discount-390.png"
+            >mobile</a
+          >
+        </figcaption>
+      </figure>
+      <figure>
+        <a href="concept-refinement/after/showcase-developer-1440.png"
+          ><img
+            src="concept-refinement/after/showcase-developer-1440.png"
+            width="1164"
+            height="506"
+            alt="Developer Portal home preview with the new font pair"
+        /></a>
+        <figcaption>
+          Developer preview ·
+          <a href="concept-refinement/after/showcase-developer-390.png"
+            >mobile</a
+          >
+        </figcaption>
+      </figure>
+    </div>
+    <p>
+      Opening typography:
+      <a href="concept-refinement/before/first-viewport-1440.png">before</a> ·
+      <a href="concept-refinement/after/first-viewport-1440.png">after</a> ·
+      <a href="concept-refinement/after/first-viewport-390.png">mobile</a>.
+      Captures use reduced motion. Current cloud interactions and gallery
+      recordings appear below.
+    </p>
+    <h2>Previous refinement: monochrome work, one orange accent</h2>
+    <p>
+      Firecrawl-inspired centered headings, fine rules and softly framed neutral
+      panels below the preserved hero. Project content and workflows remain
+      intact. The gallery retains its hidden scrollbar, wheel, touch and
+      keyboard access.
+    </p>
+    <p>
+      <a href="../docs/firecrawl-refinement.md">Design decisions</a> ·
+      <a href="firecrawl-revision/content-checks.json">Content preservation</a>
+      ·
+      <a href="showcase-checks.json">Gallery checks</a>
+    </p>
+    <div class="comparison">
+      <figure>
+        <a href="firecrawl-revision/before/selected-work-1440.png"
+          ><img
+            src="firecrawl-revision/before/selected-work-1440.png"
+            width="1440"
+            height="1000"
+            alt="Previous selected work with a left-aligned heading and pale blue project surface"
+        /></a>
+        <figcaption>Before · separate colored cover surfaces.</figcaption>
+      </figure>
+      <figure>
+        <a href="firecrawl-revision/after/selected-work-1440.png"
+          ><img
+            src="firecrawl-revision/after/selected-work-1440.png"
+            width="1440"
+            height="1100"
+            alt="Centered selected work heading, framed white gallery and neutral interface surface with orange accents"
+        /></a>
+        <figcaption>
+          After · monochrome panels with one orange accent.
+        </figcaption>
+      </figure>
+    </div>
+    <p>
+      Full home: <a href="firecrawl-revision/after/home-1440.png">desktop</a> ·
+      <a href="firecrawl-revision/after/home-390.png">mobile</a>. Mobile
+      section:
+      <a href="firecrawl-revision/before/selected-work-390.png">before</a> ·
+      <a href="firecrawl-revision/after/selected-work-390.png">after</a>.
+    </p>
+    <div class="gallery">
+      <figure>
+        <a href="firecrawl-revision/after/growth-1440.png"
+          ><img
+            src="firecrawl-revision/after/growth-1440.png"
+            width="1164"
+            height="583"
+            alt="Partner Growth updated concept in the neutral framed project panel"
+        /></a>
+        <figcaption>
+          Growth · <a href="firecrawl-revision/after/growth-390.png">mobile</a>
+        </figcaption>
+      </figure>
+      <figure>
+        <a href="firecrawl-revision/after/discount-1440.png"
+          ><img
+            src="firecrawl-revision/after/discount-1440.png"
+            width="1164"
+            height="607"
+            alt="Discounting updated concept with exact remaining-rate bars in orange"
+        /></a>
+        <figcaption>
+          Discounting ·
+          <a href="firecrawl-revision/after/discount-390.png">mobile</a>
+        </figcaption>
+      </figure>
+      <figure>
+        <a href="firecrawl-revision/after/developer-1440.png"
+          ><img
+            src="firecrawl-revision/after/developer-1440.png"
+            width="1164"
+            height="503"
+            alt="Developer Portal updated concept in charcoal with orange rollout details"
+        /></a>
+        <figcaption>
+          Developer Portal ·
+          <a href="firecrawl-revision/after/developer-390.png">mobile</a>
+        </figcaption>
+      </figure>
+    </div>
+    <h2>Hero refinement: animated halftone and etched trails</h2>
+    <p>
+      A full monochrome field animates cloud sampling and dot density. On
+      desktop, the cursor exposes a contrasting ink treatment that dissolves
+      into the clouds. A quiet center keeps the copy readable; text and labels
+      stay still. Pause, reduced motion, touch and unavailable graphics use a
+      static poster.
+    </p>
+    <p>
+      <a href="etch-revision/checks.json">Interaction checks</a> ·
+      <a href="etch-revision/content-checks.json">Content preservation</a> ·
+      <a href="etch-revision/after/cursor-demo.webm">Cursor recording</a> ·
+      <a href="etch-revision/performance.json">Desktop rendering observation</a>
+      ·
+      <a href="../docs/cloud-art-direction.md">Artwork and generation prompt</a>
+    </p>
+    <div class="comparison">
+      <figure>
+        <a href="etch-revision/before/opening-1440.png"
+          ><img
+            src="etch-revision/before/opening-1440.png"
+            width="1440"
+            height="1000"
+            alt="Previous monochrome cloud image through a uniform CSS dot mask"
+        /></a>
+        <figcaption>Before · uniform CSS dot mask and slight drift.</figcaption>
+      </figure>
+      <figure>
+        <a href="etch-revision/after/opening-1440.png"
+          ><img
+            src="etch-revision/after/opening-1440.png"
+            width="1440"
+            height="1000"
+            alt="Full hero with varying halftone density, recognizable cloud shapes and a quiet center around the orange headline"
+        /></a>
+        <figcaption>
+          After · full animated field and fading etched trails.
+        </figcaption>
+      </figure>
+    </div>
+    <p>
+      Mobile: <a href="etch-revision/before/opening-390.png">before</a> ·
+      <a href="etch-revision/after/opening-390.png">after</a>.
+    </p>
+    <h2>Previous direction: Browserbase-inspired pixel landscape</h2>
+    <p>
+      Orange headline bands, an original pixel landscape, fine grid rules and
+      rebuilt Growth and Discounting interfaces. The original chevron logo
+      remains. Regular mouse-wheel input now advances projects while over the
+      desktop gallery and releases to page scrolling at either end.
+    </p>
+    <p>
+      <a href="browserbase-revision/content-checks.json"
+        >Content preservation</a
+      >
+      ·
+      <a href="browserbase-revision/wheel-after.json"
+        >Mouse-wheel verification</a
+      >
+      ·
+      <a href="../docs/browserbase-direction.md"
+        >Reference and design decisions</a
+      >
+    </p>
+    <div class="comparison">
+      <figure>
+        <a href="browserbase-revision/before/showcase-opening-1440.png"
+          ><img
+            src="browserbase-revision/before/showcase-opening-1440.png"
+            alt="Immediately preceding Rauno-inspired portfolio"
+            width="1440"
+            height="900"
+        /></a>
+        <figcaption>Before this pass · restrained gallery opening.</figcaption>
+      </figure>
+      <figure>
+        <a href="browserbase-revision/after/home-1440.png"
+          ><img
+            src="browserbase-revision/after/opening-1440.png"
+            alt="Earlier Browserbase-inspired opening with orange highlight and pixel landscape"
+            width="1440"
+            height="1000"
+        /></a>
+        <figcaption>Earlier pixel opening · click for full page.</figcaption>
+      </figure>
+    </div>
+    <h2>Original main to current portfolio</h2>
+    <div class="comparison">
+      <figure>
+        <a href="before/index-1440.png"
+          ><img
+            src="before/first-viewport-1440.png"
+            alt="Before: restrained serif portfolio and neutral product interface"
+            width="1440"
+            height="900"
+        /></a>
+        <figcaption>
+          Before · desktop first viewport. Click for full page.
+        </figcaption>
+      </figure>
+      <figure>
+        <a href="after/index-1440.png"
+          ><img
+            src="after/showcase-opening-1440.png"
+            alt="After: orange headline band, monochrome clouds and clear flagship case link"
+            width="1440"
+            height="900"
+        /></a>
+        <figcaption>
+          After · desktop first viewport. Click for full page.
+        </figcaption>
+      </figure>
+    </div>
+    <h2>Mobile comparison</h2>
+    <div class="comparison">
+      <figure>
+        <a href="before/index-390.png"
+          ><img
+            src="before/first-viewport-390.png"
+            alt="Original portfolio at 390 pixels wide"
+            loading="lazy"
+            width="390"
+            height="900"
+        /></a>
+        <figcaption>Before · 390 pixels.</figcaption>
+      </figure>
+      <figure>
+        <a href="after/index-390.png"
+          ><img
+            src="after/first-viewport-390.png"
+            alt="Redesigned portfolio at 390 pixels wide"
+            loading="lazy"
+            width="390"
+            height="900"
+        /></a>
+        <figcaption>After · 390 pixels.</figcaption>
+      </figure>
+    </div>
+    <h2>Gallery behavior</h2>
+    <p>
+      The gallery combines a hidden scrollbar, next-card peek, previous/next
+      buttons and project indicator. Desktop mouse-wheel input over the gallery
+      advances a project; both ends release back to the page. Trackpad, touch
+      and keyboard access remain available. The gallery fits the selected
+      project.
+    </p>
+    <div class="comparison">
+      <figure>
+        <a href="scrollbar-revision/before/vertical-opening-1440.png"
+          ><img
+            src="scrollbar-revision/before/vertical-opening-1440.png"
+            alt="Preceding version with vertically stacked project previews"
+            loading="lazy"
+            width="1440"
+            height="900"
+        /></a>
+        <figcaption>Before this pass · vertical project sequence.</figcaption>
+      </figure>
+      <figure>
+        <a href="after/showcase-opening-1440.png"
+          ><img
+            src="after/showcase-opening-1440.png"
+            alt="Horizontal project gallery with a next-card peek, navigation controls and no visible scrollbar"
+            loading="lazy"
+            width="1440"
+            height="900"
+        /></a>
+        <figcaption>
+          After · native horizontal scrolling, hidden scrollbar.
+        </figcaption>
+      </figure>
+    </div>
+    <p>
+      <a href="scrollbar-revision/before/vertical-opening-390.png"
+        >Previous mobile opening</a
+      >
+      · <a href="after/first-viewport-390.png">Current mobile opening</a> ·
+      <a href="showcase-checks.json">Gallery interaction checks</a>.
+    </p>
+    <h2>Product interface refinement</h2>
+    <p>
+      The growth and discount examples now have complete application layouts.
+      Growth combines search, categories and existing program mechanics in a
+      readable catalog. Discounting pairs rate setup with an ordered financial
+      breakdown. Developer Portal, the overall portfolio direction and existing
+      content remain unchanged.
+      <a href="../docs/product-interface-refinement.md"
+        >References and decisions</a
+      >.
+    </p>
+    <h3>Partner Growth Programs</h3>
+    <div class="comparison">
+      <figure>
+        <a href="product-ui-revision/before/showcase-growth-1440.png"
+          ><img
+            src="product-ui-revision/before/showcase-growth-1440.png"
+            alt="Previous growth example with a simple discovery list"
+            loading="lazy"
+            width="1326"
+            height="782"
+        /></a>
+        <figcaption>Before this pass · program discovery preview.</figcaption>
+      </figure>
+      <figure>
+        <a href="after/showcase-growth-1440.png"
+          ><img
+            src="after/showcase-growth-1440.png"
+            alt="Updated growth catalog with property context, discovery controls and expanded Promotions mechanics"
+            loading="lazy"
+            width="1164"
+            height="738"
+        /></a>
+        <figcaption>
+          After · structured catalog and readable program details.
+        </figcaption>
+      </figure>
+    </div>
+    <p>
+      Mobile:
+      <a href="product-ui-revision/before/showcase-growth-390.png">before</a> ·
+      <a href="after/showcase-growth-390.png">after</a>. Working concept:
+      <a
+        href="product-ui-revision/before/concept-partner-growth-programs-1440.png"
+        >before</a
+      >
+      · <a href="after/concept-partner-growth-programs-1440.png">after</a> ·
+      <a href="../partner-growth-programs.html#concept">try it</a>.
+    </p>
+    <h3>Discounting 2.0</h3>
+    <div class="comparison">
+      <figure>
+        <a href="product-ui-revision/before/showcase-discount-1440.png"
+          ><img
+            src="product-ui-revision/before/showcase-discount-1440.png"
+            alt="Previous discount cover with a large rate infographic"
+            loading="lazy"
+            width="1326"
+            height="710"
+        /></a>
+        <figcaption>Before this pass · rate infographic.</figcaption>
+      </figure>
+      <figure>
+        <a href="after/showcase-discount-1440.png"
+          ><img
+            src="after/showcase-discount-1440.png"
+            alt="Updated discount workbench with rate setup, selected discounts and an itemized calculation"
+            loading="lazy"
+            width="1164"
+            height="556"
+        /></a>
+        <figcaption>
+          After · input controls and an exact financial breakdown.
+        </figcaption>
+      </figure>
+    </div>
+    <p>
+      Mobile:
+      <a href="product-ui-revision/before/showcase-discount-390.png">before</a>
+      · <a href="after/showcase-discount-390.png">after</a>. Working concept:
+      <a href="product-ui-revision/before/concept-discounting-1440.png"
+        >before</a
+      >
+      · <a href="after/concept-discounting-1440.png">after</a> ·
+      <a href="../discounting.html#concept">try it</a>.
+    </p>
+    <h2>Earlier refinement: interface compositions</h2>
+    <p>
+      An earlier pass replaced the 3D objects and document-linked horizontal
+      gallery with focused interface compositions and a vertical sequence. That
+      version is preserved here. The current gallery restores native horizontal
+      scrolling with the improved graphics. Existing workflow content, evidence,
+      navigation, contact and resume links remain.
+    </p>
+    <div class="comparison">
+      <figure>
+        <a href="commercial-revision/before/horizontal-opening-1440.png"
+          ><img
+            src="commercial-revision/before/horizontal-opening-1440.png"
+            alt="Previous version: rendered 3D program icons in a horizontal gallery"
+            loading="lazy"
+            width="1440"
+            height="900"
+        /></a>
+        <figcaption>
+          Before this revision · 3D objects and horizontal gallery.
+        </figcaption>
+      </figure>
+      <figure>
+        <a href="scrollbar-revision/before/vertical-opening-1440.png"
+          ><img
+            src="scrollbar-revision/before/vertical-opening-1440.png"
+            alt="Earlier interface refinement with vertical reading order and a precise discovery interface"
+            loading="lazy"
+            width="1440"
+            height="900"
+        /></a>
+        <figcaption>
+          Earlier refinement · readable interface covers and vertical scrolling.
+        </figcaption>
+      </figure>
+    </div>
+    <p>
+      <a href="showcase-checks.json">Current showcase verification</a>
+      ·
+      <a href="../docs/browserbase-direction.md">Current design direction</a>
+    </p>
+    <h2>Work-led compositions</h2>
+    <p>
+      Partner Growth Programs leads with discovery on acid yellow. Discounting
+      shows an exact rate ledger on blue. Developer Portal uses a precise dark
+      deployment interface. Typography and timing connect the projects. Phones
+      use readable columns rather than scaled desktop mockups.
+    </p>
+    <div class="comparison">
+      <figure>
+        <a href="after/showcase-discount-1440.png"
+          ><img
+            src="after/showcase-discount-1440.png"
+            alt="Discounting cover with stationary $114.75 result and exact proportional bars"
+            loading="lazy"
+            width="1164"
+            height="556"
+        /></a>
+        <figcaption>
+          Discounting · sequential stacking before commission and taxes.
+        </figcaption>
+      </figure>
+      <figure>
+        <a href="after/showcase-developer-1440.png"
+          ><img
+            src="after/showcase-developer-1440.png"
+            alt="Developer Portal cover with environment and Canary rollout settings"
+            loading="lazy"
+            width="1164"
+            height="512"
+        /></a>
+        <figcaption>
+          Developer Portal · existing example deployment settings.
+        </figcaption>
+      </figure>
+    </div>
+    <h2>Recorded interaction review</h2>
+    <p>
+      Local keyboard, input and motion checks. This recording includes test
+      pauses; try the live preview for fluid interaction.
+    </p>
+    <video
+      controls
+      preload="metadata"
+      poster="after/glass-and-depth-1440.png"
+      style="width: 100%; height: auto"
+      aria-label="Recorded portfolio interaction review"
+    >
+      <source src="after/showcase-motion.webm" type="video/webm" />
+      <a href="after/showcase-motion.webm"
+        >Download the interaction recording</a
+      >
+    </video>
+    <p>
+      <a href="showcase-checks.json"
+        >Gallery scrolling, focus and preference verification</a
+      >
+    </p>
+    <div class="gallery">
+      <div>
+        <h3>Previous revisions</h3>
+        <a href="commercial-revision/before/horizontal-growth-390.png"
+          >Previous 3D gallery on mobile</a
+        >
+        <a href="color-revision/before/index-1440.png"
+          >Earlier color direction</a
+        >
+      </div>
+      <div>
+        <h3>Current compositions</h3>
+        <a href="after/selected-work-1440.png">Selected work at desktop</a>
+        <a href="after/selected-work-390.png">Selected work at mobile</a>
+        <a href="after/glass-and-depth-1440.png"
+          >Glass and depth with normal motion</a
+        >
+      </div>
+      <div>
+        <h3>Reference review</h3>
+        <a href="../docs/portfolio-reference-review.md"
+          >References and design decisions</a
+        >
+        <a href="work-artifacts.json">Original mockup provenance</a>
+      </div>
+    </div>
+    <h2>Each project cover</h2>
+    <div class="gallery">
+      <div>
+        <h3>Partner Growth Programs</h3>
+        <a href="after/showcase-growth-1440.png">Desktop cover</a
+        ><a href="after/showcase-growth-390.png">Mobile cover</a>
+      </div>
+      <div>
+        <h3>Discounting 2.0</h3>
+        <a href="after/showcase-discount-1440.png">Desktop cover</a
+        ><a href="after/showcase-discount-390.png">Mobile cover</a>
+      </div>
+      <div>
+        <h3>Developer Portal</h3>
+        <a href="after/showcase-developer-1440.png">Desktop cover</a
+        ><a href="after/showcase-developer-390.png">Mobile cover</a>
+      </div>
+    </div>
+    <h2>Updated concepts</h2>
+    <div class="gallery">
+      <div>
+        <h3>Program discovery</h3>
+        <a href="after/concept-partner-growth-programs-1440.png"
+          >Desktop concept screenshot</a
+        ><a href="after/concept-partner-growth-programs-390.png"
+          >Mobile concept screenshot</a
+        ><a href="../partner-growth-programs.html#concept">Try discovery</a>
+      </div>
+      <div>
+        <h3>Discount calculations</h3>
+        <a href="after/concept-discounting-1440.png"
+          >Desktop concept screenshot</a
+        ><a href="after/concept-discounting-390.png"
+          >Mobile concept screenshot</a
+        ><a href="../discounting.html#concept">Try the calculator</a>
+      </div>
+      <div>
+        <h3>Developer workflows</h3>
+        <a href="after/concept-dev-portal-1440.png"
+          >Desktop concept screenshot</a
+        ><a href="after/concept-dev-portal-390.png">Mobile concept screenshot</a
+        ><a href="../dev-portal.html#concept">Try the walkthrough</a>
+      </div>
+    </div>
+    <h2>Remaining limits</h2>
+    <ul>
+      <li>
+        Concepts use existing workflows and illustrative data. They do not
+        connect to Agoda or deploy infrastructure.
+      </li>
+      <li>
+        The original source leaves baselines, sample sizes and some metric
+        periods unspecified; the case studies disclose this.
+      </li>
+      <li>
+        Automated checks and a Chromium lab run are not real-user performance
+        measurement or a complete assistive-technology audit.
+      </li>
+      <li>
+        Preserved original artifacts retain their historical interface and
+        original numerical discrepancies.
+      </li>
+    </ul>
+    <p>
+      Full-page screenshots for all main routes are in
+      <a href="../README.md">the delivery guide</a>.
+    </p>
+  </body>
+</html>

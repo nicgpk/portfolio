@@ -1,0 +1,2287 @@
+{
+  "checkedAt": "2026-10-03T16:15:35.178Z",
+  "browser": "Project-local Chromium on Windows",
+  "viewports": [
+    {
+      "viewport": {
+        "width": 320,
+        "height": 800,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.9969387755102
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49897959183673
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 320,
+        "documentWidth": 320,
+        "scrollX": 0,
+        "horizontalContainers": [
+          {
+            "tag": "DIV",
+            "class": "showcase-track is-gallery-ready",
+            "clientWidth": 286,
+            "scrollWidth": 800
+          }
+        ],
+        "cards": [
+          {
+            "left": 23,
+            "right": 275,
+            "top": 996.640625,
+            "bottom": 2518.71875,
+            "position": "static"
+          },
+          {
+            "left": 291,
+            "right": 543,
+            "top": 996.640625,
+            "bottom": 2118.765625,
+            "position": "static"
+          },
+          {
+            "left": 559,
+            "right": 811,
+            "top": 996.640625,
+            "bottom": 1935.28125,
+            "position": "static"
+          }
+        ],
+        "rail": {
+          "left": 17,
+          "right": 303,
+          "clientWidth": 286,
+          "scrollWidth": 800,
+          "scrollLeft": 0,
+          "scrollbarWidth": "none",
+          "webkitScrollbarDisplay": "none",
+          "instructions": [
+            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+          ]
+        },
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "gestures": {
+        "verticalWheelDelta": 240,
+        "horizontalWheelDelta": 240
+      },
+      "navigation": [
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 514
+        },
+        {
+          "action": "ArrowRight",
+          "project": "discount",
+          "left": 268,
+          "max": 514
+        },
+        {
+          "action": "ArrowLeft",
+          "project": "growth",
+          "left": 0,
+          "max": 514
+        },
+        {
+          "action": "End",
+          "project": "developer",
+          "left": 514,
+          "max": 514
+        },
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 514
+        },
+        {
+          "action": "Next project",
+          "project": "discount",
+          "left": 268,
+          "max": 514
+        },
+        {
+          "action": "Next project",
+          "project": "developer",
+          "left": 514,
+          "max": 514
+        },
+        {
+          "action": "Previous project",
+          "project": "discount",
+          "left": 268,
+          "max": 514
+        },
+        {
+          "action": "Previous project",
+          "project": "growth",
+          "left": 0,
+          "max": 514
+        }
+      ],
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 24,
+            "y": 332.640625,
+            "width": 250,
+            "height": 371.125
+          },
+          "title": {
+            "x": 42,
+            "y": 506.234375,
+            "width": 214,
+            "height": 110.15625
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 24,
+            "y": 147.640625,
+            "width": 250,
+            "height": 312.3125
+          },
+          "title": {
+            "x": 42,
+            "y": 273.234375,
+            "width": 214,
+            "height": 73.4375
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 46,
+            "y": 123.640625,
+            "width": 250,
+            "height": 290.21875
+          },
+          "title": {
+            "x": 64,
+            "y": 207.234375,
+            "width": 214,
+            "height": 73.4375
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        }
+      ],
+      "axeViolations": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99774436090225
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49774436090226
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 390,
+        "documentWidth": 390,
+        "scrollX": 0,
+        "horizontalContainers": [
+          {
+            "tag": "DIV",
+            "class": "showcase-track is-gallery-ready",
+            "clientWidth": 356,
+            "scrollWidth": 1010
+          }
+        ],
+        "cards": [
+          {
+            "left": 23,
+            "right": 345,
+            "top": 999.234375,
+            "bottom": 2311.65625,
+            "position": "static"
+          },
+          {
+            "left": 361,
+            "right": 683,
+            "top": 999.234375,
+            "bottom": 2000.984375,
+            "position": "static"
+          },
+          {
+            "left": 699,
+            "right": 1021,
+            "top": 999.234375,
+            "bottom": 1881.96875,
+            "position": "static"
+          }
+        ],
+        "rail": {
+          "left": 17,
+          "right": 373,
+          "clientWidth": 356,
+          "scrollWidth": 1010,
+          "scrollLeft": 0,
+          "scrollbarWidth": "none",
+          "webkitScrollbarDisplay": "none",
+          "instructions": [
+            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+          ]
+        },
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "gestures": {
+        "verticalWheelDelta": 240,
+        "horizontalWheelDelta": 240,
+        "touchSwipeDelta": 225
+      },
+      "navigation": [
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 654
+        },
+        {
+          "action": "ArrowRight",
+          "project": "discount",
+          "left": 338,
+          "max": 654
+        },
+        {
+          "action": "ArrowLeft",
+          "project": "growth",
+          "left": 0,
+          "max": 654
+        },
+        {
+          "action": "End",
+          "project": "developer",
+          "left": 654,
+          "max": 654
+        },
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 654
+        },
+        {
+          "action": "Next project",
+          "project": "discount",
+          "left": 334,
+          "max": 654
+        },
+        {
+          "action": "Next project",
+          "project": "developer",
+          "left": 654,
+          "max": 654
+        },
+        {
+          "action": "Previous project",
+          "project": "discount",
+          "left": 338,
+          "max": 654
+        },
+        {
+          "action": "Previous project",
+          "project": "growth",
+          "left": 0,
+          "max": 654
+        }
+      ],
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 24,
+            "y": 547.234375,
+            "width": 320,
+            "height": 291.515625
+          },
+          "title": {
+            "x": 42,
+            "y": 608.03125,
+            "width": 283.75,
+            "height": 73.4375
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 24,
+            "y": 390.234375,
+            "width": 320,
+            "height": 253.5
+          },
+          "title": {
+            "x": 42,
+            "y": 595.828125,
+            "width": 283.75,
+            "height": 36.71875
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 46,
+            "y": 230.234375,
+            "width": 320,
+            "height": 253.5
+          },
+          "title": {
+            "x": 64,
+            "y": 344.828125,
+            "width": 283.75,
+            "height": 36.71875
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      ],
+      "axeViolations": []
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 900,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99767891682785
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.4990328820116
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 768,
+        "documentWidth": 768,
+        "scrollX": 0,
+        "horizontalContainers": [
+          {
+            "tag": "DIV",
+            "class": "showcase-track is-gallery-ready",
+            "clientWidth": 710,
+            "scrollWidth": 2028
+          }
+        ],
+        "cards": [
+          {
+            "left": 37,
+            "right": 689,
+            "top": 1088.03125,
+            "bottom": 2015.0625,
+            "position": "static"
+          },
+          {
+            "left": 717,
+            "right": 1369,
+            "top": 1088.03125,
+            "bottom": 1803.5,
+            "position": "static"
+          },
+          {
+            "left": 1397,
+            "right": 2049,
+            "top": 1088.03125,
+            "bottom": 1896.671875,
+            "position": "static"
+          }
+        ],
+        "rail": {
+          "left": 29,
+          "right": 739,
+          "clientWidth": 710,
+          "scrollWidth": 2028,
+          "scrollLeft": 0,
+          "scrollbarWidth": "none",
+          "webkitScrollbarDisplay": "none",
+          "instructions": [
+            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+          ]
+        },
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "gestures": {
+        "verticalWheelDelta": 240,
+        "horizontalWheelDelta": 240
+      },
+      "navigation": [
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 1318
+        },
+        {
+          "action": "ArrowRight",
+          "project": "discount",
+          "left": 680,
+          "max": 1318
+        },
+        {
+          "action": "ArrowLeft",
+          "project": "growth",
+          "left": 0,
+          "max": 1318
+        },
+        {
+          "action": "End",
+          "project": "developer",
+          "left": 1318,
+          "max": 1318
+        },
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 1318
+        },
+        {
+          "action": "Next project",
+          "project": "discount",
+          "left": 677,
+          "max": 1318
+        },
+        {
+          "action": "Next project",
+          "project": "developer",
+          "left": 1318,
+          "max": 1318
+        },
+        {
+          "action": "Previous project",
+          "project": "discount",
+          "left": 682,
+          "max": 1318
+        },
+        {
+          "action": "Previous project",
+          "project": "growth",
+          "left": 3,
+          "max": 1318
+        }
+      ],
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 38,
+            "y": 545.03125,
+            "width": 650,
+            "height": 192.390625
+          },
+          "title": {
+            "x": 62,
+            "y": 643.828125,
+            "width": 275.40625,
+            "height": 71.25
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 38,
+            "y": 284.03125,
+            "width": 650,
+            "height": 192.390625
+          },
+          "title": {
+            "x": 62,
+            "y": 429.625,
+            "width": 275.40625,
+            "height": 35.625
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 80,
+            "y": 153.03125,
+            "width": 650,
+            "height": 168.59375
+          },
+          "title": {
+            "x": 104,
+            "y": 284.625,
+            "width": 275.40625,
+            "height": 35.625
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 768,
+            "height": 900
+          }
+        }
+      ],
+      "axeViolations": []
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "mobile": false
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99893697798025
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49962034927866
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 1440,
+        "documentWidth": 1440,
+        "scrollX": 0,
+        "horizontalContainers": [
+          {
+            "tag": "DIV",
+            "class": "showcase-track is-gallery-ready",
+            "clientWidth": 1222,
+            "scrollWidth": 3564
+          }
+        ],
+        "cards": [
+          {
+            "left": 117,
+            "right": 1281,
+            "top": 1179.4375,
+            "bottom": 1916.28125,
+            "position": "static"
+          },
+          {
+            "left": 1309,
+            "right": 2473,
+            "top": 1179.4375,
+            "bottom": 1734.3125,
+            "position": "static"
+          },
+          {
+            "left": 2501,
+            "right": 3665,
+            "top": 1179.4375,
+            "bottom": 1690.34375,
+            "position": "static"
+          }
+        ],
+        "rail": {
+          "left": 109,
+          "right": 1331,
+          "clientWidth": 1222,
+          "scrollWidth": 3564,
+          "scrollLeft": 0,
+          "scrollbarWidth": "none",
+          "webkitScrollbarDisplay": "none",
+          "instructions": [
+            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+          ]
+        },
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "gestures": {
+        "verticalWheelDelta": 0,
+        "horizontalWheelDelta": 240,
+        "shiftWheelDelta": 240
+      },
+      "navigation": [
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        },
+        {
+          "action": "ArrowRight",
+          "project": "discount",
+          "left": 1192,
+          "max": 2342
+        },
+        {
+          "action": "ArrowLeft",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        },
+        {
+          "action": "End",
+          "project": "developer",
+          "left": 2342,
+          "max": 2342
+        },
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        },
+        {
+          "action": "Next project",
+          "project": "discount",
+          "left": 1184,
+          "max": 2342
+        },
+        {
+          "action": "Next project",
+          "project": "developer",
+          "left": 2341,
+          "max": 2342
+        },
+        {
+          "action": "Previous project",
+          "project": "discount",
+          "left": 1193,
+          "max": 2342
+        },
+        {
+          "action": "Previous project",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        }
+      ],
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 118,
+            "y": 517.75,
+            "width": 360.21875,
+            "height": 368.21875
+          },
+          "title": {
+            "x": 146,
+            "y": 605.546875,
+            "width": 304.21875,
+            "height": 95.03125
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 118,
+            "y": 296.65625,
+            "width": 360.21875,
+            "height": 344.421875
+          },
+          "title": {
+            "x": 146,
+            "y": 424.453125,
+            "width": 304.21875,
+            "height": 95.03125
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 160,
+            "y": 245.671875,
+            "width": 360.21875,
+            "height": 344.421875
+          },
+          "title": {
+            "x": 188,
+            "y": 329.46875,
+            "width": 304.21875,
+            "height": 95.03125
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        }
+      ],
+      "axeViolations": []
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99862603298861
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49511068812289
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 844,
+        "documentWidth": 844,
+        "scrollX": 0,
+        "horizontalContainers": [
+          {
+            "tag": "DIV",
+            "class": "showcase-track is-gallery-ready",
+            "clientWidth": 786,
+            "scrollWidth": 2256
+          }
+        ],
+        "cards": [
+          {
+            "left": 37,
+            "right": 765,
+            "top": 1097.5625,
+            "bottom": 2024.59375,
+            "position": "static"
+          },
+          {
+            "left": 793,
+            "right": 1521,
+            "top": 1097.5625,
+            "bottom": 1789.234375,
+            "position": "static"
+          },
+          {
+            "left": 1549,
+            "right": 2277,
+            "top": 1097.5625,
+            "bottom": 1882.40625,
+            "position": "static"
+          }
+        ],
+        "rail": {
+          "left": 29,
+          "right": 815,
+          "clientWidth": 786,
+          "scrollWidth": 2256,
+          "scrollLeft": 0,
+          "scrollbarWidth": "none",
+          "webkitScrollbarDisplay": "none",
+          "instructions": [
+            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+          ]
+        },
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "gestures": {
+        "verticalWheelDelta": 240,
+        "horizontalWheelDelta": 240
+      },
+      "navigation": [
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 1470
+        },
+        {
+          "action": "ArrowRight",
+          "project": "discount",
+          "left": 756,
+          "max": 1470
+        },
+        {
+          "action": "ArrowLeft",
+          "project": "growth",
+          "left": 0,
+          "max": 1470
+        },
+        {
+          "action": "End",
+          "project": "developer",
+          "left": 1470,
+          "max": 1470
+        },
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 1470
+        },
+        {
+          "action": "Next project",
+          "project": "discount",
+          "left": 744,
+          "max": 1470
+        },
+        {
+          "action": "Next project",
+          "project": "developer",
+          "left": 1470,
+          "max": 1470
+        },
+        {
+          "action": "Previous project",
+          "project": "discount",
+          "left": 756,
+          "max": 1470
+        },
+        {
+          "action": "Previous project",
+          "project": "growth",
+          "left": 0,
+          "max": 1470
+        }
+      ],
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 38,
+            "y": 158.5625,
+            "width": 726,
+            "height": 192.390625
+          },
+          "title": {
+            "x": 62,
+            "y": 227.359375,
+            "width": 275.40625,
+            "height": 71.25
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 38,
+            "y": 134.5625,
+            "width": 726,
+            "height": 168.59375
+          },
+          "title": {
+            "x": 62,
+            "y": 223.359375,
+            "width": 275.40625,
+            "height": 35.625
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 80,
+            "y": 119.5625,
+            "width": 726,
+            "height": 144.796875
+          },
+          "title": {
+            "x": 104,
+            "y": 190.359375,
+            "width": 275.40625,
+            "height": 35.625
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        }
+      ],
+      "axeViolations": []
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 600,
+        "mobile": false
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99893697798025
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49962034927866
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 1440,
+        "documentWidth": 1440,
+        "scrollX": 0,
+        "horizontalContainers": [
+          {
+            "tag": "DIV",
+            "class": "showcase-track is-gallery-ready",
+            "clientWidth": 1222,
+            "scrollWidth": 3564
+          }
+        ],
+        "cards": [
+          {
+            "left": 117,
+            "right": 1281,
+            "top": 1179.4375,
+            "bottom": 1916.28125,
+            "position": "static"
+          },
+          {
+            "left": 1309,
+            "right": 2473,
+            "top": 1179.4375,
+            "bottom": 1734.3125,
+            "position": "static"
+          },
+          {
+            "left": 2501,
+            "right": 3665,
+            "top": 1179.4375,
+            "bottom": 1690.34375,
+            "position": "static"
+          }
+        ],
+        "rail": {
+          "left": 109,
+          "right": 1331,
+          "clientWidth": 1222,
+          "scrollWidth": 3564,
+          "scrollLeft": 0,
+          "scrollbarWidth": "none",
+          "webkitScrollbarDisplay": "none",
+          "instructions": [
+            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+          ]
+        },
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "gestures": {
+        "verticalWheelDelta": 0,
+        "horizontalWheelDelta": 240
+      },
+      "navigation": [
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        },
+        {
+          "action": "ArrowRight",
+          "project": "discount",
+          "left": 1192,
+          "max": 2342
+        },
+        {
+          "action": "ArrowLeft",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        },
+        {
+          "action": "End",
+          "project": "developer",
+          "left": 2342,
+          "max": 2342
+        },
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        },
+        {
+          "action": "Next project",
+          "project": "discount",
+          "left": 1184,
+          "max": 2342
+        },
+        {
+          "action": "Next project",
+          "project": "developer",
+          "left": 2342,
+          "max": 2342
+        },
+        {
+          "action": "Previous project",
+          "project": "discount",
+          "left": 1201,
+          "max": 2342
+        },
+        {
+          "action": "Previous project",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        }
+      ],
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 118,
+            "y": 226.75,
+            "width": 360.21875,
+            "height": 368.21875
+          },
+          "title": {
+            "x": 146,
+            "y": 303.546875,
+            "width": 304.21875,
+            "height": 95.03125
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 1440,
+            "height": 600
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 118,
+            "y": 147.65625,
+            "width": 360.21875,
+            "height": 344.421875
+          },
+          "title": {
+            "x": 146,
+            "y": 224.453125,
+            "width": 304.21875,
+            "height": 95.03125
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 1440,
+            "height": 600
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 160,
+            "y": 125.671875,
+            "width": 360.21875,
+            "height": 344.421875
+          },
+          "title": {
+            "x": 188,
+            "y": 202.46875,
+            "width": 304.21875,
+            "height": 95.03125
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 1440,
+            "height": 600
+          }
+        }
+      ],
+      "axeViolations": []
+    }
+  ],
+  "noJavaScript": [
+    {
+      "viewport": {
+        "width": 320,
+        "height": 800,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99862385321101
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49816513761468
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 320,
+        "documentWidth": 320,
+        "scrollX": 0,
+        "horizontalContainers": [
+          {
+            "tag": "DIV",
+            "class": "showcase-track",
+            "clientWidth": 286,
+            "scrollWidth": 866
+          }
+        ],
+        "cards": [
+          {
+            "left": 23,
+            "right": 297,
+            "top": 996.640625,
+            "bottom": 2410.546875,
+            "position": "static"
+          },
+          {
+            "left": 313,
+            "right": 587,
+            "top": 996.640625,
+            "bottom": 2073.703125,
+            "position": "static"
+          },
+          {
+            "left": 603,
+            "right": 877,
+            "top": 996.640625,
+            "bottom": 1916.09375,
+            "position": "static"
+          }
+        ],
+        "rail": {
+          "left": 17,
+          "right": 303,
+          "clientWidth": 286,
+          "scrollWidth": 866,
+          "scrollLeft": 0,
+          "scrollbarWidth": "none",
+          "webkitScrollbarDisplay": "none",
+          "instructions": [
+            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+          ]
+        },
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "gestures": {
+        "verticalWheelDelta": 240,
+        "horizontalWheelDelta": 240
+      },
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 24,
+            "y": 88.640625,
+            "width": 272,
+            "height": 312.3125
+          },
+          "title": {
+            "x": 42,
+            "y": 155.234375,
+            "width": 236,
+            "height": 73.4375
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 24,
+            "y": 105.640625,
+            "width": 272,
+            "height": 312.3125
+          },
+          "title": {
+            "x": 42,
+            "y": 177.234375,
+            "width": 236,
+            "height": 73.4375
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 24,
+            "y": 113.640625,
+            "width": 272,
+            "height": 290.21875
+          },
+          "title": {
+            "x": 42,
+            "y": 190.234375,
+            "width": 236,
+            "height": 73.4375
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 320,
+            "height": 800
+          }
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99895833333333
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49722222222223
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 390,
+        "documentWidth": 390,
+        "scrollX": 0,
+        "horizontalContainers": [
+          {
+            "tag": "DIV",
+            "class": "showcase-track",
+            "clientWidth": 356,
+            "scrollWidth": 1076
+          }
+        ],
+        "cards": [
+          {
+            "left": 23,
+            "right": 367,
+            "top": 999.234375,
+            "bottom": 2287.15625,
+            "position": "static"
+          },
+          {
+            "left": 383,
+            "right": 727,
+            "top": 999.234375,
+            "bottom": 1980.1875,
+            "position": "static"
+          },
+          {
+            "left": 743,
+            "right": 1087,
+            "top": 999.234375,
+            "bottom": 1839.078125,
+            "position": "static"
+          }
+        ],
+        "rail": {
+          "left": 17,
+          "right": 373,
+          "clientWidth": 356,
+          "scrollWidth": 1076,
+          "scrollLeft": 0,
+          "scrollbarWidth": "none",
+          "webkitScrollbarDisplay": "none",
+          "instructions": [
+            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+          ]
+        },
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "gestures": {
+        "verticalWheelDelta": 240,
+        "horizontalWheelDelta": 240
+      },
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 24,
+            "y": 89.234375,
+            "width": 342,
+            "height": 291.515625
+          },
+          "title": {
+            "x": 42,
+            "y": 135.03125,
+            "width": 283.75,
+            "height": 73.4375
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 24,
+            "y": 105.234375,
+            "width": 342,
+            "height": 232.703125
+          },
+          "title": {
+            "x": 42,
+            "y": 157.03125,
+            "width": 283.75,
+            "height": 36.71875
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 24,
+            "y": 114.234375,
+            "width": 342,
+            "height": 210.609375
+          },
+          "title": {
+            "x": 42,
+            "y": 169.03125,
+            "width": 283.75,
+            "height": 36.71875
+          },
+          "navBottom": 64,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390,
+        "mobile": true
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99584943109119
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49685742639763
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 844,
+        "documentWidth": 844,
+        "scrollX": 0,
+        "horizontalContainers": [
+          {
+            "tag": "DIV",
+            "class": "showcase-track",
+            "clientWidth": 786,
+            "scrollWidth": 2382
+          }
+        ],
+        "cards": [
+          {
+            "left": 37,
+            "right": 807,
+            "top": 1097.5625,
+            "bottom": 2024.59375,
+            "position": "static"
+          },
+          {
+            "left": 835,
+            "right": 1605,
+            "top": 1097.5625,
+            "bottom": 1789.234375,
+            "position": "static"
+          },
+          {
+            "left": 1633,
+            "right": 2403,
+            "top": 1097.5625,
+            "bottom": 1882.40625,
+            "position": "static"
+          }
+        ],
+        "rail": {
+          "left": 29,
+          "right": 815,
+          "clientWidth": 786,
+          "scrollWidth": 2382,
+          "scrollLeft": 0,
+          "scrollbarWidth": "none",
+          "webkitScrollbarDisplay": "none",
+          "instructions": [
+            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+          ]
+        },
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "gestures": {
+        "verticalWheelDelta": 240,
+        "horizontalWheelDelta": 240
+      },
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 38,
+            "y": 114.5625,
+            "width": 768,
+            "height": 192.390625
+          },
+          "title": {
+            "x": 62,
+            "y": 166.359375,
+            "width": 275.40625,
+            "height": 71.25
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 38,
+            "y": 121.5625,
+            "width": 768,
+            "height": 168.59375
+          },
+          "title": {
+            "x": 62,
+            "y": 196.359375,
+            "width": 275.40625,
+            "height": 35.625
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 38,
+            "y": 118.5625,
+            "width": 768,
+            "height": 144.796875
+          },
+          "title": {
+            "x": 62,
+            "y": 187.359375,
+            "width": 275.40625,
+            "height": 35.625
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 844,
+            "height": 390
+          }
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "mobile": false
+      },
+      "content": [
+        {
+          "route": "partner-growth-programs.html",
+          "heading": "Partner Growth Programs."
+        },
+        {
+          "route": "discounting.html",
+          "heading": "Discounting 2.0."
+        },
+        {
+          "route": "dev-portal.html",
+          "heading": "Developer Portal."
+        }
+      ],
+      "graphics": {
+        "decorativeCovers": 3,
+        "rate": [
+          {
+            "amount": 150,
+            "declaredWidth": "100%",
+            "widthPercent": 100
+          },
+          {
+            "amount": 127.5,
+            "declaredWidth": "85%",
+            "widthPercent": 84.99952100188987
+          },
+          {
+            "amount": 114.75,
+            "declaredWidth": "76.5%",
+            "widthPercent": 76.49919150925048
+          }
+        ]
+      },
+      "layout": {
+        "viewportWidth": 1440,
+        "documentWidth": 1440,
+        "scrollX": 0,
+        "horizontalContainers": [
+          {
+            "tag": "DIV",
+            "class": "showcase-track",
+            "clientWidth": 1222,
+            "scrollWidth": 3690
+          }
+        ],
+        "cards": [
+          {
+            "left": 117,
+            "right": 1323,
+            "top": 1179.4375,
+            "bottom": 1916.28125,
+            "position": "static"
+          },
+          {
+            "left": 1351,
+            "right": 2557,
+            "top": 1179.4375,
+            "bottom": 1734.3125,
+            "position": "static"
+          },
+          {
+            "left": 2585,
+            "right": 3791,
+            "top": 1179.4375,
+            "bottom": 1690.34375,
+            "position": "static"
+          }
+        ],
+        "rail": {
+          "left": 109,
+          "right": 1331,
+          "clientWidth": 1222,
+          "scrollWidth": 3690,
+          "scrollLeft": 0,
+          "scrollbarWidth": "none",
+          "webkitScrollbarDisplay": "none",
+          "instructions": [
+            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+          ]
+        },
+        "horizontalModuleLoaded": false,
+        "dimensionalResources": []
+      },
+      "gestures": {
+        "verticalWheelDelta": 240,
+        "horizontalWheelDelta": 240
+      },
+      "focus": [
+        {
+          "project": "growth",
+          "box": {
+            "x": 118,
+            "y": 68.75,
+            "width": 373.234375,
+            "height": 368.21875
+          },
+          "title": {
+            "x": 146,
+            "y": 142.546875,
+            "width": 317.234375,
+            "height": 95.03125
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "project": "discount",
+          "box": {
+            "x": 533,
+            "y": 29.421875,
+            "width": 373.234375,
+            "height": 296.90625
+          },
+          "title": {
+            "x": 561,
+            "y": 103.21875,
+            "width": 317.234375,
+            "height": 47.515625
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "project": "developer",
+          "box": {
+            "x": 533,
+            "y": 9.578125,
+            "width": 373.234375,
+            "height": 320.625
+          },
+          "title": {
+            "x": 561,
+            "y": 83.375,
+            "width": 317.234375,
+            "height": 95.03125
+          },
+          "navBottom": 72,
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        }
+      ]
+    }
+  ],
+  "preferences": [
+    {
+      "preference": "User pause",
+      "readable": true,
+      "runningAnimations": 0
+    },
+    {
+      "preference": "Reduced motion during interaction",
+      "readable": true,
+      "transforms": [],
+      "animations": [],
+      "navigation": [
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        },
+        {
+          "action": "ArrowRight",
+          "project": "discount",
+          "left": 1192,
+          "max": 2342
+        },
+        {
+          "action": "ArrowLeft",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        },
+        {
+          "action": "End",
+          "project": "developer",
+          "left": 2342,
+          "max": 2342
+        },
+        {
+          "action": "Home",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        },
+        {
+          "action": "Next project",
+          "project": "discount",
+          "left": 1192,
+          "max": 2342
+        },
+        {
+          "action": "Next project",
+          "project": "developer",
+          "left": 2342,
+          "max": 2342
+        },
+        {
+          "action": "Previous project",
+          "project": "discount",
+          "left": 1192,
+          "max": 2342
+        },
+        {
+          "action": "Previous project",
+          "project": "growth",
+          "left": 0,
+          "max": 2342
+        }
+      ]
+    },
+    {
+      "preference": "Reduced transparency",
+      "readable": true,
+      "navBackground": "rgb(255, 255, 255)",
+      "backdropFilter": "none"
+    }
+  ],
+  "resizing": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "project": "discount",
+      "height": {
+        "railHeight": 1022,
+        "cardHeight": 1001.75,
+        "padding": 20
+      }
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "project": "discount",
+      "height": {
+        "railHeight": 575,
+        "cardHeight": 554.875,
+        "padding": 20
+      }
+    }
+  ],
+  "deepSwipe": [
+    {
+      "beforeY": 2214,
+      "afterY": 881,
+      "visible": {
+        "top": 118.234375,
+        "bottom": 1000.96875,
+        "headingTop": 198.828125,
+        "headingBottom": 235.546875,
+        "navBottom": 64,
+        "viewportHeight": 844
+      },
+      "height": {
+        "railHeight": 903,
+        "cardHeight": 882.734375,
+        "padding": 20
+      }
+    }
+  ],
+  "captures": [
+    {
+      "project": "growth",
+      "width": 390,
+      "imageSize": {
+        "width": 322,
+        "height": 1313
+      },
+      "geometry": {
+        "article": {
+          "x": 23,
+          "y": 110.234375,
+          "width": 322,
+          "height": 1312.421875,
+          "bottom": 1422.65625
+        },
+        "art": {
+          "x": 24,
+          "y": 402.75,
+          "width": 320,
+          "height": 956.53125,
+          "bottom": 1359.28125
+        },
+        "panel": {
+          "x": 34,
+          "y": 417.75,
+          "width": 300,
+          "height": 927.53125,
+          "bottom": 1345.28125
+        },
+        "caption": {
+          "x": 24,
+          "y": 1359.28125,
+          "width": 320,
+          "height": 62.375,
+          "bottom": 1421.65625
+        },
+        "fonts": "loaded",
+        "viewportHeight": 1513
+      }
+    },
+    {
+      "project": "discount",
+      "width": 390,
+      "imageSize": {
+        "width": 322,
+        "height": 1002
+      },
+      "geometry": {
+        "article": {
+          "x": 23,
+          "y": 118.234375,
+          "width": 322,
+          "height": 1001.75,
+          "bottom": 1119.984375
+        },
+        "art": {
+          "x": 24,
+          "y": 372.734375,
+          "width": 320,
+          "height": 683.875,
+          "bottom": 1056.609375
+        },
+        "panel": {
+          "x": 34,
+          "y": 387.734375,
+          "width": 300,
+          "height": 654.875,
+          "bottom": 1042.609375
+        },
+        "caption": {
+          "x": 24,
+          "y": 1056.609375,
+          "width": 320,
+          "height": 62.375,
+          "bottom": 1118.984375
+        },
+        "fonts": "loaded",
+        "viewportHeight": 1513
+      }
+    },
+    {
+      "project": "developer",
+      "width": 390,
+      "imageSize": {
+        "width": 322,
+        "height": 883
+      },
+      "geometry": {
+        "article": {
+          "x": 45,
+          "y": 118.234375,
+          "width": 322,
+          "height": 882.734375,
+          "bottom": 1000.96875
+        },
+        "art": {
+          "x": 46,
+          "y": 372.734375,
+          "width": 320,
+          "height": 564.859375,
+          "bottom": 937.59375
+        },
+        "panel": {
+          "x": 56,
+          "y": 387.734375,
+          "width": 300,
+          "height": 535.859375,
+          "bottom": 923.59375
+        },
+        "caption": {
+          "x": 46,
+          "y": 937.59375,
+          "width": 320,
+          "height": 62.375,
+          "bottom": 999.96875
+        },
+        "fonts": "loaded",
+        "viewportHeight": 1513
+      }
+    },
+    {
+      "project": "growth",
+      "width": 1440,
+      "imageSize": {
+        "width": 1164,
+        "height": 738
+      },
+      "geometry": {
+        "article": {
+          "x": 117,
+          "y": 118.4375,
+          "width": 1164,
+          "height": 736.84375,
+          "bottom": 855.28125
+        },
+        "art": {
+          "x": 478.21875,
+          "y": 119.4375,
+          "width": 801.78125,
+          "height": 691.65625,
+          "bottom": 811.09375
+        },
+        "panel": {
+          "x": 503.21875,
+          "y": 151.4375,
+          "width": 752.78125,
+          "height": 627.65625,
+          "bottom": 779.09375
+        },
+        "caption": {
+          "x": 478.21875,
+          "y": 811.09375,
+          "width": 801.78125,
+          "height": 43.1875,
+          "bottom": 854.28125
+        },
+        "fonts": "loaded",
+        "viewportHeight": 937
+      }
+    },
+    {
+      "project": "discount",
+      "width": 1440,
+      "imageSize": {
+        "width": 1164,
+        "height": 556
+      },
+      "geometry": {
+        "article": {
+          "x": 117,
+          "y": 118.4375,
+          "width": 1164,
+          "height": 554.875,
+          "bottom": 673.3125
+        },
+        "art": {
+          "x": 478.21875,
+          "y": 119.4375,
+          "width": 801.78125,
+          "height": 509.6875,
+          "bottom": 629.125
+        },
+        "panel": {
+          "x": 503.21875,
+          "y": 151.4375,
+          "width": 752.78125,
+          "height": 445.6875,
+          "bottom": 597.125
+        },
+        "caption": {
+          "x": 478.21875,
+          "y": 629.125,
+          "width": 801.78125,
+          "height": 43.1875,
+          "bottom": 672.3125
+        },
+        "fonts": "loaded",
+        "viewportHeight": 937
+      }
+    },
+    {
+      "project": "developer",
+      "width": 1440,
+      "imageSize": {
+        "width": 1164,
+        "height": 512
+      },
+      "geometry": {
+        "article": {
+          "x": 159,
+          "y": 118.4375,
+          "width": 1164,
+          "height": 510.90625,
+          "bottom": 629.34375
+        },
+        "art": {
+          "x": 520.21875,
+          "y": 119.4375,
+          "width": 801.78125,
+          "height": 465.71875,
+          "bottom": 585.15625
+        },
+        "panel": {
+          "x": 545.21875,
+          "y": 151.4375,
+          "width": 752.78125,
+          "height": 401.71875,
+          "bottom": 553.15625
+        },
+        "caption": {
+          "x": 520.21875,
+          "y": 585.15625,
+          "width": 801.78125,
+          "height": 43.1875,
+          "bottom": 628.34375
+        },
+        "fonts": "loaded",
+        "viewportHeight": 937
+      }
+    }
+  ],
+  "errors": [],
+  "limitations": "Desktop and emulated mobile Chromium; real devices, Safari, Firefox and screen-reader announcements are not verified.",
+  "passed": true
+}

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "reducedMotion": "no-preference",
+      "wheelAdvances": true,
+      "endReleasesToPage": true,
+      "startReleasesToPage": true,
+      "keyboardHome": true
+    },
+    {
+      "reducedMotion": "reduce",
+      "wheelAdvances": true,
+      "endReleasesToPage": true,
+      "startReleasesToPage": true,
+      "keyboardHome": true
+    }
+  ]
+}

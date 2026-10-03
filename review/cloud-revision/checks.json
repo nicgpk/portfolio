@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": [
+    "Cursor changes cloud position and light while headings and program labels remain stationary; frames stop at rest.",
+    "Leaving the hero returns the cloud to neutral and fades the light.",
+    "Persistent pause and live OS reduced-motion changes reset and disable cursor effects.",
+    "Forced colors hides decorative cloud art.",
+    "320/390/768/1440 layouts load the responsive cloud image with no document overflow; touch views remain static.",
+    "No-JavaScript cloud image and flagship case link remain available."
+  ],
+  "errors": []
+}
