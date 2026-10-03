@@ -6,7 +6,8 @@ import "./clouds.mjs";
 
 document.querySelectorAll("[data-discovery]").forEach((root) => {
   const search = root.querySelector("[data-program-search]"),
-    category = root.querySelector("[data-program-category]");
+    category = root.querySelector("[data-program-category]"),
+    clear = root.querySelector("[data-program-clear]");
   function filter() {
     const term = search.value.trim().toLowerCase();
     let count = 0;
@@ -20,9 +21,23 @@ document.querySelectorAll("[data-discovery]").forEach((root) => {
     root.querySelector("[data-program-count]").textContent = count
       ? `${count} program${count === 1 ? "" : "s"}`
       : "No matching programs. Try another search or choose All categories.";
+    const filtered = term !== "" || category.value !== "all";
+    root.querySelector("[data-program-heading]").textContent = filtered
+      ? "Matching programs"
+      : "All programs";
+    clear.hidden = !filtered;
+    root.querySelector("[data-program-empty]").hidden = count !== 0;
   }
+  search.disabled = false;
+  category.disabled = false;
   search.addEventListener("input", filter);
   category.addEventListener("change", filter);
+  clear.addEventListener("click", () => {
+    search.value = "";
+    category.value = "all";
+    filter();
+    search.focus({ preventScroll: true });
+  });
 });
 const calculator = document.querySelector("[data-calculator]");
 if (calculator) {
@@ -42,6 +57,8 @@ if (calculator) {
       calculator.querySelector("[data-ledger]").replaceChildren();
       calculator.querySelector(".calc-formula").textContent =
         "Calculation paused";
+      calculator.querySelector("[data-total-cut]").textContent =
+        "Total discount unavailable";
       error.textContent =
         "Enter a room rate from $0 to $1,000,000, with at most two decimal places.";
       rate.setAttribute("aria-invalid", "true");
@@ -62,22 +79,38 @@ if (calculator) {
       `${result.effective}% effective discount`;
     const ledger = calculator.querySelector("[data-ledger]");
     ledger.replaceChildren();
+    const start = Number(rate.value);
     const rows = [
-      ["Room rate", money(Number(rate.value))],
-      ...selected.map((p, i) => [
-        `${p.name} · ${p.value}%`,
-        `−${money(result.cuts[i])}`,
-      ]),
+      { label: "Room rate", detail: "Starting balance", balance: start },
+      ...selected.map((p, i) => {
+        const before = i === 0 ? start : result.balances[i - 1];
+        return {
+          label: `${p.name} · ${p.value}%`,
+          detail: `${p.value}% of ${money(before)} · −${money(result.cuts[i])}`,
+          balance: result.balances[i],
+        };
+      }),
     ];
-    rows.forEach(([label, value]) => {
+    rows.forEach(({ label, detail, balance }) => {
       const row = document.createElement("div"),
         s = document.createElement("span"),
-        b = document.createElement("strong");
+        b = document.createElement("strong"),
+        explanation = document.createElement("small"),
+        bar = document.createElement("i");
       s.textContent = label;
-      b.textContent = value;
-      row.append(s, b);
+      explanation.textContent = detail;
+      s.append(explanation);
+      b.textContent = money(balance);
+      bar.style.setProperty(
+        "--rate-width",
+        `${start ? (balance / start) * 100 : 0}%`,
+      );
+      bar.setAttribute("aria-hidden", "true");
+      row.append(s, b, bar);
       ledger.append(row);
     });
+    calculator.querySelector("[data-total-cut]").textContent =
+      `Total discount · ${money(start - result.net)}`;
     calculator.querySelector(".calc-formula").textContent =
       `${Number(rate.value)}${selected.map((p) => ` × ${1 - p.value / 100}`).join("")} = ${result.net.toFixed(2)}`;
   }
@@ -131,10 +164,15 @@ if (developer) {
     form.querySelectorAll("[data-step-label]").forEach((el, i) => {
       if (i === step) el.setAttribute("aria-current", "step");
       else el.removeAttribute("aria-current");
+      el.toggleAttribute("data-complete", i < step);
     });
     back.disabled = step === 0;
     next.disabled = false;
-    next.textContent = step === 2 ? "Preview deployment" : "Continue →";
+    next.textContent = [
+      "Continue to rollout →",
+      "Continue to review →",
+      "Preview deployment",
+    ][step];
     form.querySelector("[data-step-count]").textContent =
       `Step ${step + 1} of 3`;
     if (step === 2) review();
@@ -153,6 +191,7 @@ if (developer) {
       (input) => !input.validity.valid,
     );
     if (invalid) {
+      status.textContent = "Check the highlighted field before continuing.";
       invalid.reportValidity();
       return;
     }

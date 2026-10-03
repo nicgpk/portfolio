@@ -2,7 +2,7 @@
 from pathlib import Path
 import re
 from html import escape
-from studio_design import flagship_hero, program_cover, program_discovery, rate_cover
+from studio_design import flagship_hero, program_cover, program_discovery, rate_cover, rate_calculator, developer_workflow
 
 ROOT = Path(__file__).resolve().parent.parent
 def head(name):
@@ -15,7 +15,7 @@ def head(name):
     h = h.replace('content="noindex"', 'content="index, follow"')
     ui_styles = {'index.html': ['growth', 'discount'], 'partner-growth-programs.html': ['growth'], 'discounting.html': ['discount']}.get(name, [])
     extra = ''.join(f'\n<link rel="stylesheet" href="css/{kind}-ui.css">' for kind in ui_styles)
-    return h + '\n<link rel="stylesheet" href="css/folio.css">\n<link rel="stylesheet" href="css/editorial.css">\n<link rel="stylesheet" href="css/showcase.css">' + extra + '\n<link rel="stylesheet" href="css/studio.css">\n<link rel="preload" as="font" type="font/woff2" href="fonts/ibm-plex-sans.woff2" crossorigin>\n</head>'
+    return h + '\n<link rel="stylesheet" href="css/folio.css">\n<link rel="stylesheet" href="css/editorial.css">\n<link rel="stylesheet" href="css/showcase.css">' + extra + '\n<link rel="stylesheet" href="css/studio.css">\n<link rel="stylesheet" href="css/concepts.css">\n<link rel="preload" as="font" type="font/woff2" href="fonts/manrope-latin.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="fonts/ubuntu-mono-regular.woff2" crossorigin>\n</head>'
 
 def nav(active=''):
     return f'''<a class="skip-link" href="#main">Skip to content</a>
@@ -111,49 +111,18 @@ def about():
 # Load css/discount-ui.css after existing styles on home and discounting only.
 # Visual references: https://stripe.com/billing and
 # https://docs.stripe.com/billing/subscriptions/coupons
-# No calculator JavaScript or calculation helper change is needed.
+# The calculator uses the shared cent-rounded helper; the UI exposes each balance.
 
 def calculator():
-    return '''<div class="calculator-ui discount-studio discount-studio--calculator" data-calculator>
-  <div class="discount-app-header">
-    <div class="discount-app-heading"><svg class="discount-app-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2m4 0h2m-8 4h2m4 0h2"/></svg><h2 class="discount-app-title">Net Rate Simulator</h2></div>
-    <span class="discount-currency">USD / night</span>
-  </div>
-  <div class="calc-layout discount-workspace">
-    <form class="calc-form discount-settings">
-      <h3 class="discount-section-title">Discount setup</h3>
-      <div class="discount-interactive-fields">
-        <label class="rate-field" for="room-rate">Room rate (USD)<span class="input-money"><span aria-hidden="true">$</span><input id="room-rate" name="rate" type="number" min="0" max="1000000" step="0.01" value="150.00" required inputmode="decimal" aria-describedby="discount-rate-help discount-rate-error"><span class="discount-field-unit" aria-hidden="true">USD</span></span></label>
-        <p class="discount-field-help" id="discount-rate-help">Per night, before commission and taxes.</p>
-        <fieldset class="discount-promotions"><legend>Apply discounts in this order</legend>
-          <label class="promo-toggle"><input type="checkbox" name="mega" checked><span class="discount-promotion-copy"><strong>Mega Sale</strong><small>Advance booking</small></span><b class="discount-percent">15%</b></label>
-          <label class="promo-toggle"><input type="checkbox" name="mobile" checked><span class="discount-promotion-copy"><strong>Mobile Exclusive</strong><small>Mobile user</small></span><b class="discount-percent">10%</b></label>
-          <label class="promo-toggle ineligible"><input type="checkbox" disabled><span class="discount-promotion-copy"><strong>Early Bird</strong><small>20% · Not eligible tonight</small></span><b class="discount-ineligible-label">Ineligible</b></label>
-        </fieldset>
-        <button class="quiet-button calc-reset" type="reset">Reset example</button>
-      </div>
-      <noscript><style>.discount-studio--calculator .discount-interactive-fields{display:none}</style><div class="discount-static-settings"><p class="discount-field-label">Room rate (USD)</p><div class="discount-static-field"><span>$150.00</span><span class="discount-field-unit">USD</span></div><p class="discount-field-help">Per night, before commission and taxes.</p><p class="discount-field-label discount-promotions-label">Discounts applied in order</p><div class="discount-static-promotion"><span class="discount-check" aria-hidden="true">✓</span><span><strong>Mega Sale</strong><small>Advance booking</small></span><b class="discount-percent">15%</b></div><div class="discount-static-promotion"><span class="discount-check" aria-hidden="true">✓</span><span><strong>Mobile Exclusive</strong><small>Mobile user</small></span><b class="discount-percent">10%</b></div><div class="discount-static-promotion"><span class="discount-check discount-check--off" aria-hidden="true"></span><span><strong>Early Bird</strong><small>20% · Not eligible tonight</small></span><b class="discount-ineligible-label">Ineligible</b></div><p class="noscript-note">Static example. Enable JavaScript to edit the rate and discounts.</p></div></noscript>
-      <p class="form-error" id="discount-rate-error" data-calc-error aria-live="polite"></p>
-    </form>
-    <div class="calc-result discount-summary">
-      <h3 class="discount-section-title" id="discount-breakdown-title">Calculation breakdown</h3>
-      <div class="discount-ledger-heading"><span>Applied in order</span><span>Amount (USD)</span></div>
-      <div class="calc-ledger discount-ledger" data-ledger role="group" aria-labelledby="discount-breakdown-title"><div><span>Room rate</span><strong>$150.00</strong></div><div><span>Mega Sale · 15%</span><strong>−$22.50</strong></div><div><span>Mobile Exclusive · 10%</span><strong>−$12.75</strong></div></div>
-      <div class="discount-total"><span class="calc-result-label">Room rate after discounts</span><output id="net-rate" for="room-rate" data-net aria-live="polite" aria-atomic="true">$114.75</output><p class="calc-effective" data-effective>23.5% effective discount</p></div>
-      <p class="discount-exclusions">Before commission and taxes.</p>
-      <div class="calc-formula">150 × 0.85 × 0.90 = 114.75</div>
-      <p class="discount-rule">Each discount applies to the remaining balance.</p>
-    </div>
-  </div>
-  <div class="discount-app-footer"><span>Illustrative room rate</span><span>No setup is saved.</span></div>
-</div>'''
+    return rate_calculator()
 
 
 def discount_cover():
     return rate_cover()
 
 def developer():
-    return '''<div class="developer-ui" data-developer><div class="dev-toolbar"><span class="dev-brand"><span aria-hidden="true">▲</span> Developer portal</span><span class="dev-context">Deployment / devops-safe-app</span><span class="terminal-pill">Updated concept</span></div><div class="developer-layout"><aside class="developer-sidebar"><p>WORKFLOW</p><ol><li>Environment</li><li>Rollout</li><li>Review</li></ol><p>EXISTING TASK DOMAINS</p><span>Manage</span><span>Plan</span><span>Build</span><span>Secure</span><span>Monitor</span></aside><form class="deploy-form"><ol class="deploy-steps" aria-label="Deployment steps"><li data-step-label="0" aria-current="step">Environment</li><li data-step-label="1">Rollout</li><li data-step-label="2">Review</li></ol><div class="deploy-stage" data-step="0"><p class="app-eyebrow">ENVIRONMENT SETUP</p><h2>A clear place to start.</h2><p>Configure the environment before choosing how to roll out.</p><div class="deploy-fields"><label>Environment name<input name="environment" value="staging-mesh" required pattern="[a-zA-Z0-9_-]+" maxlength="64"></label><label>Cluster pool<select name="pool"><option>Mesh</option><option>QA</option><option>Corp</option></select></label><label>Repository<select name="repository"><option>actions/ansible-runner</option></select></label><label>Image tag<input name="image" value="98ds12df" required maxlength="100"></label><label>CPU requests (cores)<input type="number" name="cpu" min="1" max="128" value="24" required></label><label>Memory requests (Gi)<input type="number" name="memory" min="1" max="512" value="24" required></label></div><p class="dev-guidance">Ownership or AD request blocking progress? The original design supports leave and resume, with guidance at bottlenecks. This preview does not persist data.</p></div><div class="deploy-stage" data-step="1"><p class="app-eyebrow">ROLLOUT SETUP</p><h2>Make the rollout explicit.</h2><label>Deployment strategy<select name="strategy"><option>Canary</option><option>Rolling update</option></select></label><p class="canary-path" data-canary>10% → 20% → 30%</p><div class="deploy-fields"><label>HK · Hong Kong replicas<input name="hk" type="number" min="1" max="100" value="10" required></label><label>SG · Singapore replicas<input name="sg" type="number" min="1" max="100" value="10" required></label><label>AM · Amsterdam replicas<input name="am" type="number" min="1" max="100" value="10" required></label><label>Slack channel<input name="slack" value="#devops_safe_app" required maxlength="100"></label></div><p>Ramp up: 300 seconds · Monitoring: 900 seconds. Existing example settings.</p></div><div class="deploy-stage" data-step="2"><p class="app-eyebrow">REVIEW BEFORE DEPLOYMENT</p><h2>See the whole decision.</h2><dl class="deploy-review" data-deploy-review><div><dt>Environment</dt><dd>staging-mesh · Mesh</dd></div><div><dt>Image</dt><dd>actions/ansible-runner · 98ds12df</dd></div><div><dt>Resources</dt><dd>24 cores · 24 Gi</dd></div><div><dt>Strategy</dt><dd>Canary · 10% → 20% → 30%</dd></div></dl></div><div class="deploy-actions"><button type="button" class="dev-back" data-deploy-back disabled>← Back</button><span data-step-count>Step 1 of 3</span><button type="button" class="dev-next" data-deploy-next disabled>Continue →</button></div><p class="deploy-status" data-deploy-status role="status"></p><p class="sample-label">Updated concept · Vercel-inspired workflow. Existing example values. Preview only: no infrastructure connection or deployment.</p><noscript><p>All three steps are shown as a static walkthrough. Enable JavaScript to try the preview.</p></noscript></form></div></div>'''
+    return developer_workflow()
+
 
 def case(kind):
     data={

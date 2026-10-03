@@ -1,4 +1,4 @@
-import { chromium, expect } from "@playwright/test";
+import { chromium, expect } from "./review-browser.mjs";
 import assert from "node:assert/strict";
 import { mkdir, writeFile, rename, copyFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";

@@ -75,11 +75,19 @@
     <link rel="stylesheet" href="css/showcase.css" />
     <link rel="stylesheet" href="css/discount-ui.css" />
     <link rel="stylesheet" href="css/studio.css" />
+    <link rel="stylesheet" href="css/concepts.css" />
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href="fonts/ibm-plex-sans.woff2"
+      href="fonts/manrope-latin.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="fonts/ubuntu-mono-regular.woff2"
       crossorigin
     />
   </head>
@@ -239,20 +247,14 @@
             >
               <div class="discount-app-header">
                 <div class="discount-app-heading">
-                  <svg
-                    class="discount-app-icon"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <rect x="5" y="3" width="14" height="18" rx="2" />
-                    <path d="M8 7h8M8 11h2m4 0h2m-8 4h2m4 0h2" />
-                  </svg>
+                  <span class="rate-preview-mark" aria-hidden="true">%</span>
                   <h2 class="discount-app-title">Net Rate Simulator</h2>
                 </div>
                 <span class="discount-currency">USD / night</span>
               </div>
               <div class="calc-layout discount-workspace">
                 <form class="calc-form discount-settings">
+                  <p class="ui-section-kicker">CONFIGURE</p>
                   <h3 class="discount-section-title">Discount setup</h3>
                   <div class="discount-interactive-fields">
                     <label class="rate-field" for="room-rate"
@@ -304,7 +306,7 @@
                       >
                     </fieldset>
                     <button class="quiet-button calc-reset" type="reset">
-                      Reset example
+                      Reset example <span aria-hidden="true">↺</span>
                     </button>
                   </div>
                   <noscript
@@ -364,30 +366,6 @@
                   ></p>
                 </form>
                 <div class="calc-result discount-summary">
-                  <h3
-                    class="discount-section-title"
-                    id="discount-breakdown-title"
-                  >
-                    Calculation breakdown
-                  </h3>
-                  <div class="discount-ledger-heading">
-                    <span>Applied in order</span><span>Amount (USD)</span>
-                  </div>
-                  <div
-                    class="calc-ledger discount-ledger"
-                    data-ledger
-                    role="group"
-                    aria-labelledby="discount-breakdown-title"
-                  >
-                    <div><span>Room rate</span><strong>$150.00</strong></div>
-                    <div>
-                      <span>Mega Sale · 15%</span><strong>−$22.50</strong>
-                    </div>
-                    <div>
-                      <span>Mobile Exclusive · 10%</span
-                      ><strong>−$12.75</strong>
-                    </div>
-                  </div>
                   <div class="discount-total">
                     <span class="calc-result-label"
                       >Room rate after discounts</span
@@ -402,9 +380,50 @@
                     <p class="calc-effective" data-effective>
                       23.5% effective discount
                     </p>
+                    <p class="discount-exclusions">
+                      Before commission and taxes.
+                    </p>
                   </div>
-                  <p class="discount-exclusions">
-                    Before commission and taxes.
+                  <h3
+                    class="discount-section-title"
+                    id="discount-breakdown-title"
+                  >
+                    Calculation breakdown
+                  </h3>
+                  <div class="discount-ledger-heading">
+                    <span>Applied in order</span
+                    ><span>Remaining rate (USD)</span>
+                  </div>
+                  <div
+                    class="calc-ledger discount-ledger"
+                    data-ledger
+                    role="group"
+                    aria-labelledby="discount-breakdown-title"
+                  >
+                    <div>
+                      <span>Room rate<small>Starting balance</small></span
+                      ><strong>$150.00</strong
+                      ><i style="--rate-width: 100%" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                      <span
+                        >Mega Sale · 15%<small
+                          >15% of $150.00 · −$22.50</small
+                        ></span
+                      ><strong>$127.50</strong
+                      ><i style="--rate-width: 85%" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                      <span
+                        >Mobile Exclusive · 10%<small
+                          >10% of $127.50 · −$12.75</small
+                        ></span
+                      ><strong>$114.75</strong
+                      ><i style="--rate-width: 76.5%" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <p class="discount-total-cut" data-total-cut>
+                    Total discount · $35.25
                   </p>
                   <div class="calc-formula">150 × 0.85 × 0.90 = 114.75</div>
                   <p class="discount-rule">
@@ -413,7 +432,7 @@
                 </div>
               </div>
               <div class="discount-app-footer">
-                <span>Illustrative room rate</span
+                <span>Updated concept · Illustrative room rate</span
                 ><span>No setup is saved.</span>
               </div>
             </div>

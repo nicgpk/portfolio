@@ -30,6 +30,8 @@ for (const root of document.querySelectorAll(".project-showcase")) {
     );
   function update() {
     frame = 0;
+    // Reflow can emit scroll before ResizeObserver restores the selected project.
+    if (track.clientWidth !== width) return;
     active = nearest();
     const label = `${active + 1} of ${cards.length}`;
     if (position.textContent !== label) position.textContent = label;
@@ -55,6 +57,7 @@ for (const root of document.querySelectorAll(".project-showcase")) {
   }
   function settled() {
     clearTimeout(settleTimer);
+    if (track.clientWidth !== width) return;
     update();
     if (active !== fitted) fit(active, true);
   }

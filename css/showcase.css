@@ -101,7 +101,8 @@
   overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  scroll-snap-type: x proximity;
+  /* Small native gestures must move freely; controls handle project paging. */
+  scroll-snap-type: none;
   scroll-padding-inline: 8px;
   scroll-padding-block: 0;
   -webkit-overflow-scrolling: touch;
@@ -116,7 +117,6 @@
 }
 .showcase-card {
   min-width: 0;
-  scroll-snap-align: start;
 }
 .showcase-track:focus-visible {
   outline: 3px solid var(--cobalt);

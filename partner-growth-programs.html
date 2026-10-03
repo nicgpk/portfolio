@@ -81,11 +81,19 @@
     <link rel="stylesheet" href="css/showcase.css" />
     <link rel="stylesheet" href="css/growth-ui.css" />
     <link rel="stylesheet" href="css/studio.css" />
+    <link rel="stylesheet" href="css/concepts.css" />
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href="fonts/ibm-plex-sans.woff2"
+      href="fonts/manrope-latin.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="fonts/ubuntu-mono-regular.woff2"
       crossorigin
     />
   </head>
@@ -317,386 +325,415 @@
                 <div class="app-content">
                   <div class="growth-page-heading">
                     <p class="growth-kicker">PROGRAM DISCOVERY</p>
-                    <h2>Find your next<br />growth opportunity.</h2>
+                    <h2>Find your next growth opportunity.</h2>
                     <p>
                       Explore the programs, understand the mechanics, choose
                       your next step.
                     </p>
-                    <span class="catalog-pixel" aria-hidden="true">↗</span>
                   </div>
-                  <div class="discovery-controls">
-                    <label class="search-field"
-                      ><span>Search programs</span
-                      ><span class="growth-input-wrap"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true">
-                          <circle cx="10.5" cy="10.5" r="6.5" />
-                          <path d="m15.5 15.5 5 5" /></svg
-                        ><input
-                          type="search"
-                          data-program-search
-                          placeholder="Search by name or goal"
-                          autocomplete="off" /></span></label
-                    ><label class="category-field"
-                      ><span>Category</span
-                      ><select data-program-category>
-                        <option value="all">All categories</option>
-                        <option>Conversion</option>
-                        <option>Marketing</option>
-                        <option>Visibility</option>
-                        <option>Prepaid</option>
-                        <option>Distribution</option>
-                        <option>Placement</option>
-                        <option>Rate automation</option>
-                        <option>Branded storefront</option>
-                      </select></label
-                    >
-                  </div>
-                  <div class="growth-list-header">
-                    <strong>All programs</strong>
-                    <p
-                      class="search-count"
-                      aria-live="polite"
-                      data-program-count
-                    >
-                      8 programs
-                    </p>
-                  </div>
-                  <div class="program-grid">
-                    <details
-                      class="program-tile"
-                      data-program
-                      data-category="Conversion"
-                      data-name="promotions"
-                    >
-                      <summary>
-                        <span class="catalog-glyph catalog-glyph--0"
-                          ><svg
-                            class="program-icon"
-                            viewBox="0 0 48 48"
-                            aria-hidden="true"
+                  <div class="growth-catalog">
+                    <div class="discovery-controls">
+                      <label class="search-field"
+                        ><span>Search programs</span
+                        ><span class="growth-input-wrap"
+                          ><svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="10.5" cy="10.5" r="6.5" />
+                            <path d="m15.5 15.5 5 5" /></svg
+                          ><input
+                            type="search"
+                            data-program-search
+                            placeholder="Search by name or goal"
+                            autocomplete="off"
+                            disabled /></span></label
+                      ><label class="category-field"
+                        ><span>Category</span
+                        ><select data-program-category disabled>
+                          <option value="all">All categories</option>
+                          <option>Conversion</option>
+                          <option>Marketing</option>
+                          <option>Visibility</option>
+                          <option>Prepaid</option>
+                          <option>Distribution</option>
+                          <option>Placement</option>
+                          <option>Rate automation</option>
+                          <option>Branded storefront</option>
+                        </select></label
+                      >
+                    </div>
+                    <div class="growth-list-header">
+                      <strong data-program-heading>All programs</strong>
+                      <p
+                        class="search-count"
+                        aria-live="polite"
+                        data-program-count
+                      >
+                        8 programs
+                      </p>
+                      <button
+                        type="button"
+                        class="growth-clear"
+                        data-program-clear
+                        hidden
+                      >
+                        Clear filters
+                      </button>
+                    </div>
+                    <div class="program-grid">
+                      <details
+                        class="program-tile"
+                        data-program
+                        data-category="Conversion"
+                        data-name="promotions"
+                      >
+                        <summary>
+                          <span class="catalog-glyph"
+                            ><svg
+                              class="program-icon"
+                              viewBox="0 0 48 48"
+                              aria-hidden="true"
+                            >
+                              <use
+                                href="images/program-symbols.svg#promotion"
+                              /></svg></span
+                          ><span class="growth-row-main"
+                            ><strong>Promotions</strong
+                            ><span class="growth-row-description"
+                              >Property sets a discount. Agoda adds a deal
+                              badge, boosts rank, and amplifies across email,
+                              push, and deal pages.</span
+                            ></span
+                          ><span class="growth-category">Conversion</span
+                          ><span class="program-open-label"
+                            ><span class="sr-only">Program details</span
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="m6 9 6 6 6-6" /></svg
+                          ></span>
+                        </summary>
+                        <div class="program-detail">
+                          <p class="growth-detail-label">
+                            How this program works
+                          </p>
+                          <p>
+                            Choose a discount type and depth: Mega Sale,
+                            Seasonal, Always-on or Targeted. Existing examples
+                            include app-user and advance-booking discounts.
+                          </p>
+                          <span class="sample-label"
+                            >Original program mechanics</span
                           >
-                            <use
-                              href="images/program-symbols.svg#promotion"
-                            /></svg></span
-                        ><span class="growth-category">Conversion</span
-                        ><span class="growth-row-main"
-                          ><strong>Promotions</strong
-                          ><span class="growth-row-description"
-                            >Property sets a discount. Agoda adds a deal badge,
-                            boosts rank, and amplifies across email, push, and
-                            deal pages.</span
-                          ></span
-                        ><span class="program-open-label"
-                          >Program details
-                          <span aria-hidden="true">↗</span></span
-                        >
-                      </summary>
-                      <div class="program-detail">
-                        <p class="growth-detail-label">
-                          How this program works
-                        </p>
-                        <p>
-                          Choose a discount type and depth: Mega Sale, Seasonal,
-                          Always-on or Targeted. Existing examples include
-                          app-user and advance-booking discounts.
-                        </p>
-                        <span class="sample-label"
-                          >Original program mechanics</span
-                        >
-                      </div>
-                    </details>
-                    <details
-                      class="program-tile"
-                      data-program
-                      data-category="Marketing"
-                      data-name="agoda growth program"
-                    >
-                      <summary>
-                        <span class="catalog-glyph catalog-glyph--1"
-                          ><svg
-                            class="program-icon"
-                            viewBox="0 0 48 48"
-                            aria-hidden="true"
+                        </div>
+                      </details>
+                      <details
+                        class="program-tile"
+                        data-program
+                        data-category="Marketing"
+                        data-name="agoda growth program"
+                      >
+                        <summary>
+                          <span class="catalog-glyph"
+                            ><svg
+                              class="program-icon"
+                              viewBox="0 0 48 48"
+                              aria-hidden="true"
+                            >
+                              <use
+                                href="images/program-symbols.svg#growth"
+                              /></svg></span
+                          ><span class="growth-row-main"
+                            ><strong>Agoda Growth Program</strong
+                            ><span class="growth-row-description"
+                              >A higher commission funds ranking boost, ad spend
+                              and a Preferred Partner badge.</span
+                            ></span
+                          ><span class="growth-category">Marketing</span
+                          ><span class="program-open-label"
+                            ><span class="sr-only">Program details</span
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="m6 9 6 6 6-6" /></svg
+                          ></span>
+                        </summary>
+                        <div class="program-detail">
+                          <p class="growth-detail-label">
+                            How this program works
+                          </p>
+                          <p>
+                            Typically 10–15% incremental commission (INM). The
+                            program brings higher search rank, Google and Kayak
+                            ad spend, and wider affiliate reach.
+                          </p>
+                          <span class="sample-label"
+                            >Original program mechanics</span
                           >
-                            <use
-                              href="images/program-symbols.svg#growth"
-                            /></svg></span
-                        ><span class="growth-category">Marketing</span
-                        ><span class="growth-row-main"
-                          ><strong>Agoda Growth Program</strong
-                          ><span class="growth-row-description"
-                            >A higher commission funds ranking boost, ad spend
-                            and a Preferred Partner badge.</span
-                          ></span
-                        ><span class="program-open-label"
-                          >Program details
-                          <span aria-hidden="true">↗</span></span
-                        >
-                      </summary>
-                      <div class="program-detail">
-                        <p class="growth-detail-label">
-                          How this program works
-                        </p>
-                        <p>
-                          Typically 10–15% incremental commission (INM). The
-                          program brings higher search rank, Google and Kayak ad
-                          spend, and wider affiliate reach.
-                        </p>
-                        <span class="sample-label"
-                          >Original program mechanics</span
-                        >
-                      </div>
-                    </details>
-                    <details
-                      class="program-tile"
-                      data-program
-                      data-category="Visibility"
-                      data-name="boost rank"
-                    >
-                      <summary>
-                        <span class="catalog-glyph catalog-glyph--2"
-                          ><svg
-                            class="program-icon"
-                            viewBox="0 0 48 48"
-                            aria-hidden="true"
+                        </div>
+                      </details>
+                      <details
+                        class="program-tile"
+                        data-program
+                        data-category="Visibility"
+                        data-name="boost rank"
+                      >
+                        <summary>
+                          <span class="catalog-glyph"
+                            ><svg
+                              class="program-icon"
+                              viewBox="0 0 48 48"
+                              aria-hidden="true"
+                            >
+                              <use
+                                href="images/program-symbols.svg#boost"
+                              /></svg></span
+                          ><span class="growth-row-main"
+                            ><strong>Boost Rank</strong
+                            ><span class="growth-row-description"
+                              >Target audiences and stay dates. Pay only when a
+                              booking lands, with no lock-in.</span
+                            ></span
+                          ><span class="growth-category">Visibility</span
+                          ><span class="program-open-label"
+                            ><span class="sr-only">Program details</span
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="m6 9 6 6 6-6" /></svg
+                          ></span>
+                        </summary>
+                        <div class="program-detail">
+                          <p class="growth-detail-label">
+                            How this program works
+                          </p>
+                          <p>
+                            Choose a target audience and campaign budget.
+                            Incremental commission is charged per booking,
+                            rather than per impression.
+                          </p>
+                          <span class="sample-label"
+                            >Original program mechanics</span
                           >
-                            <use
-                              href="images/program-symbols.svg#boost"
-                            /></svg></span
-                        ><span class="growth-category">Visibility</span
-                        ><span class="growth-row-main"
-                          ><strong>Boost Rank</strong
-                          ><span class="growth-row-description"
-                            >Target audiences and stay dates. Pay only when a
-                            booking lands, with no lock-in.</span
-                          ></span
-                        ><span class="program-open-label"
-                          >Program details
-                          <span aria-hidden="true">↗</span></span
-                        >
-                      </summary>
-                      <div class="program-detail">
-                        <p class="growth-detail-label">
-                          How this program works
-                        </p>
-                        <p>
-                          Choose a target audience and campaign budget.
-                          Incremental commission is charged per booking, rather
-                          than per impression.
-                        </p>
-                        <span class="sample-label"
-                          >Original program mechanics</span
-                        >
-                      </div>
-                    </details>
-                    <details
-                      class="program-tile"
-                      data-program
-                      data-category="Prepaid"
-                      data-name="agoda advanced"
-                    >
-                      <summary>
-                        <span class="catalog-glyph catalog-glyph--0"
-                          ><svg
-                            class="program-icon"
-                            viewBox="0 0 48 48"
-                            aria-hidden="true"
+                        </div>
+                      </details>
+                      <details
+                        class="program-tile"
+                        data-program
+                        data-category="Prepaid"
+                        data-name="agoda advanced"
+                      >
+                        <summary>
+                          <span class="catalog-glyph"
+                            ><svg
+                              class="program-icon"
+                              viewBox="0 0 48 48"
+                              aria-hidden="true"
+                            >
+                              <use
+                                href="images/program-symbols.svg#prepaid"
+                              /></svg></span
+                          ><span class="growth-row-main"
+                            ><strong>Agoda Advanced</strong
+                            ><span class="growth-row-description"
+                              >Pay upfront. Agoda deducts eligible booking
+                              earnings from the balance.</span
+                            ></span
+                          ><span class="growth-category">Prepaid</span
+                          ><span class="program-open-label"
+                            ><span class="sr-only">Program details</span
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="m6 9 6 6 6-6" /></svg
+                          ></span>
+                        </summary>
+                        <div class="program-detail">
+                          <p class="growth-detail-label">
+                            How this program works
+                          </p>
+                          <p>
+                            AGP and Maximum Gain variants. The original source
+                            describes the prepayment as auto-renewing when the
+                            balance hits 90%.
+                          </p>
+                          <span class="sample-label"
+                            >Original program mechanics</span
                           >
-                            <use
-                              href="images/program-symbols.svg#prepaid"
-                            /></svg></span
-                        ><span class="growth-category">Prepaid</span
-                        ><span class="growth-row-main"
-                          ><strong>Agoda Advanced</strong
-                          ><span class="growth-row-description"
-                            >Pay upfront. Agoda deducts eligible booking
-                            earnings from the balance.</span
-                          ></span
-                        ><span class="program-open-label"
-                          >Program details
-                          <span aria-hidden="true">↗</span></span
-                        >
-                      </summary>
-                      <div class="program-detail">
-                        <p class="growth-detail-label">
-                          How this program works
-                        </p>
-                        <p>
-                          AGP and Maximum Gain variants. The original source
-                          describes the prepayment as auto-renewing when the
-                          balance hits 90%.
-                        </p>
-                        <span class="sample-label"
-                          >Original program mechanics</span
-                        >
-                      </div>
-                    </details>
-                    <details
-                      class="program-tile"
-                      data-program
-                      data-category="Distribution"
-                      data-name="maximum gain"
-                    >
-                      <summary>
-                        <span class="catalog-glyph catalog-glyph--1"
-                          ><svg
-                            class="program-icon"
-                            viewBox="0 0 48 48"
-                            aria-hidden="true"
+                        </div>
+                      </details>
+                      <details
+                        class="program-tile"
+                        data-program
+                        data-category="Distribution"
+                        data-name="maximum gain"
+                      >
+                        <summary>
+                          <span class="catalog-glyph"
+                            ><svg
+                              class="program-icon"
+                              viewBox="0 0 48 48"
+                              aria-hidden="true"
+                            >
+                              <use
+                                href="images/program-symbols.svg#distribution"
+                              /></svg></span
+                          ><span class="growth-row-main"
+                            ><strong>Maximum Gain</strong
+                            ><span class="growth-row-description"
+                              >Share wholesale rates across airlines, banks,
+                              loyalty apps and OTAs.</span
+                            ></span
+                          ><span class="growth-category">Distribution</span
+                          ><span class="program-open-label"
+                            ><span class="sr-only">Program details</span
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="m6 9 6 6 6-6" /></svg
+                          ></span>
+                        </summary>
+                        <div class="program-detail">
+                          <p class="growth-detail-label">
+                            How this program works
+                          </p>
+                          <p>
+                            A minimum 1% discount off the standard rate, with no
+                            lock-in or extra paperwork. Distribution uses the
+                            Booking Holdings affiliate network.
+                          </p>
+                          <span class="sample-label"
+                            >Original program mechanics</span
                           >
-                            <use
-                              href="images/program-symbols.svg#distribution"
-                            /></svg></span
-                        ><span class="growth-category">Distribution</span
-                        ><span class="growth-row-main"
-                          ><strong>Maximum Gain</strong
-                          ><span class="growth-row-description"
-                            >Share wholesale rates across airlines, banks,
-                            loyalty apps and OTAs.</span
-                          ></span
-                        ><span class="program-open-label"
-                          >Program details
-                          <span aria-hidden="true">↗</span></span
-                        >
-                      </summary>
-                      <div class="program-detail">
-                        <p class="growth-detail-label">
-                          How this program works
-                        </p>
-                        <p>
-                          A minimum 1% discount off the standard rate, with no
-                          lock-in or extra paperwork. Distribution uses the
-                          Booking Holdings affiliate network.
-                        </p>
-                        <span class="sample-label"
-                          >Original program mechanics</span
-                        >
-                      </div>
-                    </details>
-                    <details
-                      class="program-tile"
-                      data-program
-                      data-category="Placement"
-                      data-name="sponsored listing"
-                    >
-                      <summary>
-                        <span class="catalog-glyph catalog-glyph--2"
-                          ><svg
-                            class="program-icon"
-                            viewBox="0 0 48 48"
-                            aria-hidden="true"
+                        </div>
+                      </details>
+                      <details
+                        class="program-tile"
+                        data-program
+                        data-category="Placement"
+                        data-name="sponsored listing"
+                      >
+                        <summary>
+                          <span class="catalog-glyph"
+                            ><svg
+                              class="program-icon"
+                              viewBox="0 0 48 48"
+                              aria-hidden="true"
+                            >
+                              <use
+                                href="images/program-symbols.svg#placement"
+                              /></svg></span
+                          ><span class="growth-row-main"
+                            ><strong>Sponsored Listing</strong
+                            ><span class="growth-row-description"
+                              >Buy a top sponsored slot in city search results,
+                              above organic results.</span
+                            ></span
+                          ><span class="growth-category">Placement</span
+                          ><span class="program-open-label"
+                            ><span class="sr-only">Program details</span
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="m6 9 6 6 6-6" /></svg
+                          ></span>
+                        </summary>
+                        <div class="program-detail">
+                          <p class="growth-detail-label">
+                            How this program works
+                          </p>
+                          <p>
+                            Choose a city, date range and slot (top 1–3), priced
+                            upfront. Available across platforms.
+                          </p>
+                          <span class="sample-label"
+                            >Original program mechanics</span
                           >
-                            <use
-                              href="images/program-symbols.svg#placement"
-                            /></svg></span
-                        ><span class="growth-category">Placement</span
-                        ><span class="growth-row-main"
-                          ><strong>Sponsored Listing</strong
-                          ><span class="growth-row-description"
-                            >Buy a top sponsored slot in city search results,
-                            above organic results.</span
-                          ></span
-                        ><span class="program-open-label"
-                          >Program details
-                          <span aria-hidden="true">↗</span></span
-                        >
-                      </summary>
-                      <div class="program-detail">
-                        <p class="growth-detail-label">
-                          How this program works
-                        </p>
-                        <p>
-                          Choose a city, date range and slot (top 1–3), priced
-                          upfront. Available across platforms.
-                        </p>
-                        <span class="sample-label"
-                          >Original program mechanics</span
-                        >
-                      </div>
-                    </details>
-                    <details
-                      class="program-tile"
-                      data-program
-                      data-category="Rate automation"
-                      data-name="dynamic rates"
-                    >
-                      <summary>
-                        <span class="catalog-glyph catalog-glyph--0"
-                          ><svg
-                            class="program-icon"
-                            viewBox="0 0 48 48"
-                            aria-hidden="true"
+                        </div>
+                      </details>
+                      <details
+                        class="program-tile"
+                        data-program
+                        data-category="Rate automation"
+                        data-name="dynamic rates"
+                      >
+                        <summary>
+                          <span class="catalog-glyph"
+                            ><svg
+                              class="program-icon"
+                              viewBox="0 0 48 48"
+                              aria-hidden="true"
+                            >
+                              <use
+                                href="images/program-symbols.svg#rates"
+                              /></svg></span
+                          ><span class="growth-row-main"
+                            ><strong>Dynamic Rates</strong
+                            ><span class="growth-row-description"
+                              >Automatically close the rate gap when a
+                              wholesaler undercuts.</span
+                            ></span
+                          ><span class="growth-category">Rate automation</span
+                          ><span class="program-open-label"
+                            ><span class="sr-only">Program details</span
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="m6 9 6 6 6-6" /></svg
+                          ></span>
+                        </summary>
+                        <div class="program-detail">
+                          <p class="growth-detail-label">
+                            How this program works
+                          </p>
+                          <p>
+                            Activate once in YCS. The existing policy allows up
+                            to 2% below the wholesaler rate, capped at 25% off.
+                          </p>
+                          <span class="sample-label"
+                            >Original program mechanics</span
                           >
-                            <use
-                              href="images/program-symbols.svg#rates"
-                            /></svg></span
-                        ><span class="growth-category">Rate automation</span
-                        ><span class="growth-row-main"
-                          ><strong>Dynamic Rates</strong
-                          ><span class="growth-row-description"
-                            >Automatically close the rate gap when a wholesaler
-                            undercuts.</span
-                          ></span
-                        ><span class="program-open-label"
-                          >Program details
-                          <span aria-hidden="true">↗</span></span
-                        >
-                      </summary>
-                      <div class="program-detail">
-                        <p class="growth-detail-label">
-                          How this program works
-                        </p>
-                        <p>
-                          Activate once in YCS. The existing policy allows up to
-                          2% below the wholesaler rate, capped at 25% off.
-                        </p>
-                        <span class="sample-label"
-                          >Original program mechanics</span
-                        >
-                      </div>
-                    </details>
-                    <details
-                      class="program-tile"
-                      data-program
-                      data-category="Branded storefront"
-                      data-name="flagship store"
-                    >
-                      <summary>
-                        <span class="catalog-glyph catalog-glyph--1"
-                          ><svg
-                            class="program-icon"
-                            viewBox="0 0 48 48"
-                            aria-hidden="true"
+                        </div>
+                      </details>
+                      <details
+                        class="program-tile"
+                        data-program
+                        data-category="Branded storefront"
+                        data-name="flagship store"
+                      >
+                        <summary>
+                          <span class="catalog-glyph"
+                            ><svg
+                              class="program-icon"
+                              viewBox="0 0 48 48"
+                              aria-hidden="true"
+                            >
+                              <use
+                                href="images/program-symbols.svg#storefront"
+                              /></svg></span
+                          ><span class="growth-row-main"
+                            ><strong>Flagship Store</strong
+                            ><span class="growth-row-description"
+                              >A bespoke branded storefront for hotel
+                              chains.</span
+                            ></span
+                          ><span class="growth-category"
+                            >Branded storefront</span
+                          ><span class="program-open-label"
+                            ><span class="sr-only">Program details</span
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="m6 9 6 6 6-6" /></svg
+                          ></span>
+                        </summary>
+                        <div class="program-detail">
+                          <p class="growth-detail-label">
+                            How this program works
+                          </p>
+                          <p>
+                            A negotiated incremental commission and contract
+                            term support a dedicated store page, branded search
+                            suggestion and homepage banner.
+                          </p>
+                          <span class="sample-label"
+                            >Original program mechanics</span
                           >
-                            <use
-                              href="images/program-symbols.svg#storefront"
-                            /></svg></span
-                        ><span class="growth-category">Branded storefront</span
-                        ><span class="growth-row-main"
-                          ><strong>Flagship Store</strong
-                          ><span class="growth-row-description"
-                            >A bespoke branded storefront for hotel
-                            chains.</span
-                          ></span
-                        ><span class="program-open-label"
-                          >Program details
-                          <span aria-hidden="true">↗</span></span
-                        >
-                      </summary>
-                      <div class="program-detail">
-                        <p class="growth-detail-label">
-                          How this program works
-                        </p>
-                        <p>
-                          A negotiated incremental commission and contract term
-                          support a dedicated store page, branded search
-                          suggestion and homepage banner.
-                        </p>
-                        <span class="sample-label"
-                          >Original program mechanics</span
-                        >
-                      </div>
-                    </details>
+                        </div>
+                      </details>
+                    </div>
+                    <div class="growth-empty" data-program-empty hidden>
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="10.5" cy="10.5" r="6.5" />
+                        <path d="m15.5 15.5 5 5" /></svg
+                      ><strong>No matching programs</strong>
+                      <p>
+                        Try another name or goal, or clear the filters to see
+                        all eight programs.
+                      </p>
+                    </div>
                   </div>
                   <p class="growth-preview-note">
                     Updated concept · Original program mechanics. No account

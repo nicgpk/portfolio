@@ -1,4 +1,4 @@
-import { chromium, expect } from "@playwright/test";
+import { chromium, expect } from "./review-browser.mjs";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import assert from "node:assert/strict";
 process.env.PLAYWRIGHT_BROWSERS_PATH = new URL(

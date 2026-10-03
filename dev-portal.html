@@ -80,11 +80,19 @@
     <link rel="stylesheet" href="css/editorial.css" />
     <link rel="stylesheet" href="css/showcase.css" />
     <link rel="stylesheet" href="css/studio.css" />
+    <link rel="stylesheet" href="css/concepts.css" />
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href="fonts/ibm-plex-sans.woff2"
+      href="fonts/manrope-latin.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="fonts/ubuntu-mono-regular.woff2"
       crossorigin
     />
   </head>
@@ -244,21 +252,24 @@
               </div>
               <div class="developer-layout">
                 <aside class="developer-sidebar">
-                  <p>WORKFLOW</p>
-                  <ol>
-                    <li>Environment</li>
-                    <li>Rollout</li>
-                    <li>Review</li>
-                  </ol>
                   <p>EXISTING TASK DOMAINS</p>
-                  <span>Manage</span><span>Plan</span><span>Build</span
+                  <span>Manage</span><span>Plan</span><strong>Build</strong
                   ><span>Secure</span><span>Monitor</span>
+                  <p class="dev-sidebar-note">
+                    Deployment preview<br />Example settings
+                  </p>
                 </aside>
                 <form class="deploy-form">
                   <ol class="deploy-steps" aria-label="Deployment steps">
-                    <li data-step-label="0" aria-current="step">Environment</li>
-                    <li data-step-label="1">Rollout</li>
-                    <li data-step-label="2">Review</li>
+                    <li data-step-label="0" aria-current="step">
+                      <span aria-hidden="true">1</span> Environment
+                    </li>
+                    <li data-step-label="1">
+                      <span aria-hidden="true">2</span> Rollout
+                    </li>
+                    <li data-step-label="2">
+                      <span aria-hidden="true">3</span> Review
+                    </li>
                   </ol>
                   <div class="deploy-stage" data-step="0">
                     <p class="app-eyebrow">ENVIRONMENT SETUP</p>
@@ -266,48 +277,62 @@
                     <p>
                       Configure the environment before choosing how to roll out.
                     </p>
-                    <div class="deploy-fields">
-                      <label
-                        >Environment name<input
-                          name="environment"
-                          value="staging-mesh"
-                          required
-                          pattern="[a-zA-Z0-9_-]+"
-                          maxlength="64" /></label
-                      ><label
-                        >Cluster pool<select name="pool">
-                          <option>Mesh</option>
-                          <option>QA</option>
-                          <option>Corp</option>
-                        </select></label
-                      ><label
-                        >Repository<select name="repository">
-                          <option>actions/ansible-runner</option>
-                        </select></label
-                      ><label
-                        >Image tag<input
-                          name="image"
-                          value="98ds12df"
-                          required
-                          maxlength="100" /></label
-                      ><label
-                        >CPU requests (cores)<input
-                          type="number"
-                          name="cpu"
-                          min="1"
-                          max="128"
-                          value="24"
-                          required /></label
-                      ><label
-                        >Memory requests (Gi)<input
-                          type="number"
-                          name="memory"
-                          min="1"
-                          max="512"
-                          value="24"
-                          required
-                      /></label>
-                    </div>
+                    <fieldset class="deploy-field-group">
+                      <legend>Environment &amp; source</legend>
+                      <div class="deploy-fields">
+                        <label
+                          >Environment name<input
+                            name="environment"
+                            value="staging-mesh"
+                            required
+                            pattern="[a-zA-Z0-9_\-]+"
+                            maxlength="64"
+                            aria-describedby="environment-help" /></label
+                        ><label
+                          >Cluster pool<select name="pool">
+                            <option>Mesh</option>
+                            <option>QA</option>
+                            <option>Corp</option>
+                          </select></label
+                        ><label
+                          >Repository<select name="repository">
+                            <option>actions/ansible-runner</option>
+                          </select></label
+                        ><label
+                          >Image tag<input
+                            name="image"
+                            value="98ds12df"
+                            required
+                            maxlength="100"
+                        /></label>
+                      </div>
+                      <p class="dev-field-help" id="environment-help">
+                        Environment name: letters, numbers, hyphens and
+                        underscores.
+                      </p>
+                    </fieldset>
+                    <fieldset class="deploy-field-group">
+                      <legend>Resource requests</legend>
+                      <div class="deploy-fields">
+                        <label
+                          >CPU requests (cores)<input
+                            type="number"
+                            name="cpu"
+                            min="1"
+                            max="128"
+                            value="24"
+                            required /></label
+                        ><label
+                          >Memory requests (Gi)<input
+                            type="number"
+                            name="memory"
+                            min="1"
+                            max="512"
+                            value="24"
+                            required
+                        /></label>
+                      </div>
+                    </fieldset>
                     <p class="dev-guidance">
                       Ownership or AD request blocking progress? The original
                       design supports leave and resume, with guidance at
@@ -317,54 +342,63 @@
                   <div class="deploy-stage" data-step="1">
                     <p class="app-eyebrow">ROLLOUT SETUP</p>
                     <h2>Make the rollout explicit.</h2>
-                    <label
-                      >Deployment strategy<select name="strategy">
-                        <option>Canary</option>
-                        <option>Rolling update</option>
-                      </select></label
-                    >
-                    <p class="canary-path" data-canary>10% → 20% → 30%</p>
-                    <div class="deploy-fields">
+                    <fieldset class="deploy-field-group">
+                      <legend>Rollout strategy</legend>
                       <label
-                        >HK · Hong Kong replicas<input
-                          name="hk"
-                          type="number"
-                          min="1"
-                          max="100"
-                          value="10"
-                          required /></label
-                      ><label
-                        >SG · Singapore replicas<input
-                          name="sg"
-                          type="number"
-                          min="1"
-                          max="100"
-                          value="10"
-                          required /></label
-                      ><label
-                        >AM · Amsterdam replicas<input
-                          name="am"
-                          type="number"
-                          min="1"
-                          max="100"
-                          value="10"
-                          required /></label
-                      ><label
-                        >Slack channel<input
-                          name="slack"
-                          value="#devops_safe_app"
-                          required
-                          maxlength="100"
-                      /></label>
-                    </div>
-                    <p>
-                      Ramp up: 300 seconds · Monitoring: 900 seconds. Existing
-                      example settings.
-                    </p>
+                        >Deployment strategy<select name="strategy">
+                          <option>Canary</option>
+                          <option>Rolling update</option>
+                        </select></label
+                      >
+                      <p class="canary-path" data-canary>10% → 20% → 30%</p>
+                      <p class="dev-field-help">
+                        Ramp up: 300 seconds · Monitoring: 900 seconds. Existing
+                        example settings.
+                      </p>
+                    </fieldset>
+                    <fieldset class="deploy-field-group">
+                      <legend>Targets &amp; monitoring</legend>
+                      <div class="deploy-fields">
+                        <label
+                          >HK · Hong Kong replicas<input
+                            name="hk"
+                            type="number"
+                            min="1"
+                            max="100"
+                            value="10"
+                            required /></label
+                        ><label
+                          >SG · Singapore replicas<input
+                            name="sg"
+                            type="number"
+                            min="1"
+                            max="100"
+                            value="10"
+                            required /></label
+                        ><label
+                          >AM · Amsterdam replicas<input
+                            name="am"
+                            type="number"
+                            min="1"
+                            max="100"
+                            value="10"
+                            required /></label
+                        ><label
+                          >Slack channel<input
+                            name="slack"
+                            value="#devops_safe_app"
+                            required
+                            maxlength="100"
+                        /></label>
+                      </div>
+                    </fieldset>
                   </div>
                   <div class="deploy-stage" data-step="2">
                     <p class="app-eyebrow">REVIEW BEFORE DEPLOYMENT</p>
                     <h2>See the whole decision.</h2>
+                    <p>
+                      Check the configuration before completing this preview.
+                    </p>
                     <dl class="deploy-review" data-deploy-review>
                       <div>
                         <dt>Environment</dt>
@@ -381,6 +415,16 @@
                       <div>
                         <dt>Strategy</dt>
                         <dd>Canary · 10% → 20% → 30%</dd>
+                      </div>
+                      <div>
+                        <dt>Targets</dt>
+                        <dd>HK: 10 · SG: 10 · AM: 10 replicas</dd>
+                      </div>
+                      <div>
+                        <dt>Monitoring</dt>
+                        <dd>
+                          #devops_safe_app · 300s ramp up · 900s monitoring
+                        </dd>
                       </div>
                     </dl>
                   </div>
@@ -399,7 +443,7 @@
                       data-deploy-next
                       disabled
                     >
-                      Continue →
+                      Continue to rollout →
                     </button>
                   </div>
                   <p class="deploy-status" data-deploy-status role="status"></p>

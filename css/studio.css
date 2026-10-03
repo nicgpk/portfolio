@@ -4,7 +4,10 @@
 .resume-page {
   --ink: #151918;
   --paper: #fff;
-  --display: Plex, Arial, sans-serif;
+  --display: Manrope, "Segoe UI", Arial, sans-serif;
+  --font-sans: var(--body);
+  --font-serif: var(--body);
+  --font-mono: var(--mono);
   --signal: #ff510a;
   --signal-text: #b93608;
   --line: #dbe1e4;
@@ -461,7 +464,7 @@ body.folio {
   border: 1px solid #eee;
   border-radius: 7px;
   margin-bottom: 14px;
-  overflow: hidden;
+  overflow: clip;
 }
 .catalog-preview-intro p {
   font: 9px/1.5 var(--mono);

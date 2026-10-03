@@ -1,0 +1,309 @@
+{
+  "baseline": "63d1ff9e3236cb743e27875ee358c1b9c7a99692",
+  "fonts": [
+    {
+      "route": "index",
+      "body": "Manrope, \"Segoe UI\", Arial, sans-serif",
+      "mono": "\"Ubuntu Mono\", Consolas, monospace",
+      "loaded": [
+        {
+          "family": "Manrope",
+          "weight": "400 700"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "400"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "700"
+        }
+      ]
+    },
+    {
+      "route": "projects",
+      "body": "Manrope, \"Segoe UI\", Arial, sans-serif",
+      "mono": "\"Ubuntu Mono\", Consolas, monospace",
+      "loaded": [
+        {
+          "family": "Manrope",
+          "weight": "400 700"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "400"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "700"
+        }
+      ]
+    },
+    {
+      "route": "partner-growth-programs",
+      "body": "Manrope, \"Segoe UI\", Arial, sans-serif",
+      "mono": "\"Ubuntu Mono\", Consolas, monospace",
+      "loaded": [
+        {
+          "family": "Manrope",
+          "weight": "400 700"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "400"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "700"
+        }
+      ]
+    },
+    {
+      "route": "discounting",
+      "body": "Manrope, \"Segoe UI\", Arial, sans-serif",
+      "mono": "\"Ubuntu Mono\", Consolas, monospace",
+      "loaded": [
+        {
+          "family": "Manrope",
+          "weight": "400 700"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "400"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "700"
+        }
+      ]
+    },
+    {
+      "route": "dev-portal",
+      "body": "Manrope, \"Segoe UI\", Arial, sans-serif",
+      "mono": "\"Ubuntu Mono\", Consolas, monospace",
+      "loaded": [
+        {
+          "family": "Manrope",
+          "weight": "400 700"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "400"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "700"
+        }
+      ]
+    },
+    {
+      "route": "resume",
+      "body": "Manrope, \"Segoe UI\", Arial, sans-serif",
+      "mono": "\"Ubuntu Mono\", Consolas, monospace",
+      "loaded": [
+        {
+          "family": "Manrope",
+          "weight": "400 700"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "400"
+        },
+        {
+          "family": "Ubuntu Mono",
+          "weight": "700"
+        }
+      ]
+    },
+    {
+      "file": "manrope-latin.woff2",
+      "bytes": 24836
+    },
+    {
+      "file": "ubuntu-mono-regular.woff2",
+      "bytes": 27300
+    },
+    {
+      "file": "ubuntu-mono-bold.woff2",
+      "bytes": 25748
+    }
+  ],
+  "content": [
+    {
+      "route": "index",
+      "sections": [
+        {
+          "selector": ".studio-hero",
+          "unchanged": true
+        },
+        {
+          "selector": ".showcase-card-link",
+          "unchanged": true
+        },
+        {
+          "selector": ".showcase-caption",
+          "unchanged": true
+        },
+        {
+          "selector": ".about-section",
+          "unchanged": true
+        },
+        {
+          "selector": ".archive",
+          "unchanged": true
+        },
+        {
+          "selector": ".folio-footer",
+          "unchanged": true
+        }
+      ],
+      "linksUnchanged": true,
+      "programsUnchanged": true,
+      "developerSettingsUnchanged": true,
+      "heroMarkupUnchanged": true
+    },
+    {
+      "route": "projects",
+      "sections": [
+        {
+          "selector": "body",
+          "unchanged": true
+        }
+      ],
+      "linksUnchanged": true,
+      "programsUnchanged": true,
+      "developerSettingsUnchanged": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "sections": [
+        {
+          "selector": ".case-hero",
+          "unchanged": true
+        },
+        {
+          "selector": ".case-framing",
+          "unchanged": true
+        },
+        {
+          "selector": ".decisions-section",
+          "unchanged": true
+        },
+        {
+          "selector": ".evidence-card",
+          "unchanged": true
+        },
+        {
+          "selector": ".supporting-artifacts",
+          "unchanged": true
+        },
+        {
+          "selector": ".case-next",
+          "unchanged": true
+        },
+        {
+          "selector": ".folio-footer",
+          "unchanged": true
+        }
+      ],
+      "linksUnchanged": true,
+      "programsUnchanged": true,
+      "developerSettingsUnchanged": true
+    },
+    {
+      "route": "discounting",
+      "sections": [
+        {
+          "selector": ".case-hero",
+          "unchanged": true
+        },
+        {
+          "selector": ".case-framing",
+          "unchanged": true
+        },
+        {
+          "selector": ".decisions-section",
+          "unchanged": true
+        },
+        {
+          "selector": ".evidence-card",
+          "unchanged": true
+        },
+        {
+          "selector": ".supporting-artifacts",
+          "unchanged": true
+        },
+        {
+          "selector": ".case-next",
+          "unchanged": true
+        },
+        {
+          "selector": ".folio-footer",
+          "unchanged": true
+        }
+      ],
+      "linksUnchanged": true,
+      "programsUnchanged": true,
+      "developerSettingsUnchanged": true
+    },
+    {
+      "route": "dev-portal",
+      "sections": [
+        {
+          "selector": ".case-hero",
+          "unchanged": true
+        },
+        {
+          "selector": ".case-framing",
+          "unchanged": true
+        },
+        {
+          "selector": ".decisions-section",
+          "unchanged": true
+        },
+        {
+          "selector": ".evidence-card",
+          "unchanged": true
+        },
+        {
+          "selector": ".supporting-artifacts",
+          "unchanged": true
+        },
+        {
+          "selector": ".case-next",
+          "unchanged": true
+        },
+        {
+          "selector": ".folio-footer",
+          "unchanged": true
+        }
+      ],
+      "linksUnchanged": true,
+      "programsUnchanged": true,
+      "developerSettingsUnchanged": true
+    },
+    {
+      "route": "resume",
+      "sections": [
+        {
+          "selector": "body",
+          "unchanged": true
+        }
+      ],
+      "linksUnchanged": true,
+      "programsUnchanged": true,
+      "developerSettingsUnchanged": true
+    }
+  ],
+  "interactions": [
+    "Program mechanics search, Enter disclosure/collapse, visible empty state, clear filters and returned focus passed.",
+    "Remaining-balance ledger, calculation bases, cuts, totals and exact bar proportions passed at zero, cent-rounded rates and the maximum; invalid values clear stale results.",
+    "Invalid-name guidance, current/completed steps, complete six-row review and back-navigation with values retained passed."
+  ],
+  "static": [
+    "Eight native disclosures, honest disabled filtering, ordered static balances and all three developer stages with a complete review passed without JavaScript."
+  ],
+  "errors": [],
+  "passed": true,
+  "limitations": "Windows Chromium and emulated mobile; real devices, Safari, Firefox, real screen-reader announcements and 200% browser zoom remain unverified."
+}
