@@ -1,21 +1,25 @@
 # Portfolio reference review
 
-Reviewed on 3 October 2026 to reassess the opening and project presentation. These are selected references, not a claim of an objective ranking.
+Reviewed on 3 October 2026. The user explicitly chose a Rauno-inspired direction after rejecting the earlier visual language.
 
-## Primary references
+## Primary reference
 
-- [Tobias van Schneider](https://vanschneider.com/): expressive typography, large project imagery and concise descriptions give each chapter its own identity. Apply that to the portfolio's existing artifacts with three distinct compositions and vivid project colors.
-- [Rauno Freiberg](https://rauno.me/): a brief identity statement puts interaction craft and projects close to the introduction. Apply that restraint to the masthead and remove the separate personal hero that repeated the flagship.
-- [Ryan Spencer](https://rnspencer.com/) and his [Uber Eats grocery case study](https://rnspencer.com/project/grocerynv): early role, team and project context make the following decisions easier to assess. Apply this by using explicit project names and ownership on home, with problem, role, choices and evidence in the case studies.
+[Rauno Freiberg](https://rauno.me/) pairs a brief identity with expressive typography and graphic contrast. [Craft](https://rauno.me/craft) presents focused interaction studies on quiet surfaces. Those observations informed the compact identity, simple project compositions and interaction-centered graphics here.
 
-The [Product Design Portfolios case-study directory](https://www.productdesignportfolios.com/portfolios/content/case-studies) supported discovery of product-design examples; design observations above come from the linked primary sites.
+[Graph Slider](https://rauno.me/craft/graph-slider) coordinates a graphic indicator, highlight and readable value. Its explanation keeps the value label fixed for legibility. The portfolio adapts that principle through stationary rate labels and changing bars, and synchronized program selection, glyph highlight and description. It uses its own implementation and content.
 
-## Resulting direction
+[Designing Depth](https://rauno.me/craft/depth) discusses purposeful layers that communicate the subject. The portfolio uses small spatial responses within its actual program hub and workflow diagrams. Content remains readable while graphics move.
 
-The first work-first revision still relied on large painted text panels and extremely heavy typography. The user rejected its overall visual language. The next local candidate is a refined product gallery: a compact identity, medium-weight sans with serif accents, and product interfaces separated from story text. Vivid color appears behind the artifacts, with a shaped growth backdrop, offset discount composition and crisp dark developer stage.
+## Applied direction
 
-Partner Growth Programs leads once, with an explicitly labeled updated discovery concept using existing content. On phones its actual program cards take priority over introductory copy. Discounting and Developer Portal display original mockups with sample-data captions. Ownership, decisions and case-study routes remain clear. The candidate's visual preference remains unconfirmed; the user can still steer toward a more experimental or cinematic language.
+Three original graphics explain the existing work: an eight-program property hub, a sequential discount ladder and an environment-to-review signal path. Color identifies the project; shared type, rules and motion timing maintain consistency. Full updated interfaces and original artifacts remain accessible from the case studies.
 
-## Evidence limits
+Rauno's current home uses a horizontal visual sequence mapped to native vertical scroll. This portfolio keeps a conventional vertical document to support natural reading and keyboard access. Craft study videos were observed starting and stopping as tiles entered and left the viewport. This portfolio uses bounded entry/input responses and stops its animation-frame loop when settled, offscreen or hidden, with explicit pause and reduced-motion controls.
 
-Primary-page content and structure were researched, and desktop first viewports of Tobias, Rauno and Ryan were visually inspected in a separate project-local Chromium browser. Remote reference motion and responsive behavior were not tested. An earlier browser-tool attempt timed out; the subsequent separate captures succeeded. No reference assets were copied into the portfolio. Local desktop/mobile captures and automated results are saved in `review/`.
+Earlier [Tobias van Schneider](https://vanschneider.com/) and [Ryan Spencer](https://rnspencer.com/) research supported distinct project chapters and clear ownership. The current visual reference is Rauno, following the user's updated preference.
+
+## Evidence and limits
+
+Primary pages and explanations were read. Home, Craft, Graph Slider and Designing Depth were visually inspected in separate project-local Chromium sessions; home scrolling and Craft viewport playback were observed. This was not a comprehensive reference-site accessibility, mobile or performance audit. No fonts, media, graphics or code were copied from reference sites.
+
+Local desktop/mobile screenshots, a recorded interaction review and machine-readable checks are in `review/`. References guide craft decisions; they do not establish recruiter response or real-user performance.

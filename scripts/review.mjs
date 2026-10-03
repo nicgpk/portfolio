@@ -288,7 +288,7 @@ for (const [route, control, surface] of [
   );
 }
 report.interactions.push(
-  "Keyboard focus outlines exceed 3:1 contrast on orange, orchid and cobalt panels.",
+  "Keyboard focus outlines exceed 3:1 contrast on the page and acid, orchid and cobalt evidence panels.",
 );
 const nojs = await browser.newContext({
   javaScriptEnabled: false,
@@ -331,7 +331,7 @@ assert.equal(
 );
 assert.equal(
   await page
-    .locator(".flagship-interface")
+    .locator(".kinetic-disc")
     .evaluate((e) => getComputedStyle(e).transform),
   "none",
 );

@@ -1,65 +1,7 @@
 import { stackDiscounts } from "./calculations.mjs";
 
-// Native scroll, readable text, and decorative transforms only. No hidden reveals.
-const motion = matchMedia("(prefers-reduced-motion: reduce)");
-const stage = document.querySelector("[data-depth]");
-let frame = 0;
-function depth() {
-  frame = 0;
-  if (!stage) return;
-  if (motion.matches || innerWidth < 651) {
-    ["--depth-y", "--depth-rotate", "--depth-scale"].forEach((property) =>
-      stage.style.removeProperty(property),
-    );
-    return;
-  }
-  const rect = stage.getBoundingClientRect();
-  if (rect.bottom < 0 || rect.top > innerHeight) return;
-  const shift = Math.max(
-    -16,
-    Math.min(16, (innerHeight / 2 - rect.top) * 0.035),
-  );
-  stage.style.setProperty("--depth-y", `${shift}px`);
-  const progress = Math.max(
-    0,
-    Math.min(1, (innerHeight - rect.top) / (innerHeight + rect.height)),
-  );
-  stage.style.setProperty("--depth-rotate", `${-4 + progress * 4}deg`);
-  stage.style.setProperty("--depth-scale", `${0.97 + progress * 0.04}`);
-}
-function schedule() {
-  if (!frame) frame = requestAnimationFrame(depth);
-}
-if (stage) {
-  addEventListener("scroll", schedule, { passive: true });
-  addEventListener("resize", schedule, { passive: true });
-  motion.addEventListener("change", schedule);
-  schedule();
-}
-// Layered reveal applies a brief positional settling to artwork, never to text.
-const art = document.querySelectorAll(".flagship-art,.discount-art,.dev-art");
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) =>
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        if (!motion.matches)
-          entry.target.animate(
-            [{ transform: "translateY(18px)" }, { transform: "translateY(0)" }],
-            { duration: 650, easing: "cubic-bezier(.2,.8,.2,1)" },
-          );
-        observer.unobserve(entry.target);
-      }),
-    { threshold: 0.12 },
-  );
-  art.forEach((el) => observer.observe(el));
-  motion.addEventListener("change", () => {
-    if (motion.matches)
-      art.forEach((el) =>
-        el.getAnimations().forEach((animation) => animation.cancel()),
-      );
-  });
-}
+import { motionPaused } from "./kinetics.mjs";
+
 document.querySelectorAll("[data-discovery]").forEach((root) => {
   const search = root.querySelector("[data-program-search]"),
     category = root.querySelector("[data-program-category]");
@@ -200,7 +142,7 @@ if (developer) {
       title.focus({ preventScroll: true });
       title.scrollIntoView({
         block: "start",
-        behavior: motion.matches ? "instant" : "smooth",
+        behavior: motionPaused() ? "instant" : "smooth",
       });
     }
   }
@@ -239,4 +181,59 @@ if (developer) {
         : "Rolling update · existing deployment strategy";
   });
   render();
+}
+
+// The home graphic uses the same cent-rounded calculation as the full simulator.
+for (const root of document.querySelectorAll("[data-rate-graphic]")) {
+  const form = root.querySelector("form");
+  const money = (value) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  function updateGraphic() {
+    const rate = form.elements.rate;
+    const error = root.querySelector("[data-rate-error]");
+    if (rate.value === "" || !rate.validity.valid) {
+      for (const selector of [
+        "[data-rate-start]",
+        "[data-rate-mega]",
+        "[data-rate-net]",
+      ])
+        root.querySelector(selector).textContent = "—";
+      for (const selector of ["[data-mega-bar]", "[data-net-bar]"])
+        root.querySelector(selector).style.width = "0%";
+      error.textContent =
+        "Enter a room rate from $0 to $1,000,000, with at most two decimal places.";
+      rate.setAttribute("aria-invalid", "true");
+      return;
+    }
+    error.textContent = "";
+    rate.removeAttribute("aria-invalid");
+    const start = Number(rate.value),
+      mega = form.elements.mega.checked,
+      mobile = form.elements.mobile.checked;
+    const intermediate = stackDiscounts(start, mega ? [15] : []).net;
+    const result = stackDiscounts(start, [
+      ...(mega ? [15] : []),
+      ...(mobile ? [10] : []),
+    ]);
+    root.querySelector("[data-rate-start]").textContent = money(start);
+    root.querySelector("[data-rate-mega]").textContent = money(intermediate);
+    root.querySelector("[data-rate-net]").textContent = money(result.net);
+    root.querySelector("[data-mega-label]").textContent = mega
+      ? "After Mega Sale · 15%"
+      : "Mega Sale off";
+    root.querySelector("[data-mobile-label]").textContent = mobile
+      ? "Then Mobile Exclusive · 10%"
+      : "Mobile Exclusive off";
+    root.querySelector("[data-mega-bar]").style.width =
+      `${start ? (intermediate / start) * 100 : 0}%`;
+    root.querySelector("[data-net-bar]").style.width =
+      `${start ? (result.net / start) * 100 : 0}%`;
+  }
+  form.addEventListener("input", updateGraphic);
+  form.addEventListener("submit", (event) => event.preventDefault());
+  form.querySelectorAll("input").forEach((input) => (input.disabled = false));
+  updateGraphic();
 }

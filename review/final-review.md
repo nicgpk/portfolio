@@ -1,33 +1,35 @@
 # Final review
 
-Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. GitHub Pages source was checked via its API and remains `main` at `/`. No deployment setting, production source, merge or auto-merge was changed.
+Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. Delivery is a local preview and an open draft PR. No merge, auto-merge, production deployment or Pages-source change is authorized.
 
 ## Visual and hiring review
 
-The current candidate is a refined product gallery, developed after the user rejected the previous flat-panel direction. It keeps the work-first hierarchy: a compact name/role masthead and one Partner Growth Programs chapter. The visual language changes to medium-weight local sans with serif accents, a pale page, separated story text and interface scenes. Growth has a shaped lime/green backdrop, Discounting has an offset purple calculation-and-artifact composition, and Developer Portal has a crisp dark stage. Mobile shows actual program cards in the first viewport before ownership details.
+This version follows the user's explicit request for a simple Rauno-inspired direction with motion and new graphics. A compact name/role masthead leads directly into one Partner Growth Programs chapter. Large regular-weight local sans, thin rules and a pale canvas support three original compositions: an acid-yellow eight-program property hub, a cobalt sequential rate ladder and a coral developer-workflow signal. There is no separate repeating hero.
 
-The PGP discovery preview is clearly labeled Updated concept and uses existing program workflows. Discounting and Developer show original portfolio mockups, with captions distinguishing illustrative room rates and example deployment settings from outcomes. The original growth capture is retained in the provenance manifest but is not presented as the new concept. Original artifacts remain accessible. Case-study facts and colored evidence cards are preserved; typography and full concept backgrounds follow the new gallery language.
+All eight program glyphs are original SVG drawings. They also replace older raster icons in the discovery concept. Home graphics are labeled updated concepts, reuse existing descriptions, percentages and workflow settings, and link to original artifacts. Case studies retain concise decisions, explicit ownership and contextual evidence cards. The previous gallery is retained in `rauno-revision/before/`; original main is in `before/`.
 
-Primary content, structure and desktop first views from Tobias van Schneider, Rauno Freiberg and Ryan Spencer informed the candidate. Links and limits are in `../docs/portfolio-reference-review.md`. No reference assets were copied. The user's preference for this new visual direction remains unconfirmed.
+Independent visual review found no material desktop/mobile blocker. Diagrams communicate distinct project stories, identity and case-study links stay clear, and the static fallback retains meaning. This is a local craft review, not recruiter testing. Primary sources and study limits are in `../docs/portfolio-reference-review.md`.
 
-Content is immediately readable. Native scrolling remains intact. Decorative flagship depth responds to scroll; artwork settles on intersection. Reduced motion disables transitions and rotations. Reduced transparency makes navigation opaque; the review caught and resolved a later stylesheet override of that fallback.
+## Motion and interaction
+
+Native scrolling is preserved. Decorative graphics respond to scroll and fine-pointer movement through a bounded spring. Connections reveal, rate bars react to calculations and the developer signal moves to the selected stage. Body copy and amounts remain readable. Animation frames stop at rest, offscreen and while hidden. Pause persists across reloads; OS reduced motion takes precedence. Reduced transparency makes navigation opaque.
+
+`kinetic-checks.json` verifies pointer response and frame-loop settling, native wheel scrolling, all eight keyboard program selections, home calculation edge cases, keyboard workflow selection, pause persistence, resume and reduced motion. `after/motion-demo.webm` records the local interaction review; pauses include verification waits and it is not an edited promotional animation. Without JavaScript, home rate inputs are inactive and a static-example note explains the fixed result.
 
 ## Verification
 
-- `npm test`: four calculation tests pass, covering the known sequential stack, empty/zero/full discounts, cent rounding and invalid input.
-- `npm run review`: six routes at 320/390/768/1440 pixels; no global page overflow, automated WCAG A/AA violations, broken main-route local links or JavaScript page errors.
-- Discovery search, category selection, empty results and program expansion pass.
-- Discount toggles, reset, zero, invalid rate and fractional-rate calculation pass. Updated booking example corrects 10% of $150 to $15; total after discounts is $262.50.
-- Developer validation, retained inputs across steps, review and preview-only completion pass. Keyboard forward/back keeps the focused heading in view below navigation at mobile and desktop.
-- No-JavaScript readability, keyboard skip link, reduced-motion and reduced-transparency checks pass.
-- Keyboard focus outlines exceed 3:1 contrast on orange, orchid and cobalt panels.
-- All seven archived lifecycle playbook patterns load their dynamic images at mobile and desktop; Escape returns focus to the originating control. Archived static local links pass.
-- Original text/artifacts are compared to baseline in `content-preservation.json`. Resume PDF, ATS resume and legacy redirect are unchanged. The resume page retains its factual body and links, with common navigation.
-- Project-local dependency audit reports no vulnerabilities. New runtime uses static assets and native JavaScript, with no runtime package dependency.
-- Throttled cold-cache Chromium mobile observation: 1.22 seconds LCP, 0.000565 initial layout shift, 221,767 bytes of requested resources. Exact latest measurements and conditions are in `checks.json`; this is not a production score.
+- Page generation succeeds. Four calculation tests pass: sequential stacking, currency rounding, zero/full discounts and invalid inputs.
+- Six routes at 320/390/768/1440 pixels: no global overflow, automated WCAG A/AA violations, broken main-route local links or JavaScript page errors.
+- Case-study discovery search/filter/details, calculator toggles/reset/zero/invalid/fractional amounts and developer validation/forward/back/review pass. Keyboard step headings stay visible below navigation on mobile and desktop.
+- Home rate controls verify the 15% then 10% stack ($150 to $127.50 to $114.75), each toggle, fractional cents, zero, empty, negative, precision and upper-limit errors. The updated booking example correctly uses $15 for 10% of $150 and totals $262.50 after discounts.
+- No-JavaScript readability, keyboard skip navigation, visible focus, reduced-motion and reduced-transparency pass. Focus outlines exceed 3:1 contrast on the page and colored evidence panels.
+- All seven archived playbook patterns load dynamic images at mobile and desktop; Escape restores focus. Original static local links pass.
+- Original artifacts are compared with baseline in `content-preservation.json`. Resume PDF, ATS resume and legacy redirect are unchanged. Resume factual text and links remain preserved.
+- Project-local dependency audit reports no vulnerabilities. The new runtime uses static assets and native JavaScript with no runtime package dependency.
+- Cold-cache Chromium mobile observation: 1.540 seconds LCP, zero initial layout shift, 135,372 bytes across seven requested resources, with 4x CPU throttling, 1.6Mbps bandwidth and 150ms RTT. This is a laboratory observation, not a production score. Exact latest measurements are in `checks.json`.
 
-Independent review confirmed provenance, hierarchy and the change of visual language. It prompted the mobile reading-order correction, compact discovery intro, shaped growth backdrop and crisp developer stage. Full-page captures explicitly load deferred research images; the separate performance navigation uses normal loading behavior. Previous directions are retained in `gallery-revision/before/`, `work-first/before/` and `color-revision/before/` for comparison.
+Full-page screenshots load deferred research images. Performance navigation uses normal loading. Prior snapshots and the original mockup provenance manifest remain available.
 
 ## Remaining limitations
 
-The user has not yet confirmed this new art direction. Safari, Firefox, actual mobile devices and real screen-reader sessions were not tested. Automated contrast/accessibility checks cannot establish full accessibility. Recruiter/hiring-team response and production performance were not measured. The original sources omit some baselines, sample sizes and metric periods, and have conflicting complaint-ranking and program-estimate details; these remain disclosed. Preserved original artifacts retain their historical styles, external font references and original arithmetic discrepancies. Mobile thumbnail text is small; each image and its caption link to the full original artifact. Updated concepts are local previews and do not enroll properties, save configurations, connect to Agoda or deploy infrastructure.
+Safari, Firefox, actual mobile devices and real screen-reader sessions were not tested. Automated rules do not establish full accessibility. Recruiter response and production performance were not measured. Source omissions and conflicting metric details remain disclosed; no missing baselines, sample sizes or outcomes were invented. Preserved originals retain historical styles, external font references and arithmetic discrepancies. Concepts do not enroll properties, save configurations, connect to Agoda or deploy infrastructure. Motion is concentrated in graphics and controls; content stays still and touch gets scroll/selection responses rather than pointer tilt.

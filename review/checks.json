@@ -296,7 +296,7 @@
     "Sequential calculator, toggles, invalid rate, reset, zero and rounding passed.",
     "Developer validation, forward/back, preserved values, review and preview-only completion passed.",
     "Keyboard forward/back step titles stay visible below the navigation at 390 and 1440 pixels.",
-    "Keyboard focus outlines exceed 3:1 contrast on orange, orchid and cobalt panels.",
+    "Keyboard focus outlines exceed 3:1 contrast on the page and acid, orchid and cobalt evidence panels.",
     "No-JavaScript content and static examples remain readable.",
     "Keyboard skip navigation passed.",
     "Reduced motion and opaque reduced-transparency fallback passed."
@@ -307,23 +307,11 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/css/editorial.css",
-      "status": 200
-    },
-    {
       "url": "http://127.0.0.1:4183/css/folio.css",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/images/icon-promo-3d.webp",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/images/icon-growth-3d.webp",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/images/icon-boost-3d.webp",
+      "url": "http://127.0.0.1:4183/css/editorial.css",
       "status": 200
     },
     {
@@ -335,29 +323,25 @@
       "status": 200
     },
     {
+      "url": "http://127.0.0.1:4183/js/kinetics.mjs",
+      "status": 200
+    },
+    {
       "url": "http://127.0.0.1:4183/fonts/ibm-plex-sans.woff2",
       "status": 200
     },
     {
       "url": "http://127.0.0.1:4183/fonts/ibm-plex-mono.woff2",
       "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/fonts/ibm-plex-serif.woff2",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/images/work-discount-original.jpg",
-      "status": 200
     }
   ],
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 1216,
-      "cls": 0.0005647863247863249,
-      "resourceBytes": 221767,
-      "requestCount": 11
+      "lcpMs": 1540,
+      "cls": 0,
+      "resourceBytes": 135372,
+      "requestCount": 7
     }
   ],
   "errors": [],

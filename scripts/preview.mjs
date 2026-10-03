@@ -13,6 +13,7 @@ const types = {
   ".webp": "image/webp",
   ".woff2": "font/woff2",
   ".pdf": "application/pdf",
+  ".webm": "video/webm",
   ".ico": "image/x-icon",
 };
 http

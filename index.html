@@ -134,6 +134,15 @@
         >Let’s talk <span aria-hidden="true">↗</span></a
       >
     </header>
+    <button
+      type="button"
+      class="motion-control"
+      data-motion-toggle
+      aria-pressed="false"
+      disabled
+    >
+      Motion off
+    </button>
     <main id="main" class="portfolio-home">
       <section class="portfolio-masthead">
         <div>
@@ -155,154 +164,331 @@
       >
         <div class="work-sequence-label">
           <h2 id="work-title">Selected work</h2>
-          <span>Agoda · Product &amp; platform design</span>
+          <span>Product &amp; platform design · Agoda</span>
         </div>
         <article class="work-growth work-flagship">
           <div class="project-heading">
-            <p class="eyebrow">01 / Partner experience</p>
+            <p class="eyebrow">Partner experience · Product Design Lead</p>
             <h3>
               <a href="partner-growth-programs.html"
-                >Partner <em>Growth</em><br />Programs<span>.</span></a
+                >Partner<br />
+                Growth<br />
+                Programs.</a
               >
             </h3>
           </div>
-          <div class="flagship-art" data-depth>
-            <div class="scene-note">
-              <span>Program discovery</span><span>Updated concept</span>
+          <div class="project-intent">
+            <p>
+              I owned design strategy, information architecture and interaction
+              design for the partner growth program suite.
+            </p>
+            <a class="text-link" href="partner-growth-programs.html"
+              >Read the case study <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="flagship-art graphic-scene" data-kinetic-scene>
+            <span class="graphic-label"
+              >Updated concept · Eight programs. One property-centered
+              hub.</span
+            ><svg
+              class="kinetic-disc"
+              data-kinetic
+              viewBox="0 0 600 600"
+              aria-hidden="true"
+            >
+              <circle class="growth-disc" cx="300" cy="300" r="280" />
+              <path
+                class="program-ray selected"
+                data-ray="0"
+                d="M300 300 L300 86"
+              />
+              <path class="program-ray" data-ray="1" d="M300 300 L450 149" />
+              <path class="program-ray" data-ray="2" d="M300 300 L514 300" />
+              <path class="program-ray" data-ray="3" d="M300 300 L450 450" />
+              <path class="program-ray" data-ray="4" d="M300 300 L300 514" />
+              <path class="program-ray" data-ray="5" d="M300 300 L149 450" />
+              <path class="program-ray" data-ray="6" d="M300 300 L86 300" />
+              <path class="program-ray" data-ray="7" d="M300 300 L149 149" />
+              <g
+                class="program-node selected"
+                data-symbol="0"
+                transform="translate(300 86)"
+              >
+                <circle r="34" />
+                <use
+                  href="images/program-symbols.svg#promotion"
+                  x="-23"
+                  y="-23"
+                  width="46"
+                  height="46"
+                />
+              </g>
+              <g
+                class="program-node"
+                data-symbol="1"
+                transform="translate(450 149)"
+              >
+                <circle r="34" />
+                <use
+                  href="images/program-symbols.svg#growth"
+                  x="-23"
+                  y="-23"
+                  width="46"
+                  height="46"
+                />
+              </g>
+              <g
+                class="program-node"
+                data-symbol="2"
+                transform="translate(514 300)"
+              >
+                <circle r="34" />
+                <use
+                  href="images/program-symbols.svg#boost"
+                  x="-23"
+                  y="-23"
+                  width="46"
+                  height="46"
+                />
+              </g>
+              <g
+                class="program-node"
+                data-symbol="3"
+                transform="translate(450 450)"
+              >
+                <circle r="34" />
+                <use
+                  href="images/program-symbols.svg#prepaid"
+                  x="-23"
+                  y="-23"
+                  width="46"
+                  height="46"
+                />
+              </g>
+              <g
+                class="program-node"
+                data-symbol="4"
+                transform="translate(300 514)"
+              >
+                <circle r="34" />
+                <use
+                  href="images/program-symbols.svg#distribution"
+                  x="-23"
+                  y="-23"
+                  width="46"
+                  height="46"
+                />
+              </g>
+              <g
+                class="program-node"
+                data-symbol="5"
+                transform="translate(149 450)"
+              >
+                <circle r="34" />
+                <use
+                  href="images/program-symbols.svg#placement"
+                  x="-23"
+                  y="-23"
+                  width="46"
+                  height="46"
+                />
+              </g>
+              <g
+                class="program-node"
+                data-symbol="6"
+                transform="translate(86 300)"
+              >
+                <circle r="34" />
+                <use
+                  href="images/program-symbols.svg#rates"
+                  x="-23"
+                  y="-23"
+                  width="46"
+                  height="46"
+                />
+              </g>
+              <g
+                class="program-node"
+                data-symbol="7"
+                transform="translate(149 149)"
+              >
+                <circle r="34" />
+                <use
+                  href="images/program-symbols.svg#storefront"
+                  x="-23"
+                  y="-23"
+                  width="46"
+                  height="46"
+                />
+              </g>
+              <g class="property-node">
+                <rect x="260" y="260" width="80" height="80" />
+                <path d="m280 299 20-17 20 17v24h-40Zm15 24v-15h10v15" />
+                <text x="300" y="367" text-anchor="middle">Property</text>
+              </g>
+            </svg>
+          </div>
+          <div class="program-browser" data-program-browser>
+            <p class="graphic-label">Explore the existing programs</p>
+            <div
+              class="program-options"
+              role="group"
+              aria-label="Choose a growth program"
+            >
+              <button
+                type="button"
+                data-program-select="0"
+                aria-pressed="true"
+                disabled
+              >
+                Promotions</button
+              ><button
+                type="button"
+                data-program-select="1"
+                aria-pressed="false"
+                disabled
+              >
+                Agoda Growth Program</button
+              ><button
+                type="button"
+                data-program-select="2"
+                aria-pressed="false"
+                disabled
+              >
+                Boost Rank</button
+              ><button
+                type="button"
+                data-program-select="3"
+                aria-pressed="false"
+                disabled
+              >
+                Agoda Advanced</button
+              ><button
+                type="button"
+                data-program-select="4"
+                aria-pressed="false"
+                disabled
+              >
+                Maximum Gain</button
+              ><button
+                type="button"
+                data-program-select="5"
+                aria-pressed="false"
+                disabled
+              >
+                Sponsored Listing</button
+              ><button
+                type="button"
+                data-program-select="6"
+                aria-pressed="false"
+                disabled
+              >
+                Dynamic Rates</button
+              ><button
+                type="button"
+                data-program-select="7"
+                aria-pressed="false"
+                disabled
+              >
+                Flagship Store
+              </button>
             </div>
-            <div class="flagship-interface">
-              <div class="discovery-ui">
-                <div class="app-bar">
-                  <span class="app-mark" aria-hidden="true"
-                    >a<span>●</span></span
-                  ><span>Partner growth</span
-                  ><span class="app-account"
-                    >Maison Solara <span aria-hidden="true">⌄</span></span
-                  >
-                </div>
-                <div class="app-layout">
-                  <aside class="app-side" aria-label="Workflow context">
-                    <span>Property</span><span>Reservations</span
-                    ><span>Calendar</span><strong>Growth programs</strong
-                    ><span>Payout</span>
-                  </aside>
-                  <div class="app-content">
-                    <p class="app-eyebrow">GROW YOUR PROPERTY</p>
-                    <h4>Find your next<br />growth opportunity.</h4>
-                    <p class="app-intro">
-                      The right program. A clearer next step.
-                    </p>
-                    <div class="program-grid">
-                      <details
-                        class="program-tile"
-                        data-program
-                        data-category="Conversion"
-                        data-name="promotions"
-                      >
-                        <summary>
-                          <img
-                            src="images/icon-promo-3d.webp"
-                            width="48"
-                            height="48"
-                            alt=""
-                          /><span
-                            ><small>Conversion</small
-                            ><strong>Promotions</strong></span
-                          ><span class="tile-arrow" aria-hidden="true">↗</span>
-                        </summary>
-                        <p>
-                          Property sets a discount. Agoda adds a deal badge,
-                          boosts rank, and amplifies across email, push, and
-                          deal pages.
-                        </p>
-                        <div class="program-detail">
-                          <p>
-                            Choose a discount type and depth: Mega Sale,
-                            Seasonal, Always-on or Targeted. Existing examples
-                            include app-user and advance-booking discounts.
-                          </p>
-                          <span class="sample-label"
-                            >Discovery preview · original program
-                            mechanics</span
-                          >
-                        </div>
-                      </details>
-                      <details
-                        class="program-tile"
-                        data-program
-                        data-category="Marketing"
-                        data-name="agoda growth program"
-                      >
-                        <summary>
-                          <img
-                            src="images/icon-growth-3d.webp"
-                            width="48"
-                            height="48"
-                            alt=""
-                          /><span
-                            ><small>Marketing</small
-                            ><strong>Agoda Growth Program</strong></span
-                          ><span class="tile-arrow" aria-hidden="true">↗</span>
-                        </summary>
-                        <p>
-                          A higher commission funds ranking boost, ad spend and
-                          a Preferred Partner badge.
-                        </p>
-                        <div class="program-detail">
-                          <p>
-                            Typically 10–15% incremental commission (INM). The
-                            program brings higher search rank, Google and Kayak
-                            ad spend, and wider affiliate reach.
-                          </p>
-                          <span class="sample-label"
-                            >Discovery preview · original program
-                            mechanics</span
-                          >
-                        </div>
-                      </details>
-                      <details
-                        class="program-tile"
-                        data-program
-                        data-category="Visibility"
-                        data-name="boost rank"
-                      >
-                        <summary>
-                          <img
-                            src="images/icon-boost-3d.webp"
-                            width="48"
-                            height="48"
-                            alt=""
-                          /><span
-                            ><small>Visibility</small
-                            ><strong>Boost Rank</strong></span
-                          ><span class="tile-arrow" aria-hidden="true">↗</span>
-                        </summary>
-                        <p>
-                          Target audiences and stay dates. Pay only when a
-                          booking lands, with no lock-in.
-                        </p>
-                        <div class="program-detail">
-                          <p>
-                            Choose a target audience and campaign budget.
-                            Incremental commission is charged per booking,
-                            rather than per impression.
-                          </p>
-                          <span class="sample-label"
-                            >Discovery preview · original program
-                            mechanics</span
-                          >
-                        </div>
-                      </details>
-                    </div>
-                    <a
-                      class="app-link"
-                      href="partner-growth-programs.html#concept"
-                      >Explore all programs <span aria-hidden="true">→</span></a
-                    >
-                  </div>
-                </div>
+            <div class="program-reading" aria-live="polite">
+              <div data-program-panel="0">
+                <h4>Promotions</h4>
+                <p>
+                  Property sets a discount. Agoda adds a deal badge, boosts
+                  rank, and amplifies across email, push, and deal pages.
+                </p>
+                <p>
+                  Choose a discount type and depth: Mega Sale, Seasonal,
+                  Always-on or Targeted. Existing examples include app-user and
+                  advance-booking discounts.
+                </p>
+              </div>
+              <div data-program-panel="1" hidden>
+                <h4>Agoda Growth Program</h4>
+                <p>
+                  A higher commission funds ranking boost, ad spend and a
+                  Preferred Partner badge.
+                </p>
+                <p>
+                  Typically 10–15% incremental commission (INM). The program
+                  brings higher search rank, Google and Kayak ad spend, and
+                  wider affiliate reach.
+                </p>
+              </div>
+              <div data-program-panel="2" hidden>
+                <h4>Boost Rank</h4>
+                <p>
+                  Target audiences and stay dates. Pay only when a booking
+                  lands, with no lock-in.
+                </p>
+                <p>
+                  Choose a target audience and campaign budget. Incremental
+                  commission is charged per booking, rather than per impression.
+                </p>
+              </div>
+              <div data-program-panel="3" hidden>
+                <h4>Agoda Advanced</h4>
+                <p>
+                  Pay upfront. Agoda deducts eligible booking earnings from the
+                  balance.
+                </p>
+                <p>
+                  AGP and Maximum Gain variants. The original source describes
+                  the prepayment as auto-renewing when the balance hits 90%.
+                </p>
+              </div>
+              <div data-program-panel="4" hidden>
+                <h4>Maximum Gain</h4>
+                <p>
+                  Share wholesale rates across airlines, banks, loyalty apps and
+                  OTAs.
+                </p>
+                <p>
+                  A minimum 1% discount off the standard rate, with no lock-in
+                  or extra paperwork. Distribution uses the Booking Holdings
+                  affiliate network.
+                </p>
+              </div>
+              <div data-program-panel="5" hidden>
+                <h4>Sponsored Listing</h4>
+                <p>
+                  Buy a top sponsored slot in city search results, above organic
+                  results.
+                </p>
+                <p>
+                  Choose a city, date range and slot (top 1–3), priced upfront.
+                  Available across platforms.
+                </p>
+              </div>
+              <div data-program-panel="6" hidden>
+                <h4>Dynamic Rates</h4>
+                <p>
+                  Automatically close the rate gap when a wholesaler undercuts.
+                </p>
+                <p>
+                  Activate once in YCS. The existing policy allows up to 2%
+                  below the wholesaler rate, capped at 25% off.
+                </p>
+              </div>
+              <div data-program-panel="7" hidden>
+                <h4>Flagship Store</h4>
+                <p>A bespoke branded storefront for hotel chains.</p>
+                <p>
+                  A negotiated incremental commission and contract term support
+                  a dedicated store page, branded search suggestion and homepage
+                  banner.
+                </p>
               </div>
             </div>
+            <noscript
+              ><p>
+                Open the original program catalog to read every program's
+                mechanics.
+              </p></noscript
+            >
           </div>
           <div class="project-caption">
             <p>
@@ -310,61 +496,95 @@
               comparing and managing programs.
             </p>
             <p class="artifact-caption">
-              Updated concept · existing discovery workflow. No account
-              changes.<a href="originals/partner-growth-programs.html"
+              Updated concept · original program content and mechanics.<a
+                href="originals/partner-growth-programs.html"
                 >Original portfolio artifacts ↗</a
               >
             </p>
           </div>
-          <div class="project-intent">
-            <p class="project-role">Product Design Lead · Agoda</p>
-            <p>
-              I owned design strategy, information architecture and interaction
-              design for the partner growth program suite.
-            </p>
-            <a class="text-link" href="partner-growth-programs.html"
-              >Inside the case study <span aria-hidden="true">↗</span></a
-            >
-          </div>
         </article>
         <article class="work-discount">
           <div class="project-heading">
-            <p class="eyebrow">02 / Pricing &amp; promotions</p>
+            <p class="eyebrow">
+              Pricing &amp; promotions · Senior Product Designer
+            </p>
             <h3>
               <a href="discounting.html"
-                >Discounting <em>2.0</em><span>.</span></a
+                >Discounting<br />
+                2.0.</a
               >
             </h3>
           </div>
-          <div class="discount-art">
-            <div
-              class="discount-ledger"
-              aria-label="Illustrative sequential discount: 150 dollars, less 15 percent, then 10 percent, gives 114 dollars and 75 cents"
+          <div class="project-intent">
+            <p>
+              I led design across a high-revenue partner surface, aligning
+              product and business owners.
+            </p>
+            <a class="text-link" href="discounting.html"
+              >Read the case study <span aria-hidden="true">↗</span></a
             >
-              <span class="ledger-top">SEQUENTIAL STACKING</span>
-              <div class="ledger-body">
-                <span class="ledger-rate">$150<span>.00</span></span
-                ><span class="ledger-cut">× 0.85 <span>then</span> × 0.90</span
-                ><span class="ledger-net">$114.75</span>
+          </div>
+          <div
+            class="discount-art graphic-scene"
+            data-rate-graphic
+            data-kinetic-scene
+          >
+            <p class="graphic-label">
+              Updated concept · Sequential stacking · illustrative rate
+            </p>
+            <div class="rate-ladder" data-kinetic>
+              <div class="rate-step">
+                <span>Starting room rate</span
+                ><strong data-rate-start>$150.00</strong>
+                <div class="rate-track"><span style="width: 100%"></span></div>
               </div>
-              <span class="ledger-foot"
-                >Illustrative calculation · before commission &amp; taxes</span
-              >
+              <div class="rate-step">
+                <span data-mega-label>After Mega Sale · 15%</span
+                ><strong data-rate-mega>$127.50</strong>
+                <div class="rate-track">
+                  <span data-mega-bar style="width: 85%"></span>
+                </div>
+              </div>
+              <div class="rate-step">
+                <span data-mobile-label>Then Mobile Exclusive · 10%</span
+                ><output data-rate-net for="graphic-rate">$114.75</output>
+                <div class="rate-track">
+                  <span data-net-bar style="width: 76.5%"></span>
+                </div>
+              </div>
             </div>
-            <figure class="source-figure">
-              <a
-                class="artifact-image-link"
-                href="originals/discounting.html"
-                aria-label="View original Discounting portfolio mockups"
-                ><img
-                  src="images/work-discount-original.jpg"
-                  width="912"
-                  height="532"
-                  loading="lazy"
-                  decoding="async"
-                  alt="Original Net Rate Simulator portfolio mockup with the sequential promotion breakdown"
-              /></a>
-            </figure>
+            <form class="rate-controls">
+              <label
+                >Room rate (USD)<input
+                  disabled
+                  id="graphic-rate"
+                  name="rate"
+                  type="number"
+                  min="0"
+                  max="1000000"
+                  step="0.01"
+                  value="150"
+                  required
+                  inputmode="decimal" /></label
+              ><label
+                ><input disabled type="checkbox" name="mega" checked /> Mega
+                Sale · 15%</label
+              ><label
+                ><input disabled type="checkbox" name="mobile" checked /> Mobile
+                Exclusive · 10%</label
+              >
+              <p class="form-error" data-rate-error aria-live="polite"></p>
+            </form>
+            <noscript
+              ><p class="rate-explanation">
+                Static example: $150 less 15%, then 10%, equals $114.75. Enable
+                JavaScript to change the calculation.
+              </p></noscript
+            >
+            <p class="rate-explanation">
+              Each discount applies to the remaining balance. Before commission
+              and taxes.
+            </p>
           </div>
           <div class="project-caption">
             <p>
@@ -372,52 +592,111 @@
               booking night by night.
             </p>
             <p class="artifact-caption">
-              Original portfolio mockup · illustrative room rate.<a
-                href="originals/discounting.html"
+              Updated concept · existing sequential calculation. Illustrative
+              data.<a href="originals/discounting.html"
                 >Original portfolio artifacts ↗</a
               >
             </p>
           </div>
-          <div class="project-intent">
-            <p class="project-role">Senior Product Designer · Agoda</p>
-            <p>
-              I led design across a high-revenue partner surface, aligning
-              product and business owners.
-            </p>
-            <a class="text-link" href="discounting.html"
-              >Inside the case study <span aria-hidden="true">↗</span></a
-            >
-          </div>
         </article>
         <article class="work-dev">
           <div class="project-heading">
-            <p class="eyebrow">03 / Developer experience</p>
+            <p class="eyebrow">
+              Developer experience · Senior Product Designer
+            </p>
             <h3>
               <a href="dev-portal.html"
-                >Developer<br /><em>Portal</em><span>.</span></a
+                >Developer<br />
+                Portal.</a
               >
             </h3>
           </div>
-          <div class="dev-art">
-            <div class="workflow-rail">
-              <span>Environment</span><span aria-hidden="true">→</span
-              ><span>Rollout</span><span aria-hidden="true">→</span
-              ><span>Review</span>
+          <div class="project-intent">
+            <p>I led 0-to-1 design as the first designer in DevOps.</p>
+            <a class="text-link" href="dev-portal.html"
+              >Read the case study <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div
+            class="dev-art graphic-scene"
+            data-flow-preview
+            data-kinetic-scene
+          >
+            <p class="graphic-label">
+              Updated concept · Deployment workflow · example settings
+            </p>
+            <svg
+              class="flow-diagram"
+              data-kinetic
+              viewBox="0 0 600 220"
+              aria-hidden="true"
+            >
+              <path class="flow-wire" d="M80 110H520" />
+              <path
+                class="flow-loop"
+                d="M80 110V35H520V110M300 110v75h220V110"
+              />
+              <g class="flow-signal">
+                <circle cx="80" cy="110" r="50" />
+                <path d="m65 110 12 12 19-24" />
+              </g>
+              <g class="flow-node">
+                <rect x="56" y="86" width="48" height="48" />
+                <rect x="276" y="86" width="48" height="48" />
+                <rect x="496" y="86" width="48" height="48" />
+              </g>
+            </svg>
+            <div
+              class="flow-options"
+              role="group"
+              aria-label="Explore deployment stages"
+            >
+              <button
+                type="button"
+                data-flow-select="0"
+                aria-pressed="true"
+                disabled
+              >
+                Environment</button
+              ><button
+                type="button"
+                data-flow-select="1"
+                aria-pressed="false"
+                disabled
+              >
+                Rollout</button
+              ><button
+                type="button"
+                data-flow-select="2"
+                aria-pressed="false"
+                disabled
+              >
+                Review
+              </button>
             </div>
-            <figure class="source-figure">
-              <a
-                class="artifact-image-link"
-                href="originals/dev-portal.html"
-                aria-label="View original Developer Portal portfolio mockups"
-                ><img
-                  src="images/work-dev-original.jpg"
-                  width="910"
-                  height="532"
-                  loading="lazy"
-                  decoding="async"
-                  alt="Original deployment review portfolio mockup showing environment configuration and canary rollout settings"
-              /></a>
-            </figure>
+            <div class="flow-reading" aria-live="polite">
+              <div data-flow-panel="0">
+                <h4>staging-mesh</h4>
+                <p>Mesh cluster · 24 cores · 24 Gi</p>
+                <p>actions/ansible-runner · 98ds12df</p>
+              </div>
+              <div data-flow-panel="1" hidden>
+                <h4>Canary</h4>
+                <p class="canary-sequence">10% → 20% → 30%</p>
+                <p>
+                  Hong Kong, Singapore and Amsterdam · 10 replicas each. 300s
+                  ramp up · 900s monitoring.
+                </p>
+              </div>
+              <div data-flow-panel="2" hidden>
+                <h4>Review the configuration.</h4>
+                <p>staging-mesh · Canary · 24 cores · 24 Gi</p>
+                <p>
+                  This graphic explores the existing workflow. No infrastructure
+                  connection or deployment.
+                </p>
+              </div>
+            </div>
           </div>
           <div class="project-caption">
             <p>
@@ -425,20 +704,11 @@
               deployment review.
             </p>
             <p class="artifact-caption">
-              Original portfolio mockup · example deployment settings.<a
+              Updated concept · original workflow and example settings.<a
                 href="originals/dev-portal.html"
                 >Original portfolio artifacts ↗</a
               >
             </p>
-          </div>
-          <div class="project-intent">
-            <p class="project-role">
-              Senior Product Designer · Agoda Engineering
-            </p>
-            <p>I led 0-to-1 design as the first designer in DevOps.</p>
-            <a class="text-link" href="dev-portal.html"
-              >Inside the case study <span aria-hidden="true">↗</span></a
-            >
           </div>
         </article>
       </section>
