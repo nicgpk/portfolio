@@ -77,6 +77,7 @@
     />
 
     <link rel="stylesheet" href="css/folio.css" />
+    <link rel="stylesheet" href="css/editorial.css" />
     <link
       rel="preload"
       as="font"
@@ -220,186 +221,188 @@
             This is a portfolio concept, not an additional shipped contribution
             or measured outcome.
           </p>
-          <div class="developer-ui" data-developer>
-            <div class="dev-toolbar">
-              <span class="dev-brand"
-                ><span aria-hidden="true">▲</span> Developer portal</span
-              ><span class="dev-context">Deployment / devops-safe-app</span
-              ><span class="terminal-pill">Updated concept</span>
-            </div>
-            <div class="developer-layout">
-              <aside class="developer-sidebar">
-                <p>WORKFLOW</p>
-                <ol>
-                  <li>Environment</li>
-                  <li>Rollout</li>
-                  <li>Review</li>
-                </ol>
-                <p>EXISTING TASK DOMAINS</p>
-                <span>Manage</span><span>Plan</span><span>Build</span
-                ><span>Secure</span><span>Monitor</span>
-              </aside>
-              <form class="deploy-form">
-                <ol class="deploy-steps" aria-label="Deployment steps">
-                  <li data-step-label="0" aria-current="step">Environment</li>
-                  <li data-step-label="1">Rollout</li>
-                  <li data-step-label="2">Review</li>
-                </ol>
-                <div class="deploy-stage" data-step="0">
-                  <p class="app-eyebrow">ENVIRONMENT SETUP</p>
-                  <h2>A clear place to start.</h2>
-                  <p>
-                    Configure the environment before choosing how to roll out.
-                  </p>
-                  <div class="deploy-fields">
-                    <label
-                      >Environment name<input
-                        name="environment"
-                        value="staging-mesh"
-                        required
-                        pattern="[a-zA-Z0-9_-]+"
-                        maxlength="64" /></label
-                    ><label
-                      >Cluster pool<select name="pool">
-                        <option>Mesh</option>
-                        <option>QA</option>
-                        <option>Corp</option>
-                      </select></label
-                    ><label
-                      >Repository<select name="repository">
-                        <option>actions/ansible-runner</option>
-                      </select></label
-                    ><label
-                      >Image tag<input
-                        name="image"
-                        value="98ds12df"
-                        required
-                        maxlength="100" /></label
-                    ><label
-                      >CPU requests (cores)<input
-                        type="number"
-                        name="cpu"
-                        min="1"
-                        max="128"
-                        value="24"
-                        required /></label
-                    ><label
-                      >Memory requests (Gi)<input
-                        type="number"
-                        name="memory"
-                        min="1"
-                        max="512"
-                        value="24"
-                        required
-                    /></label>
+          <div class="concept-canvas concept-canvas--dev">
+            <div class="developer-ui" data-developer>
+              <div class="dev-toolbar">
+                <span class="dev-brand"
+                  ><span aria-hidden="true">▲</span> Developer portal</span
+                ><span class="dev-context">Deployment / devops-safe-app</span
+                ><span class="terminal-pill">Updated concept</span>
+              </div>
+              <div class="developer-layout">
+                <aside class="developer-sidebar">
+                  <p>WORKFLOW</p>
+                  <ol>
+                    <li>Environment</li>
+                    <li>Rollout</li>
+                    <li>Review</li>
+                  </ol>
+                  <p>EXISTING TASK DOMAINS</p>
+                  <span>Manage</span><span>Plan</span><span>Build</span
+                  ><span>Secure</span><span>Monitor</span>
+                </aside>
+                <form class="deploy-form">
+                  <ol class="deploy-steps" aria-label="Deployment steps">
+                    <li data-step-label="0" aria-current="step">Environment</li>
+                    <li data-step-label="1">Rollout</li>
+                    <li data-step-label="2">Review</li>
+                  </ol>
+                  <div class="deploy-stage" data-step="0">
+                    <p class="app-eyebrow">ENVIRONMENT SETUP</p>
+                    <h2>A clear place to start.</h2>
+                    <p>
+                      Configure the environment before choosing how to roll out.
+                    </p>
+                    <div class="deploy-fields">
+                      <label
+                        >Environment name<input
+                          name="environment"
+                          value="staging-mesh"
+                          required
+                          pattern="[a-zA-Z0-9_-]+"
+                          maxlength="64" /></label
+                      ><label
+                        >Cluster pool<select name="pool">
+                          <option>Mesh</option>
+                          <option>QA</option>
+                          <option>Corp</option>
+                        </select></label
+                      ><label
+                        >Repository<select name="repository">
+                          <option>actions/ansible-runner</option>
+                        </select></label
+                      ><label
+                        >Image tag<input
+                          name="image"
+                          value="98ds12df"
+                          required
+                          maxlength="100" /></label
+                      ><label
+                        >CPU requests (cores)<input
+                          type="number"
+                          name="cpu"
+                          min="1"
+                          max="128"
+                          value="24"
+                          required /></label
+                      ><label
+                        >Memory requests (Gi)<input
+                          type="number"
+                          name="memory"
+                          min="1"
+                          max="512"
+                          value="24"
+                          required
+                      /></label>
+                    </div>
+                    <p class="dev-guidance">
+                      Ownership or AD request blocking progress? The original
+                      design supports leave and resume, with guidance at
+                      bottlenecks. This preview does not persist data.
+                    </p>
                   </div>
-                  <p class="dev-guidance">
-                    Ownership or AD request blocking progress? The original
-                    design supports leave and resume, with guidance at
-                    bottlenecks. This preview does not persist data.
-                  </p>
-                </div>
-                <div class="deploy-stage" data-step="1">
-                  <p class="app-eyebrow">ROLLOUT SETUP</p>
-                  <h2>Make the rollout explicit.</h2>
-                  <label
-                    >Deployment strategy<select name="strategy">
-                      <option>Canary</option>
-                      <option>Rolling update</option>
-                    </select></label
-                  >
-                  <p class="canary-path" data-canary>10% → 20% → 30%</p>
-                  <div class="deploy-fields">
+                  <div class="deploy-stage" data-step="1">
+                    <p class="app-eyebrow">ROLLOUT SETUP</p>
+                    <h2>Make the rollout explicit.</h2>
                     <label
-                      >HK · Hong Kong replicas<input
-                        name="hk"
-                        type="number"
-                        min="1"
-                        max="100"
-                        value="10"
-                        required /></label
-                    ><label
-                      >SG · Singapore replicas<input
-                        name="sg"
-                        type="number"
-                        min="1"
-                        max="100"
-                        value="10"
-                        required /></label
-                    ><label
-                      >AM · Amsterdam replicas<input
-                        name="am"
-                        type="number"
-                        min="1"
-                        max="100"
-                        value="10"
-                        required /></label
-                    ><label
-                      >Slack channel<input
-                        name="slack"
-                        value="#devops_safe_app"
-                        required
-                        maxlength="100"
-                    /></label>
+                      >Deployment strategy<select name="strategy">
+                        <option>Canary</option>
+                        <option>Rolling update</option>
+                      </select></label
+                    >
+                    <p class="canary-path" data-canary>10% → 20% → 30%</p>
+                    <div class="deploy-fields">
+                      <label
+                        >HK · Hong Kong replicas<input
+                          name="hk"
+                          type="number"
+                          min="1"
+                          max="100"
+                          value="10"
+                          required /></label
+                      ><label
+                        >SG · Singapore replicas<input
+                          name="sg"
+                          type="number"
+                          min="1"
+                          max="100"
+                          value="10"
+                          required /></label
+                      ><label
+                        >AM · Amsterdam replicas<input
+                          name="am"
+                          type="number"
+                          min="1"
+                          max="100"
+                          value="10"
+                          required /></label
+                      ><label
+                        >Slack channel<input
+                          name="slack"
+                          value="#devops_safe_app"
+                          required
+                          maxlength="100"
+                      /></label>
+                    </div>
+                    <p>
+                      Ramp up: 300 seconds · Monitoring: 900 seconds. Existing
+                      example settings.
+                    </p>
                   </div>
-                  <p>
-                    Ramp up: 300 seconds · Monitoring: 900 seconds. Existing
-                    example settings.
+                  <div class="deploy-stage" data-step="2">
+                    <p class="app-eyebrow">REVIEW BEFORE DEPLOYMENT</p>
+                    <h2>See the whole decision.</h2>
+                    <dl class="deploy-review" data-deploy-review>
+                      <div>
+                        <dt>Environment</dt>
+                        <dd>staging-mesh · Mesh</dd>
+                      </div>
+                      <div>
+                        <dt>Image</dt>
+                        <dd>actions/ansible-runner · 98ds12df</dd>
+                      </div>
+                      <div>
+                        <dt>Resources</dt>
+                        <dd>24 cores · 24 Gi</dd>
+                      </div>
+                      <div>
+                        <dt>Strategy</dt>
+                        <dd>Canary · 10% → 20% → 30%</dd>
+                      </div>
+                    </dl>
+                  </div>
+                  <div class="deploy-actions">
+                    <button
+                      type="button"
+                      class="dev-back"
+                      data-deploy-back
+                      disabled
+                    >
+                      ← Back</button
+                    ><span data-step-count>Step 1 of 3</span
+                    ><button
+                      type="button"
+                      class="dev-next"
+                      data-deploy-next
+                      disabled
+                    >
+                      Continue →
+                    </button>
+                  </div>
+                  <p class="deploy-status" data-deploy-status role="status"></p>
+                  <p class="sample-label">
+                    Updated concept · Vercel-inspired workflow. Existing example
+                    values. Preview only: no infrastructure connection or
+                    deployment.
                   </p>
-                </div>
-                <div class="deploy-stage" data-step="2">
-                  <p class="app-eyebrow">REVIEW BEFORE DEPLOYMENT</p>
-                  <h2>See the whole decision.</h2>
-                  <dl class="deploy-review" data-deploy-review>
-                    <div>
-                      <dt>Environment</dt>
-                      <dd>staging-mesh · Mesh</dd>
-                    </div>
-                    <div>
-                      <dt>Image</dt>
-                      <dd>actions/ansible-runner · 98ds12df</dd>
-                    </div>
-                    <div>
-                      <dt>Resources</dt>
-                      <dd>24 cores · 24 Gi</dd>
-                    </div>
-                    <div>
-                      <dt>Strategy</dt>
-                      <dd>Canary · 10% → 20% → 30%</dd>
-                    </div>
-                  </dl>
-                </div>
-                <div class="deploy-actions">
-                  <button
-                    type="button"
-                    class="dev-back"
-                    data-deploy-back
-                    disabled
+                  <noscript
+                    ><p>
+                      All three steps are shown as a static walkthrough. Enable
+                      JavaScript to try the preview.
+                    </p></noscript
                   >
-                    ← Back</button
-                  ><span data-step-count>Step 1 of 3</span
-                  ><button
-                    type="button"
-                    class="dev-next"
-                    data-deploy-next
-                    disabled
-                  >
-                    Continue →
-                  </button>
-                </div>
-                <p class="deploy-status" data-deploy-status role="status"></p>
-                <p class="sample-label">
-                  Updated concept · Vercel-inspired workflow. Existing example
-                  values. Preview only: no infrastructure connection or
-                  deployment.
-                </p>
-                <noscript
-                  ><p>
-                    All three steps are shown as a static walkthrough. Enable
-                    JavaScript to try the preview.
-                  </p></noscript
-                >
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </section>

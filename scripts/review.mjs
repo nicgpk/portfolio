@@ -74,14 +74,28 @@ for (const width of [320, 390, 768, 1440]) {
     });
     report.accessibility.push({ name, width, violations: audit });
     if (width === 390 || width === 1440) {
+      // Full-page captures must include deferred images below the viewport.
+      await page.locator('img[loading="lazy"]').evaluateAll(async (images) => {
+        await Promise.all(
+          images.map(async (img) => {
+            img.loading = "eager";
+            await img.decode();
+          }),
+        );
+      });
       await page.screenshot({
         path: `review/after/${name}-${width}.png`,
         fullPage: true,
       });
-      if (name === "index")
+      if (name === "index") {
         await page.screenshot({
           path: `review/after/first-viewport-${width}.png`,
         });
+        await page.locator(".selected-work").screenshot({
+          path: `review/after/selected-work-${width}.png`,
+          style: ".site-nav,.skip-link {visibility:hidden}",
+        });
+      }
       if (
         ["partner-growth-programs", "discounting", "dev-portal"].includes(name)
       )
@@ -102,6 +116,10 @@ await writeFile(
   ),
 );
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+await page.goto(`${base}/index.html`);
+await page.evaluate(() => document.fonts.ready);
+await page.waitForTimeout(800);
+await page.screenshot({ path: "review/after/glass-and-depth-1440.png" });
 await page.goto(`${base}/partner-growth-programs.html`);
 await page.locator("[data-program-search]").fill("Boost Rank");
 assert.equal(await page.locator("[data-program]:visible").count(), 1);
@@ -145,6 +163,10 @@ assert.equal(await page.locator('[data-step="0"]').isVisible(), true);
 await page.locator("[name=environment]").fill("review-example");
 await page.locator("[data-deploy-next]").click();
 assert.equal(await page.locator('[data-step="1"]').isVisible(), true);
+await page.locator(".concept-canvas").screenshot({
+  path: "review/after/developer-rollout-1440.png",
+  style: ".site-nav,.skip-link {visibility:hidden}",
+});
 await page.locator("[name=strategy]").selectOption("Rolling update");
 await page.locator("[data-deploy-next]").click();
 assert.match(
@@ -155,6 +177,10 @@ assert.match(
   await page.locator("[data-deploy-review]").innerText(),
   /Rolling update/,
 );
+await page.locator(".concept-canvas").screenshot({
+  path: "review/after/developer-review-1440.png",
+  style: ".site-nav,.skip-link {visibility:hidden}",
+});
 await page.locator("[data-deploy-back]").click();
 assert.equal(
   await page.locator("[name=strategy]").inputValue(),
@@ -222,6 +248,48 @@ for (const name of [
       report.links.push({ name, url, status: response.status() });
   }
 }
+for (const [route, control, surface] of [
+  ["index", ".hero-stage-caption > a:first-child", ".hero-stage"],
+  ["partner-growth-programs", ".evidence-card summary", ".evidence-card"],
+  ["discounting", ".evidence-card summary", ".evidence-card"],
+  ["dev-portal", ".evidence-card summary", ".evidence-card"],
+]) {
+  await page.goto(`${base}/${route}.html`);
+  await page.keyboard.press("Tab");
+  await page.locator(control).focus();
+  const focus = await page.locator(control).evaluate((el, surfaceSelector) => {
+    const style = getComputedStyle(el);
+    const background = getComputedStyle(
+      el.closest(surfaceSelector),
+    ).backgroundColor;
+    const luminance = (color) => {
+      const rgb = color
+        .match(/[\d.]+/g)
+        .slice(0, 3)
+        .map(Number);
+      const linear = rgb.map((value) => {
+        const c = value / 255;
+        return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+      });
+      return linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722;
+    };
+    const values = [luminance(style.outlineColor), luminance(background)].sort(
+      (a, b) => b - a,
+    );
+    return {
+      visible: el.matches(":focus-visible"),
+      outlineWidth: parseFloat(style.outlineWidth),
+      contrast: (values[0] + 0.05) / (values[1] + 0.05),
+    };
+  }, surface);
+  assert.ok(
+    focus.visible && focus.outlineWidth >= 3 && focus.contrast >= 3,
+    `Keyboard focus contrast on ${route}: ${JSON.stringify(focus)}`,
+  );
+}
+report.interactions.push(
+  "Keyboard focus outlines exceed 3:1 contrast on orange, orchid and cobalt panels.",
+);
 const nojs = await browser.newContext({
   javaScriptEnabled: false,
   viewport: { width: 390, height: 900 },

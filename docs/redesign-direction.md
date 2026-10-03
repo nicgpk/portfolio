@@ -10,7 +10,7 @@ Primary reference: https://vanschneider.com/ — expressive typography and proje
 
 Palette: cobalt #1938ed, orange #ff6534, orchid #d7b6ff, paper #f8f9fc, ink #11131b, lime #c9f467. Oversized heavy sans for display, locally hosted IBM Plex Sans for reading, IBM Plex Mono for data. Floating frosted navigation with an opaque fallback.
 
-Signature: the Partner Growth Programs hero pairs monumental type with a layered, tilted discovery interface. Selected work uses an eight-program typographic field rather than repeating that interface. Discounting uses a lavender calculation ledger. Developer workflows use a dark terminal-like canvas.
+Signature: Nicholas Gwee is the main headline, with Product Design Lead directly beneath it. The hero pairs this dark identity panel with an orange Partner Growth Programs canvas and a layered discovery interface. Selected work uses dark editorial panels and vivid artifact canvases: orange for growth, orchid for discounting and cobalt for developer workflows. The flagship's eight-program composition avoids repeating its hero interface. Full concepts use dark application frames on their project colors. About pairs lime display typography with an orchid experience panel.
 
 Scroll motion only changes decorative composition. Text stays readable at first paint. Native scrolling, focus visibility, mobile layout, reduced motion and reduced transparency are baseline requirements. No animation framework or runtime dependencies.
 

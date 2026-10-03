@@ -296,6 +296,7 @@
     "Sequential calculator, toggles, invalid rate, reset, zero and rounding passed.",
     "Developer validation, forward/back, preserved values, review and preview-only completion passed.",
     "Keyboard forward/back step titles stay visible below the navigation at 390 and 1440 pixels.",
+    "Keyboard focus outlines exceed 3:1 contrast on orange, orchid and cobalt panels.",
     "No-JavaScript content and static examples remain readable.",
     "Keyboard skip navigation passed.",
     "Reduced motion and opaque reduced-transparency fallback passed."
@@ -307,6 +308,10 @@
     },
     {
       "url": "http://127.0.0.1:4183/css/folio.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/css/editorial.css",
       "status": 200
     },
     {
@@ -341,10 +346,10 @@
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 1052,
+      "lcpMs": 1176,
       "cls": 0,
-      "resourceBytes": 121336,
-      "requestCount": 8
+      "resourceBytes": 134469,
+      "requestCount": 9
     }
   ],
   "errors": [],

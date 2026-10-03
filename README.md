@@ -28,7 +28,7 @@ On macOS/Linux, use `PLAYWRIGHT_BROWSERS_PATH="$PWD/node_modules/.cache/ms-playw
 
 The preview must be running for `npm run review`. It checks six routes at 320, 390, 768 and 1440 pixels, axe WCAG A/AA rules, local links, calculator math, discovery filtering, developer walkthrough, keyboard skip navigation, no-JavaScript content, and reduced-motion/transparency behavior. It also records a throttled Chromium performance observation. `review/checks.json` contains the evidence.
 
-Open http://127.0.0.1:4183/review/index.html for before/after screenshots. `review/before/` holds the original main revision; `review/after/` holds desktop/mobile full pages and concept details. Concept-only captures hide fixed navigation to avoid obscuring the cropped artifact.
+Open http://127.0.0.1:4183/review/index.html for before/after screenshots. `review/before/` holds the original main revision; `review/after/` holds desktop/mobile full pages, selected work and concept details. `review/color-revision/before/` preserves the earlier hero and color direction. Cropped artifact captures hide fixed navigation; full-page captures wait for deferred research images to load.
 
 ## Authoring & content
 
