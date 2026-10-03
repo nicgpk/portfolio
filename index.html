@@ -113,6 +113,8 @@
     <link rel="stylesheet" href="css/folio.css" />
     <link rel="stylesheet" href="css/editorial.css" />
     <link rel="stylesheet" href="css/showcase.css" />
+    <link rel="stylesheet" href="css/growth-ui.css" />
+    <link rel="stylesheet" href="css/discount-ui.css" />
     <link
       rel="preload"
       as="font"
@@ -192,61 +194,124 @@
             data-cover-scene
             aria-hidden="true"
           >
-            <div class="cover-browser">
-              <div class="cover-chrome">
-                <span class="cover-app-mark">a<span>●</span></span
-                ><strong>Partner growth</strong><span>Maison Solara</span>
+            <div class="cover-browser growth-studio growth-studio--cover">
+              <div class="app-bar cover-chrome">
+                <span class="app-mark" aria-hidden="true">a<span>●</span></span
+                ><strong>Partner growth</strong
+                ><span class="app-account"
+                  ><small>Sample property</small>Maison Solara</span
+                >
               </div>
-              <div class="cover-discovery">
-                <div class="cover-discovery-title">
-                  <div>
-                    <p>Grow your property</p>
-                    <h4>Find your next<br />growth opportunity.</h4>
+              <div class="app-layout">
+                <aside class="app-side">
+                  <span>Property</span><span>Reservations</span
+                  ><span>Calendar</span><strong>Growth programs</strong
+                  ><span>Payout</span>
+                </aside>
+                <div class="app-content">
+                  <div class="growth-page-heading">
+                    <h4>Growth programs</h4>
+                    <p>
+                      Discover programs and review their existing mechanics.
+                    </p>
                   </div>
-                  <span class="cover-program-count">8 programs</span>
-                </div>
-                <div class="cover-search">
-                  <svg viewBox="0 0 24 24">
-                    <circle cx="10" cy="10" r="6" />
-                    <path d="m15 15 5 5" /></svg
-                  ><span>Search programs</span>
-                </div>
-                <div class="cover-programs">
-                  <div class="cover-program cover-program--selected">
-                    <svg viewBox="0 0 48 48">
-                      <use href="images/program-symbols.svg#promotion" />
-                    </svg>
-                    <div>
-                      <small>Conversion</small><strong>Promotions</strong>
+                  <div class="growth-catalog">
+                    <div class="discovery-controls growth-static-controls">
+                      <div class="search-field">
+                        <span class="growth-control-label"
+                          >Search programs</span
+                        >
+                        <div class="growth-static-control cover-search">
+                          <svg viewBox="0 0 24 24">
+                            <circle cx="10.5" cy="10.5" r="6.5" />
+                            <path d="m15.5 15.5 5 5" /></svg
+                          ><span>Search programs</span>
+                        </div>
+                      </div>
+                      <div class="category-field">
+                        <span class="growth-control-label">Category</span>
+                        <div class="growth-static-control">
+                          <span>All categories</span
+                          ><svg viewBox="0 0 24 24">
+                            <path d="m7 10 5 5 5-5" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
-                    <span>↗</span>
-                  </div>
-                  <div class="cover-program-detail">
-                    Choose a discount type and depth.<br />Review the existing
-                    program mechanics.
-                  </div>
-                  <div class="cover-program">
-                    <svg viewBox="0 0 48 48">
-                      <use href="images/program-symbols.svg#growth" />
-                    </svg>
-                    <div>
-                      <small>Marketing</small
-                      ><strong>Agoda Growth Program</strong>
+                    <div class="growth-list-header">
+                      <strong>Program catalog</strong
+                      ><span class="search-count">3 of 8 programs</span>
                     </div>
-                    <span>↗</span>
-                  </div>
-                  <div class="cover-program">
-                    <svg viewBox="0 0 48 48">
-                      <use href="images/program-symbols.svg#boost" />
-                    </svg>
-                    <div>
-                      <small>Visibility</small><strong>Boost Rank</strong>
+                    <div class="program-grid">
+                      <div class="growth-cover-resource">
+                        <div class="cover-program cover-program--selected">
+                          <svg class="program-icon" viewBox="0 0 48 48">
+                            <use
+                              href="images/program-symbols.svg#promotion"
+                            /></svg
+                          ><span class="growth-row-main"
+                            ><strong>Promotions</strong
+                            ><span class="growth-row-description"
+                              >Property sets a discount. Agoda adds a deal
+                              badge, boosts rank, and amplifies across email,
+                              push, and deal pages.</span
+                            ></span
+                          ><span class="growth-category">Conversion</span
+                          ><svg
+                            class="growth-disclosure growth-disclosure--open"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="m9 5 7 7-7 7" />
+                          </svg>
+                        </div>
+                        <div class="program-detail">
+                          <p class="growth-detail-label">Program mechanics</p>
+                          <p>
+                            Choose a discount type and depth: Mega Sale,
+                            Seasonal, Always-on or Targeted. Existing examples
+                            include app-user and advance-booking discounts.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="growth-cover-resource">
+                        <div class="cover-program">
+                          <svg class="program-icon" viewBox="0 0 48 48">
+                            <use
+                              href="images/program-symbols.svg#growth"
+                            /></svg
+                          ><span class="growth-row-main"
+                            ><strong>Agoda Growth Program</strong
+                            ><span class="growth-row-description"
+                              >A higher commission funds ranking boost, ad spend
+                              and a Preferred Partner badge.</span
+                            ></span
+                          ><span class="growth-category">Marketing</span
+                          ><svg class="growth-disclosure" viewBox="0 0 24 24">
+                            <path d="m9 5 7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="growth-cover-resource">
+                        <div class="cover-program">
+                          <svg class="program-icon" viewBox="0 0 48 48">
+                            <use href="images/program-symbols.svg#boost" /></svg
+                          ><span class="growth-row-main"
+                            ><strong>Boost Rank</strong
+                            ><span class="growth-row-description"
+                              >Target audiences and stay dates. Pay only when a
+                              booking lands, with no lock-in.</span
+                            ></span
+                          ><span class="growth-category">Visibility</span
+                          ><svg class="growth-disclosure" viewBox="0 0 24 24">
+                            <path d="m9 5 7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
-                    <span>↗</span>
                   </div>
-                </div>
-                <div class="cover-program-footer">
-                  <span>Explore all programs</span><span>→</span>
+                  <p class="growth-preview-note">
+                    Updated concept · Original program mechanics.
+                  </p>
                 </div>
               </div>
             </div>
@@ -281,35 +346,95 @@
             data-cover-scene
             aria-hidden="true"
           >
-            <div class="cover-rate">
-              <div class="cover-rate-header">
-                <span>Net Rate Simulator</span><span>USD</span>
-              </div>
-              <div class="cover-rate-result">
-                <p>Room rate after discounts</p>
-                <strong>$114.75<span> / night</span></strong>
-                <p>Before commission and taxes</p>
-              </div>
-              <div class="cover-rate-sequence">
-                <span>$150.00</span><span>× 0.85</span><span>× 0.90</span>
-              </div>
-              <div class="cover-rate-ledger">
-                <div>
-                  <span>Starting room rate</span><strong>$150.00</strong
-                  ><i style="--rate-width: 100%"></i>
+            <div class="cover-rate discount-studio discount-studio--cover">
+              <div class="discount-app-header">
+                <div class="discount-app-heading">
+                  <svg class="discount-app-icon" viewBox="0 0 24 24">
+                    <rect x="5" y="3" width="14" height="18" rx="2" />
+                    <path d="M8 7h8M8 11h2m4 0h2m-8 4h2m4 0h2" /></svg
+                  ><strong class="discount-app-title"
+                    >Net Rate Simulator</strong
+                  >
                 </div>
-                <div>
-                  <span>Mega Sale · 15%</span><strong>$127.50</strong
-                  ><i style="--rate-width: 85%"></i>
+                <span class="discount-currency">USD / night</span>
+              </div>
+              <div class="discount-workspace">
+                <div class="discount-settings">
+                  <p class="discount-section-title">Discount setup</p>
+                  <p class="discount-field-label">Room rate (USD)</p>
+                  <div class="discount-static-field">
+                    <span>$150.00</span
+                    ><span class="discount-field-unit">USD</span>
+                  </div>
+                  <p class="discount-field-help">
+                    Per night, before commission and taxes.
+                  </p>
+                  <p class="discount-field-label discount-promotions-label">
+                    Discounts applied in order
+                  </p>
+                  <div class="discount-static-promotion">
+                    <span class="discount-check">✓</span
+                    ><span
+                      ><strong>Mega Sale</strong
+                      ><small>Advance booking</small></span
+                    ><b class="discount-percent">15%</b>
+                  </div>
+                  <div class="discount-static-promotion">
+                    <span class="discount-check">✓</span
+                    ><span
+                      ><strong>Mobile Exclusive</strong
+                      ><small>Mobile user</small></span
+                    ><b class="discount-percent">10%</b>
+                  </div>
                 </div>
-                <div>
-                  <span>Mobile Exclusive · 10%</span><strong>$114.75</strong
-                  ><i style="--rate-width: 76.5%"></i>
+                <div class="discount-summary">
+                  <p class="discount-section-title">Calculation breakdown</p>
+                  <div class="discount-ledger-heading">
+                    <span>Applied in order</span><span>Remaining rate</span>
+                  </div>
+                  <div
+                    class="cover-rate-ledger discount-ledger discount-balance-ledger"
+                  >
+                    <div>
+                      <span
+                        ><span>Starting room rate</span
+                        ><small>Before discounts</small></span
+                      ><strong>$150.00</strong
+                      ><i style="--rate-width: 100%"></i>
+                    </div>
+                    <div>
+                      <span
+                        ><span>Mega Sale · 15%</span
+                        ><small>Deduction: −$22.50</small></span
+                      ><strong>$127.50</strong><i style="--rate-width: 85%"></i>
+                    </div>
+                    <div>
+                      <span
+                        ><span>Mobile Exclusive · 10%</span
+                        ><small>Deduction: −$12.75</small></span
+                      ><strong>$114.75</strong
+                      ><i style="--rate-width: 76.5%"></i>
+                    </div>
+                  </div>
+                  <div class="discount-total">
+                    <span class="calc-result-label"
+                      >Room rate after discounts</span
+                    ><strong class="discount-net">$114.75</strong>
+                    <p class="calc-effective">23.5% effective discount</p>
+                  </div>
+                  <p class="discount-exclusions">
+                    Before commission and taxes.
+                  </p>
+                  <div class="calc-formula">150 × 0.85 × 0.90 = 114.75</div>
+                  <p class="discount-rule">
+                    Each discount applies to the remaining balance.
+                  </p>
                 </div>
               </div>
-              <p class="cover-rate-note">
-                Each discount applies to the remaining balance.
-              </p>
+              <div class="discount-app-footer">
+                <span>Illustrative room rate</span
+                ><span>Sequential discounts</span>
+              </div>
             </div>
           </div>
           <p class="showcase-caption">

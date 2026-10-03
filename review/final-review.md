@@ -4,11 +4,13 @@ Branch: codex/portfolio-bold-redesign, based on main 9cd719f. Delivery remains a
 
 ## Current visual direction
 
-The latest feedback rejects the 3D icons and horizontal scrollbar. Home now presents three large interface compositions in native vertical order. Identity, type, navigation, roles, ownership, cases and contact/resume links remain. Partner Growth Programs is first; its discovery cover differs from the index's suite diagram.
+Home presents three large interface compositions in native vertical order. The latest feedback approves Developer Portal and requests stronger growth/discount example UIs. Those two covers and functional case-study examples now use a structured program catalog and a financial workbench. Identity, type, navigation, roles, ownership, cases and contact/resume links remain. Partner Growth Programs is first; its discovery cover differs from the index's suite diagram.
 
 The covers use existing workflow content: Promotions, Agoda Growth Program and Boost Rank; $150 × 0.85 × 0.90 = $114.75 before commission and taxes; staging-mesh, 24 cores, 24 Gi and original Canary settings. All are labeled Updated concept. Rendering uses HTML/CSS/SVG with no generated-icon requests or new runtime package. The previous gallery is preserved in commercial-revision/before/.
 
 Phones get readable columns. Text, numbers and settings stay stationary; selected lines and proportional bars have bounded entry responses. Full interactions and contextual evidence remain in their existing routes.
+
+The catalog preserves all eight program names/categories/descriptions/mechanics, plus search, category filtering, empty states and native disclosure. The calculator retains the original input, selections, disabled Early Bird context, reset, validation and calculation helper. Its financial receipt labels deductions explicitly; the home cover also shows exact remaining balances. No-JavaScript uses a static calculator example, avoiding editable fields with stale totals. New styles are scoped and loaded only on home and their case routes; Developer Portal and the detailed index remain unchanged. Reference decisions are in ../docs/product-interface-refinement.md, and this pass's before captures are in product-ui-revision/before/.
 
 ## Scrolling and access
 
@@ -27,4 +29,4 @@ Pause, OS reduced motion, forced colors and opaque reduced-transparency navigati
 
 ## Remaining limitations
 
-Safari, Firefox, actual mobile devices and real screen-reader sessions were not tested. Touch is browser-emulated. Automated rules do not establish complete accessibility or recruiter response. Production performance is unmeasured. Source omissions/conflicting metric details remain disclosed. Preserved originals retain historical styling, external font references and numerical discrepancies. Home scenes are visual previews; full interactions live in the index/cases. Concepts do not enroll properties, save settings, connect to Agoda or deploy infrastructure.
+Safari, Firefox, actual mobile devices and real screen-reader sessions were not tested. Mobile views are browser-emulated. Automated rules do not establish complete accessibility or recruiter response. Production performance is unmeasured. Source omissions/conflicting metric details remain disclosed. Preserved originals retain historical styling, external font references and numerical discrepancies. Home scenes are visual previews; full interactions live in the index/cases. Concepts do not enroll properties, save settings, connect to Agoda or deploy infrastructure.

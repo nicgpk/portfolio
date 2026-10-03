@@ -12,7 +12,9 @@ def head(name):
     h = re.sub(r'<link[^>]+href="(?:\.\./)?css/[^>]*>', '', h)
     h = re.sub(r'<style>.*?</style>', '', h, flags=re.S)
     h = h.replace('content="noindex"', 'content="index, follow"')
-    return h + '\n<link rel="stylesheet" href="css/folio.css">\n<link rel="stylesheet" href="css/editorial.css">\n<link rel="stylesheet" href="css/showcase.css">\n<link rel="preload" as="font" type="font/woff2" href="fonts/ibm-plex-sans.woff2" crossorigin>\n</head>'
+    ui_styles = {'index.html': ['growth', 'discount'], 'partner-growth-programs.html': ['growth'], 'discounting.html': ['discount']}.get(name, [])
+    extra = ''.join(f'\n<link rel="stylesheet" href="css/{kind}-ui.css">' for kind in ui_styles)
+    return h + '\n<link rel="stylesheet" href="css/folio.css">\n<link rel="stylesheet" href="css/editorial.css">\n<link rel="stylesheet" href="css/showcase.css">' + extra + '\n<link rel="preload" as="font" type="font/woff2" href="fonts/ibm-plex-sans.woff2" crossorigin>\n</head>'
 
 def nav(active=''):
     return f'''<a class="skip-link" href="#main">Skip to content</a>
@@ -34,11 +36,38 @@ programs = [
 ('Flagship Store','Branded storefront','A bespoke branded storefront for hotel chains.','icon-wallet-3d.webp','A negotiated incremental commission and contract term support a dedicated store page, branded search suggestion and homepage banner.')]
 
 def discovery(compact=False):
-    rows=''
-    for i,(name,category,desc,icon,detail) in enumerate(programs[:3] if compact else programs):
-        rows+=f'''<details class="program-tile" data-program data-category="{category}" data-name="{name.lower()}"><summary><svg class="program-icon" viewBox="0 0 48 48" aria-hidden="true"><use href="images/program-symbols.svg#{symbol_ids[i]}"/></svg><span><small>{category}</small><strong>{name}</strong></span><span class="tile-arrow" aria-hidden="true">↗</span></summary><p>{desc}</p><div class="program-detail"><p>{detail}</p><span class="sample-label">Discovery preview · original program mechanics</span></div></details>'''
-    search='' if compact else '''<div class="discovery-controls"><label class="search-field"><span>Search programs</span><input type="search" data-program-search placeholder="Try Boost Rank" autocomplete="off"></label><label class="category-field"><span>Category</span><select data-program-category><option value="all">All categories</option>'''+''.join(f'<option>{p[1]}</option>' for p in programs)+'''</select></label></div><p class="search-count" aria-live="polite" data-program-count>8 programs</p>'''
-    return f'''<div class="discovery-ui" {'data-discovery' if not compact else ''}><div class="app-bar"><span class="app-mark" aria-hidden="true">a<span>●</span></span><span>Partner growth</span><span class="app-account">Maison Solara <span aria-hidden="true">⌄</span></span></div><div class="app-layout"><aside class="app-side" aria-label="Workflow context"><span>Property</span><span>Reservations</span><span>Calendar</span><strong>Growth programs</strong><span>Payout</span></aside><div class="app-content"><p class="app-eyebrow">GROW YOUR PROPERTY</p><h{'3' if compact else '2'}>Find your next<br>growth opportunity.</h{'3' if compact else '2'}><p class="app-intro">The right program. A clearer next step.</p>{search}<div class="program-grid">{rows}</div>{'<a class="app-link" href="partner-growth-programs.html#concept">Explore all programs <span aria-hidden="true">→</span></a>' if compact else '<p class="sample-label">Updated concept · Shopify-inspired discovery. Expand a program to review its existing mechanics. No account changes.</p>'}</div></div></div>'''
+    """A native, filterable catalog using the existing program data and workflow."""
+    catalog = programs[:3] if compact else programs
+    rows = []
+    for i, (name, category, desc, icon, detail) in enumerate(catalog):
+        rows.append(f'''<details class="program-tile" data-program data-category="{escape(category)}" data-name="{escape(name.lower())}" {'open' if i == 0 else ''}>
+<summary><svg class="program-icon" viewBox="0 0 48 48" aria-hidden="true"><use href="images/program-symbols.svg#{symbol_ids[i]}"/></svg><span class="growth-row-main"><strong>{escape(name)}</strong><span class="growth-row-description">{escape(desc)}</span></span><span class="growth-category">{escape(category)}</span><svg class="tile-arrow growth-disclosure" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></summary>
+<div class="program-detail"><p class="growth-detail-label">Program mechanics</p><p>{escape(detail)}</p><span class="sample-label">Discovery preview · original program mechanics</span></div></details>''')
+    filters = '' if compact else '''<div class="discovery-controls"><label class="search-field"><span>Search programs</span><span class="growth-input-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><input type="search" data-program-search placeholder="Try Boost Rank" autocomplete="off"></span></label><label class="category-field"><span>Category</span><select data-program-category><option value="all">All categories</option>''' + ''.join(f'<option>{escape(p[1])}</option>' for p in programs) + '''</select></label></div>'''
+    count = f'<p class="search-count" aria-live="polite" data-program-count>{len(catalog)} programs</p>'
+    ending = '<a class="app-link" href="partner-growth-programs.html#concept">Explore all programs <span aria-hidden="true">→</span></a>' if compact else '<p class="growth-preview-note">Updated concept · Original program mechanics. Expand a program to review its details. No account changes.</p><noscript><p class="growth-preview-note">Search and category filtering require JavaScript. Expand any program to read its original mechanics.</p></noscript>'
+    level = '3' if compact else '2'
+    return f'''<div class="discovery-ui growth-studio" {'data-discovery' if not compact else ''}>
+<div class="app-bar"><span class="app-mark" aria-hidden="true">a<span>●</span></span><strong>Partner growth</strong><span class="app-account"><small>Sample property</small>Maison Solara</span></div>
+<div class="app-layout"><aside class="app-side" aria-label="Workflow context"><span>Property</span><span>Reservations</span><span>Calendar</span><strong>Growth programs</strong><span>Payout</span></aside>
+<div class="app-content"><div class="growth-page-heading"><h{level}>Growth programs</h{level}><p>Discover programs and review their existing mechanics.</p></div>
+<div class="growth-catalog">{filters}<div class="growth-list-header"><strong>Program catalog</strong>{count}</div><div class="program-grid">{''.join(rows)}</div></div>{ending}</div></div></div>'''
+
+
+def growth_cover():
+    """Static cover: no focusable controls; its parent provides aria-hidden."""
+    rows = []
+    for i, (name, category, desc, icon, detail) in enumerate(programs[:3]):
+        expanded = f'<div class="program-detail"><p class="growth-detail-label">Program mechanics</p><p>{escape(detail)}</p></div>' if i == 0 else ''
+        rows.append(f'''<div class="growth-cover-resource"><div class="cover-program {'cover-program--selected' if i == 0 else ''}"><svg class="program-icon" viewBox="0 0 48 48"><use href="images/program-symbols.svg#{symbol_ids[i]}"/></svg><span class="growth-row-main"><strong>{escape(name)}</strong><span class="growth-row-description">{escape(desc)}</span></span><span class="growth-category">{escape(category)}</span><svg class="growth-disclosure {'growth-disclosure--open' if i == 0 else ''}" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></div>{expanded}</div>''')
+    return f'''<div class="cover-browser growth-studio growth-studio--cover">
+<div class="app-bar cover-chrome"><span class="app-mark" aria-hidden="true">a<span>●</span></span><strong>Partner growth</strong><span class="app-account"><small>Sample property</small>Maison Solara</span></div>
+<div class="app-layout"><aside class="app-side"><span>Property</span><span>Reservations</span><span>Calendar</span><strong>Growth programs</strong><span>Payout</span></aside>
+<div class="app-content"><div class="growth-page-heading"><h4>Growth programs</h4><p>Discover programs and review their existing mechanics.</p></div>
+<div class="growth-catalog"><div class="discovery-controls growth-static-controls"><div class="search-field"><span class="growth-control-label">Search programs</span><div class="growth-static-control cover-search"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><span>Search programs</span></div></div><div class="category-field"><span class="growth-control-label">Category</span><div class="growth-static-control"><span>All categories</span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></div></div></div>
+<div class="growth-list-header"><strong>Program catalog</strong><span class="search-count">3 of 8 programs</span></div><div class="program-grid">{''.join(rows)}</div></div>
+<p class="growth-preview-note">Updated concept · Original program mechanics.</p></div></div></div>'''
+
 
 def evidence(kind):
     if kind=='growth':
@@ -82,11 +111,10 @@ def selected():
 
 
 def showcase_graphic(kind):
-    if kind=='growth':
-        rows=''.join(f'''<div class="cover-program {'cover-program--selected' if i==0 else ''}"><svg viewBox="0 0 48 48"><use href="images/program-symbols.svg#{symbol_ids[i]}"/></svg><div><small>{p[1]}</small><strong>{p[0]}</strong></div><span>↗</span></div>{'<div class="cover-program-detail">Choose a discount type and depth.<br>Review the existing program mechanics.</div>' if i==0 else ''}''' for i,p in enumerate(programs[:3]))
-        return f'''<div class="cover-browser"><div class="cover-chrome"><span class="cover-app-mark">a<span>●</span></span><strong>Partner growth</strong><span>Maison Solara</span></div><div class="cover-discovery"><div class="cover-discovery-title"><div><p>Grow your property</p><h4>Find your next<br>growth opportunity.</h4></div><span class="cover-program-count">8 programs</span></div><div class="cover-search"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><span>Search programs</span></div><div class="cover-programs">{rows}</div><div class="cover-program-footer"><span>Explore all programs</span><span>→</span></div></div></div>'''
-    if kind=='discount':
-        return '''<div class="cover-rate"><div class="cover-rate-header"><span>Net Rate Simulator</span><span>USD</span></div><div class="cover-rate-result"><p>Room rate after discounts</p><strong>$114.75<span> / night</span></strong><p>Before commission and taxes</p></div><div class="cover-rate-sequence"><span>$150.00</span><span>× 0.85</span><span>× 0.90</span></div><div class="cover-rate-ledger"><div><span>Starting room rate</span><strong>$150.00</strong><i style="--rate-width:100%"></i></div><div><span>Mega Sale · 15%</span><strong>$127.50</strong><i style="--rate-width:85%"></i></div><div><span>Mobile Exclusive · 10%</span><strong>$114.75</strong><i style="--rate-width:76.5%"></i></div></div><p class="cover-rate-note">Each discount applies to the remaining balance.</p></div>'''
+    if kind == 'growth':
+        return growth_cover()
+    if kind == 'discount':
+        return discount_cover()
     return '''<div class="cover-deploy"><div class="cover-deploy-header"><svg viewBox="0 0 24 24"><path d="m12 3 10 18H2Z"/></svg><span>Developer Portal</span><span>Example settings</span></div><div class="cover-deploy-steps"><span>Environment</span><span class="cover-stage-active">Rollout</span><span>Review</span></div><div class="cover-deploy-body"><div class="cover-environment"><p>Environment</p><h4>staging-mesh</h4><div><span>24 cores</span><span>24 Gi</span></div></div><div class="cover-canary"><p>Rollout strategy</p><h4>Canary</h4><div class="cover-canary-sequence"><span>10%</span><span>20%</span><span>30%</span></div><div class="cover-canary-track"><i></i><i></i><i></i></div><p>300s ramp up · 900s monitoring</p></div></div><div class="cover-deploy-footer"><span>Hong Kong · Singapore · Amsterdam</span><span>10 replicas each</span></div></div>'''
 
 def project_showcase():
@@ -105,8 +133,82 @@ def about():
     jobs=[('Agoda · Bangkok','Product Design Lead','Oct 2025 – Present'),('Agoda · Bangkok','Senior Product Designer','Aug 2022 – Oct 2025'),('GovTech · Singapore','UX Designer','Jul 2019 – Aug 2022'),('OCBC Bank · Singapore','UX Designer','Aug 2018 – Jul 2019'),('Lucasfilm / Disney · Singapore','Look Development Designer','Aug 2015 – Jul 2018')]
     return '''<section class="about-section" id="about"><div class="leadership-copy"><p class="eyebrow">Design leadership</p><h2>Build the team.<br>Shape the product.</h2><p>I adapt the method to the challenge, staying close to users through discovery interviews, usability testing, funnel analysis, clickstreams and NPS signals.</p><p>I keep the longer-term vision in view while balancing evidence, capacity and stakeholder alignment. Design stays tied to conversion, retention, revenue and operational efficiency.</p><p>I hire, coach and build the conditions for teams to do their best work. AI tools augment research synthesis, critique, prototyping and production handoff: Cursor, Claude, GPT, DeepSeek and Figma.</p><a class="text-link" href="resume.html">Experience &amp; resume ↗</a></div><div class="about-detail"><h3>Experience</h3><ol class="experience">'''+''.join(f'<li><span>{company}</span><strong>{role}</strong><small>{dates}</small></li>' for company,role,dates in jobs)+'''</ol></div></section>'''
 
+# Integration: replace calculator() with this function; add discount_cover(),
+# and return discount_cover() from showcase_graphic('discount').
+# Load css/discount-ui.css after existing styles on home and discounting only.
+# Visual references: https://stripe.com/billing and
+# https://docs.stripe.com/billing/subscriptions/coupons
+# No calculator JavaScript or calculation helper change is needed.
+
 def calculator():
-    return '''<div class="calculator-ui" data-calculator><div class="app-bar"><span class="calc-brand">Promotions <span aria-hidden="true">/</span> Simulator</span><span class="sample-label">Maison Solara</span></div><div class="calc-layout"><form class="calc-form"><p class="app-eyebrow">KNOW YOUR RATE</p><h2>Every discount,<br>in the open.</h2><label class="rate-field">Room rate (USD)<span class="input-money"><span aria-hidden="true">$</span><input id="room-rate" name="rate" type="number" min="0" max="1000000" step="0.01" value="150" required inputmode="decimal"></span></label><fieldset><legend>Active promotions</legend><label class="promo-toggle"><input type="checkbox" name="mega" checked><span><strong>Mega Sale</strong><small>15% · Advance booking</small></span><b>−15%</b></label><label class="promo-toggle"><input type="checkbox" name="mobile" checked><span><strong>Mobile Exclusive</strong><small>10% · Mobile user</small></span><b>−10%</b></label><label class="promo-toggle ineligible"><input type="checkbox" disabled><span><strong>Early Bird</strong><small>20% · Not eligible tonight</small></span><span>Ineligible</span></label></fieldset><button class="quiet-button" type="reset">Reset example</button><p class="form-error" data-calc-error aria-live="polite"></p></form><div class="calc-result"><span class="calc-result-label">Room rate after discounts</span><output id="net-rate" for="room-rate" data-net>$114.75</output><p class="calc-effective" data-effective>23.5% effective discount</p><div class="calc-ledger" data-ledger><div><span>Room rate</span><strong>$150.00</strong></div><div><span>Mega Sale · 15%</span><strong>−$22.50</strong></div><div><span>Mobile Exclusive · 10%</span><strong>−$12.75</strong></div></div><p>Each discount applies to the remaining balance, not the original rate.</p><div class="calc-formula">150 × 0.85 × 0.90 = 114.75</div><span class="sample-label">Illustrative room rate · excludes commission &amp; taxes. No setup is saved.</span></div></div><noscript><p class="noscript-note">This example is static without JavaScript: $150 less 15%, then 10%, equals $114.75.</p></noscript></div>'''
+    return '''<div class="calculator-ui discount-studio discount-studio--calculator" data-calculator>
+  <div class="discount-app-header">
+    <div class="discount-app-heading"><svg class="discount-app-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2m4 0h2m-8 4h2m4 0h2"/></svg><h2 class="discount-app-title">Net Rate Simulator</h2></div>
+    <span class="discount-currency">USD / night</span>
+  </div>
+  <div class="calc-layout discount-workspace">
+    <form class="calc-form discount-settings">
+      <h3 class="discount-section-title">Discount setup</h3>
+      <div class="discount-interactive-fields">
+        <label class="rate-field" for="room-rate">Room rate (USD)<span class="input-money"><span aria-hidden="true">$</span><input id="room-rate" name="rate" type="number" min="0" max="1000000" step="0.01" value="150.00" required inputmode="decimal" aria-describedby="discount-rate-help discount-rate-error"><span class="discount-field-unit" aria-hidden="true">USD</span></span></label>
+        <p class="discount-field-help" id="discount-rate-help">Per night, before commission and taxes.</p>
+        <fieldset class="discount-promotions"><legend>Apply discounts in this order</legend>
+          <label class="promo-toggle"><input type="checkbox" name="mega" checked><span class="discount-promotion-copy"><strong>Mega Sale</strong><small>Advance booking</small></span><b class="discount-percent">15%</b></label>
+          <label class="promo-toggle"><input type="checkbox" name="mobile" checked><span class="discount-promotion-copy"><strong>Mobile Exclusive</strong><small>Mobile user</small></span><b class="discount-percent">10%</b></label>
+          <label class="promo-toggle ineligible"><input type="checkbox" disabled><span class="discount-promotion-copy"><strong>Early Bird</strong><small>20% · Not eligible tonight</small></span><b class="discount-ineligible-label">Ineligible</b></label>
+        </fieldset>
+        <button class="quiet-button calc-reset" type="reset">Reset example</button>
+      </div>
+      <noscript><style>.discount-studio--calculator .discount-interactive-fields{display:none}</style><div class="discount-static-settings"><p class="discount-field-label">Room rate (USD)</p><div class="discount-static-field"><span>$150.00</span><span class="discount-field-unit">USD</span></div><p class="discount-field-help">Per night, before commission and taxes.</p><p class="discount-field-label discount-promotions-label">Discounts applied in order</p><div class="discount-static-promotion"><span class="discount-check" aria-hidden="true">✓</span><span><strong>Mega Sale</strong><small>Advance booking</small></span><b class="discount-percent">15%</b></div><div class="discount-static-promotion"><span class="discount-check" aria-hidden="true">✓</span><span><strong>Mobile Exclusive</strong><small>Mobile user</small></span><b class="discount-percent">10%</b></div><div class="discount-static-promotion"><span class="discount-check discount-check--off" aria-hidden="true"></span><span><strong>Early Bird</strong><small>20% · Not eligible tonight</small></span><b class="discount-ineligible-label">Ineligible</b></div><p class="noscript-note">Static example. Enable JavaScript to edit the rate and discounts.</p></div></noscript>
+      <p class="form-error" id="discount-rate-error" data-calc-error aria-live="polite"></p>
+    </form>
+    <div class="calc-result discount-summary">
+      <h3 class="discount-section-title" id="discount-breakdown-title">Calculation breakdown</h3>
+      <div class="discount-ledger-heading"><span>Applied in order</span><span>Amount (USD)</span></div>
+      <div class="calc-ledger discount-ledger" data-ledger role="group" aria-labelledby="discount-breakdown-title"><div><span>Room rate</span><strong>$150.00</strong></div><div><span>Mega Sale · 15%</span><strong>−$22.50</strong></div><div><span>Mobile Exclusive · 10%</span><strong>−$12.75</strong></div></div>
+      <div class="discount-total"><span class="calc-result-label">Room rate after discounts</span><output id="net-rate" for="room-rate" data-net aria-live="polite" aria-atomic="true">$114.75</output><p class="calc-effective" data-effective>23.5% effective discount</p></div>
+      <p class="discount-exclusions">Before commission and taxes.</p>
+      <div class="calc-formula">150 × 0.85 × 0.90 = 114.75</div>
+      <p class="discount-rule">Each discount applies to the remaining balance.</p>
+    </div>
+  </div>
+  <div class="discount-app-footer"><span>Illustrative room rate</span><span>No setup is saved.</span></div>
+</div>'''
+
+
+def discount_cover():
+    return '''<div class="cover-rate discount-studio discount-studio--cover">
+  <div class="discount-app-header">
+    <div class="discount-app-heading"><svg class="discount-app-icon" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2m4 0h2m-8 4h2m4 0h2"/></svg><strong class="discount-app-title">Net Rate Simulator</strong></div>
+    <span class="discount-currency">USD / night</span>
+  </div>
+  <div class="discount-workspace">
+    <div class="discount-settings">
+      <p class="discount-section-title">Discount setup</p>
+      <p class="discount-field-label">Room rate (USD)</p>
+      <div class="discount-static-field"><span>$150.00</span><span class="discount-field-unit">USD</span></div>
+      <p class="discount-field-help">Per night, before commission and taxes.</p>
+      <p class="discount-field-label discount-promotions-label">Discounts applied in order</p>
+      <div class="discount-static-promotion"><span class="discount-check">✓</span><span><strong>Mega Sale</strong><small>Advance booking</small></span><b class="discount-percent">15%</b></div>
+      <div class="discount-static-promotion"><span class="discount-check">✓</span><span><strong>Mobile Exclusive</strong><small>Mobile user</small></span><b class="discount-percent">10%</b></div>
+    </div>
+    <div class="discount-summary">
+      <p class="discount-section-title">Calculation breakdown</p>
+      <div class="discount-ledger-heading"><span>Applied in order</span><span>Remaining rate</span></div>
+      <div class="cover-rate-ledger discount-ledger discount-balance-ledger">
+        <div><span><span>Starting room rate</span><small>Before discounts</small></span><strong>$150.00</strong><i style="--rate-width:100%"></i></div>
+        <div><span><span>Mega Sale · 15%</span><small>Deduction: −$22.50</small></span><strong>$127.50</strong><i style="--rate-width:85%"></i></div>
+        <div><span><span>Mobile Exclusive · 10%</span><small>Deduction: −$12.75</small></span><strong>$114.75</strong><i style="--rate-width:76.5%"></i></div>
+      </div>
+      <div class="discount-total"><span class="calc-result-label">Room rate after discounts</span><strong class="discount-net">$114.75</strong><p class="calc-effective">23.5% effective discount</p></div>
+      <p class="discount-exclusions">Before commission and taxes.</p>
+      <div class="calc-formula">150 × 0.85 × 0.90 = 114.75</div>
+      <p class="discount-rule">Each discount applies to the remaining balance.</p>
+    </div>
+  </div>
+  <div class="discount-app-footer"><span>Illustrative room rate</span><span>Sequential discounts</span></div>
+</div>'''
+
 
 def developer():
     return '''<div class="developer-ui" data-developer><div class="dev-toolbar"><span class="dev-brand"><span aria-hidden="true">▲</span> Developer portal</span><span class="dev-context">Deployment / devops-safe-app</span><span class="terminal-pill">Updated concept</span></div><div class="developer-layout"><aside class="developer-sidebar"><p>WORKFLOW</p><ol><li>Environment</li><li>Rollout</li><li>Review</li></ol><p>EXISTING TASK DOMAINS</p><span>Manage</span><span>Plan</span><span>Build</span><span>Secure</span><span>Monitor</span></aside><form class="deploy-form"><ol class="deploy-steps" aria-label="Deployment steps"><li data-step-label="0" aria-current="step">Environment</li><li data-step-label="1">Rollout</li><li data-step-label="2">Review</li></ol><div class="deploy-stage" data-step="0"><p class="app-eyebrow">ENVIRONMENT SETUP</p><h2>A clear place to start.</h2><p>Configure the environment before choosing how to roll out.</p><div class="deploy-fields"><label>Environment name<input name="environment" value="staging-mesh" required pattern="[a-zA-Z0-9_-]+" maxlength="64"></label><label>Cluster pool<select name="pool"><option>Mesh</option><option>QA</option><option>Corp</option></select></label><label>Repository<select name="repository"><option>actions/ansible-runner</option></select></label><label>Image tag<input name="image" value="98ds12df" required maxlength="100"></label><label>CPU requests (cores)<input type="number" name="cpu" min="1" max="128" value="24" required></label><label>Memory requests (Gi)<input type="number" name="memory" min="1" max="512" value="24" required></label></div><p class="dev-guidance">Ownership or AD request blocking progress? The original design supports leave and resume, with guidance at bottlenecks. This preview does not persist data.</p></div><div class="deploy-stage" data-step="1"><p class="app-eyebrow">ROLLOUT SETUP</p><h2>Make the rollout explicit.</h2><label>Deployment strategy<select name="strategy"><option>Canary</option><option>Rolling update</option></select></label><p class="canary-path" data-canary>10% → 20% → 30%</p><div class="deploy-fields"><label>HK · Hong Kong replicas<input name="hk" type="number" min="1" max="100" value="10" required></label><label>SG · Singapore replicas<input name="sg" type="number" min="1" max="100" value="10" required></label><label>AM · Amsterdam replicas<input name="am" type="number" min="1" max="100" value="10" required></label><label>Slack channel<input name="slack" value="#devops_safe_app" required maxlength="100"></label></div><p>Ramp up: 300 seconds · Monitoring: 900 seconds. Existing example settings.</p></div><div class="deploy-stage" data-step="2"><p class="app-eyebrow">REVIEW BEFORE DEPLOYMENT</p><h2>See the whole decision.</h2><dl class="deploy-review" data-deploy-review><div><dt>Environment</dt><dd>staging-mesh · Mesh</dd></div><div><dt>Image</dt><dd>actions/ansible-runner · 98ds12df</dd></div><div><dt>Resources</dt><dd>24 cores · 24 Gi</dd></div><div><dt>Strategy</dt><dd>Canary · 10% → 20% → 30%</dd></div></dl></div><div class="deploy-actions"><button type="button" class="dev-back" data-deploy-back disabled>← Back</button><span data-step-count>Step 1 of 3</span><button type="button" class="dev-next" data-deploy-next disabled>Continue →</button></div><p class="deploy-status" data-deploy-status role="status"></p><p class="sample-label">Updated concept · Vercel-inspired workflow. Existing example values. Preview only: no infrastructure connection or deployment.</p><noscript><p>All three steps are shown as a static walkthrough. Enable JavaScript to try the preview.</p></noscript></form></div></div>'''

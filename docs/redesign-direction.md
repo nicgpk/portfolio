@@ -6,9 +6,11 @@ Audience: recruiters and design hiring teams assessing Nicholas Gwee's ownership
 
 The user rejected the rendered 3D icons and awkward horizontal scrolling, while asking to retain the rest and improve the finish. Rauno remains the assumed primary reference. Compact identity, IBM Plex type, frosted navigation, concise cases and localized vivid colors remain. Home uses a native vertical sequence.
 
-Each project has its existing role/ownership, a large title, direct case-study link and distinct interface cover. Partner Growth Programs remains first. Its acid-yellow discovery scene shows three existing programs with Promotions expanded. Discounting uses a blue ledger with a stationary $114.75 result, exact sequential factors and proportional bars. Developer Portal uses the existing environment and Canary settings in a dark interface.
+Each project has its existing role/ownership, a large title, direct case-study link and distinct interface cover. Partner Growth Programs remains first. Its acid-yellow scene contains a structured catalog with property context, search/category controls, readable program descriptions and expanded Promotions mechanics. Discounting pairs rate setup and the two existing selections with an ordered receipt, exact deductions and a $114.75 result. Developer Portal uses the existing environment and Canary settings in a dark interface and remains unchanged by the latest refinement.
 
 The signature is the work itself: precise interface compositions. The detailed index retains its distinct program-suite diagram and functional concepts. All covers are labeled Updated concept; no new shipped contribution or outcome is implied.
+
+The growth and discount home covers now match their functional examples. Shopify Admin's resource-list structure and Stripe Billing's input/summary hierarchy inform this revision; specific references, scope and calculation boundaries are in [product-interface-refinement.md](product-interface-refinement.md).
 
 ## Visual system
 

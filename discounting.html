@@ -73,6 +73,7 @@
     <link rel="stylesheet" href="css/folio.css" />
     <link rel="stylesheet" href="css/editorial.css" />
     <link rel="stylesheet" href="css/showcase.css" />
+    <link rel="stylesheet" href="css/discount-ui.css" />
     <link
       rel="preload"
       as="font"
@@ -229,64 +230,152 @@
             or measured outcome.
           </p>
           <div class="concept-canvas concept-canvas--discount">
-            <div class="calculator-ui" data-calculator>
-              <div class="app-bar">
-                <span class="calc-brand"
-                  >Promotions <span aria-hidden="true">/</span> Simulator</span
-                ><span class="sample-label">Maison Solara</span>
-              </div>
-              <div class="calc-layout">
-                <form class="calc-form">
-                  <p class="app-eyebrow">KNOW YOUR RATE</p>
-                  <h2>Every discount,<br />in the open.</h2>
-                  <label class="rate-field"
-                    >Room rate (USD)<span class="input-money"
-                      ><span aria-hidden="true">$</span
-                      ><input
-                        id="room-rate"
-                        name="rate"
-                        type="number"
-                        min="0"
-                        max="1000000"
-                        step="0.01"
-                        value="150"
-                        required
-                        inputmode="decimal" /></span
-                  ></label>
-                  <fieldset>
-                    <legend>Active promotions</legend>
-                    <label class="promo-toggle"
-                      ><input type="checkbox" name="mega" checked /><span
-                        ><strong>Mega Sale</strong
-                        ><small>15% · Advance booking</small></span
-                      ><b>−15%</b></label
-                    ><label class="promo-toggle"
-                      ><input type="checkbox" name="mobile" checked /><span
-                        ><strong>Mobile Exclusive</strong
-                        ><small>10% · Mobile user</small></span
-                      ><b>−10%</b></label
-                    ><label class="promo-toggle ineligible"
-                      ><input type="checkbox" disabled /><span
-                        ><strong>Early Bird</strong
-                        ><small>20% · Not eligible tonight</small></span
-                      ><span>Ineligible</span></label
-                    >
-                  </fieldset>
-                  <button class="quiet-button" type="reset">
-                    Reset example
-                  </button>
-                  <p class="form-error" data-calc-error aria-live="polite"></p>
-                </form>
-                <div class="calc-result">
-                  <span class="calc-result-label"
-                    >Room rate after discounts</span
-                  ><output id="net-rate" for="room-rate" data-net
-                    >$114.75</output
+            <div
+              class="calculator-ui discount-studio discount-studio--calculator"
+              data-calculator
+            >
+              <div class="discount-app-header">
+                <div class="discount-app-heading">
+                  <svg
+                    class="discount-app-icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
-                  <p class="calc-effective" data-effective>
-                    23.5% effective discount
-                  </p>
-                  <div class="calc-ledger" data-ledger>
+                    <rect x="5" y="3" width="14" height="18" rx="2" />
+                    <path d="M8 7h8M8 11h2m4 0h2m-8 4h2m4 0h2" />
+                  </svg>
+                  <h2 class="discount-app-title">Net Rate Simulator</h2>
+                </div>
+                <span class="discount-currency">USD / night</span>
+              </div>
+              <div class="calc-layout discount-workspace">
+                <form class="calc-form discount-settings">
+                  <h3 class="discount-section-title">Discount setup</h3>
+                  <div class="discount-interactive-fields">
+                    <label class="rate-field" for="room-rate"
+                      >Room rate (USD)<span class="input-money"
+                        ><span aria-hidden="true">$</span
+                        ><input
+                          id="room-rate"
+                          name="rate"
+                          type="number"
+                          min="0"
+                          max="1000000"
+                          step="0.01"
+                          value="150.00"
+                          required
+                          inputmode="decimal"
+                          aria-describedby="discount-rate-help discount-rate-error"
+                        /><span class="discount-field-unit" aria-hidden="true"
+                          >USD</span
+                        ></span
+                      ></label
+                    >
+                    <p class="discount-field-help" id="discount-rate-help">
+                      Per night, before commission and taxes.
+                    </p>
+                    <fieldset class="discount-promotions">
+                      <legend>Apply discounts in this order</legend>
+                      <label class="promo-toggle"
+                        ><input type="checkbox" name="mega" checked /><span
+                          class="discount-promotion-copy"
+                          ><strong>Mega Sale</strong
+                          ><small>Advance booking</small></span
+                        ><b class="discount-percent">15%</b></label
+                      >
+                      <label class="promo-toggle"
+                        ><input type="checkbox" name="mobile" checked /><span
+                          class="discount-promotion-copy"
+                          ><strong>Mobile Exclusive</strong
+                          ><small>Mobile user</small></span
+                        ><b class="discount-percent">10%</b></label
+                      >
+                      <label class="promo-toggle ineligible"
+                        ><input type="checkbox" disabled /><span
+                          class="discount-promotion-copy"
+                          ><strong>Early Bird</strong
+                          ><small>20% · Not eligible tonight</small></span
+                        ><b class="discount-ineligible-label"
+                          >Ineligible</b
+                        ></label
+                      >
+                    </fieldset>
+                    <button class="quiet-button calc-reset" type="reset">
+                      Reset example
+                    </button>
+                  </div>
+                  <noscript
+                    ><style>
+                      .discount-studio--calculator
+                        .discount-interactive-fields {
+                        display: none;
+                      }
+                    </style>
+                    <div class="discount-static-settings">
+                      <p class="discount-field-label">Room rate (USD)</p>
+                      <div class="discount-static-field">
+                        <span>$150.00</span
+                        ><span class="discount-field-unit">USD</span>
+                      </div>
+                      <p class="discount-field-help">
+                        Per night, before commission and taxes.
+                      </p>
+                      <p class="discount-field-label discount-promotions-label">
+                        Discounts applied in order
+                      </p>
+                      <div class="discount-static-promotion">
+                        <span class="discount-check" aria-hidden="true">✓</span
+                        ><span
+                          ><strong>Mega Sale</strong
+                          ><small>Advance booking</small></span
+                        ><b class="discount-percent">15%</b>
+                      </div>
+                      <div class="discount-static-promotion">
+                        <span class="discount-check" aria-hidden="true">✓</span
+                        ><span
+                          ><strong>Mobile Exclusive</strong
+                          ><small>Mobile user</small></span
+                        ><b class="discount-percent">10%</b>
+                      </div>
+                      <div class="discount-static-promotion">
+                        <span
+                          class="discount-check discount-check--off"
+                          aria-hidden="true"
+                        ></span
+                        ><span
+                          ><strong>Early Bird</strong
+                          ><small>20% · Not eligible tonight</small></span
+                        ><b class="discount-ineligible-label">Ineligible</b>
+                      </div>
+                      <p class="noscript-note">
+                        Static example. Enable JavaScript to edit the rate and
+                        discounts.
+                      </p>
+                    </div></noscript
+                  >
+                  <p
+                    class="form-error"
+                    id="discount-rate-error"
+                    data-calc-error
+                    aria-live="polite"
+                  ></p>
+                </form>
+                <div class="calc-result discount-summary">
+                  <h3
+                    class="discount-section-title"
+                    id="discount-breakdown-title"
+                  >
+                    Calculation breakdown
+                  </h3>
+                  <div class="discount-ledger-heading">
+                    <span>Applied in order</span><span>Amount (USD)</span>
+                  </div>
+                  <div
+                    class="calc-ledger discount-ledger"
+                    data-ledger
+                    role="group"
+                    aria-labelledby="discount-breakdown-title"
+                  >
                     <div><span>Room rate</span><strong>$150.00</strong></div>
                     <div>
                       <span>Mega Sale · 15%</span><strong>−$22.50</strong>
@@ -296,23 +385,34 @@
                       ><strong>−$12.75</strong>
                     </div>
                   </div>
-                  <p>
-                    Each discount applies to the remaining balance, not the
-                    original rate.
+                  <div class="discount-total">
+                    <span class="calc-result-label"
+                      >Room rate after discounts</span
+                    ><output
+                      id="net-rate"
+                      for="room-rate"
+                      data-net
+                      aria-live="polite"
+                      aria-atomic="true"
+                      >$114.75</output
+                    >
+                    <p class="calc-effective" data-effective>
+                      23.5% effective discount
+                    </p>
+                  </div>
+                  <p class="discount-exclusions">
+                    Before commission and taxes.
                   </p>
                   <div class="calc-formula">150 × 0.85 × 0.90 = 114.75</div>
-                  <span class="sample-label"
-                    >Illustrative room rate · excludes commission &amp; taxes.
-                    No setup is saved.</span
-                  >
+                  <p class="discount-rule">
+                    Each discount applies to the remaining balance.
+                  </p>
                 </div>
               </div>
-              <noscript
-                ><p class="noscript-note">
-                  This example is static without JavaScript: $150 less 15%, then
-                  10%, equals $114.75.
-                </p></noscript
-              >
+              <div class="discount-app-footer">
+                <span>Illustrative room rate</span
+                ><span>No setup is saved.</span>
+              </div>
             </div>
           </div>
         </section>

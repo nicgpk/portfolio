@@ -93,7 +93,8 @@ for (const width of [320, 390, 768, 1440]) {
         });
         await page.locator(".selected-work").screenshot({
           path: `review/after/selected-work-${width}.png`,
-          style: ".site-nav,.skip-link {visibility:hidden}",
+          style:
+            ".site-nav,.skip-link,[data-motion-toggle] {visibility:hidden}",
         });
       }
       if (
@@ -101,7 +102,8 @@ for (const width of [320, 390, 768, 1440]) {
       )
         await page.locator(".concept-section").screenshot({
           path: `review/after/concept-${name}-${width}.png`,
-          style: ".site-nav,.skip-link {visibility:hidden}",
+          style:
+            ".site-nav,.skip-link,[data-motion-toggle] {visibility:hidden}",
         });
     }
   }

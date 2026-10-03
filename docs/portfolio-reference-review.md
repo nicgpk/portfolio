@@ -31,3 +31,5 @@ An earlier study measured Rauno's cards at 1200 by 720 with 40px gaps, and obser
 ## Latest review
 
 Home and Craft were visually inspected again on 3 October 2026 through the in-app browser, alongside a fresh read of primary pages. Their disciplined type, quiet surfaces and focused interface detail guide the current compositions. Vertical reading order is our response to the user's feedback; it is not presented as Rauno's recommended navigation.
+
+The later growth/discount refinement uses [Shopify Admin's search/filter patterns](https://help.shopify.com/en/manual/shopify-admin/productivity-tools/searching-filtering-views) and [Stripe Billing's financial interface examples](https://stripe.com/billing) to strengthen the product UI. Both primary references were read and visually inspected. Their specific application and factual boundaries are documented in [product-interface-refinement.md](product-interface-refinement.md). Developer Portal's approved composition remains intact.

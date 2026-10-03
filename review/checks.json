@@ -319,7 +319,23 @@
       "status": 200
     },
     {
+      "url": "http://127.0.0.1:4183/css/growth-ui.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/css/discount-ui.css",
+      "status": 200
+    },
+    {
       "url": "http://127.0.0.1:4183/js/folio.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/fonts/ibm-plex-sans.woff2",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/fonts/ibm-plex-mono.woff2",
       "status": 200
     },
     {
@@ -333,23 +349,15 @@
     {
       "url": "http://127.0.0.1:4183/js/kinetics.mjs",
       "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/fonts/ibm-plex-sans.woff2",
-      "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/fonts/ibm-plex-mono.woff2",
-      "status": 200
     }
   ],
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 1468,
-      "cls": 0,
-      "resourceBytes": 157407,
-      "requestCount": 9
+      "lcpMs": 1564,
+      "cls": 0.00032592592592592596,
+      "resourceBytes": 181687,
+      "requestCount": 11
     }
   ],
   "errors": [],

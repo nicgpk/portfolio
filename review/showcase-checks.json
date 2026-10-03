@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-03T05:25:16.574Z",
+  "checkedAt": "2026-10-03T05:43:08.679Z",
   "browser": "Project-local Chromium on Windows",
   "viewports": [
     {
@@ -33,12 +33,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 85
+            "widthPercent": 84.99708737864079
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49478260869564
+            "widthPercent": 76.49417475728156
           }
         ]
       },
@@ -50,17 +50,17 @@
         "cards": [
           {
             "top": 315.34375,
-            "bottom": 1113,
+            "bottom": 1894.015625,
             "position": "static"
           },
           {
-            "top": 1169,
-            "bottom": 2019.390625,
+            "top": 1950.015625,
+            "bottom": 3459.953125,
             "position": "static"
           },
           {
-            "top": 2075.390625,
-            "bottom": 2797.75,
+            "top": 3515.953125,
+            "bottom": 4238.3125,
             "position": "static"
           }
         ],
@@ -93,13 +93,13 @@
           "project": "discount",
           "box": {
             "x": 16,
-            "y": 222,
+            "y": 222.015625,
             "width": 288,
             "height": 177.28125
           },
           "title": {
             "x": 16,
-            "y": 238,
+            "y": 238.015625,
             "width": 285.59375,
             "height": 35.6875
           },
@@ -113,13 +113,13 @@
           "project": "developer",
           "box": {
             "x": 16,
-            "y": 222.390625,
+            "y": 221.953125,
             "width": 288,
             "height": 157.484375
           },
           "title": {
             "x": 16,
-            "y": 238.390625,
+            "y": 237.953125,
             "width": 285.59375,
             "height": 35.6875
           },
@@ -163,12 +163,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.9956678700361
+            "widthPercent": 84.9953307392996
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49494584837545
+            "widthPercent": 76.49571984435798
           }
         ]
       },
@@ -180,17 +180,17 @@
         "cards": [
           {
             "top": 315.34375,
-            "bottom": 1090.546875,
+            "bottom": 1704.359375,
             "position": "static"
           },
           {
-            "top": 1146.546875,
-            "bottom": 2026.234375,
+            "top": 1760.359375,
+            "bottom": 3161.15625,
             "position": "static"
           },
           {
-            "top": 2082.234375,
-            "bottom": 2805.84375,
+            "top": 3217.15625,
+            "bottom": 3940.765625,
             "position": "static"
           }
         ],
@@ -223,13 +223,13 @@
           "project": "discount",
           "box": {
             "x": 19.5,
-            "y": 221.546875,
+            "y": 222.359375,
             "width": 351,
             "height": 182.53125
           },
           "title": {
             "x": 19.5,
-            "y": 237.546875,
+            "y": 238.359375,
             "width": 327.59375,
             "height": 40.9375
           },
@@ -243,13 +243,13 @@
           "project": "developer",
           "box": {
             "x": 19.5,
-            "y": 222.234375,
+            "y": 222.15625,
             "width": 351,
             "height": 162.734375
           },
           "title": {
             "x": 19.5,
-            "y": 238.234375,
+            "y": 238.15625,
             "width": 327.59375,
             "height": 40.9375
           },
@@ -293,12 +293,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99975303431026
+            "widthPercent": 84.99465830508213
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49605079410695
+            "widthPercent": 76.49769940720685
           }
         ]
       },
@@ -310,17 +310,17 @@
         "cards": [
           {
             "top": 338.78125,
-            "bottom": 1073.671875,
+            "bottom": 1463.828125,
             "position": "static"
           },
           {
-            "top": 1149.671875,
-            "bottom": 1873.21875,
+            "top": 1539.828125,
+            "bottom": 2528.375,
             "position": "static"
           },
           {
-            "top": 1949.21875,
-            "bottom": 2556.09375,
+            "top": 2604.375,
+            "bottom": 3211.25,
             "position": "static"
           }
         ],
@@ -333,13 +333,13 @@
           "project": "growth",
           "box": {
             "x": 30.71875,
-            "y": 267.78125,
+            "y": 223.78125,
             "width": 706.5625,
             "height": 150.28125
           },
           "title": {
             "x": 30.71875,
-            "y": 293.46875,
+            "y": 249.46875,
             "width": 386.390625,
             "height": 96.59375
           },
@@ -353,13 +353,13 @@
           "project": "discount",
           "box": {
             "x": 30.71875,
-            "y": 221.671875,
+            "y": 221.828125,
             "width": 706.5625,
             "height": 150.28125
           },
           "title": {
             "x": 30.71875,
-            "y": 295.65625,
+            "y": 295.8125,
             "width": 386.390625,
             "height": 48.296875
           },
@@ -373,13 +373,13 @@
           "project": "developer",
           "box": {
             "x": 30.71875,
-            "y": 222.21875,
+            "y": 222.375,
             "width": 706.5625,
             "height": 128.1875
           },
           "title": {
             "x": 30.71875,
-            "y": 274.109375,
+            "y": 274.265625,
             "width": 386.390625,
             "height": 48.296875
           },
@@ -423,12 +423,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99781945050152
+            "widthPercent": 84.99941248406091
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49925861317051
+            "widthPercent": 76.49936243640684
           }
         ]
       },
@@ -440,17 +440,17 @@
         "cards": [
           {
             "top": 315.6875,
-            "bottom": 1096.015625,
+            "bottom": 1312.21875,
             "position": "static"
           },
           {
-            "top": 1172.015625,
-            "bottom": 1881.46875,
+            "top": 1388.21875,
+            "bottom": 2350.875,
             "position": "static"
           },
           {
-            "top": 1957.46875,
-            "bottom": 2552.8125,
+            "top": 2426.875,
+            "bottom": 3022.21875,
             "position": "static"
           }
         ],
@@ -483,13 +483,13 @@
           "project": "discount",
           "box": {
             "x": 57.59375,
-            "y": 222.015625,
+            "y": 222.21875,
             "width": 1324.8125,
             "height": 128.1875
           },
           "title": {
             "x": 57.59375,
-            "y": 251.140625,
+            "y": 251.34375,
             "width": 568.5,
             "height": 71.0625
           },
@@ -503,13 +503,13 @@
           "project": "developer",
           "box": {
             "x": 57.59375,
-            "y": 222.46875,
+            "y": 221.875,
             "width": 1324.8125,
             "height": 116.65625
           },
           "title": {
             "x": 57.59375,
-            "y": 240.0625,
+            "y": 239.46875,
             "width": 568.5,
             "height": 71.0625
           },
@@ -553,12 +553,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99445574193145
+            "widthPercent": 84.99797297297297
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49665581324275
+            "widthPercent": 76.49932432432432
           }
         ]
       },
@@ -570,17 +570,17 @@
         "cards": [
           {
             "top": 338.78125,
-            "bottom": 1073.671875,
+            "bottom": 1442.828125,
             "position": "static"
           },
           {
-            "top": 1149.671875,
-            "bottom": 1851.125,
+            "top": 1518.828125,
+            "bottom": 2464.28125,
             "position": "static"
           },
           {
-            "top": 1927.125,
-            "bottom": 2511.90625,
+            "top": 2540.28125,
+            "bottom": 3125.0625,
             "position": "static"
           }
         ],
@@ -613,13 +613,13 @@
           "project": "discount",
           "box": {
             "x": 33.75,
-            "y": 221.671875,
+            "y": 221.828125,
             "width": 776.5,
             "height": 128.1875
           },
           "title": {
             "x": 33.75,
-            "y": 273.5625,
+            "y": 273.71875,
             "width": 386.390625,
             "height": 48.296875
           },
@@ -633,13 +633,13 @@
           "project": "developer",
           "box": {
             "x": 33.75,
-            "y": 222.125,
+            "y": 222.28125,
             "width": 776.5,
             "height": 106.09375
           },
           "title": {
             "x": 33.75,
-            "y": 251.921875,
+            "y": 252.078125,
             "width": 386.390625,
             "height": 48.296875
           },
@@ -683,12 +683,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99781945050152
+            "widthPercent": 84.99941248406091
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49925861317051
+            "widthPercent": 76.49936243640684
           }
         ]
       },
@@ -700,17 +700,17 @@
         "cards": [
           {
             "top": 315.6875,
-            "bottom": 1096.015625,
+            "bottom": 1312.21875,
             "position": "static"
           },
           {
-            "top": 1172.015625,
-            "bottom": 1881.46875,
+            "top": 1388.21875,
+            "bottom": 2350.875,
             "position": "static"
           },
           {
-            "top": 1957.46875,
-            "bottom": 2552.8125,
+            "top": 2426.875,
+            "bottom": 3022.21875,
             "position": "static"
           }
         ],
@@ -723,13 +723,13 @@
           "project": "growth",
           "box": {
             "x": 57.59375,
-            "y": 223.6875,
+            "y": 231.6875,
             "width": 1324.8125,
             "height": 187.71875
           },
           "title": {
             "x": 57.59375,
-            "y": 241.28125,
+            "y": 249.28125,
             "width": 568.5,
             "height": 142.125
           },
@@ -743,13 +743,13 @@
           "project": "discount",
           "box": {
             "x": 57.59375,
-            "y": 222.015625,
+            "y": 222.21875,
             "width": 1324.8125,
             "height": 128.1875
           },
           "title": {
             "x": 57.59375,
-            "y": 251.140625,
+            "y": 251.34375,
             "width": 568.5,
             "height": 71.0625
           },
@@ -763,13 +763,13 @@
           "project": "developer",
           "box": {
             "x": 57.59375,
-            "y": 222.46875,
+            "y": 221.875,
             "width": 1324.8125,
             "height": 116.65625
           },
           "title": {
             "x": 57.59375,
-            "y": 240.0625,
+            "y": 239.46875,
             "width": 568.5,
             "height": 71.0625
           },
@@ -815,12 +815,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 85
+            "widthPercent": 84.99708737864079
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49478260869564
+            "widthPercent": 76.49417475728156
           }
         ]
       },
@@ -832,17 +832,17 @@
         "cards": [
           {
             "top": 315.34375,
-            "bottom": 1113,
+            "bottom": 1894.015625,
             "position": "static"
           },
           {
-            "top": 1169,
-            "bottom": 2019.390625,
+            "top": 1950.015625,
+            "bottom": 3459.953125,
             "position": "static"
           },
           {
-            "top": 2075.390625,
-            "bottom": 2797.75,
+            "top": 3515.953125,
+            "bottom": 4238.3125,
             "position": "static"
           }
         ],
@@ -874,13 +874,13 @@
           "project": "discount",
           "box": {
             "x": 16,
-            "y": 638,
+            "y": 436.015625,
             "width": 288,
             "height": 177.28125
           },
           "title": {
             "x": 16,
-            "y": 704,
+            "y": 464.015625,
             "width": 285.59375,
             "height": 35.6875
           },
@@ -894,13 +894,13 @@
           "project": "developer",
           "box": {
             "x": 16,
-            "y": 453.390625,
+            "y": 500.953125,
             "width": 288,
             "height": 157.484375
           },
           "title": {
             "x": 16,
-            "y": 476.390625,
+            "y": 529.953125,
             "width": 285.59375,
             "height": 35.6875
           },
@@ -943,12 +943,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.9956678700361
+            "widthPercent": 84.9953307392996
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49494584837545
+            "widthPercent": 76.49571984435798
           }
         ]
       },
@@ -960,17 +960,17 @@
         "cards": [
           {
             "top": 315.34375,
-            "bottom": 1090.546875,
+            "bottom": 1704.359375,
             "position": "static"
           },
           {
-            "top": 1146.546875,
-            "bottom": 2026.234375,
+            "top": 1760.359375,
+            "bottom": 3161.15625,
             "position": "static"
           },
           {
-            "top": 2082.234375,
-            "bottom": 2805.84375,
+            "top": 3217.15625,
+            "bottom": 3940.765625,
             "position": "static"
           }
         ],
@@ -1002,13 +1002,13 @@
           "project": "discount",
           "box": {
             "x": 19.5,
-            "y": 597.546875,
+            "y": 462.359375,
             "width": 351,
             "height": 182.53125
           },
           "title": {
             "x": 19.5,
-            "y": 649.546875,
+            "y": 493.359375,
             "width": 327.59375,
             "height": 40.9375
           },
@@ -1022,13 +1022,13 @@
           "project": "developer",
           "box": {
             "x": 19.5,
-            "y": 595.234375,
+            "y": 486.15625,
             "width": 351,
             "height": 162.734375
           },
           "title": {
             "x": 19.5,
-            "y": 751.234375,
+            "y": 522.15625,
             "width": 327.59375,
             "height": 40.9375
           },
@@ -1071,12 +1071,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99445574193145
+            "widthPercent": 84.99797297297297
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49665581324275
+            "widthPercent": 76.49932432432432
           }
         ]
       },
@@ -1088,17 +1088,17 @@
         "cards": [
           {
             "top": 338.78125,
-            "bottom": 1073.671875,
+            "bottom": 1442.828125,
             "position": "static"
           },
           {
-            "top": 1149.671875,
-            "bottom": 1851.125,
+            "top": 1518.828125,
+            "bottom": 2464.28125,
             "position": "static"
           },
           {
-            "top": 1927.125,
-            "bottom": 2511.90625,
+            "top": 2540.28125,
+            "bottom": 3125.0625,
             "position": "static"
           }
         ],
@@ -1130,13 +1130,13 @@
           "project": "discount",
           "box": {
             "x": 33.75,
-            "y": 241.671875,
+            "y": 262.828125,
             "width": 776.5,
             "height": 128.1875
           },
           "title": {
             "x": 33.75,
-            "y": 293.5625,
+            "y": 329.71875,
             "width": 386.390625,
             "height": 48.296875
           },
@@ -1150,13 +1150,13 @@
           "project": "developer",
           "box": {
             "x": 33.75,
-            "y": 253.125,
+            "y": 262.28125,
             "width": 776.5,
             "height": 106.09375
           },
           "title": {
             "x": 33.75,
-            "y": 283.921875,
+            "y": 296.078125,
             "width": 386.390625,
             "height": 48.296875
           },
@@ -1199,12 +1199,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99781945050152
+            "widthPercent": 84.99941248406091
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49925861317051
+            "widthPercent": 76.49936243640684
           }
         ]
       },
@@ -1216,17 +1216,17 @@
         "cards": [
           {
             "top": 315.6875,
-            "bottom": 1096.015625,
+            "bottom": 1312.21875,
             "position": "static"
           },
           {
-            "top": 1172.015625,
-            "bottom": 1881.46875,
+            "top": 1388.21875,
+            "bottom": 2350.875,
             "position": "static"
           },
           {
-            "top": 1957.46875,
-            "bottom": 2552.8125,
+            "top": 2426.875,
+            "bottom": 3022.21875,
             "position": "static"
           }
         ],
@@ -1258,13 +1258,13 @@
           "project": "discount",
           "box": {
             "x": 57.59375,
-            "y": 672.015625,
+            "y": 497.21875,
             "width": 1324.8125,
             "height": 128.1875
           },
           "title": {
             "x": 57.59375,
-            "y": 743.140625,
+            "y": 526.34375,
             "width": 568.5,
             "height": 71.0625
           },
@@ -1278,13 +1278,13 @@
           "project": "developer",
           "box": {
             "x": 57.59375,
-            "y": 503.46875,
+            "y": 512.875,
             "width": 1324.8125,
             "height": 116.65625
           },
           "title": {
             "x": 57.59375,
-            "y": 523.0625,
+            "y": 534.46875,
             "width": 568.5,
             "height": 71.0625
           },
@@ -1322,39 +1322,39 @@
       "width": 390,
       "imageSize": {
         "width": 352,
-        "height": 776
+        "height": 1390
       },
       "geometry": {
         "article": {
           "x": 19.5,
           "y": 110.34375,
           "width": 351,
-          "height": 775.203125,
-          "bottom": 885.546875
+          "height": 1389.015625,
+          "bottom": 1499.359375
         },
         "art": {
           "x": 19.5,
           "y": 333.8125,
           "width": 351,
-          "height": 535.734375,
-          "bottom": 869.546875
+          "height": 1149.546875,
+          "bottom": 1483.359375
         },
         "panel": {
           "x": 37.5,
           "y": 351.8125,
           "width": 315,
-          "height": 499.734375,
-          "bottom": 851.546875
+          "height": 1113.546875,
+          "bottom": 1465.359375
         },
         "caption": {
           "x": 19.5,
-          "y": 869.546875,
+          "y": 1483.359375,
           "width": 351,
           "height": 16,
-          "bottom": 885.546875
+          "bottom": 1499.359375
         },
         "fonts": "loaded",
-        "viewportHeight": 1080
+        "viewportHeight": 1601
       }
     },
     {
@@ -1362,39 +1362,39 @@
       "width": 390,
       "imageSize": {
         "width": 352,
-        "height": 881
+        "height": 1402
       },
       "geometry": {
         "article": {
           "x": 19.5,
-          "y": 109.546875,
+          "y": 110.359375,
           "width": 351,
-          "height": 879.6875,
-          "bottom": 989.234375
+          "height": 1400.796875,
+          "bottom": 1511.15625
         },
         "art": {
           "x": 19.5,
-          "y": 292.078125,
+          "y": 292.890625,
           "width": 351,
-          "height": 681.15625,
-          "bottom": 973.234375
+          "height": 1202.265625,
+          "bottom": 1495.15625
         },
         "panel": {
           "x": 37.5,
-          "y": 310.078125,
+          "y": 310.890625,
           "width": 315,
-          "height": 645.15625,
-          "bottom": 955.234375
+          "height": 1166.265625,
+          "bottom": 1477.15625
         },
         "caption": {
           "x": 19.5,
-          "y": 973.234375,
+          "y": 1495.15625,
           "width": 351,
           "height": 16,
-          "bottom": 989.234375
+          "bottom": 1511.15625
         },
         "fonts": "loaded",
-        "viewportHeight": 1080
+        "viewportHeight": 1601
       }
     },
     {
@@ -1407,34 +1407,34 @@
       "geometry": {
         "article": {
           "x": 19.5,
-          "y": 110.234375,
+          "y": 110.15625,
           "width": 351,
           "height": 723.609375,
-          "bottom": 833.84375
+          "bottom": 833.765625
         },
         "art": {
           "x": 19.5,
-          "y": 272.96875,
+          "y": 272.890625,
           "width": 351,
           "height": 544.875,
-          "bottom": 817.84375
+          "bottom": 817.765625
         },
         "panel": {
           "x": 37.5,
-          "y": 290.96875,
+          "y": 290.890625,
           "width": 315,
           "height": 508.875,
-          "bottom": 799.84375
+          "bottom": 799.765625
         },
         "caption": {
           "x": 19.5,
-          "y": 817.84375,
+          "y": 817.765625,
           "width": 351,
           "height": 16,
-          "bottom": 833.84375
+          "bottom": 833.765625
         },
         "fonts": "loaded",
-        "viewportHeight": 1080
+        "viewportHeight": 1601
       }
     },
     {
@@ -1442,39 +1442,39 @@
       "width": 1440,
       "imageSize": {
         "width": 1326,
-        "height": 782
+        "height": 998
       },
       "geometry": {
         "article": {
           "x": 57.59375,
           "y": 109.6875,
           "width": 1324.8125,
-          "height": 780.328125,
-          "bottom": 890.015625
+          "height": 996.53125,
+          "bottom": 1106.21875
         },
         "art": {
           "x": 57.59375,
           "y": 297.40625,
           "width": 1324.8125,
-          "height": 573.921875,
-          "bottom": 871.328125
+          "height": 790.125,
+          "bottom": 1087.53125
         },
         "panel": {
-          "x": 360,
+          "x": 190,
           "y": 333.40625,
-          "width": 720,
-          "height": 501.921875,
-          "bottom": 835.328125
+          "width": 1060,
+          "height": 718.125,
+          "bottom": 1051.53125
         },
         "caption": {
           "x": 57.59375,
-          "y": 871.328125,
+          "y": 1087.53125,
           "width": 462,
           "height": 18.6875,
-          "bottom": 890.015625
+          "bottom": 1106.21875
         },
         "fonts": "loaded",
-        "viewportHeight": 981
+        "viewportHeight": 1197
       }
     },
     {
@@ -1482,39 +1482,39 @@
       "width": 1440,
       "imageSize": {
         "width": 1326,
-        "height": 710
+        "height": 963
       },
       "geometry": {
         "article": {
           "x": 57.59375,
-          "y": 110.015625,
+          "y": 110.21875,
           "width": 1324.8125,
-          "height": 709.453125,
-          "bottom": 819.46875
+          "height": 962.65625,
+          "bottom": 1072.875
         },
         "art": {
           "x": 57.59375,
-          "y": 238.203125,
+          "y": 238.40625,
           "width": 1324.8125,
-          "height": 562.578125,
-          "bottom": 800.78125
+          "height": 815.78125,
+          "bottom": 1054.1875
         },
         "panel": {
-          "x": 330,
-          "y": 274.203125,
-          "width": 780,
-          "height": 490.578125,
-          "bottom": 764.78125
+          "x": 208,
+          "y": 274.40625,
+          "width": 1024,
+          "height": 743.78125,
+          "bottom": 1018.1875
         },
         "caption": {
           "x": 57.59375,
-          "y": 800.78125,
+          "y": 1054.1875,
           "width": 462,
           "height": 18.6875,
-          "bottom": 819.46875
+          "bottom": 1072.875
         },
         "fonts": "loaded",
-        "viewportHeight": 981
+        "viewportHeight": 1197
       }
     },
     {
@@ -1522,39 +1522,39 @@
       "width": 1440,
       "imageSize": {
         "width": 1326,
-        "height": 596
+        "height": 597
       },
       "geometry": {
         "article": {
           "x": 57.59375,
-          "y": 110.46875,
+          "y": 109.875,
           "width": 1324.8125,
           "height": 595.34375,
-          "bottom": 705.8125
+          "bottom": 705.21875
         },
         "art": {
           "x": 57.59375,
-          "y": 227.125,
+          "y": 226.53125,
           "width": 1324.8125,
           "height": 460,
-          "bottom": 687.125
+          "bottom": 686.53125
         },
         "panel": {
           "x": 310,
-          "y": 267.109375,
+          "y": 266.515625,
           "width": 820,
           "height": 380.03125,
-          "bottom": 647.140625
+          "bottom": 646.546875
         },
         "caption": {
           "x": 57.59375,
-          "y": 687.125,
+          "y": 686.53125,
           "width": 462,
           "height": 18.6875,
-          "bottom": 705.8125
+          "bottom": 705.21875
         },
         "fonts": "loaded",
-        "viewportHeight": 981
+        "viewportHeight": 1197
       }
     }
   ],
