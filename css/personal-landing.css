@@ -8,11 +8,12 @@
 }
 .folio .hero-footnote > a {
   color: var(--signal-text);
+  text-decoration: underline;
   text-underline-offset: 5px;
   padding-block: 10px;
 }
 .folio .hero-footnote > a:hover {
-  text-decoration: underline;
+  text-decoration-color: var(--signal);
 }
 .folio .showcase-track,
 .folio .showcase-track.is-gallery-ready {
@@ -160,11 +161,11 @@
   overflow-wrap: anywhere;
 }
 .footer-email span {
-  color: var(--signal-text);
+  color: var(--signal);
   font-size: 24px;
 }
 .footer-email:hover {
-  border-color: var(--signal-text);
+  border-color: var(--signal);
   color: var(--signal-text);
 }
 .folio .footer-bottom {

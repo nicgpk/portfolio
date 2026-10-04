@@ -9,7 +9,7 @@
   --font-serif: var(--body);
   --font-mono: var(--mono);
   --signal: #ff510a;
-  --signal-text: #b93608;
+  --signal-text: var(--ink);
   --line: #dbe1e4;
   --sky: #e4eff7;
   --cobalt: #174cde;
@@ -394,6 +394,15 @@ body.folio {
   margin-top: 18px;
   gap: 18px;
   color: var(--signal-text);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+/* Keep reading links neutral; orange marks their interaction, not their text. */
+.folio :is(.text-link, .case-scroll):is(:hover, :focus-visible) {
+  border-bottom-color: var(--signal);
+}
+.folio .showcase-case-link:is(:hover, :focus-visible) {
+  text-decoration-color: var(--signal);
 }
 .showcase-art {
   grid-column: 2;

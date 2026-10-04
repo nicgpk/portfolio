@@ -371,11 +371,11 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/js/folio.mjs",
+      "url": "http://127.0.0.1:4183/fonts/ubuntu-mono-bold.woff2",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/fonts/ubuntu-mono-bold.woff2",
+      "url": "http://127.0.0.1:4183/js/folio.mjs",
       "status": 200
     },
     {
@@ -398,9 +398,9 @@
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 2284,
+      "lcpMs": 4992,
       "cls": 0.0060778333729028175,
-      "resourceBytes": 389081,
+      "resourceBytes": 389460,
       "requestCount": 19
     }
   ],

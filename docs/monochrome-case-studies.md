@@ -4,7 +4,7 @@
 
 Partner Growth Programs, Discounting 2.0 and Developer Portal now share a grayscale reading system with orange as the only accent family. The homepage and selected-work gallery retain their approved design. White openings replace the previous charcoal slabs; each pairs the existing project thesis and role with a purpose-built illustrative diagram. The project name is explicit on every opening. Ubuntu Mono and Manrope remain self-hosted.
 
-The palette is white #fff, pale gray #f5f5f5, charcoal #202020, secondary gray #646464 and neutral gray borders. Orange #ff510a marks actions, selected states and the evidence panel's top edge. A darker shade #b93608 keeps small orange text readable on white; lightened orange is reserved for hover in the dark interface. These are contrast variants of one accent, not separate project colors.
+The palette is white #fff, pale gray #f5f5f5, charcoal #202020, secondary gray #646464 and neutral gray borders. Orange #ff510a marks interaction cues, selected states and the evidence panel's top edge. Reading links and small editorial labels use charcoal instead of the earlier brown-orange text shade. Links retain underlines and high-contrast keyboard outlines; hover changes the underline rather than the text color. The dark interface retains its readable orange state variants. See [link color review](link-colors.md).
 
 ## Project-specific graphics
 

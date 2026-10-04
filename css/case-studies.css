@@ -8,7 +8,7 @@ body.case-study {
   --cobalt: #ff510a;
   --coral: #ff510a;
   --signal: #ff510a;
-  --signal-text: #b93608;
+  --signal-text: var(--ink);
   --workspace-accent: #ff510a;
   --case-muted: #646464;
   background: var(--paper);
@@ -74,6 +74,9 @@ body.case-study {
   min-height: 44px;
   font-size: 13px;
   margin-top: 0;
+}
+.case-study .case-hero .case-scroll:is(:hover, :focus-visible) {
+  border-bottom-color: var(--signal);
 }
 .case-diagram {
   position: relative;
