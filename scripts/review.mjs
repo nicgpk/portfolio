@@ -340,9 +340,9 @@ assert.equal(
 );
 assert.equal(
   await page
-    .locator(".landscape-signal path")
-    .evaluate((e) => getComputedStyle(e).animationName),
-  "none",
+    .locator(".cloud-field")
+    .evaluate((e) => e.classList.contains("is-active")),
+  false,
 );
 const session = await page.context().newCDPSession(page);
 await session.send("Emulation.setEmulatedMedia", {

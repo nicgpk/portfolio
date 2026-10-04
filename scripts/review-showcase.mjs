@@ -841,6 +841,10 @@ async function captureCards(page, width) {
     mobile: width === 390,
   };
   const capture = await createPage(captureViewport);
+  await capture.page.addStyleTag({
+    content:
+      ".site-nav,.motion-control,.skip-link{visibility:hidden!important}",
+  });
   try {
     for (let i = 0; i < projects.length; i++) {
       const card = capture.page.locator(".showcase-card").nth(i);
@@ -859,6 +863,10 @@ async function captureCards(page, width) {
         }),
       );
       await capture.page.evaluate(() => document.activeElement?.blur());
+      await card.evaluate((element) => {
+        const top = element.getBoundingClientRect().top;
+        if (top < 12) window.scrollBy(0, top - 12);
+      });
       await capture.page.evaluate(
         () =>
           new Promise((resolve) =>
@@ -977,8 +985,10 @@ async function main() {
       "The opening project must load at the start of the rail.",
     );
     assert.ok(
-      layout.cards[1].left < layout.rail.right - 2,
-      "The next-card peek must suggest horizontal scrolling.",
+      layout.cards[0].left >= layout.rail.left &&
+        layout.cards[0].right <= layout.rail.right &&
+        layout.cards[1].left >= layout.rail.right,
+      "The selected card must fit in full, without a clipped neighboring card.",
     );
     const gestures = await assertNativeGestures(currentPage, {
       shift: viewport === desktop,

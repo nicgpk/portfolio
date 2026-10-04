@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 480" fill="none">
+<defs>
+<pattern id="far" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r=".7" fill="#87908b"/></pattern>
+<pattern id="middle" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1" fill="#87908b"/></pattern>
+<pattern id="near" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1.35" fill="#87908b"/></pattern>
+<linearGradient id="fade"><stop stop-color="white" stop-opacity=".04"/><stop offset=".5" stop-color="white" stop-opacity=".35"/><stop offset="1" stop-color="white" stop-opacity=".8"/></linearGradient>
+<mask id="quiet"><path fill="url(#fade)" d="M0 0h1440v480H0z"/></mask>
+</defs>
+<g mask="url(#quiet)">
+<path fill="url(#far)" d="M0 285C180 290 270 210 420 242S710 340 900 235s350-120 540-95v340H0z"/>
+<path fill="url(#middle)" d="M0 365c270-40 350 10 560-10s290-95 480-75 240 65 400-10v210H0z"/>
+<path fill="url(#near)" d="M0 440c250-30 460 30 680-10s240-115 410-90 240 50 350 10v130H0z"/>
+</g></svg>

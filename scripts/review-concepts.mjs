@@ -7,9 +7,9 @@ process.env.PLAYWRIGHT_BROWSERS_PATH = fileURLToPath(
   new URL("../node_modules/.cache/ms-playwright", import.meta.url),
 );
 const baseline =
-  process.env.CONCEPT_BASELINE || "4fc8baca5422aeef51638d3dd2f0fc3afee138e8";
+  process.env.CONCEPT_BASELINE || "4874c92053fac37c513225ba3a26f76cb9c6fcb7";
 const base = "http://127.0.0.1:4183";
-const directory = "review/developer-system/after";
+const directory = "review/personal-landing/concepts";
 await mkdir(directory, { recursive: true });
 const browser = await chromium.launch();
 const report = {
@@ -76,16 +76,18 @@ try {
           new DOMParser().parseFromString(text, "text/html");
         const a = parse(before),
           b = parse(after);
-        const text = (e) => e.textContent.replace(/\s+/g, " ").trim();
+        const text = (e) => {
+          const copy = e.cloneNode(true);
+          copy.querySelectorAll(".folio-footer").forEach((n) => n.remove());
+          return copy.textContent.replace(/\s+/g, " ").trim();
+        };
         const selectors =
           route === "index"
             ? [
-                ".studio-hero",
                 ".showcase-card-link",
                 ".showcase-caption",
                 ".about-section",
                 ".archive",
-                ".folio-footer",
               ]
             : route === "projects" || route === "resume"
               ? ["body"]
@@ -93,10 +95,10 @@ try {
                   ".case-hero",
                   ".case-framing",
                   ".decisions-section",
-                  ".evidence-card",
+                  ".evidence-context",
+                  ".evidence-card details",
                   ".supporting-artifacts",
                   ".case-next",
-                  ".folio-footer",
                 ];
         const sections = selectors.map((selector) => ({
           selector,
@@ -133,16 +135,19 @@ try {
         return {
           route,
           sections,
-          linksUnchanged: JSON.stringify(links(a)) === JSON.stringify(links(b)),
+          linksUnchanged: links(a).every((href) => links(b).includes(href)),
           programsUnchanged:
             JSON.stringify(programs(a)) === JSON.stringify(programs(b)),
           developerSettingsUnchanged:
             JSON.stringify(values(a)) === JSON.stringify(values(b)),
           ...(route === "index"
             ? {
-                heroMarkupUnchanged:
-                  a.querySelector(".studio-hero").outerHTML ===
-                  b.querySelector(".studio-hero").outerHTML,
+                personalHero:
+                  text(b.querySelector("#hero-title")).replace(/\s/g, "") ===
+                  "NicholasGwee.ProductDesignLead.",
+                removedTags:
+                  b.querySelectorAll(".landscape-label,.studio-divider")
+                    .length === 0,
               }
             : {}),
         };
@@ -156,7 +161,7 @@ try {
         audit.developerSettingsUnchanged,
       JSON.stringify(audit),
     );
-    if (route === "index") assert.ok(audit.heroMarkupUnchanged);
+    if (route === "index") assert.ok(audit.personalHero && audit.removedTags);
     report.content.push(audit);
     if (!["index", "projects", "resume"].includes(route)) {
       const navigation = page.getByRole("navigation", {
@@ -382,7 +387,7 @@ try {
   throw error;
 } finally {
   await writeFile(
-    "review/developer-system/checks.json",
+    "review/personal-landing/concept-checks.json",
     JSON.stringify(report, null, 2) + "\n",
   );
   await browser.close();

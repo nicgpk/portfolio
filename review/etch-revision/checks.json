@@ -1,7 +1,7 @@
 {
   "passed": true,
   "checks": [
-    "Full-hero WebGL halftone advances its ambient phase; real mouse input uploads visible brush ink while text and labels stay stationary.",
+    "Full-hero WebGL halftone advances its ambient phase; real mouse input uploads visible brush ink while text and actions stay stationary.",
     "Cursor trails dissolve after pointer exit.",
     "Persistent pause and live reduced-motion changes switch to the poster and stop frame requests; resume restarts safely.",
     "Offscreen artwork stops requesting frames and resumes on return; vertical scrolling stays native.",

@@ -46,7 +46,7 @@ try {
     canvas = page.locator(".cloud-canvas");
   await expect(field).toHaveClass(/is-active/);
   const reading = await page.locator("#hero-title").boundingBox();
-  const label = await page.locator(".landscape-label--three").boundingBox();
+  const label = await page.locator(".hero-actions").boundingBox();
   await page.screenshot({
     path: "review/etch-revision/after/opening-1440.png",
   });
@@ -75,13 +75,10 @@ try {
     "Mouse movement must upload a nonempty brush texture.",
   );
   assert.deepEqual(await page.locator("#hero-title").boundingBox(), reading);
-  assert.deepEqual(
-    await page.locator(".landscape-label--three").boundingBox(),
-    label,
-  );
+  assert.deepEqual(await page.locator(".hero-actions").boundingBox(), label);
   await page.screenshot({ path: "review/etch-revision/after/trail-1440.png" });
   checks.push(
-    "Full-hero WebGL halftone advances its ambient phase; real mouse input uploads visible brush ink while text and labels stay stationary.",
+    "Full-hero WebGL halftone advances its ambient phase; real mouse input uploads visible brush ink while text and actions stay stationary.",
   );
   await page.mouse.move(10, 20);
   await page.waitForTimeout(2100);
@@ -243,7 +240,7 @@ try {
         .evaluate((e) => e.complete && e.naturalWidth > 0),
     );
     await expect(
-      p.getByRole("link", { name: "Explore Partner Growth Programs" }),
+      p.getByRole("link", { name: "Read the flagship case study" }),
     ).toHaveAttribute("href", "partner-growth-programs.html");
     await ctx.close();
   }

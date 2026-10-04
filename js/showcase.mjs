@@ -45,7 +45,13 @@ for (const root of document.querySelectorAll(".project-showcase")) {
       .getBoundingClientRect().bottom;
     const readingAreaPassed =
       card.getBoundingClientRect().bottom < navBottom + 80;
-    track.style.height = `${Math.ceil(card.getBoundingClientRect().height) + 20}px`;
+    const bounds = track.getBoundingClientRect();
+    // Keep every card crossing the viewport fully visible during native swipes.
+    const visible = cards.filter((item) => {
+      const rect = item.getBoundingClientRect();
+      return rect.right > bounds.left + 8 && rect.left < bounds.right - 8;
+    });
+    track.style.height = `${Math.ceil(Math.max(...[card, ...visible].map((item) => item.getBoundingClientRect().height))) + 20}px`;
     fitted = index;
     // A deep sideways swipe to a shorter project must not leave an empty viewport.
     if (reveal && readingAreaPassed)
@@ -59,7 +65,7 @@ for (const root of document.querySelectorAll(".project-showcase")) {
     clearTimeout(settleTimer);
     if (track.clientWidth !== width) return;
     update();
-    if (active !== fitted) fit(active, true);
+    fit(active, active !== fitted);
   }
   function go(index, smooth = true) {
     index = Math.max(0, Math.min(cards.length - 1, index));
@@ -114,6 +120,9 @@ for (const root of document.querySelectorAll(".project-showcase")) {
     "scroll",
     () => {
       if (!frame) frame = requestAnimationFrame(update);
+      const lastFitted = fitted;
+      fit(nearest());
+      fitted = lastFitted;
       clearTimeout(settleTimer);
       settleTimer = setTimeout(settled, 160);
     },
@@ -170,6 +179,9 @@ for (const root of document.querySelectorAll(".project-showcase")) {
   fit(active);
   // Local font loading can change a card's height without changing its width.
   document.fonts.ready.then(() => fit(fitted));
+  // Evidence disclosures must grow the gallery rather than disappear below it.
+  const cardSizes = new ResizeObserver(() => fit(nearest()));
+  cards.forEach((card) => cardSizes.observe(card));
 }
 
 // Entry details enhance fully visible cover content; document scrolling stays native.

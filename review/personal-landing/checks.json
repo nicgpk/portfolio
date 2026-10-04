@@ -1,0 +1,38 @@
+{
+  "viewports": [
+    {
+      "width": 320,
+      "metrics": true,
+      "completeCards": true,
+      "expandedEvidence": true,
+      "personalHero": true,
+      "footerLandscape": true
+    },
+    {
+      "width": 390,
+      "metrics": true,
+      "completeCards": true,
+      "expandedEvidence": true,
+      "personalHero": true,
+      "footerLandscape": true
+    },
+    {
+      "width": 768,
+      "metrics": true,
+      "completeCards": true,
+      "expandedEvidence": true,
+      "personalHero": true,
+      "footerLandscape": true
+    },
+    {
+      "width": 1440,
+      "metrics": true,
+      "completeCards": true,
+      "expandedEvidence": true,
+      "personalHero": true,
+      "footerLandscape": true
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

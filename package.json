@@ -6,7 +6,7 @@
   "scripts": {
     "preview": "node scripts/preview.mjs",
     "test": "node --test tests/*.test.mjs",
-    "review": "node scripts/review.mjs && node scripts/review-concepts.mjs && node scripts/review-kinetics.mjs && node scripts/review-showcase.mjs && node scripts/review-wheel.mjs && node scripts/review-clouds.mjs && node scripts/check-originals.mjs",
+    "review": "node scripts/review.mjs && node scripts/review-personal-landing.mjs && node scripts/review-concepts.mjs && node scripts/review-kinetics.mjs && node scripts/review-showcase.mjs && node scripts/review-wheel.mjs && node scripts/review-clouds.mjs && node scripts/check-originals.mjs",
     "build:pages": "python scripts/build-pages.py && prettier --write index.html projects.html partner-growth-programs.html discounting.html dev-portal.html resume.html"
   },
   "devDependencies": {
