@@ -1,0 +1,93 @@
+{
+  "baseline": "c53f0e8",
+  "previews": [
+    {
+      "width": 320,
+      "commonHeadings": true,
+      "commonShells": true,
+      "alignedDesktopFrames": false,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "commonHeadings": true,
+      "commonShells": true,
+      "alignedDesktopFrames": false,
+      "noOverflow": true
+    },
+    {
+      "width": 768,
+      "commonHeadings": true,
+      "commonShells": true,
+      "alignedDesktopFrames": false,
+      "noOverflow": true
+    },
+    {
+      "width": 1440,
+      "commonHeadings": true,
+      "commonShells": true,
+      "alignedDesktopFrames": true,
+      "noOverflow": true
+    }
+  ],
+  "fields": [
+    {
+      "width": 320,
+      "commonFields": true,
+      "commonHeaders": true,
+      "searchIconSpacing": true
+    },
+    {
+      "width": 390,
+      "commonFields": true,
+      "commonHeaders": true,
+      "searchIconSpacing": true
+    },
+    {
+      "width": 768,
+      "commonFields": true,
+      "commonHeaders": true,
+      "searchIconSpacing": true
+    },
+    {
+      "width": 1440,
+      "commonFields": true,
+      "commonHeaders": true,
+      "searchIconSpacing": true
+    }
+  ],
+  "content": [
+    {
+      "route": "index",
+      "textUnchanged": true,
+      "linksUnchanged": true
+    },
+    {
+      "route": "projects",
+      "textUnchanged": true,
+      "linksUnchanged": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "textUnchanged": true,
+      "linksUnchanged": true
+    },
+    {
+      "route": "discounting",
+      "textUnchanged": true,
+      "linksUnchanged": true
+    },
+    {
+      "route": "dev-portal",
+      "textUnchanged": true,
+      "linksUnchanged": true
+    },
+    {
+      "route": "resume",
+      "textUnchanged": true,
+      "linksUnchanged": true
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

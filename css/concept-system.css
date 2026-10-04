@@ -1,0 +1,351 @@
+/* Shared interface primitives. Layouts follow each existing task, not fake steps. */
+.folio .concept-shell {
+  --concept-gap: 24px;
+  --concept-radius: 6px;
+  background: var(--workspace);
+  color: var(--workspace-ink);
+  border: 1px solid var(--workspace-line);
+  border-radius: 12px;
+  box-shadow: none;
+  font: 14px/1.6 var(--body);
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+}
+.folio .concept-shell .concept-shell-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  min-height: 80px;
+  padding: 20px var(--concept-gap);
+  background: var(--workspace);
+  border-bottom: 1px solid var(--workspace-line);
+}
+.folio
+  .concept-shell
+  .concept-shell-header
+  :is(.app-mark, .rate-preview-mark, .dev-brand > span) {
+  display: none;
+}
+.folio .concept-shell .concept-shell-header :is(h2, strong, .dev-brand) {
+  margin: 0;
+  color: var(--workspace-ink);
+  font: 600 18px/1.35 var(--body);
+  letter-spacing: -0.025em;
+}
+.folio
+  .concept-shell
+  .concept-shell-header
+  :is(.app-account, .discount-currency, .dev-context, .terminal-pill) {
+  color: var(--workspace-muted);
+  font: 12px/1.5 var(--mono);
+}
+.folio .concept-shell .terminal-pill {
+  padding: 5px 8px;
+  border: 1px solid #777;
+  border-radius: var(--concept-radius);
+  background: transparent;
+}
+.folio .concept-shell .concept-shell-header .app-account {
+  width: auto;
+  padding: 0;
+  margin-block: 0;
+  border: 0;
+}
+.folio
+  .concept-shell
+  :is(.app-content, .deploy-form, .discount-settings, .discount-summary) {
+  padding: var(--concept-gap);
+  min-width: 0;
+  background: var(--workspace);
+}
+.folio .concept-shell :is(.app-layout, .developer-layout) {
+  grid-template-columns: 160px minmax(0, 1fr);
+}
+.folio .concept-shell :is(.app-side, .developer-sidebar) {
+  padding: 24px 12px;
+  border-right: 1px solid var(--workspace-line);
+  background: var(--workspace);
+}
+.folio .concept-shell :is(.app-side, .developer-sidebar) > :is(span, strong) {
+  font: 500 14px/1.5 var(--body);
+  padding: 9px 12px;
+  border-radius: var(--concept-radius);
+}
+.folio .concept-shell :is(.app-side, .developer-sidebar) > strong {
+  background: #292929;
+  color: var(--workspace-ink);
+  box-shadow: inset 2px 0 var(--workspace-accent);
+}
+.folio
+  .concept-shell
+  :is(
+    .app-side-label,
+    .app-side-note,
+    .developer-sidebar > p,
+    .growth-kicker,
+    .app-eyebrow,
+    .ui-section-kicker
+  ) {
+  color: var(--workspace-muted);
+  font: 12px/1.5 var(--mono);
+  letter-spacing: 0;
+}
+.folio .concept-shell :is(.growth-page-heading h2, .deploy-stage h2) {
+  margin: 8px 0 12px;
+  font: 600 28px/1.2 var(--body);
+  letter-spacing: -0.035em;
+  color: var(--workspace-ink);
+}
+.folio
+  .concept-shell
+  :is(
+    .growth-page-heading > p:last-child,
+    .deploy-stage > p:not(.app-eyebrow),
+    .discount-field-help,
+    .dev-field-help,
+    .dev-guidance
+  ) {
+  font: 13px/1.65 var(--body);
+  color: var(--workspace-muted);
+}
+.folio
+  .concept-shell
+  :is(
+    .search-field > span:first-child,
+    .category-field > span:first-child,
+    .deploy-form label,
+    .rate-field,
+    .discount-field-label
+  ) {
+  color: var(--workspace-ink);
+  font: 12px/1.5 var(--mono);
+}
+.folio
+  .concept-shell
+  :is(.growth-input-wrap, .input-money, .discount-static-field) {
+  border: 1px solid #777;
+  border-radius: var(--concept-radius);
+  background: var(--workspace-raised);
+  min-height: 44px;
+  padding: 0 12px;
+}
+.folio .concept-shell :is(input:not([type="checkbox"]), select) {
+  min-height: 44px;
+  border: 1px solid #777;
+  border-radius: var(--concept-radius);
+  background: var(--workspace-raised);
+  color: var(--workspace-ink);
+  font: 14px/1.5 var(--mono);
+  padding: 10px 12px;
+}
+.folio .concept-shell :is(.growth-input-wrap, .input-money) > input {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  min-width: 0;
+  flex: 1;
+  padding: 10px 4px;
+  min-height: 42px;
+}
+.folio .concept-shell .growth-input-wrap > input {
+  padding-left: 28px;
+}
+.folio .concept-shell input::placeholder {
+  color: var(--workspace-muted);
+  opacity: 1;
+}
+.folio .concept-shell input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--workspace-accent);
+}
+.folio .concept-shell :is(.deploy-field-group, .discount-promotions) {
+  padding: 18px;
+  margin-block: 24px;
+  border: 1px solid var(--workspace-line);
+  border-radius: 8px;
+  background: var(--workspace);
+  min-width: 0;
+}
+.folio .concept-shell :is(.deploy-field-group, .discount-promotions) > legend {
+  color: var(--workspace-muted);
+  font: 12px/1.5 var(--mono);
+  padding-inline: 6px;
+}
+.folio .concept-shell :is(.program-tile, .promo-toggle) {
+  border-color: var(--workspace-line);
+  border-radius: var(--concept-radius);
+  background: var(--workspace);
+}
+.folio
+  .concept-shell
+  :is(
+    .program-tile[open] > summary,
+    .program-tile > summary:hover,
+    .promo-toggle:has(input:checked)
+  ) {
+  background: #292929;
+  border-color: #777;
+  box-shadow: inset 2px 0 var(--workspace-accent);
+}
+.folio
+  .concept-shell
+  :is(.program-tile[open] .catalog-glyph, .discount-percent, .form-error) {
+  background: var(--workspace-raised);
+  border-color: #777;
+  color: var(--workspace-accent);
+}
+.folio
+  .concept-shell
+  :is(.growth-preview-note, .discount-app-footer, .deploy-actions) {
+  border-top-color: var(--workspace-line);
+  color: var(--workspace-muted);
+  font: 12px/1.6 var(--mono);
+}
+.folio .concept-shell :focus-visible {
+  outline: 2px solid var(--workspace-accent);
+  outline-offset: 3px;
+}
+/* Previews use the same unbranded heading and two-pane reading order. */
+.folio .concept-preview {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  padding: var(--concept-gap);
+}
+.folio .concept-preview .preview-header h4 {
+  font: 600 28px/1.2 var(--body);
+  letter-spacing: -0.035em;
+  margin: 0 0 8px;
+  color: var(--workspace-ink);
+}
+.folio .concept-preview .preview-header > span {
+  display: block;
+  font: 13px/1.6 var(--body);
+  color: var(--workspace-muted);
+}
+.folio .concept-preview .preview-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--concept-gap);
+  padding: 0;
+  margin: 24px 0;
+  align-content: start;
+}
+.folio .concept-preview .preview-pane {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.folio .concept-preview .preview-detail {
+  padding-left: var(--concept-gap);
+  border-left: 1px solid var(--workspace-line);
+}
+.folio
+  .concept-preview
+  :is(
+    .lean-label,
+    .lean-detail-heading > span:first-child,
+    .lean-mechanics > span,
+    .cover-deploy-body p,
+    .rate-preview-eyebrow
+  ) {
+  font: 11px/1.5 var(--mono);
+  color: var(--workspace-muted);
+  margin-block: 0 12px;
+}
+.folio .concept-preview :is(.lean-detail h4, .cover-deploy-body h4) {
+  font: 600 24px/1.25 var(--mono);
+  margin-block: 12px 16px;
+  letter-spacing: -0.035em;
+}
+.folio .concept-preview .lean-detail > p {
+  font: 12px/1.7 var(--body);
+  color: var(--workspace-muted);
+}
+.folio .concept-preview .lean-search {
+  min-height: 44px;
+  margin: 24px 0 0;
+  border-color: #777;
+  border-radius: var(--concept-radius);
+  background: var(--workspace-raised);
+}
+.folio .concept-preview .lean-search > span {
+  margin: 0;
+}
+.folio .concept-preview .preview-note {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 18px 0 0;
+  margin: auto 0 0;
+  border-top: 1px solid var(--workspace-line);
+  color: var(--workspace-muted);
+  font: 11px/1.6 var(--mono);
+}
+.folio .concept-preview .cover-deploy-steps {
+  padding: 0;
+  margin-top: 24px;
+  border-color: var(--workspace-line);
+}
+.folio .concept-preview .cover-deploy-steps > span {
+  padding: 0 0 12px;
+  font: 11px/1.5 var(--mono);
+}
+@media (min-width: 1001px) {
+  .folio .showcase-art {
+    align-items: stretch;
+  }
+}
+@media (max-width: 900px) {
+  .folio .concept-shell :is(.app-layout, .developer-layout) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .folio .concept-shell :is(.app-side, .developer-sidebar) {
+    display: none;
+  }
+}
+@media (max-width: 540px) {
+  .folio .concept-shell {
+    --concept-gap: 18px;
+  }
+  .folio .concept-preview .preview-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .folio .concept-preview .preview-detail {
+    padding: 20px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--workspace-line);
+  }
+  .folio .concept-preview .preview-header h4,
+  .folio .concept-shell :is(.growth-page-heading h2, .deploy-stage h2) {
+    font-size: 24px;
+  }
+}
+@media (forced-colors: active) {
+  .folio .concept-shell,
+  .folio
+    .concept-shell
+    :is(
+      .concept-shell-header,
+      .preview-detail,
+      .preview-note,
+      .growth-input-wrap,
+      .input-money,
+      input,
+      select,
+      fieldset
+    ) {
+    border-color: CanvasText;
+  }
+  .folio .concept-shell :focus-visible {
+    outline-color: Highlight;
+  }
+}

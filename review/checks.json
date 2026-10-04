@@ -303,6 +303,14 @@
   ],
   "requests": [
     {
+      "url": "http://127.0.0.1:4183/js/halftone.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/hero-clouds-1600.webp",
+      "status": 200
+    },
+    {
       "url": "http://127.0.0.1:4183/images/hero-halftone-800.png",
       "status": 200
     },
@@ -347,6 +355,10 @@
       "status": 200
     },
     {
+      "url": "http://127.0.0.1:4183/css/concept-system.css",
+      "status": 200
+    },
+    {
       "url": "http://127.0.0.1:4183/images/hero-halftone-800.png",
       "status": 200
     },
@@ -359,11 +371,11 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/fonts/ubuntu-mono-bold.woff2",
+      "url": "http://127.0.0.1:4183/js/folio.mjs",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/js/folio.mjs",
+      "url": "http://127.0.0.1:4183/fonts/ubuntu-mono-bold.woff2",
       "status": 200
     },
     {
@@ -390,10 +402,10 @@
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 2456,
+      "lcpMs": 2332,
       "cls": 0.0060778333729028175,
-      "resourceBytes": 385079,
-      "requestCount": 19
+      "resourceBytes": 394000,
+      "requestCount": 20
     }
   ],
   "errors": [],
