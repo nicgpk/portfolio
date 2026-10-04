@@ -480,22 +480,6 @@
   padding-block: 16px;
   min-height: 78px;
 }
-.showcase-runway {
-  height: 0;
-  pointer-events: none;
-}
-.folio .project-showcase.is-scroll-gallery {
-  position: relative;
-  overflow: visible;
-}
-.is-scroll-gallery .showcase-stage {
-  position: sticky;
-  top: var(--gallery-top, 88px);
-  min-height: var(--gallery-stage-height);
-}
-.is-scroll-gallery {
-  overflow-anchor: none;
-}
 @media (max-width: 1000px) {
   .folio .showcase-card {
     display: grid;

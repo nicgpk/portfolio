@@ -88,7 +88,42 @@
       ><a href="checks.json">Verification results</a
       ><a href="../docs/browserbase-direction.md">Design direction</a>
     </nav>
-    <h2>Current refinement: a shared concept interface system</h2>
+    <h2>Current refinement: horizontal projects without vertical expansion</h2>
+    <p>
+      The sticky stage and extra scroll runway are removed. Wheel input moves
+      the projects sideways while page position and section height stay fixed;
+      normal page scrolling continues at either end. Expanded source context
+      remains vertically readable.
+    </p>
+    <p>
+      <a href="../docs/horizontal-gallery.md">Scroll behavior and evidence</a> ·
+      <a href="horizontal-surface/checks.json">Geometry and input checks</a>
+    </p>
+    <div class="comparison">
+      <figure>
+        <a href="horizontal-surface/before/section-1440.png"
+          ><img
+            src="horizontal-surface/before/section-1440.png"
+            width="1280"
+            height="2499"
+            alt="Before: selected work section with extra vertical scroll space"
+            loading="lazy"
+        /></a>
+        <figcaption>Before · 2499px section capture</figcaption>
+      </figure>
+      <figure>
+        <a href="horizontal-surface/after/section-1440.png"
+          ><img
+            src="horizontal-surface/after/section-1440.png"
+            width="1280"
+            height="1099"
+            alt="After: selected work section with only its natural content height"
+            loading="lazy"
+        /></a>
+        <figcaption>After · 1099px section capture</figcaption>
+      </figure>
+    </div>
+    <h2>A shared concept interface system</h2>
     <p>
       One set of headings, field geometry, divider treatments and neutral/orange
       states across all three previews and full concepts. Desktop preview frames

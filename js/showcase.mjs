@@ -1,5 +1,4 @@
 import { motionPaused } from "./kinetics.mjs";
-import { createGalleryScroll } from "./gallery-scroll.mjs";
 
 // Native overflow for touch/trackpads, with scoped mouse-wheel paging on desktop.
 for (const root of document.querySelectorAll(".project-showcase")) {
@@ -29,7 +28,6 @@ for (const root of document.querySelectorAll(".project-showcase")) {
           : best,
       0,
     );
-  const scrollScene = createGalleryScroll(root, track, cards, () => active);
   function update() {
     frame = 0;
     // Reflow can emit scroll before ResizeObserver restores the selected project.
@@ -65,7 +63,6 @@ for (const root of document.querySelectorAll(".project-showcase")) {
   function go(index, smooth = true, reveal = true) {
     index = Math.max(0, Math.min(cards.length - 1, index));
     fit(index, reveal);
-    if (scrollScene.select(index, smooth, !reveal)) return;
     track.scrollTo({
       left: leftFor(index),
       behavior: smooth && !motionPaused() ? "smooth" : "instant",
@@ -78,12 +75,12 @@ for (const root of document.querySelectorAll(".project-showcase")) {
   let wheelLockedUntil = 0;
   let wheelDirection = 0;
   let wheelTarget = 0;
-  track.addEventListener(
+  window.addEventListener(
     "wheel",
     (event) => {
       // Keep zoom, modified input and horizontal trackpad gestures native.
       if (
-        scrollScene.active() ||
+        event.defaultPrevented ||
         !wheelPointer.matches ||
         innerWidth < 900 ||
         event.ctrlKey ||
@@ -92,6 +89,20 @@ for (const root of document.querySelectorAll(".project-showcase")) {
         event.shiftKey ||
         Math.abs(event.deltaX) > 0.5 ||
         !event.deltaY
+      )
+        return;
+      const box = track.getBoundingClientRect();
+      const navBottom = document
+        .querySelector(".site-nav")
+        .getBoundingClientRect().bottom;
+      const overTrack = track.contains(event.target);
+      // Side margins share the gallery's wheel area, without adding page height.
+      const overMargin =
+        event.clientY >= Math.max(box.top, navBottom) &&
+        event.clientY <= Math.min(box.bottom, innerHeight);
+      if (
+        (!overTrack && !overMargin) ||
+        cards.some((card) => card.querySelector("details[open]"))
       )
         return;
       const direction = Math.sign(event.deltaY);
@@ -109,7 +120,7 @@ for (const root of document.querySelectorAll(".project-showcase")) {
       wheelDirection = direction;
       wheelTarget = target;
       wheelLockedUntil = now + 450;
-      go(target);
+      go(target, true, false);
     },
     { passive: false },
   );

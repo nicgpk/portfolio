@@ -3,7 +3,8 @@
   "results": [
     {
       "reducedMotion": "no-preference",
-      "nativeScrollScene": true,
+      "fixedSectionHeight": true,
+      "marginWheelOnlyHorizontal": true,
       "wheelAdvances": true,
       "endReleasesToPage": true,
       "startReleasesToPage": true,
@@ -11,7 +12,8 @@
     },
     {
       "reducedMotion": "reduce",
-      "nativeScrollScene": false,
+      "fixedSectionHeight": true,
+      "marginWheelOnlyHorizontal": true,
       "wheelAdvances": true,
       "endReleasesToPage": true,
       "startReleasesToPage": true,

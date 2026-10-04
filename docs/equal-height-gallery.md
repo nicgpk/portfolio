@@ -6,7 +6,7 @@ Metric panels use a neutral gray surface (#f5f5f5), charcoal text (#202020) and 
 
 Desktop previews fill the shared right column with captions at its foot. Below 1000px, descriptions, previews and captions stack. Shorter previews align at the top of their available space; captions retain a common bottom edge. Equal heights create extra space under the shorter mobile previews. This is the tradeoff for stable card geometry and readable source evidence.
 
-The existing native page-driven desktop scene, scoped wheel fallback, touch overflow, hidden scrollbar, arrows, keyboard controls and reduced-motion/pause fallbacks remain. Expanding long context disables the pinned scene when it exceeds the viewport. No fixed-height crop, runtime package or global installation is introduced.
+The later `docs/horizontal-gallery.md` refinement removes the page-driven scene. Scoped horizontal wheel paging, touch overflow, hidden scrollbar, arrows, keyboard controls and reduced-motion/pause fallbacks remain. Expanded metric context uses normal vertical reading. No fixed-height crop, runtime package or global installation is introduced.
 
 ## Review evidence
 

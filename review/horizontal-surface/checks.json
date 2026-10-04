@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "errors": [],
+  "initial": {
+    "height": 1097.40625,
+    "y": 0,
+    "tailSpace": 0,
+    "position": "relative",
+    "runway": 0
+  },
+  "noRunway": true,
+  "noStickyStage": true,
+  "marginWheel": {
+    "before": {
+      "height": 1097.40625,
+      "y": 1103,
+      "tailSpace": 0,
+      "position": "relative",
+      "runway": 0
+    },
+    "after": {
+      "height": 1097.40625,
+      "y": 1103,
+      "tailSpace": 0,
+      "position": "relative",
+      "runway": 0
+    }
+  },
+  "nativeInputs": [
+    {
+      "key": "ctrlKey",
+      "prevented": false
+    },
+    {
+      "key": "metaKey",
+      "prevented": false
+    },
+    {
+      "key": "altKey",
+      "prevented": false
+    },
+    {
+      "key": "shiftKey",
+      "prevented": false
+    },
+    {
+      "key": "horizontal",
+      "prevented": false
+    }
+  ],
+  "boundaryRelease": true,
+  "rapidKeyboard": true,
+  "responsiveSelection": true,
+  "resizeOutsideGallery": true,
+  "expandedContextScrollsNormally": true,
+  "preferencesAndShortScreen": true
+}

@@ -303,11 +303,11 @@
   ],
   "requests": [
     {
-      "url": "http://127.0.0.1:4183/js/halftone.mjs",
+      "url": "http://127.0.0.1:4183/images/hero-clouds-1600.webp",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/images/hero-clouds-1600.webp",
+      "url": "http://127.0.0.1:4183/js/halftone.mjs",
       "status": 200
     },
     {
@@ -393,19 +393,15 @@
     {
       "url": "http://127.0.0.1:4183/js/showcase.mjs",
       "status": 200
-    },
-    {
-      "url": "http://127.0.0.1:4183/js/gallery-scroll.mjs",
-      "status": 200
     }
   ],
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 2332,
+      "lcpMs": 2284,
       "cls": 0.0060778333729028175,
-      "resourceBytes": 394000,
-      "requestCount": 20
+      "resourceBytes": 389081,
+      "requestCount": 19
     }
   ],
   "errors": [],

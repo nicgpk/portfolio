@@ -23,42 +23,16 @@ try {
     );
     const track = page.locator(".showcase-track");
     const box = await track.boundingBox();
-    const pinned = await page
-      .locator(".project-showcase")
-      .evaluate((root) => root.classList.contains("is-scroll-gallery"));
-    if (pinned)
-      await page
-        .locator(".showcase-intro")
-        .evaluate((el) =>
-          window.scrollTo({
-            top:
-              scrollY +
-              el.getBoundingClientRect().bottom -
-              document.querySelector(".site-nav").getBoundingClientRect()
-                .bottom -
-              16,
-            behavior: "instant",
-          }),
-        );
-    await page.mouse.move(
-      pinned ? 12 : box.x + box.width / 2,
-      Math.min(600, box.y + 220),
-    );
+    await page.mouse.move(12, Math.min(600, box.y + 220));
     const start = await page.evaluate(() => scrollY);
-    const step = pinned ? 630 : 120;
+    const step = 120;
     await page.mouse.wheel(0, step);
     await expect(page.locator("[data-showcase-position]")).toHaveText("2 of 3");
     await page.waitForTimeout(550);
-    if (pinned)
-      assert.ok(
-        (await page.evaluate(() => scrollY)) > start + 500,
-        "Page-margin wheel input advances native page progress through the pinned gallery.",
-      );
-    else
-      assert.ok(
-        Math.abs((await page.evaluate(() => scrollY)) - start) < 2,
-        "Reduced-motion wheel keeps the native horizontal fallback.",
-      );
+    assert.ok(
+      Math.abs((await page.evaluate(() => scrollY)) - start) < 2,
+      "Normal and reduced-motion margin wheel input must move only the projects.",
+    );
     await page.mouse.wheel(0, step);
     await expect(page.locator("[data-showcase-position]")).toHaveText("3 of 3");
     await page.waitForTimeout(550);
@@ -85,7 +59,8 @@ try {
       .toBeLessThan(beginning - 20);
     results.push({
       reducedMotion,
-      nativeScrollScene: pinned,
+      fixedSectionHeight: true,
+      marginWheelOnlyHorizontal: true,
       wheelAdvances: true,
       endReleasesToPage: true,
       startReleasesToPage: true,

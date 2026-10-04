@@ -4,7 +4,9 @@
 
 The home evidence panels previously spanned the bottom of each card. All three now live in the left project description, beside ownership and the case-study link. The primary figures remain visible in one neutral gray panel; a native disclosure holds the original measurement context and supporting evidence. Full case-study evidence remains open by default. The later equal-height refinement is documented in `docs/equal-height-gallery.md`. The Growth preview removes its logo, app header, progress steps and footer. A quieter catalog pairs three existing program entries with the existing Promotions description and discount types. This is a decorative updated concept, not a new shipped feature.
 
-## Scroll behavior
+## Previous scroll behavior (superseded)
+
+The later `docs/horizontal-gallery.md` refinement replaces this scene with direct horizontal wheel paging and removes the vertical runway. The following documents the earlier decision and its historical evidence.
 
 The reproduced failure was a regular wheel gesture in the page margin: the old listener existed only on the gallery track, so the page could pass the entire selected-work section without advancing projects. On wide fine-pointer screens, native page position now drives a short horizontal scene while the gallery stage stays below the navigation. No wheel event is canceled in this mode. Normal scrolling releases beyond either end. Horizontal gestures also synchronize the page scene; arrows and focused-gallery Left/Right/Home/End select a complete card.
 
@@ -20,6 +22,6 @@ The description and evidence are siblings rather than a nested disclosure inside
 
 ## Evidence and limits
 
-Before images in `review/gallery-refinement/before/` come from fe9ece0. Current desktop/mobile component captures are in `after/`. `scroll-checks.json` covers margin wheel input, rapid keyboard navigation, responsive selection, resizing outside the gallery, expanded source context, live preferences and short-screen fallback. The complete review also checks six routes, six gallery viewports, no JavaScript, calculations, original artifacts and the hero renderer.
+Before images in `review/gallery-refinement/before/` come from fe9ece0. Current desktop/mobile component captures are in `after/`. The historical `scroll-checks.json` covers margin wheel input, rapid keyboard navigation, responsive selection, resizing outside the gallery, expanded source context, live preferences and short-screen fallback. The complete review also checks six routes, six gallery viewports, no JavaScript, calculations, original artifacts and the hero renderer.
 
 Review uses project-local Chromium on Windows and emulated device sizes. Safari, Firefox, real touch devices and screen-reader sessions remain unverified. Lab performance is not production performance. No runtime dependency, global installation, production publication or merge is included.

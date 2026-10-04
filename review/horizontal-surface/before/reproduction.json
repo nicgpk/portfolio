@@ -1,0 +1,11 @@
+{
+  "passed": false,
+  "errors": [],
+  "initial": {
+    "height": 2357.40625,
+    "y": 0,
+    "tailSpace": 1260,
+    "position": "sticky",
+    "runway": 1260
+  }
+}
