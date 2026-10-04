@@ -1,0 +1,7 @@
+{
+  "scenario": "Regular wheel with cursor in the page margin, approaching selected work",
+  "passed": false,
+  "position": "1 of 3",
+  "trackTop": 190,
+  "failure": "expect(locator).not.toHaveText(expected) failed\n\nLocator:  locator('[data-showcase-position]')\nExpected: not \"1 of 3\"\nReceived: \"1 of 3\"\nTimeout:  1000ms\n\nCall log:\n  - Expect \"to.have.text\" with timeout 1000ms\n  - waiting for locator('[data-showcase-position]')\n    5 × locator resolved to <span data-showcase-position=\"\">1 of 3</span>\n      - unexpected value \"1 of 3\"\n"
+}

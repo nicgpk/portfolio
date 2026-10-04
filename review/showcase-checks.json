@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-04T03:22:18.102Z",
+  "checkedAt": "2026-10-04T04:06:43.481Z",
   "browser": "Project-local Chromium on Windows",
   "viewports": [
     {
@@ -59,21 +59,21 @@
             "left": 23,
             "right": 297,
             "top": 1028.078125,
-            "bottom": 3222.984375,
+            "bottom": 2705.25,
             "position": "static"
           },
           {
             "left": 313,
             "right": 587,
             "top": 1028.078125,
-            "bottom": 2698.75,
+            "bottom": 2474.046875,
             "position": "static"
           },
           {
             "left": 603,
             "right": 877,
             "top": 1028.078125,
-            "bottom": 2489.25,
+            "bottom": 2284.734375,
             "position": "static"
           }
         ],
@@ -86,7 +86,7 @@
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+            "Scroll to explore, or use the arrows. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -130,13 +130,13 @@
         {
           "action": "Next project",
           "project": "discount",
-          "left": 290,
+          "left": 288,
           "max": 580
         },
         {
           "action": "Next project",
           "project": "developer",
-          "left": 580,
+          "left": 578,
           "max": 580
         },
         {
@@ -148,7 +148,7 @@
         {
           "action": "Previous project",
           "project": "growth",
-          "left": 0,
+          "left": 2,
           "max": 580
         }
       ],
@@ -156,16 +156,16 @@
         {
           "project": "growth",
           "box": {
-            "x": 24,
-            "y": 488.078125,
-            "width": 272,
-            "height": 312.3125
+            "x": 42,
+            "y": 534.078125,
+            "width": 236,
+            "height": 253.765625
           },
           "title": {
             "x": 42,
-            "y": 567.671875,
+            "y": 599.671875,
             "width": 236,
-            "height": 73.4375
+            "height": 64.78125
           },
           "navBottom": 64,
           "viewport": {
@@ -176,16 +176,16 @@
         {
           "project": "discount",
           "box": {
-            "x": 24,
-            "y": 486.078125,
-            "width": 272,
-            "height": 312.3125
+            "x": 42,
+            "y": 502.078125,
+            "width": 236,
+            "height": 221.375
           },
           "title": {
             "x": 42,
-            "y": 565.671875,
+            "y": 566.671875,
             "width": 236,
-            "height": 73.4375
+            "height": 32.390625
           },
           "navBottom": 64,
           "viewport": {
@@ -196,16 +196,16 @@
         {
           "project": "developer",
           "box": {
-            "x": 24,
-            "y": 354.078125,
-            "width": 272,
-            "height": 290.21875
+            "x": 42,
+            "y": 456.078125,
+            "width": 236,
+            "height": 200.578125
           },
           "title": {
             "x": 42,
-            "y": 541.671875,
+            "y": 538.671875,
             "width": 236,
-            "height": 73.4375
+            "height": 32.390625
           },
           "navBottom": 64,
           "viewport": {
@@ -273,21 +273,21 @@
             "left": 23,
             "right": 367,
             "top": 1014.703125,
-            "bottom": 3015.15625,
+            "bottom": 2577.109375,
             "position": "static"
           },
           {
             "left": 383,
             "right": 727,
             "top": 1014.703125,
-            "bottom": 2505.875,
+            "bottom": 2334.390625,
             "position": "static"
           },
           {
             "left": 743,
             "right": 1087,
             "top": 1014.703125,
-            "bottom": 2312.875,
+            "bottom": 2194.578125,
             "position": "static"
           }
         ],
@@ -300,7 +300,7 @@
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+            "Scroll to explore, or use the arrows. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -345,7 +345,7 @@
         {
           "action": "Next project",
           "project": "discount",
-          "left": 357,
+          "left": 360,
           "max": 720
         },
         {
@@ -371,16 +371,16 @@
         {
           "project": "growth",
           "box": {
-            "x": 24,
-            "y": 470.703125,
-            "width": 342,
-            "height": 291.515625
+            "x": 42,
+            "y": 570.703125,
+            "width": 306,
+            "height": 232.96875
           },
           "title": {
             "x": 42,
-            "y": 605.5,
-            "width": 283.75,
-            "height": 73.4375
+            "y": 607.5,
+            "width": 250.375,
+            "height": 64.78125
           },
           "navBottom": 64,
           "viewport": {
@@ -391,16 +391,16 @@
         {
           "project": "discount",
           "box": {
-            "x": 24,
-            "y": -192.296875,
-            "width": 342,
-            "height": 232.703125
+            "x": 42,
+            "y": 537.703125,
+            "width": 306,
+            "height": 179.78125
           },
           "title": {
             "x": 42,
-            "y": 243.5,
-            "width": 283.75,
-            "height": 36.71875
+            "y": 574.5,
+            "width": 250.375,
+            "height": 32.390625
           },
           "navBottom": 64,
           "viewport": {
@@ -411,16 +411,16 @@
         {
           "project": "developer",
           "box": {
-            "x": 24,
-            "y": 116.703125,
-            "width": 342,
-            "height": 210.609375
+            "x": 42,
+            "y": 500.703125,
+            "width": 306,
+            "height": 158.984375
           },
           "title": {
             "x": 42,
-            "y": 175.5,
-            "width": 283.75,
-            "height": 36.71875
+            "y": 546.5,
+            "width": 250.375,
+            "height": 32.390625
           },
           "navBottom": 64,
           "viewport": {
@@ -488,21 +488,21 @@
             "left": 37,
             "right": 731,
             "top": 1135.15625,
-            "bottom": 2598.03125,
+            "bottom": 2335.609375,
             "position": "static"
           },
           {
             "left": 759,
             "right": 1453,
             "top": 1135.15625,
-            "bottom": 2187.578125,
+            "bottom": 2191.28125,
             "position": "static"
           },
           {
             "left": 1481,
             "right": 2175,
             "top": 1135.15625,
-            "bottom": 2304.546875,
+            "bottom": 2223.859375,
             "position": "static"
           }
         ],
@@ -515,7 +515,7 @@
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+            "Scroll to explore, or use the arrows. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -559,25 +559,25 @@
         {
           "action": "Next project",
           "project": "discount",
-          "left": 721,
+          "left": 719,
           "max": 1444
         },
         {
           "action": "Next project",
           "project": "developer",
-          "left": 1443,
+          "left": 1441,
           "max": 1444
         },
         {
           "action": "Previous project",
           "project": "discount",
-          "left": 723,
+          "left": 728,
           "max": 1444
         },
         {
           "action": "Previous project",
           "project": "growth",
-          "left": 3,
+          "left": 1,
           "max": 1444
         }
       ],
@@ -585,16 +585,16 @@
         {
           "project": "growth",
           "box": {
-            "x": 38,
-            "y": 502.15625,
-            "width": 692,
-            "height": 192.390625
+            "x": 62,
+            "y": 590.15625,
+            "width": 644,
+            "height": 212.171875
           },
           "title": {
             "x": 62,
-            "y": 643.953125,
-            "width": 275.40625,
-            "height": 71.25
+            "y": 633.953125,
+            "width": 250.375,
+            "height": 64.78125
           },
           "navBottom": 72,
           "viewport": {
@@ -605,16 +605,16 @@
         {
           "project": "discount",
           "box": {
-            "x": 38,
-            "y": 234.15625,
-            "width": 692,
-            "height": 168.59375
+            "x": 62,
+            "y": 558.15625,
+            "width": 644,
+            "height": 158.984375
           },
           "title": {
             "x": 62,
-            "y": 342.953125,
-            "width": 275.40625,
-            "height": 35.625
+            "y": 601.953125,
+            "width": 250.375,
+            "height": 32.390625
           },
           "navBottom": 72,
           "viewport": {
@@ -625,16 +625,16 @@
         {
           "project": "developer",
           "box": {
-            "x": 38,
-            "y": -22.84375,
-            "width": 692,
-            "height": 168.59375
+            "x": 62,
+            "y": 491.15625,
+            "width": 644,
+            "height": 158.984375
           },
           "title": {
             "x": 62,
-            "y": 202.953125,
-            "width": 275.40625,
-            "height": 35.625
+            "y": 534.953125,
+            "width": 250.375,
+            "height": 32.390625
           },
           "navBottom": 72,
           "viewport": {
@@ -676,12 +676,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99952100188987
+            "widthPercent": 84.9949869518534
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49919150925048
+            "widthPercent": 76.49555936373396
           }
         ]
       },
@@ -702,21 +702,21 @@
             "left": 117,
             "right": 1323,
             "top": 1230.84375,
-            "bottom": 2429.234375,
+            "bottom": 1904.0625,
             "position": "static"
           },
           {
             "left": 1351,
             "right": 2557,
             "top": 1230.84375,
-            "bottom": 2161.171875,
+            "bottom": 1809.484375,
             "position": "static"
           },
           {
             "left": 2585,
             "right": 3791,
             "top": 1230.84375,
-            "bottom": 2117.203125,
+            "bottom": 1772.1875,
             "position": "static"
           }
         ],
@@ -729,16 +729,16 @@
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+            "Scroll to explore, or use the arrows. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
         "dimensionalResources": []
       },
       "gestures": {
-        "verticalWheelDelta": 0,
-        "horizontalWheelDelta": 240,
-        "shiftWheelDelta": 240
+        "verticalWheelDelta": -80,
+        "horizontalWheelDelta": 239,
+        "shiftWheelDelta": 239
       },
       "navigation": [
         {
@@ -774,19 +774,19 @@
         {
           "action": "Next project",
           "project": "discount",
-          "left": 1231,
+          "left": 1230,
           "max": 2468
         },
         {
           "action": "Next project",
           "project": "developer",
-          "left": 2468,
+          "left": 2460,
           "max": 2468
         },
         {
           "action": "Previous project",
           "project": "discount",
-          "left": 1234,
+          "left": 1242,
           "max": 2468
         },
         {
@@ -800,16 +800,16 @@
         {
           "project": "growth",
           "box": {
-            "x": 118,
-            "y": 531.953125,
-            "width": 373.234375,
-            "height": 368.21875
+            "x": 146,
+            "y": 227,
+            "width": 437.625,
+            "height": 233.765625
           },
           "title": {
             "x": 146,
-            "y": 608.75,
-            "width": 317.234375,
-            "height": 95.03125
+            "y": 261.796875,
+            "width": 333.828125,
+            "height": 86.375
           },
           "navBottom": 72,
           "viewport": {
@@ -820,16 +820,16 @@
         {
           "project": "discount",
           "box": {
-            "x": 118,
-            "y": 338.828125,
-            "width": 373.234375,
-            "height": 296.90625
+            "x": 146,
+            "y": 227,
+            "width": 437.625,
+            "height": 190.578125
           },
           "title": {
             "x": 146,
-            "y": 489.625,
-            "width": 317.234375,
-            "height": 47.515625
+            "y": 261.796875,
+            "width": 333.828125,
+            "height": 43.1875
           },
           "navBottom": 72,
           "viewport": {
@@ -840,16 +840,16 @@
         {
           "project": "developer",
           "box": {
-            "x": 118,
-            "y": 130.984375,
-            "width": 373.234375,
-            "height": 320.625
+            "x": 146,
+            "y": 226.84375,
+            "width": 437.625,
+            "height": 169.78125
           },
           "title": {
             "x": 146,
-            "y": 187.78125,
-            "width": 317.234375,
-            "height": 95.03125
+            "y": 261.640625,
+            "width": 333.828125,
+            "height": 43.1875
           },
           "navBottom": 72,
           "viewport": {
@@ -917,21 +917,21 @@
             "left": 37,
             "right": 807,
             "top": 1144.875,
-            "bottom": 2593.765625,
+            "bottom": 2311.9375,
             "position": "static"
           },
           {
             "left": 835,
             "right": 1605,
             "top": 1144.875,
-            "bottom": 2197.296875,
+            "bottom": 2201,
             "position": "static"
           },
           {
             "left": 1633,
             "right": 2403,
             "top": 1144.875,
-            "bottom": 2290.46875,
+            "bottom": 2233.578125,
             "position": "static"
           }
         ],
@@ -944,7 +944,7 @@
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+            "Scroll to explore, or use the arrows. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -1014,16 +1014,16 @@
         {
           "project": "growth",
           "box": {
-            "x": 38,
-            "y": 133.875,
-            "width": 768,
-            "height": 192.390625
+            "x": 62,
+            "y": 160.875,
+            "width": 720,
+            "height": 212.171875
           },
           "title": {
             "x": 62,
-            "y": 222.671875,
-            "width": 275.40625,
-            "height": 71.25
+            "y": 195.671875,
+            "width": 250.375,
+            "height": 64.78125
           },
           "navBottom": 72,
           "viewport": {
@@ -1034,16 +1034,16 @@
         {
           "project": "discount",
           "box": {
-            "x": 38,
-            "y": 99.875,
-            "width": 768,
-            "height": 168.59375
+            "x": 62,
+            "y": 143.875,
+            "width": 720,
+            "height": 158.984375
           },
           "title": {
             "x": 62,
-            "y": 191.671875,
-            "width": 275.40625,
-            "height": 35.625
+            "y": 180.671875,
+            "width": 250.375,
+            "height": 32.390625
           },
           "navBottom": 72,
           "viewport": {
@@ -1054,16 +1054,16 @@
         {
           "project": "developer",
           "box": {
-            "x": 38,
-            "y": 99.875,
-            "width": 768,
-            "height": 144.796875
+            "x": 62,
+            "y": 131.875,
+            "width": 720,
+            "height": 158.984375
           },
           "title": {
             "x": 62,
-            "y": 146.671875,
-            "width": 275.40625,
-            "height": 35.625
+            "y": 168.671875,
+            "width": 250.375,
+            "height": 32.390625
           },
           "navBottom": 72,
           "viewport": {
@@ -1105,12 +1105,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99952100188987
+            "widthPercent": 84.9949869518534
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49919150925048
+            "widthPercent": 76.49555936373396
           }
         ]
       },
@@ -1131,21 +1131,21 @@
             "left": 117,
             "right": 1323,
             "top": 1230.84375,
-            "bottom": 2429.234375,
+            "bottom": 1904.0625,
             "position": "static"
           },
           {
             "left": 1351,
             "right": 2557,
             "top": 1230.84375,
-            "bottom": 2161.171875,
+            "bottom": 1809.484375,
             "position": "static"
           },
           {
             "left": 2585,
             "right": 3791,
             "top": 1230.84375,
-            "bottom": 2117.203125,
+            "bottom": 1772.1875,
             "position": "static"
           }
         ],
@@ -1158,7 +1158,7 @@
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+            "Scroll to explore, or use the arrows. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -1228,16 +1228,16 @@
         {
           "project": "growth",
           "box": {
-            "x": 118,
-            "y": 226.953125,
-            "width": 373.234375,
-            "height": 368.21875
+            "x": 146,
+            "y": 362.84375,
+            "width": 437.625,
+            "height": 233.765625
           },
           "title": {
             "x": 146,
-            "y": 303.75,
-            "width": 317.234375,
-            "height": 95.03125
+            "y": 400.640625,
+            "width": 333.828125,
+            "height": 86.375
           },
           "navBottom": 72,
           "viewport": {
@@ -1248,16 +1248,16 @@
         {
           "project": "discount",
           "box": {
-            "x": 118,
-            "y": 210.828125,
-            "width": 373.234375,
-            "height": 296.90625
+            "x": 146,
+            "y": 349.84375,
+            "width": 437.625,
+            "height": 190.578125
           },
           "title": {
             "x": 146,
-            "y": 263.625,
-            "width": 317.234375,
-            "height": 47.515625
+            "y": 386.640625,
+            "width": 333.828125,
+            "height": 43.1875
           },
           "navBottom": 72,
           "viewport": {
@@ -1268,16 +1268,16 @@
         {
           "project": "developer",
           "box": {
-            "x": 118,
-            "y": 212.984375,
-            "width": 373.234375,
-            "height": 320.625
+            "x": 146,
+            "y": 329.84375,
+            "width": 437.625,
+            "height": 169.78125
           },
           "title": {
             "x": 146,
-            "y": 286.78125,
-            "width": 317.234375,
-            "height": 95.03125
+            "y": 373.640625,
+            "width": 333.828125,
+            "height": 43.1875
           },
           "navBottom": 72,
           "viewport": {
@@ -1347,21 +1347,21 @@
             "left": 23,
             "right": 297,
             "top": 1028.078125,
-            "bottom": 3222.984375,
+            "bottom": 2705.25,
             "position": "static"
           },
           {
             "left": 313,
             "right": 587,
             "top": 1028.078125,
-            "bottom": 2698.75,
+            "bottom": 2474.046875,
             "position": "static"
           },
           {
             "left": 603,
             "right": 877,
             "top": 1028.078125,
-            "bottom": 2489.25,
+            "bottom": 2284.734375,
             "position": "static"
           }
         ],
@@ -1374,7 +1374,7 @@
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+            "Scroll to explore, or use the arrows. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -1388,16 +1388,16 @@
         {
           "project": "growth",
           "box": {
-            "x": 24,
-            "y": 110.078125,
-            "width": 272,
-            "height": 312.3125
+            "x": 42,
+            "y": 81.078125,
+            "width": 236,
+            "height": 253.765625
           },
           "title": {
             "x": 42,
-            "y": 177.671875,
+            "y": 136.671875,
             "width": 236,
-            "height": 73.4375
+            "height": 64.78125
           },
           "navBottom": 64,
           "viewport": {
@@ -1408,16 +1408,16 @@
         {
           "project": "discount",
           "box": {
-            "x": 24,
-            "y": 119.078125,
-            "width": 272,
-            "height": 312.3125
+            "x": 42,
+            "y": 113.078125,
+            "width": 236,
+            "height": 221.375
           },
           "title": {
             "x": 42,
-            "y": 197.671875,
+            "y": 155.671875,
             "width": 236,
-            "height": 73.4375
+            "height": 32.390625
           },
           "navBottom": 64,
           "viewport": {
@@ -1428,16 +1428,16 @@
         {
           "project": "developer",
           "box": {
-            "x": 24,
-            "y": 94.078125,
-            "width": 272,
-            "height": 290.21875
+            "x": 42,
+            "y": 129.078125,
+            "width": 236,
+            "height": 200.578125
           },
           "title": {
             "x": 42,
-            "y": 188.671875,
+            "y": 177.671875,
             "width": 236,
-            "height": 73.4375
+            "height": 32.390625
           },
           "navBottom": 64,
           "viewport": {
@@ -1504,21 +1504,21 @@
             "left": 23,
             "right": 367,
             "top": 1014.703125,
-            "bottom": 3015.15625,
+            "bottom": 2577.109375,
             "position": "static"
           },
           {
             "left": 383,
             "right": 727,
             "top": 1014.703125,
-            "bottom": 2505.875,
+            "bottom": 2334.390625,
             "position": "static"
           },
           {
             "left": 743,
             "right": 1087,
             "top": 1014.703125,
-            "bottom": 2312.875,
+            "bottom": 2194.578125,
             "position": "static"
           }
         ],
@@ -1531,7 +1531,7 @@
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+            "Scroll to explore, or use the arrows. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -1545,16 +1545,16 @@
         {
           "project": "growth",
           "box": {
-            "x": 24,
-            "y": 104.703125,
-            "width": 342,
-            "height": 291.515625
+            "x": 42,
+            "y": 112.703125,
+            "width": 306,
+            "height": 232.96875
           },
           "title": {
             "x": 42,
-            "y": 156.5,
-            "width": 283.75,
-            "height": 73.4375
+            "y": 134.5,
+            "width": 250.375,
+            "height": 64.78125
           },
           "navBottom": 64,
           "viewport": {
@@ -1565,16 +1565,16 @@
         {
           "project": "discount",
           "box": {
-            "x": 24,
-            "y": 118.703125,
-            "width": 342,
-            "height": 232.703125
+            "x": 42,
+            "y": 128.703125,
+            "width": 306,
+            "height": 179.78125
           },
           "title": {
             "x": 42,
-            "y": 172.5,
-            "width": 283.75,
-            "height": 36.71875
+            "y": 156.5,
+            "width": 250.375,
+            "height": 32.390625
           },
           "navBottom": 64,
           "viewport": {
@@ -1585,16 +1585,16 @@
         {
           "project": "developer",
           "box": {
-            "x": 24,
-            "y": 118.703125,
-            "width": 342,
-            "height": 210.609375
+            "x": 42,
+            "y": 137.703125,
+            "width": 306,
+            "height": 158.984375
           },
           "title": {
             "x": 42,
-            "y": 177.5,
-            "width": 283.75,
-            "height": 36.71875
+            "y": 169.5,
+            "width": 250.375,
+            "height": 32.390625
           },
           "navBottom": 64,
           "viewport": {
@@ -1661,21 +1661,21 @@
             "left": 37,
             "right": 807,
             "top": 1144.875,
-            "bottom": 2593.765625,
+            "bottom": 2311.9375,
             "position": "static"
           },
           {
             "left": 835,
             "right": 1605,
             "top": 1144.875,
-            "bottom": 2197.296875,
+            "bottom": 2201,
             "position": "static"
           },
           {
             "left": 1633,
             "right": 2403,
             "top": 1144.875,
-            "bottom": 2290.46875,
+            "bottom": 2233.578125,
             "position": "static"
           }
         ],
@@ -1688,7 +1688,7 @@
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+            "Scroll to explore, or use the arrows. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -1702,16 +1702,16 @@
         {
           "project": "growth",
           "box": {
-            "x": 38,
-            "y": 143.875,
-            "width": 768,
-            "height": 192.390625
+            "x": 62,
+            "y": 112.875,
+            "width": 720,
+            "height": 212.171875
           },
           "title": {
             "x": 62,
-            "y": 195.671875,
-            "width": 275.40625,
-            "height": 71.25
+            "y": 134.671875,
+            "width": 250.375,
+            "height": 64.78125
           },
           "navBottom": 72,
           "viewport": {
@@ -1722,16 +1722,16 @@
         {
           "project": "discount",
           "box": {
-            "x": 38,
-            "y": 103.875,
-            "width": 768,
-            "height": 168.59375
+            "x": 62,
+            "y": 127.875,
+            "width": 720,
+            "height": 158.984375
           },
           "title": {
             "x": 62,
-            "y": 211.671875,
-            "width": 275.40625,
-            "height": 35.625
+            "y": 156.671875,
+            "width": 250.375,
+            "height": 32.390625
           },
           "navBottom": 72,
           "viewport": {
@@ -1742,16 +1742,16 @@
         {
           "project": "developer",
           "box": {
-            "x": 38,
-            "y": 112.875,
-            "width": 768,
-            "height": 144.796875
+            "x": 62,
+            "y": 142.875,
+            "width": 720,
+            "height": 158.984375
           },
           "title": {
             "x": 62,
-            "y": 158.671875,
-            "width": 275.40625,
-            "height": 35.625
+            "y": 173.671875,
+            "width": 250.375,
+            "height": 32.390625
           },
           "navBottom": 72,
           "viewport": {
@@ -1792,12 +1792,12 @@
           {
             "amount": 127.5,
             "declaredWidth": "85%",
-            "widthPercent": 84.99952100188987
+            "widthPercent": 84.9949869518534
           },
           {
             "amount": 114.75,
             "declaredWidth": "76.5%",
-            "widthPercent": 76.49919150925048
+            "widthPercent": 76.49555936373396
           }
         ]
       },
@@ -1818,21 +1818,21 @@
             "left": 117,
             "right": 1323,
             "top": 1230.84375,
-            "bottom": 2429.234375,
+            "bottom": 1904.0625,
             "position": "static"
           },
           {
             "left": 1351,
             "right": 2557,
             "top": 1230.84375,
-            "bottom": 2161.171875,
+            "bottom": 1809.484375,
             "position": "static"
           },
           {
             "left": 2585,
             "right": 3791,
             "top": 1230.84375,
-            "bottom": 2117.203125,
+            "bottom": 1772.1875,
             "position": "static"
           }
         ],
@@ -1845,7 +1845,7 @@
           "scrollbarWidth": "none",
           "webkitScrollbarDisplay": "none",
           "instructions": [
-            "Scroll over the projects to explore. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
+            "Scroll to explore, or use the arrows. Swipe on touch screens.\n              Keyboard: focus the gallery and use Left and Right arrows, Home or\n              End. Tab through project links to read each case study."
           ]
         },
         "horizontalModuleLoaded": false,
@@ -1859,16 +1859,16 @@
         {
           "project": "growth",
           "box": {
-            "x": 118,
-            "y": 117.953125,
-            "width": 373.234375,
-            "height": 368.21875
+            "x": 146,
+            "y": 103.84375,
+            "width": 437.625,
+            "height": 233.765625
           },
           "title": {
             "x": 146,
-            "y": 179.75,
-            "width": 317.234375,
-            "height": 95.03125
+            "y": 138.640625,
+            "width": 333.828125,
+            "height": 86.375
           },
           "navBottom": 72,
           "viewport": {
@@ -1879,16 +1879,16 @@
         {
           "project": "discount",
           "box": {
-            "x": 533,
-            "y": 80.828125,
-            "width": 373.234375,
-            "height": 296.90625
+            "x": 501,
+            "y": 125.84375,
+            "width": 437.625,
+            "height": 190.578125
           },
           "title": {
-            "x": 561,
-            "y": 144.625,
-            "width": 317.234375,
-            "height": 47.515625
+            "x": 501,
+            "y": 160.640625,
+            "width": 333.828125,
+            "height": 43.1875
           },
           "navBottom": 72,
           "viewport": {
@@ -1899,16 +1899,16 @@
         {
           "project": "developer",
           "box": {
-            "x": 533,
-            "y": 151.984375,
-            "width": 373.234375,
-            "height": 320.625
+            "x": 501,
+            "y": 141.84375,
+            "width": 437.625,
+            "height": 169.78125
           },
           "title": {
-            "x": 561,
-            "y": 208.78125,
-            "width": 317.234375,
-            "height": 95.03125
+            "x": 501,
+            "y": 173.640625,
+            "width": 333.828125,
+            "height": 43.1875
           },
           "navBottom": 72,
           "viewport": {
@@ -2002,8 +2002,8 @@
       },
       "project": "discount",
       "height": {
-        "railHeight": 1512,
-        "cardHeight": 1491.171875,
+        "railHeight": 1340,
+        "cardHeight": 1319.6875,
         "padding": 20
       }
     },
@@ -2014,27 +2014,27 @@
       },
       "project": "discount",
       "height": {
-        "railHeight": 951,
-        "cardHeight": 930.328125,
+        "railHeight": 599,
+        "cardHeight": 578.640625,
         "padding": 20
       }
     }
   ],
   "deepSwipe": [
     {
-      "beforeY": 2918,
+      "beforeY": 2480,
       "afterY": 897,
       "visible": {
         "top": 117.703125,
-        "bottom": 1415.875,
+        "bottom": 1297.578125,
         "headingTop": 177.5,
-        "headingBottom": 214.21875,
+        "headingBottom": 209.890625,
         "navBottom": 64,
         "viewportHeight": 844
       },
       "height": {
-        "railHeight": 1319,
-        "cardHeight": 1298.171875,
+        "railHeight": 1200,
+        "cardHeight": 1179.875,
         "padding": 20
       }
     }
@@ -2045,39 +2045,39 @@
       "width": 390,
       "imageSize": {
         "width": 344,
-        "height": 2002
+        "height": 1564
       },
       "geometry": {
         "article": {
           "x": 23,
-          "y": 29.703125,
+          "y": 117.703125,
           "width": 344,
-          "height": 2000.453125,
-          "bottom": 2030.15625
+          "height": 1562.40625,
+          "bottom": 1680.109375
         },
         "art": {
           "x": 24,
-          "y": 322.21875,
+          "y": 793.625,
           "width": 342,
-          "height": 1032.84375,
-          "bottom": 1355.0625
+          "height": 823.109375,
+          "bottom": 1616.734375
         },
         "panel": {
           "x": 34,
-          "y": 337.21875,
+          "y": 808.625,
           "width": 322,
-          "height": 1003.84375,
-          "bottom": 1341.0625
+          "height": 794.109375,
+          "bottom": 1602.734375
         },
         "caption": {
           "x": 24,
-          "y": 1355.0625,
+          "y": 1616.734375,
           "width": 342,
           "height": 62.375,
-          "bottom": 1417.4375
+          "bottom": 1679.109375
         },
         "fonts": "loaded",
-        "viewportHeight": 2201
+        "viewportHeight": 1763
       }
     },
     {
@@ -2085,39 +2085,39 @@
       "width": 390,
       "imageSize": {
         "width": 344,
-        "height": 1492
+        "height": 1321
       },
       "geometry": {
         "article": {
           "x": 23,
           "y": 117.703125,
           "width": 344,
-          "height": 1491.171875,
-          "bottom": 1608.875
+          "height": 1319.6875,
+          "bottom": 1437.390625
         },
         "art": {
           "x": 24,
-          "y": 351.40625,
+          "y": 690.140625,
           "width": 342,
           "height": 683.875,
-          "bottom": 1035.28125
+          "bottom": 1374.015625
         },
         "panel": {
           "x": 34,
-          "y": 366.40625,
+          "y": 705.140625,
           "width": 322,
           "height": 654.875,
-          "bottom": 1021.28125
+          "bottom": 1360.015625
         },
         "caption": {
           "x": 24,
-          "y": 1035.28125,
+          "y": 1374.015625,
           "width": 342,
           "height": 62.375,
-          "bottom": 1097.65625
+          "bottom": 1436.390625
         },
         "fonts": "loaded",
-        "viewportHeight": 2201
+        "viewportHeight": 1763
       }
     },
     {
@@ -2125,39 +2125,39 @@
       "width": 390,
       "imageSize": {
         "width": 344,
-        "height": 1299
+        "height": 1181
       },
       "geometry": {
         "article": {
           "x": 23,
           "y": 117.703125,
           "width": 344,
-          "height": 1298.171875,
-          "bottom": 1415.875
+          "height": 1179.875,
+          "bottom": 1297.578125
         },
         "art": {
           "x": 24,
-          "y": 329.3125,
+          "y": 669.34375,
           "width": 342,
           "height": 564.859375,
-          "bottom": 894.171875
+          "bottom": 1234.203125
         },
         "panel": {
           "x": 34,
-          "y": 344.3125,
+          "y": 684.34375,
           "width": 322,
           "height": 535.859375,
-          "bottom": 880.171875
+          "bottom": 1220.203125
         },
         "caption": {
           "x": 24,
-          "y": 894.171875,
+          "y": 1234.203125,
           "width": 342,
           "height": 62.375,
-          "bottom": 956.546875
+          "bottom": 1296.578125
         },
         "fonts": "loaded",
-        "viewportHeight": 2201
+        "viewportHeight": 1763
       }
     },
     {
@@ -2165,39 +2165,39 @@
       "width": 1440,
       "imageSize": {
         "width": 1206,
-        "height": 1200
+        "height": 675
       },
       "geometry": {
         "article": {
           "x": 117,
           "y": 117.84375,
           "width": 1206,
-          "height": 1198.390625,
-          "bottom": 1316.234375
+          "height": 673.21875,
+          "bottom": 791.0625
         },
         "art": {
-          "x": 491.234375,
+          "x": 611.625,
           "y": 118.84375,
-          "width": 830.765625,
-          "height": 767.25,
-          "bottom": 886.09375
+          "width": 710.375,
+          "height": 618.28125,
+          "bottom": 737.125
         },
         "panel": {
-          "x": 516.234375,
-          "y": 150.84375,
-          "width": 781.765625,
-          "height": 703.25,
-          "bottom": 854.09375
+          "x": 636.625,
+          "y": 155.71875,
+          "width": 661.375,
+          "height": 544.53125,
+          "bottom": 700.25
         },
         "caption": {
-          "x": 491.234375,
-          "y": 886.09375,
-          "width": 830.765625,
+          "x": 611.625,
+          "y": 737.125,
+          "width": 710.375,
           "height": 43.1875,
-          "bottom": 929.28125
+          "bottom": 780.3125
         },
         "fonts": "loaded",
-        "viewportHeight": 1399
+        "viewportHeight": 900
       }
     },
     {
@@ -2205,39 +2205,39 @@
       "width": 1440,
       "imageSize": {
         "width": 1206,
-        "height": 932
+        "height": 580
       },
       "geometry": {
         "article": {
           "x": 117,
           "y": 117.84375,
           "width": 1206,
-          "height": 930.328125,
-          "bottom": 1048.171875
+          "height": 578.640625,
+          "bottom": 696.484375
         },
         "art": {
-          "x": 491.234375,
+          "x": 611.625,
           "y": 118.84375,
-          "width": 830.765625,
+          "width": 710.375,
           "height": 509.6875,
           "bottom": 628.53125
         },
         "panel": {
-          "x": 516.234375,
+          "x": 636.625,
           "y": 150.84375,
-          "width": 781.765625,
+          "width": 661.375,
           "height": 445.6875,
           "bottom": 596.53125
         },
         "caption": {
-          "x": 491.234375,
-          "y": 628.53125,
-          "width": 830.765625,
+          "x": 611.625,
+          "y": 640.40625,
+          "width": 710.375,
           "height": 43.1875,
-          "bottom": 671.71875
+          "bottom": 683.59375
         },
         "fonts": "loaded",
-        "viewportHeight": 1399
+        "viewportHeight": 900
       }
     },
     {
@@ -2245,39 +2245,39 @@
       "width": 1440,
       "imageSize": {
         "width": 1206,
-        "height": 888
+        "height": 543
       },
       "geometry": {
         "article": {
           "x": 117,
           "y": 117.84375,
           "width": 1206,
-          "height": 886.359375,
-          "bottom": 1004.203125
+          "height": 541.34375,
+          "bottom": 659.1875
         },
         "art": {
-          "x": 491.234375,
+          "x": 611.625,
           "y": 118.84375,
-          "width": 830.765625,
+          "width": 710.375,
           "height": 465.71875,
           "bottom": 584.5625
         },
         "panel": {
-          "x": 516.234375,
+          "x": 636.625,
           "y": 150.84375,
-          "width": 781.765625,
+          "width": 661.375,
           "height": 401.71875,
           "bottom": 552.5625
         },
         "caption": {
-          "x": 491.234375,
-          "y": 584.5625,
-          "width": 830.765625,
+          "x": 611.625,
+          "y": 599.78125,
+          "width": 710.375,
           "height": 43.1875,
-          "bottom": 627.75
+          "bottom": 642.96875
         },
         "fonts": "loaded",
-        "viewportHeight": 1399
+        "viewportHeight": 900
       }
     }
   ],

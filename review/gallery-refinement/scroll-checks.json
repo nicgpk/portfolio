@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "marginWheel": {
+    "entry": 1033,
+    "afterWheel": 1663
+  },
+  "rapidKeyboard": true,
+  "responsiveSelection": true,
+  "resizeOutsideGallery": true,
+  "expandedContext": {
+    "height": 920,
+    "tableWidth": 399,
+    "width": 400
+  },
+  "livePauseAndPreferences": true,
+  "shortViewport": true,
+  "errors": []
+}

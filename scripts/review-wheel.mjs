@@ -23,16 +23,43 @@ try {
     );
     const track = page.locator(".showcase-track");
     const box = await track.boundingBox();
-    await page.mouse.move(box.x + box.width / 2, Math.min(600, box.y + 220));
+    const pinned = await page
+      .locator(".project-showcase")
+      .evaluate((root) => root.classList.contains("is-scroll-gallery"));
+    if (pinned)
+      await page
+        .locator(".showcase-intro")
+        .evaluate((el) =>
+          window.scrollTo({
+            top:
+              scrollY +
+              el.getBoundingClientRect().bottom -
+              document.querySelector(".site-nav").getBoundingClientRect()
+                .bottom -
+              16,
+            behavior: "instant",
+          }),
+        );
+    await page.mouse.move(
+      pinned ? 12 : box.x + box.width / 2,
+      Math.min(600, box.y + 220),
+    );
     const start = await page.evaluate(() => scrollY);
-    await page.mouse.wheel(0, 120);
+    const step = pinned ? 630 : 120;
+    await page.mouse.wheel(0, step);
     await expect(page.locator("[data-showcase-position]")).toHaveText("2 of 3");
     await page.waitForTimeout(550);
-    assert.ok(
-      Math.abs((await page.evaluate(() => scrollY)) - start) < 2,
-      "Wheel inside the gallery should move the project, not the document.",
-    );
-    await page.mouse.wheel(0, 120);
+    if (pinned)
+      assert.ok(
+        (await page.evaluate(() => scrollY)) > start + 500,
+        "Page-margin wheel input advances native page progress through the pinned gallery.",
+      );
+    else
+      assert.ok(
+        Math.abs((await page.evaluate(() => scrollY)) - start) < 2,
+        "Reduced-motion wheel keeps the native horizontal fallback.",
+      );
+    await page.mouse.wheel(0, step);
     await expect(page.locator("[data-showcase-position]")).toHaveText("3 of 3");
     await page.waitForTimeout(550);
     const end = await page.evaluate(() => scrollY);
@@ -58,6 +85,7 @@ try {
       .toBeLessThan(beginning - 20);
     results.push({
       reducedMotion,
+      nativeScrollScene: pinned,
       wheelAdvances: true,
       endReleasesToPage: true,
       startReleasesToPage: true,

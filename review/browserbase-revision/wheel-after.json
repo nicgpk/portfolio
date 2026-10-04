@@ -3,6 +3,7 @@
   "results": [
     {
       "reducedMotion": "no-preference",
+      "nativeScrollScene": true,
       "wheelAdvances": true,
       "endReleasesToPage": true,
       "startReleasesToPage": true,
@@ -10,6 +11,7 @@
     },
     {
       "reducedMotion": "reduce",
+      "nativeScrollScene": false,
       "wheelAdvances": true,
       "endReleasesToPage": true,
       "startReleasesToPage": true,

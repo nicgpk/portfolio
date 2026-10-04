@@ -533,6 +533,9 @@ async function assertNativeGestures(
       top: element.querySelector(".showcase-card").getBoundingClientRect().top,
     }));
   const before = await state();
+  const pinned = await page
+    .locator(".project-showcase")
+    .evaluate((root) => root.classList.contains("is-scroll-gallery"));
   const desktopWheel = await rail.evaluate(
     (el) =>
       el.classList.contains("is-gallery-ready") &&
@@ -552,10 +555,16 @@ async function assertNativeGestures(
   await settleRail(page);
   let afterVertical = await state();
   if (desktopWheel) {
-    assert.ok(
-      Math.abs(afterVertical.y - before.y) < 2,
-      "Desktop wheel moves the gallery while over its content.",
-    );
+    if (pinned)
+      assert.ok(
+        afterVertical.y > before.y,
+        "Native vertical scrolling drives the pinned desktop gallery.",
+      );
+    else
+      assert.ok(
+        Math.abs(afterVertical.y - before.y) < 2,
+        "Short/reduced desktop wheel moves the gallery while over its content.",
+      );
     await prepareRailPointer(page);
     afterVertical = await state();
   } else {
@@ -583,10 +592,11 @@ async function assertNativeGestures(
     .toBeGreaterThan(afterVertical.left + 10);
   await settleRail(page);
   const afterHorizontal = await state();
-  assert.ok(
-    Math.abs(afterHorizontal.y - afterVertical.y) < 2,
-    "Native horizontal wheel scrolling must not move the document.",
-  );
+  if (!pinned)
+    assert.ok(
+      Math.abs(afterHorizontal.y - afterVertical.y) < 2,
+      "Native horizontal wheel scrolling keeps ordinary document position.",
+    );
   assert.ok(Math.abs(await page.evaluate(() => scrollX)) < 1);
   const evidence = {
     verticalWheelDelta: afterVertical.y - before.y,
@@ -606,7 +616,7 @@ async function assertNativeGestures(
       .toBeGreaterThan(shiftedBefore.left + 10);
     await settleRail(page);
     const shiftedAfter = await state();
-    assert.ok(Math.abs(shiftedAfter.y - shiftedBefore.y) < 2);
+    if (!pinned) assert.ok(Math.abs(shiftedAfter.y - shiftedBefore.y) < 2);
     evidence.shiftWheelDelta = shiftedAfter.left - shiftedBefore.left;
   }
   if (touch) {
@@ -840,7 +850,9 @@ async function captureCards(page, width) {
     ),
     mobile: width === 390,
   };
-  const capture = await createPage(captureViewport);
+  const capture = await createPage(captureViewport, {
+    reducedMotion: "reduce",
+  });
   await capture.page.addStyleTag({
     content:
       ".site-nav,.motion-control,.skip-link{visibility:hidden!important}",

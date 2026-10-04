@@ -1,4 +1,5 @@
 import { motionPaused } from "./kinetics.mjs";
+import { createGalleryScroll } from "./gallery-scroll.mjs";
 
 // Native overflow for touch/trackpads, with scoped mouse-wheel paging on desktop.
 for (const root of document.querySelectorAll(".project-showcase")) {
@@ -28,6 +29,7 @@ for (const root of document.querySelectorAll(".project-showcase")) {
           : best,
       0,
     );
+  const scrollScene = createGalleryScroll(root, track, cards, () => active);
   function update() {
     frame = 0;
     // Reflow can emit scroll before ResizeObserver restores the selected project.
@@ -67,9 +69,10 @@ for (const root of document.querySelectorAll(".project-showcase")) {
     update();
     fit(active, active !== fitted);
   }
-  function go(index, smooth = true) {
+  function go(index, smooth = true, reveal = true) {
     index = Math.max(0, Math.min(cards.length - 1, index));
-    fit(index, true);
+    fit(index, reveal);
+    if (scrollScene.select(index, smooth, !reveal)) return;
     track.scrollTo({
       left: leftFor(index),
       behavior: smooth && !motionPaused() ? "smooth" : "instant",
@@ -87,6 +90,7 @@ for (const root of document.querySelectorAll(".project-showcase")) {
     (event) => {
       // Keep zoom, modified input and horizontal trackpad gestures native.
       if (
+        scrollScene.active() ||
         !wheelPointer.matches ||
         innerWidth < 900 ||
         event.ctrlKey ||
@@ -167,7 +171,7 @@ for (const root of document.querySelectorAll(".project-showcase")) {
   new ResizeObserver(() => {
     if (track.clientWidth === width) return;
     width = track.clientWidth;
-    go(active, false);
+    go(active, false, false);
     update();
     fit(active);
   }).observe(track);

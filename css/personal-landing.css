@@ -241,3 +241,293 @@
     background: Canvas;
   }
 }
+
+/* Compact ownership and evidence sit beside the interface, rather than below it. */
+.folio .showcase-card {
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+}
+.showcase-description {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  padding: 28px;
+  min-width: 0;
+}
+.folio .showcase-description .showcase-card-link {
+  padding: 0;
+}
+.folio .showcase-description .showcase-summary {
+  margin-top: 16px;
+  max-width: none;
+}
+.folio .showcase-description .showcase-summary > p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.folio .showcase-description .showcase-role {
+  margin-bottom: 14px !important;
+}
+.folio .showcase-description .showcase-heading h3 {
+  font-size: clamp(30px, 3vw, 40px);
+}
+.folio .showcase-description .showcase-case-link {
+  margin-top: 8px;
+}
+.folio .showcase-description .evidence-card {
+  padding: 18px;
+  margin: 20px 0 0;
+  border: 1px solid #e6c8b9;
+  border-radius: 8px;
+  min-width: 0;
+}
+.folio .showcase-description .evidence-card h4 {
+  font: 12px/1.5 var(--mono);
+  letter-spacing: 0;
+  margin: 0 0 16px;
+}
+.folio .showcase-card .showcase-description .evidence-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+.folio .showcase-description .evidence-metrics dd {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.folio .showcase-description .evidence-metrics dt {
+  font-size: 11px;
+}
+.folio .showcase-description .evidence-brief {
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 16px 0 0;
+}
+.folio .showcase-description .evidence-card details {
+  margin-top: 14px;
+  padding-top: 10px;
+  font-size: 11px;
+}
+.folio .showcase-description .evidence-card summary {
+  padding: 4px 0;
+}
+.folio .showcase-description .evidence-context {
+  font-size: 11px;
+}
+.folio .showcase-description .evidence-card table {
+  font-size: 11px;
+}
+.folio .showcase-art--growth {
+  align-self: stretch;
+}
+.folio .catalog-preview--lean {
+  width: 100%;
+  padding: 28px;
+  box-shadow: 0 18px 45px #0000000c;
+}
+.lean-heading > p,
+.lean-label,
+.lean-detail-heading > span:first-child,
+.lean-mechanics > span,
+.lean-footer {
+  font: 11px/1.5 var(--mono);
+  color: var(--workspace-muted);
+}
+.lean-heading > p {
+  margin: 0 0 12px;
+}
+.lean-heading h4 {
+  font: 600 32px/1.2 var(--body);
+  letter-spacing: -0.04em;
+  margin: 0 0 8px;
+}
+.lean-heading > span {
+  display: block;
+  color: var(--workspace-muted);
+  font: 13px/1.6 var(--body);
+}
+.lean-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #626262;
+  border-radius: 6px;
+  font: 12px/1.5 var(--body);
+  margin: 24px 0;
+  color: var(--workspace-muted);
+}
+.lean-search svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  flex-shrink: 0;
+}
+.lean-catalog {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 20px;
+}
+.lean-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 12px;
+}
+.lean-label > span {
+  color: #999;
+}
+.lean-program {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 12px;
+  border-bottom: 1px solid var(--workspace-line);
+}
+.lean-program strong {
+  font: 600 13px/1.5 var(--body);
+}
+.lean-program small {
+  display: block;
+  font: 11px/1.5 var(--mono);
+  margin-top: 5px;
+  color: var(--workspace-muted);
+}
+.lean-program > span:last-child {
+  color: var(--workspace-muted);
+}
+.lean-program.is-selected {
+  background: #292929;
+  border-radius: 6px;
+  box-shadow: inset 2px 0 var(--workspace-accent);
+}
+.lean-program.is-selected > span:last-child {
+  color: var(--workspace-accent);
+}
+.lean-detail {
+  padding: 18px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: #242424;
+}
+.lean-detail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.lean-detail-heading > span:first-child {
+  color: var(--workspace-accent);
+}
+.lean-percent {
+  font: 500 38px/1 var(--mono);
+  color: var(--workspace-accent);
+}
+.lean-detail h4 {
+  font: 600 24px/1.2 var(--body);
+  letter-spacing: -0.03em;
+  margin: 14px 0;
+}
+.lean-detail > p {
+  font: 12px/1.7 var(--body);
+  color: var(--workspace-muted);
+}
+.lean-mechanics {
+  margin-top: 20px;
+  border-top: 1px solid var(--workspace-line);
+  padding-top: 16px;
+}
+.lean-mechanics > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.lean-mechanics > div > span {
+  font: 11px/1.4 var(--mono);
+  padding: 5px 7px;
+  border: 1px solid #535353;
+  border-radius: 4px;
+}
+.lean-detail > .lean-rule {
+  margin-top: 14px;
+  font-size: 11px;
+}
+.lean-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--workspace-line);
+  margin-top: 24px;
+  padding-top: 16px;
+}
+.showcase-stage {
+  position: relative;
+}
+.folio .showcase-stage .showcase-toolbar {
+  padding-block: 16px;
+  min-height: 78px;
+}
+.showcase-runway {
+  height: 0;
+  pointer-events: none;
+}
+.folio .project-showcase.is-scroll-gallery {
+  position: relative;
+  overflow: visible;
+}
+.is-scroll-gallery .showcase-stage {
+  position: sticky;
+  top: var(--gallery-top, 88px);
+  min-height: var(--gallery-stage-height);
+}
+.is-scroll-gallery {
+  overflow-anchor: none;
+}
+@media (max-width: 1000px) {
+  .showcase-description {
+    padding: 24px;
+  }
+  .folio .showcase-description .showcase-card-header {
+    display: block;
+  }
+  .folio .showcase-card .showcase-description .evidence-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .folio .showcase-description .evidence-card {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 540px) {
+  .showcase-description {
+    padding: 24px 18px;
+  }
+  .folio .showcase-card .showcase-description .evidence-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .folio .catalog-preview--lean {
+    padding: 20px 16px;
+  }
+  .lean-heading h4 {
+    font-size: 26px;
+  }
+  .lean-catalog {
+    grid-template-columns: 1fr;
+  }
+  .lean-detail {
+    padding: 16px;
+  }
+}
+@media (forced-colors: active) {
+  .lean-program.is-selected {
+    outline: 1px solid Highlight;
+    box-shadow: none;
+  }
+  .lean-detail,
+  .lean-mechanics > div > span,
+  .lean-search {
+    border-color: CanvasText;
+  }
+}
