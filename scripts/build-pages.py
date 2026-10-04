@@ -6,6 +6,7 @@ from studio_design import flagship_hero, program_cover, program_discovery, rate_
 from case_design import case_diagram
 from interface_icons import standardize_icons
 from evidence_design import evidence_icon
+from preview_design import growth_preview, discount_preview, developer_preview
 
 ROOT = Path(__file__).resolve().parent.parent
 def head(name):
@@ -21,7 +22,7 @@ def head(name):
     gallery_styles = '' if name in ['partner-growth-programs.html', 'discounting.html', 'dev-portal.html'] else '\n<link rel="stylesheet" href="css/showcase.css">'
     case_styles = '\n<link rel="stylesheet" href="css/case-studies.css">' if name in ['partner-growth-programs.html', 'discounting.html', 'dev-portal.html'] else ''
     concept_styles = '\n<link rel="stylesheet" href="css/concept-system.css">' if name in ['index.html', 'projects.html', 'partner-growth-programs.html', 'discounting.html', 'dev-portal.html'] else ''
-    return h + '\n<link rel="stylesheet" href="css/folio.css">\n<link rel="stylesheet" href="css/editorial.css">' + gallery_styles + extra + '\n<link rel="stylesheet" href="css/studio.css">\n<link rel="stylesheet" href="css/concepts.css">\n<link rel="stylesheet" href="css/project-system.css">\n<link rel="stylesheet" href="css/personal-landing.css">' + case_styles + concept_styles + '\n<link rel="stylesheet" href="css/link-system.css">\n<link rel="stylesheet" href="css/evidence-motion.css">' + '\n<link rel="preload" as="font" type="font/woff2" href="fonts/manrope-latin.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="fonts/ubuntu-mono-regular.woff2" crossorigin>\n</head>'
+    return h + '\n<link rel="stylesheet" href="css/folio.css">\n<link rel="stylesheet" href="css/editorial.css">' + gallery_styles + extra + '\n<link rel="stylesheet" href="css/studio.css">\n<link rel="stylesheet" href="css/concepts.css">\n<link rel="stylesheet" href="css/project-system.css">\n<link rel="stylesheet" href="css/personal-landing.css">' + case_styles + concept_styles + '\n<link rel="stylesheet" href="css/link-system.css">\n<link rel="stylesheet" href="css/evidence-motion.css">\n<link rel="stylesheet" href="css/craft-motion.css">' + '\n<link rel="preload" as="font" type="font/woff2" href="fonts/manrope-latin.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="fonts/ubuntu-mono-regular.woff2" crossorigin>\n</head>'
 
 def nav(active=''):
     return f'''<a class="skip-link" href="#main">Skip to content</a>
@@ -99,10 +100,10 @@ def selected():
 
 def showcase_graphic(kind):
     if kind == 'growth':
-        return growth_cover()
+        return growth_preview(programs)
     if kind == 'discount':
-        return discount_cover()
-    return '''<div class="cover-deploy concept-shell concept-preview"><div class="preview-header"><h4>Developer Portal</h4><span>Configure and review your deployment.</span></div><div class="cover-deploy-steps"><span>Environment</span><span class="cover-stage-active">Rollout</span><span>Review</span></div><div class="cover-deploy-body preview-body"><div class="cover-environment preview-pane"><p>Environment</p><h4>staging-mesh</h4><div><span>24 cores</span><span>24 Gi</span></div></div><div class="cover-canary preview-pane preview-detail"><p>Rollout strategy</p><h4>Canary</h4><div class="cover-canary-sequence"><span>10%</span><span>20%</span><span>30%</span></div><div class="cover-canary-track"><i></i><i></i><i></i></div><p>300s ramp up · 900s monitoring</p></div></div><div class="cover-deploy-footer preview-note"><span>Hong Kong · Singapore · Amsterdam</span><span>10 replicas each</span></div></div>'''
+        return discount_preview()
+    return developer_preview()
 
 def project_showcase(work_page=False):
     cards=[
@@ -110,12 +111,12 @@ def project_showcase(work_page=False):
       ('discount','discounting.html','Discounting 2.0.','Senior Product Designer · Pricing &amp; promotions','I led design across a high-revenue partner surface, aligning product and business owners.','Sequential stacking · Illustrative room rate.'),
       ('dev','dev-portal.html','Developer Portal.','Senior Product Designer · Developer experience','I led 0-to-1 design as the first designer in DevOps.','Deployment workflow · Existing example settings.')
     ]
-    items=''.join(f'''<article class="showcase-card showcase-card--{kind}"><div class="showcase-description"><a class="showcase-card-link" href="{route}"><div class="showcase-card-header"><div class="showcase-heading"><p class="showcase-role">{role}</p><h3>{title}</h3></div><div class="showcase-summary"><p>{ownership}</p><span class="showcase-case-link">Read the case study <span aria-hidden="true">↗</span></span></div></div></a>{home_evidence(kind)}</div><div class="showcase-art showcase-art--{kind}" data-cover-scene aria-hidden="true">{showcase_graphic(kind)}</div></article>''' for kind,route,title,role,ownership,caption in cards)
+    items=''.join(f'''<article class="showcase-card showcase-card--{kind}"><div class="showcase-description"><a class="showcase-card-link" href="{route}"><div class="showcase-card-header"><div class="showcase-heading"><p class="showcase-role">{role}</p><h3>{title}</h3></div><div class="showcase-summary"><p>{ownership}</p><span class="showcase-case-link">Read the case study <span aria-hidden="true">↗</span></span></div></div></a>{home_evidence(kind)}</div><div class="showcase-art showcase-art--{kind}" data-cover-scene>{showcase_graphic(kind)}</div></article>''' for kind,route,title,role,ownership,caption in cards)
     heading_tag = 'h1' if work_page else 'h2'
     introduction = '<p class="eyebrow">Nicholas Gwee · Product Design Lead</p>' if work_page else ''
     description = '<p>Product strategy, interface craft and the evidence behind the work.</p>' if work_page else ''
     all_work = '' if work_page else '<a href="projects.html">All work <span aria-hidden="true">↗</span></a>'
-    return f'''<section class="selected-work project-showcase" id="work" aria-labelledby="work-title"><div class="showcase-intro">{introduction}<{heading_tag} id="work-title">Selected <span>work.</span></{heading_tag}>{description}<p class="showcase-hint" id="gallery-instructions">Scroll to explore, or use the arrows. Swipe on touch screens.<span class="sr-only"> Keyboard: focus the gallery and use Left and Right arrows, Home or End. Tab through project links to read each case study.</span></p></div><div class="showcase-stage"><div class="showcase-toolbar"><div class="showcase-navigation"><span data-showcase-status hidden role="status" aria-live="polite" aria-atomic="true"><span class="sr-only">Project </span><span data-showcase-position>1 of 3</span></span><button type="button" data-showcase-prev aria-label="Previous project" aria-controls="project-gallery" hidden disabled><span aria-hidden="true">←</span></button><button type="button" data-showcase-next aria-label="Next project" aria-controls="project-gallery" hidden><span aria-hidden="true">→</span></button>{all_work}</div></div><div class="showcase-track" id="project-gallery" role="region" aria-label="Selected projects" aria-describedby="gallery-instructions" tabindex="0">{items}</div></div></section>'''
+    return f'''<section class="selected-work project-showcase" id="work" aria-labelledby="work-title"><div class="showcase-intro">{introduction}<{heading_tag} id="work-title">Selected <span>work.</span></{heading_tag}>{description}<p class="showcase-hint" id="gallery-instructions">Scroll to explore, or use the arrows. Swipe on touch screens.<span class="sr-only"> Keyboard: focus the gallery and use Left and Right arrows, Home or End. Tab through project links to read each case study.</span></p></div><div class="showcase-stage"><div class="showcase-toolbar"><div class="showcase-navigation"><span data-showcase-status hidden role="status" aria-live="polite" aria-atomic="true"><span class="sr-only">Project </span><span data-showcase-position>1 of 3</span></span><button type="button" data-showcase-prev aria-label="Previous project" aria-controls="project-gallery" hidden disabled><span aria-hidden="true">←</span></button><button type="button" data-showcase-next aria-label="Next project" aria-controls="project-gallery" hidden><span aria-hidden="true">→</span></button>{all_work}</div><div class="showcase-progress" aria-hidden="true"><i data-showcase-progress></i></div></div><div class="showcase-track" id="project-gallery" role="region" aria-label="Selected projects" aria-describedby="gallery-instructions" tabindex="0">{items}</div></div></section>'''
 
 def archive():
     return '''<section class="archive"><div class="section-heading"><p class="eyebrow">Earlier work · GovTech</p><h2>Public service.<br>Practical impact.</h2></div><div class="archive-entry"><h3>Transcribe</h3><p>0-to-1 design for a secure speech-to-text platform: live and file transcription in English, Chinese, Malay and Tamil; shared workspaces; automated minutes and summaries.</p><span class="archive-evidence">3 government agencies · reported adoption</span></div><div class="archive-entry"><h3>Centralised Data Platform</h3><p>0-to-1 design for a data subscription platform that streamlines request and approval workflows.</p><span class="archive-evidence">5+ government agencies · reported scope</span></div><a class="text-link" href="originals/projects.html">View the original project index ↗</a></section>'''
@@ -125,7 +126,7 @@ def about():
     return '''<section class="about-section" id="about"><div class="leadership-copy"><p class="eyebrow">Design leadership</p><h2>Build the team.<br>Shape the product.</h2><p>I adapt the method to the challenge, staying close to users through discovery interviews, usability testing, funnel analysis, clickstreams and NPS signals.</p><p>I keep the longer-term vision in view while balancing evidence, capacity and stakeholder alignment. Design stays tied to conversion, retention, revenue and operational efficiency.</p><p>I hire, coach and build the conditions for teams to do their best work. AI tools augment research synthesis, critique, prototyping and production handoff: Cursor, Claude, GPT, DeepSeek and Figma.</p><a class="text-link" href="resume.html">Experience &amp; resume ↗</a></div><div class="about-detail"><h3>Experience</h3><ol class="experience">'''+''.join(f'<li><span>{company}</span><strong>{role}</strong><small>{dates}</small></li>' for company,role,dates in jobs)+'''</ol></div></section>'''
 
 # Integration: replace calculator() with this function; add discount_cover(),
-# and return discount_cover() from showcase_graphic('discount').
+# and return discount_preview() from showcase_graphic('discount').
 # Load css/discount-ui.css after existing styles on home and discounting only.
 # Visual references: https://stripe.com/billing and
 # https://docs.stripe.com/billing/subscriptions/coupons

@@ -22,8 +22,8 @@ export function png(width, height, rgba) {
   const palette = Buffer.alloc(48);
   for (let i = 0; i < 16; i++) {
     palette[i * 3] = Math.round(19 + (225 * i) / 15);
-    palette[i * 3 + 1] = Math.round(23 + (221 * i) / 15);
-    palette[i * 3 + 2] = Math.round(21 + (221 * i) / 15);
+    palette[i * 3 + 1] = palette[i * 3];
+    palette[i * 3 + 2] = palette[i * 3];
   }
   const stride = Math.ceil(width / 2) + 1,
     rows = Buffer.alloc(stride * height);

@@ -5,6 +5,12 @@ import "./evidence-motion.mjs";
 import { motionPaused } from "./kinetics.mjs";
 import "./showcase.mjs";
 import "./clouds.mjs";
+import "./project-previews.mjs";
+import {
+  revealFeedback,
+  attachIndicator,
+  animateRateBar,
+} from "./interaction-motion.mjs";
 
 document.querySelectorAll("[data-discovery]").forEach((root) => {
   const search = root.querySelector("[data-program-search]"),
@@ -33,6 +39,11 @@ document.querySelectorAll("[data-discovery]").forEach((root) => {
   search.disabled = false;
   category.disabled = false;
   search.addEventListener("input", filter);
+  root.querySelectorAll("details").forEach((tile) =>
+    tile.addEventListener("toggle", () => {
+      if (tile.open) revealFeedback(tile.querySelector(".program-detail"));
+    }),
+  );
   category.addEventListener("change", filter);
   clear.addEventListener("click", () => {
     search.value = "";
@@ -49,7 +60,7 @@ if (calculator) {
       style: "currency",
       currency: "USD",
     }).format(value);
-  function update() {
+  function update(event) {
     const rate = form.elements.rate;
     const error = calculator.querySelector("[data-calc-error]");
     if (!rate.validity.valid || rate.value === "") {
@@ -80,6 +91,9 @@ if (calculator) {
     calculator.querySelector("[data-effective]").textContent =
       `${result.effective}% effective discount`;
     const ledger = calculator.querySelector("[data-ledger]");
+    const previousBars = [...ledger.querySelectorAll("i")].map(
+      (bar) => parseFloat(bar.style.getPropertyValue("--rate-width")) || 0,
+    );
     ledger.replaceChildren();
     const start = Number(rate.value);
     const rows = [
@@ -93,7 +107,7 @@ if (calculator) {
         };
       }),
     ];
-    rows.forEach(({ label, detail, balance }) => {
+    rows.forEach(({ label, detail, balance }, index) => {
       const row = document.createElement("div"),
         s = document.createElement("span"),
         b = document.createElement("strong"),
@@ -110,6 +124,12 @@ if (calculator) {
       bar.setAttribute("aria-hidden", "true");
       row.append(s, b, bar);
       ledger.append(row);
+      if (event)
+        animateRateBar(
+          bar,
+          previousBars[index] || 0,
+          start ? (balance / start) * 100 : 0,
+        );
     });
     calculator.querySelector("[data-total-cut]").textContent =
       `Total discount · ${money(start - result.net)}`;
@@ -159,7 +179,7 @@ if (developer) {
       list.append(row);
     });
   }
-  function render(focus = false) {
+  function render(focus = false, direction = 1) {
     stages.forEach((stage, i) => {
       stage.hidden = i !== step;
     });
@@ -179,6 +199,7 @@ if (developer) {
       `Step ${step + 1} of 3`;
     if (step === 2) review();
     if (focus) {
+      revealFeedback(stages[step], direction);
       const title = stages[step].querySelector("h2");
       title.tabIndex = -1;
       title.focus({ preventScroll: true });
@@ -210,7 +231,7 @@ if (developer) {
     if (step > 0) {
       step--;
       status.textContent = "";
-      render(true);
+      render(true, -1);
     }
   });
   form.addEventListener("submit", (event) => {
@@ -224,6 +245,11 @@ if (developer) {
         : "Rolling update · existing deployment strategy";
   });
   render();
+  attachIndicator(
+    form.querySelector(".deploy-steps"),
+    "[data-step-label]",
+    "[aria-current]",
+  );
 }
 
 // The home graphic uses the same cent-rounded calculation as the full simulator.

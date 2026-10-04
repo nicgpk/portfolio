@@ -11,8 +11,8 @@ try {
     ["orbit", 3],
   ]) {
     for (const [width, height, cssWidth, cssHeight] of [
-      [1600, 758, 1280, 606],
-      [800, 1100, 390, 536],
+      [1600, 500, 1280, 400],
+      [800, 844, 360, 380],
     ]) {
       const data = await page.evaluate(
         async ({ width, height, cssWidth, cssHeight, mode }) => {

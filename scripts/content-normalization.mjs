@@ -7,7 +7,7 @@ export function normalizedContentText(element) {
   // These presentation-only labels were explicitly removed in the caption pass.
   clone
     .querySelectorAll(
-      ".showcase-caption,.concept-context,.concept-heading .eyebrow,.diagram-kicker,.app-side-note,.sample-label,.terminal-pill,.growth-preview-note,.discount-app-footer > span:first-child",
+      ".showcase-art,.showcase-caption,.concept-context,.concept-heading .eyebrow,.diagram-kicker,.app-side-note,.sample-label,.terminal-pill,.growth-preview-note,.discount-app-footer > span:first-child",
     )
     .forEach((node) => node.remove());
   clone.querySelectorAll("a,button").forEach((control) => {

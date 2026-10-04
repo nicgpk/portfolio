@@ -37,7 +37,7 @@ void main() {
   vec2 q = sampleUV + vec2(sin(time * .08) * .004, 0.);
   if (background > .5 && background < 1.5) {
     float horizon = .79 + cos(q.x * 5.2 + .4) * .045;
-    density = smoothstep(horizon - .07, horizon + .09, q.y) * .32;
+    density = smoothstep(horizon - .07, horizon + .09, q.y) * .48;
     density += smoothstep(.94 + sin(q.x * 4.) * .025, 1.08, q.y) * .16;
   } else if (background > 1.5 && background < 2.5) {
     vec2 left = vec2((q.x - .10) * 1.65, (q.y - 1.02) * 3.1);
@@ -56,8 +56,8 @@ void main() {
   float radius = .04 + sqrt(density) * .48;
   vec2 local = fract(pixel / pitch) - .5;
   float dotInk = 1. - smoothstep(radius - .065, radius + .065, length(local));
-  vec3 paper = vec3(.957, .957, .949);
-  vec3 ink = vec3(.075, .090, .082);
+  vec3 paper = vec3(.957);
+  vec3 ink = vec3(.075);
   gl_FragColor = vec4(mix(paper, ink, dotInk), 1.);
 }
 `;

@@ -9,6 +9,7 @@ for (const root of document.querySelectorAll(".project-showcase")) {
   const next = root.querySelector("[data-showcase-next]");
   const status = root.querySelector("[data-showcase-status]");
   const position = root.querySelector("[data-showcase-position]");
+  const progress = root.querySelector("[data-showcase-progress]");
   let active = 0;
   let frame = 0;
   let settleTimer = 0;
@@ -33,6 +34,10 @@ for (const root of document.querySelectorAll(".project-showcase")) {
     // Reflow can emit scroll before ResizeObserver restores the selected project.
     if (track.clientWidth !== width) return;
     active = nearest();
+    if (progress) {
+      const max = track.scrollWidth - track.clientWidth;
+      progress.style.transform = `translateX(${max ? (track.scrollLeft / max) * (cards.length - 1) * 100 : 0}%)`;
+    }
     const label = `${active + 1} of ${cards.length}`;
     if (position.textContent !== label) position.textContent = label;
     previous.disabled = active === 0;

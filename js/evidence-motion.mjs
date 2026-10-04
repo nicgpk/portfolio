@@ -20,7 +20,10 @@ if ("IntersectionObserver" in window) {
     },
     { threshold: 0.5 },
   );
-  icons.forEach((icon) => observer.observe(icon));
+  icons.forEach((icon) => {
+    icon.dataset.evidenceReady = "";
+    observer.observe(icon);
+  });
 }
 document.addEventListener("portfolio:motionchange", sync);
 document.addEventListener("visibilitychange", sync);

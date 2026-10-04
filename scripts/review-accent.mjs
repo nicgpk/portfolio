@@ -18,6 +18,7 @@ const activeStyles = [
   "concept-system",
   "link-system",
   "evidence-motion",
+  "craft-motion",
   "resume-portfolio",
   "teletype",
   "resume",

@@ -118,7 +118,7 @@ try {
         el.querySelector("svg").getAnimations()[0].effect.getTiming()
           .iterations,
     ),
-    2,
+    1,
   );
   await page.locator("[data-motion-toggle]").click();
   await expect(icon).not.toHaveClass(/is-playing/);
@@ -136,7 +136,7 @@ try {
     0,
   );
   report.motion = [
-    "Visible icon advances through two bounded cycles",
+    "Visible icon advances through one finite draw",
     "User pause freezes and resume continues",
     "Offscreen icons pause",
     "Reduced motion is static",

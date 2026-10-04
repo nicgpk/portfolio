@@ -2,6 +2,16 @@
 
 Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. Delivery is a local preview and open draft PR. No merge, auto-merge, deployment or production source change.
 
+## Current visual and motion refinement
+
+The approved five-point pass is documented in `../docs/craft-motion.md`. A compact personal hero emphasizes Nicholas Gwee and a smaller role, replacing the solid accent band with a restrained red underline. Horizon is now the authored default, with broad monochrome halftone contours, responsive static posters and the existing bounded cursor interaction.
+
+Home and Work reuse three usable demonstrations: program selection, sample discount toggles and deployment tabs. The frames share typography, surfaces and controls while fitting their real content. Cards keep equal intrinsic heights, and switching panels preserves geometry. Full case workflows share brief reveal, indicator and bar feedback. A thin horizontal progress rail follows actual gallery position, and action arrows provide restrained hover/focus feedback. Evidence panels emphasize one main metric and use a single finite linework draw; reported numbers stay stationary.
+
+`craft-motion/checks.json` verifies four responsive widths, mouse/keyboard selections, all four discount combinations, six deployment review groups, stable card heights, pause/reduced-motion/static fallbacks, and exact authored narrative/metric/link preservation against `e2a917d`. Existing route, color, workflow, original-artifact and gallery checks remain. Current before/after captures and a browser interaction recording are in `craft-motion/`. Historical sections below describe previous states and are superseded by this pass where they conflict.
+
+The final shared local mobile observation was 4.304s LCP, 0.0109 CLS and 351,330 encoded resource bytes over 27 requests under emulated network/CPU throttling. It is not a controlled comparison or a production result; mobile loading and GPU/power profiling still deserve further review. Actual devices, Safari/Firefox, manual screen-reader sessions and recruiter response remain unverified. Draft only; no merge or deployment.
+
 ## Current Singapore red accent
 
 One authored `--accent: #ed2939` value in `css/folio.css` supplies the homepage, Work, three cases and resume. Historical accent aliases and duplicate legacy resume accent definitions are removed. Warm/cool tinted surfaces are grayscale; small labels, errors and reading links stay neutral for contrast, with red used in icons, selected states, emphasis and focus. Forced colors uses the system Highlight value. Original archives, PDFs and ATS content remain unchanged.

@@ -303,7 +303,11 @@
   ],
   "requests": [
     {
-      "url": "http://127.0.0.1:4183/images/hero-halftone-800.png",
+      "url": "http://127.0.0.1:4183/js/halftone.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/hero-horizon-800.png",
       "status": 200
     },
     {
@@ -359,7 +363,11 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/images/hero-halftone-800.png",
+      "url": "http://127.0.0.1:4183/css/craft-motion.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/images/hero-horizon-800.png",
       "status": 200
     },
     {
@@ -391,15 +399,23 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/js/kinetics.mjs",
-      "status": 200
-    },
-    {
       "url": "http://127.0.0.1:4183/js/clouds.mjs",
       "status": 200
     },
     {
+      "url": "http://127.0.0.1:4183/js/kinetics.mjs",
+      "status": 200
+    },
+    {
       "url": "http://127.0.0.1:4183/js/showcase.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/js/project-previews.mjs",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4183/js/interaction-motion.mjs",
       "status": 200
     },
     {
@@ -410,10 +426,10 @@
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 2776,
-      "cls": 0.010573615562678062,
-      "resourceBytes": 397517,
-      "requestCount": 24
+      "lcpMs": 4304,
+      "cls": 0.010885363396248814,
+      "resourceBytes": 351330,
+      "requestCount": 27
     }
   ],
   "errors": [],

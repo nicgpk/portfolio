@@ -80,7 +80,7 @@ try {
     const collapsed = await galleryGeometry();
     assert.deepEqual(
       collapsed.evidenceColors,
-      Array(3).fill("rgb(245, 245, 245)"),
+      Array(3).fill("rgb(247, 247, 247)"),
     );
     for (let index = 0; index < panels.length; index++) {
       const [kind, values] = panels[index];

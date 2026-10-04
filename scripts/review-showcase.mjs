@@ -668,11 +668,14 @@ async function assertCoverGraphics(page) {
   const covers = page.locator(".project-showcase .showcase-art");
   await expect(covers).toHaveCount(3);
   for (const cover of await covers.all()) {
-    await expect(cover).toHaveAttribute("aria-hidden", "true");
-    assert.equal(
-      await cover.locator("a,button,input,select,textarea,[tabindex]").count(),
-      0,
-      "Decorative cover artwork must not contain keyboard controls.",
+    assert.notEqual(
+      await cover.getAttribute("aria-hidden"),
+      "true",
+      "Interactive examples remain accessible",
+    );
+    assert.ok(
+      (await cover.locator("button,input").count()) > 0,
+      "Every preview has a working task control",
     );
   }
   const rate = await page
@@ -705,7 +708,7 @@ async function assertCoverGraphics(page) {
       Math.abs(rate[index].widthPercent - expected) < 0.1,
       `Rate bar ${index + 1} must represent the remaining balance: ${JSON.stringify(rate[index])}`,
     );
-  return { decorativeCovers: 3, rate };
+  return { interactivePreviews: 3, rate };
 }
 
 async function assertNoCoverAnimations(page) {

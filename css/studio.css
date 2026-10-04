@@ -1149,15 +1149,6 @@ body.folio {
 .growth-studio [hidden] {
   display: none !important;
 }
-[data-motion="on"] .is-cover-visible .rate-preview-steps i {
-  animation: cover-bar 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-[data-motion="on"] .is-cover-visible .rate-preview-steps > div:nth-child(2) i {
-  animation-delay: 0.1s;
-}
-[data-motion="on"] .is-cover-visible .rate-preview-steps > div:nth-child(3) i {
-  animation-delay: 0.2s;
-}
 /* Discounting: one readable statement with controls and a prominent final rate. */
 .discount-studio {
   --discount-line: #dcdcdc;

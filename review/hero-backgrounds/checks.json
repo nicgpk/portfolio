@@ -148,11 +148,11 @@
   "interactions": [
     {
       "name": "horizon",
-      "cursorPixelDelta": 40.544,
+      "cursorPixelDelta": 56.6846875,
       "stableText": true,
       "pauseResume": true,
       "contextLossFallback": true,
-      "desktopPosterBytes": 43933
+      "desktopPosterBytes": 31682
     },
     {
       "name": "dune",
@@ -160,7 +160,7 @@
       "stableText": true,
       "pauseResume": true,
       "contextLossFallback": true,
-      "desktopPosterBytes": 45110
+      "desktopPosterBytes": 30621
     },
     {
       "name": "orbit",
@@ -168,7 +168,7 @@
       "stableText": true,
       "pauseResume": true,
       "contextLossFallback": true,
-      "desktopPosterBytes": 57186
+      "desktopPosterBytes": 37796
     }
   ],
   "errors": [],

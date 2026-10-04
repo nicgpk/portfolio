@@ -122,7 +122,7 @@
     }
   ],
   "motion": [
-    "Visible icon advances through two bounded cycles",
+    "Visible icon advances through one finite draw",
     "User pause freezes and resume continues",
     "Offscreen icons pause",
     "Reduced motion is static",

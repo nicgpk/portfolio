@@ -1,0 +1,75 @@
+{
+  "layouts": [
+    {
+      "route": "index",
+      "width": 320,
+      "equalCards": true,
+      "stableSelections": true,
+      "overflow": false
+    },
+    {
+      "route": "projects",
+      "width": 320,
+      "equalCards": true,
+      "stableSelections": true,
+      "overflow": false
+    },
+    {
+      "route": "index",
+      "width": 390,
+      "equalCards": true,
+      "stableSelections": true,
+      "overflow": false
+    },
+    {
+      "route": "projects",
+      "width": 390,
+      "equalCards": true,
+      "stableSelections": true,
+      "overflow": false
+    },
+    {
+      "route": "index",
+      "width": 768,
+      "equalCards": true,
+      "stableSelections": true,
+      "overflow": false
+    },
+    {
+      "route": "projects",
+      "width": 768,
+      "equalCards": true,
+      "stableSelections": true,
+      "overflow": false
+    },
+    {
+      "route": "index",
+      "width": 1440,
+      "equalCards": true,
+      "stableSelections": true,
+      "overflow": false
+    },
+    {
+      "route": "projects",
+      "width": 1440,
+      "equalCards": true,
+      "stableSelections": true,
+      "overflow": false
+    }
+  ],
+  "interactions": [
+    "Program selection and keyboard tabs; all four discount combinations; deployment tabs with six source-backed review groups",
+    "Animated bars cancel on user pause; selections and final values work with reduced motion",
+    "No-JavaScript examples and linework remain static and readable"
+  ],
+  "source": [
+    "index",
+    "projects",
+    "partner-growth-programs",
+    "discounting",
+    "dev-portal",
+    "resume"
+  ],
+  "errors": [],
+  "passed": true
+}

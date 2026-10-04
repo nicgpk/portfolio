@@ -74,6 +74,15 @@ try {
     });
     await page.goto(url);
     await expect(page.locator(".cloud-field")).toHaveClass(/is-active/);
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+      await Promise.all(
+        document
+          .querySelector("#hero-title")
+          .getAnimations()
+          .map((a) => a.finished),
+      );
+    });
     const textBox = await page.locator("#hero-title").boundingBox();
     const box = await page.locator(".hero-stage").boundingBox();
     await page.mouse.move(box.x + box.width * 0.82, box.y + box.height * 0.85);
@@ -135,7 +144,7 @@ try {
     });
     await page.close();
   }
-  // Unknown options safely retain the existing artwork; no-JS still has the original static hero.
+  // Unknown options retain the authored Horizon; no-JS uses its matching poster.
   const page = await browser.newPage({ javaScriptEnabled: false });
   await page.goto("http://127.0.0.1:4183/?background=horizon");
   await expect(page.locator(".cloud-poster")).toBeVisible();
@@ -144,7 +153,7 @@ try {
   await fallback.goto("http://127.0.0.1:4183/?background=unknown");
   assert.equal(
     await fallback.locator(".cloud-field").getAttribute("data-background"),
-    null,
+    "horizon",
   );
   await fallback.close();
   assert.deepEqual(report.errors, []);

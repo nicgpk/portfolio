@@ -15,6 +15,9 @@ if (hero) {
     field.querySelector("source").srcset = `images/hero-${background}-800.png`;
     field.querySelector(".cloud-poster").src =
       `images/hero-${background}-1600.png`;
+  } else {
+    field.querySelector("source").srcset = "images/hero-halftone-800.png";
+    field.querySelector(".cloud-poster").src = "images/hero-halftone-1600.png";
   }
   const fine = matchMedia("(hover: hover) and (pointer: fine)");
   const forced = matchMedia("(forced-colors: active)");

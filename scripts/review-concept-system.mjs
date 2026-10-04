@@ -79,10 +79,14 @@ try {
           Math.min(...shells.map((s) => s.top)) <
           1,
       );
+      const heights = await page
+        .locator(".showcase-card")
+        .evaluateAll((els) =>
+          els.map((el) => el.getBoundingClientRect().height),
+        );
       assert.ok(
-        Math.max(...shells.map((s) => s.height)) -
-          Math.min(...shells.map((s) => s.height)) <
-          1,
+        Math.max(...heights) - Math.min(...heights) < 1,
+        "Project cards retain equal height while previews fit their content",
       );
     }
     const footers = await page
@@ -97,12 +101,12 @@ try {
       );
     assert.equal(footers.length, 3);
     footers.forEach((footer) => assert.equal(footer.font, footers[0].font));
-    if (width === 1440)
+    footers.forEach((footer) =>
       assert.ok(
-        Math.max(...footers.map((f) => f.bottom)) -
-          Math.min(...footers.map((f) => f.bottom)) <
-          1,
-      );
+        footer.bottom <= footer.shellBottom,
+        "Preview footer fits inside its frame",
+      ),
+    );
     report.previews.push({
       width,
       commonHeadings: true,

@@ -2,7 +2,7 @@
   "passed": true,
   "errors": [],
   "initial": {
-    "height": 1097.40625,
+    "height": 1044.5,
     "y": 0,
     "tailSpace": 0,
     "position": "relative",
@@ -12,15 +12,15 @@
   "noStickyStage": true,
   "marginWheel": {
     "before": {
-      "height": 1097.40625,
-      "y": 1103,
+      "height": 1044.5,
+      "y": 619,
       "tailSpace": 0,
       "position": "relative",
       "runway": 0
     },
     "after": {
-      "height": 1097.40625,
-      "y": 1103,
+      "height": 1044.5,
+      "y": 619,
       "tailSpace": 0,
       "position": "relative",
       "runway": 0

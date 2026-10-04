@@ -82,6 +82,7 @@
     <link rel="stylesheet" href="css/concept-system.css" />
     <link rel="stylesheet" href="css/link-system.css" />
     <link rel="stylesheet" href="css/evidence-motion.css" />
+    <link rel="stylesheet" href="css/craft-motion.css" />
     <link
       rel="preload"
       as="font"
@@ -203,6 +204,9 @@
                 ></span>
               </button>
             </div>
+            <div class="showcase-progress" aria-hidden="true">
+              <i data-showcase-progress></i>
+            </div>
           </div>
           <div
             class="showcase-track"
@@ -258,15 +262,20 @@
                       data-evidence-icon
                       aria-hidden="true"
                       ><svg
-                        class="ui-icon"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        focusable="false"
+                        class="ui-icon evidence-linework"
+                        viewBox="0 0 32 32"
+                        width="32"
+                        height="32"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
                       >
-                        <use href="images/interface-icons.svg#layers" /></svg
-                      ><span class="evidence-icon-orbit"></span
+                        <path
+                          d="M5 7h6v6H5zM21 5h6v6h-6zM20 23h6v6h-6zM16 16l-5-6m5 6 8-8m-8 8 7 10"
+                        />
+                        <circle cx="16" cy="16" r="3" /></svg
                     ></span>
                   </div>
                   <dl class="evidence-metrics">
@@ -381,76 +390,41 @@
                   </details>
                 </section>
               </div>
-              <div
-                class="showcase-art showcase-art--growth"
-                data-cover-scene
-                aria-hidden="true"
-              >
+              <div class="showcase-art showcase-art--growth" data-cover-scene>
                 <div
                   class="product-preview catalog-preview catalog-preview--lean concept-shell concept-preview"
+                  data-preview-picker
+                  data-picker-direction="vertical"
                 >
                   <div class="lean-heading preview-header">
                     <h4>Growth programs</h4>
                     <span>Explore the options for your property.</span>
-                  </div>
-                  <div class="lean-search">
-                    <svg
-                      class="ui-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                      focusable="false"
-                    >
-                      <use href="images/interface-icons.svg#search" /></svg
-                    ><span>Search by name or goal</span>
                   </div>
                   <div class="lean-catalog preview-body">
                     <div class="lean-results preview-pane">
                       <p class="lean-label">
                         All categories <span>3 of 8 programs</span>
                       </p>
-                      <div class="lean-program is-selected">
-                        <span
-                          ><strong>Promotions</strong
-                          ><small>Conversion</small></span
-                        ><span aria-hidden="true"
-                          ><svg
-                            class="ui-icon"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                            focusable="false"
-                          >
-                            <use
-                              href="images/interface-icons.svg#arrow-up-right"
-                            /></svg
-                        ></span>
-                      </div>
-                      <div class="lean-program">
-                        <span
-                          ><strong>Agoda Growth Program</strong
-                          ><small>Marketing</small></span
-                        ><span aria-hidden="true"
-                          ><svg
-                            class="ui-icon"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                            focusable="false"
-                          >
-                            <use
-                              href="images/interface-icons.svg#arrow-right"
-                            /></svg
-                        ></span>
-                      </div>
-                      <div class="lean-program">
-                        <span
-                          ><strong>Boost Rank</strong
-                          ><small>Visibility</small></span
-                        ><span aria-hidden="true"
+                      <div
+                        class="preview-choices"
+                        role="tablist"
+                        aria-label="Program examples"
+                        aria-orientation="vertical"
+                      >
+                        <button
+                          class="lean-program is-selected"
+                          id="preview-program-0"
+                          type="button"
+                          role="tab"
+                          aria-selected="true"
+                          aria-controls="preview-program-detail-0"
+                          tabindex="0"
+                          data-preview-choice="0"
+                          disabled
+                        >
+                          <span
+                            ><strong>Promotions</strong
+                            ><small>Conversion</small></span
                           ><svg
                             class="ui-icon"
                             width="24"
@@ -461,38 +435,175 @@
                           >
                             <use
                               href="images/interface-icons.svg#arrow-right"
-                            /></svg
-                        ></span>
+                            />
+                          </svg></button
+                        ><button
+                          class="lean-program"
+                          id="preview-program-1"
+                          type="button"
+                          role="tab"
+                          aria-selected="false"
+                          aria-controls="preview-program-detail-1"
+                          tabindex="-1"
+                          data-preview-choice="1"
+                          disabled
+                        >
+                          <span
+                            ><strong>Agoda Growth Program</strong
+                            ><small>Marketing</small></span
+                          ><svg
+                            class="ui-icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                            focusable="false"
+                          >
+                            <use
+                              href="images/interface-icons.svg#arrow-right"
+                            />
+                          </svg></button
+                        ><button
+                          class="lean-program"
+                          id="preview-program-2"
+                          type="button"
+                          role="tab"
+                          aria-selected="false"
+                          aria-controls="preview-program-detail-2"
+                          tabindex="-1"
+                          data-preview-choice="2"
+                          disabled
+                        >
+                          <span
+                            ><strong>Boost Rank</strong
+                            ><small>Visibility</small></span
+                          ><svg
+                            class="ui-icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                            focusable="false"
+                          >
+                            <use
+                              href="images/interface-icons.svg#arrow-right"
+                            />
+                          </svg>
+                        </button>
                       </div>
                     </div>
-                    <div class="lean-detail preview-pane preview-detail">
-                      <div class="lean-detail-heading">
-                        <span>CONVERSION</span
-                        ><span class="lean-percent" aria-hidden="true"
-                          ><svg
-                            class="ui-icon"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                            focusable="false"
-                          >
-                            <use
-                              href="images/interface-icons.svg#percent"
-                            /></svg
-                        ></span>
+                    <div class="preview-panels">
+                      <div
+                        class="lean-detail preview-pane preview-detail"
+                        id="preview-program-detail-0"
+                        role="tabpanel"
+                        aria-labelledby="preview-program-0"
+                        data-preview-panel="0"
+                      >
+                        <div class="lean-detail-heading">
+                          <span>CONVERSION</span
+                          ><span class="lean-percent" aria-hidden="true"
+                            ><svg
+                              class="ui-icon"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                              focusable="false"
+                            >
+                              <use
+                                href="images/interface-icons.svg#percent"
+                              /></svg
+                          ></span>
+                        </div>
+                        <h4>Promotions</h4>
+                        <p>
+                          Property sets a discount. Agoda adds a deal badge,
+                          boosts rank, and amplifies across email, push, and
+                          deal pages.
+                        </p>
+                        <div class="lean-mechanics">
+                          <span>Discount types</span>
+                          <div>
+                            <span>Mega Sale</span><span>Seasonal</span
+                            ><span>Always-on</span><span>Targeted</span>
+                          </div>
+                        </div>
                       </div>
-                      <h4>Promotions</h4>
-                      <p>
-                        Property sets a discount. Agoda adds a deal badge,
-                        boosts rank, and amplifies across email, push, and deal
-                        pages.
-                      </p>
-                      <div class="lean-mechanics">
-                        <span>Discount types</span>
-                        <div>
-                          <span>Mega Sale</span><span>Seasonal</span
-                          ><span>Always-on</span><span>Targeted</span>
+                      <div
+                        class="lean-detail preview-pane preview-detail"
+                        id="preview-program-detail-1"
+                        role="tabpanel"
+                        aria-labelledby="preview-program-1"
+                        data-preview-panel="1"
+                        hidden
+                      >
+                        <div class="lean-detail-heading">
+                          <span>MARKETING</span
+                          ><span class="lean-percent" aria-hidden="true"
+                            ><svg
+                              class="ui-icon"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                              focusable="false"
+                            >
+                              <use
+                                href="images/interface-icons.svg#megaphone"
+                              /></svg
+                          ></span>
+                        </div>
+                        <h4>Agoda Growth Program</h4>
+                        <p>
+                          A higher commission funds ranking boost, ad spend and
+                          a Preferred Partner badge.
+                        </p>
+                        <div class="lean-mechanics">
+                          <span>How it works</span>
+                          <p>
+                            Typically 10–15% incremental commission (INM). The
+                            program brings higher search rank, Google and Kayak
+                            ad spend, and wider affiliate reach.
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="lean-detail preview-pane preview-detail"
+                        id="preview-program-detail-2"
+                        role="tabpanel"
+                        aria-labelledby="preview-program-2"
+                        data-preview-panel="2"
+                        hidden
+                      >
+                        <div class="lean-detail-heading">
+                          <span>VISIBILITY</span
+                          ><span class="lean-percent" aria-hidden="true"
+                            ><svg
+                              class="ui-icon"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                              focusable="false"
+                            >
+                              <use
+                                href="images/interface-icons.svg#trending-up"
+                              /></svg
+                          ></span>
+                        </div>
+                        <h4>Boost Rank</h4>
+                        <p>
+                          Target audiences and stay dates. Pay only when a
+                          booking lands, with no lock-in.
+                        </p>
+                        <div class="lean-mechanics">
+                          <span>How it works</span>
+                          <p>
+                            Choose a target audience and campaign budget.
+                            Incremental commission is charged per booking,
+                            rather than per impression.
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -547,15 +658,17 @@
                       data-evidence-icon
                       aria-hidden="true"
                       ><svg
-                        class="ui-icon"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        focusable="false"
+                        class="ui-icon evidence-linework"
+                        viewBox="0 0 32 32"
+                        width="32"
+                        height="32"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
                       >
-                        <use href="images/interface-icons.svg#percent" /></svg
-                      ><span class="evidence-icon-orbit"></span
+                        <path d="M3 7h9v6h8v6h9M3 25h9M12 25h8M20 25h9" /></svg
                     ></span>
                   </div>
                   <dl class="evidence-metrics">
@@ -597,31 +710,40 @@
                   </details>
                 </section>
               </div>
-              <div
-                class="showcase-art showcase-art--discount"
-                data-cover-scene
-                aria-hidden="true"
-              >
+              <div class="showcase-art showcase-art--discount" data-cover-scene>
                 <div
                   class="product-preview rate-preview concept-shell concept-preview"
+                  data-discount-preview
                 >
                   <div class="preview-header">
                     <h4>Net Rate Simulator</h4>
                     <span>USD / night · Before commission and taxes</span>
                   </div>
+                  <form class="preview-discounts" aria-label="Sample discounts">
+                    <label
+                      ><input type="checkbox" name="mega" checked disabled />
+                      Mega Sale <span>15%</span></label
+                    ><label
+                      ><input type="checkbox" name="mobile" checked disabled />
+                      Mobile Exclusive <span>10%</span></label
+                    >
+                  </form>
                   <div class="rate-preview-body preview-body">
                     <div class="rate-preview-overview preview-pane">
                       <p class="rate-preview-eyebrow">
                         ROOM RATE AFTER DISCOUNTS
                       </p>
                       <div class="rate-preview-result">
-                        <strong>$114.75</strong
-                        ><span>23.5%<small>effective discount</small></span>
+                        <strong data-preview-net>$114.75</strong
+                        ><span
+                          ><b data-preview-effective>23.5%</b
+                          ><small>effective discount</small></span
+                        >
                       </div>
                       <p class="rate-preview-exclusion">
                         Before commission and taxes
                       </p>
-                      <div class="rate-preview-formula">
+                      <div class="rate-preview-formula" data-preview-formula>
                         150 × 0.85 × 0.90 = 114.75
                       </div>
                     </div>
@@ -631,14 +753,20 @@
                         ><i style="--rate-width: 100%"></i>
                       </div>
                       <div>
-                        <span>Mega Sale <b>15%</b></span
-                        ><strong>$127.50</strong><small>−$22.50</small
-                        ><i style="--rate-width: 85%"></i>
+                        <span data-preview-mega-label>Mega Sale <b>15%</b></span
+                        ><strong data-preview-mega>$127.50</strong
+                        ><small data-preview-mega-cut>−$22.50</small
+                        ><i data-preview-mega-bar style="--rate-width: 85%"></i>
                       </div>
                       <div>
-                        <span>Mobile Exclusive <b>10%</b></span
-                        ><strong>$114.75</strong><small>−$12.75</small
-                        ><i style="--rate-width: 76.5%"></i>
+                        <span data-preview-mobile-label
+                          >Mobile Exclusive <b>10%</b></span
+                        ><strong data-preview-mobile>$114.75</strong
+                        ><small data-preview-mobile-cut>−$12.75</small
+                        ><i
+                          data-preview-net-bar
+                          style="--rate-width: 76.5%"
+                        ></i>
                       </div>
                     </div>
                   </div>
@@ -691,15 +819,22 @@
                       data-evidence-icon
                       aria-hidden="true"
                       ><svg
-                        class="ui-icon"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        focusable="false"
+                        class="ui-icon evidence-linework"
+                        viewBox="0 0 32 32"
+                        width="32"
+                        height="32"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
                       >
-                        <use href="images/interface-icons.svg#code-xml" /></svg
-                      ><span class="evidence-icon-orbit"></span
+                        <path
+                          d="M3 16h6m4 0h6m4 0h6m-21-3 3 3-3 3m12-6 3 3-3 3"
+                        />
+                        <circle cx="5" cy="16" r="2" />
+                        <circle cx="16" cy="16" r="2" />
+                        <circle cx="27" cy="16" r="2" /></svg
                     ></span>
                   </div>
                   <dl class="evidence-metrics">
@@ -742,37 +877,139 @@
                   </details>
                 </section>
               </div>
-              <div
-                class="showcase-art showcase-art--dev"
-                data-cover-scene
-                aria-hidden="true"
-              >
-                <div class="cover-deploy concept-shell concept-preview">
+              <div class="showcase-art showcase-art--dev" data-cover-scene>
+                <div
+                  class="cover-deploy concept-shell concept-preview"
+                  data-preview-picker
+                >
                   <div class="preview-header">
                     <h4>Developer Portal</h4>
                     <span>Configure and review your deployment.</span>
                   </div>
-                  <div class="cover-deploy-steps">
-                    <span>Environment</span
-                    ><span class="cover-stage-active">Rollout</span
-                    ><span>Review</span>
+                  <div
+                    class="cover-deploy-steps preview-choices"
+                    role="tablist"
+                    aria-label="Deployment example"
+                  >
+                    <button
+                      type="button"
+                      id="preview-deploy-tab-0"
+                      class=""
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="preview-deploy-panel-0"
+                      tabindex="-1"
+                      data-preview-choice="0"
+                      disabled
+                    >
+                      Environment</button
+                    ><button
+                      type="button"
+                      id="preview-deploy-tab-1"
+                      class="cover-stage-active"
+                      role="tab"
+                      aria-selected="true"
+                      aria-controls="preview-deploy-panel-1"
+                      tabindex="0"
+                      data-preview-choice="1"
+                      disabled
+                    >
+                      Rollout</button
+                    ><button
+                      type="button"
+                      id="preview-deploy-tab-2"
+                      class=""
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="preview-deploy-panel-2"
+                      tabindex="-1"
+                      data-preview-choice="2"
+                      disabled
+                    >
+                      Review
+                    </button>
                   </div>
-                  <div class="cover-deploy-body preview-body">
-                    <div class="cover-environment preview-pane">
-                      <p>Environment</p>
-                      <h4>staging-mesh</h4>
-                      <div><span>24 cores</span><span>24 Gi</span></div>
+                  <div class="preview-panels">
+                    <div
+                      class="cover-deploy-body preview-body"
+                      id="preview-deploy-panel-0"
+                      role="tabpanel"
+                      aria-labelledby="preview-deploy-tab-0"
+                      data-preview-panel="0"
+                      hidden
+                    >
+                      <div class="cover-environment preview-pane">
+                        <p>Environment</p>
+                        <h4>staging-mesh</h4>
+                        <div><span>24 cores</span><span>24 Gi</span></div>
+                        <p>Mesh cluster pool</p>
+                      </div>
+                      <div class="preview-pane preview-detail">
+                        <p>Source</p>
+                        <h4>98ds12df</h4>
+                        <p class="preview-repository">actions/ansible-runner</p>
+                      </div>
                     </div>
-                    <div class="cover-canary preview-pane preview-detail">
-                      <p>Rollout strategy</p>
-                      <h4>Canary</h4>
-                      <div class="cover-canary-sequence">
-                        <span>10%</span><span>20%</span><span>30%</span>
+                    <div
+                      class="cover-deploy-body preview-body"
+                      id="preview-deploy-panel-1"
+                      role="tabpanel"
+                      aria-labelledby="preview-deploy-tab-1"
+                      data-preview-panel="1"
+                    >
+                      <div class="cover-environment preview-pane">
+                        <p>Environment</p>
+                        <h4>staging-mesh</h4>
+                        <div><span>24 cores</span><span>24 Gi</span></div>
                       </div>
-                      <div class="cover-canary-track">
-                        <i></i><i></i><i></i>
+                      <div class="cover-canary preview-pane preview-detail">
+                        <p>Rollout strategy</p>
+                        <h4>Canary</h4>
+                        <div class="cover-canary-sequence">
+                          <span>10%</span><span>20%</span><span>30%</span>
+                        </div>
+                        <div class="cover-canary-track">
+                          <i></i><i></i><i></i>
+                        </div>
+                        <p>300s ramp up · 900s monitoring</p>
                       </div>
-                      <p>300s ramp up · 900s monitoring</p>
+                    </div>
+                    <div
+                      class="cover-deploy-body preview-body"
+                      id="preview-deploy-panel-2"
+                      role="tabpanel"
+                      aria-labelledby="preview-deploy-tab-2"
+                      data-preview-panel="2"
+                      hidden
+                    >
+                      <dl class="preview-review">
+                        <div>
+                          <dt>Environment</dt>
+                          <dd>staging-mesh · Mesh</dd>
+                        </div>
+                        <div>
+                          <dt>Image</dt>
+                          <dd>actions/ansible-runner · 98ds12df</dd>
+                        </div>
+                        <div>
+                          <dt>Resources</dt>
+                          <dd>24 cores · 24 Gi</dd>
+                        </div>
+                        <div>
+                          <dt>Strategy</dt>
+                          <dd>Canary · 10% → 20% → 30%</dd>
+                        </div>
+                        <div>
+                          <dt>Targets</dt>
+                          <dd>HK: 10 · SG: 10 · AM: 10 replicas</dd>
+                        </div>
+                        <div>
+                          <dt>Monitoring</dt>
+                          <dd>
+                            #devops_safe_app · 300s ramp up · 900s monitoring
+                          </dd>
+                        </div>
+                      </dl>
                     </div>
                   </div>
                   <div class="cover-deploy-footer preview-note">

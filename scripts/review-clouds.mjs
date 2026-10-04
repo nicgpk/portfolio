@@ -45,6 +45,14 @@ try {
   const field = page.locator(".cloud-field"),
     canvas = page.locator(".cloud-canvas");
   await expect(field).toHaveClass(/is-active/);
+  await page.evaluate(() =>
+    Promise.all(
+      document
+        .querySelector(".hero-message")
+        .getAnimations({ subtree: true })
+        .map((a) => a.finished),
+    ),
+  );
   const reading = await page.locator("#hero-title").boundingBox();
   const label = await page.locator(".hero-actions").boundingBox();
   await page.screenshot({
