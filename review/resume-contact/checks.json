@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "layouts": [
+    {
+      "width": 320,
+      "leftAlignment": true,
+      "alignedDesktopRow": false,
+      "noOverflow": true,
+      "contactTargets48": true
+    },
+    {
+      "width": 390,
+      "leftAlignment": true,
+      "alignedDesktopRow": false,
+      "noOverflow": true,
+      "contactTargets48": true
+    },
+    {
+      "width": 768,
+      "leftAlignment": true,
+      "alignedDesktopRow": false,
+      "noOverflow": true,
+      "contactTargets48": true
+    },
+    {
+      "width": 1072,
+      "leftAlignment": true,
+      "alignedDesktopRow": true,
+      "noOverflow": true,
+      "contactTargets48": true
+    },
+    {
+      "width": 1440,
+      "leftAlignment": true,
+      "alignedDesktopRow": true,
+      "noOverflow": true,
+      "contactTargets48": true
+    },
+    {
+      "width": 1600,
+      "leftAlignment": true,
+      "alignedDesktopRow": true,
+      "noOverflow": true,
+      "contactTargets48": true
+    }
+  ]
+}

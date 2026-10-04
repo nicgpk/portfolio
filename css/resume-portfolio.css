@@ -89,18 +89,23 @@
   }
   .resume-page .resume-contact {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 32px;
-    max-width: 920px;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 0 32px;
+    align-items: start;
+    max-width: none;
     font: 16px/1.5 var(--mono);
   }
   .resume-page .resume-contact-item {
-    min-height: 48px;
+    grid-column: 1 / -1;
+    min-height: 24px;
+    margin-bottom: 8px;
     padding: 0;
     border: 0;
     color: var(--text-muted);
   }
   .resume-page .resume-contact-row {
+    display: flex;
+    justify-content: flex-start;
     gap: 8px 24px;
     padding: 0;
     border: 0;
@@ -119,6 +124,9 @@
     text-underline-offset: 5px;
     text-decoration-color: #929292;
     border: 0;
+  }
+  .resume-page .resume-contact > .resume-contact-link {
+    justify-self: start;
   }
   .resume-page .resume-contact-link:hover {
     text-decoration-color: var(--accent);
