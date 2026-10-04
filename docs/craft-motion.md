@@ -6,7 +6,7 @@ Approved refinement of the existing monochrome portfolio, against `e2a917d`. The
 
 The homepage introduces Nicholas Gwee first, then a smaller role on a Singapore red highlight with white text. The role has a 24px minimum on narrow screens to retain large-text contrast. The compact stage brings the first Partner Growth card into a 900px-high desktop viewport. Horizon is the authored default: three cloud layers and smooth organic variation restore detail around the sides and lower half. The center stays pale behind the copy and actions. Responsive static posters use the same grayscale renderer and geometry; the original cloud and other reviewed alternatives remain query options. The desktop cursor brush stays bounded below the quiet copy area. Text remains stationary during pointer interaction.
 
-The homepage and Work page share the same generated previews. Every frame uses the same title, type, charcoal surface, dividers and control treatment. Their content fits its task instead of stretching to a guessed height. The gallery cards retain equal intrinsic heights; switching panels reserves the largest real panel and causes no height change. Source disclosures still grow the whole row naturally when opened.
+The homepage and Work page share the same generated previews. Every frame uses the same title, type, charcoal surface, dividers and control treatment. Their content fits its task instead of stretching to a guessed height. The gallery cards retain equal intrinsic heights; switching panels reserves the largest real panel and causes no height change. Source disclosures still grow the whole row naturally when opened. Every concept preview is vertically centered in its art region, including when evidence details expand. The shared bar-chart icon identifies reported measurements across Home, Work and all three cases; it is decorative rather than a plotted claim. `review/project-centering/` records desktop/mobile before and after, with centering and accessibility checks.
 
 ## Usable demonstrations
 
@@ -16,7 +16,7 @@ The homepage and Work page share the same generated previews. Every frame uses t
 
 Full case interactions use the same brief selection/reveal language. Visible gallery instructions are removed from Home and Work; keyboard help remains available to screen readers. A thin gallery progress rail follows actual horizontal position, with native overflow, boundary release, keyboard navigation and stable page height. Link arrows move two pixels on hover/focus. A modest identity entrance keeps content visible from its first frame.
 
-The first metric in each evidence panel is visually dominant. All original numbers and source context stay unchanged. Project-specific connected-program, discount-step and deployment-checkpoint linework draws once for 900ms. Every number stays stationary. User pause, reduced motion, hidden-document and offscreen suspension are respected. No JavaScript retains readable static examples and linework, with disabled example controls.
+The first metric in each evidence panel is visually dominant. All original numbers and source context stay unchanged. A shared bar-chart measurement icon draws once for 900ms. Every number stays stationary. User pause, reduced motion, hidden-document and offscreen suspension are respected. No JavaScript retains readable static examples and linework, with disabled example controls.
 
 ## Review and limits
 

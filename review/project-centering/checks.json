@@ -1,0 +1,86 @@
+[
+  {
+    "route": "index",
+    "width": 390,
+    "kind": "growth",
+    "centered": true,
+    "expandedCentered": true
+  },
+  {
+    "route": "index",
+    "width": 390,
+    "kind": "discount",
+    "centered": true,
+    "expandedCentered": true
+  },
+  {
+    "route": "index",
+    "width": 390,
+    "kind": "dev",
+    "centered": true,
+    "expandedCentered": true
+  },
+  {
+    "route": "projects",
+    "width": 390,
+    "kind": "growth",
+    "centered": true,
+    "expandedCentered": true
+  },
+  {
+    "route": "projects",
+    "width": 390,
+    "kind": "discount",
+    "centered": true,
+    "expandedCentered": true
+  },
+  {
+    "route": "projects",
+    "width": 390,
+    "kind": "dev",
+    "centered": true,
+    "expandedCentered": true
+  },
+  {
+    "route": "index",
+    "width": 1440,
+    "kind": "growth",
+    "centered": true,
+    "expandedCentered": true
+  },
+  {
+    "route": "index",
+    "width": 1440,
+    "kind": "discount",
+    "centered": true,
+    "expandedCentered": true
+  },
+  {
+    "route": "index",
+    "width": 1440,
+    "kind": "dev",
+    "centered": true,
+    "expandedCentered": true
+  },
+  {
+    "route": "projects",
+    "width": 1440,
+    "kind": "growth",
+    "centered": true,
+    "expandedCentered": true
+  },
+  {
+    "route": "projects",
+    "width": 1440,
+    "kind": "discount",
+    "centered": true,
+    "expandedCentered": true
+  },
+  {
+    "route": "projects",
+    "width": 1440,
+    "kind": "dev",
+    "centered": true,
+    "expandedCentered": true
+  }
+]

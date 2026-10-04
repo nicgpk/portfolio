@@ -105,7 +105,7 @@
   line-height: 1.7;
 }
 .folio .showcase-art {
-  align-items: flex-start;
+  align-items: center;
   padding: 24px;
   background: #f5f5f5;
 }
@@ -379,9 +379,6 @@
   }
   .folio .concept-preview {
     min-height: 0;
-  }
-  .folio .showcase-art {
-    align-items: flex-start;
   }
 }
 @media (max-width: 540px) {
