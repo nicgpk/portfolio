@@ -1,0 +1,132 @@
+{
+  "layouts": [
+    {
+      "route": "index",
+      "width": 320,
+      "icons": 3,
+      "metadataRemoved": true
+    },
+    {
+      "route": "projects",
+      "width": 320,
+      "icons": 3,
+      "metadataRemoved": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 320,
+      "icons": 1,
+      "metadataRemoved": true
+    },
+    {
+      "route": "discounting",
+      "width": 320,
+      "icons": 1,
+      "metadataRemoved": true
+    },
+    {
+      "route": "dev-portal",
+      "width": 320,
+      "icons": 1,
+      "metadataRemoved": true
+    },
+    {
+      "route": "index",
+      "width": 390,
+      "icons": 3,
+      "metadataRemoved": true
+    },
+    {
+      "route": "projects",
+      "width": 390,
+      "icons": 3,
+      "metadataRemoved": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 390,
+      "icons": 1,
+      "metadataRemoved": true
+    },
+    {
+      "route": "discounting",
+      "width": 390,
+      "icons": 1,
+      "metadataRemoved": true
+    },
+    {
+      "route": "dev-portal",
+      "width": 390,
+      "icons": 1,
+      "metadataRemoved": true
+    },
+    {
+      "route": "index",
+      "width": 768,
+      "icons": 3,
+      "metadataRemoved": true
+    },
+    {
+      "route": "projects",
+      "width": 768,
+      "icons": 3,
+      "metadataRemoved": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 768,
+      "icons": 1,
+      "metadataRemoved": true
+    },
+    {
+      "route": "discounting",
+      "width": 768,
+      "icons": 1,
+      "metadataRemoved": true
+    },
+    {
+      "route": "dev-portal",
+      "width": 768,
+      "icons": 1,
+      "metadataRemoved": true
+    },
+    {
+      "route": "index",
+      "width": 1440,
+      "icons": 3,
+      "metadataRemoved": true
+    },
+    {
+      "route": "projects",
+      "width": 1440,
+      "icons": 3,
+      "metadataRemoved": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 1440,
+      "icons": 1,
+      "metadataRemoved": true
+    },
+    {
+      "route": "discounting",
+      "width": 1440,
+      "icons": 1,
+      "metadataRemoved": true
+    },
+    {
+      "route": "dev-portal",
+      "width": 1440,
+      "icons": 1,
+      "metadataRemoved": true
+    }
+  ],
+  "motion": [
+    "Visible icon advances through two bounded cycles",
+    "User pause freezes and resume continues",
+    "Offscreen icons pause",
+    "Reduced motion is static",
+    "No-JavaScript metrics and static icon remain readable"
+  ],
+  "passed": true
+}

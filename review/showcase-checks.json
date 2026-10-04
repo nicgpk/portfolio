@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-04T11:50:38.774Z",
+  "checkedAt": "2026-10-04T12:06:41.838Z",
   "browser": "Project-local Chromium on Windows",
   "viewports": [
     {
@@ -59,21 +59,21 @@
             "left": 23,
             "right": 297,
             "top": 873.984375,
-            "bottom": 2600.875,
+            "bottom": 2564.5,
             "position": "static"
           },
           {
             "left": 313,
             "right": 587,
             "top": 873.984375,
-            "bottom": 2600.875,
+            "bottom": 2564.5,
             "position": "static"
           },
           {
             "left": 603,
             "right": 877,
             "top": 873.984375,
-            "bottom": 2600.875,
+            "bottom": 2564.5,
             "position": "static"
           }
         ],
@@ -157,13 +157,13 @@
           "project": "growth",
           "box": {
             "x": 42,
-            "y": 311.984375,
+            "y": 268.984375,
             "width": 236,
             "height": 257.765625
           },
           "title": {
             "x": 42,
-            "y": 563.578125,
+            "y": 515.578125,
             "width": 236,
             "height": 64.78125
           },
@@ -177,13 +177,13 @@
           "project": "discount",
           "box": {
             "x": 42,
-            "y": -51.015625,
+            "y": -21.015625,
             "width": 236,
             "height": 225.375
           },
           "title": {
             "x": 42,
-            "y": 217.578125,
+            "y": 238.578125,
             "width": 236,
             "height": 32.390625
           },
@@ -197,13 +197,13 @@
           "project": "developer",
           "box": {
             "x": 42,
-            "y": 121.984375,
+            "y": 77.984375,
             "width": 236,
             "height": 204.578125
           },
           "title": {
             "x": 42,
-            "y": 177.578125,
+            "y": 133.578125,
             "width": 236,
             "height": 32.390625
           },
@@ -273,21 +273,21 @@
             "left": 23,
             "right": 367,
             "top": 873.984375,
-            "bottom": 2452.71875,
+            "bottom": 2416.34375,
             "position": "static"
           },
           {
             "left": 383,
             "right": 727,
             "top": 873.984375,
-            "bottom": 2452.71875,
+            "bottom": 2416.34375,
             "position": "static"
           },
           {
             "left": 743,
             "right": 1087,
             "top": 873.984375,
-            "bottom": 2452.71875,
+            "bottom": 2416.34375,
             "position": "static"
           }
         ],
@@ -392,7 +392,7 @@
           "project": "discount",
           "box": {
             "x": 42,
-            "y": 265.984375,
+            "y": 101.984375,
             "width": 306,
             "height": 183.78125
           },
@@ -412,13 +412,13 @@
           "project": "developer",
           "box": {
             "x": 42,
-            "y": 142.984375,
+            "y": 67.984375,
             "width": 306,
             "height": 162.984375
           },
           "title": {
             "x": 42,
-            "y": 171.78125,
+            "y": 102.78125,
             "width": 250.375,
             "height": 32.390625
           },
@@ -488,21 +488,21 @@
             "left": 37,
             "right": 731,
             "top": 917.1875,
-            "bottom": 2135.5625,
+            "bottom": 2118.375,
             "position": "static"
           },
           {
             "left": 759,
             "right": 1453,
             "top": 917.1875,
-            "bottom": 2135.5625,
+            "bottom": 2118.375,
             "position": "static"
           },
           {
             "left": 1481,
             "right": 2175,
             "top": 917.1875,
-            "bottom": 2135.5625,
+            "bottom": 2118.375,
             "position": "static"
           }
         ],
@@ -565,19 +565,19 @@
         {
           "action": "Next project",
           "project": "developer",
-          "left": 1444,
+          "left": 1443,
           "max": 1444
         },
         {
           "action": "Previous project",
           "project": "discount",
-          "left": 725,
+          "left": 723,
           "max": 1444
         },
         {
           "action": "Previous project",
           "project": "growth",
-          "left": 0,
+          "left": 3,
           "max": 1444
         }
       ],
@@ -586,13 +586,13 @@
           "project": "growth",
           "box": {
             "x": 62,
-            "y": 571.1875,
+            "y": 448.1875,
             "width": 644,
             "height": 216.171875
           },
           "title": {
             "x": 62,
-            "y": 635.984375,
+            "y": 562.984375,
             "width": 250.375,
             "height": 64.78125
           },
@@ -606,13 +606,13 @@
           "project": "discount",
           "box": {
             "x": 62,
-            "y": 277.1875,
+            "y": 177.1875,
             "width": 644,
             "height": 162.984375
           },
           "title": {
             "x": 62,
-            "y": 398.984375,
+            "y": 254.984375,
             "width": 250.375,
             "height": 32.390625
           },
@@ -626,13 +626,13 @@
           "project": "developer",
           "box": {
             "x": 62,
-            "y": 33.1875,
+            "y": 143.1875,
             "width": 644,
             "height": 162.984375
           },
           "title": {
             "x": 62,
-            "y": 87.984375,
+            "y": 179.984375,
             "width": 250.375,
             "height": 32.390625
           },
@@ -702,21 +702,21 @@
             "left": 117,
             "right": 1323,
             "top": 1059.1875,
-            "bottom": 1736.40625,
+            "bottom": 1762.40625,
             "position": "static"
           },
           {
             "left": 1351,
             "right": 2557,
             "top": 1059.1875,
-            "bottom": 1736.40625,
+            "bottom": 1762.40625,
             "position": "static"
           },
           {
             "left": 2585,
             "right": 3791,
             "top": 1059.1875,
-            "bottom": 1736.40625,
+            "bottom": 1762.40625,
             "position": "static"
           }
         ],
@@ -801,13 +801,13 @@
           "project": "growth",
           "box": {
             "x": 146,
-            "y": 346.1875,
+            "y": 336.1875,
             "width": 437.625,
             "height": 237.765625
           },
           "title": {
             "x": 146,
-            "y": 606.984375,
+            "y": 607.984375,
             "width": 333.828125,
             "height": 86.375
           },
@@ -821,13 +821,13 @@
           "project": "discount",
           "box": {
             "x": 146,
-            "y": 300.1875,
+            "y": 201.1875,
             "width": 437.625,
             "height": 194.578125
           },
           "title": {
             "x": 146,
-            "y": 334.984375,
+            "y": 284.984375,
             "width": 333.828125,
             "height": 43.1875
           },
@@ -841,13 +841,13 @@
           "project": "developer",
           "box": {
             "x": 146,
-            "y": 300.1875,
+            "y": 147.1875,
             "width": 437.625,
             "height": 173.78125
           },
           "title": {
             "x": 146,
-            "y": 334.984375,
+            "y": 178.984375,
             "width": 333.828125,
             "height": 43.1875
           },
@@ -917,21 +917,21 @@
             "left": 37,
             "right": 807,
             "top": 917.1875,
-            "bottom": 2107.265625,
+            "bottom": 2090.078125,
             "position": "static"
           },
           {
             "left": 835,
             "right": 1605,
             "top": 917.1875,
-            "bottom": 2107.265625,
+            "bottom": 2090.078125,
             "position": "static"
           },
           {
             "left": 1633,
             "right": 2403,
             "top": 917.1875,
-            "bottom": 2107.265625,
+            "bottom": 2090.078125,
             "position": "static"
           }
         ],
@@ -1021,7 +1021,7 @@
           },
           "title": {
             "x": 62,
-            "y": 179.984375,
+            "y": 177.984375,
             "width": 250.375,
             "height": 64.78125
           },
@@ -1035,13 +1035,13 @@
           "project": "discount",
           "box": {
             "x": 62,
-            "y": -20.8125,
+            "y": 143.1875,
             "width": 720,
             "height": 162.984375
           },
           "title": {
             "x": 62,
-            "y": 165.984375,
+            "y": 177.984375,
             "width": 250.375,
             "height": 32.390625
           },
@@ -1055,13 +1055,13 @@
           "project": "developer",
           "box": {
             "x": 62,
-            "y": 114.1875,
+            "y": 143.1875,
             "width": 720,
             "height": 162.984375
           },
           "title": {
             "x": 62,
-            "y": 148.984375,
+            "y": 177.984375,
             "width": 250.375,
             "height": 32.390625
           },
@@ -1131,21 +1131,21 @@
             "left": 117,
             "right": 1323,
             "top": 1059.1875,
-            "bottom": 1736.40625,
+            "bottom": 1762.40625,
             "position": "static"
           },
           {
             "left": 1351,
             "right": 2557,
             "top": 1059.1875,
-            "bottom": 1736.40625,
+            "bottom": 1762.40625,
             "position": "static"
           },
           {
             "left": 2585,
             "right": 3791,
             "top": 1059.1875,
-            "bottom": 1736.40625,
+            "bottom": 1762.40625,
             "position": "static"
           }
         ],
@@ -1214,13 +1214,13 @@
         {
           "action": "Previous project",
           "project": "discount",
-          "left": 1234,
+          "left": 1236,
           "max": 2468
         },
         {
           "action": "Previous project",
           "project": "growth",
-          "left": 0,
+          "left": 2,
           "max": 2468
         }
       ],
@@ -1249,13 +1249,13 @@
           "project": "discount",
           "box": {
             "x": 146,
-            "y": 62.1875,
+            "y": 40.1875,
             "width": 437.625,
             "height": 194.578125
           },
           "title": {
             "x": 146,
-            "y": 220.984375,
+            "y": 198.984375,
             "width": 333.828125,
             "height": 43.1875
           },
@@ -1269,13 +1269,13 @@
           "project": "developer",
           "box": {
             "x": 146,
-            "y": 109.1875,
+            "y": 92.1875,
             "width": 437.625,
             "height": 173.78125
           },
           "title": {
             "x": 146,
-            "y": 143.984375,
+            "y": 126.984375,
             "width": 333.828125,
             "height": 43.1875
           },
@@ -1347,21 +1347,21 @@
             "left": 23,
             "right": 297,
             "top": 873.984375,
-            "bottom": 2600.875,
+            "bottom": 2564.5,
             "position": "static"
           },
           {
             "left": 313,
             "right": 587,
             "top": 873.984375,
-            "bottom": 2600.875,
+            "bottom": 2564.5,
             "position": "static"
           },
           {
             "left": 603,
             "right": 877,
             "top": 873.984375,
-            "bottom": 2600.875,
+            "bottom": 2564.5,
             "position": "static"
           }
         ],
@@ -1389,13 +1389,13 @@
           "project": "growth",
           "box": {
             "x": 42,
-            "y": 141.984375,
+            "y": 137.984375,
             "width": 236,
             "height": 257.765625
           },
           "title": {
             "x": 42,
-            "y": 189.578125,
+            "y": 177.578125,
             "width": 236,
             "height": 64.78125
           },
@@ -1409,13 +1409,13 @@
           "project": "discount",
           "box": {
             "x": 42,
-            "y": 137.984375,
+            "y": 142.984375,
             "width": 236,
             "height": 225.375
           },
           "title": {
             "x": 42,
-            "y": 193.578125,
+            "y": 198.578125,
             "width": 236,
             "height": 32.390625
           },
@@ -1504,21 +1504,21 @@
             "left": 23,
             "right": 367,
             "top": 873.984375,
-            "bottom": 2452.71875,
+            "bottom": 2416.34375,
             "position": "static"
           },
           {
             "left": 383,
             "right": 727,
             "top": 873.984375,
-            "bottom": 2452.71875,
+            "bottom": 2416.34375,
             "position": "static"
           },
           {
             "left": 743,
             "right": 1087,
             "top": 873.984375,
-            "bottom": 2452.71875,
+            "bottom": 2416.34375,
             "position": "static"
           }
         ],
@@ -1546,13 +1546,13 @@
           "project": "growth",
           "box": {
             "x": 42,
-            "y": 142.984375,
+            "y": 128.984375,
             "width": 306,
             "height": 236.96875
           },
           "title": {
             "x": 42,
-            "y": 172.78125,
+            "y": 156.78125,
             "width": 250.375,
             "height": 64.78125
           },
@@ -1661,21 +1661,21 @@
             "left": 37,
             "right": 807,
             "top": 917.1875,
-            "bottom": 2107.265625,
+            "bottom": 2090.078125,
             "position": "static"
           },
           {
             "left": 835,
             "right": 1605,
             "top": 917.1875,
-            "bottom": 2107.265625,
+            "bottom": 2090.078125,
             "position": "static"
           },
           {
             "left": 1633,
             "right": 2403,
             "top": 917.1875,
-            "bottom": 2107.265625,
+            "bottom": 2090.078125,
             "position": "static"
           }
         ],
@@ -1703,13 +1703,13 @@
           "project": "growth",
           "box": {
             "x": 62,
-            "y": 140.1875,
+            "y": 134.1875,
             "width": 720,
             "height": 216.171875
           },
           "title": {
             "x": 62,
-            "y": 168.984375,
+            "y": 163.984375,
             "width": 250.375,
             "height": 64.78125
           },
@@ -1729,7 +1729,7 @@
           },
           "title": {
             "x": 62,
-            "y": 177.984375,
+            "y": 171.984375,
             "width": 250.375,
             "height": 32.390625
           },
@@ -1743,13 +1743,13 @@
           "project": "developer",
           "box": {
             "x": 62,
-            "y": -22.8125,
+            "y": 109.1875,
             "width": 720,
             "height": 162.984375
           },
           "title": {
             "x": 62,
-            "y": 165.984375,
+            "y": 175.984375,
             "width": 250.375,
             "height": 32.390625
           },
@@ -1818,21 +1818,21 @@
             "left": 117,
             "right": 1323,
             "top": 1059.1875,
-            "bottom": 1736.40625,
+            "bottom": 1762.40625,
             "position": "static"
           },
           {
             "left": 1351,
             "right": 2557,
             "top": 1059.1875,
-            "bottom": 1736.40625,
+            "bottom": 1762.40625,
             "position": "static"
           },
           {
             "left": 2585,
             "right": 3791,
             "top": 1059.1875,
-            "bottom": 1736.40625,
+            "bottom": 1762.40625,
             "position": "static"
           }
         ],
@@ -1860,13 +1860,13 @@
           "project": "growth",
           "box": {
             "x": 146,
-            "y": 146.1875,
+            "y": 138.1875,
             "width": 437.625,
             "height": 237.765625
           },
           "title": {
             "x": 146,
-            "y": 178.984375,
+            "y": 172.984375,
             "width": 333.828125,
             "height": 86.375
           },
@@ -2002,12 +2002,12 @@
       },
       "project": "discount",
       "height": {
-        "railHeight": 1598.734375,
-        "cardHeight": 1578.734375,
+        "railHeight": 1562.359375,
+        "cardHeight": 1542.359375,
         "allCardHeights": [
-          1578.734375,
-          1578.734375,
-          1578.734375
+          1542.359375,
+          1542.359375,
+          1542.359375
         ],
         "padding": 20
       }
@@ -2019,12 +2019,12 @@
       },
       "project": "discount",
       "height": {
-        "railHeight": 697.21875,
-        "cardHeight": 677.21875,
+        "railHeight": 723.21875,
+        "cardHeight": 703.21875,
         "allCardHeights": [
-          677.21875,
-          677.21875,
-          677.21875
+          703.21875,
+          703.21875,
+          703.21875
         ],
         "padding": 20
       }
@@ -2032,23 +2032,23 @@
   ],
   "deepSwipe": [
     {
-      "beforeY": 2355,
+      "beforeY": 2318,
       "afterY": 756,
       "visible": {
         "top": 117.984375,
-        "bottom": 1696.71875,
+        "bottom": 1660.34375,
         "headingTop": 177.78125,
         "headingBottom": 210.171875,
         "navBottom": 64,
         "viewportHeight": 844
       },
       "height": {
-        "railHeight": 1598.734375,
-        "cardHeight": 1578.734375,
+        "railHeight": 1562.359375,
+        "cardHeight": 1542.359375,
         "allCardHeights": [
-          1578.734375,
-          1578.734375,
-          1578.734375
+          1542.359375,
+          1542.359375,
+          1542.359375
         ],
         "padding": 20
       }
@@ -2060,39 +2060,32 @@
       "width": 390,
       "imageSize": {
         "width": 344,
-        "height": 1580
+        "height": 1544
       },
       "geometry": {
         "article": {
           "x": 23,
           "y": 117.984375,
           "width": 344,
-          "height": 1578.734375,
-          "bottom": 1696.71875
+          "height": 1542.359375,
+          "bottom": 1660.34375
         },
         "art": {
           "x": 24,
-          "y": 797.90625,
+          "y": 823.90625,
           "width": 342,
           "height": 835.4375,
-          "bottom": 1633.34375
+          "bottom": 1659.34375
         },
         "panel": {
           "x": 34,
-          "y": 812.90625,
+          "y": 838.90625,
           "width": 322,
           "height": 806.4375,
-          "bottom": 1619.34375
-        },
-        "caption": {
-          "x": 24,
-          "y": 1633.34375,
-          "width": 342,
-          "height": 62.375,
-          "bottom": 1695.71875
+          "bottom": 1645.34375
         },
         "fonts": "loaded",
-        "viewportHeight": 1779
+        "viewportHeight": 1743
       }
     },
     {
@@ -2100,39 +2093,32 @@
       "width": 390,
       "imageSize": {
         "width": 344,
-        "height": 1580
+        "height": 1544
       },
       "geometry": {
         "article": {
           "x": 23,
           "y": 117.984375,
           "width": 344,
-          "height": 1578.734375,
-          "bottom": 1696.71875
+          "height": 1542.359375,
+          "bottom": 1660.34375
         },
         "art": {
           "x": 24,
-          "y": 694.421875,
+          "y": 720.421875,
           "width": 342,
           "height": 938.921875,
-          "bottom": 1633.34375
+          "bottom": 1659.34375
         },
         "panel": {
           "x": 34,
-          "y": 709.421875,
+          "y": 735.421875,
           "width": 322,
           "height": 620.0625,
-          "bottom": 1329.484375
-        },
-        "caption": {
-          "x": 24,
-          "y": 1633.34375,
-          "width": 342,
-          "height": 62.375,
-          "bottom": 1695.71875
+          "bottom": 1355.484375
         },
         "fonts": "loaded",
-        "viewportHeight": 1779
+        "viewportHeight": 1743
       }
     },
     {
@@ -2140,39 +2126,32 @@
       "width": 390,
       "imageSize": {
         "width": 344,
-        "height": 1580
+        "height": 1544
       },
       "geometry": {
         "article": {
           "x": 23,
           "y": 117.984375,
           "width": 344,
-          "height": 1578.734375,
-          "bottom": 1696.71875
+          "height": 1542.359375,
+          "bottom": 1660.34375
         },
         "art": {
           "x": 24,
-          "y": 673.625,
+          "y": 699.625,
           "width": 342,
           "height": 959.71875,
-          "bottom": 1633.34375
+          "bottom": 1659.34375
         },
         "panel": {
           "x": 34,
-          "y": 688.625,
+          "y": 714.625,
           "width": 322,
           "height": 565.78125,
-          "bottom": 1254.40625
-        },
-        "caption": {
-          "x": 24,
-          "y": 1633.34375,
-          "width": 342,
-          "height": 62.375,
-          "bottom": 1695.71875
+          "bottom": 1280.40625
         },
         "fonts": "loaded",
-        "viewportHeight": 1779
+        "viewportHeight": 1743
       }
     },
     {
@@ -2180,39 +2159,32 @@
       "width": 1440,
       "imageSize": {
         "width": 1206,
-        "height": 678
+        "height": 704
       },
       "geometry": {
         "article": {
           "x": 117,
           "y": 118.1875,
           "width": 1206,
-          "height": 677.21875,
-          "bottom": 795.40625
+          "height": 703.21875,
+          "bottom": 821.40625
         },
         "art": {
           "x": 611.625,
           "y": 119.1875,
           "width": 710.375,
-          "height": 632.03125,
-          "bottom": 751.21875
+          "height": 701.21875,
+          "bottom": 820.40625
         },
         "panel": {
           "x": 636.625,
           "y": 151.1875,
           "width": 661.375,
-          "height": 568.03125,
-          "bottom": 719.21875
-        },
-        "caption": {
-          "x": 611.625,
-          "y": 751.21875,
-          "width": 710.375,
-          "height": 43.1875,
-          "bottom": 794.40625
+          "height": 637.21875,
+          "bottom": 788.40625
         },
         "fonts": "loaded",
-        "viewportHeight": 900
+        "viewportHeight": 904
       }
     },
     {
@@ -2220,39 +2192,32 @@
       "width": 1440,
       "imageSize": {
         "width": 1206,
-        "height": 678
+        "height": 704
       },
       "geometry": {
         "article": {
           "x": 117,
           "y": 118.1875,
           "width": 1206,
-          "height": 677.21875,
-          "bottom": 795.40625
+          "height": 703.21875,
+          "bottom": 821.40625
         },
         "art": {
           "x": 611.625,
           "y": 119.1875,
           "width": 710.375,
-          "height": 632.03125,
-          "bottom": 751.21875
+          "height": 701.21875,
+          "bottom": 820.40625
         },
         "panel": {
           "x": 636.625,
           "y": 151.1875,
           "width": 661.375,
-          "height": 568.03125,
-          "bottom": 719.21875
-        },
-        "caption": {
-          "x": 611.625,
-          "y": 751.21875,
-          "width": 710.375,
-          "height": 43.1875,
-          "bottom": 794.40625
+          "height": 637.21875,
+          "bottom": 788.40625
         },
         "fonts": "loaded",
-        "viewportHeight": 900
+        "viewportHeight": 904
       }
     },
     {
@@ -2260,39 +2225,32 @@
       "width": 1440,
       "imageSize": {
         "width": 1206,
-        "height": 678
+        "height": 704
       },
       "geometry": {
         "article": {
           "x": 117,
           "y": 118.1875,
           "width": 1206,
-          "height": 677.21875,
-          "bottom": 795.40625
+          "height": 703.21875,
+          "bottom": 821.40625
         },
         "art": {
           "x": 611.625,
           "y": 119.1875,
           "width": 710.375,
-          "height": 632.03125,
-          "bottom": 751.21875
+          "height": 701.21875,
+          "bottom": 820.40625
         },
         "panel": {
           "x": 636.625,
           "y": 151.1875,
           "width": 661.375,
-          "height": 568.03125,
-          "bottom": 719.21875
-        },
-        "caption": {
-          "x": 611.625,
-          "y": 751.21875,
-          "width": 710.375,
-          "height": 43.1875,
-          "bottom": 794.40625
+          "height": 637.21875,
+          "bottom": 788.40625
         },
         "fonts": "loaded",
-        "viewportHeight": 900
+        "viewportHeight": 904
       }
     }
   ],

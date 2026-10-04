@@ -246,12 +246,12 @@
 /* Compact ownership and evidence sit beside the interface, rather than below it. */
 .folio .showcase-card {
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 1fr;
   align-items: stretch;
 }
 .showcase-description {
   grid-column: 1;
-  grid-row: 1 / 3;
+  grid-row: 1;
   padding: 28px;
   min-width: 0;
 }
@@ -483,7 +483,7 @@
   .folio .showcase-card {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr;
   }
   .folio .showcase-description,
   .folio .showcase-art,

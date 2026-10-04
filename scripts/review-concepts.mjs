@@ -94,7 +94,6 @@ try {
           route === "index"
             ? [
                 ".showcase-card-link",
-                ".showcase-caption",
                 ".about-section",
                 ".archive",
               ]

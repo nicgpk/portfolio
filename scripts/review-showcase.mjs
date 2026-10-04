@@ -907,7 +907,6 @@ async function captureCards(page, width) {
           article: bounds(element),
           art: bounds(art),
           panel: bounds(art.firstElementChild),
-          caption: bounds(element.querySelector(".showcase-caption")),
           fonts: document.fonts.status,
           viewportHeight: innerHeight,
         };
@@ -932,9 +931,10 @@ async function captureCards(page, width) {
           geometry.panel.bottom <= geometry.art.bottom,
         "The artwork panel must fit inside its cover.",
       );
-      assert.ok(
-        geometry.caption.bottom <= geometry.article.bottom + 1,
-        "The article capture must include its concept caption.",
+      assert.equal(
+        await card.locator(".showcase-caption").count(),
+        0,
+        "Repeated concept captions are removed from the project cards.",
       );
       const imagePath = join(
         afterDirectory,

@@ -1,0 +1,97 @@
+/* Quiet orange signatures; two short cycles, with text and metrics stationary. */
+.folio .evidence-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.folio .evidence-heading :is(h4, .eyebrow) {
+  margin: 0;
+}
+.folio .evidence-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  color: var(--signal);
+}
+.folio .evidence-icon .ui-icon {
+  animation: evidence-lift 2.8s ease-in-out 2;
+  animation-play-state: paused;
+  transform-origin: center;
+}
+.folio .evidence-icon--discount .ui-icon {
+  animation-name: evidence-turn;
+}
+.folio .evidence-icon--dev .ui-icon {
+  animation-name: evidence-code;
+}
+.evidence-icon-orbit {
+  position: absolute;
+  inset: 1px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.22;
+  animation: evidence-orbit 2.8s ease-in-out 2;
+  animation-play-state: paused;
+}
+.folio .evidence-icon.is-playing :is(.ui-icon, .evidence-icon-orbit) {
+  animation-play-state: running;
+}
+@keyframes evidence-lift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-3px);
+  }
+}
+@keyframes evidence-turn {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  45% {
+    transform: rotate(-12deg);
+  }
+}
+@keyframes evidence-code {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(-2px);
+  }
+  65% {
+    transform: translateX(2px);
+  }
+}
+@keyframes evidence-orbit {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.22;
+  }
+  45% {
+    transform: scale(0.86);
+    opacity: 0.45;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio .evidence-icon :is(.ui-icon, .evidence-icon-orbit) {
+    animation: none;
+  }
+}
+@media (forced-colors: active) {
+  .folio .evidence-icon {
+    color: CanvasText;
+  }
+  .evidence-icon-orbit {
+    opacity: 1;
+  }
+}

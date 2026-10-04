@@ -86,6 +86,7 @@
     <link rel="stylesheet" href="css/case-studies.css" />
     <link rel="stylesheet" href="css/concept-system.css" />
     <link rel="stylesheet" href="css/link-system.css" />
+    <link rel="stylesheet" href="css/evidence-motion.css" />
     <link
       rel="preload"
       as="font"
@@ -176,8 +177,7 @@
             ></a>
           </div>
           <div class="case-diagram case-diagram--growth" aria-hidden="true">
-            <span class="diagram-kicker">Updated concept</span
-            ><svg class="hub-map" viewBox="0 0 480 360">
+            <svg class="hub-map" viewBox="0 0 480 360">
               <g class="hub-paths">
                 <path d="M240 180 L240.0 56.0" />
                 <path d="M240 180 L349.6 92.3" />
@@ -369,9 +369,26 @@
           id="evidence"
           aria-labelledby="evidence-title"
         >
-          <p class="eyebrow">
-            Evidence &amp; outcomes · reported in original portfolio
-          </p>
+          <div class="evidence-heading">
+            <p class="eyebrow">
+              Evidence &amp; outcomes · reported in original portfolio
+            </p>
+            <span
+              class="evidence-icon evidence-icon--growth"
+              data-evidence-icon
+              aria-hidden="true"
+              ><svg
+                class="ui-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="images/interface-icons.svg#layers" /></svg
+              ><span class="evidence-icon-orbit"></span
+            ></span>
+          </div>
           <h2 id="evidence-title">One hub. A shared design language.</h2>
           <dl class="evidence-metrics">
             <div>
@@ -479,9 +496,7 @@
         <section class="concept-section" id="concept">
           <div class="concept-heading">
             <div>
-              <p class="eyebrow">
-                Updated concept · Shopify-inspired program discovery
-              </p>
+              <p class="eyebrow">Program discovery</p>
               <h2>Explore the<br />design in action.</h2>
             </div>
             <a class="text-link" href="originals/partner-growth-programs.html"
@@ -497,11 +512,6 @@
                 <use href="images/interface-icons.svg#arrow-up-right" /></svg
             ></a>
           </div>
-          <p class="concept-context">
-            A new visual exploration using the existing content and workflow.
-            This is a portfolio concept, not an additional shipped contribution
-            or measured outcome.
-          </p>
           <div class="concept-canvas concept-canvas--growth">
             <div
               class="discovery-ui growth-studio concept-shell"
@@ -520,9 +530,6 @@
                   <span>Property</span><span>Reservations</span
                   ><span>Calendar</span><strong>Growth programs</strong
                   ><span>Payout</span>
-                  <p class="app-side-note">
-                    Updated concept<br />Program discovery
-                  </p>
                 </aside>
                 <div class="app-content">
                   <div class="growth-page-heading">
@@ -637,9 +644,6 @@
                             Seasonal, Always-on or Targeted. Existing examples
                             include app-user and advance-booking discounts.
                           </p>
-                          <span class="sample-label"
-                            >Original program mechanics</span
-                          >
                         </div>
                       </details>
                       <details
@@ -689,9 +693,6 @@
                             program brings higher search rank, Google and Kayak
                             ad spend, and wider affiliate reach.
                           </p>
-                          <span class="sample-label"
-                            >Original program mechanics</span
-                          >
                         </div>
                       </details>
                       <details
@@ -741,9 +742,6 @@
                             Incremental commission is charged per booking,
                             rather than per impression.
                           </p>
-                          <span class="sample-label"
-                            >Original program mechanics</span
-                          >
                         </div>
                       </details>
                       <details
@@ -793,9 +791,6 @@
                             describes the prepayment as auto-renewing when the
                             balance hits 90%.
                           </p>
-                          <span class="sample-label"
-                            >Original program mechanics</span
-                          >
                         </div>
                       </details>
                       <details
@@ -845,9 +840,6 @@
                             lock-in or extra paperwork. Distribution uses the
                             Booking Holdings affiliate network.
                           </p>
-                          <span class="sample-label"
-                            >Original program mechanics</span
-                          >
                         </div>
                       </details>
                       <details
@@ -896,9 +888,6 @@
                             Choose a city, date range and slot (top 1–3), priced
                             upfront. Available across platforms.
                           </p>
-                          <span class="sample-label"
-                            >Original program mechanics</span
-                          >
                         </div>
                       </details>
                       <details
@@ -947,9 +936,6 @@
                             Activate once in YCS. The existing policy allows up
                             to 2% below the wholesaler rate, capped at 25% off.
                           </p>
-                          <span class="sample-label"
-                            >Original program mechanics</span
-                          >
                         </div>
                       </details>
                       <details
@@ -1000,9 +986,6 @@
                             term support a dedicated store page, branded search
                             suggestion and homepage banner.
                           </p>
-                          <span class="sample-label"
-                            >Original program mechanics</span
-                          >
                         </div>
                       </details>
                     </div>
@@ -1023,10 +1006,7 @@
                       </p>
                     </div>
                   </div>
-                  <p class="growth-preview-note">
-                    Updated concept · Original program mechanics. No account
-                    changes.
-                  </p>
+                  <p class="growth-preview-note">No account changes.</p>
                   <noscript
                     ><p class="growth-preview-note">
                       Search and category filtering require JavaScript. Expand

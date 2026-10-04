@@ -80,6 +80,7 @@
     <link rel="stylesheet" href="css/case-studies.css" />
     <link rel="stylesheet" href="css/concept-system.css" />
     <link rel="stylesheet" href="css/link-system.css" />
+    <link rel="stylesheet" href="css/evidence-motion.css" />
     <link
       rel="preload"
       as="font"
@@ -170,7 +171,6 @@
             ></a>
           </div>
           <div class="case-diagram case-diagram--discount" aria-hidden="true">
-            <span class="diagram-kicker">Updated concept</span>
             <div class="diagram-rate">
               <div class="diagram-rate-row">
                 <span>Starting room rate</span><strong>$150.00</strong
@@ -278,9 +278,26 @@
           id="evidence"
           aria-labelledby="evidence-title"
         >
-          <p class="eyebrow">
-            Evidence &amp; outcomes · reported in original portfolio
-          </p>
+          <div class="evidence-heading">
+            <p class="eyebrow">
+              Evidence &amp; outcomes · reported in original portfolio
+            </p>
+            <span
+              class="evidence-icon evidence-icon--discount"
+              data-evidence-icon
+              aria-hidden="true"
+              ><svg
+                class="ui-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="images/interface-icons.svg#percent" /></svg
+              ><span class="evidence-icon-orbit"></span
+            ></span>
+          </div>
           <h2 id="evidence-title">A clearer rate. Fewer complaints.</h2>
           <dl class="evidence-metrics">
             <div>
@@ -301,10 +318,9 @@
             </div>
           </dl>
           <p class="evidence-context">
-            These are reported outcomes from the existing portfolio, not
-            measured results of this updated concept. The source narrative calls
-            the complaint #1; its before/after chart says “Top 3.” That ranking
-            remains unresolved.
+            Reported outcomes from the original portfolio. The source narrative
+            calls the complaint #1; its before/after chart says “Top 3.” That
+            ranking remains unresolved.
           </p>
           <details open>
             <summary>Research &amp; attribution context</summary>
@@ -320,9 +336,7 @@
         <section class="concept-section" id="concept">
           <div class="concept-heading">
             <div>
-              <p class="eyebrow">
-                Updated concept · Stripe-inspired calculation clarity
-              </p>
+              <p class="eyebrow">Discount calculation</p>
               <h2>Explore the<br />design in action.</h2>
             </div>
             <a class="text-link" href="originals/discounting.html"
@@ -338,11 +352,6 @@
                 <use href="images/interface-icons.svg#arrow-up-right" /></svg
             ></a>
           </div>
-          <p class="concept-context">
-            A new visual exploration using the existing content and workflow.
-            This is a portfolio concept, not an additional shipped contribution
-            or measured outcome.
-          </p>
           <div class="concept-canvas concept-canvas--discount">
             <div
               class="calculator-ui discount-studio discount-studio--calculator concept-shell"
@@ -580,17 +589,14 @@
                 </div>
               </div>
               <div class="discount-app-footer">
-                <span>Updated concept · Illustrative room rate</span
-                ><span>No setup is saved.</span>
+                <span>Room rate example</span><span>No setup is saved.</span>
               </div>
             </div>
           </div>
         </section>
         <section class="supporting-artifacts">
           <div class="section-heading">
-            <p class="eyebrow">
-              Promotion breakdown · updated calculation example
-            </p>
+            <p class="eyebrow">Promotion breakdown · per-night example</p>
             <h2>The same clarity,<br />night by night.</h2>
           </div>
           <div class="night-breakdown">

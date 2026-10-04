@@ -1,5 +1,6 @@
 import { stackDiscounts } from "./calculations.mjs";
 import { setActionLabel } from "./interface-icons.mjs";
+import "./evidence-motion.mjs";
 
 import { motionPaused } from "./kinetics.mjs";
 import "./showcase.mjs";

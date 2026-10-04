@@ -85,6 +85,7 @@
     <link rel="stylesheet" href="css/case-studies.css" />
     <link rel="stylesheet" href="css/concept-system.css" />
     <link rel="stylesheet" href="css/link-system.css" />
+    <link rel="stylesheet" href="css/evidence-motion.css" />
     <link
       rel="preload"
       as="font"
@@ -175,7 +176,6 @@
             ></a>
           </div>
           <div class="case-diagram case-diagram--dev" aria-hidden="true">
-            <span class="diagram-kicker">Updated concept</span>
             <div class="diagram-workflow">
               <div>
                 <span class="workflow-node" aria-hidden="true"
@@ -232,8 +232,7 @@
               </div>
             </div>
             <p class="diagram-caption">
-              <span>Deployment workflow</span
-              ><span>Existing example settings</span>
+              <span>Deployment workflow</span><span>Canary rollout</span>
             </p>
           </div>
         </div>
@@ -323,9 +322,26 @@
           id="evidence"
           aria-labelledby="evidence-title"
         >
-          <p class="eyebrow">
-            Evidence &amp; outcomes · reported in original portfolio
-          </p>
+          <div class="evidence-heading">
+            <p class="eyebrow">
+              Evidence &amp; outcomes · reported in original portfolio
+            </p>
+            <span
+              class="evidence-icon evidence-icon--dev"
+              data-evidence-icon
+              aria-hidden="true"
+              ><svg
+                class="ui-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="images/interface-icons.svg#code-xml" /></svg
+              ><span class="evidence-icon-orbit"></span
+            ></span>
+          </div>
           <h2 id="evidence-title">From working days to minutes.</h2>
           <dl class="evidence-metrics">
             <div>
@@ -343,8 +359,7 @@
           </dl>
           <p class="evidence-context">
             Reported outcomes across three quarters. The original results card
-            rounds creation time to “6 Min”; the narrative gives 6m 8s. No new
-            measurements are attributed to the updated concept.
+            rounds creation time to “6 Min”; the narrative gives 6m 8s.
           </p>
           <details open>
             <summary>Research, team &amp; SUS progression</summary>
@@ -364,9 +379,7 @@
         <section class="concept-section" id="concept">
           <div class="concept-heading">
             <div>
-              <p class="eyebrow">
-                Updated concept · Vercel-inspired developer workflow
-              </p>
+              <p class="eyebrow">Deployment workflow</p>
               <h2>Explore the<br />design in action.</h2>
             </div>
             <a class="text-link" href="originals/dev-portal.html"
@@ -382,18 +395,12 @@
                 <use href="images/interface-icons.svg#arrow-up-right" /></svg
             ></a>
           </div>
-          <p class="concept-context">
-            A new visual exploration using the existing content and workflow.
-            This is a portfolio concept, not an additional shipped contribution
-            or measured outcome.
-          </p>
           <div class="concept-canvas concept-canvas--dev">
             <div class="developer-ui concept-shell" data-developer>
               <div class="dev-toolbar concept-shell-header">
                 <span class="dev-brand"
                   ><span aria-hidden="true">▲</span> Developer portal</span
-                ><span class="dev-context">Deployment / devops-safe-app</span
-                ><span class="terminal-pill">Updated concept</span>
+                ><span class="dev-context">Deployment / devops-safe-app</span>
               </div>
               <div class="developer-layout">
                 <aside class="developer-sidebar">
@@ -497,8 +504,7 @@
                       >
                       <p class="canary-path" data-canary>10% → 20% → 30%</p>
                       <p class="dev-field-help">
-                        Ramp up: 300 seconds · Monitoring: 900 seconds. Existing
-                        example settings.
+                        Ramp up: 300 seconds · Monitoring: 900 seconds.
                       </p>
                     </fieldset>
                     <fieldset class="deploy-field-group">
@@ -613,9 +619,7 @@
                   </div>
                   <p class="deploy-status" data-deploy-status role="status"></p>
                   <p class="sample-label">
-                    Updated concept · Vercel-inspired workflow. Existing example
-                    values. Preview only: no infrastructure connection or
-                    deployment.
+                    Preview only: no infrastructure connection or deployment.
                   </p>
                   <noscript
                     ><p>
