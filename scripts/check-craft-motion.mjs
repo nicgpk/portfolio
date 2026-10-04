@@ -129,6 +129,20 @@ try {
   await page.locator("#project-gallery").focus();
   await page.keyboard.press("ArrowRight");
   const mega = page.locator("[data-discount-preview] [name=mega]");
+  await mega.scrollIntoViewIfNeeded();
+  // Browser focus/scroll can still settle after navigating into the gallery.
+  await page.waitForFunction(() => {
+    const r = document
+      .querySelector("[data-discount-preview] [name=mega]")
+      .getBoundingClientRect();
+    const key = `${r.x},${r.y},${scrollY}`;
+    const state = window.__craftStableBox;
+    if (!state || state.key !== key) {
+      window.__craftStableBox = { key, since: performance.now() };
+      return false;
+    }
+    return performance.now() - state.since > 500;
+  });
   await mega.uncheck();
   await expect
     .poll(() =>

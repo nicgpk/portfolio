@@ -68,11 +68,6 @@
   margin: 0;
   font-size: clamp(32px, 3vw, 42px);
 }
-.folio .project-showcase .showcase-hint {
-  margin: 8px 0 14px;
-  padding: 0;
-  text-align: left;
-}
 .folio .showcase-stage .showcase-toolbar {
   position: relative;
   min-height: 64px;

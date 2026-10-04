@@ -4,10 +4,10 @@ export function normalizedContentText(element) {
   clone
     .querySelectorAll('[aria-hidden="true"],svg')
     .forEach((node) => node.remove());
-  // These presentation-only labels were explicitly removed in the caption pass.
+  // Presentation captions and the visible gallery hint were removed on request.
   clone
     .querySelectorAll(
-      ".showcase-art,.showcase-caption,.concept-context,.concept-heading .eyebrow,.diagram-kicker,.app-side-note,.sample-label,.terminal-pill,.growth-preview-note,.discount-app-footer > span:first-child",
+      "#gallery-instructions,.showcase-art,.showcase-caption,.concept-context,.concept-heading .eyebrow,.diagram-kicker,.app-side-note,.sample-label,.terminal-pill,.growth-preview-note,.discount-app-footer > span:first-child",
     )
     .forEach((node) => node.remove());
   clone.querySelectorAll("a,button").forEach((control) => {
