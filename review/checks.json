@@ -398,9 +398,9 @@
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 4992,
+      "lcpMs": 3564,
       "cls": 0.0060778333729028175,
-      "resourceBytes": 389460,
+      "resourceBytes": 389957,
       "requestCount": 19
     }
   ],

@@ -190,6 +190,28 @@ try {
   const page = await browser.newPage();
   for (const route of ["index", "projects", ...routes, "resume"]) {
     await page.goto(`http://127.0.0.1:4183/${route}.html`);
+    if (route === "projects") {
+      const home = await readFile("index.html", "utf8");
+      const work = await readFile("projects.html", "utf8");
+      const shared = await page.evaluate(
+        ({ home, work }) => {
+          const parse = (text) =>
+            new DOMParser().parseFromString(text, "text/html");
+          const cards = (text) =>
+            [...parse(text).querySelectorAll(".showcase-card")].map(
+              (el) => el.outerHTML,
+            );
+          return JSON.stringify(cards(home)) === JSON.stringify(cards(work));
+        },
+        { home, work },
+      );
+      assert.ok(
+        shared,
+        "Work reuses the current home cards, metrics and previews",
+      );
+      report.content.push({ route, sharedHomeCards: true });
+      continue;
+    }
     const before = execFileSync("git", ["show", `c53f0e8:${route}.html`], {
       encoding: "utf8",
     });

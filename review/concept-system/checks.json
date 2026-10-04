@@ -64,8 +64,7 @@
     },
     {
       "route": "projects",
-      "textUnchanged": true,
-      "linksUnchanged": true
+      "sharedHomeCards": true
     },
     {
       "route": "partner-growth-programs",

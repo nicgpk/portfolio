@@ -159,7 +159,7 @@
       "route": "projects",
       "sections": [
         {
-          "selector": "body",
+          "selector": ".archive",
           "unchanged": true
         }
       ],

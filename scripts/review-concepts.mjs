@@ -94,17 +94,19 @@ try {
                 ".about-section",
                 ".archive",
               ]
-            : route === "projects" || route === "resume"
-              ? ["body"]
-              : [
-                  ".case-hero",
-                  ".case-framing",
-                  ".decisions-section",
-                  ".evidence-context",
-                  ".evidence-card details",
-                  ".supporting-artifacts",
-                  ".case-next",
-                ];
+            : route === "projects"
+              ? [".archive"]
+              : route === "resume"
+                ? ["body"]
+                : [
+                    ".case-hero",
+                    ".case-framing",
+                    ".decisions-section",
+                    ".evidence-context",
+                    ".evidence-card details",
+                    ".supporting-artifacts",
+                    ".case-next",
+                  ];
         const sections = selectors.map((selector) => ({
           selector,
           unchanged:

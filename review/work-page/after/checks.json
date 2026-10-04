@@ -1,0 +1,102 @@
+{
+  "layouts": [
+    {
+      "width": 320,
+      "overflow": false,
+      "heights": [
+        1716.765625,
+        1716.765625,
+        1716.765625
+      ],
+      "scrollbar": "none",
+      "concepts": [
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        },
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        },
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "heights": [
+        1568.609375,
+        1568.609375,
+        1568.609375
+      ],
+      "scrollbar": "none",
+      "concepts": [
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        },
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        },
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "heights": [
+        1208.25,
+        1208.25,
+        1208.25
+      ],
+      "scrollbar": "none",
+      "concepts": [
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        },
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        },
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "heights": [
+        673.21875,
+        673.21875,
+        673.21875
+      ],
+      "scrollbar": "none",
+      "concepts": [
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        },
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        },
+        {
+          "background": "rgb(28, 28, 28)",
+          "radius": "12px"
+        }
+      ]
+    }
+  ],
+  "sharedCards": true,
+  "passed": true
+}
