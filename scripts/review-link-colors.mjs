@@ -49,7 +49,7 @@ try {
           );
           assert.equal(
             await link.evaluate((el) => getComputedStyle(el).borderBottomColor),
-            "rgb(255, 81, 10)",
+            "rgb(237, 41, 57)",
           );
           await link.focus();
           assert.equal(

@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 480" fill="none">
 <defs>
-<pattern id="far" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r=".7" fill="#87908b"/></pattern>
-<pattern id="middle" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1" fill="#87908b"/></pattern>
-<pattern id="near" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1.35" fill="#87908b"/></pattern>
+<pattern id="far" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r=".7" fill="#8c8c8c"/></pattern>
+<pattern id="middle" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1" fill="#8c8c8c"/></pattern>
+<pattern id="near" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1.35" fill="#8c8c8c"/></pattern>
 <linearGradient id="fade"><stop stop-color="white" stop-opacity=".04"/><stop offset=".5" stop-color="white" stop-opacity=".35"/><stop offset="1" stop-color="white" stop-opacity=".8"/></linearGradient>
 <mask id="quiet"><path fill="url(#fade)" d="M0 0h1440v480H0z"/></mask>
 </defs>

@@ -33,7 +33,7 @@
   margin: 0;
   padding: 28px;
   border: 0;
-  border-top: 1px solid #e6c8b9;
+  border-top: 1px solid #cdcdcd;
   border-radius: 0 0 15px 15px;
   min-width: 0;
 }
@@ -93,7 +93,7 @@
   padding: 16px 0;
 }
 .cover-discovery-steps .is-active {
-  border-bottom: 2px solid var(--workspace-accent);
+  border-bottom: 2px solid var(--accent);
   color: var(--workspace-ink);
 }
 .folio .catalog-preview-intro h4 {
@@ -114,7 +114,7 @@
   border-radius: 8px;
 }
 .folio .catalog-preview-detail .workspace-label {
-  color: var(--workspace-accent);
+  color: var(--accent);
   margin: 0;
 }
 .folio .catalog-preview-search > span {
@@ -125,7 +125,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: #f4f4f2;
+  background: #f4f4f4;
   padding: 72px 40px 28px;
 }
 .footer-landscape {
@@ -158,20 +158,20 @@
   min-height: 48px;
   font: 500 clamp(13px, 1.7vw, 19px)/1.5 var(--mono);
   margin-top: 14px;
-  border-bottom: 1px solid #79817c;
+  border-bottom: 1px solid #7f7f7f;
   overflow-wrap: anywhere;
 }
 .footer-email span {
-  color: var(--signal);
+  color: var(--accent);
   font-size: 24px;
 }
 .footer-email:hover {
-  border-color: var(--signal);
-  color: var(--signal-text);
+  border-color: var(--accent);
+  color: var(--ink);
 }
 .folio .footer-bottom {
   position: relative;
-  border-color: #c4c9c5;
+  border-color: #c8c8c8;
 }
 @media (max-width: 1000px) {
   .folio .showcase-card .evidence-metrics,
@@ -409,10 +409,10 @@
 .lean-program.is-selected {
   background: #292929;
   border-radius: 6px;
-  box-shadow: inset 2px 0 var(--workspace-accent);
+  box-shadow: inset 2px 0 var(--accent);
 }
 .lean-program.is-selected > span:last-child {
-  color: var(--workspace-accent);
+  color: var(--accent);
 }
 .lean-detail {
   padding: 18px;
@@ -427,11 +427,11 @@
   gap: 12px;
 }
 .lean-detail-heading > span:first-child {
-  color: var(--workspace-accent);
+  color: var(--accent);
 }
 .lean-percent {
   font: 500 38px/1 var(--mono);
-  color: var(--workspace-accent);
+  color: var(--accent);
 }
 .lean-detail h4 {
   font: 600 24px/1.2 var(--body);

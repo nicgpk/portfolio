@@ -2,6 +2,12 @@
 
 Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. Delivery is a local preview and open draft PR. No merge, auto-merge, deployment or production source change.
 
+## Current Singapore red accent
+
+One authored `--accent: #ed2939` value in `css/folio.css` supplies the homepage, Work, three cases and resume. Historical accent aliases and duplicate legacy resume accent definitions are removed. Warm/cool tinted surfaces are grayscale; small labels, errors and reading links stay neutral for contrast, with red used in icons, selected states, emphasis and focus. Forced colors uses the system Highlight value. Original archives, PDFs and ATS content remain unchanged.
+
+All six routes pass automated WCAG A/AA and rendered palette checks at four widths. A live token substitution proves every inspected visible red property inherits the same token. Case content/links, interactive state palettes, reading-link hover, resume preservation/print and evidence motion/preference checks pass. `../docs/accent-system.md` and `accent-system/` contain scope and comparisons against `d3088b9`. Historical entries below describe their original passes; current accent screenshots are the latest reference. Real-device and manual assistive-technology reviews remain unverified.
+
 ## Current resume refinement
 
 The screen resume now shares the monochrome/orange system, Manrope/Ubuntu Mono pairing, larger identity, 48px PDF action and ruled editorial hierarchy. Four responsive sizes, automated WCAG rules, neutral reading links, keyboard skip, no JavaScript, printable content and exact resume text/link preservation against `f8ba6b7` pass. Original PDF and ATS files are unchanged. `../docs/resume-restyle.md` and `resume-style/` contain scope, before-after captures and a separate browser print proof. Real printer and PDF accessibility are unverified.

@@ -17,12 +17,10 @@
   font-display: swap;
 }
 :root {
-  --ink: #11131b;
-  --paper: #f8f9fc;
-  --cobalt: #1938ed;
-  --orange: #ff6534;
-  --orchid: #d7b6ff;
-  --lime: #c9f467;
+  /* Singapore red: the only authored accent value in the current portfolio. */
+  --accent: #ed2939;
+  --ink: #131313;
+  --paper: #f9f9f9;
   --display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
   --body: Manrope, "Segoe UI", Arial, sans-serif;
   --mono: "Ubuntu Mono", Consolas, monospace;
@@ -98,7 +96,7 @@ body.folio {
   max-width: 70ch;
 }
 .folio ::selection {
-  background: var(--lime);
+  background: var(--accent);
   color: var(--ink);
 }
 a:focus-visible,
@@ -106,7 +104,7 @@ button:focus-visible,
 summary:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 3px solid #e62579;
+  outline: 3px solid var(--accent);
   outline-offset: 5px;
 }
 .eyebrow {
@@ -164,7 +162,7 @@ select:focus-visible {
   flex-shrink: 0;
   font: 700 16px/1 var(--mono);
   letter-spacing: 0;
-  color: #1a1a16;
+  color: #1a1a1a;
   transition: opacity 0.2s;
 }
 .site-nav .wordmark:hover {
@@ -189,7 +187,7 @@ select:focus-visible {
   position: absolute;
   bottom: 6px;
   height: 2px;
-  background: var(--cobalt);
+  background: var(--accent);
   width: 100%;
   left: 0;
   transform: scaleX(0);
@@ -209,7 +207,7 @@ select:focus-visible {
   transition: background 0.25s;
 }
 .site-nav .nav-contact:hover {
-  background: var(--cobalt);
+  background: var(--accent);
 }
 .nav-contact span {
   margin-left: 10px;
@@ -221,7 +219,7 @@ select:focus-visible {
   padding-top: 65px;
 }
 .home-hero {
-  background: var(--cobalt);
+  background: var(--accent);
   color: white;
   padding: 138px 5vw 45px;
   overflow: hidden;
@@ -249,10 +247,10 @@ select:focus-visible {
   z-index: 1;
 }
 .hero-title h1 > span:not(.hero-period) {
-  color: var(--lime);
+  color: var(--accent);
 }
 .hero-period {
-  color: var(--orange);
+  color: var(--accent);
 }
 .hero-orbit {
   position: absolute;
@@ -262,7 +260,7 @@ select:focus-visible {
   line-height: 1;
   font-family: Arial, sans-serif;
   transform: rotate(-10deg);
-  color: var(--orange);
+  color: var(--accent);
   font-weight: 900;
   pointer-events: none;
 }
@@ -301,7 +299,7 @@ select:focus-visible {
   margin: 0 0 0 auto;
   transform: rotate(var(--depth-rotate, -3deg)) rotateY(-5deg)
     translateY(var(--depth-y, 0px)) scale(var(--depth-scale, 1));
-  box-shadow: 0 50px 90px #05167870;
+  box-shadow: 0 50px 90px #19191970;
   border-radius: 12px;
   transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
   z-index: 2;
@@ -313,7 +311,7 @@ select:focus-visible {
   position: absolute;
   top: 18%;
   left: 0;
-  background: var(--orange);
+  background: var(--accent);
   color: var(--ink);
   font-family: var(--display);
   font-size: clamp(24px, 3.7vw, 56px);
@@ -346,7 +344,7 @@ select:focus-visible {
 .discovery-ui {
   background: white;
   color: var(--ink);
-  border: 1px solid #dce1e8;
+  border: 1px solid #e0e0e0;
   border-radius: 12px;
   overflow: hidden;
   font-family: var(--body);
@@ -357,7 +355,7 @@ select:focus-visible {
   align-items: center;
   gap: 14px;
   min-height: 58px;
-  border-bottom: 1px solid #dce1e8;
+  border-bottom: 1px solid #e0e0e0;
   padding: 12px 25px;
   font-size: 13px;
   font-weight: 600;
@@ -367,7 +365,7 @@ select:focus-visible {
   letter-spacing: -0.1em;
 }
 .app-mark > span {
-  color: #de4428;
+  color: var(--accent);
   font-size: 12px;
   margin-left: 3px;
 }
@@ -383,8 +381,8 @@ select:focus-visible {
   grid-template-columns: 165px 1fr;
 }
 .app-side {
-  background: #f4f5f7;
-  border-right: 1px solid #e5e6ea;
+  background: #f5f5f5;
+  border-right: 1px solid #e6e6e6;
   display: flex;
   flex-direction: column;
   gap: 9px;
@@ -396,8 +394,8 @@ select:focus-visible {
   padding: 10px 8px;
 }
 .app-side > strong {
-  background: #dbece1;
-  color: #15482f;
+  background: #e8e8e8;
+  color: #3b3b3b;
   border-radius: 7px;
 }
 .app-content {
@@ -419,7 +417,7 @@ select:focus-visible {
 }
 .app-intro {
   font-size: 13px;
-  color: #535d68;
+  color: #5c5c5c;
   margin: 12px 0 25px !important;
 }
 .program-grid {
@@ -428,7 +426,7 @@ select:focus-visible {
   gap: 12px;
 }
 .program-tile {
-  border: 1px solid #dce1e8;
+  border: 1px solid #e0e0e0;
   padding: 18px;
   border-radius: 8px;
   background: #fff;
@@ -438,7 +436,7 @@ select:focus-visible {
     transform 0.3s;
 }
 .program-tile:hover {
-  box-shadow: 0 8px 20px #16392b12;
+  box-shadow: 0 8px 20px #31313112;
   transform: translateY(-3px);
 }
 .program-tile summary {
@@ -461,7 +459,7 @@ select:focus-visible {
 .program-tile small {
   display: block;
   font-size: 10px;
-  color: #536358;
+  color: #5f5f5f;
 }
 .program-tile strong {
   font-size: 14px;
@@ -478,7 +476,7 @@ select:focus-visible {
   margin: 15px 0 0;
 }
 .program-detail {
-  border-top: 1px solid #dce1e8;
+  border-top: 1px solid #e0e0e0;
   padding-top: 12px;
   margin-top: 12px;
   font-size: 12px;
@@ -492,12 +490,12 @@ select:focus-visible {
   justify-content: space-between;
   font-size: 12px;
   margin-top: 25px;
-  color: #15482f !important;
+  color: #3b3b3b !important;
   font-weight: 600;
 }
 .sample-label {
   font: 10px/1.6 var(--mono);
-  color: #58616e;
+  color: #606060;
 }
 .discovery-controls {
   display: flex;
@@ -515,7 +513,7 @@ select:focus-visible {
 }
 .discovery-controls input,
 .discovery-controls select {
-  border: 1px solid #b8c1ca;
+  border: 1px solid #c0c0c0;
   border-radius: 5px;
   padding: 10px;
   background: white;
@@ -602,11 +600,11 @@ select:focus-visible {
   line-height: 1.5;
 }
 .work-growth {
-  background: var(--orange);
+  background: var(--accent);
 }
 .growth-map {
   background: var(--ink);
-  color: var(--orange);
+  color: var(--accent);
   position: relative;
   padding: 45px;
   display: flex;
@@ -621,7 +619,7 @@ select:focus-visible {
   right: -8px;
   top: -40px;
   color: transparent;
-  -webkit-text-stroke: 2px #ff6534;
+  -webkit-text-stroke: 2px var(--accent);
   opacity: 0.6;
 }
 .map-label {
@@ -639,17 +637,17 @@ select:focus-visible {
   max-width: 370px;
 }
 .map-tags > span {
-  border: 1px solid #ff653480;
+  border: 1px solid var(--accent);
   padding: 8px 12px;
   background: var(--ink);
   font: 11px/1.4 var(--mono);
 }
 .work-discount {
-  background: var(--orchid);
+  background: var(--accent);
 }
 .discount-art {
   padding: 50px 45px;
-  background: #c69bfa;
+  background: var(--accent);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -672,7 +670,7 @@ select:focus-visible {
   font: 26px/1.5 var(--mono);
   margin: 24px 0;
   padding-bottom: 22px;
-  border-bottom: 1px solid #11131b70;
+  border-bottom: 1px solid #13131370;
 }
 .ledger-cut > span {
   font-size: 12px;
@@ -688,27 +686,27 @@ select:focus-visible {
   max-width: 35ch;
 }
 .work-dev {
-  background: #101116;
+  background: #111111;
   color: white;
 }
 .work-dev .work-copy {
-  background: #101116;
+  background: #111111;
 }
 .dev-art {
   padding: 55px 30px;
-  background: var(--cobalt);
+  background: var(--accent);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .terminal-head {
   padding: 18px;
-  background: #191b24;
+  background: #1b1b1b;
   display: flex;
   gap: 12px;
   font-size: 12px;
   align-items: center;
-  border: 1px solid #343644;
+  border: 1px solid #373737;
   color: white;
   border-radius: 10px 10px 0 0;
 }
@@ -717,26 +715,26 @@ select:focus-visible {
 }
 .terminal-pill {
   font: 9px/1.6 var(--mono);
-  border: 1px solid #787b87;
+  border: 1px solid #7b7b7b;
   padding: 4px 8px;
   border-radius: 20px;
   margin-left: auto;
   white-space: nowrap;
-  color: #eceef6;
+  color: #eeeeee;
 }
 .terminal-code {
-  background: #101116;
+  background: #111111;
   padding: 32px;
   display: grid;
   gap: 10px;
-  border: 1px solid #343644;
+  border: 1px solid #373737;
   border-top: 0;
   color: white;
   font-family: var(--mono);
 }
 .terminal-code > span {
   font-size: 10px;
-  color: #b9bfd1;
+  color: #bfbfbf;
 }
 .terminal-code > strong {
   font-size: 25px;
@@ -745,14 +743,14 @@ select:focus-visible {
   overflow-wrap: anywhere;
 }
 .terminal-code b {
-  color: var(--lime);
+  color: var(--accent);
 }
 .terminal-path {
   display: flex;
   justify-content: space-between;
   gap: 9px;
   padding: 15px 18px;
-  background: var(--lime);
+  background: var(--accent);
   color: var(--ink);
   font: 10px/1.5 var(--mono);
 }
@@ -768,7 +766,7 @@ select:focus-visible {
 }
 .about-section h2 {
   font-size: clamp(52px, 6.6vw, 100px);
-  color: var(--cobalt);
+  color: var(--accent);
 }
 .about-lede {
   font-size: 21px;
@@ -795,7 +793,7 @@ select:focus-visible {
 }
 .experience li {
   padding: 18px 0;
-  border-top: 1px solid #d6d9e3;
+  border-top: 1px solid #d9d9d9;
   display: grid;
   gap: 2px;
 }
@@ -807,7 +805,7 @@ select:focus-visible {
 }
 .experience li small {
   font: 10px/1.6 var(--mono);
-  color: #515a6b;
+  color: #595959;
 }
 .archive {
   padding: 100px 7vw;
@@ -817,7 +815,7 @@ select:focus-visible {
   grid-template-columns: 1fr 1.5fr 1fr;
   gap: 30px;
   padding: 30px 0;
-  border-top: 1px solid #adb3c2;
+  border-top: 1px solid #b3b3b3;
   align-items: start;
 }
 .archive-entry h3 {
@@ -830,7 +828,7 @@ select:focus-visible {
 .archive-evidence {
   font: 11px/1.7 var(--mono);
   padding: 18px;
-  background: var(--lime);
+  background: var(--accent);
   align-self: start;
 }
 .folio-footer {
@@ -848,7 +846,7 @@ select:focus-visible {
   max-width: 100%;
 }
 .contact-title > span {
-  color: var(--lime);
+  color: var(--accent);
   display: inline-block;
   margin-left: 0.5em;
   transition: transform 0.4s;
@@ -857,7 +855,7 @@ select:focus-visible {
   transform: translate(10px, -10px);
 }
 .footer-bottom {
-  border-top: 1px solid #596070;
+  border-top: 1px solid #606060;
   padding-top: 25px;
   display: flex;
   justify-content: space-between;
@@ -871,18 +869,18 @@ select:focus-visible {
 }
 .footer-bottom a {
   padding: 8px 0;
-  border-bottom: 1px solid #596070;
+  border-bottom: 1px solid #606060;
 }
 .index-hero {
   padding: 170px 7vw 90px;
-  background: var(--orange);
+  background: var(--accent);
 }
 .index-hero h1 {
   font-size: clamp(68px, 11.5vw, 170px);
   margin: 30px 0;
 }
 .index-hero h1 > span {
-  color: var(--cobalt);
+  color: var(--accent);
 }
 .index-hero > p:last-child {
   font-size: 18px;
@@ -920,13 +918,13 @@ select:focus-visible {
   padding: 10px 0;
 }
 .case-hero--growth {
-  background: var(--orange);
+  background: var(--accent);
 }
 .case-hero--discount {
-  background: var(--orchid);
+  background: var(--accent);
 }
 .case-hero--dev {
-  background: var(--cobalt);
+  background: var(--accent);
   color: white;
 }
 .case-body {
@@ -962,11 +960,11 @@ select:focus-visible {
   grid-template-columns: 40px 1fr 1.1fr;
   gap: 25px;
   align-items: start;
-  border-top: 1px solid #bdc3cf;
+  border-top: 1px solid #c3c3c3;
   padding: 30px 0;
 }
 .decision > span {
-  color: var(--cobalt);
+  color: var(--accent);
   font-size: 32px;
   line-height: 1;
 }
@@ -984,13 +982,13 @@ select:focus-visible {
   margin: 50px 0 90px;
 }
 .evidence--growth {
-  background: var(--orange);
+  background: var(--accent);
 }
 .evidence--discount {
-  background: var(--orchid);
+  background: var(--accent);
 }
 .evidence--dev {
-  background: var(--cobalt);
+  background: var(--accent);
   color: white;
 }
 .evidence-card h2 {
@@ -1010,7 +1008,7 @@ select:focus-visible {
   display: flex;
   flex-direction: column-reverse;
   justify-content: end;
-  border-top: 1px solid #11131b70;
+  border-top: 1px solid #13131370;
   padding-top: 20px;
 }
 .evidence--dev .evidence-metrics > div {
@@ -1034,7 +1032,7 @@ select:focus-visible {
   max-width: 100ch !important;
 }
 .evidence-card details {
-  border-top: 1px solid #11131b50;
+  border-top: 1px solid #13131350;
   margin-top: 28px;
   padding-top: 15px;
   font-size: 14px;
@@ -1067,7 +1065,7 @@ select:focus-visible {
 .evidence-card td {
   padding: 14px;
   text-align: left;
-  border: 1px solid #11131b50;
+  border: 1px solid #13131350;
   vertical-align: top;
 }
 .evidence-card td:first-child {
@@ -1110,7 +1108,7 @@ select:focus-visible {
 }
 .research-figure {
   margin: 30px 0;
-  background: #e8ebf3;
+  background: #ebebeb;
   padding: 20px;
 }
 .research-figure img {
@@ -1124,14 +1122,14 @@ select:focus-visible {
 .night-breakdown {
   padding: 25px;
   background: white;
-  border: 1px solid #c9ceda;
+  border: 1px solid #cecece;
 }
 .night-breakdown > div {
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  border-bottom: 1px solid #d4d8e2;
+  border-bottom: 1px solid #d8d8d8;
   font-size: 15px;
 }
 .night-breakdown .night-total {
@@ -1147,14 +1145,14 @@ select:focus-visible {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  border-top: 1px solid #bbc1ce;
+  border-top: 1px solid #c1c1c1;
   padding-top: 30px;
   margin-top: 85px;
   font-size: 16px;
 }
 .calculator-ui {
   background: white;
-  border: 1px solid #c9cfdf;
+  border: 1px solid #cfcfcf;
   border-radius: 9px;
   overflow: hidden;
 }
@@ -1163,7 +1161,7 @@ select:focus-visible {
 }
 .calc-brand > span {
   margin: 0 10px;
-  color: #6b7385;
+  color: #737373;
 }
 .calculator-ui .app-bar > .sample-label {
   margin-left: auto;
@@ -1190,7 +1188,7 @@ select:focus-visible {
   font-weight: 500;
 }
 .input-money {
-  border: 1px solid #b5bece;
+  border: 1px solid #bdbdbd;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -1221,13 +1219,13 @@ select:focus-visible {
   gap: 12px;
   align-items: center;
   padding: 18px 0;
-  border-top: 1px solid #dce0e8;
+  border-top: 1px solid #e0e0e0;
   font-size: 12px;
 }
 .promo-toggle input {
   width: 18px;
   height: 18px;
-  accent-color: #5d34b6;
+  accent-color: var(--accent);
   flex-shrink: 0;
 }
 .promo-toggle strong {
@@ -1237,24 +1235,24 @@ select:focus-visible {
 .promo-toggle small {
   font-size: 11px;
   display: block;
-  color: #576070;
+  color: #5f5f5f;
 }
 .promo-toggle b,
 .promo-toggle > span:last-child:not(:nth-child(2)) {
   margin-left: auto;
 }
 .ineligible {
-  color: #626977;
+  color: #696969;
 }
 .quiet-button {
-  background: #eef0f7;
+  background: #f0f0f0;
   color: var(--ink);
   padding: 10px 18px;
   border-radius: 6px;
   font-size: 12px !important;
 }
 .calc-result {
-  background: #ebe1ff;
+  background: #e5e5e5;
   padding: 45px;
   display: flex;
   flex-direction: column;
@@ -1277,14 +1275,14 @@ select:focus-visible {
 }
 .calc-ledger {
   font-size: 12px;
-  border-top: 1px solid #b7a1d8;
+  border-top: 1px solid var(--accent);
 }
 .calc-ledger > div {
   display: flex;
   justify-content: space-between;
   gap: 15px;
   padding: 13px 0;
-  border-bottom: 1px solid #b7a1d8;
+  border-bottom: 1px solid var(--accent);
 }
 .calc-result > p:not(.calc-effective) {
   font-size: 13px;
@@ -1298,11 +1296,11 @@ select:focus-visible {
   margin-bottom: 25px;
 }
 .calc-result .sample-label {
-  color: #3d3552;
+  color: #393939;
 }
 .form-error {
   font-size: 12px;
-  color: #9e1636;
+  color: var(--accent);
   margin-top: 14px !important;
 }
 .noscript-note {
@@ -1310,9 +1308,9 @@ select:focus-visible {
   font-size: 14px;
 }
 .developer-ui {
-  background: #0d0e12;
-  color: #eff0f7;
-  border: 1px solid #303341;
+  background: #0e0e0e;
+  color: #f0f0f0;
+  border: 1px solid #333333;
   border-radius: 9px;
   overflow: hidden;
 }
@@ -1321,7 +1319,7 @@ select:focus-visible {
   align-items: center;
   gap: 30px;
   padding: 20px 25px;
-  border-bottom: 1px solid #303341;
+  border-bottom: 1px solid #333333;
   font-size: 12px;
 }
 .dev-brand {
@@ -1334,7 +1332,7 @@ select:focus-visible {
   font-size: 23px;
 }
 .dev-context {
-  color: #c5c9d5;
+  color: #c9c9c9;
 }
 .developer-layout {
   display: grid;
@@ -1344,10 +1342,10 @@ select:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-right: 1px solid #303341;
+  border-right: 1px solid #333333;
   padding: 30px 20px;
   font-size: 12px;
-  color: #c0c4d1;
+  color: #c4c4c4;
 }
 .developer-sidebar > p {
   font: 9px/1.5 var(--mono);
@@ -1371,17 +1369,17 @@ select:focus-visible {
   list-style: none;
   padding: 0;
   margin: 0 0 40px;
-  color: #a8aebd;
+  color: #aeaeae;
   font-size: 11px;
 }
 .deploy-steps li {
-  border-bottom: 2px solid #3b3d47;
+  border-bottom: 2px solid #3d3d3d;
   padding-bottom: 12px;
   flex: 1;
 }
 .deploy-steps li[aria-current] {
-  border-color: var(--lime);
-  color: var(--lime);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 .deploy-stage {
   margin-bottom: 35px;
@@ -1399,7 +1397,7 @@ select:focus-visible {
 }
 .deploy-stage > p:not(.app-eyebrow) {
   font-size: 12px;
-  color: #c1c5d0;
+  color: #c5c5c5;
   line-height: 1.7;
   margin: 20px 0;
 }
@@ -1417,21 +1415,21 @@ select:focus-visible {
 }
 .deploy-form input,
 .deploy-form select {
-  background: #171920;
-  border: 1px solid #636a7e;
+  background: #191919;
+  border: 1px solid #6a6a6a;
   border-radius: 6px;
   padding: 11px 12px;
-  color: #eff0f7;
+  color: #f0f0f0;
   font-size: 13px;
   width: 100%;
   min-width: 0;
 }
 .deploy-form input:focus-visible,
 .deploy-form select:focus-visible {
-  outline-color: var(--lime);
+  outline-color: var(--accent);
 }
 .dev-guidance {
-  border-left: 2px solid var(--lime);
+  border-left: 2px solid var(--accent);
   padding-left: 15px;
 }
 .deploy-actions {
@@ -1439,7 +1437,7 @@ select:focus-visible {
   justify-content: space-between;
   gap: 15px;
   align-items: center;
-  border-top: 1px solid #303341;
+  border-top: 1px solid #333333;
   padding-top: 20px;
 }
 .deploy-actions button {
@@ -1448,17 +1446,17 @@ select:focus-visible {
   font-size: 12px;
 }
 .dev-next {
-  background: var(--lime);
+  background: var(--accent);
   color: var(--ink);
   font-weight: 600;
 }
 .dev-back {
-  background: #262934;
+  background: #292929;
   color: white;
 }
 .deploy-actions > span {
   font-size: 11px;
-  color: #c0c4d1;
+  color: #c4c4c4;
 }
 .deploy-actions button:disabled {
   opacity: 0.5;
@@ -1466,7 +1464,7 @@ select:focus-visible {
 }
 .deploy-form > .sample-label {
   display: block;
-  color: #c0c4d1;
+  color: #c4c4c4;
   margin-top: 20px;
 }
 .deploy-review {
@@ -1475,12 +1473,12 @@ select:focus-visible {
   margin: 30px 0;
 }
 .deploy-review > div {
-  border-bottom: 1px solid #303341;
+  border-bottom: 1px solid #333333;
   padding-bottom: 16px;
 }
 .deploy-review dt {
   font-size: 11px;
-  color: #bac0d0;
+  color: #c0c0c0;
 }
 .deploy-review dd {
   font: 14px/1.5 var(--mono);
@@ -1489,17 +1487,17 @@ select:focus-visible {
 }
 .deploy-status {
   font-size: 12px;
-  color: var(--lime);
+  color: var(--accent);
   margin-top: 20px !important;
   min-height: 20px;
 }
 .canary-path {
   font: 18px/1.5 var(--mono) !important;
-  color: var(--lime) !important;
+  color: var(--accent) !important;
 }
 @media (min-width: 1100px) {
   .work-growth:hover .growth-map {
-    background: #1c1e29;
+    background: #1e1e1e;
   }
   .hero-title h1 {
     max-width: 88%;
@@ -2240,16 +2238,16 @@ select:focus-visible {
 }
 @supports not (backdrop-filter: blur(10px)) {
   .site-nav {
-    background: #f8f9fc;
-    border-color: #cfd4df;
+    background: #f9f9f9;
+    border-color: #d4d4d4;
   }
 }
 @media (prefers-reduced-transparency: reduce) {
   .site-nav {
-    background: #f8f9fc;
+    background: #f9f9f9;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    border-color: #cfd4df;
+    border-color: #d4d4d4;
   }
   .calc-formula {
     background: #fff;
@@ -2291,5 +2289,11 @@ select:focus-visible {
   .program-tile,
   .developer-ui {
     border: 1px solid CanvasText;
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --accent: Highlight;
   }
 }

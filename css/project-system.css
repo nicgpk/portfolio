@@ -5,7 +5,6 @@
   --workspace-line: #414141;
   --workspace-ink: #f5f5f5;
   --workspace-muted: #bdbdbd;
-  --workspace-accent: #ff784f;
 }
 /* Reserve enhanced controls and mobile metadata space while fonts/JS load. */
 .folio .motion-control {
@@ -57,7 +56,7 @@
   color: var(--workspace-muted);
 }
 .folio :is(.product-brand span, .rate-preview-mark) {
-  color: var(--workspace-accent);
+  color: var(--accent);
 }
 .workspace-location,
 .workspace-footer {
@@ -120,7 +119,7 @@
 }
 .folio .catalog-preview-row.is-selected {
   background: #292929;
-  box-shadow: inset 2px 0 var(--workspace-accent);
+  box-shadow: inset 2px 0 var(--accent);
   border-radius: 5px;
 }
 .folio .catalog-glyph {
@@ -129,7 +128,7 @@
   border-color: #494949;
 }
 .folio .catalog-preview-row.is-selected .catalog-glyph {
-  color: var(--workspace-accent);
+  color: var(--accent);
 }
 .folio .catalog-preview-row small {
   color: var(--workspace-muted);
@@ -177,7 +176,7 @@
 }
 .folio .rate-preview-result > span {
   display: block;
-  color: var(--workspace-accent);
+  color: var(--workspace-ink);
   margin-top: 20px;
 }
 .folio .rate-preview-result small {
@@ -206,7 +205,7 @@
   padding-bottom: 0;
 }
 .folio .rate-preview-steps b {
-  color: var(--workspace-accent);
+  color: var(--workspace-ink);
 }
 .folio .rate-preview-formula {
   padding: 18px 0 0;
@@ -224,7 +223,6 @@
   --growth-muted: var(--workspace-muted);
   --growth-border: var(--workspace-line);
   --growth-selected: #292929;
-  --growth-accent: var(--workspace-accent);
 }
 .folio
   .growth-studio
@@ -246,7 +244,7 @@
 }
 .folio .growth-studio .app-side > strong {
   background: #292929;
-  box-shadow: inset 2px 0 var(--workspace-accent);
+  box-shadow: inset 2px 0 var(--accent);
 }
 .folio .growth-studio :is(input, select) {
   background: var(--workspace-raised);
@@ -268,7 +266,7 @@
   color: var(--workspace-ink);
 }
 .folio .growth-studio .growth-clear {
-  color: var(--workspace-accent);
+  color: var(--accent);
   background: transparent;
 }
 .folio .growth-studio .growth-clear:hover {
@@ -289,14 +287,14 @@
   background: var(--workspace-raised);
 }
 .folio .growth-studio .program-tile[open] .catalog-glyph {
-  color: var(--workspace-accent);
-  border-color: #86533f;
-  background: #332820;
+  color: var(--accent);
+  border-color: #5c5c5c;
+  background: #2a2a2a;
 }
 .folio .growth-studio .program-detail {
   background: #242424;
   border-color: #414141;
-  border-left-color: var(--workspace-accent);
+  border-left-color: var(--accent);
   color: var(--workspace-muted);
 }
 .folio .growth-studio .program-detail .growth-detail-label {
@@ -311,10 +309,9 @@
   --discount-ink: var(--workspace-ink);
   --discount-muted: var(--workspace-muted);
   --discount-line: var(--workspace-line);
-  --discount-accent: var(--workspace-accent);
   --discount-surface: var(--workspace);
   --discount-receipt: #202020;
-  --discount-tint: #332820;
+  --discount-tint: #2a2a2a;
 }
 .folio
   .discount-studio
@@ -336,15 +333,15 @@
 }
 .folio .discount-studio .promo-toggle:has(input:checked) {
   background: #292929;
-  border-color: #86604d;
-  box-shadow: inset 2px 0 var(--workspace-accent);
+  border-color: #676767;
+  box-shadow: inset 2px 0 var(--accent);
 }
 .folio .discount-studio .promo-toggle:hover:not(.ineligible) {
-  border-color: var(--workspace-accent);
+  border-color: var(--accent);
 }
 .folio .discount-studio .discount-percent {
-  background: #332820;
-  color: var(--workspace-accent);
+  background: #2a2a2a;
+  color: var(--accent);
 }
 .folio .discount-studio .ineligible {
   background: #242424;
@@ -358,7 +355,7 @@
   border-color: var(--workspace-line);
 }
 .folio .discount-studio .calc-effective {
-  color: var(--workspace-accent);
+  color: var(--workspace-ink);
 }
 .folio .discount-studio .calc-formula {
   background: #242424;
@@ -366,14 +363,14 @@
   border-color: var(--workspace-line);
 }
 .folio .discount-studio .form-error {
-  background: #332820;
-  color: #ffb395;
-  border-color: #86604d;
+  background: #2a2a2a;
+  color: var(--accent);
+  border-color: #676767;
 }
 .folio
   .discount-studio
   :is(.input-money:focus-within, input:focus-visible, button:focus-visible) {
-  outline-color: var(--workspace-accent);
+  outline-color: var(--accent);
 }
 .folio .discount-studio .discount-summary {
   border-color: var(--workspace-line);
@@ -390,10 +387,10 @@
 }
 .folio .case-hero .case-scroll {
   border-color: #777;
-  color: var(--workspace-accent);
+  color: var(--accent);
 }
 .folio .case-hero a:focus-visible {
-  outline: 3px solid var(--workspace-accent);
+  outline: 3px solid var(--accent);
   outline-offset: 5px;
 }
 .case-section-nav {
@@ -413,16 +410,16 @@
 }
 .case-section-nav a:last-child {
   margin-left: auto;
-  color: var(--signal-text);
+  color: var(--ink);
 }
 .case-section-nav a:hover {
   text-decoration: underline;
   text-underline-offset: 5px;
 }
 .folio .evidence-card {
-  background: #ffeadf;
-  color: #302017;
-  border: 1px solid #f0cebb;
+  background: #eeeeee;
+  color: #232323;
+  border: 1px solid #d4d4d4;
   border-radius: 12px;
 }
 .folio .concept-canvas {
@@ -440,13 +437,11 @@
 }
 .folio .night-breakdown .night-total {
   background: transparent;
-  color: var(--workspace-accent);
+  color: var(--workspace-ink);
 }
 /* The detailed work index uses the same dark product language. */
 .folio .graphic-scene {
   --ink: var(--workspace-ink);
-  --cobalt: var(--workspace-accent);
-  --coral: var(--workspace-accent);
   padding: 24px;
   border-radius: 12px;
 }
@@ -454,7 +449,7 @@
   background: #414141;
 }
 .folio .graphic-scene .rate-track > span {
-  background: var(--workspace-accent);
+  background: var(--accent);
 }
 .folio
   :is(
@@ -470,7 +465,7 @@
   fill: #292929;
 }
 .folio .work-growth :is(.program-node.selected circle, .property-node rect) {
-  fill: var(--workspace-accent);
+  fill: var(--accent);
 }
 .folio .work-growth .kinetic-disc > path {
   stroke: #777;
@@ -487,7 +482,7 @@
 }
 .folio .graphic-scene .flow-options button[aria-pressed="true"] {
   color: #1c1c1c;
-  background: var(--workspace-accent);
+  background: var(--accent);
 }
 .folio .graphic-scene .rate-step :is(strong, output) {
   color: var(--workspace-ink);
@@ -565,7 +560,6 @@
     --workspace-line: CanvasText;
     --workspace-ink: CanvasText;
     --workspace-muted: CanvasText;
-    --workspace-accent: Highlight;
   }
   .folio
     :is(

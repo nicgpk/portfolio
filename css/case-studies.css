@@ -1,15 +1,10 @@
-/* Case studies: grayscale reading surfaces, orange for actions and state. */
+/* Case studies: grayscale reading surfaces, red for actions and state. */
 body.case-study {
   --ink: #202020;
   --paper: #ffffff;
   --line: #dedede;
   --sky: #f5f5f5;
   --acid: #f5f5f5;
-  --cobalt: #ff510a;
-  --coral: #ff510a;
-  --signal: #ff510a;
-  --signal-text: var(--ink);
-  --workspace-accent: #ff510a;
   --case-muted: #646464;
   background: var(--paper);
   color: var(--ink);
@@ -49,7 +44,7 @@ body.case-study {
 }
 .case-project-label {
   font: 13px/1.5 var(--mono);
-  color: var(--signal-text);
+  color: var(--ink);
   margin: 0 0 12px;
 }
 .case-study .case-hero .eyebrow {
@@ -69,14 +64,14 @@ body.case-study {
   margin: 0 0 24px !important;
 }
 .case-study .case-hero .case-scroll {
-  color: var(--signal-text);
+  color: var(--ink);
   border-color: #aaa;
   min-height: 44px;
   font-size: 13px;
   margin-top: 0;
 }
 .case-study .case-hero .case-scroll:is(:hover, :focus-visible) {
-  border-bottom-color: var(--signal);
+  border-bottom-color: var(--accent);
 }
 .case-diagram {
   position: relative;
@@ -126,10 +121,10 @@ body.case-study {
   stroke: #c9c9c9;
 }
 .hub-node.is-highlighted {
-  color: var(--signal-text);
+  color: var(--ink);
 }
 .hub-node.is-highlighted circle {
-  stroke: var(--signal);
+  stroke: var(--accent);
   stroke-width: 2;
 }
 .hub-center circle {
@@ -160,7 +155,7 @@ body.case-study {
 }
 .diagram-rate-row b {
   font: 400 12px var(--mono);
-  color: var(--signal-text);
+  color: var(--ink);
   margin-left: 8px;
 }
 .diagram-rate-row strong {
@@ -178,7 +173,7 @@ body.case-study {
   font-size: 40px;
 }
 .diagram-rate-row.is-final i {
-  background: var(--signal);
+  background: var(--accent);
 }
 .diagram-rate > p {
   margin: 0;
@@ -218,8 +213,8 @@ body.case-study {
   font: 20px var(--mono);
 }
 .workflow-node.is-highlighted {
-  border-color: var(--signal);
-  color: var(--signal-text);
+  border-color: var(--accent);
+  color: var(--ink);
 }
 .diagram-workflow p {
   margin: 0;
@@ -281,7 +276,7 @@ body.case-study {
 }
 .case-study .text-link {
   font-size: 13px;
-  color: var(--signal-text);
+  color: var(--ink);
 }
 .case-study .decisions-section {
   margin: 0;
@@ -304,7 +299,7 @@ body.case-study {
   line-height: 1.75;
 }
 .case-study .decision > span {
-  color: var(--signal-text);
+  color: var(--ink);
   font-size: 24px;
 }
 .case-study .evidence-card {
@@ -313,7 +308,7 @@ body.case-study {
   background: #f5f5f5;
   color: var(--ink);
   border: 1px solid var(--line);
-  border-top: 3px solid var(--signal);
+  border-top: 3px solid var(--accent);
   border-radius: 12px;
 }
 .case-study .evidence-card h2 {
@@ -387,28 +382,27 @@ body.case-study {
 }
 .case-study .discount-studio :is(.discount-percent, .form-error) {
   background: #242424;
-  color: var(--workspace-accent);
+  color: var(--accent);
   border-color: #777;
 }
 .case-study .discount-studio .promo-toggle:has(input:checked) {
   border-color: #777;
 }
 .case-study .discount-studio .input-money:has(input[aria-invalid="true"]) {
-  border-color: var(--workspace-accent);
+  border-color: var(--accent);
 }
 .case-study .developer-ui {
-  --lime: var(--workspace-accent);
 }
 .case-study .developer-ui .canary-path {
-  color: var(--workspace-accent) !important;
+  color: var(--accent) !important;
 }
 .case-study .developer-ui .deploy-steps li[aria-current] > span,
 .case-study .developer-ui .dev-next {
-  background: var(--workspace-accent);
-  border-color: var(--workspace-accent);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 .case-study .developer-ui .dev-next:hover {
-  background: #ff784f;
+  background: var(--accent);
 }
 .case-study .supporting-artifacts {
   padding-block: 72px;
@@ -459,16 +453,16 @@ body.case-study {
   color: var(--case-muted);
 }
 .case-study :focus-visible {
-  outline-color: var(--signal-text);
+  outline-color: var(--ink);
 }
 .case-study .concept-canvas :focus-visible {
-  outline-color: var(--workspace-accent);
+  outline-color: var(--accent);
 }
 .case-study .case-hero a:focus-visible {
-  outline-color: var(--signal-text);
+  outline-color: var(--ink);
 }
 .case-study ::selection {
-  background: #ff510a;
+  background: var(--accent);
   color: #202020;
 }
 @media (max-width: 1100px) {
@@ -642,9 +636,6 @@ body.case-study {
     --paper: Canvas;
     --line: CanvasText;
     --case-muted: CanvasText;
-    --signal: Highlight;
-    --signal-text: LinkText;
-    --workspace-accent: Highlight;
   }
   .case-study
     :is(

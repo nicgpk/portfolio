@@ -1,0 +1,50 @@
+[
+  {
+    "route": "index",
+    "width": 390
+  },
+  {
+    "route": "projects",
+    "width": 390
+  },
+  {
+    "route": "partner-growth-programs",
+    "width": 390
+  },
+  {
+    "route": "discounting",
+    "width": 390
+  },
+  {
+    "route": "dev-portal",
+    "width": 390
+  },
+  {
+    "route": "resume",
+    "width": 390
+  },
+  {
+    "route": "index",
+    "width": 1440
+  },
+  {
+    "route": "projects",
+    "width": 1440
+  },
+  {
+    "route": "partner-growth-programs",
+    "width": 1440
+  },
+  {
+    "route": "discounting",
+    "width": 1440
+  },
+  {
+    "route": "dev-portal",
+    "width": 1440
+  },
+  {
+    "route": "resume",
+    "width": 1440
+  }
+]

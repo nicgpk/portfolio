@@ -76,7 +76,7 @@
 .folio .concept-shell :is(.app-side, .developer-sidebar) > strong {
   background: #292929;
   color: var(--workspace-ink);
-  box-shadow: inset 2px 0 var(--workspace-accent);
+  box-shadow: inset 2px 0 var(--accent);
 }
 .folio
   .concept-shell
@@ -159,7 +159,7 @@
 .folio .concept-shell input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  accent-color: var(--workspace-accent);
+  accent-color: var(--accent);
 }
 .folio .concept-shell :is(.deploy-field-group, .discount-promotions) {
   padding: 18px;
@@ -188,14 +188,31 @@
   ) {
   background: #292929;
   border-color: #777;
-  box-shadow: inset 2px 0 var(--workspace-accent);
+  box-shadow: inset 2px 0 var(--accent);
 }
-.folio
-  .concept-shell
-  :is(.program-tile[open] .catalog-glyph, .discount-percent, .form-error) {
+.folio .concept-shell .program-tile[open] .catalog-glyph {
   background: var(--workspace-raised);
   border-color: #777;
-  color: var(--workspace-accent);
+  color: var(--accent);
+}
+.folio .concept-shell .form-error {
+  background: var(--workspace-raised);
+  color: var(--workspace-ink);
+  border-color: var(--accent);
+}
+.folio .concept-shell .discount-percent {
+  color: var(--workspace-ink);
+}
+.folio .concept-shell .canary-path {
+  color: var(--workspace-ink) !important;
+}
+.folio .concept-shell .dev-next {
+  background: var(--workspace-raised);
+  color: var(--workspace-ink);
+  border-color: var(--accent);
+}
+.folio .concept-shell .dev-next:hover {
+  background: #353535;
 }
 .folio
   .concept-shell
@@ -205,7 +222,7 @@
   font: 12px/1.6 var(--mono);
 }
 .folio .concept-shell :focus-visible {
-  outline: 2px solid var(--workspace-accent);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 /* Previews use the same unbranded heading and two-pane reading order. */

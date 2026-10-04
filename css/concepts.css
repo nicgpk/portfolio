@@ -1,4 +1,4 @@
-/* One product language: neutral workspaces, precise type, orange for state. */
+/* One product language: neutral workspaces, precise type, red for state. */
 .concept-canvas {
   background: #f7f7f7;
   border-color: #e5e5e5;
@@ -8,7 +8,6 @@
   --ui-line: #e3e3e3;
   --ui-ink: #242424;
   --ui-muted: #666;
-  --ui-accent: #b93608;
   border-radius: 12px;
   box-shadow: 0 6px 20px #00000006;
   letter-spacing: 0;
@@ -104,7 +103,6 @@
   --growth-muted: #666;
   --growth-border: #e3e3e3;
   --growth-selected: #fafafa;
-  --growth-accent: #b93608;
   background: #fafafa;
   border-color: var(--growth-border);
 }
@@ -124,7 +122,7 @@
 }
 .growth-studio .app-side > strong {
   background: #f5f5f5;
-  box-shadow: inset 2px 0 var(--growth-accent);
+  box-shadow: inset 2px 0 var(--accent);
 }
 .growth-studio .app-side-note {
   color: #666;
@@ -190,7 +188,7 @@
   margin-left: auto !important;
 }
 .growth-clear {
-  color: var(--growth-accent);
+  color: var(--accent);
   background: #fff;
   min-height: 44px;
   padding: 8px 10px;
@@ -198,7 +196,7 @@
   font: 700 13px/1.5 var(--mono) !important;
 }
 .growth-clear:hover {
-  background: #fff5ef;
+  background: #f7f7f7;
 }
 .growth-studio .program-grid {
   display: block;
@@ -273,16 +271,16 @@
   transform: rotate(180deg);
 }
 .growth-studio .program-tile[open] .catalog-glyph {
-  color: var(--growth-accent);
-  border-color: #f0ccb9;
-  background: #fff5ef;
+  color: var(--accent);
+  border-color: #d2d2d2;
+  background: #f7f7f7;
 }
 .growth-studio .program-detail {
   margin: 0 20px 20px 72px;
   padding: 16px 18px;
   background: #f7f7f7;
   border: 1px solid #e9e9e9;
-  border-left: 2px solid #ff510a;
+  border-left: 2px solid var(--accent);
   border-radius: 6px;
   font-size: 14px;
 }
@@ -319,7 +317,7 @@
   color: #666;
 }
 .growth-studio :is(input, select, summary, button):focus-visible {
-  outline: 3px solid var(--growth-accent);
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 .growth-studio summary:focus-visible {
@@ -331,9 +329,8 @@
   --discount-ink: #242424;
   --discount-muted: #666;
   --discount-line: #e3e3e3;
-  --discount-accent: #b93608;
   --discount-receipt: #fafafa;
-  --discount-tint: #fff5ef;
+  --discount-tint: #f7f7f7;
   border-color: var(--discount-line);
 }
 .discount-studio .discount-app-header {
@@ -384,8 +381,8 @@
 }
 .discount-studio .promo-toggle:has(input:checked) {
   background: #fff;
-  border-color: #dcae98;
-  box-shadow: inset 2px 0 #ff510a;
+  border-color: var(--accent);
+  box-shadow: inset 2px 0 var(--accent);
 }
 .discount-studio .promo-toggle strong {
   font-size: 14px;
@@ -395,8 +392,8 @@
 }
 .discount-studio .discount-percent {
   font: 700 15px/1.5 var(--mono);
-  background: #fff5ef;
-  color: #b93608;
+  background: #f7f7f7;
+  color: var(--accent);
   padding: 3px 7px;
 }
 .discount-studio .ineligible {
@@ -429,7 +426,7 @@
   margin: 12px 0;
 }
 .discount-studio .calc-effective {
-  color: #b93608;
+  color: var(--accent);
   font: 700 14px/1.5 var(--mono);
 }
 .discount-studio .discount-summary .discount-exclusions {
@@ -462,7 +459,7 @@
   grid-column: 1 / -1;
   width: var(--rate-width);
   height: 3px;
-  background: #ff510a;
+  background: var(--accent);
   display: block;
   margin-top: 3px;
 }
@@ -484,10 +481,10 @@
 }
 .discount-studio .form-error {
   padding: 12px;
-  border: 1px solid #dcae98;
+  border: 1px solid var(--accent);
   border-radius: 6px;
-  background: #fff5ef;
-  color: #8f2c0a;
+  background: #f7f7f7;
+  color: var(--accent);
 }
 .discount-studio .form-error:empty {
   display: none;
@@ -495,7 +492,7 @@
 .discount-studio .input-money:focus-within,
 .discount-studio :is(input, button):focus-visible {
   outline-width: 3px;
-  outline-color: #b93608;
+  outline-color: var(--accent);
 }
 
 /* The approved developer composition supplies hierarchy to the other concepts. */
@@ -504,7 +501,6 @@
   color: #f5f5f5;
   border-color: #3e3e3e;
   color-scheme: dark;
-  --lime: #ff784f;
 }
 .developer-ui .dev-toolbar {
   padding: 20px 24px;
@@ -544,7 +540,7 @@
   font-weight: 600;
   color: #f5f5f5;
   background: #292929;
-  box-shadow: inset 2px 0 #ff510a;
+  box-shadow: inset 2px 0 var(--accent);
 }
 .developer-sidebar .dev-sidebar-note {
   margin-top: auto;
@@ -576,12 +572,12 @@
 }
 .developer-ui .deploy-steps li[aria-current] {
   color: #fff;
-  border-color: #ff510a;
+  border-color: var(--accent);
 }
 .deploy-steps li[aria-current] > span {
   color: #1c1c1c;
-  background: #ff784f;
-  border-color: #ff784f;
+  background: var(--accent);
+  border-color: var(--accent);
 }
 .developer-ui .deploy-steps li[data-complete] {
   color: #f5f5f5;
@@ -629,7 +625,7 @@
   font: 16px/1.35 var(--mono);
 }
 .developer-ui .deploy-form :is(input, select):focus-visible {
-  outline: 3px solid #ff784f;
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 .developer-ui .dev-field-help {
@@ -645,7 +641,7 @@
   font-size: 13px;
 }
 .developer-ui .canary-path {
-  color: #ff784f !important;
+  color: var(--accent) !important;
   padding: 16px 0 4px;
 }
 .developer-ui .deploy-actions {
@@ -658,10 +654,10 @@
 }
 .developer-ui .dev-next {
   color: #1c1c1c;
-  background: #ff784f;
+  background: var(--accent);
 }
 .developer-ui .dev-next:hover {
-  background: #ff906e;
+  background: var(--accent);
 }
 .developer-ui .dev-back {
   border: 1px solid #777;
@@ -716,7 +712,7 @@
 .developer-ui .deploy-status:not(:empty) {
   padding: 16px;
   border: 1px solid #777;
-  border-left: 2px solid #ff510a;
+  border-left: 2px solid var(--accent);
   border-radius: 6px;
   background: #242424;
 }
@@ -938,9 +934,7 @@ html[data-motion="off"] .program-open-label svg {
     box-shadow: none;
   }
   .concept-canvas :is(.growth-studio, .discount-studio) {
-    --growth-accent: Highlight;
     --growth-border: CanvasText;
-    --discount-accent: Highlight;
   }
   .concept-canvas
     :is(

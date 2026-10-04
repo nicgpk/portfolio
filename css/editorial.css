@@ -1,9 +1,8 @@
 /* Rauno-inspired restraint: the motion lives in purpose-built project graphics. */
 .folio {
   --display: Manrope, "Segoe UI", Arial, sans-serif;
-  --acid: #eaff00;
-  --coral: #ff6534;
-  --paper: #f8f9fc;
+  --acid: var(--accent);
+  --paper: #f9f9f9;
 }
 .folio h1,
 .folio h2,
@@ -18,7 +17,7 @@
 .site-nav {
   border-radius: 18px;
   box-shadow:
-    0 6px 24px #1219210d,
+    0 6px 24px #1818180d,
     inset 0 1px 0 white;
   background: rgba(248, 249, 252, 0.78);
 }
@@ -27,7 +26,7 @@
   right: 22px;
   bottom: 18px;
   z-index: 45;
-  border: 1px solid #c8cdd4 !important;
+  border: 1px solid #cccccc !important;
   background: rgba(248, 249, 252, 0.93);
   color: var(--ink);
   padding: 10px 14px;
@@ -94,7 +93,7 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  border-top: 1px solid #c8ced5;
+  border-top: 1px solid #cdcdcd;
   padding-top: 18px;
   margin-bottom: 28px;
 }
@@ -166,7 +165,7 @@
   display: block;
   font: 10px/1.6 var(--mono);
   letter-spacing: 0;
-  color: #46505d;
+  color: #4f4f4f;
   text-transform: none;
   margin-bottom: 15px !important;
 }
@@ -189,7 +188,7 @@
 }
 .program-ray {
   fill: none;
-  stroke: #11131b;
+  stroke: #131313;
   stroke-width: 1;
   opacity: 0.24;
 }
@@ -237,7 +236,7 @@
   grid-column: 1 / span 2;
   margin-top: 25px;
   padding: 22px 0;
-  border-top: 1px solid #c8ced5;
+  border-top: 1px solid #cdcdcd;
 }
 .program-options {
   display: grid;
@@ -248,8 +247,8 @@
   display: block;
   text-align: left;
   background: none;
-  color: #4b5360;
-  border-bottom: 1px solid #d4d9e0 !important;
+  color: #525252;
+  border-bottom: 1px solid #d8d8d8 !important;
   padding: 13px 0;
   min-height: 44px;
   font-size: 13px;
@@ -286,7 +285,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 6vw;
   padding-top: 22px;
-  border-top: 1px solid #c8ced5;
+  border-top: 1px solid #cdcdcd;
 }
 .project-caption > p:first-child {
   font-size: 14px;
@@ -296,7 +295,7 @@
 .artifact-caption {
   font-size: 10px;
   line-height: 1.6;
-  color: #46505d;
+  color: #4f4f4f;
   max-width: none !important;
   margin: 0 !important;
 }
@@ -323,24 +322,24 @@
 .rate-step > span {
   display: block;
   font: 11px/1.5 var(--mono);
-  color: #46505d;
+  color: #4f4f4f;
 }
 .rate-step strong,
 .rate-step output {
   display: block;
   font: 400 clamp(42px, 5.2vw, 74px)/1.1 var(--display);
   letter-spacing: -0.05em;
-  color: var(--cobalt);
+  color: var(--accent);
   margin: 8px 0;
 }
 .rate-track {
   height: 12px;
-  background: #e2e6f0;
+  background: #e6e6e6;
 }
 .rate-track > span {
   display: block;
   height: 100%;
-  background: var(--cobalt);
+  background: var(--accent);
   transform-origin: left;
   transition: width 0.75s cubic-bezier(0.22, 1.1, 0.32, 1);
 }
@@ -362,7 +361,7 @@
 }
 .rate-controls input[type="number"] {
   font-size: 15px;
-  border: 1px solid #929aac;
+  border: 1px solid #9a9a9a;
   border-radius: 0;
   background: white;
   padding: 9px 11px;
@@ -370,7 +369,7 @@
   color: var(--ink);
 }
 .rate-controls input[type="checkbox"] {
-  accent-color: var(--cobalt);
+  accent-color: var(--accent);
   width: 16px;
   height: 16px;
 }
@@ -382,7 +381,7 @@
   font-size: 12px;
   line-height: 1.6;
   margin-top: 16px !important;
-  color: #46505d;
+  color: #4f4f4f;
 }
 .dev-art {
   align-self: center;
@@ -402,14 +401,14 @@
 }
 .flow-loop {
   fill: none;
-  stroke: #b9c0cb;
+  stroke: #bfbfbf;
   stroke-width: 1.5;
 }
 .flow-node {
   fill: var(--ink);
 }
 .flow-signal circle {
-  fill: var(--coral);
+  fill: var(--accent);
 }
 .flow-signal path {
   display: none;
@@ -427,8 +426,8 @@
 .flow-options button {
   background: transparent;
   padding: 12px 0;
-  border-bottom: 1px solid #b9c0cb !important;
-  color: #46505d;
+  border-bottom: 1px solid #bfbfbf !important;
+  color: #4f4f4f;
   min-height: 44px;
   font-size: 13px;
 }
@@ -452,7 +451,7 @@
 }
 .flow-reading .canary-sequence {
   font-size: 20px;
-  color: #9c300f;
+  color: var(--accent);
   margin-bottom: 8px;
 }
 [data-kinetic] {
@@ -518,7 +517,7 @@ html:not([data-motion="off"]) .is-inview .rate-track > span {
   background: white;
   grid-template-columns: 1fr 1fr;
   gap: 10vw;
-  border-top: 1px solid #c8ced5;
+  border-top: 1px solid #cdcdcd;
 }
 .about-section .eyebrow {
   font-size: 10px;
@@ -563,7 +562,7 @@ html:not([data-motion="off"]) .is-inview .rate-track > span {
 }
 .archive-evidence {
   background: white;
-  border: 1px solid #d5dbe3;
+  border: 1px solid #dadada;
   color: var(--ink);
   font-size: 10px;
   padding: 14px;
@@ -572,7 +571,7 @@ html:not([data-motion="off"]) .is-inview .rate-track > span {
   background: white;
   color: var(--ink);
   padding: 65px 6vw 80px;
-  border-top: 1px solid #c8ced5;
+  border-top: 1px solid #cdcdcd;
 }
 .contact-title {
   font-weight: 400;
@@ -583,13 +582,13 @@ html:not([data-motion="off"]) .is-inview .rate-track > span {
   color: var(--ink);
 }
 .footer-bottom {
-  border-color: #c8ced5;
+  border-color: #cdcdcd;
 }
 .case-hero,
 .index-hero {
   background: var(--paper);
   color: var(--ink);
-  border-bottom: 1px solid #c8ced5;
+  border-bottom: 1px solid #cdcdcd;
 }
 .case-hero h1 {
   font-size: clamp(65px, 9vw, 135px);
@@ -603,7 +602,7 @@ html:not([data-motion="off"]) .is-inview .rate-track > span {
 }
 .case-scroll {
   color: var(--ink);
-  border-color: #919aab;
+  border-color: #999999;
 }
 .case-framing h2 {
   font-weight: 400;
@@ -617,11 +616,11 @@ html:not([data-motion="off"]) .is-inview .rate-track > span {
   color: var(--ink);
 }
 .evidence--discount {
-  background: var(--orchid);
+  background: var(--accent);
   color: var(--ink);
 }
 .evidence--dev {
-  background: var(--cobalt);
+  background: var(--accent);
   color: white;
 }
 .evidence--growth :focus-visible,
@@ -632,7 +631,7 @@ html:not([data-motion="off"]) .is-inview .rate-track > span {
   outline-color: white;
 }
 .work-flagship :focus-visible {
-  outline-color: #1938ed;
+  outline-color: var(--accent);
 }
 .concept-heading h2 {
   font-size: clamp(36px, 4.2vw, 60px);
@@ -640,16 +639,16 @@ html:not([data-motion="off"]) .is-inview .rate-track > span {
 .concept-canvas {
   border-radius: 0;
   padding: 35px;
-  background: #e7ebf1;
+  background: #ebebeb;
 }
 .concept-canvas--growth {
   background: var(--acid);
 }
 .concept-canvas--discount {
-  background: #dfe5ff;
+  background: #e6e6e6;
 }
 .concept-canvas--dev {
-  background: #eef0f4;
+  background: #f0f0f0;
 }
 .night-breakdown,
 .research-figure {
@@ -920,7 +919,7 @@ html[data-motion="off"] [data-kinetic] {
 @media (prefers-reduced-transparency: reduce) {
   .site-nav,
   .motion-control {
-    background: #f8f9fc;
+    background: #f9f9f9;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
@@ -976,7 +975,7 @@ html[data-motion="off"] [data-kinetic] {
 
 /* Large project covers: native horizontal rail, enhanced by document scrolling. */
 .portfolio-home {
-  background: #eceef2;
+  background: #eeeeee;
 }
 .portfolio-home .portfolio-masthead {
   padding: 112px 4vw 22px;
@@ -1026,7 +1025,7 @@ html[data-motion="off"] [data-kinetic] {
 .rail-navigation button {
   width: 44px;
   height: 44px;
-  border: 1px solid #b8bec9 !important;
+  border: 1px solid #bebebe !important;
   border-radius: 50%;
   color: var(--ink);
   background: transparent;
@@ -1055,7 +1054,7 @@ html[data-motion="off"] [data-kinetic] {
   overflow-y: hidden;
   position: relative;
   scrollbar-width: thin;
-  scrollbar-color: #7d8592 transparent;
+  scrollbar-color: #848484 transparent;
   padding-bottom: 14px;
   scroll-snap-type: x proximity;
   scroll-padding-left: 0;
@@ -1127,13 +1126,13 @@ html[data-motion="off"] [data-kinetic] {
   outline-offset: -5px;
 }
 .rail-viewport:focus-visible {
-  outline: 3px solid var(--cobalt);
+  outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
 .rail-concept-label {
   font: 10px/1.6 var(--mono);
   letter-spacing: 0;
-  color: #46505d;
+  color: #4f4f4f;
   margin-bottom: 18px;
   max-width: 49ch;
 }
@@ -1169,7 +1168,7 @@ html[data-motion="off"] [data-kinetic] {
 .rail-art-note {
   font-size: 10px;
   line-height: 1.7;
-  color: #46505d;
+  color: #4f4f4f;
 }
 .rail-card-art .flow-diagram {
   margin: 24px 0;
@@ -1196,7 +1195,7 @@ html:not([data-motion="off"]) .rail-card-art .is-inview .flow-signal {
   justify-content: space-between;
   gap: 20px;
   font: 10px/1.5 var(--mono);
-  color: #46505d;
+  color: #4f4f4f;
   margin-top: 12px;
 }
 @media (max-width: 1023px), (max-height: 699px) {

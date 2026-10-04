@@ -44,7 +44,7 @@ try {
     assert.equal(layout.overflow, false);
     assert.ok(layout.font.includes("Manrope"));
     assert.equal(layout.background, "rgb(255, 255, 255)");
-    assert.equal(layout.link, "rgb(21, 25, 24)");
+    assert.equal(layout.link, "rgb(24, 24, 24)");
     assert.equal(layout.download, 48);
     await page.keyboard.press("Tab");
     await expect(page.locator(".skip-link")).toBeFocused();

@@ -1,0 +1,242 @@
+[
+  {
+    "route": "index",
+    "width": 320,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 44
+    }
+  },
+  {
+    "route": "projects",
+    "width": 320,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 43
+    }
+  },
+  {
+    "route": "partner-growth-programs",
+    "width": 320,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 17
+    }
+  },
+  {
+    "route": "discounting",
+    "width": 320,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 16
+    }
+  },
+  {
+    "route": "dev-portal",
+    "width": 320,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 19
+    }
+  },
+  {
+    "route": "resume",
+    "width": 320,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 2
+    }
+  },
+  {
+    "route": "index",
+    "width": 390,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 44
+    }
+  },
+  {
+    "route": "projects",
+    "width": 390,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 43
+    }
+  },
+  {
+    "route": "partner-growth-programs",
+    "width": 390,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 17
+    }
+  },
+  {
+    "route": "discounting",
+    "width": 390,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 16
+    }
+  },
+  {
+    "route": "dev-portal",
+    "width": 390,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 19
+    }
+  },
+  {
+    "route": "resume",
+    "width": 390,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 2
+    }
+  },
+  {
+    "route": "index",
+    "width": 768,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 44
+    }
+  },
+  {
+    "route": "projects",
+    "width": 768,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 43
+    }
+  },
+  {
+    "route": "partner-growth-programs",
+    "width": 768,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 17
+    }
+  },
+  {
+    "route": "discounting",
+    "width": 768,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 16
+    }
+  },
+  {
+    "route": "dev-portal",
+    "width": 768,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 19
+    }
+  },
+  {
+    "route": "resume",
+    "width": 768,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 2
+    }
+  },
+  {
+    "route": "index",
+    "width": 1440,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 44
+    }
+  },
+  {
+    "route": "projects",
+    "width": 1440,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 43
+    }
+  },
+  {
+    "route": "partner-growth-programs",
+    "width": 1440,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 17
+    }
+  },
+  {
+    "route": "discounting",
+    "width": 1440,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 16
+    }
+  },
+  {
+    "route": "dev-portal",
+    "width": 1440,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 19
+    }
+  },
+  {
+    "route": "resume",
+    "width": 1440,
+    "axe": [],
+    "palette": {
+      "bad": [],
+      "unlinked": [],
+      "linkedAccentProperties": 2
+    }
+  }
+]

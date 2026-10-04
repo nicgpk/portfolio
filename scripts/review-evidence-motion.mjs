@@ -43,7 +43,7 @@ try {
         );
       assert.equal(icons.length, ["index", "projects"].includes(route) ? 3 : 1);
       icons.forEach((icon) => {
-        assert.equal(icon.color, "rgb(255, 81, 10)");
+        assert.equal(icon.color, "rgb(237, 41, 57)");
         assert.equal(icon.hidden, "true");
         assert.equal(icon.width, 40);
         assert.equal(icon.playing, false);
@@ -77,7 +77,9 @@ try {
     }
     await page.close();
   }
-  for (const width of [390, 1440]) {
+  for (const width of process.argv.includes("--capture-before")
+    ? [390, 1440]
+    : []) {
     const page = await browser.newPage({
       viewport: { width, height: 1000 },
       reducedMotion: "reduce",

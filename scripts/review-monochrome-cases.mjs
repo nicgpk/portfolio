@@ -28,18 +28,7 @@ async function palette(page, route, state) {
       if (!m || m[4] === "0") return true;
       const rgb = m.slice(1, 4).map(Number);
       if (Math.max(...rgb) - Math.min(...rgb) <= 2) return true;
-      let [r, g, b] = rgb.map((x) => x / 255),
-        max = Math.max(r, g, b),
-        min = Math.min(r, g, b),
-        d = max - min;
-      let h =
-        max === r
-          ? ((g - b) / d) % 6
-          : max === g
-            ? (b - r) / d + 2
-            : (r - g) / d + 4;
-      h = (h * 60 + 360) % 360;
-      return h >= 5 && h <= 28;
+      return rgb[0] === 237 && rgb[1] === 41 && rgb[2] === 57;
     };
     function inspect(el, s, pseudo = "") {
       const props = ["backgroundColor"];
@@ -271,5 +260,5 @@ console.log(
 await browser.close();
 assert.ok(
   report.passed,
-  "All rendered case-study colors must be neutral or orange.",
+  "All rendered case-study colors must be neutral or the shared Singapore red.",
 );
