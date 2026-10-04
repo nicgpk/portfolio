@@ -2,6 +2,7 @@ import { chromium, expect } from "./review-browser.mjs";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { normalizedContentText } from "./content-normalization.mjs";
 const directory = "review/concept-system";
 await mkdir(directory, { recursive: true });
 const browser = await chromium.launch();
@@ -216,6 +217,9 @@ try {
       encoding: "utf8",
     });
     const after = await readFile(`${route}.html`, "utf8");
+    await page.addScriptTag({
+      content: `window.portfolioContentText = ${normalizedContentText.toString()}`,
+    });
     const audit = await page.evaluate(
       ({ before, after }) => {
         const parse = (source) =>
@@ -226,7 +230,7 @@ try {
           main
             .querySelectorAll(".showcase-art,.hero-footnote")
             .forEach((el) => el.remove());
-          return main.textContent.replace(/\s+/g, " ").trim();
+          return window.portfolioContentText(main);
         };
         const links = (doc) =>
           [...doc.querySelectorAll("a[href]")]

@@ -4,6 +4,7 @@ import re
 from html import escape
 from studio_design import flagship_hero, program_cover, program_discovery, rate_cover, rate_calculator, developer_workflow
 from case_design import case_diagram
+from interface_icons import standardize_icons
 
 ROOT = Path(__file__).resolve().parent.parent
 def head(name):
@@ -19,7 +20,7 @@ def head(name):
     gallery_styles = '' if name in ['partner-growth-programs.html', 'discounting.html', 'dev-portal.html'] else '\n<link rel="stylesheet" href="css/showcase.css">'
     case_styles = '\n<link rel="stylesheet" href="css/case-studies.css">' if name in ['partner-growth-programs.html', 'discounting.html', 'dev-portal.html'] else ''
     concept_styles = '\n<link rel="stylesheet" href="css/concept-system.css">' if name in ['index.html', 'projects.html', 'partner-growth-programs.html', 'discounting.html', 'dev-portal.html'] else ''
-    return h + '\n<link rel="stylesheet" href="css/folio.css">\n<link rel="stylesheet" href="css/editorial.css">' + gallery_styles + extra + '\n<link rel="stylesheet" href="css/studio.css">\n<link rel="stylesheet" href="css/concepts.css">\n<link rel="stylesheet" href="css/project-system.css">\n<link rel="stylesheet" href="css/personal-landing.css">' + case_styles + concept_styles + '\n<link rel="preload" as="font" type="font/woff2" href="fonts/manrope-latin.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="fonts/ubuntu-mono-regular.woff2" crossorigin>\n</head>'
+    return h + '\n<link rel="stylesheet" href="css/folio.css">\n<link rel="stylesheet" href="css/editorial.css">' + gallery_styles + extra + '\n<link rel="stylesheet" href="css/studio.css">\n<link rel="stylesheet" href="css/concepts.css">\n<link rel="stylesheet" href="css/project-system.css">\n<link rel="stylesheet" href="css/personal-landing.css">' + case_styles + concept_styles + '\n<link rel="stylesheet" href="css/link-system.css">' + '\n<link rel="preload" as="font" type="font/woff2" href="fonts/manrope-latin.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="fonts/ubuntu-mono-regular.woff2" crossorigin>\n</head>'
 
 def nav(active=''):
     return f'''<a class="skip-link" href="#main">Skip to content</a>
@@ -160,6 +161,7 @@ def case(kind):
     write(route,body)
 
 def write(name,body):
+    body = standardize_icons(body)
     body_class = 'folio case-study' if name in ['partner-growth-programs.html', 'discounting.html', 'dev-portal.html'] else 'folio'
     (ROOT/name).write_text(head(name)+f'\n<body class="{body_class}">'+body+'\n<script type="module" src="js/folio.mjs"></script>\n</body>\n</html>\n',encoding='utf-8')
 
@@ -177,3 +179,7 @@ if 'site-nav' not in resume:
     resume=resume.replace('</head>','<link rel="stylesheet" href="css/folio.css">\n</head>')
     resume=resume.replace('<body>','<body class="resume-page">')
     (ROOT/'resume.html').write_text(resume,encoding='utf-8')
+if 'css/link-system.css' not in resume:
+    resume = resume.replace('</head>', '<link rel="stylesheet" href="css/link-system.css">\n</head>')
+resume = standardize_icons(resume)
+(ROOT/'resume.html').write_text(resume,encoding='utf-8')

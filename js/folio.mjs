@@ -1,4 +1,5 @@
 import { stackDiscounts } from "./calculations.mjs";
+import { setActionLabel } from "./interface-icons.mjs";
 
 import { motionPaused } from "./kinetics.mjs";
 import "./showcase.mjs";
@@ -168,11 +169,11 @@ if (developer) {
     });
     back.disabled = step === 0;
     next.disabled = false;
-    next.textContent = [
-      "Continue to rollout →",
-      "Continue to review →",
-      "Preview deployment",
-    ][step];
+    setActionLabel(
+      next,
+      ["Continue to rollout", "Continue to review", "Preview deployment"][step],
+      step === 2 ? "check" : "arrow-right",
+    );
     form.querySelector("[data-step-count]").textContent =
       `Step ${step + 1} of 3`;
     if (step === 2) review();

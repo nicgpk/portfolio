@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { mkdir, readFile, writeFile, stat } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { normalizedContentText } from "./content-normalization.mjs";
 process.env.PLAYWRIGHT_BROWSERS_PATH = fileURLToPath(
   new URL("../node_modules/.cache/ms-playwright", import.meta.url),
 );
@@ -70,6 +71,9 @@ try {
       encoding: "utf8",
     });
     const after = await readFile(`${route}.html`, "utf8");
+    await page.addScriptTag({
+      content: `window.portfolioContentText = ${normalizedContentText.toString()}`,
+    });
     const audit = await page.evaluate(
       ({ before, after, route }) => {
         const parse = (text) =>
@@ -84,7 +88,7 @@ try {
               ".folio-footer, .case-diagram, .case-project-label, .research-tone-note",
             )
             .forEach((n) => n.remove());
-          return copy.textContent.replace(/\s+/g, " ").trim();
+          return window.portfolioContentText(copy);
         };
         const selectors =
           route === "index"

@@ -2,6 +2,7 @@ import { chromium, expect } from "./review-browser.mjs";
 import { mkdir, writeFile, readFile } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 import assert from "node:assert/strict";
+import { normalizedContentText } from "./content-normalization.mjs";
 const baseline = "78c8646153e797789c0ec022ceeddc8d87098aa8",
   base = "http://127.0.0.1:4183";
 const directory = "review/monochrome-cases";
@@ -115,6 +116,9 @@ for (const route of ["partner-growth-programs", "discounting", "dev-portal"]) {
       encoding: "utf8",
     }),
     after = await readFile(`${route}.html`, "utf8");
+  await page.addScriptTag({
+    content: `window.portfolioContentText = ${normalizedContentText.toString()}`,
+  });
   const audit = await page.evaluate(
     ({ before, after }) => {
       const a = new DOMParser().parseFromString(before, "text/html"),
@@ -126,7 +130,7 @@ for (const route of ["partner-growth-programs", "discounting", "dev-portal"]) {
             ".case-diagram,.case-project-label,.research-tone-note",
           )
           .forEach((n) => n.remove());
-        return clone.textContent.replace(/\s+/g, " ").trim();
+        return window.portfolioContentText(clone);
       };
       const links = (d) =>
         [...d.querySelectorAll("a[href]")].map((n) => n.getAttribute("href"));
