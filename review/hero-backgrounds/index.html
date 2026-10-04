@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Hero background explorations · Nicholas Gwee</title>
+    <style>
+      @font-face {
+        font-family: Manrope;
+        src: url("../../fonts/manrope-latin.woff2") format("woff2");
+        font-weight: 200 800;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Ubuntu Mono";
+        src: url("../../fonts/ubuntu-mono-regular.woff2") format("woff2");
+        font-display: swap;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0 auto;
+        max-width: 1500px;
+        padding: 48px 24px;
+        color: #202020;
+        background: #fff;
+        font:
+          15px/1.65 Manrope,
+          sans-serif;
+      }
+      h1 {
+        font-size: clamp(32px, 5vw, 64px);
+        line-height: 1.12;
+        letter-spacing: -0.05em;
+        margin: 16px 0;
+      }
+      h2 {
+        font-size: 22px;
+        letter-spacing: -0.025em;
+        margin: 0;
+      }
+      .eyebrow,
+      .caption {
+        font:
+          13px/1.5 "Ubuntu Mono",
+          monospace;
+        color: #646464;
+      }
+      header > p {
+        max-width: 64ch;
+      }
+      a {
+        color: inherit;
+        text-underline-offset: 5px;
+      }
+      a:hover {
+        text-decoration-color: #ff510a;
+      }
+      a:focus-visible {
+        outline: 3px solid #202020;
+        outline-offset: 5px;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 24px;
+        margin: 24px 0 32px;
+      }
+      .options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 24px;
+      }
+      figure {
+        margin: 0;
+      }
+      .option-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .option-heading > a {
+        font:
+          13px/1.5 "Ubuntu Mono",
+          monospace;
+        padding: 12px 0;
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid #dedede;
+      }
+      figcaption {
+        margin-top: 14px;
+      }
+      figcaption p {
+        margin: 4px 0 12px;
+      }
+      footer {
+        border-top: 1px solid #dedede;
+        margin-top: 40px;
+        padding-top: 24px;
+        font-size: 13px;
+        color: #646464;
+      }
+      @media (max-width: 800px) {
+        .options {
+          grid-template-columns: 1fr;
+        }
+        body {
+          padding: 32px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">Nicholas Gwee · Background explorations</p>
+      <h1>Less detail.<br />More room for the introduction.</h1>
+      <p>
+        Three quieter alternatives retain the monochrome halftone and cursor
+        interaction. The current cloud stays as the default while you compare.
+      </p>
+      <p>
+        <strong>Recommended: Horizon.</strong> Its low silhouette gives your
+        name and role the most breathing room.
+      </p>
+      <nav aria-label="Live background options">
+        <a href="../../index.html">Current cloud</a
+        ><a href="../../index.html?background=horizon">Try Horizon ↗</a
+        ><a href="../../index.html?background=dune">Try Dune ↗</a
+        ><a href="../../index.html?background=orbit">Try Orbit ↗</a
+        ><a href="../index.html">All review captures</a>
+      </nav>
+    </header>
+    <main class="options">
+      <figure>
+        <div class="option-heading">
+          <h2>Current cloud</h2>
+          <a href="../../index.html">Open current ↗</a>
+        </div>
+        <a href="../../index.html"
+          ><img
+            src="current-1440.png"
+            width="1278"
+            height="682"
+            alt="Current hero with detailed cloud silhouettes in halftone"
+        /></a>
+        <figcaption>
+          <p>Photographic cloud detail and many local contrasts.</p>
+          <a href="current-390.png">Mobile capture</a>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="option-heading">
+          <h2>Horizon</h2>
+          <a href="../../index.html?background=horizon"
+            >Try this background ↗</a
+          >
+        </div>
+        <a href="../../index.html?background=horizon"
+          ><img
+            src="horizon-1440.png"
+            width="1278"
+            height="682"
+            alt="Hero with a single broad low horizon of halftone dots"
+        /></a>
+        <figcaption>
+          <p>A low, gentle wave keeps the texture below the introduction.</p>
+          <a href="horizon-390.png">Mobile capture</a> ·
+          <a href="horizon-cursor-1440.png">Cursor effect</a>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="option-heading">
+          <h2>Dune</h2>
+          <a href="../../index.html?background=dune">Try this background ↗</a>
+        </div>
+        <a href="../../index.html?background=dune"
+          ><img
+            src="dune-1440.png"
+            width="1278"
+            height="682"
+            alt="Hero with two soft dune-like halftone masses at the edges"
+        /></a>
+        <figcaption>
+          <p>Soft, sculptural forms frame a quieter center.</p>
+          <a href="dune-390.png">Mobile capture</a> ·
+          <a href="dune-cursor-1440.png">Cursor effect</a>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="option-heading">
+          <h2>Orbit</h2>
+          <a href="../../index.html?background=orbit">Try this background ↗</a>
+        </div>
+        <a href="../../index.html?background=orbit"
+          ><img
+            src="orbit-1440.png"
+            width="1278"
+            height="682"
+            alt="Hero with a wide orbital halftone arc and open lower space"
+        /></a>
+        <figcaption>
+          <p>A broad arc gives the background a more graphic composition.</p>
+          <a href="orbit-390.png">Mobile capture</a> ·
+          <a href="orbit-cursor-1440.png">Cursor effect</a>
+        </figcaption>
+      </figure>
+    </main>
+    <footer>
+      Live options animate on desktop and retain matching static posters on
+      mobile or with reduced motion. The links need JavaScript to select the
+      alternative on the homepage; without it, the original static hero remains
+      visible. These comparison captures remain available without JavaScript. No
+      production publication.
+    </footer>
+  </body>
+</html>

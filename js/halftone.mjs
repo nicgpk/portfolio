@@ -11,6 +11,7 @@ uniform sampler2D cloud;
 uniform sampler2D brushMask;
 uniform vec2 size;
 uniform float time;
+uniform float background;
 float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
 void main() {
   vec2 screen = vec2(uv.x, 1. - uv.y);
@@ -32,6 +33,21 @@ void main() {
   float density = pow(clamp((.98 - luma) * 2.65, 0., 1.), .95);
   density *= smoothstep(.30, .48, sampleUV.y);
   density *= 1. - quiet * .75;
+  // Review alternatives use a few broad forms instead of photographic detail.
+  vec2 q = sampleUV + vec2(sin(time * .08) * .004, 0.);
+  if (background > .5 && background < 1.5) {
+    float horizon = .79 + cos(q.x * 5.2 + .4) * .045;
+    density = smoothstep(horizon - .07, horizon + .09, q.y) * .32;
+    density += smoothstep(.94 + sin(q.x * 4.) * .025, 1.08, q.y) * .16;
+  } else if (background > 1.5 && background < 2.5) {
+    vec2 left = vec2((q.x - .10) * 1.65, (q.y - 1.02) * 3.1);
+    vec2 right = vec2((q.x - .96) * 2.2, (q.y - .94) * 3.7);
+    density = .46 * exp(-dot(left, left)) + .34 * exp(-dot(right, right));
+  } else if (background > 2.5) {
+    float orbit = length(vec2((q.x - .50) * .72, q.y - 1.15));
+    density = (1. - smoothstep(.025, .13, abs(orbit - .49))) * .42;
+    density += smoothstep(.88, 1.20, q.y) * .08;
+  }
   float grain = hash(cell);
   density = clamp(density + .002 + grain * .008 + sin(time * .35 + grain * 6.28) * .002, 0., 1.);
   // The brush exposes another ink treatment, then dissolves into the cloud.
@@ -46,7 +62,7 @@ void main() {
 }
 `;
 
-export function createHalftoneRenderer(canvas, image) {
+export function createHalftoneRenderer(canvas, image, background = 0) {
   let gl;
   try {
     gl = canvas.getContext("webgl", {
@@ -94,8 +110,30 @@ export function createHalftoneRenderer(canvas, image) {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+    if (image) {
+      gl.texImage2D(
+        gl.TEXTURE_2D,
+        0,
+        gl.RGBA,
+        gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        image,
+      );
+    } else {
+      gl.texImage2D(
+        gl.TEXTURE_2D,
+        0,
+        gl.RGBA,
+        1,
+        1,
+        0,
+        gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        new Uint8Array([255, 255, 255, 255]),
+      );
+    }
     gl.uniform1i(gl.getUniformLocation(program, "cloud"), 0);
+    gl.uniform1f(gl.getUniformLocation(program, "background"), background);
     const brushCanvas = document.createElement("canvas");
     const brushContext = brushCanvas.getContext("2d");
     const stamp = document.createElement("canvas");

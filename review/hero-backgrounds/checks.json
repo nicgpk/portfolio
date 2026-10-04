@@ -1,0 +1,176 @@
+{
+  "layouts": [
+    {
+      "name": "current",
+      "width": 320,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-halftone-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "current",
+      "width": 390,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-halftone-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "current",
+      "width": 768,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-halftone-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "current",
+      "width": 1440,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-halftone-1600.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "horizon",
+      "width": 320,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-horizon-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "horizon",
+      "width": 390,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-horizon-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "horizon",
+      "width": 768,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-horizon-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "horizon",
+      "width": 1440,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-horizon-1600.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "dune",
+      "width": 320,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-dune-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "dune",
+      "width": 390,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-dune-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "dune",
+      "width": 768,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-dune-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "dune",
+      "width": 1440,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-dune-1600.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "orbit",
+      "width": 320,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-orbit-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "orbit",
+      "width": 390,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-orbit-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "orbit",
+      "width": 768,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-orbit-800.png",
+        "loaded": true
+      },
+      "violations": []
+    },
+    {
+      "name": "orbit",
+      "width": 1440,
+      "poster": {
+        "source": "http://127.0.0.1:4183/images/hero-orbit-1600.png",
+        "loaded": true
+      },
+      "violations": []
+    }
+  ],
+  "interactions": [
+    {
+      "name": "horizon",
+      "cursorPixelDelta": 40.544,
+      "stableText": true,
+      "pauseResume": true,
+      "contextLossFallback": true,
+      "desktopPosterBytes": 43933
+    },
+    {
+      "name": "dune",
+      "cursorPixelDelta": 48.102875,
+      "stableText": true,
+      "pauseResume": true,
+      "contextLossFallback": true,
+      "desktopPosterBytes": 45110
+    },
+    {
+      "name": "orbit",
+      "cursorPixelDelta": 61.094875,
+      "stableText": true,
+      "pauseResume": true,
+      "contextLossFallback": true,
+      "desktopPosterBytes": 57186
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

@@ -1,10 +1,21 @@
 import { motionPaused } from "./kinetics.mjs";
+import {
+  heroBackgrounds,
+  selectedHeroBackground,
+} from "./hero-backgrounds.mjs";
 
 const hero = document.querySelector("[data-cloud-scene]");
 if (hero) {
   const stage = hero.querySelector(".hero-stage");
   const field = hero.querySelector(".cloud-field");
   const canvas = field.querySelector("canvas");
+  const background = selectedHeroBackground();
+  if (background) {
+    field.dataset.background = background;
+    field.querySelector("source").srcset = `images/hero-${background}-800.png`;
+    field.querySelector(".cloud-poster").src =
+      `images/hero-${background}-1600.png`;
+  }
   const fine = matchMedia("(hover: hover) and (pointer: fine)");
   const forced = matchMedia("(forced-colors: active)");
   let visible = false,
@@ -65,14 +76,20 @@ if (hero) {
       try {
         const [{ createHalftoneRenderer }, image] = await Promise.all([
           import("./halftone.mjs"),
-          new Promise((resolve, reject) => {
-            const image = new Image();
-            image.onload = () => resolve(image);
-            image.onerror = reject;
-            image.src = "images/hero-clouds-1600.webp";
-          }),
+          background
+            ? Promise.resolve(null)
+            : new Promise((resolve, reject) => {
+                const image = new Image();
+                image.onload = () => resolve(image);
+                image.onerror = reject;
+                image.src = "images/hero-clouds-1600.webp";
+              }),
         ]);
-        renderer = createHalftoneRenderer(canvas, image);
+        renderer = createHalftoneRenderer(
+          canvas,
+          image,
+          heroBackgrounds[background] || 0,
+        );
         failed = !renderer;
         if (renderer) dimensions();
       } catch {

@@ -2,6 +2,10 @@
 
 Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. Delivery is a local preview and open draft PR. No merge, auto-merge, deployment or production source change.
 
+## Current hero-background exploration
+
+The current cloud remains the default. Three opt-in homepage query options provide Horizon, Dune and Orbit compositions using broad procedural forms in the same halftone renderer. Hero copy, actions and project content stay unchanged. Matching mobile/reduced-motion posters retain the selection; the comparison remains readable without JavaScript, while a no-JavaScript homepage retains the original poster. `hero-backgrounds/index.html` provides comparisons and live links; `../docs/hero-backgrounds.md` records the recommendation and limitations. The option audit covers 16 layouts and automated WCAG checks, real cursor input, visible fixed-phase ink changes, fading trails, stable text, pause/resume and context-loss fallback. Original cloud preferences/offscreen checks remain in the existing cloud review.
+
 ## Current Work-page refinement
 
 `projects.html` now uses the same generator and identical cards, metrics, source-context disclosures and concept previews as the landing page. Its page heading, active Work navigation, direct original-case links and unchanged GovTech archive remain. The current Work-page review replaces obsolete index-graphics checks; source and case workflows still pass their existing audits. `../docs/work-page.md` records the scope and `work-page/` contains before-after captures and four-width gallery/accessibility checks.
