@@ -1,0 +1,29 @@
+{
+  "scenario": "One local Chromium observation per case, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms latency, reduced motion. Not production performance or a controlled comparison.",
+  "results": [
+    {
+      "route": "partner-growth-programs",
+      "lcpMs": 2040,
+      "lcpElement": "H1.",
+      "cls": 0.00018227632350391836,
+      "resourceBytes": 296477,
+      "requests": 18
+    },
+    {
+      "route": "discounting",
+      "lcpMs": 2064,
+      "lcpElement": "H1.",
+      "cls": 0.0004800048847950751,
+      "resourceBytes": 294778,
+      "requests": 17
+    },
+    {
+      "route": "dev-portal",
+      "lcpMs": 2056,
+      "lcpElement": "H1.",
+      "cls": 0.000058205030296852134,
+      "resourceBytes": 281903,
+      "requests": 16
+    }
+  ]
+}

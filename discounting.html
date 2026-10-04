@@ -72,12 +72,12 @@
 
     <link rel="stylesheet" href="css/folio.css" />
     <link rel="stylesheet" href="css/editorial.css" />
-    <link rel="stylesheet" href="css/showcase.css" />
     <link rel="stylesheet" href="css/discount-ui.css" />
     <link rel="stylesheet" href="css/studio.css" />
     <link rel="stylesheet" href="css/concepts.css" />
     <link rel="stylesheet" href="css/project-system.css" />
     <link rel="stylesheet" href="css/personal-landing.css" />
+    <link rel="stylesheet" href="css/case-studies.css" />
     <link
       rel="preload"
       as="font"
@@ -93,7 +93,7 @@
       crossorigin
     />
   </head>
-  <body class="folio">
+  <body class="folio case-study">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-nav">
       <a class="wordmark" href="index.html" aria-label="Nicholas Gwee home"
@@ -121,14 +121,41 @@
     <main id="main">
       <section class="case-hero case-hero--discount">
         <a class="back-link" href="projects.html">← Selected work</a>
-        <p class="eyebrow">Senior Product Designer · Agoda</p>
-        <h1>Every discount.<br />Understood.</h1>
-        <p class="case-thesis">
-          Make the economics<br />visible before commitment.
-        </p>
-        <a class="case-scroll" href="#decisions"
-          >The decisions <span aria-hidden="true">↓</span></a
-        >
+        <div class="case-hero-layout">
+          <div class="case-hero-copy">
+            <p class="case-project-label">Discounting 2.0</p>
+            <p class="eyebrow">Senior Product Designer · Agoda</p>
+            <h1>Every discount.<br />Understood.</h1>
+            <p class="case-thesis">
+              Make the economics<br />visible before commitment.
+            </p>
+            <a class="case-scroll" href="#decisions"
+              >The decisions <span aria-hidden="true">↓</span></a
+            >
+          </div>
+          <div class="case-diagram case-diagram--discount" aria-hidden="true">
+            <span class="diagram-kicker">Updated concept</span>
+            <div class="diagram-rate">
+              <div class="diagram-rate-row">
+                <span>Starting room rate</span><strong>$150.00</strong
+                ><i style="--balance: 100%"></i>
+              </div>
+              <div class="diagram-rate-row">
+                <span>Mega Sale <b>15%</b></span
+                ><strong>$127.50</strong><i style="--balance: 85%"></i>
+              </div>
+              <div class="diagram-rate-row is-final">
+                <span>Mobile Exclusive <b>10%</b></span
+                ><strong>$114.75</strong><i style="--balance: 76.5%"></i>
+              </div>
+              <p>150 × 0.85 × 0.90 = 114.75</p>
+            </div>
+            <p class="diagram-caption">
+              <span>Illustrative calculation</span
+              ><span>Before commission &amp; taxes</span>
+            </p>
+          </div>
+        </div>
       </section>
       <div class="case-body">
         <nav class="case-section-nav" aria-label="Case study sections">

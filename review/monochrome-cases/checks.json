@@ -1,0 +1,276 @@
+{
+  "baseline": "78c8646153e797789c0ec022ceeddc8d87098aa8",
+  "content": [
+    {
+      "route": "partner-growth-programs",
+      "textUnchanged": true,
+      "linksUnchanged": true
+    },
+    {
+      "route": "discounting",
+      "textUnchanged": true,
+      "linksUnchanged": true
+    },
+    {
+      "route": "dev-portal",
+      "textUnchanged": true,
+      "linksUnchanged": true
+    }
+  ],
+  "layouts": [
+    {
+      "route": "partner-growth-programs",
+      "width": 320,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 390,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 768,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 1440,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    },
+    {
+      "route": "discounting",
+      "width": 320,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    },
+    {
+      "route": "discounting",
+      "width": 390,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    },
+    {
+      "route": "discounting",
+      "width": 768,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    },
+    {
+      "route": "discounting",
+      "width": 1440,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    },
+    {
+      "route": "dev-portal",
+      "width": 320,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    },
+    {
+      "route": "dev-portal",
+      "width": 390,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    },
+    {
+      "route": "dev-portal",
+      "width": 768,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    },
+    {
+      "route": "dev-portal",
+      "width": 1440,
+      "overflow": false,
+      "heroFits": true,
+      "researchMonochrome": true
+    }
+  ],
+  "palettes": [
+    {
+      "route": "partner-growth-programs",
+      "state": "320px default",
+      "invalid": []
+    },
+    {
+      "route": "partner-growth-programs",
+      "state": "390px default",
+      "invalid": []
+    },
+    {
+      "route": "partner-growth-programs",
+      "state": "768px default",
+      "invalid": []
+    },
+    {
+      "route": "partner-growth-programs",
+      "state": "1440px default",
+      "invalid": []
+    },
+    {
+      "route": "partner-growth-programs",
+      "state": "expanded program and focused control",
+      "invalid": []
+    },
+    {
+      "route": "discounting",
+      "state": "320px default",
+      "invalid": []
+    },
+    {
+      "route": "discounting",
+      "state": "390px default",
+      "invalid": []
+    },
+    {
+      "route": "discounting",
+      "state": "768px default",
+      "invalid": []
+    },
+    {
+      "route": "discounting",
+      "state": "1440px default",
+      "invalid": []
+    },
+    {
+      "route": "discounting",
+      "state": "invalid rate",
+      "invalid": []
+    },
+    {
+      "route": "discounting",
+      "state": "reset",
+      "invalid": []
+    },
+    {
+      "route": "dev-portal",
+      "state": "320px default",
+      "invalid": []
+    },
+    {
+      "route": "dev-portal",
+      "state": "390px default",
+      "invalid": []
+    },
+    {
+      "route": "dev-portal",
+      "state": "768px default",
+      "invalid": []
+    },
+    {
+      "route": "dev-portal",
+      "state": "1440px default",
+      "invalid": []
+    },
+    {
+      "route": "dev-portal",
+      "state": "workflow step 1",
+      "invalid": []
+    },
+    {
+      "route": "dev-portal",
+      "state": "workflow step 2",
+      "invalid": []
+    },
+    {
+      "route": "dev-portal",
+      "state": "workflow step 3",
+      "invalid": []
+    }
+  ],
+  "navigation": [
+    {
+      "route": "partner-growth-programs",
+      "href": "#decisions",
+      "headingVisible": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "href": "#choices",
+      "headingVisible": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "href": "#evidence",
+      "headingVisible": true
+    },
+    {
+      "route": "partner-growth-programs",
+      "href": "#concept",
+      "headingVisible": true
+    },
+    {
+      "route": "discounting",
+      "href": "#decisions",
+      "headingVisible": true
+    },
+    {
+      "route": "discounting",
+      "href": "#choices",
+      "headingVisible": true
+    },
+    {
+      "route": "discounting",
+      "href": "#evidence",
+      "headingVisible": true
+    },
+    {
+      "route": "discounting",
+      "href": "#concept",
+      "headingVisible": true
+    },
+    {
+      "route": "dev-portal",
+      "href": "#decisions",
+      "headingVisible": true
+    },
+    {
+      "route": "dev-portal",
+      "href": "#choices",
+      "headingVisible": true
+    },
+    {
+      "route": "dev-portal",
+      "href": "#evidence",
+      "headingVisible": true
+    },
+    {
+      "route": "dev-portal",
+      "href": "#concept",
+      "headingVisible": true
+    }
+  ],
+  "states": [
+    {
+      "route": "partner-growth-programs",
+      "expanded": true
+    },
+    {
+      "route": "discounting",
+      "invalidAndReset": true
+    },
+    {
+      "route": "dev-portal",
+      "allWorkflowSteps": true
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

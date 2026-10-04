@@ -78,7 +78,12 @@ try {
           b = parse(after);
         const text = (e) => {
           const copy = e.cloneNode(true);
-          copy.querySelectorAll(".folio-footer").forEach((n) => n.remove());
+          // New presentation labels and decorative diagrams are separate from the audited narrative.
+          copy
+            .querySelectorAll(
+              ".folio-footer, .case-diagram, .case-project-label, .research-tone-note",
+            )
+            .forEach((n) => n.remove());
           return copy.textContent.replace(/\s+/g, " ").trim();
         };
         const selectors =

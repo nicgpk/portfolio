@@ -78,12 +78,12 @@
 
     <link rel="stylesheet" href="css/folio.css" />
     <link rel="stylesheet" href="css/editorial.css" />
-    <link rel="stylesheet" href="css/showcase.css" />
     <link rel="stylesheet" href="css/growth-ui.css" />
     <link rel="stylesheet" href="css/studio.css" />
     <link rel="stylesheet" href="css/concepts.css" />
     <link rel="stylesheet" href="css/project-system.css" />
     <link rel="stylesheet" href="css/personal-landing.css" />
+    <link rel="stylesheet" href="css/case-studies.css" />
     <link
       rel="preload"
       as="font"
@@ -99,7 +99,7 @@
       crossorigin
     />
   </head>
-  <body class="folio">
+  <body class="folio case-study">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-nav">
       <a class="wordmark" href="index.html" aria-label="Nicholas Gwee home"
@@ -127,12 +127,127 @@
     <main id="main">
       <section class="case-hero case-hero--growth">
         <a class="back-link" href="projects.html">← Selected work</a>
-        <p class="eyebrow">Product Design Lead · Agoda</p>
-        <h1>Partner Growth<br />Programs.</h1>
-        <p class="case-thesis">One hub for the whole<br />growth journey.</p>
-        <a class="case-scroll" href="#decisions"
-          >The decisions <span aria-hidden="true">↓</span></a
-        >
+        <div class="case-hero-layout">
+          <div class="case-hero-copy">
+            <p class="case-project-label">Partner Growth Programs</p>
+            <p class="eyebrow">Product Design Lead · Agoda</p>
+            <h1>Partner Growth<br />Programs.</h1>
+            <p class="case-thesis">
+              One hub for the whole<br />growth journey.
+            </p>
+            <a class="case-scroll" href="#decisions"
+              >The decisions <span aria-hidden="true">↓</span></a
+            >
+          </div>
+          <div class="case-diagram case-diagram--growth" aria-hidden="true">
+            <span class="diagram-kicker">Updated concept</span
+            ><svg class="hub-map" viewBox="0 0 480 360">
+              <g class="hub-paths">
+                <path d="M240 180 L240.0 56.0" />
+                <path d="M240 180 L349.6 92.3" />
+                <path d="M240 180 L395.0 180.0" />
+                <path d="M240 180 L349.6 267.7" />
+                <path d="M240 180 L240.0 304.0" />
+                <path d="M240 180 L130.4 267.7" />
+                <path d="M240 180 L85.0 180.0" />
+                <path d="M240 180 L130.4 92.3" />
+              </g>
+              <ellipse class="hub-orbit" cx="240" cy="180" rx="155" ry="124" />
+              <g
+                class="hub-node is-highlighted"
+                transform="translate(240.0 56.0)"
+              >
+                <circle r="27" />
+                <use
+                  href="images/program-symbols.svg#promotion"
+                  x="-16"
+                  y="-16"
+                  width="32"
+                  height="32"
+                />
+              </g>
+              <g class="hub-node" transform="translate(349.6 92.3)">
+                <circle r="27" />
+                <use
+                  href="images/program-symbols.svg#growth"
+                  x="-16"
+                  y="-16"
+                  width="32"
+                  height="32"
+                />
+              </g>
+              <g class="hub-node" transform="translate(395.0 180.0)">
+                <circle r="27" />
+                <use
+                  href="images/program-symbols.svg#boost"
+                  x="-16"
+                  y="-16"
+                  width="32"
+                  height="32"
+                />
+              </g>
+              <g class="hub-node" transform="translate(349.6 267.7)">
+                <circle r="27" />
+                <use
+                  href="images/program-symbols.svg#prepaid"
+                  x="-16"
+                  y="-16"
+                  width="32"
+                  height="32"
+                />
+              </g>
+              <g class="hub-node" transform="translate(240.0 304.0)">
+                <circle r="27" />
+                <use
+                  href="images/program-symbols.svg#distribution"
+                  x="-16"
+                  y="-16"
+                  width="32"
+                  height="32"
+                />
+              </g>
+              <g class="hub-node" transform="translate(130.4 267.7)">
+                <circle r="27" />
+                <use
+                  href="images/program-symbols.svg#placement"
+                  x="-16"
+                  y="-16"
+                  width="32"
+                  height="32"
+                />
+              </g>
+              <g class="hub-node" transform="translate(85.0 180.0)">
+                <circle r="27" />
+                <use
+                  href="images/program-symbols.svg#rates"
+                  x="-16"
+                  y="-16"
+                  width="32"
+                  height="32"
+                />
+              </g>
+              <g class="hub-node" transform="translate(130.4 92.3)">
+                <circle r="27" />
+                <use
+                  href="images/program-symbols.svg#storefront"
+                  x="-16"
+                  y="-16"
+                  width="32"
+                  height="32"
+                />
+              </g>
+              <g class="hub-center">
+                <circle cx="240" cy="180" r="51" />
+                <path d="M220 185v-20h40v20m-36 10h32m-16-30v30m-20-10h40" />
+                <text x="240" y="218" text-anchor="middle">One hub</text>
+              </g>
+            </svg>
+            <p class="diagram-caption">
+              <span>8 existing programs</span
+              ><span>One partner experience</span>
+            </p>
+          </div>
+        </div>
       </section>
       <div class="case-body">
         <nav class="case-section-nav" aria-label="Case study sections">

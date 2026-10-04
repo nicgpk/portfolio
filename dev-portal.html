@@ -78,11 +78,11 @@
 
     <link rel="stylesheet" href="css/folio.css" />
     <link rel="stylesheet" href="css/editorial.css" />
-    <link rel="stylesheet" href="css/showcase.css" />
     <link rel="stylesheet" href="css/studio.css" />
     <link rel="stylesheet" href="css/concepts.css" />
     <link rel="stylesheet" href="css/project-system.css" />
     <link rel="stylesheet" href="css/personal-landing.css" />
+    <link rel="stylesheet" href="css/case-studies.css" />
     <link
       rel="preload"
       as="font"
@@ -98,7 +98,7 @@
       crossorigin
     />
   </head>
-  <body class="folio">
+  <body class="folio case-study">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-nav">
       <a class="wordmark" href="index.html" aria-label="Nicholas Gwee home"
@@ -126,12 +126,51 @@
     <main id="main">
       <section class="case-hero case-hero--dev">
         <a class="back-link" href="projects.html">← Selected work</a>
-        <p class="eyebrow">Senior Product Designer · Agoda Engineering</p>
-        <h1>Less friction.<br />More building.</h1>
-        <p class="case-thesis">Give developers<br />a path they can follow.</p>
-        <a class="case-scroll" href="#decisions"
-          >The decisions <span aria-hidden="true">↓</span></a
-        >
+        <div class="case-hero-layout">
+          <div class="case-hero-copy">
+            <p class="case-project-label">Developer Portal</p>
+            <p class="eyebrow">Senior Product Designer · Agoda Engineering</p>
+            <h1>Less friction.<br />More building.</h1>
+            <p class="case-thesis">
+              Give developers<br />a path they can follow.
+            </p>
+            <a class="case-scroll" href="#decisions"
+              >The decisions <span aria-hidden="true">↓</span></a
+            >
+          </div>
+          <div class="case-diagram case-diagram--dev" aria-hidden="true">
+            <span class="diagram-kicker">Updated concept</span>
+            <div class="diagram-workflow">
+              <div>
+                <span class="workflow-node" aria-hidden="true">⌘</span>
+                <p>
+                  <small>Environment</small><strong>staging-mesh</strong
+                  ><span>24 cores · 24 Gi</span>
+                </p>
+              </div>
+              <div>
+                <span class="workflow-node" aria-hidden="true">↗</span>
+                <p>
+                  <small>Rollout</small><strong>Canary</strong
+                  ><span>10% → 20% → 30%</span>
+                </p>
+              </div>
+              <div>
+                <span class="workflow-node is-highlighted" aria-hidden="true"
+                  >✓</span
+                >
+                <p>
+                  <small>Review</small><strong>See the whole decision</strong
+                  ><span>Hong Kong · Singapore · Amsterdam</span>
+                </p>
+              </div>
+            </div>
+            <p class="diagram-caption">
+              <span>Deployment workflow</span
+              ><span>Existing example settings</span>
+            </p>
+          </div>
+        </div>
       </section>
       <div class="case-body">
         <nav class="case-section-nav" aria-label="Case study sections">
@@ -490,7 +529,10 @@
             <figcaption>
               Original developer research synthesis. Full-size image and all
               catalog, deployment and service-detail artifacts remain accessible
-              below.
+              below.<span class="research-tone-note"
+                >Shown in monochrome here. The original image retains its source
+                colors.</span
+              >
             </figcaption>
           </figure>
           <a class="text-link" href="images/dev_pc_research.png"
