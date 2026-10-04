@@ -7,8 +7,7 @@ def flagship_hero():
 <div class="hero-overline"><span>Product strategy · Design leadership</span><span>Bangkok, Thailand</span></div>
 <div class="hero-stage"><div class="cloud-field" aria-hidden="true"><picture><source media="(max-width: 899px)" srcset="images/hero-halftone-800.png"><img class="cloud-poster" src="images/hero-halftone-1600.png" width="1600" height="758" fetchpriority="high" alt=""></picture><canvas class="cloud-canvas"></canvas></div>
 <div class="hero-message"><p class="eyebrow">Designing products. Building teams.</p><h1 id="hero-title">Nicholas Gwee.<br><span>Product Design Lead.</span></h1><p class="hero-description">I make complex problems clear. I connect user needs, business strategy and interface craft — leading teams from framing the problem to shaping the product, guided by evidence.</p><div class="hero-actions"><a class="studio-button" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a class="hero-secondary" href="#about">My approach <span aria-hidden="true">↗</span></a></div></div>
-<div class="hero-landscape" aria-hidden="true"></div></div>
-<div class="hero-footnote"><span>Featured work · Partner Growth Programs</span><span>Design strategy · Agoda</span><a href="partner-growth-programs.html">Read the flagship case study ↗</a></div></section>'''
+</div></section>'''
 
 
 def program_cover(programs, symbols):

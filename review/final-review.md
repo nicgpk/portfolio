@@ -2,6 +2,10 @@
 
 Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. Delivery is a local preview and open draft PR. No merge, auto-merge, deployment or production source change.
 
+## Current hero-spacing refinement
+
+The introduction is vertically centered with symmetric spacing. The empty landscape spacer and featured-work strip are removed; Selected work follows directly. The desktop stage is 580px tall and checked narrow layouts are 460px, with intrinsic growth for text. `../docs/hero-spacing.md` and `hero-spacing/` record scope, before-after captures and measurements. The gallery's first project retains its complete case link and metrics. Source checks explicitly exclude the removed strip; remaining content and shared Work cards stay unchanged.
+
 ## Current hero-background exploration
 
 The current cloud remains the default. Three opt-in homepage query options provide Horizon, Dune and Orbit compositions using broad procedural forms in the same halftone renderer. Hero copy, actions and project content stay unchanged. Matching mobile/reduced-motion posters retain the selection; the comparison remains readable without JavaScript, while a no-JavaScript homepage retains the original poster. `hero-backgrounds/index.html` provides comparisons and live links; `../docs/hero-backgrounds.md` records the recommendation and limitations. The option audit covers 16 layouts and automated WCAG checks, real cursor input, visible fixed-phase ink changes, fading trails, stable text, pause/resume and context-loss fallback. Original cloud preferences/offscreen checks remain in the existing cloud review.

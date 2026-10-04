@@ -16,6 +16,18 @@ try {
     await expect(page.locator("#hero-title")).toContainText(
       "Product Design Lead.",
     );
+    await expect(page.locator(".hero-footnote,.hero-landscape")).toHaveCount(0);
+    const centered = await page.locator(".hero-message").evaluate((el) => {
+      const message = el.getBoundingClientRect(),
+        stage = el.closest(".hero-stage").getBoundingClientRect();
+      return Math.abs(
+        (message.top + message.bottom) / 2 - (stage.top + stage.bottom) / 2,
+      );
+    });
+    assert.ok(
+      centered < 1,
+      `Hero content is vertically centered at ${width}px`,
+    );
     await expect(page.locator(".landscape-label,.studio-divider")).toHaveCount(
       0,
     );

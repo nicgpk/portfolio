@@ -1,0 +1,30 @@
+[
+  {
+    "width": 320,
+    "stageHeight": 460,
+    "spaceAbove": 76.453125,
+    "spaceBelow": 76.453125,
+    "footnote": false
+  },
+  {
+    "width": 390,
+    "stageHeight": 460,
+    "spaceAbove": 83.140625,
+    "spaceBelow": 83.140625,
+    "footnote": false
+  },
+  {
+    "width": 768,
+    "stageHeight": 460,
+    "spaceAbove": 77.515625,
+    "spaceBelow": 77.515625,
+    "footnote": false
+  },
+  {
+    "width": 1440,
+    "stageHeight": 580,
+    "spaceAbove": 100.671875,
+    "spaceBelow": 100.671875,
+    "footnote": false
+  }
+]

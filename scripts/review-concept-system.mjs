@@ -223,13 +223,15 @@ try {
         const docs = [parse(before), parse(after)];
         const text = (doc) => {
           const main = doc.querySelector("main").cloneNode(true);
-          main.querySelectorAll(".showcase-art").forEach((el) => el.remove());
+          main
+            .querySelectorAll(".showcase-art,.hero-footnote")
+            .forEach((el) => el.remove());
           return main.textContent.replace(/\s+/g, " ").trim();
         };
         const links = (doc) =>
-          [...doc.querySelectorAll("a[href]")].map((el) =>
-            el.getAttribute("href"),
-          );
+          [...doc.querySelectorAll("a[href]")]
+            .filter((el) => !el.closest(".hero-footnote"))
+            .map((el) => el.getAttribute("href"));
         return {
           textUnchanged: text(docs[0]) === text(docs[1]),
           linksUnchanged:

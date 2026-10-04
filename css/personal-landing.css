@@ -1,19 +1,20 @@
 /* Identity, complete project compositions, and a quiet landscape sign-off. */
+.folio .studio-hero .hero-stage {
+  display: grid;
+  place-items: center;
+  min-height: clamp(460px, 44vw, 580px);
+  padding: clamp(40px, 5vw, 64px) clamp(18px, 3vw, 24px);
+}
+.folio .studio-hero .hero-message {
+  width: 100%;
+  padding: 0;
+}
 .folio .hero-message h1 {
   font-size: clamp(38px, 5.5vw, 74px);
   line-height: 1.16;
 }
 .folio .hero-description {
   max-width: 600px;
-}
-.folio .hero-footnote > a {
-  color: var(--signal-text);
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  padding-block: 10px;
-}
-.folio .hero-footnote > a:hover {
-  text-decoration-color: var(--signal);
 }
 .folio .showcase-track,
 .folio .showcase-track.is-gallery-ready {
@@ -188,9 +189,6 @@
   }
   .folio .hero-description {
     font-size: 15px;
-  }
-  .folio .hero-footnote {
-    gap: 0;
   }
   .folio .showcase-card > .evidence-card {
     padding: 24px 18px;

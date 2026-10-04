@@ -66,8 +66,12 @@ try {
     return gl.getUniform(p, gl.getUniformLocation(p, "time"));
   });
   assert.ok(phase2 > phase1, "Visible ambient phase must advance.");
+  const stageBox = await page.locator(".hero-stage").boundingBox();
   for (let x = 200; x < 1190; x += 24) {
-    await page.mouse.move(x, 714 + Math.sin(x / 120) * 30);
+    await page.mouse.move(
+      x,
+      stageBox.y + stageBox.height * 0.88 + Math.sin(x / 120) * 12,
+    );
     await page.waitForTimeout(12);
   }
   assert.ok(
@@ -240,12 +244,12 @@ try {
         .evaluate((e) => e.complete && e.naturalWidth > 0),
     );
     await expect(
-      p.getByRole("link", { name: "Read the flagship case study" }),
+      p.locator(".showcase-card--growth .showcase-card-link"),
     ).toHaveAttribute("href", "partner-growth-programs.html");
     await ctx.close();
   }
   checks.push(
-    "No-JavaScript and unavailable-WebGL paths retain the complete poster and flagship case link.",
+    "No-JavaScript and unavailable-WebGL paths retain the complete poster and first project's case link.",
   );
   assert.deepEqual(errors, []);
   for (const width of [1440, 390])

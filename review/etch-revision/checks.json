@@ -8,7 +8,7 @@
     "Forced colors hides the decoration; WebGL context loss leaves an intact static poster and working content.",
     "At a fixed animation phase, the cursor brush changes the sampled ink by 87.6 levels per pixel; the effect is visible, not just pointer bookkeeping.",
     "320/390/768/1440 reduced-motion layouts and touch views retain readable static halftone with no document overflow.",
-    "No-JavaScript and unavailable-WebGL paths retain the complete poster and flagship case link."
+    "No-JavaScript and unavailable-WebGL paths retain the complete poster and first project's case link."
   ],
   "errors": []
 }
