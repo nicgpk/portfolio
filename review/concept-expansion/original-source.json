@@ -1,0 +1,17 @@
+[
+  {
+    "route": "partner-growth-programs.html",
+    "masterCommit": "9cd719f1b2480bcd48ac3b6317a285079d3e5050",
+    "archiveMatchesMainAfterBaseAndRobotsNormalization": true
+  },
+  {
+    "route": "discounting.html",
+    "masterCommit": "9cd719f1b2480bcd48ac3b6317a285079d3e5050",
+    "archiveMatchesMainAfterBaseAndRobotsNormalization": true
+  },
+  {
+    "route": "dev-portal.html",
+    "masterCommit": "9cd719f1b2480bcd48ac3b6317a285079d3e5050",
+    "archiveMatchesMainAfterBaseAndRobotsNormalization": true
+  }
+]

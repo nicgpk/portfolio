@@ -399,11 +399,11 @@
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/js/clouds.mjs",
+      "url": "http://127.0.0.1:4183/js/kinetics.mjs",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:4183/js/kinetics.mjs",
+      "url": "http://127.0.0.1:4183/js/clouds.mjs",
       "status": 200
     },
     {
@@ -426,9 +426,9 @@
   "performance": [
     {
       "scenario": "Chromium, 390px, cold cache, 4x CPU, 1.6Mbps, 150ms RTT; laboratory observation only",
-      "lcpMs": 4304,
-      "cls": 0.010885363396248814,
-      "resourceBytes": 351330,
+      "lcpMs": 5732,
+      "cls": 0.011692574341168091,
+      "resourceBytes": 359996,
       "requestCount": 27
     }
   ],

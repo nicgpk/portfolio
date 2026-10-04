@@ -23,7 +23,7 @@ for (const root of document.querySelectorAll("[data-preview-picker]")) {
     panels.forEach((panel, i) => (panel.hidden = i !== index));
     if (previous !== index)
       revealFeedback(panels[index], index > previous ? 1 : -1);
-    if (focus) controls[index].focus({ preventScroll: true });
+    if (focus) controls[index].focus({ preventScroll: !vertical });
   }
   controls.forEach((button, i) => {
     button.disabled = false;
@@ -67,10 +67,18 @@ for (const root of document.querySelectorAll("[data-discount-preview]")) {
     netBar = root.querySelector("[data-preview-net-bar]");
   form.querySelectorAll("input").forEach((input) => (input.disabled = false));
   function update() {
+    const rate = form.elements.rate.valueAsNumber;
+    const rateField = form.elements.rate;
+    const valid = rateField.validity.valid && Number.isFinite(rate);
+    rateField.setAttribute("aria-invalid", String(!valid));
+    root.querySelector(".preview-rate-error").textContent = valid
+      ? ""
+      : "Enter a room rate from $0 to $1,000,000, with up to two decimal places.";
+    if (!valid) return;
     const mega = form.elements.mega.checked,
       mobile = form.elements.mobile.checked;
-    const intermediate = stackDiscounts(150, mega ? [15] : []).net;
-    const result = stackDiscounts(150, [
+    const intermediate = stackDiscounts(rate, mega ? [15] : []).net;
+    const result = stackDiscounts(rate, [
       ...(mega ? [15] : []),
       ...(mobile ? [10] : []),
     ]);
@@ -79,12 +87,16 @@ for (const root of document.querySelectorAll("[data-discount-preview]")) {
       ),
       beforeNet = parseFloat(netBar.style.getPropertyValue("--rate-width"));
     root.querySelector("[data-preview-net]").textContent = money(result.net);
+    root.querySelector("[data-preview-start]").textContent = money(rate);
+    root.querySelector("[data-preview-total]").textContent = money(
+      rate - result.net,
+    );
     root.querySelector("[data-preview-effective]").textContent =
       `${result.effective}%`;
     root.querySelector("[data-preview-mega]").textContent = money(intermediate);
     root.querySelector("[data-preview-mobile]").textContent = money(result.net);
     root.querySelector("[data-preview-mega-cut]").textContent =
-      `−${money(150 - intermediate)}`;
+      `−${money(rate - intermediate)}`;
     root.querySelector("[data-preview-mobile-cut]").textContent =
       `−${money(intermediate - result.net)}`;
     root.querySelector("[data-preview-mega-label]").textContent = mega
@@ -94,9 +106,9 @@ for (const root of document.querySelectorAll("[data-discount-preview]")) {
       ? "Mobile Exclusive · 10%"
       : "Mobile Exclusive off";
     root.querySelector("[data-preview-formula]").textContent =
-      `150${mega ? " × 0.85" : ""}${mobile ? " × 0.90" : ""} = ${result.net.toFixed(2)}`;
-    const megaWidth = (intermediate / 150) * 100,
-      netWidth = (result.net / 150) * 100;
+      `${rate.toFixed(2)}${mega ? " × 0.85" : ""}${mobile ? " × 0.90" : ""} = ${result.net.toFixed(2)}`;
+    const megaWidth = rate ? (intermediate / rate) * 100 : 0,
+      netWidth = rate ? (result.net / rate) * 100 : 0;
     megaBar.style.setProperty("--rate-width", `${megaWidth}%`);
     netBar.style.setProperty("--rate-width", `${netWidth}%`);
     animateRateBar(megaBar, beforeMega, megaWidth);

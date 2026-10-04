@@ -1,0 +1,191 @@
+{
+  "layouts": [
+    {
+      "route": "index",
+      "width": 320,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "projects",
+      "width": 320,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 320,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "discounting",
+      "width": 320,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "dev-portal",
+      "width": 320,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "index",
+      "width": 390,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "projects",
+      "width": 390,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 390,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "discounting",
+      "width": 390,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "dev-portal",
+      "width": 390,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "index",
+      "width": 768,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "projects",
+      "width": 768,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 768,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "discounting",
+      "width": 768,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "dev-portal",
+      "width": 768,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "index",
+      "width": 1440,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "projects",
+      "width": 1440,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "partner-growth-programs",
+      "width": 1440,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "discounting",
+      "width": 1440,
+      "axe": 0,
+      "overflow": false
+    },
+    {
+      "route": "dev-portal",
+      "width": 1440,
+      "axe": 0,
+      "overflow": false
+    }
+  ],
+  "workflows": [
+    {
+      "route": "index",
+      "width": 320,
+      "programs": 8,
+      "rateValidation": true,
+      "centRounding": true,
+      "originalTargets": true
+    },
+    {
+      "route": "projects",
+      "width": 320,
+      "programs": 8,
+      "rateValidation": true,
+      "centRounding": true,
+      "originalTargets": true
+    },
+    {
+      "route": "index",
+      "width": 390,
+      "programs": 8,
+      "rateValidation": true,
+      "centRounding": true,
+      "originalTargets": true
+    },
+    {
+      "route": "projects",
+      "width": 390,
+      "programs": 8,
+      "rateValidation": true,
+      "centRounding": true,
+      "originalTargets": true
+    },
+    {
+      "route": "index",
+      "width": 768,
+      "programs": 8,
+      "rateValidation": true,
+      "centRounding": true,
+      "originalTargets": true
+    },
+    {
+      "route": "projects",
+      "width": 768,
+      "programs": 8,
+      "rateValidation": true,
+      "centRounding": true,
+      "originalTargets": true
+    },
+    {
+      "route": "index",
+      "width": 1440,
+      "programs": 8,
+      "rateValidation": true,
+      "centRounding": true,
+      "originalTargets": true
+    },
+    {
+      "route": "projects",
+      "width": 1440,
+      "programs": 8,
+      "rateValidation": true,
+      "centRounding": true,
+      "originalTargets": true
+    }
+  ],
+  "passed": true
+}
