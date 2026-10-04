@@ -13,6 +13,12 @@ uniform vec2 size;
 uniform float time;
 uniform float background;
 float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float cloudNoise(vec2 p) {
+  vec2 cell = floor(p), local = fract(p);
+  local = local * local * (3. - 2. * local);
+  return mix(mix(hash(cell), hash(cell + vec2(1., 0.)), local.x),
+    mix(hash(cell + vec2(0., 1.)), hash(cell + vec2(1.)), local.x), local.y);
+}
 void main() {
   vec2 screen = vec2(uv.x, 1. - uv.y);
   vec2 pixel = screen * size;
@@ -21,8 +27,9 @@ void main() {
   vec2 center = (cell + .5) * pitch;
   vec2 sampleUV = center / size;
   float brush = texture2D(brushMask, sampleUV).a;
+  bool layeredHorizon = background > .5 && background < 1.5;
   float quiet = (1. - smoothstep(size.x < 900. ? .42 : .23, .50, abs(sampleUV.x - .5)))
-    * (1. - smoothstep(.48, .65, sampleUV.y));
+    * (1. - smoothstep(layeredHorizon ? .82 : .48, layeredHorizon ? .98 : .65, sampleUV.y));
   brush *= 1. - quiet * .92;
   vec2 drift = vec2(sin(time * .12 + sampleUV.y * 4.) * .012,
     sin(time * .16 + sampleUV.x * 6.) * .008);
@@ -33,12 +40,20 @@ void main() {
   float density = pow(clamp((.98 - luma) * 2.65, 0., 1.), .95);
   density *= smoothstep(.30, .48, sampleUV.y);
   density *= 1. - quiet * .75;
-  // Review alternatives use a few broad forms instead of photographic detail.
+  // Layered Horizon balances cloud texture with the quiet copy area.
   vec2 q = sampleUV + vec2(sin(time * .08) * .004, 0.);
   if (background > .5 && background < 1.5) {
-    float horizon = .79 + cos(q.x * 5.2 + .4) * .045;
-    density = smoothstep(horizon - .07, horizon + .09, q.y) * .48;
-    density += smoothstep(.94 + sin(q.x * 4.) * .025, 1.08, q.y) * .16;
+    vec2 air = q * vec2(7., 4.) + vec2(0., sin(time * .035) * .025);
+    float broad = cloudNoise(air);
+    float detail = broad * .60 + cloudNoise(air * 2.03) * .28
+      + cloudNoise(air * 4.09) * .12;
+    float rear = .35 + cos(q.x * 5.2 + .4) * .05 + (broad - .5) * .28;
+    float middle = .61 + sin(q.x * 7. - .8) * .04 + (detail - .5) * .34;
+    float front = .87 + cos(q.x * 10. + .3) * .025 + (detail - .5) * .18;
+    density = smoothstep(rear - .12, rear + .13, q.y) * .26;
+    density += smoothstep(middle - .05, middle + .10, q.y) * .40;
+    density += smoothstep(front - .035, front + .08, q.y) * .30;
+    density *= mix(.20, 1., smoothstep(.35, .65, detail));
   } else if (background > 1.5 && background < 2.5) {
     vec2 left = vec2((q.x - .10) * 1.65, (q.y - 1.02) * 3.1);
     vec2 right = vec2((q.x - .96) * 2.2, (q.y - .94) * 3.7);

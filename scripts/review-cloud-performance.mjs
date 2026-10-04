@@ -1,9 +1,5 @@
-import { chromium } from "@playwright/test";
+import { chromium } from "./review-browser.mjs";
 import { writeFile } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
-process.env.PLAYWRIGHT_BROWSERS_PATH = fileURLToPath(
-  new URL("../node_modules/.cache/ms-playwright", import.meta.url),
-);
 const browser = await chromium.launch();
 try {
   const page = await browser.newPage({
@@ -20,6 +16,7 @@ try {
   await page.goto("http://127.0.0.1:4183/");
   await page.locator(".cloud-field.is-active").waitFor();
   await page.waitForTimeout(1200);
+  const hero = await page.locator(".hero-stage").boundingBox();
   const session = await page.context().newCDPSession(page);
   await session.send("Performance.enable");
   const sample = async () => {
@@ -37,7 +34,10 @@ try {
   };
   const a = await sample();
   for (let i = 0; i < 55; i++) {
-    await page.mouse.move(190 + (i % 40) * 27, 685 + Math.sin(i / 5) * 35);
+    await page.mouse.move(
+      hero.x + hero.width * (0.08 + (i % 40) * 0.021),
+      hero.y + hero.height * 0.85 + Math.sin(i / 5) * 20,
+    );
     await page.waitForTimeout(60);
   }
   const b = await sample();

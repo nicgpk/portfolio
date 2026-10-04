@@ -4,7 +4,7 @@ Approved refinement of the existing monochrome portfolio, against `e2a917d`. The
 
 ## Visual hierarchy
 
-The homepage introduces Nicholas Gwee first, then a smaller role with a red underline. The compact stage brings the first Partner Growth card into a 900px-high desktop viewport. Horizon is now the authored default: broad, low halftone contours replace the detailed cloud. Responsive static posters use the same grayscale renderer and geometry; the original cloud and other reviewed alternatives remain query options. The desktop cursor brush stays bounded below the quiet copy area. Text remains stationary during pointer interaction.
+The homepage introduces Nicholas Gwee first, then a smaller role with a red underline. The compact stage brings the first Partner Growth card into a 900px-high desktop viewport. Horizon is the authored default: three cloud layers and smooth organic variation restore detail around the sides and lower half. The center stays pale behind the copy and actions. Responsive static posters use the same grayscale renderer and geometry; the original cloud and other reviewed alternatives remain query options. The desktop cursor brush stays bounded below the quiet copy area. Text remains stationary during pointer interaction.
 
 The homepage and Work page share the same generated previews. Every frame uses the same title, type, charcoal surface, dividers and control treatment. Their content fits its task instead of stretching to a guessed height. The gallery cards retain equal intrinsic heights; switching panels reserves the largest real panel and causes no height change. Source disclosures still grow the whole row naturally when opened.
 
@@ -23,3 +23,9 @@ The first metric in each evidence panel is visually dominant. All original numbe
 `review/craft-motion/` contains before/after desktop and mobile captures, a real browser interaction recording and the new checks. Existing reviews cover all six routes, calculations, filtering, deployment validation, original artifacts, rendered colors, equal cards, scrolling and accessibility. The new review additionally checks program/tab selection, all four discount combinations, stable panel/card height, pause/reduced motion, static fallbacks and exact narrative/metric/link preservation against the approved baseline.
 
 Validation uses project-local Chromium with emulated sizes. It does not verify Safari/Firefox, actual devices, manual screen-reader use, recruiter response, GPU power or production performance. The mobile loading observation is a local lab result, not a controlled before/after comparison. Original artifacts keep their source presentation and discrepancies; source limitations remain with their metrics.
+
+## Restored background detail
+
+The sparse horizon is replaced by three overlapping cloud layers with three scales of smooth procedural variation. Detail reaches higher around the edges while the quiet center extends behind the actions. Geometry, copy, routes, project metrics and the single accent stay unchanged. Matching grayscale posters are 51,009 bytes on desktop and 16,286 bytes on mobile; no new source image or dependency is added.
+
+`review/hero-detail/` records before/after views, and the existing hero checks cover responsive accessibility, cursor ink, fading trails, stationary text, pause, reduced motion, no JavaScript and context loss. A warm shared local desktop observation submitted 19.9 draws/second under the 24fps cap; script activity was 114.1ms over 6.183s. This is not guaranteed visual frame rate or a controlled benchmark. GPU timing, power and actual-device performance remain unmeasured.
