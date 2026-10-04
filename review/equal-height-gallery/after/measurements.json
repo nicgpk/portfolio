@@ -1,0 +1,38 @@
+[
+  {
+    "width": 1440,
+    "kind": "growth",
+    "height": 673.21875,
+    "evidence": "rgb(245, 245, 245)"
+  },
+  {
+    "width": 1440,
+    "kind": "discount",
+    "height": 673.21875,
+    "evidence": "rgb(245, 245, 245)"
+  },
+  {
+    "width": 1440,
+    "kind": "dev",
+    "height": 673.21875,
+    "evidence": "rgb(245, 245, 245)"
+  },
+  {
+    "width": 390,
+    "kind": "growth",
+    "height": 1562.40625,
+    "evidence": "rgb(245, 245, 245)"
+  },
+  {
+    "width": 390,
+    "kind": "discount",
+    "height": 1562.40625,
+    "evidence": "rgb(245, 245, 245)"
+  },
+  {
+    "width": 390,
+    "kind": "dev",
+    "height": 1562.40625,
+    "evidence": "rgb(245, 245, 245)"
+  }
+]

@@ -6,7 +6,13 @@
       "completeCards": true,
       "expandedEvidence": true,
       "personalHero": true,
-      "footerLandscape": true
+      "footerLandscape": true,
+      "equalCardHeights": [
+        1677.171875,
+        1677.171875,
+        1677.171875
+      ],
+      "neutralEvidence": true
     },
     {
       "width": 390,
@@ -14,7 +20,13 @@
       "completeCards": true,
       "expandedEvidence": true,
       "personalHero": true,
-      "footerLandscape": true
+      "footerLandscape": true,
+      "equalCardHeights": [
+        1562.40625,
+        1562.40625,
+        1562.40625
+      ],
+      "neutralEvidence": true
     },
     {
       "width": 768,
@@ -22,7 +34,13 @@
       "completeCards": true,
       "expandedEvidence": true,
       "personalHero": true,
-      "footerLandscape": true
+      "footerLandscape": true,
+      "equalCardHeights": [
+        1200.453125,
+        1200.453125,
+        1200.453125
+      ],
+      "neutralEvidence": true
     },
     {
       "width": 1440,
@@ -30,7 +48,25 @@
       "completeCards": true,
       "expandedEvidence": true,
       "personalHero": true,
-      "footerLandscape": true
+      "footerLandscape": true,
+      "equalCardHeights": [
+        673.21875,
+        673.21875,
+        673.21875
+      ],
+      "neutralEvidence": true
+    }
+  ],
+  "noJavaScript": [
+    {
+      "width": 320,
+      "equalCardHeights": true,
+      "expandedEvidence": true
+    },
+    {
+      "width": 1440,
+      "equalCardHeights": true,
+      "expandedEvidence": true
     }
   ],
   "errors": [],

@@ -2,7 +2,7 @@
 
 ## Request and result
 
-The home evidence panels previously spanned the bottom of each card. All three now live in the left project description, beside ownership and the case-study link. The primary figures remain visible in one pale orange panel; a native disclosure holds the original measurement context and supporting evidence. Full case-study evidence remains unchanged and open by default. The Growth preview removes its logo, app header, progress steps and footer. A quieter catalog pairs three existing program entries with the existing Promotions description and discount types. This is a decorative updated concept, not a new shipped feature.
+The home evidence panels previously spanned the bottom of each card. All three now live in the left project description, beside ownership and the case-study link. The primary figures remain visible in one neutral gray panel; a native disclosure holds the original measurement context and supporting evidence. Full case-study evidence remains open by default. The later equal-height refinement is documented in `docs/equal-height-gallery.md`. The Growth preview removes its logo, app header, progress steps and footer. A quieter catalog pairs three existing program entries with the existing Promotions description and discount types. This is a decorative updated concept, not a new shipped feature.
 
 ## Scroll behavior
 

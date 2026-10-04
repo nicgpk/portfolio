@@ -47,15 +47,8 @@ for (const root of document.querySelectorAll(".project-showcase")) {
       .getBoundingClientRect().bottom;
     const readingAreaPassed =
       card.getBoundingClientRect().bottom < navBottom + 80;
-    const bounds = track.getBoundingClientRect();
-    // Keep every card crossing the viewport fully visible during native swipes.
-    const visible = cards.filter((item) => {
-      const rect = item.getBoundingClientRect();
-      return rect.right > bounds.left + 8 && rect.left < bounds.right - 8;
-    });
-    track.style.height = `${Math.ceil(Math.max(...[card, ...visible].map((item) => item.getBoundingClientRect().height))) + 20}px`;
     fitted = index;
-    // A deep sideways swipe to a shorter project must not leave an empty viewport.
+    // At the foot of a card, a new project should reveal its title and ownership.
     if (reveal && readingAreaPassed)
       card.querySelector(".showcase-card-link").scrollIntoView({
         block: "start",
@@ -181,11 +174,7 @@ for (const root of document.querySelectorAll(".project-showcase")) {
   });
   update();
   fit(active);
-  // Local font loading can change a card's height without changing its width.
-  document.fonts.ready.then(() => fit(fitted));
-  // Evidence disclosures must grow the gallery rather than disappear below it.
-  const cardSizes = new ResizeObserver(() => fit(nearest()));
-  cards.forEach((card) => cardSizes.observe(card));
+  // CSS stretches the intrinsic row; fonts and disclosures grow all cards together.
 }
 
 // Entry details enhance fully visible cover content; document scrolling stays native.

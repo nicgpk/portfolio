@@ -2,7 +2,7 @@ import { chromium, expect } from "./review-browser.mjs";
 import assert from "node:assert/strict";
 import { readFile, writeFile } from "node:fs/promises";
 const browser = await chromium.launch();
-const report = { viewports: [], errors: [], passed: false };
+const report = { viewports: [], noJavaScript: [], errors: [], passed: false };
 try {
   for (const width of [320, 390, 768, 1440]) {
     const page = await browser.newPage({
@@ -33,6 +33,43 @@ try {
       ["discount", ["10–12%", "−3%", "#1", "1.5 yrs"]],
       ["dev", ["6m 8s", "68.8", "4.4/5"]],
     ];
+    const galleryGeometry = () =>
+      page.locator("#project-gallery").evaluate((track) => {
+        const cards = [...track.querySelectorAll(".showcase-card")];
+        return {
+          heights: cards.map((card) => card.getBoundingClientRect().height),
+          evidenceColors: cards.map(
+            (card) =>
+              getComputedStyle(card.querySelector(".evidence-card"))
+                .backgroundColor,
+          ),
+          clipped: cards.some(
+            (card) =>
+              card.getBoundingClientRect().bottom >
+              track.getBoundingClientRect().bottom + 1,
+          ),
+        };
+      });
+    const expectEqualCards = async () => {
+      await expect
+        .poll(
+          async () => {
+            const { heights, clipped } = await galleryGeometry();
+            return !clipped && Math.max(...heights) - Math.min(...heights) < 1;
+          },
+          {
+            message:
+              "All cards must share a complete height, including expanded metrics.",
+          },
+        )
+        .toBe(true);
+    };
+    await expectEqualCards();
+    const collapsed = await galleryGeometry();
+    assert.deepEqual(
+      collapsed.evidenceColors,
+      Array(3).fill("rgb(245, 245, 245)"),
+    );
     for (let index = 0; index < panels.length; index++) {
       const [kind, values] = panels[index];
       await page.locator("#project-gallery").focus();
@@ -48,6 +85,17 @@ try {
         "open",
         "",
       );
+      await expectEqualCards();
+      const expandedHeight = (await galleryGeometry()).heights[0];
+      assert.ok(
+        expandedHeight >= collapsed.heights[0],
+        "Metric context must retain or grow the shared height.",
+      );
+      if (kind === "growth")
+        assert.ok(
+          expandedHeight > collapsed.heights[0],
+          "Long source context must grow every card without clipping.",
+        );
       await expect
         .poll(() =>
           card.evaluate((card) => {
@@ -90,6 +138,12 @@ try {
           assert.ok(text.includes(metric), metric);
       }
       await card.locator(".evidence-card summary").press("Enter");
+      await expectEqualCards();
+      assert.ok(
+        Math.abs((await galleryGeometry()).heights[0] - collapsed.heights[0]) <
+          1,
+        "Closing context must restore the common intrinsic height.",
+      );
     }
     report.viewports.push({
       width,
@@ -98,6 +152,57 @@ try {
       expandedEvidence: true,
       personalHero: true,
       footerLandscape: true,
+      equalCardHeights: collapsed.heights,
+      neutralEvidence: true,
+    });
+    await page.close();
+  }
+  for (const width of [320, 1440]) {
+    const page = await browser.newPage({
+      viewport: { width, height: 900 },
+      javaScriptEnabled: false,
+      reducedMotion: "reduce",
+    });
+    await page.goto("http://127.0.0.1:4183/");
+    const geometry = () =>
+      page.locator("#project-gallery").evaluate((track) => {
+        const heights = [...track.querySelectorAll(".showcase-card")].map(
+          (card) => card.getBoundingClientRect().height,
+        );
+        const padding =
+          parseFloat(getComputedStyle(track).paddingTop) +
+          parseFloat(getComputedStyle(track).paddingBottom);
+        return { heights, rail: track.getBoundingClientRect().height, padding };
+      });
+    const equalAndComplete = async () =>
+      expect
+        .poll(async () => {
+          const { heights, rail, padding } = await geometry();
+          return (
+            Math.max(...heights) - Math.min(...heights) < 1 &&
+            Math.abs(rail - heights[0] - padding) < 1
+          );
+        })
+        .toBe(true);
+    await equalAndComplete();
+    const collapsed = await geometry();
+    const summary = page.locator("#home-evidence-growth summary");
+    await summary.click();
+    await expect(page.locator("#home-evidence-growth details")).toHaveAttribute(
+      "open",
+      "",
+    );
+    await equalAndComplete();
+    assert.ok((await geometry()).heights[0] > collapsed.heights[0]);
+    await summary.click();
+    await equalAndComplete();
+    assert.ok(
+      Math.abs((await geometry()).heights[0] - collapsed.heights[0]) < 1,
+    );
+    report.noJavaScript.push({
+      width,
+      equalCardHeights: true,
+      expandedEvidence: true,
     });
     await page.close();
   }

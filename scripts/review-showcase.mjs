@@ -402,6 +402,9 @@ async function expectActiveHeight(page, index) {
               return {
                 railHeight: track.getBoundingClientRect().height,
                 cardHeight: card.getBoundingClientRect().height,
+                allCardHeights: [
+                  ...track.querySelectorAll(".showcase-card"),
+                ].map((card) => card.getBoundingClientRect().height),
                 padding:
                   parseFloat(style.paddingTop) +
                   parseFloat(style.paddingBottom),
@@ -412,11 +415,14 @@ async function expectActiveHeight(page, index) {
               geometry.railHeight -
                 Math.ceil(geometry.cardHeight) -
                 geometry.padding,
-            ) < 2
+            ) < 2 &&
+            Math.max(...geometry.allCardHeights) -
+              Math.min(...geometry.allCardHeights) <
+              1
           );
         },
         {
-          message: `The rail must fit the selected ${projects[index].name} card after scrolling settles.`,
+          message: `The rail must fit all equal-height cards after selecting ${projects[index].name}.`,
         },
       )
       .toBe(true);
@@ -467,7 +473,7 @@ async function assertDeepSwipe(page) {
     visible.headingTop >= visible.navBottom - 1 &&
       visible.headingBottom <= visible.viewportHeight + 1 &&
       visible.bottom > visible.navBottom + 80,
-    `Selecting the shorter Developer card deep in Growth must reveal real content: ${JSON.stringify(visible)}`,
+    `Selecting Developer Portal deep in Growth must reveal its heading: ${JSON.stringify(visible)}`,
   );
   return {
     beforeY,
