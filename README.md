@@ -31,6 +31,8 @@ Reading links now share 16px text, 24px Lucide icons and 48px minimum control he
 
 Every project now has a decorative orange evidence icon with two short motion cycles when visible. Pause, offscreen suspension, reduced motion and no-JavaScript fallbacks are preserved. Home, Work and cases share these signatures. See `docs/evidence-motion.md` and `review/evidence-motion/`.
 
+The screen resume now matches the shared monochrome/orange portfolio, with a larger identity, clear PDF action and ruled experience sections. Existing content/downloads and the separate print layout are preserved. See `docs/resume-restyle.md` and `review/resume-style/`.
+
 ## Authoring
 
 `scripts/build-pages.py` and `scripts/studio_design.py` generate the five portfolio pages from audited content and original metadata. Run `npm run build:pages` after authoring changes. The resume body is preserved separately. The generated source cloud image and shader-rendered static posters are committed in `images/`; their prompt and provenance are documented. With the preview running, use `node scripts/build-cloud-poster.mjs` to regenerate the responsive posters. The earlier vector landscape and generator remain historical source.

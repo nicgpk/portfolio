@@ -1,0 +1,48 @@
+{
+  "layouts": [
+    {
+      "width": 320,
+      "overflow": false,
+      "font": "Manrope, \"Segoe UI\", Arial, sans-serif",
+      "background": "rgb(255, 255, 255)",
+      "link": "rgb(21, 25, 24)",
+      "download": 48,
+      "axeViolations": 0
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "font": "Manrope, \"Segoe UI\", Arial, sans-serif",
+      "background": "rgb(255, 255, 255)",
+      "link": "rgb(21, 25, 24)",
+      "download": 48,
+      "axeViolations": 0
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "font": "Manrope, \"Segoe UI\", Arial, sans-serif",
+      "background": "rgb(255, 255, 255)",
+      "link": "rgb(21, 25, 24)",
+      "download": 48,
+      "axeViolations": 0
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "font": "Manrope, \"Segoe UI\", Arial, sans-serif",
+      "background": "rgb(255, 255, 255)",
+      "link": "rgb(21, 25, 24)",
+      "download": 48,
+      "axeViolations": 0
+    }
+  ],
+  "content": {
+    "text": true,
+    "links": true,
+    "jobs": 5
+  },
+  "print": true,
+  "passed": true,
+  "noJavaScript": true
+}

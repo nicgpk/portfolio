@@ -157,6 +157,7 @@
       crossorigin
     />
     <link rel="stylesheet" href="css/link-system.css" />
+    <link rel="stylesheet" href="css/resume-portfolio.css" />
   </head>
   <body class="resume-page">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -186,7 +187,7 @@
       ></a>
     </header>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
       <section class="hero hero--page">
         <div class="container">
           <div class="resume" id="resume-content">
@@ -200,8 +201,20 @@
                         class="btn resume-download-btn"
                         href="files/NicholasGwee_Resume.pdf"
                         download="NicholasGwee_Resume.pdf"
-                        >Download PDF</a
-                      >
+                        >Download PDF
+                        <span aria-hidden="true"
+                          ><svg
+                            class="ui-icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                            focusable="false"
+                          >
+                            <use
+                              href="images/interface-icons.svg#arrow-down"
+                            /></svg></span
+                      ></a>
                     </div>
                   </div>
                   <div class="resume-title">Product Design Lead</div>
@@ -494,7 +507,20 @@
 
       <section>
         <div class="container">
-          <a href="projects.html" class="btn">&larr; All Projects</a>
+          <a href="projects.html" class="btn"
+            ><span aria-hidden="true"
+              ><svg
+                class="ui-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <use href="images/interface-icons.svg#arrow-left" /></svg
+            ></span>
+            All Projects</a
+          >
         </div>
       </section>
     </main>
@@ -507,7 +533,5 @@
         &middot; <a href="https://github.com/nicgpk">GitHub</a>
       </div>
     </footer>
-
-    <script src="js/teletype.js?v=29"></script>
   </body>
 </html>

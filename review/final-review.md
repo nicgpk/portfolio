@@ -2,6 +2,10 @@
 
 Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. Delivery is a local preview and open draft PR. No merge, auto-merge, deployment or production source change.
 
+## Current resume refinement
+
+The screen resume now shares the monochrome/orange system, Manrope/Ubuntu Mono pairing, larger identity, 48px PDF action and ruled editorial hierarchy. Four responsive sizes, automated WCAG rules, neutral reading links, keyboard skip, no JavaScript, printable content and exact resume text/link preservation against `f8ba6b7` pass. Original PDF and ATS files are unchanged. `../docs/resume-restyle.md` and `resume-style/` contain scope, before-after captures and a separate browser print proof. Real printer and PDF accessibility are unverified.
+
 ## Current evidence and caption refinement
 
 Repeated concept captions, badges and long interface metadata are removed across the homepage, Work and three cases. Functional preview boundaries, original artifact links and all metric context remain. Each project has a small orange layers/percent/code icon in its evidence panel. Two short cycles play only while visible; user pause, hidden/offscreen suspension, reduced motion and no JavaScript retain their fallbacks. Numbers remain stationary and cards share equal natural heights. `../docs/evidence-motion.md` and `evidence-motion/` record this pass against `18e5018`.
