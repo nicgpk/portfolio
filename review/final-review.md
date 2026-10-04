@@ -4,7 +4,7 @@ Branch: `codex/portfolio-bold-redesign`, based on main `9cd719f`. Delivery is a 
 
 ## Current visual and motion refinement
 
-The approved five-point pass is documented in `../docs/craft-motion.md`. A compact personal hero emphasizes Nicholas Gwee and a smaller role, replacing the solid accent band with a restrained red underline. Horizon is now the authored default, with broad monochrome halftone contours, responsive static posters and the existing bounded cursor interaction.
+The approved five-point pass is documented in `../docs/craft-motion.md`. A compact personal hero emphasizes Nicholas Gwee and a smaller role. Following review, the role's solid Singapore red highlight is restored, with white text and a 24px minimum on narrow screens. Horizon is now the authored default, with broad monochrome halftone contours, responsive static posters and the existing bounded cursor interaction.
 
 Home and Work reuse three usable demonstrations: program selection, sample discount toggles and deployment tabs. The frames share typography, surfaces and controls while fitting their real content. Cards keep equal intrinsic heights, and switching panels preserves geometry. Full case workflows share brief reveal, indicator and bar feedback. A thin horizontal progress rail follows actual gallery position, and action arrows provide restrained hover/focus feedback. Evidence panels emphasize one main metric and use a single finite linework draw; reported numbers stay stationary.
 

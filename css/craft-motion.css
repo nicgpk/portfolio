@@ -20,10 +20,10 @@
   display: inline-block;
   font-size: 0.56em;
   line-height: 1.4;
-  padding: 8px 0 4px;
-  background: transparent;
-  color: var(--ink);
-  border-bottom: 2px solid var(--accent);
+  padding: 6px 16px 8px;
+  background: var(--accent);
+  color: #fff;
+  border-bottom: 0;
 }
 .folio .hero-description {
   max-width: 610px;
@@ -393,7 +393,7 @@
     font-size: clamp(36px, 10vw, 46px);
   }
   .folio .hero-message h1 span {
-    font-size: 0.6em;
+    font-size: max(24px, 0.6em);
   }
   .folio .hero-description {
     font-size: 15px;
