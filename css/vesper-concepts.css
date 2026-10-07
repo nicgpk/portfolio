@@ -1,0 +1,350 @@
+/* Native Vesper Contrast integration for the static portfolio.
+ * Token values come from the actual defineTheme source export, not CSS guesses.
+ * Anatomy follows Card, Button, Field, TabList, Text and Table source contracts.
+ * Card's border is included in its padding. All rules stay inside concept roots.
+ */
+@font-face {
+  font-family: Fustat;
+  src: url("../fonts/vesper/fustat-latin.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/vesper/jetbrains-mono-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+.folio .concept-shell {
+  --body: var(--font-family-body);
+  --mono: var(--font-family-code);
+  --accent: var(--color-accent);
+  --workspace: var(--color-background-body);
+  --workspace-raised: var(--color-background-card);
+  --workspace-ink: var(--color-text-primary);
+  --workspace-muted: var(--color-text-secondary);
+  --workspace-line: var(--color-border);
+  --growth-ink: var(--color-text-primary);
+  --growth-muted: var(--color-text-secondary);
+  --growth-border: var(--color-border);
+  --discount-ink: var(--color-text-primary);
+  --discount-muted: var(--color-text-secondary);
+  --discount-line: var(--color-border);
+  --discount-surface: var(--color-background-body);
+  --concept-gap: var(--spacing-6);
+  --concept-radius: var(--radius-element);
+  --ui-title: var(--text-heading-2-size);
+  --ui-section: var(--text-heading-3-size);
+  --ui-copy: var(--text-body-size);
+  --ui-label: var(--text-supporting-size);
+  --ui-value: var(--text-heading-2-size);
+  --feedback-ease: var(--ease-standard);
+  color-scheme: dark;
+  min-width: 0;
+  background: var(--color-background-body);
+  color: var(--color-text-primary);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-container);
+  box-shadow: none;
+  overflow: clip;
+  font: var(--text-body-weight) var(--text-body-size) / var(--text-body-leading) var(--font-family-body);
+  font-variant-numeric: tabular-nums;
+}
+.folio .concept-shell *, .folio .concept-shell *::before, .folio .concept-shell *::after { box-sizing: border-box; }
+.folio .concept-shell :is(h2,h3,h4,p,dl,ol,fieldset) { max-width: 100%; }
+.folio .concept-shell :is(h2,h3,h4) {
+  font-family: var(--font-family-heading);
+  color: var(--color-text-primary);
+  letter-spacing: normal;
+}
+.folio .concept-shell :is(.growth-page-heading h2,.deploy-stage h2,.preview-header h4) {
+  margin: 0 0 var(--spacing-3);
+  font: var(--text-heading-2-weight) var(--text-heading-2-size) / var(--text-heading-2-leading) var(--font-family-heading);
+  letter-spacing: normal;
+}
+.folio .concept-shell :is(.discount-section-title,.lean-detail h4,.cover-deploy-body h4) {
+  margin: 0 0 var(--spacing-3);
+  font: var(--text-heading-3-weight) var(--text-heading-3-size) / var(--text-heading-3-leading) var(--font-family-heading);
+  overflow-wrap: anywhere;
+}
+.folio .concept-shell :is(.preview-header > span,.growth-page-heading > p:last-child,.deploy-stage > p:not(.app-eyebrow),.lean-detail > p,.lean-mechanics > p) {
+  color: var(--color-text-secondary);
+  font: var(--text-body-size) / var(--text-body-leading) var(--font-family-body);
+}
+.folio .concept-shell :is(.growth-kicker,.app-eyebrow,.ui-section-kicker,.lean-label,.lean-detail-heading > span:first-child,.lean-mechanics > span,.cover-deploy-body p,.rate-preview-eyebrow,.discount-field-help,.dev-field-help,.dev-guidance,.sample-label,.preview-note,.growth-preview-note,.discount-app-footer,.app-side-label,.developer-sidebar > p) {
+  color: var(--color-text-secondary);
+  font: var(--text-supporting-weight) var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body);
+  letter-spacing: normal;
+}
+.folio .concept-shell .concept-shell-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-3) var(--spacing-6);
+  min-height: 72px;
+  padding: var(--spacing-4) var(--concept-gap);
+  background: var(--color-background-surface);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+.folio .concept-shell .concept-shell-header :is(.app-mark,.rate-preview-mark,.dev-brand > span) { display: none; }
+.folio .concept-shell .concept-shell-header :is(h2,strong,.dev-brand) {
+  margin: 0;
+  color: var(--color-text-primary);
+  font: var(--text-heading-4-weight) var(--text-heading-4-size) / var(--text-heading-4-leading) var(--font-family-heading);
+  letter-spacing: normal;
+}
+.folio .concept-shell .concept-shell-header :is(.app-account,.discount-currency,.dev-context) {
+  color: var(--color-text-secondary);
+  font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body);
+}
+.folio .concept-shell .app-account { margin: 0; padding: 0; width: auto; border: 0; }
+.folio .concept-shell .app-account small { font: inherit; color: var(--color-text-secondary); }
+.folio .concept-shell :is(.app-layout,.developer-layout) { display: grid; grid-template-columns: 160px minmax(0,1fr); }
+.folio .concept-shell :is(.app-side,.developer-sidebar) {
+  padding: var(--spacing-6) var(--spacing-3);
+  background: var(--color-background-surface);
+  border-right: var(--border-width) solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+.folio .concept-shell :is(.app-side,.developer-sidebar) > :is(span,strong) {
+  padding: var(--spacing-2) var(--spacing-3);
+  color: var(--color-text-secondary);
+  font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body);
+  border-radius: var(--radius-element);
+}
+.folio .concept-shell :is(.app-side,.developer-sidebar) > strong {
+  color: var(--color-text-accent);
+  background: var(--color-accent-muted);
+  box-shadow: var(--shadow-inset-selected);
+}
+.folio .concept-shell :is(.app-content,.deploy-form,.discount-settings,.discount-summary) {
+  padding: var(--concept-gap);
+  min-width: 0;
+  background: var(--color-background-body);
+}
+.folio .concept-shell .v-card {
+  --container-padding-inline-start: var(--spacing-3);
+  --container-padding-inline-end: var(--spacing-3);
+  --container-padding-block-start: var(--spacing-3);
+  --container-padding-block-end: var(--spacing-3);
+  min-width: 0;
+  margin: 0;
+  padding: max(0px,calc(var(--spacing-3) - var(--border-width)));
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-container);
+  background: var(--color-background-card);
+  color: var(--color-text-primary);
+  box-shadow: none;
+}
+.folio .concept-shell :is(.search-field > span:first-child,.category-field > span:first-child,.deploy-form label,.rate-field,.discount-field-label,.preview-rate-field) {
+  color: var(--color-text-primary);
+  font: var(--text-label-weight) var(--text-label-size) / var(--text-label-leading) var(--font-family-body);
+}
+.folio .concept-shell :is(input:not([type="checkbox"]),select,.v-field) {
+  min-height: var(--spacing-11);
+  max-width: 100%;
+  min-width: 0;
+  border: var(--border-width) solid var(--color-border-emphasized);
+  border-radius: var(--radius-element);
+  background: var(--color-background-surface);
+  color: var(--color-text-primary);
+  padding: var(--spacing-2) var(--spacing-3);
+  font: var(--text-body-size) / var(--text-body-leading) var(--font-family-body);
+  transition: border-color var(--duration-fast) var(--ease-standard),box-shadow var(--duration-fast) var(--ease-standard);
+}
+.folio .concept-shell .v-field { display: flex; align-items: center; gap: var(--spacing-2); padding: var(--spacing-1) var(--spacing-2); }
+.folio .concept-shell .v-field > input {
+  flex: 1;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: var(--spacing-1) 0;
+  min-height: var(--size-element-md);
+}
+.folio .concept-shell .growth-input-wrap > input { padding-left: var(--spacing-7); }
+.folio .concept-shell input::placeholder { color: var(--color-text-secondary); opacity: 1; }
+.folio .concept-shell :is(input,select):disabled { opacity: .5; cursor: default; color: var(--color-text-disabled); }
+.folio .concept-shell .v-field:has(input:focus-visible) { border-color: var(--color-accent); box-shadow: inset 0 0 0 2px var(--color-accent-muted); }
+.folio .concept-shell :is(input,select)[aria-invalid="true"],.folio .concept-shell .v-field:has([aria-invalid="true"]) { border-color: var(--color-error); box-shadow: var(--shadow-inset-error); }
+.folio .concept-shell input[type="checkbox"] {
+  appearance: none;
+  display: inline-grid;
+  place-content: center;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border: var(--border-width) solid var(--color-border-emphasized);
+  border-radius: var(--radius-inner);
+  background: var(--color-background-surface);
+  cursor: pointer;
+}
+.folio .concept-shell input[type="checkbox"]:checked { background: var(--color-accent); }
+.folio .concept-shell input[type="checkbox"]:checked::before {
+  content: "";
+  width: 6px;
+  height: 11px;
+  border: solid var(--color-on-accent);
+  border-width: 0 2px 2px 0;
+  transform: translateY(-1px) rotate(45deg);
+}
+.folio .concept-shell [data-vesper-component="button"] {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  min-height: var(--spacing-11);
+  max-width: 100%;
+  min-width: 0;
+  padding: var(--spacing-2) var(--spacing-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-element);
+  color: var(--color-text-primary);
+  background: var(--color-background-gray);
+  font: var(--text-label-weight) var(--text-label-size) / var(--text-label-leading) var(--font-family-body);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-standard),transform var(--duration-fast) var(--ease-standard);
+}
+.folio .concept-shell .dev-next { background: var(--color-accent); color: var(--color-on-accent); border-color: var(--color-accent); }
+.folio .concept-shell :is(.calc-reset,.growth-clear) { font: var(--text-label-weight) var(--text-label-size) / var(--text-label-leading) var(--font-family-body) !important; }
+.folio .concept-shell [data-vesper-component="button"]:disabled { opacity: .5; cursor: default; transform: none; }
+.folio .concept-shell [data-vesper-component="button"]:active:enabled { transform: scale(.98); background-image: linear-gradient(var(--color-overlay-pressed),var(--color-overlay-pressed)); }
+.folio .concept-shell :focus-visible {
+  outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-outline-color);
+  outline-offset: var(--focus-outline-offset);
+}
+.folio .concept-shell .v-field > input:focus-visible { outline-offset: -1px; }
+.folio .concept-shell :is(.form-error,.preview-rate-error) {
+  color: var(--color-on-error);
+  background: var(--color-error-muted);
+  border: var(--border-width) solid var(--color-error);
+  border-radius: var(--radius-element);
+  padding: var(--spacing-2) var(--spacing-3);
+  font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body);
+}
+.folio .concept-shell :is(.form-error,.preview-rate-error):empty { display: none; }
+.folio .concept-shell :is(.deploy-status,.growth-empty) { font: var(--text-body-size) / var(--text-body-leading) var(--font-family-body); color: var(--color-text-primary); }
+.folio .concept-shell .deploy-status:not(:empty) { padding: var(--spacing-3); margin-block: var(--spacing-4); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-element); background: var(--color-background-muted); color: var(--color-text-primary); }
+.folio .concept-shell .deploy-status[data-status="error"] { background: var(--color-error); color: var(--color-on-error); border-color: var(--color-error); }
+.folio .concept-shell .deploy-status[data-status="complete"] { background: var(--color-success); color: var(--color-on-success); border-color: var(--color-success); }
+.folio .concept-shell :is(.deploy-field-group,.discount-promotions) { margin: var(--spacing-6) 0; padding: calc(var(--spacing-4) - var(--border-width)); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-container); background: var(--color-background-card); min-width: 0; }
+.folio .concept-shell :is(.deploy-field-group,.discount-promotions) > legend { padding-inline: var(--spacing-2); color: var(--color-text-secondary); font: var(--text-label-size) / var(--text-label-leading) var(--font-family-body); }
+.folio .concept-shell .program-tile { margin-bottom: var(--spacing-3); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-container); background: var(--color-background-card); overflow: visible; }
+.folio .concept-shell .program-tile > summary { padding: calc(var(--spacing-4) - var(--border-width)); gap: var(--spacing-3); background: transparent; color: var(--color-text-primary); border-radius: var(--radius-container); }
+.folio .concept-shell .program-tile[open] > summary { background: var(--color-background-muted); box-shadow: var(--shadow-inset-selected); }
+.folio .concept-shell :is(.growth-row-main > strong,.promo-toggle strong) { font: var(--text-label-weight) var(--text-label-size) / var(--text-label-leading) var(--font-family-body); }
+.folio .concept-shell .growth-row-description { color: var(--color-text-secondary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
+.folio .concept-shell .growth-category { padding: var(--spacing-1) var(--spacing-2); border: 0; border-radius: var(--radius-element); background: var(--color-background-gray); color: var(--color-text-gray); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
+.folio .concept-shell .catalog-glyph,.folio .concept-shell .program-tile[open] .catalog-glyph { color: var(--color-icon-primary); background: var(--color-background-muted); border-color: var(--color-border); border-radius: var(--radius-element); }
+.folio .concept-shell .program-tile[open] .catalog-glyph { color: var(--color-icon-accent); }
+.folio .concept-shell .program-detail { padding: var(--spacing-4); background: var(--color-background-card); border-top: var(--border-width) solid var(--color-border); color: var(--color-text-secondary); font: var(--text-body-size) / var(--text-body-leading) var(--font-family-body); }
+.folio .concept-shell .program-detail { border-radius: 0 0 var(--radius-container) var(--radius-container); }
+.folio .concept-shell .promo-toggle { min-height: 64px; padding: var(--spacing-3); margin: var(--spacing-2) 0; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-element); background: var(--color-background-body); }
+.folio .concept-shell .promo-toggle:has(input:checked) { background: var(--color-background-muted); border-color: var(--color-border); box-shadow: var(--shadow-inset-selected); }
+.folio .concept-shell .promo-toggle.ineligible { opacity: 1; color: var(--color-text-disabled); background: var(--color-background-body); }
+.folio .concept-shell .discount-percent { color: var(--color-text-primary); background: var(--color-background-gray); border-radius: var(--radius-element); font-family: var(--font-family-body); }
+.folio .concept-shell :is(.discount-promotion-copy small,.discount-exclusions,.discount-rule,.discount-field-unit,.discount-ledger small,.discount-ledger-heading,.discount-ineligible-label) { color: var(--color-text-secondary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
+.folio .concept-shell :is(.discount-total output,.rate-preview-result > strong) { color: var(--color-text-primary); font: var(--text-heading-1-weight) clamp(31px,3vw,49px) / 1.25 var(--font-family-heading); letter-spacing: normal; overflow-wrap: anywhere; }
+.folio .concept-shell .calc-effective { color: var(--color-text-accent); font: var(--text-body-size) / var(--text-body-leading) var(--font-family-body); }
+.folio .concept-shell :is(.calc-formula,.rate-preview-formula) { padding: var(--spacing-3); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-element); background: var(--color-background-muted); color: var(--color-text-primary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-code); overflow-wrap: anywhere; }
+.folio .concept-shell .discount-summary { border-left: var(--border-width) solid var(--color-border); }
+.folio .concept-shell :is(.discount-ledger > div,.rate-preview-steps > div) { border-bottom: var(--border-width) solid var(--color-border); padding-block: var(--spacing-3) var(--spacing-4); }
+.folio .concept-shell :is(.discount-ledger > div:last-child,.rate-preview-steps > div:last-child) { border-bottom: 0; }
+.folio .concept-shell :is(.discount-ledger strong,.rate-preview-steps strong,.preview-savings strong) { color: var(--color-text-primary); font: var(--text-heading-3-weight) var(--text-heading-3-size) / var(--text-heading-3-leading) var(--font-family-heading); overflow-wrap: anywhere; }
+.folio .concept-shell :is(.discount-ledger i,.rate-preview-steps i) { background: var(--color-accent); border-radius: var(--radius-full); }
+.folio .concept-shell :is(.discount-ledger > div::after,.rate-preview-steps > div::after) { background: var(--color-background-muted); }
+.folio .concept-shell .canary-path { color: var(--color-text-primary) !important; font-family: var(--font-family-code); background: var(--color-background-muted); border-color: var(--color-border); border-radius: var(--radius-element); }
+.folio .concept-shell .deploy-steps { border-bottom-color: var(--color-border); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
+.folio .concept-shell :is(.deploy-steps,.cover-deploy-steps,.choice-indicator,[data-step-count]) { color: var(--color-text-secondary); }
+.folio .concept-shell .dev-guidance { border-color: var(--color-border); border-radius: var(--radius-element); background: var(--color-background-muted); }
+.folio .concept-shell .deploy-steps li { color: var(--color-text-secondary); }
+.folio .concept-shell .deploy-steps li[aria-current] { color: var(--color-text-accent); }
+.folio .concept-shell .deploy-steps li > span { border-color: var(--color-border); border-radius: var(--radius-full); background: var(--color-background-muted); color: var(--color-text-primary); }
+.folio .concept-shell .deploy-steps li[aria-current] > span { background: var(--color-accent); color: var(--color-on-accent); border-color: var(--color-accent); }
+.folio .concept-shell .deploy-steps li[data-complete] > span { background: var(--color-success); color: var(--color-on-success); border-color: var(--color-success); }
+.folio .concept-shell :is(.deploy-review,.preview-review) > div { display: grid; grid-template-columns: 112px minmax(0,1fr); gap: var(--spacing-3); padding: var(--spacing-3) 0; border-bottom: var(--border-width) solid var(--color-border); }
+.folio .concept-shell :is(.deploy-review,.preview-review) > div:last-child { border: 0; }
+.folio .concept-shell :is(.deploy-review,.preview-review) dt { color: var(--color-text-secondary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
+.folio .concept-shell :is(.deploy-review,.preview-review) dd { margin: 0; color: var(--color-text-primary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-code); overflow-wrap: anywhere; }
+.folio .concept-shell :is(.growth-preview-note,.discount-app-footer,.deploy-actions) { border-top-color: var(--color-border); color: var(--color-text-secondary); font-family: var(--font-family-body); }
+.folio .concept-preview { display: flex; flex-direction: column; width: 100%; max-width: none; min-height: 0; height: auto; padding: var(--concept-gap); }
+.folio .concept-preview .preview-header > span { display: block; }
+.folio .concept-preview .preview-body { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: var(--spacing-4); padding: 0; margin: var(--spacing-6) 0; align-content: start; }
+.folio .concept-preview .preview-pane { min-width: 0; }
+.folio .concept-preview .preview-detail { border-left: var(--border-width) solid var(--color-border); padding-left: calc(var(--spacing-3) - var(--border-width)); }
+.folio .concept-preview .lean-results { border: 0; margin: 0; padding: 0; background: transparent; }
+.folio .concept-preview .lean-detail { border: var(--border-width) solid var(--color-border); border-radius: var(--radius-container); background: var(--color-background-card); }
+.folio .concept-preview .lean-detail-heading { margin-bottom: var(--spacing-3); }
+.folio .concept-preview .lean-detail-heading > span:first-child { font-family: var(--font-family-body); }
+.folio .concept-preview .lean-label > span { color: var(--color-text-secondary); }
+.folio .concept-preview .lean-percent { color: var(--color-icon-accent); }
+.folio .concept-preview .lean-program { width: 100%; min-height: 64px; padding: var(--spacing-2) var(--spacing-3); border: 0; border-radius: var(--radius-element); background: transparent; text-align: left; }
+.folio .concept-preview .lean-program strong { color: var(--color-text-primary); font: var(--text-label-weight) var(--text-label-size) / var(--text-label-leading) var(--font-family-body); }
+.folio .concept-preview .lean-program small { color: var(--color-text-secondary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
+.folio .concept-shell [data-vesper-component="tab"] { appearance: none; min-width: 0; color: var(--color-text-secondary); cursor: pointer; border-radius: var(--radius-element); transition: background-color var(--duration-fast) var(--ease-standard),color var(--duration-fast) var(--ease-standard); }
+.folio .concept-shell [data-vesper-component="tab"][aria-selected="true"] { background: var(--color-accent-muted); color: var(--color-text-accent); box-shadow: var(--shadow-inset-selected); }
+.folio .concept-shell .lean-program[aria-selected="true"] strong,.folio .concept-shell .lean-program[aria-selected="true"] .ui-icon { color: var(--color-text-accent); }
+.folio .concept-shell [data-vesper-component="tab"]:disabled { cursor: default; opacity: .5; }
+.folio .concept-preview .lean-mechanics > div > span { border-color: var(--color-border); border-radius: var(--radius-element); background: var(--color-background-gray); color: var(--color-text-gray); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
+.folio .concept-preview .preview-note { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--spacing-2) var(--spacing-6); padding: var(--spacing-4) 0 0; margin: auto 0 0; border-top: var(--border-width) solid var(--color-border); }
+.folio .concept-preview .cover-deploy-steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: var(--spacing-1); margin-top: var(--spacing-6); padding: 0; border: 0; }
+.folio .concept-preview .cover-deploy-steps button { min-height: var(--spacing-11); padding: var(--spacing-2) var(--spacing-1); border: 0; text-align: center; font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
+.folio .concept-shell .choice-indicator { background: var(--color-accent); transition-duration: var(--duration-fast); transition-timing-function: var(--ease-standard); }
+.folio .concept-preview .cover-environment > div > span { color: var(--color-text-primary); background: var(--color-background-muted); border-color: var(--color-border); border-radius: var(--radius-element); font-family: var(--font-family-code); }
+.folio .concept-preview .cover-canary-sequence { color: var(--color-text-primary); font-family: var(--font-family-code); }
+.folio .concept-preview .cover-canary-track i { background: var(--color-accent); border-color: var(--color-border); }
+.folio .concept-preview .preview-repository { color: var(--color-text-secondary); font-family: var(--font-family-code); overflow-wrap: anywhere; }
+.folio .concept-preview .preview-discounts { display: grid; grid-template-columns: minmax(0,1fr); gap: var(--spacing-2); padding-top: var(--spacing-6); }
+.folio .concept-preview .preview-discounts label { min-height: var(--spacing-11); color: var(--color-text-primary); font-family: var(--font-family-body); }
+.folio .concept-preview .preview-discounts label > span { color: var(--color-text-secondary); font-family: var(--font-family-body); }
+.folio .concept-preview .preview-rate-field { display: grid; grid-template-columns: minmax(0,1fr) minmax(90px,136px); gap: var(--spacing-3); }
+.folio .concept-preview .rate-preview-result { flex-wrap: wrap; gap: var(--spacing-3); }
+.folio .concept-preview .rate-preview-result b { color: var(--color-text-accent); font: var(--text-heading-4-weight) var(--text-heading-4-size) / var(--text-heading-4-leading) var(--font-family-body); }
+.folio .concept-preview :is(.rate-preview-result small,.rate-preview-exclusion,.rate-preview-steps small,.rate-preview-steps > div > span) { color: var(--color-text-secondary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
+.folio .concept-preview .preview-savings { border-color: var(--color-border); font-family: var(--font-family-body); }
+.folio .concept-preview .preview-targets { grid-column: 1 / -1; }
+.folio .concept-preview .preview-targets table { width: 100%; border-collapse: collapse; font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
+.folio .concept-preview .preview-targets caption { text-align: left; padding-bottom: var(--spacing-3); color: var(--color-text-primary); font: var(--text-heading-4-weight) var(--text-heading-4-size) / var(--text-heading-4-leading) var(--font-family-body); }
+.folio .concept-preview .preview-targets :is(th,td) { padding: var(--spacing-2) var(--spacing-1); border-color: var(--color-border); }
+.folio .concept-preview .preview-targets thead th { color: var(--color-text-secondary); font-family: var(--font-family-body); }
+.folio .concept-preview .preview-targets td { color: var(--color-text-primary); font-family: var(--font-family-code); }
+.folio .concept-preview .preview-monitoring { gap: var(--spacing-3); padding-top: var(--spacing-4); }
+.folio .concept-preview .preview-monitoring dt { color: var(--color-text-secondary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
+.folio .concept-preview .preview-monitoring dd { color: var(--color-text-primary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-code); }
+@media (hover: hover) {
+  .folio .concept-shell :is(input:not([type="checkbox"]),select,.v-field):hover:not(:focus-within):not(:disabled) { box-shadow: inset 0 0 0 2px color-mix(in srgb,var(--color-border-emphasized) 30%,transparent); }
+  .folio .concept-shell [data-vesper-component="button"]:hover:enabled { background-image: linear-gradient(var(--color-overlay-hover),var(--color-overlay-hover)); }
+  .folio .concept-shell [data-vesper-component="tab"]:hover:enabled { background: var(--color-overlay-hover); }
+  .folio .concept-shell .program-tile > summary:hover { background: var(--color-background-muted); }
+}
+@media (max-width: 900px) {
+  .folio .concept-shell :is(.app-layout,.developer-layout) { grid-template-columns: minmax(0,1fr); }
+  .folio .concept-shell :is(.app-side,.developer-sidebar) { display: none; }
+}
+@media (max-width: 600px) {
+  .folio .concept-shell { --concept-gap: var(--spacing-4); }
+  .folio .concept-preview .preview-body { grid-template-columns: minmax(0,1fr); }
+  .folio .concept-preview .preview-detail { padding-left: calc(var(--spacing-3) - var(--border-width)); border-top: var(--border-width) solid var(--color-border); }
+  .folio .concept-shell .discount-summary { border-left: 0; border-top: var(--border-width) solid var(--color-border); }
+  .folio .concept-shell :is(.deploy-review,.preview-review) > div { grid-template-columns: minmax(0,1fr); gap: var(--spacing-1); }
+  .folio .concept-shell .deploy-fields { grid-template-columns: minmax(0,1fr); }
+  .folio .concept-shell .deploy-actions { flex-wrap: wrap; gap: var(--spacing-3); }
+  .folio .concept-shell .deploy-actions [data-step-count] { order: -1; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio .concept-shell * { transition-duration: 0s; animation: none; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .folio .concept-shell [data-vesper-component="tab"][aria-selected="true"] { background: var(--color-background-muted); }
+}
+@media (forced-colors: active) {
+  .folio .concept-shell,.folio .concept-shell :is(.v-card,.v-field,input,select,fieldset,.program-tile,[data-vesper-component]) { border-color: CanvasText; }
+  .folio .concept-shell :focus-visible { outline-color: Highlight; }
+  .folio .concept-shell input[type="checkbox"] { appearance: auto; }
+}

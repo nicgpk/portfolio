@@ -1,0 +1,145 @@
+/* One reading-link scale and one Lucide icon frame. Long labels may wrap. */
+.folio,
+.resume-page {
+  --link-size: 16px;
+  --link-height: 48px;
+  --link-icon-size: 24px;
+}
+.folio .ui-icon,
+.resume-page .ui-icon {
+  display: inline-block;
+  width: var(--link-icon-size);
+  height: var(--link-icon-size);
+  flex: 0 0 var(--link-icon-size);
+  vertical-align: middle;
+  fill: none;
+  stroke: currentColor;
+}
+.folio
+  :is(main, .site-nav, .folio-footer)
+  :is(
+    .text-link,
+    .hero-secondary,
+    .case-scroll,
+    .back-link,
+    .footer-email,
+    .footer-bottom a,
+    .case-next a,
+    .work-source-links a,
+    .case-section-nav a,
+    .showcase-navigation > a,
+    .showcase-case-link
+  ) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--link-height);
+  max-width: 100%;
+  min-width: 0;
+  padding-block: 11px;
+  font-size: var(--link-size);
+  line-height: 24px;
+}
+.folio :is(.studio-button, .site-nav .nav-contact, .site-nav nav a) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: var(--link-height);
+  padding-block: 11px;
+  font-size: var(--link-size);
+  line-height: 24px;
+}
+.folio .site-nav .nav-contact,
+.resume-page .site-nav .nav-contact {
+  white-space: nowrap;
+}
+.folio .showcase-navigation button {
+  width: var(--link-height);
+  height: var(--link-height);
+}
+.folio .ui-link-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.folio .footer-email .ui-link-label {
+  color: inherit;
+  font-size: var(--link-size);
+}
+.folio .concept-shell .catalog-glyph svg {
+  width: 32px;
+  height: 32px;
+}
+.folio
+  .concept-shell
+  :is(
+    .lean-search,
+    .growth-input-wrap,
+    .growth-empty,
+    .program-open-label,
+    .discount-check
+  )
+  .ui-icon {
+  width: 24px;
+  height: 24px;
+}
+@media screen {
+  .resume-page a:not(.wordmark, .skip-link) {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: var(--link-height);
+    padding-block: 11px;
+    font-size: var(--link-size);
+    line-height: 24px;
+  }
+}
+.folio .concept-shell .catalog-glyph {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+.folio .growth-studio .program-tile > summary {
+  grid-template-columns: 44px minmax(0, 1fr) 116px 24px;
+}
+.folio .growth-studio .growth-input-wrap > input {
+  padding-left: 36px;
+}
+@media (max-width: 1000px) {
+  .folio .growth-studio .program-tile > summary {
+    grid-template-columns: 44px minmax(0, 1fr) 24px;
+  }
+}
+.folio :is(.workflow-node, .lean-percent) .ui-icon {
+  width: 32px;
+  height: 32px;
+}
+.folio .concept-shell .deploy-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: var(--link-height);
+}
+@media (max-width: 540px) {
+  .folio .site-nav {
+    gap: 8px;
+    padding-inline: 12px;
+  }
+  .folio .site-nav .nav-contact {
+    padding-inline: 12px;
+  }
+  .folio .site-nav nav,
+  .resume-page .site-nav nav {
+    gap: 12px;
+  }
+  .folio .site-nav .nav-contact span {
+    margin-left: 0;
+  }
+}
+@media (max-width: 360px) {
+  .folio .site-nav nav,
+  .resume-page .site-nav nav {
+    gap: 8px;
+  }
+}

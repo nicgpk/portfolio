@@ -10,7 +10,6 @@
   --text: #1a1a16;
   --text-muted: #5a5a52;
   --text-dim: var(--text-muted);
-  --accent: #4a5a2a;
   --border: #e0dbd0;
   --border-strong: #d4cec2;
   --shadow: 0 1px 3px rgba(0,0,0,0.04);
@@ -61,7 +60,6 @@
   --text: #e0dcc8;
   --text-muted: #9a9788;
   --text-dim: var(--text-muted);
-  --accent: #9fd45a;
   --border: #1e1c18;
   --border-strong: #2a2820;
   --shadow: 0 1px 3px rgba(0,0,0,0.2);

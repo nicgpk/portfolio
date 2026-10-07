@@ -1,0 +1,346 @@
+import { normalizeRequiredText } from "./form-validation.mjs";
+import { stackDiscounts } from "./calculations.mjs";
+import { setActionLabel } from "./interface-icons.mjs";
+import "./evidence-motion.mjs";
+
+import { motionPaused } from "./kinetics.mjs";
+import "./showcase.mjs";
+import "./clouds.mjs";
+import "./project-previews.mjs";
+import {
+  revealFeedback,
+  attachIndicator,
+  animateRateBar,
+} from "./interaction-motion.mjs";
+
+document.querySelectorAll("[data-discovery]").forEach((root) => {
+  const search = root.querySelector("[data-program-search]"),
+    category = root.querySelector("[data-program-category]"),
+    clear = root.querySelector("[data-program-clear]");
+  function filter() {
+    const term = search.value.trim().toLowerCase();
+    let count = 0;
+    root.querySelectorAll("[data-program]").forEach((tile) => {
+      const show =
+        tile.textContent.toLowerCase().includes(term) &&
+        (category.value === "all" || tile.dataset.category === category.value);
+      tile.hidden = !show;
+      if (show) count++;
+    });
+    root.querySelector("[data-program-count]").textContent = count
+      ? `${count} program${count === 1 ? "" : "s"}`
+      : "No matching programs. Try another search or choose All categories.";
+    const filtered = term !== "" || category.value !== "all";
+    root.querySelector("[data-program-heading]").textContent = filtered
+      ? "Matching programs"
+      : "All programs";
+    clear.hidden = !filtered;
+    root.querySelector("[data-program-empty]").hidden = count !== 0;
+  }
+  search.disabled = false;
+  category.disabled = false;
+  search.addEventListener("input", filter);
+  root.querySelectorAll("details").forEach((tile) =>
+    tile.addEventListener("toggle", () => {
+      if (tile.open) revealFeedback(tile.querySelector(".program-detail"));
+    }),
+  );
+  category.addEventListener("change", filter);
+  clear.addEventListener("click", () => {
+    search.value = "";
+    category.value = "all";
+    filter();
+    search.focus({ preventScroll: true });
+  });
+});
+const calculator = document.querySelector("[data-calculator]");
+if (calculator) {
+  const form = calculator.querySelector("form");
+  const money = (value) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  function update(event) {
+    const rate = form.elements.rate;
+    const error = calculator.querySelector("[data-calc-error]");
+    if (!rate.validity.valid || rate.value === "") {
+      calculator.querySelector("[data-net]").textContent = "—";
+      calculator.querySelector("[data-effective]").textContent =
+        "Enter a valid room rate to calculate.";
+      calculator.querySelector("[data-ledger]").replaceChildren();
+      calculator.querySelector(".calc-formula").textContent =
+        "Calculation paused";
+      calculator.querySelector("[data-total-cut]").textContent =
+        "Total discount unavailable";
+      error.textContent =
+        "Enter a room rate from $0 to $1,000,000, with at most two decimal places.";
+      rate.setAttribute("aria-invalid", "true");
+      return;
+    }
+    error.textContent = "";
+    rate.removeAttribute("aria-invalid");
+    const selected = [
+      { name: "Mega Sale", value: 15, on: form.elements.mega.checked },
+      { name: "Mobile Exclusive", value: 10, on: form.elements.mobile.checked },
+    ].filter((p) => p.on);
+    const result = stackDiscounts(
+      Number(rate.value),
+      selected.map((p) => p.value),
+    );
+    calculator.querySelector("[data-net]").textContent = money(result.net);
+    calculator.querySelector("[data-effective]").textContent =
+      `${result.effective}% effective discount`;
+    const ledger = calculator.querySelector("[data-ledger]");
+    const previousBars = [...ledger.querySelectorAll("i")].map(
+      (bar) => parseFloat(bar.style.getPropertyValue("--rate-width")) || 0,
+    );
+    ledger.replaceChildren();
+    const start = Number(rate.value);
+    const rows = [
+      { label: "Room rate", detail: "Starting balance", balance: start },
+      ...selected.map((p, i) => {
+        const before = i === 0 ? start : result.balances[i - 1];
+        return {
+          label: `${p.name} · ${p.value}%`,
+          detail: `${p.value}% of ${money(before)} · −${money(result.cuts[i])}`,
+          balance: result.balances[i],
+        };
+      }),
+    ];
+    rows.forEach(({ label, detail, balance }, index) => {
+      const row = document.createElement("div"),
+        s = document.createElement("span"),
+        b = document.createElement("strong"),
+        explanation = document.createElement("small"),
+        bar = document.createElement("i");
+      s.textContent = label;
+      explanation.textContent = detail;
+      s.append(explanation);
+      b.textContent = money(balance);
+      bar.style.setProperty(
+        "--rate-width",
+        `${start ? (balance / start) * 100 : 0}%`,
+      );
+      bar.setAttribute("aria-hidden", "true");
+      row.append(s, b, bar);
+      ledger.append(row);
+      if (event)
+        animateRateBar(
+          bar,
+          previousBars[index] || 0,
+          start ? (balance / start) * 100 : 0,
+        );
+    });
+    calculator.querySelector("[data-total-cut]").textContent =
+      `Total discount · ${money(start - result.net)}`;
+    calculator.querySelector(".calc-formula").textContent =
+      `${Number(rate.value)}${selected.map((p) => ` × ${1 - p.value / 100}`).join("")} = ${result.net.toFixed(2)}`;
+  }
+  form.addEventListener("input", update);
+  form.addEventListener("reset", () => requestAnimationFrame(update));
+  form.addEventListener("submit", (e) => e.preventDefault());
+  update();
+}
+const developer = document.querySelector("[data-developer]");
+if (developer) {
+  const form = developer.querySelector("form"),
+    stages = [...form.querySelectorAll("[data-step]")],
+    next = form.querySelector("[data-deploy-next]"),
+    back = form.querySelector("[data-deploy-back]"),
+    status = form.querySelector("[data-deploy-status]");
+  let step = 0;
+  const fields=[...form.querySelectorAll('input[required]')];
+  const errors=new Map();
+  fields.forEach(input=>{
+    if(!input.id)input.id='deploy-'+input.name;
+    const error=document.createElement('span');error.id=input.id+'-error';error.className='dev-field-error';
+    input.closest('label').append(error);errors.set(input,error);
+    const description=input.getAttribute('aria-describedby');
+    input.setAttribute('aria-describedby',[description,error.id].filter(Boolean).join(' '));
+  });
+  function validateField(input,normalize=false) {
+    if(input.type==='text') {
+      const result=normalizeRequiredText(input.value);
+      if(normalize)input.value=result.value;
+      input.setCustomValidity(result.valid?'':'Enter a value containing more than spaces.');
+    }
+    const valid=input.validity.valid;
+    input.setAttribute('aria-invalid',String(!valid));
+    const error=errors.get(input);
+    if(error)error.textContent=valid?'':input.validationMessage;
+    return valid;
+  }
+  fields.forEach(input=>input.addEventListener('blur',()=>validateField(input,true)));
+  function review() {
+    fields.forEach(input=>validateField(input,true));
+    const f = form.elements;
+    const rows = [
+      ["Environment", `${f.environment.value} · ${f.pool.value}`],
+      ["Image", `${f.repository.value} · ${f.image.value}`],
+      ["Resources", `${f.cpu.value} cores · ${f.memory.value} Gi`],
+      [
+        "Strategy",
+        f.strategy.value === "Canary"
+          ? "Canary · 10% → 20% → 30%"
+          : "Rolling update",
+      ],
+      [
+        "Targets",
+        `HK: ${f.hk.value} · SG: ${f.sg.value} · AM: ${f.am.value} replicas`,
+      ],
+      ["Monitoring", `${f.slack.value} · 300s ramp up · 900s monitoring`],
+    ];
+    const list = form.querySelector("[data-deploy-review]");
+    list.replaceChildren();
+    rows.forEach(([label, value]) => {
+      const row = document.createElement("div"),
+        dt = document.createElement("dt"),
+        dd = document.createElement("dd");
+      dt.textContent = label;
+      dd.textContent = value;
+      row.append(dt, dd);
+      list.append(row);
+    });
+  }
+  function render(focus = false, direction = 1) {
+    stages.forEach((stage, i) => {
+      stage.hidden = i !== step;
+    });
+    form.querySelectorAll("[data-step-label]").forEach((el, i) => {
+      if (i === step) el.setAttribute("aria-current", "step");
+      else el.removeAttribute("aria-current");
+      el.toggleAttribute("data-complete", i < step);
+    });
+    back.disabled = step === 0;
+    next.disabled = false;
+    setActionLabel(
+      next,
+      ["Continue to rollout", "Continue to review", "Preview deployment"][step],
+      step === 2 ? "check" : "arrow-right",
+    );
+    form.querySelector("[data-step-count]").textContent =
+      `Step ${step + 1} of 3`;
+    if (step === 2) review();
+    if (focus) {
+      revealFeedback(stages[step], direction);
+      const title = stages[step].querySelector("h2");
+      title.tabIndex = -1;
+      title.focus({ preventScroll: true });
+      title.scrollIntoView({
+        block: "start",
+        behavior: motionPaused() ? "instant" : "smooth",
+      });
+    }
+  }
+  next.addEventListener("click", () => {
+    const stageFields=[...stages[step].querySelectorAll("input,select")];
+    stageFields.forEach(input=>validateField(input,true));
+    const invalid=stageFields.find(input=>!input.validity.valid);
+    if (invalid) {
+      status.textContent = "Check the highlighted field before continuing.";
+      status.dataset.status = "error";
+      invalid.setAttribute("aria-invalid", "true");
+      invalid.focus();
+      return;
+    }
+    if (step < 2) {
+      step++;
+      status.textContent = "";
+      delete status.dataset.status;
+      render(true);
+    } else {
+      status.textContent =
+        "Preview complete. No service was deployed and no data was saved.";
+      status.dataset.status = "complete";
+    }
+  });
+  back.addEventListener("click", () => {
+    if (step > 0) {
+      step--;
+      status.textContent = "";
+      delete status.dataset.status;
+      render(true, -1);
+    }
+  });
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    next.click();
+  });
+  form.addEventListener("input", (event) => {
+    if (event.target.matches("input,select")) {
+      validateField(event.target);
+      if ([...stages[step].querySelectorAll('input,select')].every(input=>input.validity.valid) && status.dataset.status === "error") {
+        status.textContent = "";
+        delete status.dataset.status;
+      }
+    }
+  });
+  form.elements.strategy.addEventListener("change", () => {
+    form.querySelector("[data-canary]").textContent =
+      form.elements.strategy.value === "Canary"
+        ? "10% → 20% → 30%"
+        : "Rolling update · existing deployment strategy";
+  });
+  render();
+  attachIndicator(
+    form.querySelector(".deploy-steps"),
+    "[data-step-label]",
+    "[aria-current]",
+  );
+}
+
+// The home graphic uses the same cent-rounded calculation as the full simulator.
+for (const root of document.querySelectorAll("[data-rate-graphic]")) {
+  const form = root.querySelector("form");
+  const money = (value) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(value);
+  function updateGraphic() {
+    const rate = form.elements.rate;
+    const error = root.querySelector("[data-rate-error]");
+    if (rate.value === "" || !rate.validity.valid) {
+      for (const selector of [
+        "[data-rate-start]",
+        "[data-rate-mega]",
+        "[data-rate-net]",
+      ])
+        root.querySelector(selector).textContent = "—";
+      for (const selector of ["[data-mega-bar]", "[data-net-bar]"])
+        root.querySelector(selector).style.width = "0%";
+      error.textContent =
+        "Enter a room rate from $0 to $1,000,000, with at most two decimal places.";
+      rate.setAttribute("aria-invalid", "true");
+      return;
+    }
+    error.textContent = "";
+    rate.removeAttribute("aria-invalid");
+    const start = Number(rate.value),
+      mega = form.elements.mega.checked,
+      mobile = form.elements.mobile.checked;
+    const intermediate = stackDiscounts(start, mega ? [15] : []).net;
+    const result = stackDiscounts(start, [
+      ...(mega ? [15] : []),
+      ...(mobile ? [10] : []),
+    ]);
+    root.querySelector("[data-rate-start]").textContent = money(start);
+    root.querySelector("[data-rate-mega]").textContent = money(intermediate);
+    root.querySelector("[data-rate-net]").textContent = money(result.net);
+    root.querySelector("[data-mega-label]").textContent = mega
+      ? "After Mega Sale · 15%"
+      : "Mega Sale off";
+    root.querySelector("[data-mobile-label]").textContent = mobile
+      ? "Then Mobile Exclusive · 10%"
+      : "Mobile Exclusive off";
+    root.querySelector("[data-mega-bar]").style.width =
+      `${start ? (intermediate / start) * 100 : 0}%`;
+    root.querySelector("[data-net-bar]").style.width =
+      `${start ? (result.net / start) * 100 : 0}%`;
+  }
+  form.addEventListener("input", updateGraphic);
+  form.addEventListener("submit", (event) => event.preventDefault());
+  form.querySelectorAll("input").forEach((input) => (input.disabled = false));
+  updateGraphic();
+}

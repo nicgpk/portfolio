@@ -1,0 +1,553 @@
+/* A compact identity and task-led product demonstrations. One red token. */
+:root {
+  --feedback-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.folio .studio-hero .hero-stage {
+  min-height: 400px;
+  padding: 32px 24px;
+}
+.folio .hero-overline {
+  min-height: 40px;
+  padding-block: 12px;
+}
+.folio .hero-message h1 {
+  font-size: clamp(44px, 5.4vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-block: 12px 18px;
+}
+.folio .hero-message h1 span {
+  display: inline-block;
+  font-size: 0.56em;
+  line-height: 1.4;
+  padding: 6px 16px 8px;
+  background: var(--accent);
+  color: #fff;
+  border-bottom: 0;
+}
+.folio .hero-description {
+  max-width: 610px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.folio .hero-actions {
+  margin-top: 20px;
+}
+.folio .hero-message > .eyebrow {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+.folio .motion-toggle {
+  font-size: 12px;
+}
+.folio
+  :is(
+    [data-motion-toggle],
+    [data-showcase-position],
+    .eyebrow,
+    .diagram-kicker,
+    .app-side-note,
+    .sample-label,
+    .concept-context,
+    .rate-preview-steps > div > span,
+    .rate-preview-steps b
+  ) {
+  font-size: 12px;
+}
+.folio .concept-preview .preview-header > span {
+  font-size: 13px;
+}
+.folio .project-showcase {
+  padding: 32px 28px 48px;
+}
+.folio .showcase-intro {
+  padding: 0;
+  text-align: left;
+}
+.folio .showcase-intro :is(h1, h2) {
+  margin: 0;
+  font-size: clamp(32px, 3vw, 42px);
+}
+.folio .showcase-stage .showcase-toolbar {
+  position: relative;
+  min-height: 64px;
+  padding: 8px 0;
+  margin-bottom: 20px;
+}
+.folio .showcase-navigation {
+  width: 100%;
+}
+.folio .showcase-navigation [data-showcase-status] {
+  margin-right: auto;
+}
+.showcase-progress {
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 2px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.showcase-progress > i {
+  display: block;
+  width: 33.3333%;
+  height: 100%;
+  background: var(--accent);
+}
+.folio .showcase-description {
+  padding: 28px;
+}
+.folio .showcase-description .showcase-role {
+  font-size: 12px;
+  line-height: 1.6;
+}
+.folio .showcase-description .showcase-summary > p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+.folio .showcase-art {
+  align-items: center;
+  padding: 24px;
+  background: #f5f5f5;
+}
+.folio .concept-preview {
+  min-height: 0;
+  height: auto;
+  padding: 24px;
+  flex: none;
+}
+.folio .concept-preview .preview-header h4 {
+  font-size: var(--ui-title);
+}
+.folio .concept-preview .preview-body {
+  gap: 20px;
+  margin-block: 20px;
+}
+.folio .concept-preview .preview-detail {
+  padding-left: 20px;
+}
+.folio .concept-preview .preview-note {
+  padding-top: 16px;
+}
+.preview-panels {
+  display: grid;
+  min-width: 0;
+}
+.preview-panels > [data-preview-panel] {
+  grid-area: 1 / 1;
+  align-self: start;
+  min-width: 0;
+}
+/* Reserve the real content's height across choices without a guessed fixed box. */
+.preview-panels > [data-preview-panel][hidden] {
+  display: block;
+  visibility: hidden;
+  pointer-events: none;
+}
+.cover-deploy .preview-panels > [data-preview-panel][hidden] {
+  display: grid;
+}
+.preview-choices,
+.deploy-steps {
+  position: relative;
+}
+.preview-choices button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--workspace-ink);
+  font: 500 14px/1.6 var(--body);
+  text-align: left;
+  cursor: pointer;
+  transition: background 180ms var(--feedback-ease);
+}
+.preview-choices button:disabled {
+  cursor: default;
+  opacity: 1;
+}
+.preview-choices button:hover:enabled {
+  background: #292929;
+}
+.folio .lean-program {
+  width: 100%;
+  min-height: 60px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--workspace-line);
+  border-radius: 6px;
+}
+.folio .lean-program strong {
+  font-size: 14px;
+}
+.folio .lean-program small {
+  font-size: 12px;
+}
+.folio .lean-program.is-selected {
+  box-shadow: none;
+  background: #292929;
+}
+.lean-program .ui-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--workspace-muted);
+  flex: 0 0 24px;
+}
+.lean-program[aria-selected="true"] .ui-icon {
+  color: var(--accent);
+}
+.folio .concept-preview .lean-detail {
+  border: 0;
+  border-left: 1px solid var(--workspace-line);
+  border-radius: 0;
+  background: transparent;
+}
+.folio .concept-preview .lean-detail h4 {
+  font: 600 var(--ui-section)/1.25 var(--body);
+}
+.folio .concept-preview .lean-detail > p,
+.lean-mechanics > p {
+  font: var(--ui-copy)/1.7 var(--body);
+  color: var(--workspace-muted);
+}
+.folio .lean-mechanics {
+  margin-top: 18px;
+  padding-top: 16px;
+}
+.folio .lean-percent .ui-icon {
+  width: 32px;
+  height: 32px;
+}
+.folio .concept-preview .lean-label {
+  margin-bottom: 8px;
+}
+.choice-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  background: var(--accent);
+  pointer-events: none;
+  transition: transform 220ms var(--feedback-ease);
+}
+.choice-indicator--vertical {
+  top: 0;
+  bottom: auto;
+}
+.folio .concept-preview .cover-deploy-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 20px;
+}
+.folio .cover-deploy-steps button {
+  min-height: 48px;
+  padding: 10px 8px;
+  font: 12px/1.6 var(--mono);
+  text-align: center;
+}
+.folio .cover-deploy-steps .cover-stage-active {
+  color: var(--workspace-ink);
+  border: 0;
+}
+.preview-review {
+  grid-column: 1 / -1;
+  margin: 0;
+  font: 12px/1.65 var(--mono);
+}
+.preview-review > div {
+  display: grid;
+  grid-template-columns: 95px minmax(0, 1fr);
+  gap: 12px;
+  padding-block: 8px;
+  border-bottom: 1px solid var(--workspace-line);
+}
+.preview-review dt {
+  color: var(--workspace-muted);
+}
+.preview-review dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--workspace-ink);
+}
+.preview-repository {
+  overflow-wrap: anywhere;
+}
+.preview-discounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding: 14px 0 0;
+  margin: 0;
+}
+.preview-discounts label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font: var(--ui-copy)/1.5 var(--body);
+  color: var(--workspace-ink);
+  cursor: pointer;
+}
+.preview-discounts label > span {
+  font-family: var(--mono);
+  color: var(--workspace-muted);
+}
+.folio .preview-rate-field {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(100px, 160px);
+  font: var(--ui-label)/1.5 var(--mono);
+}
+.folio .preview-rate-field input {
+  width: 100%;
+  min-width: 0;
+}
+.preview-rate-error {
+  min-height: 24px;
+  margin: 8px 0 0;
+  font: var(--ui-label)/1.5 var(--body);
+  color: var(--workspace-ink);
+}
+.preview-savings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-block: 16px;
+  border-top: 1px solid var(--workspace-line);
+  font: var(--ui-copy)/1.6 var(--body);
+}
+.preview-savings strong {
+  font: 600 var(--ui-value)/1.3 var(--mono);
+}
+.preview-targets {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--workspace-line);
+  padding-top: 20px;
+}
+.preview-targets table {
+  width: 100%;
+  border-collapse: collapse;
+  font: var(--ui-copy)/1.6 var(--body);
+}
+.preview-targets caption {
+  text-align: left;
+  color: var(--workspace-ink);
+  font: 600 16px/1.5 var(--body);
+  padding-bottom: 12px;
+}
+.preview-targets :is(th, td) {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--workspace-line);
+  text-align: left;
+}
+.preview-targets thead th {
+  font: var(--ui-label)/1.5 var(--mono);
+  color: var(--workspace-muted);
+}
+.preview-targets tbody th {
+  font-weight: 500;
+}
+.preview-targets td {
+  font-family: var(--mono);
+}
+.preview-monitoring {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 20px;
+  margin: 0;
+}
+.preview-monitoring > div:first-child {
+  grid-column: 1 / -1;
+}
+.preview-monitoring dt {
+  font: var(--ui-label)/1.5 var(--mono);
+  color: var(--workspace-muted);
+}
+.preview-monitoring dd {
+  margin: 6px 0 0;
+  font: var(--ui-copy)/1.6 var(--mono);
+  overflow-wrap: anywhere;
+}
+.folio .preview-discounts input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  margin: 0;
+}
+.folio .rate-preview-result > strong {
+  font-size: clamp(32px, 3vw, 44px);
+}
+.folio .rate-preview-steps strong {
+  font-size: var(--ui-value);
+}
+.folio .rate-preview-steps > div {
+  padding-bottom: 18px;
+}
+.rate-preview-steps i,
+.discount-ledger i {
+  transform-origin: left center;
+}
+.folio .showcase-description .evidence-metrics > div:first-child {
+  grid-column: 1 / -1;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.folio .showcase-description .evidence-metrics > div:first-child dd {
+  font-size: 42px;
+  line-height: 1.15;
+}
+.folio .showcase-description .evidence-metrics dt {
+  font-size: 12px;
+}
+.folio .showcase-description .evidence-card {
+  padding: 20px;
+  background: #f7f7f7;
+}
+.case-study .evidence-metrics > div:first-child dd {
+  font-size: clamp(42px, 4.6vw, 60px);
+}
+.folio
+  :is(
+    .text-link,
+    .showcase-case-link,
+    .hero-secondary,
+    .footer-email,
+    .back-link,
+    .studio-button,
+    .nav-contact
+  )
+  .ui-icon {
+  transition: transform 180ms var(--feedback-ease);
+}
+.folio
+  :is(
+    .text-link,
+    .showcase-card-link,
+    .hero-secondary,
+    .footer-email,
+    .back-link,
+    .studio-button,
+    .nav-contact
+  ):is(:hover, :focus-visible)
+  .ui-icon {
+  transform: translate(2px, -2px);
+}
+.folio .deploy-steps li {
+  border-bottom-color: var(--workspace-line);
+}
+.folio .deploy-steps li[aria-current] {
+  border-bottom-color: var(--workspace-line);
+}
+.folio .program-open-label .ui-icon {
+  transition: transform 180ms var(--feedback-ease);
+}
+.folio .program-tile[open] .program-open-label .ui-icon {
+  transform: rotate(180deg);
+}
+.folio :is(input, textarea) {
+  caret-color: var(--accent);
+}
+.folio ::selection {
+  background: var(--accent);
+  color: #fff;
+}
+@media (max-width: 1000px) {
+  .folio .studio-hero .hero-stage {
+    min-height: 380px;
+  }
+  .folio .concept-preview {
+    min-height: 0;
+  }
+}
+@media (max-width: 540px) {
+  .folio .studio-hero .hero-stage {
+    padding: 28px 18px;
+    min-height: 380px;
+  }
+  .folio .hero-message h1 {
+    font-size: clamp(36px, 10vw, 46px);
+  }
+  .folio .hero-message h1 span {
+    font-size: max(24px, 0.6em);
+  }
+  .folio .hero-description {
+    font-size: 15px;
+  }
+  .folio .project-showcase {
+    padding: 28px 18px 32px;
+  }
+  .folio .showcase-description {
+    padding: 24px 18px;
+  }
+  .folio .showcase-art {
+    padding: 18px;
+  }
+  .folio .concept-preview {
+    padding: 18px;
+  }
+  .folio .concept-preview .preview-body {
+    gap: 18px;
+  }
+  .folio .concept-preview .preview-detail {
+    padding: 18px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--workspace-line);
+  }
+  .folio .preview-review > div {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 8px;
+  }
+  .folio .preview-discounts {
+    gap: 0;
+    flex-direction: column;
+  }
+  .folio .showcase-description .evidence-metrics > div:first-child dd {
+    font-size: 38px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .folio .choice-indicator,
+  .folio .program-open-label .ui-icon,
+  .folio
+    :is(
+      .text-link,
+      .showcase-case-link,
+      .hero-secondary,
+      .footer-email,
+      .back-link,
+      .studio-button,
+      .nav-contact
+    )
+    .ui-icon {
+    transition: none;
+  }
+}
+html[data-motion="off"] .folio .choice-indicator,
+html[data-motion="off"] .folio .program-open-label .ui-icon,
+html[data-motion="off"]
+  .folio
+  :is(
+    .text-link,
+    .showcase-case-link,
+    .hero-secondary,
+    .footer-email,
+    .back-link,
+    .studio-button,
+    .nav-contact
+  )
+  .ui-icon {
+  transition: none;
+}
+@media (forced-colors: active) {
+  .choice-indicator,
+  .showcase-progress > i {
+    background: Highlight;
+  }
+  .folio .hero-message h1 span {
+    color: CanvasText;
+    border-color: Highlight;
+  }
+  .preview-choices button[aria-selected="true"] {
+    outline: 1px solid Highlight;
+  }
+}

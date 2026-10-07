@@ -1,0 +1,238 @@
+/* Generated enamel objects remain decorative; adjacent text carries the content. */
+.folio .program-vector {
+  display: none;
+}
+
+.folio .program-icon {
+  display: block;
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+}
+
+.folio .program-tile .program-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.folio .program-node circle {
+  fill: none;
+  stroke: none;
+}
+
+.folio .program-node.selected circle {
+  fill: none;
+  stroke: #1938ed;
+  stroke-width: 1.8;
+  stroke-dasharray: 3 6;
+}
+
+.folio .program-object {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.folio .program-node.selected .program-object {
+  transform: translateY(-6px) scale(1.05);
+}
+
+.folio .rail-card-art .program-node circle {
+  display: none;
+}
+
+.folio .rail-card-art .program-node.selected .program-object {
+  transform: none;
+}
+
+.folio .property-node text {
+  font-size: 14px;
+}
+
+@media (max-width: 650px) {
+  .folio .program-icon {
+    flex-basis: 48px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (forced-colors: active) {
+  .folio .program-tile .program-icon img,
+  .folio .program-object,
+  .folio .property-object {
+    display: none;
+  }
+
+  .folio .program-vector {
+    display: block;
+  }
+
+  .folio .program-icon .program-vector {
+    width: 100%;
+    height: 100%;
+  }
+
+  .folio .program-node circle,
+  .folio .rail-card-art .program-node circle {
+    display: block;
+    fill: Canvas;
+    stroke: CanvasText;
+    stroke-dasharray: none;
+    stroke-width: 2;
+  }
+
+  .folio .program-node.selected circle {
+    fill: CanvasText;
+  }
+
+  .folio .property-node rect {
+    fill: CanvasText;
+  }
+}
+
+/* Cobalt enamel rate bars: their existing widths remain the data geometry. */
+.folio :is([data-rate-graphic], .rail-rate-art) .rate-track {
+  --rate-depth: 5px;
+  position: relative;
+  height: 16px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #d8deed, #edf0f8 65%, #e2e7f1);
+  box-shadow: inset 0 1px 3px #2637611a;
+}
+
+.folio :is([data-rate-graphic], .rail-rate-art) .rate-track > span {
+  position: relative;
+  border-radius: inherit;
+  background: linear-gradient(180deg, #7185ff, #2948f7 30%, #1938ed 75%);
+  filter: drop-shadow(0 7px 5px #1b2a5b26);
+}
+
+.folio :is([data-rate-graphic], .rail-rate-art) .rate-track > span::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(90deg, #c0cbff, #7185ff);
+  pointer-events: none;
+}
+
+.folio :is([data-rate-graphic], .rail-rate-art) .rate-track > span::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: var(--rate-depth);
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(180deg, #1630b0, #0e2187);
+  pointer-events: none;
+}
+
+/* Graphite blocks and a coral signal share the same upper-left lighting. */
+.folio .dev-art .flow-node rect {
+  fill: url(#flow-face);
+  stroke: #707989;
+  stroke-width: 1.4;
+  paint-order: stroke fill;
+  rx: 4px;
+  ry: 4px;
+  filter: drop-shadow(2px 6px 4px #0e172926);
+}
+
+.folio .dev-art .flow-block-top {
+  fill: url(#flow-top);
+}
+
+.folio .dev-art .flow-block-side {
+  fill: #151c2b;
+}
+
+.folio .dev-art .flow-signal circle {
+  fill: url(#flow-surface);
+  stroke: #ffa382;
+  stroke-width: 1.6;
+  paint-order: stroke fill;
+  filter: drop-shadow(1px 1px 0 #e94d20) drop-shadow(1px 1px 0 #d84318)
+    drop-shadow(1px 1px 0 #bc3712) drop-shadow(3px 7px 5px #70291329);
+}
+
+@media (max-width: 650px) {
+  .folio :is([data-rate-graphic], .rail-rate-art) .rate-track {
+    --rate-depth: 4px;
+    height: 13px;
+  }
+
+  .folio :is([data-rate-graphic], .rail-rate-art) .rate-track > span {
+    filter: drop-shadow(0 5px 4px #1b2a5b21);
+  }
+}
+
+/* Depth is static; motion preferences keep the existing data and stage states. */
+html[data-motion="off"]
+  .folio
+  :is([data-rate-graphic], .rail-rate-art)
+  .rate-track
+  > span {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .folio :is([data-rate-graphic], .rail-rate-art) .rate-track > span {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .folio :is([data-rate-graphic], .rail-rate-art) .rate-track {
+    background: #e2e7f1;
+    box-shadow: none;
+  }
+
+  .folio :is([data-rate-graphic], .rail-rate-art) .rate-track > span,
+  .folio .dev-art .flow-node rect,
+  .folio .dev-art .flow-signal circle {
+    filter: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .folio :is([data-rate-graphic], .rail-rate-art) .rate-track {
+    background: Canvas;
+    border: 1px solid CanvasText;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .folio :is([data-rate-graphic], .rail-rate-art) .rate-track > span {
+    background: CanvasText;
+    border-radius: 0;
+    filter: none;
+  }
+
+  .folio :is([data-rate-graphic], .rail-rate-art) .rate-track > span::before,
+  .folio :is([data-rate-graphic], .rail-rate-art) .rate-track > span::after {
+    display: none;
+  }
+
+  .folio .dev-art .flow-node rect {
+    fill: CanvasText;
+    stroke: Canvas;
+    filter: none;
+  }
+
+  .folio .dev-art .flow-block-top,
+  .folio .dev-art .flow-block-side {
+    display: none;
+  }
+
+  .folio .dev-art .flow-signal circle {
+    fill: Canvas;
+    stroke: CanvasText;
+    stroke-width: 2;
+    filter: none;
+  }
+}

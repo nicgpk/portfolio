@@ -1,0 +1,540 @@
+/* Identity, complete project compositions, and a quiet landscape sign-off. */
+.folio .studio-hero .hero-stage {
+  display: grid;
+  place-items: center;
+  min-height: clamp(460px, 44vw, 580px);
+  padding: clamp(40px, 5vw, 64px) clamp(18px, 3vw, 24px);
+}
+.folio .studio-hero .hero-message {
+  width: 100%;
+  padding: 0;
+}
+.folio .hero-message h1 {
+  font-size: clamp(38px, 5.5vw, 74px);
+  line-height: 1.16;
+}
+.folio .hero-description {
+  max-width: 600px;
+}
+.folio .showcase-track,
+.folio .showcase-track.is-gallery-ready {
+  --showcase-peek: 0px;
+  grid-auto-columns: 100%;
+  /* One intrinsic grid row keeps every card equal, including expanded evidence. */
+  align-items: stretch;
+  overflow-anchor: none;
+}
+.folio .showcase-art {
+  overflow: visible;
+}
+.folio .showcase-card > .evidence-card {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  margin: 0;
+  padding: 28px;
+  border: 0;
+  border-top: 1px solid #cdcdcd;
+  border-radius: 0 0 15px 15px;
+  min-width: 0;
+}
+.folio .showcase-card .evidence-card h4 {
+  font: 600 24px/1.3 var(--body);
+  letter-spacing: -0.03em;
+  margin: 12px 0 22px;
+}
+.folio .showcase-card .evidence-metrics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin-block: 0 24px;
+}
+.folio .showcase-card:is(.showcase-card--discount) .evidence-metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.folio .showcase-card:is(.showcase-card--dev) .evidence-metrics {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.folio .showcase-card .evidence-metrics > div {
+  padding: 0;
+  border: 0;
+}
+.folio .showcase-card .evidence-metrics dd {
+  font-size: clamp(28px, 3vw, 42px);
+  overflow-wrap: anywhere;
+}
+.folio .showcase-card .evidence-context,
+.folio .showcase-card .evidence-card details {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.folio .showcase-card .evidence-metrics dt {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.folio .evidence--growth .evidence-metrics {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.folio .evidence--growth .evidence-metrics dd {
+  font-size: clamp(30px, 4vw, 52px);
+}
+.folio .showcase-card .evidence-metrics > div {
+  justify-content: start;
+}
+.cover-discovery-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--workspace-line);
+  padding: 0 24px;
+  gap: 14px;
+  font: 12px/1.5 var(--mono);
+  color: var(--workspace-muted);
+}
+.cover-discovery-steps > span {
+  padding: 16px 0;
+}
+.cover-discovery-steps .is-active {
+  border-bottom: 2px solid var(--accent);
+  color: var(--workspace-ink);
+}
+.folio .catalog-preview-intro h4 {
+  font-size: 30px;
+  line-height: 1.18;
+}
+.folio .catalog-preview-row strong {
+  font-size: 13px;
+}
+.folio .catalog-preview-row small {
+  display: block;
+  margin-top: 4px;
+}
+.folio .catalog-preview-detail {
+  background: #222;
+  padding: 18px;
+  border: 1px solid var(--workspace-line);
+  border-radius: 8px;
+}
+.folio .catalog-preview-detail .workspace-label {
+  color: var(--accent);
+  margin: 0;
+}
+.folio .catalog-preview-search > span {
+  border-left: 1px solid var(--workspace-line);
+  padding-left: 12px;
+}
+.folio .folio-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #f4f4f4;
+  padding: 72px 40px 28px;
+}
+.footer-landscape {
+  position: absolute;
+  z-index: -1;
+  inset: auto 0 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right bottom;
+  pointer-events: none;
+}
+.footer-invitation {
+  max-width: 760px;
+  padding-bottom: 68px;
+}
+.folio .footer-invitation h2 {
+  font: 600 clamp(36px, 4.8vw, 64px)/1.1 var(--body);
+  letter-spacing: -0.045em;
+  margin: 24px 0 18px;
+}
+.folio .footer-invitation > p:not(.eyebrow) {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.footer-email {
+  display: inline-flex;
+  gap: 24px;
+  align-items: center;
+  min-height: 48px;
+  font: 500 clamp(13px, 1.7vw, 19px)/1.5 var(--mono);
+  margin-top: 14px;
+  border-bottom: 1px solid #7f7f7f;
+  overflow-wrap: anywhere;
+}
+.footer-email span {
+  color: var(--accent);
+  font-size: 24px;
+}
+.footer-email:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+.folio .footer-bottom {
+  position: relative;
+  border-color: #c8c8c8;
+}
+@media (max-width: 1000px) {
+  .folio .showcase-card .evidence-metrics,
+  .folio .showcase-card--discount .evidence-metrics,
+  .folio .evidence--growth .evidence-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 540px) {
+  .folio .hero-message {
+    padding-inline: 16px;
+  }
+  .folio .hero-message h1 {
+    font-size: clamp(30px, 8.7vw, 44px);
+  }
+  .folio .hero-description {
+    font-size: 15px;
+  }
+  .folio .showcase-card > .evidence-card {
+    padding: 24px 18px;
+  }
+  .folio .showcase-card .evidence-metrics,
+  .folio .showcase-card--discount .evidence-metrics,
+  .folio .showcase-card--dev .evidence-metrics,
+  .folio .evidence--growth .evidence-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .folio .showcase-card .evidence-metrics dd {
+    font-size: 30px;
+  }
+  .folio .catalog-preview-intro h4 {
+    font-size: 24px;
+  }
+  .folio .catalog-preview-search {
+    flex-wrap: wrap;
+  }
+  .folio .catalog-preview-search > span {
+    margin-left: 0;
+    flex-basis: 100%;
+    border-left: 0;
+    padding: 8px 0 0 26px;
+  }
+  .folio .folio-footer {
+    padding: 48px 24px 24px;
+  }
+  .footer-invitation {
+    padding-bottom: 48px;
+  }
+  .footer-email {
+    gap: 12px;
+  }
+  .footer-landscape {
+    width: 180%;
+    max-width: none;
+    left: -80%;
+    opacity: 0.6;
+  }
+}
+@media (forced-colors: active) {
+  .footer-landscape {
+    display: none;
+  }
+  .folio .catalog-preview-detail {
+    border-color: CanvasText;
+  }
+  .folio .hero-message h1 span {
+    color: CanvasText;
+    background: Canvas;
+  }
+}
+
+/* Compact ownership and evidence sit beside the interface, rather than below it. */
+.folio .showcase-card {
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  grid-template-rows: 1fr;
+  align-items: stretch;
+}
+.showcase-description {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 28px;
+  min-width: 0;
+}
+.folio .showcase-description .showcase-card-link {
+  padding: 0;
+}
+.folio .showcase-description .showcase-summary {
+  margin-top: 16px;
+  max-width: none;
+}
+.folio .showcase-description .showcase-summary > p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.folio .showcase-description .showcase-role {
+  margin-bottom: 14px !important;
+}
+.folio .showcase-description .showcase-heading h3 {
+  font-size: clamp(30px, 3vw, 40px);
+}
+.folio .showcase-description .showcase-case-link {
+  margin-top: 8px;
+}
+.folio .showcase-description .evidence-card {
+  padding: 18px;
+  margin: 20px 0 0;
+  background: #f5f5f5;
+  color: #202020;
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  min-width: 0;
+}
+.folio .showcase-description .evidence-card h4 {
+  font: 12px/1.5 var(--mono);
+  letter-spacing: 0;
+  margin: 0 0 16px;
+}
+.folio .showcase-card .showcase-description .evidence-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+.folio .showcase-description .evidence-metrics dd {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.folio .showcase-description .evidence-metrics dt {
+  font-size: 11px;
+}
+.folio .showcase-description .evidence-brief {
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 16px 0 0;
+}
+.folio .showcase-description .evidence-card details {
+  border-color: #d1d1d1;
+  margin-top: 14px;
+  padding-top: 10px;
+  font-size: 11px;
+}
+.folio .showcase-description .evidence-card summary {
+  padding: 4px 0;
+}
+.folio .showcase-description .evidence-context {
+  font-size: 11px;
+}
+.folio .showcase-description .evidence-card table {
+  font-size: 11px;
+}
+.folio .showcase-description .evidence-card :is(th, td) {
+  border-color: #d1d1d1;
+}
+.folio .showcase-art--growth {
+  align-self: stretch;
+}
+.folio .catalog-preview--lean {
+  width: 100%;
+  padding: 28px;
+  box-shadow: 0 18px 45px #0000000c;
+}
+.lean-heading > p,
+.lean-label,
+.lean-detail-heading > span:first-child,
+.lean-mechanics > span,
+.lean-footer {
+  font: 11px/1.5 var(--mono);
+  color: var(--workspace-muted);
+}
+.lean-heading > p {
+  margin: 0 0 12px;
+}
+.lean-heading h4 {
+  font: 600 32px/1.2 var(--body);
+  letter-spacing: -0.04em;
+  margin: 0 0 8px;
+}
+.lean-heading > span {
+  display: block;
+  color: var(--workspace-muted);
+  font: 13px/1.6 var(--body);
+}
+.lean-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #626262;
+  border-radius: 6px;
+  font: 12px/1.5 var(--body);
+  margin: 24px 0;
+  color: var(--workspace-muted);
+}
+.lean-search svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  flex-shrink: 0;
+}
+.lean-catalog {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 20px;
+}
+.lean-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 12px;
+}
+.lean-label > span {
+  color: #999;
+}
+.lean-program {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 12px;
+  border-bottom: 1px solid var(--workspace-line);
+}
+.lean-program strong {
+  font: 600 13px/1.5 var(--body);
+}
+.lean-program small {
+  display: block;
+  font: 11px/1.5 var(--mono);
+  margin-top: 5px;
+  color: var(--workspace-muted);
+}
+.lean-program > span:last-child {
+  color: var(--workspace-muted);
+}
+.lean-program.is-selected {
+  background: #292929;
+  border-radius: 6px;
+  box-shadow: inset 2px 0 var(--accent);
+}
+.lean-program.is-selected > span:last-child {
+  color: var(--accent);
+}
+.lean-detail {
+  padding: 18px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: #242424;
+}
+.lean-detail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.lean-detail-heading > span:first-child {
+  color: var(--accent);
+}
+.lean-percent {
+  font: 500 38px/1 var(--mono);
+  color: var(--accent);
+}
+.lean-detail h4 {
+  font: 600 24px/1.2 var(--body);
+  letter-spacing: -0.03em;
+  margin: 14px 0;
+}
+.lean-detail > p {
+  font: 12px/1.7 var(--body);
+  color: var(--workspace-muted);
+}
+.lean-mechanics {
+  margin-top: 20px;
+  border-top: 1px solid var(--workspace-line);
+  padding-top: 16px;
+}
+.lean-mechanics > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.lean-mechanics > div > span {
+  font: 11px/1.4 var(--mono);
+  padding: 5px 7px;
+  border: 1px solid #535353;
+  border-radius: 4px;
+}
+.lean-detail > .lean-rule {
+  margin-top: 14px;
+  font-size: 11px;
+}
+.lean-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--workspace-line);
+  margin-top: 24px;
+  padding-top: 16px;
+}
+.showcase-stage {
+  position: relative;
+}
+.folio .showcase-stage .showcase-toolbar {
+  padding-block: 16px;
+  min-height: 78px;
+}
+@media (max-width: 1000px) {
+  .folio .showcase-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+  }
+  .folio .showcase-description,
+  .folio .showcase-art,
+  .folio .showcase-caption {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .folio .showcase-art {
+    align-items: flex-start;
+  }
+  .showcase-description {
+    padding: 24px;
+  }
+  .folio .showcase-description .showcase-card-header {
+    display: block;
+  }
+  .folio .showcase-card .showcase-description .evidence-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .folio .showcase-description .evidence-card {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 540px) {
+  .showcase-description {
+    padding: 24px 18px;
+  }
+  .folio .showcase-card .showcase-description .evidence-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .folio .catalog-preview--lean {
+    padding: 20px 16px;
+  }
+  .lean-heading h4 {
+    font-size: 26px;
+  }
+  .lean-catalog {
+    grid-template-columns: 1fr;
+  }
+  .lean-detail {
+    padding: 16px;
+  }
+}
+@media (forced-colors: active) {
+  .lean-program.is-selected {
+    outline: 1px solid Highlight;
+    box-shadow: none;
+  }
+  .lean-detail,
+  .lean-mechanics > div > span,
+  .lean-search {
+    border-color: CanvasText;
+  }
+}
