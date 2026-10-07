@@ -66,10 +66,10 @@ function settlePhase(element) {
   if (box.bottom <= 0 || box.top >= innerHeight) return;
   element.animate(
     [
-      { opacity: 0.65, transform: "translateX(6px)", filter: "blur(1.5px)" },
-      { opacity: 1, transform: "translateX(0)", filter: "blur(0)" },
+      { opacity: 0.35, transform: "translateY(10px)" },
+      { opacity: 1, transform: "translateY(0)" },
     ],
-    { duration: 400, easing: ease },
+    { duration: 380, easing: ease },
   );
 }
 
@@ -314,8 +314,12 @@ for (const receipt of document.querySelectorAll('[data-receipt]')) {
       rows[i].querySelector('[data-receipt-detail]').textContent=toggle.checked?`${percent}% of ${money(before)} · Remaining ${money(balance)}`:'Not applied · Balance unchanged';
     });
     const total=stackDiscounts(start,promos.filter(x=>x.checked).map(x=>Number(x.dataset.receiptPromo)));
-    receipt.querySelector('[data-receipt-net]').textContent=money(total.net);
+    const net=receipt.querySelector('[data-receipt-net]');
+    const nextNet=money(total.net);
+    const changed=net.textContent!==nextNet;
+    net.textContent=nextNet;
     receipt.querySelector('[data-receipt-savings]').textContent=`You save ${money(start-total.net)} · ${total.effective}% effective discount`;
+    if(changed&&!motionPaused()&&!document.hidden) net.animate([{opacity:.4,transform:'translateY(6px)'},{opacity:1,transform:'translateY(0)'}],{duration:280,easing:ease});
   };
   [input,...promos].forEach(control=>{control.disabled=false;control.addEventListener('input',()=>{receipt.querySelector('[data-receipt-net]').setAttribute('aria-live','polite');update();});});
   update();
@@ -513,23 +517,66 @@ document.addEventListener("visibilitychange", syncMotion);
 // element visible; pause/reduced motion settle immediately to the final UI.
 const entered = new WeakSet();
 const entrances = [
-  ...document.querySelectorAll("[data-glass-enter],[data-glass-demo]"),
+  ...document.querySelectorAll(
+    "[data-glass-enter],[data-glass-demo],.work-stack .showcase-card",
+  ),
 ];
+function entranceFor(element) {
+  if (element.classList.contains("glass-hero-product")) {
+    return {
+      keyframes: [
+        { opacity: 0, transform: "translateY(42px) scale(0.985)" },
+        { opacity: 1, transform: "none" },
+      ],
+      options: { duration: 920, delay: 140, easing: ease, fill: "backwards" },
+    };
+  }
+  if (element.closest(".glass-hero")) {
+    const order = [...element.parentElement.children]
+      .filter((node) => node.matches?.("[data-glass-enter]"))
+      .indexOf(element);
+    return {
+      keyframes: [
+        { opacity: 0, transform: "translateY(14px)" },
+        { opacity: 1, transform: "none" },
+      ],
+      options: {
+        duration: 620,
+        delay: 30 + Math.max(order, 0) * 90,
+        easing: ease,
+        fill: "backwards",
+      },
+    };
+  }
+  if (element.classList.contains("showcase-card")) {
+    return {
+      keyframes: [
+        { opacity: 0, transform: "translateY(36px)" },
+        { opacity: 1, transform: "none" },
+      ],
+      options: { duration: 800, easing: ease, fill: "backwards" },
+    };
+  }
+  return {
+    keyframes: [
+      { opacity: 0, transform: "translateY(22px)" },
+      { opacity: 1, transform: "none" },
+    ],
+    options: { duration: 700, easing: ease, fill: "backwards" },
+  };
+}
 const enter = new IntersectionObserver(
   (entries) => {
     for (const entry of entries) {
       if (!entry.isIntersecting || entered.has(entry.target)) continue;
       entered.add(entry.target);
       enter.unobserve(entry.target);
+      if (entry.target.classList.contains("glass-hero-product")) {
+        entry.target.classList.add("is-choreographed");
+      }
       if (motionPaused() || document.hidden) continue;
-      const index = entrances.indexOf(entry.target);
-      const animation = entry.target.animate(
-        [
-          { opacity: 0, transform: "translateY(28px)" },
-          { opacity: 1, transform: "translateY(0)" },
-        ],
-        { duration: 650, delay: Math.min((index % 2) * 70, 70), easing: ease, fill: "backwards" },
-      );
+      const motion = entranceFor(entry.target);
+      const animation = entry.target.animate(motion.keyframes, motion.options);
       arrivals.add(animation);
       animation.finished
         .catch(() => {})

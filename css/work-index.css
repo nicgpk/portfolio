@@ -1,0 +1,163 @@
+/* Work index: the published projects page, set in the dark glass system. */
+.work-stack {
+  padding-top: 148px;
+}
+.work-stack .showcase-intro {
+  max-width: 720px;
+  margin: 0 0 40px;
+  text-align: left;
+}
+.work-stack .showcase-intro .eyebrow {
+  display: block;
+  margin: 0 0 10px;
+  color: var(--glass-muted);
+  font: 500 13px/1.4 var(--body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.work-stack .showcase-intro h1 {
+  font: 500 clamp(48px, 6vw, 72px) / 1.02 var(--body);
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+}
+.work-stack .showcase-intro p {
+  margin: 0;
+  color: var(--glass-muted);
+  font-size: 18px;
+}
+.work-stack .case-index,
+.work-stack .showcase-toolbar {
+  display: none;
+}
+.work-stack .showcase-track {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  overflow: visible;
+  padding: 0;
+  scroll-snap-type: none;
+}
+.work-stack .showcase-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
+  align-items: stretch;
+  border: 1px solid var(--glass-line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.028);
+  overflow: hidden;
+}
+.work-stack .showcase-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 32px;
+}
+.work-stack .showcase-card-header {
+  display: block;
+  padding: 0;
+}
+.work-stack .showcase-heading h3 {
+  font: 500 clamp(28px, 3vw, 40px) / 1.12 var(--body);
+  letter-spacing: -0.03em;
+  max-width: 16ch;
+  margin: 0;
+}
+.work-stack .showcase-role {
+  margin: 0 0 12px;
+  color: var(--glass-accent-text);
+  font: 500 13px/1.45 var(--body);
+}
+.work-stack .work-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0 0;
+}
+.work-stack .work-metrics > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.work-stack .work-metrics dd {
+  order: -1;
+  margin: 0;
+  color: var(--glass-ink);
+  font: 500 clamp(22px, 2.2vw, 30px) / 1.15 var(--body);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+.work-stack .work-metrics dt {
+  margin-top: 4px;
+  color: var(--glass-muted);
+  font: 400 12px/1.4 var(--body);
+}
+.work-stack .showcase-summary {
+  max-width: 42ch;
+  margin-top: 18px;
+}
+.work-stack .showcase-summary > p {
+  color: var(--glass-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.work-stack .evidence-card {
+  display: none;
+}
+.work-stack .showcase-art {
+  margin: 16px 16px 16px 0;
+  min-height: 460px;
+  max-height: min(78vh, 820px);
+  overflow: auto;
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(255, 255, 255, 0.08), transparent 42%),
+    #12141a;
+}
+.work-stack .archive {
+  border-top: 1px solid var(--glass-line);
+  margin-top: 28px;
+}
+.work-stack + .work-source-links,
+.portfolio-work .work-source-links {
+  margin-top: 8px;
+}
+.archive-role {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--glass-muted);
+  font: 500 13px/1.4 var(--body);
+}
+.work-return {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 8px 0 48px;
+  color: var(--glass-ink);
+  font: 500 15px/1.4 var(--body);
+  text-decoration: none;
+}
+.work-return:hover {
+  color: var(--glass-accent-text);
+}
+
+@media (max-width: 900px) {
+  .work-stack .showcase-card {
+    grid-template-columns: 1fr;
+  }
+  .work-stack .showcase-art {
+    margin: 0 16px 16px;
+    min-height: 360px;
+    max-height: 640px;
+  }
+  .work-stack .work-metrics {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-stack .showcase-card,
+  .glass-hero-product.is-choreographed .hero-program {
+    animation: none !important;
+  }
+}

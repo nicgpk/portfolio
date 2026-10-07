@@ -876,6 +876,24 @@ html[data-motion=off] :is(.glass-feature *,.glass-feature *::before,.glass-atmos
   .showcase-atmosphere .paper-wave {filter:blur(6px);}
   .showcase-atmosphere .paper-wave.is-wave-ready {opacity:.42;}
 }
+@media (prefers-reduced-motion: no-preference) {
+  html[data-motion="on"] .glass-hero-product.is-choreographed .hero-program {
+    animation: hero-card-in 560ms var(--glass-ease) both;
+  }
+  html[data-motion="on"] .glass-hero-product.is-choreographed .hero-program:nth-child(1) {
+    animation-delay: 60ms;
+  }
+  html[data-motion="on"] .glass-hero-product.is-choreographed .hero-program:nth-child(2) {
+    animation-delay: 140ms;
+  }
+  html[data-motion="on"] .glass-hero-product.is-choreographed .hero-program:nth-child(3) {
+    animation-delay: 220ms;
+  }
+}
+@keyframes hero-card-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
 @media (prefers-reduced-motion:reduce) {.hero-workspace .hero-program {transition:none!important;}}
 /* Resume atmosphere belongs to the viewport, never the text/header rectangle. */
 @media screen {

@@ -1,7 +1,7 @@
 import { motionPaused } from "./kinetics.mjs";
 
 // Native overflow for touch/trackpads, with scoped mouse-wheel paging on desktop.
-for (const root of document.querySelectorAll(".project-showcase")) {
+for (const root of document.querySelectorAll(".project-showcase:not(.work-stack)")) {
   const track = root.querySelector(".showcase-track");
   track.classList.add("is-gallery-ready");
   const cards = [...track.querySelectorAll(".showcase-card")];
