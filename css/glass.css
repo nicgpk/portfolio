@@ -64,7 +64,6 @@
   body.folio .glass-hero a.studio-button {color:#101115 !important;white-space:nowrap;flex:none;}
   body.folio .glass-hero a.studio-button .ui-icon {color:#101115;}
   .folio .hero-secondary {color:var(--glass-ink);font:500 16px/24px var(--body);display:inline-flex;align-items:center;gap:10px;min-height:48px;white-space:nowrap;flex:none;}
-  .folio .glass-location {font-size:13px;color:var(--glass-muted);}
   .glass-work {max-width:1160px;margin:0 auto;padding:0 0 96px;scroll-margin-top:116px;}
   .glass-section-heading {display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:36px;}
   .folio .glass-section-heading h2 {font:500 36px/1.25 var(--body);letter-spacing:-.025em;margin:0;}
