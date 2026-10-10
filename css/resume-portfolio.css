@@ -380,6 +380,17 @@
     gap: 12px;
   }
 }
+/* Reading-link sizing must not stretch the shared nav profile circles. */
+@media screen {
+  body.resume-page .nav-social a {
+    display: grid;
+    place-items: center;
+    gap: 0;
+    min-height: 0;
+    padding: 0;
+    line-height: 1;
+  }
+}
 @media print {
   .resume-page .site-nav,
   .resume-page main > section:last-child:not(.hero),
