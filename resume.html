@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      document.documentElement.dataset.motion = matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches
+        ? "off"
+        : "on";
+    </script>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -141,7 +148,7 @@
     <link rel="stylesheet" href="css/link-system.css" />
     <link rel="stylesheet" href="css/resume-portfolio.css" />
     <link rel="stylesheet" href="css/vesper-tokens.css" />
-    <link rel="stylesheet" href="css/glass.css?v=plex-sans-1" />
+    <link rel="stylesheet" href="css/glass.css?v=load-once" />
   </head>
   <body class="resume-page">
     <div class="resume-atmosphere" aria-hidden="true"><div class="paper-wave" data-paper-wave="resume"></div></div>
@@ -517,7 +524,12 @@
         &middot; <a href="https://github.com/nicgpk">GitHub</a>
       </div>
     </footer>
-    <script type="module" src="js/glass-demos.mjs"></script>
+    <script type="module" src="js/glass-demos.mjs?v=12"></script>
+    <script type="module">
+      import("./js/glass-demos.mjs?v=12").catch(function () {
+        document.documentElement.dataset.motion = "off";
+      });
+    </script>
     <script type="module" src="js/paper-wave.mjs?v=resume-wave-32"></script>
   </body>
 </html>

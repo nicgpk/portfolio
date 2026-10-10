@@ -611,6 +611,7 @@ const enter = new IntersectionObserver(
       if (!entry.isIntersecting || entered.has(entry.target)) continue;
       entered.add(entry.target);
       enter.unobserve(entry.target);
+      entry.target.classList.add("is-entered");
       if (entry.target.classList.contains("glass-hero-product")) {
         entry.target.classList.add("is-choreographed");
       }

@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      document.documentElement.dataset.motion = matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches
+        ? "off"
+        : "on";
+    </script>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -59,7 +66,7 @@
     <link rel="stylesheet" href="css/personal-landing.css" />
     <link rel="stylesheet" href="css/link-system.css" />
     <link rel="stylesheet" href="css/craft-motion.css" />
-    <link rel="stylesheet" href="css/glass.css?v=plex-sans-1" />
+    <link rel="stylesheet" href="css/glass.css?v=load-once" />
     <link rel="stylesheet" href="css/work-index.css?v=8" />
     <link
       rel="preload"
@@ -370,7 +377,12 @@
       </div>
     </footer>
     <script type="module" src="js/folio.mjs"></script>
-    <script type="module" src="js/glass-demos.mjs?v=11"></script>
+    <script type="module" src="js/glass-demos.mjs?v=12"></script>
+    <script type="module">
+      import("./js/glass-demos.mjs?v=12").catch(function () {
+        document.documentElement.dataset.motion = "off";
+      });
+    </script>
     <script type="module" src="js/paper-wave.mjs"></script>
   </body>
 </html>

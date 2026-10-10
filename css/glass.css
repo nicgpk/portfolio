@@ -429,10 +429,11 @@
   .glass-feature *, .glass-feature *::before,.glass-atmosphere i,.site-nav,.site-nav::before,.site-nav *,.hero-workspace * {animation:none!important;transition:none!important;}
 }
 html[data-motion=off] :is(.glass-feature *,.glass-feature *::before,.glass-atmosphere i,.site-nav,.site-nav::before,.site-nav *,.hero-workspace *) {animation:none!important;transition:none!important;}
+html[data-motion=on] [data-glass-enter]:not(.is-entered) {opacity:0;}
 html[data-motion=on] [data-section-rise]:not(.is-risen) {opacity:0;transform:translateY(48px);}
 html[data-motion=on] [data-section-rise].is-risen {opacity:1;transform:none;transition:opacity 1800ms cubic-bezier(.4,.05,.2,1),transform 1800ms cubic-bezier(.4,.05,.2,1);}
 @media (prefers-reduced-motion:reduce) {
-  html[data-motion=on] [data-section-rise] {opacity:1;transform:none;transition:none;}
+  html[data-motion=on] :is([data-section-rise],[data-glass-enter]) {opacity:1;transform:none;transition:none;}
 }
 @supports not (backdrop-filter:blur(1px)) {
   :is(.folio,.resume-page) .site-nav::before {background:#14161c;}
