@@ -1,6 +1,6 @@
 /* User-selected dark glass world, extending locally hosted Vesper primitives. */
 /* Shared faces are also available to the standalone screen resume. */
-@font-face {font-family:Fustat;src:url('../fonts/vesper/fustat-latin.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:swap;}
+@font-face {font-family:'IBM Plex Sans';src:url('../fonts/ibm-plex-sans.woff2') format('woff2');font-weight:100 700;font-style:normal;font-display:swap;}
 @font-face {font-family:'JetBrains Mono';src:url('../fonts/vesper/jetbrains-mono-regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
 :root {
   --glass-ground: #0a0a0a;
@@ -27,7 +27,7 @@
   body.folio, body.resume-page {
     --ink:var(--glass-ink); --muted:var(--glass-muted); --line:var(--glass-line); --paper:var(--glass-ground);
     --bg:var(--glass-ground); --surface:var(--glass-raised); --text:var(--glass-ink); --text-muted:var(--glass-muted); --text-dim:var(--glass-muted); --case-muted:var(--glass-muted); --border:var(--glass-line); --border-strong:var(--glass-control-line);
-    --body:'Fustat',sans-serif; --mono:'JetBrains Mono',monospace;
+    --body:'IBM Plex Sans',sans-serif; --mono:'JetBrains Mono',monospace;
     margin:0; max-width:none; border:0; background:var(--glass-ground); color:var(--glass-ink); font:16px/1.65 var(--body);
   }
   body.folio::before,body.folio::after,body.resume-page::before,body.resume-page::after {display:none;}
