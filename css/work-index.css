@@ -1,163 +1,47 @@
-/* Work index: the published projects page, set in the dark glass system. */
-.work-stack {
-  padding-top: 148px;
-}
-.work-stack .showcase-intro {
-  max-width: 720px;
-  margin: 0 0 40px;
-  text-align: left;
-}
-.work-stack .showcase-intro .eyebrow {
-  display: block;
-  margin: 0 0 10px;
-  color: var(--glass-muted);
-  font: 500 13px/1.4 var(--body);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-.work-stack .showcase-intro h1 {
-  font: 500 clamp(48px, 6vw, 72px) / 1.02 var(--body);
-  letter-spacing: -0.04em;
-  margin: 0 0 12px;
-}
-.work-stack .showcase-intro p {
-  margin: 0;
-  color: var(--glass-muted);
-  font-size: 18px;
-}
-.work-stack .case-index,
-.work-stack .showcase-toolbar {
-  display: none;
-}
-.work-stack .showcase-track {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  overflow: visible;
-  padding: 0;
-  scroll-snap-type: none;
-}
-.work-stack .showcase-card {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
-  align-items: stretch;
-  border: 1px solid var(--glass-line);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.028);
-  overflow: hidden;
-}
-.work-stack .showcase-description {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 36px 32px;
-}
-.work-stack .showcase-card-header {
-  display: block;
-  padding: 0;
-}
-.work-stack .showcase-heading h3 {
-  font: 500 clamp(28px, 3vw, 40px) / 1.12 var(--body);
-  letter-spacing: -0.03em;
-  max-width: 16ch;
-  margin: 0;
-}
-.work-stack .showcase-role {
-  margin: 0 0 12px;
-  color: var(--glass-accent-text);
-  font: 500 13px/1.45 var(--body);
-}
-.work-stack .work-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin: 22px 0 0;
-}
-.work-stack .work-metrics > div {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-.work-stack .work-metrics dd {
-  order: -1;
-  margin: 0;
-  color: var(--glass-ink);
-  font: 500 clamp(22px, 2.2vw, 30px) / 1.15 var(--body);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.03em;
-}
-.work-stack .work-metrics dt {
-  margin-top: 4px;
-  color: var(--glass-muted);
-  font: 400 12px/1.4 var(--body);
-}
-.work-stack .showcase-summary {
-  max-width: 42ch;
-  margin-top: 18px;
-}
-.work-stack .showcase-summary > p {
-  color: var(--glass-muted);
-  font-size: 15px;
-  line-height: 1.6;
-}
-.work-stack .evidence-card {
-  display: none;
-}
-.work-stack .showcase-art {
-  margin: 16px 16px 16px 0;
-  min-height: 460px;
-  max-height: min(78vh, 820px);
-  overflow: auto;
-  border-radius: 14px;
-  background:
-    radial-gradient(ellipse at 18% 0%, rgba(255, 255, 255, 0.08), transparent 42%),
-    #12141a;
-}
-.work-stack .archive {
-  border-top: 1px solid var(--glass-line);
-  margin-top: 28px;
-}
-.work-stack + .work-source-links,
-.portfolio-work .work-source-links {
-  margin-top: 8px;
-}
-.archive-role {
-  display: block;
-  margin: 0 0 8px;
-  color: var(--glass-muted);
-  font: 500 13px/1.4 var(--body);
-}
-.work-return {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  margin: 8px 0 48px;
-  color: var(--glass-ink);
-  font: 500 15px/1.4 var(--body);
-  text-decoration: none;
-}
-.work-return:hover {
-  color: var(--glass-accent-text);
+/* Work index: the original projects page — hero, three case rows, archive — in the dark glass system. */
+@media screen {
+  body.folio main.portfolio-work {margin-top:0;}
+  .work-intro .glass-atmosphere {bottom:-200px;}
+  .folio .work-hero {padding:176px 24px 88px;}
+  .folio .work-hero h1 {font:500 clamp(48px,6vw,80px)/1.04 var(--body);letter-spacing:-.045em;margin:0 0 20px;}
+  .folio .work-hero > p:last-child {font-size:18px;}
+
+  .work-projects {padding-bottom:24px;}
+  .work-feature-list {display:flex;flex-direction:column;gap:32px;}
+  .glass-feature-copy .work-role {margin:0 0 14px;color:var(--glass-muted);font:500 13px/1.5 var(--body);}
+  .folio .work-feature .glass-feature-copy h3 {font:500 clamp(28px,2.6vw,36px)/1.15 var(--body);letter-spacing:-.03em;margin:0;}
+  .work-feature .glass-card-metrics {margin-top:28px;padding-top:24px;border-top:1px solid var(--glass-line);}
+  .work-feature .glass-card-metrics dd {font-size:clamp(26px,2.6vw,36px);line-height:1.15;}
+  .glass-feature-copy .work-summary {max-width:46ch;margin-top:16px;font-size:16px;line-height:1.65;text-wrap:pretty;}
+  .glass-feature-copy .work-summary + .glass-metric-note {margin-top:10px;}
+  .folio .work-case-link {display:inline-flex;align-items:center;gap:10px;min-height:44px;margin-top:20px;font-size:15px;}
+  .work-case-link .ui-icon {width:18px;height:18px;transition:transform 380ms var(--glass-ease);}
+  .work-case-link:is(:hover,:focus-visible) .ui-icon {transform:translate(2px,-2px);}
+  .work-feature:has(.work-case-link:hover) {border-color:#ffffff2e;}
+
+  .folio .work-archive {padding-top:96px;}
+  .work-return {display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin-top:48px;padding-top:28px;border-top:1px solid var(--glass-line);}
+  .folio .work-return .text-link {display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:15px;}
+  .work-return .ui-icon {width:18px;height:18px;}
 }
 
-@media (max-width: 900px) {
-  .work-stack .showcase-card {
-    grid-template-columns: 1fr;
-  }
-  .work-stack .showcase-art {
-    margin: 0 16px 16px;
-    min-height: 360px;
-    max-height: 640px;
-  }
-  .work-stack .work-metrics {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+/* Every case gets the wide row the home page gives its last project: copy left, live concept right. */
+@media screen and (min-width:960px) {
+  .work-feature-list .glass-feature.work-feature {display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);grid-template-rows:none;gap:40px;padding:24px;align-items:stretch;}
+  .work-feature-list .work-feature .glass-feature-copy {display:flex;flex-direction:column;padding:20px 8px 12px 16px;}
+  .work-feature .glass-card-metrics {margin-top:auto;}
+  .work-feature-list .work-feature .glass-demo-stage {height:720px;margin:0;padding:24px;}
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .work-stack .showcase-card,
-  .glass-hero-product.is-choreographed .hero-program {
-    animation: none !important;
-  }
+@media screen and (max-width:767px) {
+  .folio .work-hero {padding:140px 20px 56px;}
+  .folio .work-hero h1 {font-size:48px;}
+  .folio .work-hero > p:last-child {font-size:16px;}
+  .work-feature-list {gap:24px;}
+  .folio .work-archive {padding-top:64px;}
+  .work-return {flex-direction:column;align-items:flex-start;gap:8px;}
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .work-case-link .ui-icon {transition:none;}
 }

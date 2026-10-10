@@ -1,12 +1,11 @@
 import { normalizeRequiredText } from "./form-validation.mjs";
 import { stackDiscounts } from "./calculations.mjs";
 import { setActionLabel } from "./interface-icons.mjs";
-import "./evidence-motion.mjs";
-
 import { motionPaused } from "./kinetics.mjs";
-import "./showcase.mjs";
-import "./clouds.mjs";
-import "./project-previews.mjs";
+if (document.querySelector("[data-evidence-icon]")) import("./evidence-motion.mjs");
+if (document.querySelector(".project-showcase:not(.work-stack)")) import("./showcase.mjs");
+if (document.querySelector("[data-cloud-scene]")) import("./clouds.mjs");
+if (document.querySelector("[data-preview-picker], [data-discount-preview]")) import("./project-previews.mjs");
 import {
   revealFeedback,
   attachIndicator,

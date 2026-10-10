@@ -1,8 +1,5 @@
 // Paper Shaders 0.0.81, Apache-2.0. Vendored locally; no runtime third-party requests.
-import {ShaderMount} from './vendor/paper/shader-mount.js';
-import {grainGradientFragmentShader, GrainGradientShapes} from './vendor/paper/shaders/grain-gradient.js';
 import {getShaderColorFromString} from './vendor/paper/get-shader-color-from-string.js';
-import {getShaderNoiseTexture} from './vendor/paper/get-shader-noise-texture.js';
 const hosts=document.querySelectorAll('[data-paper-wave]');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const compact=matchMedia('(max-width:767px)');
@@ -23,6 +20,11 @@ for(const host of hosts) {
  const pixelBudget=()=>showcase?(compact.matches?300000:450000):compact.matches?(middle?350000:450000):(middle?500000:800000);
  const start=async()=>{
   try {
+   const [{ShaderMount},{grainGradientFragmentShader,GrainGradientShapes},{getShaderNoiseTexture}]=await Promise.all([
+    import('./vendor/paper/shader-mount.js'),
+    import('./vendor/paper/shaders/grain-gradient.js'),
+    import('./vendor/paper/get-shader-noise-texture.js'),
+   ]);
    const noise=getShaderNoiseTexture();await noise.decode();
    mount=new ShaderMount(host,grainGradientFragmentShader,{
     u_colorBack:getShaderColorFromString('#0a0a0a'),...composition(),
@@ -43,5 +45,6 @@ for(const host of hosts) {
  if(middle||showcase) {
   const lazy=new IntersectionObserver((entries)=>{if(entries.some(entry=>entry.isIntersecting)){lazy.disconnect();start();}},{rootMargin:'250px'});
   lazy.observe(host);
- }else start();
+ }else if(typeof requestIdleCallback==='function') requestIdleCallback(()=>start(),{timeout:1200});
+ else addEventListener('load',()=>start(),{once:true});
 }

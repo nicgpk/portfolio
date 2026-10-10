@@ -236,56 +236,68 @@ if (hero) {
     { at: 2400, run: () => select(2) },
     { at: 3500, run: () => select(0) },
   ]);
+
+  const figures = [...hero.querySelectorAll(".hero-overview dd")]
+    .map((dd) => {
+      const walker = document.createTreeWalker(dd, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        const parts = node.textContent.match(/^(\D*)(\d+)(.*)$/s);
+        if (parts && !node.parentElement.closest(".sr-only"))
+          return { node, prefix: parts[1], value: +parts[2], suffix: parts[3] };
+      }
+      return null;
+    })
+    .filter(Boolean);
+  const countUp = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) return;
+      countUp.disconnect();
+      if (motionPaused() || document.hidden) return;
+      const start = performance.now();
+      const write = (figure, progress) =>
+        (figure.node.textContent =
+          figure.prefix + Math.round(figure.value * progress) + figure.suffix);
+      const tick = (now) => {
+        let running = false;
+        figures.forEach((figure, i) => {
+          const t = Math.min(Math.max((now - start - 420 - i * 90) / 1100, 0), 1);
+          if (motionPaused()) return write(figure, 1);
+          write(figure, 1 - Math.pow(1 - t, 4));
+          running ||= t < 1;
+        });
+        if (running && !motionPaused()) requestAnimationFrame(tick);
+      };
+      figures.forEach((figure) => write(figure, 0));
+      requestAnimationFrame(tick);
+    },
+    { threshold: 0.35 },
+  );
+  if (figures.length) countUp.observe(hero);
 }
 
 const growth = document.querySelector("[data-mini-growth]");
 if (growth) {
   const buttons = [...growth.querySelectorAll("[data-mini-program]")];
-  const filter = growth.querySelector("[data-mini-filter]");
-  const descriptions = [
-    "Property sets a discount. Agoda adds a deal badge and amplifies its reach.",
-    "Choose an audience and budget. Pay only when a booking lands, with no lock-in.",
-    "Share wholesale rates across airlines, banks, loyalty apps and OTAs.",
-  ];
-  const facts = [
-    ['Promotions','Set a flexible discount','Deal badge and marketing reach'],
-    ['Boost Rank','Choose an audience and budget','Search visibility; pay when a booking lands'],
-    ['Maximum Gain','Share wholesale rates','Airlines, banks, loyalty apps and OTAs'],
-  ];
+  const panels = [...growth.querySelectorAll("[data-mini-program-panel]")];
+  let shown = 0;
   const select = (index) => {
     selectProgram(buttons, index);
-    growth.querySelector("[data-mini-program-detail]").textContent =
-      descriptions[index];
-    growth.querySelector('[data-mini-program-name]').textContent=facts[index][0];
-    const list=growth.querySelector('[data-mini-program-facts]');list.replaceChildren();
-    [['Partner action',facts[index][1]],['Agoda support',facts[index][2]]].forEach(([label,value])=>{
-      const row=document.createElement('div'),dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=label;dd.textContent=value;row.append(dt,dd);list.append(row);
-    });
-  };
-  const show = (filtered, index) => {
-    filter.setAttribute("aria-pressed", String(filtered));
-    growth.querySelector('.mini-window-bar > span:last-child').textContent=filtered?'1 matching program':'3 of 8 examples';
-    filter.querySelector("span").textContent = filtered
-      ? "Show all sample programs"
-      : "Show visibility programs";
-    buttons.forEach((button, i) => (button.hidden = filtered && i !== 1));
-    select(index);
+    if (index === shown) return;
+    panels[shown].classList.remove("is-shown");
+    panels[index].classList.add("is-shown");
+    shown = index;
+    settlePhase(panels[index]);
   };
   buttons.forEach((button, i) => {
     button.disabled = false;
     button.addEventListener("click", () => select(i));
   });
-  filter.disabled = false;
-  filter.setAttribute("aria-pressed", "false");
-  filter.addEventListener("click", () => {
-    const active = filter.getAttribute("aria-pressed") !== "true";
-    show(active, active ? 1 : 0);
-  });
-  register(growth.closest("[data-glass-demo]"), 4500, [
-    { at: 0, run: () => show(false, 0) },
-    { at: 1100, run: () => show(true, 1) },
-    { at: 2400, run: () => show(false, 2) },
-    { at: 3500, run: () => show(false, 0) },
+  register(growth.closest("[data-glass-demo]"), 4600, [
+    { at: 0, run: () => select(0) },
+    { at: 1300, run: () => select(1) },
+    { at: 2600, run: () => select(2) },
+    { at: 3900, run: () => select(0) },
   ]);
 }
 
@@ -518,9 +530,12 @@ document.addEventListener("visibilitychange", syncMotion);
 const entered = new WeakSet();
 const entrances = [
   ...document.querySelectorAll(
-    "[data-glass-enter],[data-glass-demo],.work-stack .showcase-card",
+    "[data-glass-enter],[data-glass-demo]",
   ),
-];
+].filter(
+  (element) =>
+    !(element.matches("[data-glass-demo]") && element.closest("[data-section-rise]")),
+);
 function entranceFor(element) {
   if (element.classList.contains("glass-hero-product")) {
     return {
@@ -548,13 +563,38 @@ function entranceFor(element) {
       },
     };
   }
-  if (element.classList.contains("showcase-card")) {
+  if (element.classList.contains("work-feature")) {
     return {
       keyframes: [
-        { opacity: 0, transform: "translateY(36px)" },
+        { opacity: 0, transform: "translateY(32px)" },
         { opacity: 1, transform: "none" },
       ],
-      options: { duration: 800, easing: ease, fill: "backwards" },
+      options: { duration: 820, easing: ease, fill: "backwards" },
+      parts: [
+        ...[...element.querySelectorAll(".glass-feature-copy > *")].map(
+          (node, i) => ({
+            node,
+            keyframes: [
+              { opacity: 0, transform: "translateY(12px)" },
+              { opacity: 1, transform: "none" },
+            ],
+            options: {
+              duration: 560,
+              delay: 120 + i * 60,
+              easing: ease,
+              fill: "backwards",
+            },
+          }),
+        ),
+        {
+          node: element.querySelector(".glass-demo-stage"),
+          keyframes: [
+            { opacity: 0, transform: "translateY(20px) scale(0.985)" },
+            { opacity: 1, transform: "none" },
+          ],
+          options: { duration: 900, delay: 220, easing: ease, fill: "backwards" },
+        },
+      ].filter((part) => part.node),
     };
   }
   return {
@@ -576,16 +616,44 @@ const enter = new IntersectionObserver(
       }
       if (motionPaused() || document.hidden) continue;
       const motion = entranceFor(entry.target);
-      const animation = entry.target.animate(motion.keyframes, motion.options);
-      arrivals.add(animation);
-      animation.finished
-        .catch(() => {})
-        .finally(() => arrivals.delete(animation));
+      const animations = [
+        entry.target.animate(motion.keyframes, motion.options),
+        ...(motion.parts || []).map((part) =>
+          part.node.animate(part.keyframes, part.options),
+        ),
+      ];
+      for (const animation of animations) {
+        arrivals.add(animation);
+        animation.finished
+          .catch(() => {})
+          .finally(() => arrivals.delete(animation));
+      }
     }
   },
   { threshold: 0.12 },
 );
 entrances.forEach((element) => enter.observe(element));
+
+// Later sections stay hidden until they enter, then rise once. Without this
+// script, or with motion paused, the sections stay in their normal visible state.
+const rises = [...document.querySelectorAll("[data-section-rise]")];
+if (rises.length && !motionPaused()) {
+  if (!("IntersectionObserver" in window)) {
+    rises.forEach((element) => element.classList.add("is-risen"));
+  } else {
+    const rise = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting || entry.target.classList.contains("is-risen")) continue;
+          rise.unobserve(entry.target);
+          entry.target.classList.add("is-risen");
+        }
+      },
+      { rootMargin: "0px 0px -24% 0px", threshold: 0.15 },
+    );
+    rises.forEach((element) => rise.observe(element));
+  }
+}
 
 // The capsule keeps its size. Only its visual focus/active marker travels.
 const header = document.querySelector(".site-nav"),
@@ -608,9 +676,7 @@ if (nav) {
   menuButton.innerHTML =
     'Menu <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#chevron-down"/></svg>';
   header.insertBefore(menuButton, nav);
-  const contact = header
-    .querySelector(":scope > .nav-contact")
-    ?.cloneNode(true);
+  const contact = header.querySelector(".nav-contact")?.cloneNode(true);
   if (contact) {
     contact.className = "nav-menu-contact";
     nav.append(contact);

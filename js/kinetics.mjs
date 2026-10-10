@@ -5,7 +5,7 @@ let userPaused = false;
 // Short reveal previews replace the old persistent pause UI on current pages.
 // Keep the historical original pages' controls and preference behavior intact.
 const revealPreviews = Boolean(
-  document.querySelector('script[src$="glass-demos.mjs"]'),
+  document.querySelector('script[src*="glass-demos.mjs"]'),
 );
 try {
   userPaused =
