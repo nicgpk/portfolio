@@ -1066,15 +1066,15 @@ html[data-motion=on] [data-section-rise].is-risen {opacity:1;transform:none;tran
 @media screen {
   .nav-end {display:flex;align-items:center;gap:8px;flex:none;}
   .nav-social {display:flex;align-items:center;gap:6px;margin:0;padding:0;list-style:none;}
-  .nav-social a {display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--glass-line);border-radius:999px;color:var(--glass-muted);transition:color 380ms var(--glass-ease),border-color 380ms var(--glass-ease),background 380ms var(--glass-ease),width 480ms var(--glass-ease),height 480ms var(--glass-ease);}
+  :is(body.folio,body.resume-page) .nav-social a {display:grid;place-items:center;box-sizing:border-box;width:40px;height:40px;min-width:40px;min-height:40px;max-width:40px;max-height:40px;padding:0;gap:0;line-height:1;border:1px solid var(--glass-line);border-radius:999px;color:var(--glass-muted);transition:color 380ms var(--glass-ease),border-color 380ms var(--glass-ease),background 380ms var(--glass-ease),width 480ms var(--glass-ease),height 480ms var(--glass-ease);}
   .nav-social a:is(:hover,:focus-visible) {color:var(--glass-ink);border-color:#ffffff2e;background:#ffffff0a;}
-  :is(.folio,.resume-page) .site-nav.nav-is-scrolled .nav-social a {width:36px;height:36px;}
+  :is(body.folio,body.resume-page) .site-nav.nav-is-scrolled .nav-social a {width:36px;height:36px;min-width:36px;min-height:36px;max-width:36px;max-height:36px;}
   :is(.folio,.resume-page) .site-nav.nav-is-scrolled .nav-social svg {width:16px;height:16px;}
 }
 @media screen and (max-width:767px) {
   :is(.folio,.resume-page) .site-nav.nav-has-menu .nav-end {order:1;margin-left:auto;}
   :is(.folio,.resume-page) .site-nav.nav-has-menu .nav-menu-toggle {order:2;}
-  .nav-social a {width:36px;height:36px;}
+  :is(body.folio,body.resume-page) .nav-social a {width:36px;height:36px;min-width:36px;min-height:36px;max-width:36px;max-height:36px;}
 }
 
 /* Process: six working principles, one quiet glass cell each. */
