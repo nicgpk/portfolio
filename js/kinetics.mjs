@@ -30,7 +30,7 @@ let needsGeometry = true;
 const target = new WeakMap();
 function schedule(geometry = false) {
   needsGeometry ||= geometry;
-  if (!motionPaused() && !document.hidden && !frame)
+  if (states.length && !motionPaused() && !document.hidden && !frame)
     frame = requestAnimationFrame(tick);
 }
 function tick() {

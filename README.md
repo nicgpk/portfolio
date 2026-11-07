@@ -6,7 +6,9 @@ Static HTML, CSS and JavaScript portfolio. The checked-in pages are the editable
 
 Serve this directory with a static HTTP server (for example `python3 -m http.server 4183`) and open http://localhost:4183. Use Node 22 or newer to run `npm test`; the tests have no external dependencies.
 
-The six main pages are Home, Work, Partner Growth Programs, Discounting 2.0, Developer Portal and Resume. `originals/` preserves linked historical project material. The downloadable PDF and ATS HTML live in `files/`.
+The homepage contains the identity hero and animated employer logos, the full Work index with three interactive case studies, experience, work process, and the GovTech archive. `projects.html` redirects to the homepage for existing bookmarks. The other main pages are Partner Growth Programs, Discounting 2.0, Developer Portal and Resume. `originals/` preserves linked historical project material. The downloadable PDF and ATS HTML live in `files/`.
+
+The homepage uses the original animated wave palette at 30% saturation with a matching static fallback, skips staggered content entrances, and loads the demo and background enhancement modules. Content remains visible if JavaScript fails. Case-study pages retain their existing effects.
 
 ## Interaction and rendering
 

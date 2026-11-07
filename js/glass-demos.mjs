@@ -528,7 +528,7 @@ document.addEventListener("visibilitychange", syncMotion);
 // One opening sequence, then four product siblings. Failed scripts leave every
 // element visible; pause/reduced motion settle immediately to the final UI.
 const entered = new WeakSet();
-const entrances = [
+const entrances = document.body.hasAttribute("data-instant-content") ? [] : [
   ...document.querySelectorAll(
     "[data-glass-enter],[data-glass-demo]",
   ),
@@ -732,7 +732,8 @@ if (nav) {
   compact.addEventListener("change", () => setMenu(false));
   setMenu(false);
   let pointed = null;
-  const position = () => {
+  let positioned;
+  const position = (force = true) => {
     const focused = links.includes(document.activeElement)
       ? document.activeElement
       : null;
@@ -740,6 +741,8 @@ if (nav) {
       focused ||
       pointed ||
       links.find((link) => link.hasAttribute("aria-current"));
+    if (!force && selected === positioned) return;
+    positioned = selected;
     if (!selected) {
       indicator.style.opacity = "0";
       return;
@@ -775,15 +778,21 @@ if (nav) {
   new ResizeObserver(position).observe(nav);
   const home = location.pathname.endsWith("/") || /\/index(?:\.html)?$/.test(location.pathname);
   const about = home ? document.querySelector('#about') : null;
+  const destinations = links.map(link => ({link,url:new URL(link.href)}));
   const syncCurrent = () => {
-    if (home)
-      links.forEach((link) => {
-        const bounds=about?.getBoundingClientRect();
-        if (new URL(link.href).hash === "#about" && bounds && bounds.top < innerHeight*.5 && bounds.bottom > 112)
-          link.setAttribute("aria-current", "location");
+    if (home && about) {
+      // Read geometry once before updating any attributes.
+      const bounds=about.getBoundingClientRect();
+      const inAbout=bounds.top < innerHeight*.5 && bounds.bottom > 112;
+      destinations.forEach(({link,url}) => {
+        const current=inAbout && url.hash === "#about" ? "location"
+          : !inAbout && url.pathname.endsWith("/index.html") && !url.hash ? "page" : null;
+        if(link.getAttribute("aria-current")===current)return;
+        if(current)link.setAttribute("aria-current",current);
         else link.removeAttribute("aria-current");
       });
-    position();
+    }
+    position(false);
   };
   const restoreNavigation = () => {
     setMenu(false);
@@ -817,6 +826,17 @@ if (nav) {
       .catch(() => {})
       .finally(() => arrivals.delete(animation));
   }
+}
+
+// Preserve the marquee's position while it is offscreen or the tab is hidden.
+for (const reel of document.querySelectorAll('.employer-reel')) {
+  const track=reel.querySelector('.employer-reel-track');
+  let visible=false;
+  const sync=()=>{track.style.animationPlayState=visible&&!document.hidden?'running':'paused';};
+  const observer=new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;sync();});
+  observer.observe(reel);
+  document.addEventListener('visibilitychange',sync);
+  sync();
 }
 
 // The requested slow frame glow is separate from the finite product previews.

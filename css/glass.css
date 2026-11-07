@@ -1112,3 +1112,8 @@ html[data-motion=on] [data-section-rise].is-risen {opacity:1;transform:none;tran
   .glass-demo-stage .receipt-promotion > strong,.glass-demo-stage [data-mini-deploy] .mini-deploy-detail dd {font-size:clamp(13px,1.2vw,14px);font-weight:500;font-variant-numeric:tabular-nums;}
   .glass-demo-stage .receipt-total output,.glass-demo-stage [data-mini-deploy] .mini-deploy-detail > strong {font:600 clamp(24px,2.3vw,28px)/1.2 var(--body);letter-spacing:-.02em;}
 }
+/* Keep a muted version of the original wave palette. */
+@media screen {
+  :is(.glass-atmosphere,.page-mid-atmosphere,.resume-atmosphere) {filter:saturate(.3);}
+  .showcase-atmosphere {filter:brightness(.3) saturate(.3);}
+}

@@ -3,6 +3,12 @@ import {getShaderColorFromString} from './vendor/paper/get-shader-color-from-str
 const hosts=document.querySelectorAll('[data-paper-wave]');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const compact=matchMedia('(max-width:767px)');
+// All waves on a page share the same decoded noise image.
+let noiseReady;
+const sharedNoise=async(getShaderNoiseTexture)=>{
+ if(!noiseReady) noiseReady=(async()=>{const noise=getShaderNoiseTexture();await noise.decode();return noise;})();
+ return noiseReady;
+};
 for(const host of hosts) {
  let mount;
  let failed=false;
@@ -25,7 +31,7 @@ for(const host of hosts) {
     import('./vendor/paper/shaders/grain-gradient.js'),
     import('./vendor/paper/get-shader-noise-texture.js'),
    ]);
-   const noise=getShaderNoiseTexture();await noise.decode();
+   const noise=await sharedNoise(getShaderNoiseTexture);
    mount=new ShaderMount(host,grainGradientFragmentShader,{
     u_colorBack:getShaderColorFromString('#0a0a0a'),...composition(),
     u_softness:middle?.9:.84,u_intensity:middle?.56:.32,u_noise:.0308,u_shape:GrainGradientShapes.wave,u_noiseTexture:noise,

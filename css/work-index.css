@@ -41,3 +41,37 @@
 @media (prefers-reduced-motion:reduce) {
   .work-case-link .ui-icon {transition:none;}
 }
+
+/* Homepage content paints immediately, even if enhancement scripts fail. */
+@media screen {
+  .hero-work-surface .glass-atmosphere {
+    bottom:auto;
+    height:40%;
+    background:radial-gradient(ellipse 95% 65% at 24% 38%,#204a7e77,transparent 72%),radial-gradient(ellipse 70% 55% at 85% 45%,#cec8bb29,transparent 75%);
+    mask-image:linear-gradient(#000 0%,#000 82%,transparent 100%);
+  }
+  .hero-work-surface .glass-atmosphere .paper-wave {height:100%;bottom:0;}
+  .work-feature-list .work-feature {
+    background:rgba(16,18,22,.15);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+}
+@media screen {
+  html[data-motion=on] body[data-instant-content] :is([data-glass-enter],.work-feature) {opacity:1;}
+}
+
+/* One lightweight opening gesture; the text is visible without animation support. */
+@media screen {
+  .glass-hero h1 .hero-line--name {color:inherit;}
+}
+@media screen and (prefers-reduced-motion:no-preference) {
+  html:not([data-motion=off]) .glass-hero .hero-line {
+    animation:hero-line-arrive 700ms cubic-bezier(.16,1,.3,1) 120ms backwards;
+  }
+  html:not([data-motion=off]) .glass-hero .hero-line--name {animation-delay:0ms;}
+}
+@keyframes hero-line-arrive {
+  from {opacity:.35;transform:translateY(14px);}
+  to {opacity:1;transform:translateY(0);}
+}
