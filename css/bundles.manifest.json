@@ -107,9 +107,7 @@
   },
   "shared": {
     "glass": "css/glass.css?v=ffb437f40d1d",
-    "shader-mount": "js/vendor/paper/shader-mount.js?v=b4e693f2144f",
-    "wave-noise-cache": "js/wave-noise-cache.mjs?v=2aba96eec26c",
-    "paper-wave": "js/paper-wave.mjs?v=26cd7de6b4d9",
+    "paper-wave": "js/paper-wave.mjs?v=b942bc9dd2be",
     "glass-demos": "js/glass-demos.mjs?v=18b5a02b37f5"
   },
   "routes": {
@@ -160,6 +158,22 @@
       ],
       "count": 2
     }
+  },
+  "waveModules": {
+    "js/vendor/paper/get-shader-color-from-string.js": "js/vendor/paper/get-shader-color-from-string.js?v=5b4a27c2ff33",
+    "js/vendor/paper/create-program.js": "js/vendor/paper/create-program.js?v=a876f9fa3017",
+    "js/vendor/paper/vertex-shader.js": "js/vendor/paper/vertex-shader.js?v=cd9856f2e071",
+    "js/vendor/paper/shader-utils.js": "js/vendor/paper/shader-utils.js?v=26ba187ff4b0",
+    "js/wave-shader.mjs": "js/wave-shader.mjs?v=10fdfeaaed55",
+    "js/wave-noise-cache.mjs": "js/wave-noise-cache.mjs?v=0af8ec7a553f",
+    "js/wave-renderer.mjs": "js/wave-renderer.mjs?v=f2a7962f5552",
+    "js/vendor/paper/get-shader-noise-texture.js": "js/vendor/paper/get-shader-noise-texture.js?v=d0d1b0de0a4f",
+    "js/wave-worker.mjs": "js/wave-worker.mjs?v=76b1863358d4",
+    "js/wave-worker-host.mjs": "js/wave-worker-host.mjs?v=255805e2a59e",
+    "js/vendor/paper/shader-mount.js": "js/vendor/paper/shader-mount.js?v=e20176f5b0d3",
+    "js/vendor/paper/shader-sizing.js": "js/vendor/paper/shader-sizing.js?v=db0eb176c9a6",
+    "js/vendor/paper/shaders/grain-gradient.js": "js/vendor/paper/shaders/grain-gradient.js?v=04bc77846c4f",
+    "js/paper-wave.mjs": "js/paper-wave.mjs?v=b942bc9dd2be"
   },
   "sourceDependencies": [
     "css/case-developer.css",

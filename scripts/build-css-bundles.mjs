@@ -80,25 +80,27 @@ for (const [name, names] of Object.entries(bundles)) {
   manifest.bundles[name] = {file, href, sources: files, bytes: Buffer.byteLength(text)};
 }
 manifest.shared.glass = `css/glass.css?v=${hash(read('css/glass.css'))}`;
-// Only these wave dependencies changed with this optimization. Version their
-// imports in dependency order so returning visitors cannot mix old and new APIs.
-const shaderMountHash = hash(read('js/vendor/paper/shader-mount.js'));
-for (const file of ['js/paper-wave.mjs', 'js/wave-noise-cache.mjs']) {
-  let count = 0;
-  const updated = read(file).replace(/(['"])((?:\.\.?\/)+vendor\/paper\/shader-mount\.js)(?:\?[^'"]*)?\1/g,
-    (_, quote, specifier) => { count++; return `${quote}${specifier}?v=${shaderMountHash}${quote}`; });
-  if (count !== 1) throw new Error(`${file}: expected exactly one ShaderMount import.`);
+// Hash the wave's small, acyclic module graph from its leaves upward. This also
+// versions the Worker URL, preventing a fresh host from loading an older worker
+// or renderer API from the browser's still-fresh HTTP cache.
+const moduleHashes = new Map(), visiting = new Set();
+function versionWaveModule(file) {
+  if (moduleHashes.has(file)) return moduleHashes.get(file);
+  if (visiting.has(file)) throw new Error(`Cyclic wave dependency: ${file}`);
+  visiting.add(file);
+  const updated = read(file).replace(/(['"])(\.{1,2}\/[^'"\s]+\.m?js)(?:\?[^'"]*)?\1/g,
+    (_, quote, specifier) => {
+      const dependency = path.posix.normalize(path.posix.join(path.posix.dirname(file), specifier));
+      if (!dependency.startsWith('js/')) throw new Error(`${file}: unexpected wave dependency ${specifier}`);
+      return `${quote}${specifier}?v=${versionWaveModule(dependency)}${quote}`;
+    });
   outputs.set(file, updated);
+  const version = hash(updated);
+  moduleHashes.set(file, version); visiting.delete(file);
+  return version;
 }
-const noiseCacheHash = hash(read('js/wave-noise-cache.mjs'));
-let cacheImports = 0;
-outputs.set('js/paper-wave.mjs', read('js/paper-wave.mjs').replace(
-  /(['"])((?:\.\.?\/)+wave-noise-cache\.mjs)(?:\?[^'"]*)?\1/g,
-  (_, quote, specifier) => { cacheImports++; return `${quote}${specifier}?v=${noiseCacheHash}${quote}`; },
-));
-if (cacheImports !== 1) throw new Error('js/paper-wave.mjs: expected exactly one noise-cache import.');
-manifest.shared['shader-mount'] = `js/vendor/paper/shader-mount.js?v=${shaderMountHash}`;
-manifest.shared['wave-noise-cache'] = `js/wave-noise-cache.mjs?v=${noiseCacheHash}`;
+versionWaveModule('js/paper-wave.mjs');
+manifest.waveModules = Object.fromEntries([...moduleHashes].map(([file, version]) => [file, `${file}?v=${version}`]));
 for (const name of ['paper-wave', 'glass-demos']) {
   const file = `js/${name}.mjs`;
   manifest.shared[name] = `${file}?v=${hash(read(file))}`;

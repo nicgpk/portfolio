@@ -1,5 +1,5 @@
-import { createProgram } from './vendor/paper/shader-mount.js?v=b4e693f2144f';
-import { vertexShaderSource } from './vendor/paper/vertex-shader.js';
+import { createProgram } from './vendor/paper/create-program.js?v=a876f9fa3017';
+import { vertexShaderSource } from './vendor/paper/vertex-shader.js?v=cd9856f2e071';
 
 // These two fields depend on position, not time. Keep their original full
 // floating-point values at the original pixel budget instead of recomputing
@@ -62,7 +62,7 @@ export function cacheWaveNoise(mount, fragment) {
     mount.setUniformValues(mount.providedUniforms);
     mount.resolutionChanged = true;
     gl.deleteProgram(waveProgram); release();
-    delete mount.parentElement.dataset.waveNoiseCache;
+    if (mount.parentElement?.dataset) delete mount.parentElement.dataset.waveNoiseCache;
   };
   mount.beforeDraw = () => {
     const canvas = mount.canvasElement;
@@ -123,6 +123,6 @@ export function cacheWaveNoise(mount, fragment) {
     if (active) { release(); gl.deleteProgram(originalProgram); active = false; }
     mount.beforeDraw = null; dispose();
   };
-  mount.parentElement.dataset.waveNoiseCache = 'ready';
+  if (mount.parentElement?.dataset) mount.parentElement.dataset.waveNoiseCache = 'ready';
   return true;
 }
