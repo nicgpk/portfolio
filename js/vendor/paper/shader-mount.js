@@ -31,6 +31,8 @@ class ShaderMount {
   hasBeenDisposed = false;
   /** If the resolution of the canvas has changed since the last render */
   resolutionChanged = true;
+  // Optional local render pass; used to reuse the wave's time-independent grain.
+  beforeDraw = null;
   /** Store textures that are provided by the user */
   textures = /* @__PURE__ */ new Map();
   minPixelRatio;
@@ -201,6 +203,7 @@ class ShaderMount {
     if (this.currentSpeed !== 0) {
       this.currentFrame += dt * this.currentSpeed;
     }
+    this.beforeDraw?.();
     this.gl.clear(this.gl.COLOR_BUFFER_BIT);
     this.gl.useProgram(this.program);
     this.gl.uniform1f(this.uniformLocations.u_time, this.currentFrame * 1e-3);
@@ -504,6 +507,7 @@ function bestGuessBrowserZoom(doc) {
   return ratio;
 }
 export {
+  createProgram,
   ShaderMount,
   isPaperShaderElement
 };

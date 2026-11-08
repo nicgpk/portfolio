@@ -305,7 +305,11 @@ for (const receipt of document.querySelectorAll('[data-receipt]')) {
   const input=receipt.querySelector('[data-receipt-rate]');
   const promos=[...receipt.querySelectorAll('[data-receipt-promo]')];
   const rows=[...receipt.querySelectorAll('[data-receipt-row]')];
-  const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n);
+  const formatter=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'});
+  const money=n=>formatter.format(n);
+  const receiptEase='cubic-bezier(.4,0,.2,1)';
+  const highlight=getComputedStyle(receipt).getPropertyValue('--product-raised').trim()||'#1c2023';
+  let totalAnimation,rowAnimation;
   const update=()=>{
     const start=input.valueAsNumber;
     const valid=input.validity.valid&&Number.isFinite(start);
@@ -331,23 +335,30 @@ for (const receipt of document.querySelectorAll('[data-receipt]')) {
     const changed=net.textContent!==nextNet;
     net.textContent=nextNet;
     receipt.querySelector('[data-receipt-savings]').textContent=`You save ${money(start-total.net)} · ${total.effective}% effective discount`;
-    if(changed&&!motionPaused()&&!document.hidden) net.animate([{opacity:.4,transform:'translateY(6px)'},{opacity:1,transform:'translateY(0)'}],{duration:280,easing:ease});
+    if(changed){
+      totalAnimation?.cancel();
+      if(!motionPaused()&&!document.hidden) totalAnimation=net.animate(
+        [{opacity:.6,transform:'translateY(3px)'},{opacity:1,transform:'translateY(0)'}],
+        {duration:550,easing:receiptEase}
+      );
+    }
   };
   [input,...promos].forEach(control=>{control.disabled=false;control.addEventListener('input',()=>{receipt.querySelector('[data-receipt-net]').setAttribute('aria-live','polite');update();});});
   update();
   const example=count=>{
+    rowAnimation?.cancel();
     promos.forEach((toggle,i)=>toggle.checked=i<count);update();
-    if(count>0&&!motionPaused()&&!document.hidden) rows[count-1].animate(
-      [{backgroundColor:'rgba(156,221,176,.12)'},{backgroundColor:'rgba(156,221,176,0)'}],
-      {duration:240,easing:ease}
+    if(count>0&&!motionPaused()&&!document.hidden) rowAnimation=rows[count-1].animate(
+      [{backgroundColor:'transparent'},{backgroundColor:highlight,offset:.2},{backgroundColor:highlight,offset:.5},{backgroundColor:'transparent'}],
+      {duration:1200,easing:receiptEase}
     );
   };
-  register(receipt.closest('[data-glass-demo]')||receipt,4350,[
+  register(receipt.closest('[data-glass-demo]')||receipt,9200,[
     {at:0,run:()=>example(0)},
-    {at:900,run:()=>example(1)},
-    {at:1950,run:()=>example(2)},
-    {at:3100,run:()=>example(3)},
-  ],150);
+    {at:1800,run:()=>example(1)},
+    {at:3900,run:()=>example(2)},
+    {at:6000,run:()=>example(3)},
+  ],350);
 }
 
 const deploy = document.querySelector("[data-mini-deploy]");

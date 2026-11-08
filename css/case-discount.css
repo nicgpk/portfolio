@@ -1,0 +1,111 @@
+@media screen {
+  .discount-project-facts {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:24px 0 0;padding-top:24px;border-top:1px solid var(--glass-line);}
+  .discount-project-facts dt {margin:0 0 8px;color:var(--glass-muted);font:400 13px/1.5 var(--body);}
+  .discount-project-facts dd {margin:0;color:var(--glass-ink);font:400 14px/1.6 var(--body);}
+  .folio.case-refined .discount-process {margin-block:24px 0;}
+  .folio.case-refined .discount-process > li {margin:0;padding-block:20px;border-top:1px solid var(--glass-line);}
+  .folio.case-refined .discount-process > li h3 {margin:0 0 12px;}
+  .folio.case-refined .discount-process > li p:last-child {margin-bottom:0;}
+  .folio.case-refined .concept-canvas .discount-workspace {
+    display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+    max-width:none;padding:0;overflow:hidden;box-shadow:none;
+    background:var(--product-bg);color:var(--product-ink);border-color:var(--product-line);
+  }
+  .folio.case-refined .discount-workspace > .receipt-heading {grid-column:1/-1;padding:20px 24px;background:var(--product-bg);}
+  .discount-workspace > .product-property {grid-column:1/-1;margin:0;padding:16px 24px;background:var(--product-bg);border-color:var(--product-line);}
+  .discount-options {min-width:0;padding:24px;background:var(--product-raised);}
+  .discount-options .receipt-start {padding:0 0 24px;font-size:14px;}
+  .discount-workspace .receipt-money-input {border:0;padding:0;}
+  .folio .discount-workspace .receipt-money-input input {width:124px;padding:10px 12px;font-weight:500;border:1px solid var(--product-control-line);background:var(--product-bg);color:var(--product-ink);caret-color:var(--product-accent);}
+  .discount-workspace .receipt-promotions {display:flex;flex-direction:column;gap:0;}
+  .discount-workspace .receipt-promotion {padding:20px 0;gap:8px 16px;border-bottom:1px solid var(--product-line);}
+  .discount-workspace .receipt-promotion:last-child {padding-bottom:0;border-bottom:0;}
+  .discount-workspace .receipt-promotion label {font-size:15px;line-height:1.5;gap:12px;}
+  .discount-workspace .receipt-promotion small {font-size:13px;line-height:1.5;margin-top:4px;color:var(--product-muted);}
+  .discount-workspace .receipt-promotion > strong {font-size:16px;line-height:1.5;}
+  .folio .discount-workspace .receipt-promotion > p {font-size:13px;line-height:1.6;padding-left:30px;color:var(--product-muted);}
+  .discount-workspace .receipt-promotion:is(:hover,:has(input:focus-visible)) {background:var(--product-bg);}
+  .discount-workspace .receipt-promotion input {accent-color:var(--product-accent);}
+  .discount-workspace .receipt-promotion.is-receipt-inactive > strong {color:var(--product-muted);}
+  .discount-result {min-width:0;margin:0;padding:24px;background:var(--product-raised);border-inline-start:1px solid var(--product-line);border-radius:0;align-self:stretch;}
+  .discount-result > h4 {font:500 15px/1.5 var(--body);margin:0 0 24px;color:var(--product-muted);}
+  .discount-workspace .receipt-total {display:flex;flex-direction:column-reverse;align-items:start;padding:0;gap:16px;}
+  .folio.case-refined .discount-workspace .receipt-total output {font:500 clamp(36px,4vw,48px)/1.15 var(--body);letter-spacing:-.03em;color:var(--product-accent);}
+  .discount-workspace .receipt-total > span {font-size:15px;font-weight:500;}
+  .discount-workspace .receipt-total small {font-size:13px;line-height:1.5;color:var(--product-muted);}
+  .discount-workspace .receipt-savings {margin:24px 0 0;padding-top:20px;border-top:1px solid var(--product-line);font-size:14px;color:var(--product-muted);}
+  .discount-workspace .receipt-note {font-size:13px;line-height:1.7;margin:20px 0 0;padding-top:20px;border-top:1px solid var(--product-line);color:var(--product-muted);}
+  .folio.case-refined .booking-breakdown {padding:0;overflow:hidden;background:var(--product-bg);color:var(--product-ink);border-color:var(--product-line);}
+  .folio.case-refined .booking-breakdown > .product-toolbar {padding:20px 24px;border-bottom:1px solid var(--product-line);background:var(--product-bg);}
+  .folio.case-refined .booking-breakdown > .booking-nights {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px;border:0;background:var(--product-raised);}
+  .booking-night {min-width:0;}
+  .booking-night h4 {margin:0 0 12px;font:500 20px/1.3 var(--body);letter-spacing:-.02em;}
+  .booking-night dl {margin:20px 0 0;}
+  .booking-night dl > div {display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--product-line);}
+  .booking-night dt {font-size:14px;color:var(--product-muted);}
+  .booking-night dd {font-size:16px;font-weight:500;margin:0;white-space:nowrap;}
+  .booking-night .booking-net {border-bottom:0;}
+  .booking-night .booking-net dd {font-size:24px;color:var(--product-accent);}
+  .folio.case-refined .booking-breakdown > .booking-total {display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:24px;padding:24px;border-top:1px solid var(--product-line);background:var(--product-bg);}
+  .booking-total > span {font-size:15px;color:var(--product-muted);}
+  .booking-total > strong {font:500 32px/1.2 var(--body);letter-spacing:-.025em;color:var(--product-accent);}
+  .folio.case-refined .stacking-education {overflow:hidden;background:var(--product-bg);color:var(--product-ink);border-color:var(--product-line);}
+  .folio.case-refined .stacking-education .product-toolbar {padding:20px 24px;background:var(--product-bg);}
+  .stacking-steps {margin:0;padding:0 24px 24px;list-style:none;counter-reset:stacking-step;background:var(--product-raised);}
+  .stacking-steps > li {display:grid;grid-template-columns:32px minmax(0,1fr);gap:20px;counter-increment:stacking-step;padding:24px 0;border-bottom:1px solid var(--product-line);}
+  .stacking-steps > li:last-child {border:0;padding-bottom:0;}
+  .stacking-steps > li::before {content:counter(stacking-step);display:grid;place-items:center;width:28px;height:28px;border:1px solid var(--product-control-line);border-radius:50%;background:var(--product-bg);color:var(--product-accent);font:500 13px/1 var(--body);}
+  .folio.case-refined .stacking-steps h4 {font:500 20px/1.4 var(--body);letter-spacing:-.015em;color:var(--product-ink);margin:0 0 12px;}
+  .folio.case-refined .stacking-steps p {margin:0;color:var(--product-muted);font:400 15px/1.65 var(--body);max-width:65ch;}
+  .stacking-conditions {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:24px 0 0;}
+  .stacking-conditions > div {padding-top:16px;border-top:1px solid var(--product-line);}
+  .stacking-conditions dt {margin:0 0 8px;font:400 12px/1.5 var(--body);color:var(--product-muted);}
+  .stacking-conditions dd {margin:0;font:500 14px/1.5 var(--body);color:var(--product-ink);}
+  .stacking-matches {display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;}
+  .folio.case-refined :is(.booking-breakdown,.stacking-education) .product-badge {background:var(--product-bg);color:var(--product-accent);}
+  .folio.case-refined .stacking-steps p.stacking-ineligible {margin-top:16px;font-size:13px;}
+  .stacking-ledger {margin:24px 0 0;max-width:560px;}
+  .stacking-ledger > div {display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-bottom:1px solid var(--product-line);}
+  .stacking-ledger dt {font:400 14px/1.6 var(--body);color:var(--product-muted);}
+  .stacking-ledger dd {margin:0;font:500 16px/1.5 var(--body);color:var(--product-ink);white-space:nowrap;}
+  .stacking-ledger .stacking-net {border:0;padding:20px 0 0;}
+  .stacking-net dt {color:var(--product-ink);}
+  .stacking-net dd {font-size:28px;letter-spacing:-.02em;color:var(--product-accent);}
+  .discount-outcome-comparison {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;padding:24px 0;margin:0 0 24px;border-block:1px solid var(--glass-line);}
+  .discount-outcome-comparison span {display:block;font:400 13px/1.5 var(--body);color:var(--glass-muted);margin-bottom:8px;}
+  .discount-outcome-comparison strong {display:block;font:500 19px/1.5 var(--body);color:var(--glass-ink);}
+}
+@media screen and (max-width:767px) {
+  .discount-project-facts {gap:20px;}
+  .folio.case-refined .concept-canvas .discount-workspace {grid-template-columns:1fr;padding:0;}
+  .folio.case-refined .discount-workspace > .receipt-heading {padding:20px;}
+  .discount-workspace > .product-property {padding-inline:20px;}
+  .discount-options {padding:20px;}
+  .discount-result {margin:0;padding:20px;border-inline-start:0;border-top:1px solid var(--product-line);}
+  .discount-options .receipt-start {gap:12px;}
+  .folio .discount-workspace .receipt-money-input input {width:112px;}
+  .discount-workspace .receipt-promotion {gap:8px 10px;}
+  .discount-workspace .receipt-promotion label {font-size:14px;}
+  .discount-workspace .receipt-promotion small {font-size:12px;}
+  .discount-workspace .receipt-promotion > strong {font-size:14px;}
+  .folio.case-refined .booking-breakdown > .booking-nights {grid-template-columns:1fr;gap:24px;padding:20px;}
+  .folio.case-refined .booking-breakdown > .product-toolbar {padding:20px;}
+  .booking-night + .booking-night {border-top:1px solid var(--product-line);padding-top:24px;}
+  .folio.case-refined .booking-breakdown > .booking-total {align-items:start;flex-direction:column;gap:12px;padding:20px;}
+  .folio.case-refined .stacking-education .product-toolbar {padding:20px;}
+  .stacking-steps {padding:0 20px 20px;}
+  .stacking-steps > li {grid-template-columns:24px minmax(0,1fr);gap:12px;padding:20px 0;}
+  .stacking-steps > li::before {width:24px;height:24px;font-size:12px;}
+  .folio.case-refined .stacking-steps h4 {font-size:18px;}
+  .folio.case-refined .stacking-steps p {font-size:14px;}
+  .stacking-conditions {grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px;}
+  .stacking-conditions dd {font-size:13px;}
+  .stacking-ledger > div {gap:16px;}
+  .stacking-ledger dt {font-size:13px;}
+  .stacking-ledger dd {font-size:14px;}
+  .stacking-net dd {font-size:24px;}
+  .discount-outcome-comparison {grid-template-columns:1fr;gap:24px;}
+}
+@media (forced-colors:active) {
+  .stacking-education,.stacking-steps > li::before {background:Canvas;color:CanvasText;border-color:CanvasText;}
+}

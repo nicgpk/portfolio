@@ -73,6 +73,11 @@
     <link rel="stylesheet" href="css/vesper-tokens.css" />
     <link rel="stylesheet" href="css/vesper-concepts.css" />
     <link rel="stylesheet" href="css/glass.css?v=load-once" />
+    <link rel="stylesheet" href="css/case-refined.css" />
+    <link rel="stylesheet" href="css/product-surfaces.css" />
+    <link rel="stylesheet" href="css/case-discount.css" />
+    <link rel="stylesheet" href="css/two-tone.css" />
+    <link rel="preload" as="font" type="font/woff2" href="fonts/ibm-plex-sans.woff2" crossorigin />
     <link
       rel="preload"
       as="font"
@@ -81,7 +86,7 @@
       crossorigin
     />
   </head>
-  <body class="folio case-study">
+  <body class="folio case-study case-refined">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-nav">
       <a class="wordmark" href="index.html" aria-label="Nicholas Gwee home"
@@ -115,6 +120,7 @@
       </div>
     </header>
     <main id="main">
+      <div class="glass-atmosphere case-atmosphere" aria-hidden="true"><div class="paper-wave" data-paper-wave></div></div>
       <section class="case-hero case-hero--discount">
         <a class="back-link" href="index.html"
           ><svg
@@ -132,13 +138,11 @@
         <div class="case-hero-layout">
           <div class="case-hero-copy">
             <p class="case-project-label">Discounting 2.0</p>
-            <p class="eyebrow">Senior Product Designer · Agoda</p>
-            <h1>Every discount.<br />Understood.</h1>
-            <p class="case-thesis">
-              Make the economics<br />visible before commitment.
-            </p>
+            <p class="case-role">Senior Product Designer · Agoda</p>
+            <h1>Know the rate.<br />Before you commit.</h1>
+            <p class="case-thesis">Making stacked discounts and their impact on partner earnings understandable.</p>
             <a class="case-scroll" href="#decisions"
-              >The decisions
+              >Read the story
               <span aria-hidden="true"
                 ><svg
                   class="ui-icon"
@@ -153,139 +157,77 @@
                   /></svg></span
             ></a>
           </div>
-          <div class="case-diagram case-diagram--discount" aria-hidden="true">
-            <div class="diagram-rate">
-              <div class="diagram-rate-row">
-                <span>Starting room rate</span><strong>$150.00</strong
-                ><i style="--balance: 100%"></i>
-              </div>
-              <div class="diagram-rate-row">
-                <span>Mega Sale <b>15%</b></span
-                ><strong>$127.50</strong><i style="--balance: 85%"></i>
-              </div>
-              <div class="diagram-rate-row is-final">
-                <span>Mobile Exclusive <b>10%</b></span
-                ><strong>$114.75</strong><i style="--balance: 76.5%"></i>
-              </div>
-              <p>150 × 0.85 × 0.90 = 114.75</p>
-            </div>
-            <p class="diagram-caption">
-              <span>Illustrative calculation</span
-              ><span>Before commission &amp; taxes</span>
-            </p>
-          </div>
         </div>
       </section>
       <div class="case-body">
-        <nav class="case-section-nav" aria-label="Case study sections">
-          <a href="#decisions">Problem &amp; role</a
-          ><a href="#choices">Key choices</a><a href="#evidence">Evidence</a
-          ><a href="#concept"
-            >Try the concept
-            <span aria-hidden="true"
-              ><svg
-                class="ui-icon"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <use
-                  href="images/interface-icons.svg#arrow-up-right"
-                /></svg></span
-          ></a>
-        </nav>
+        <dl class="case-scope"><div><dt>Design focus</dt><dd>Pricing transparency</dd></div><div><dt>Research</dt><dd>12 partner tests</dd></div><div><dt>My contribution</dt><dd>Strategy, interaction &amp; visual design</dd></div></dl>
         <section class="case-framing" id="decisions">
           <div>
-            <p class="eyebrow">The problem</p>
-            <h2>
-              Partners could not tell how discounts stacked. Legacy promotions
-              were confusing, and changes to this high-revenue surface involved
-              conflicting stakeholder interests.
-            </h2>
+            <h2>Partners could not see what they would earn.</h2>
+            <p>Partners didn't understand how discounts stacked, legacy promotions were confusing, and launching new discounting products meant navigating conflicting stakeholder interests on a page with direct revenue impact.</p>
+            <p>Every change to one of Agoda's highest-revenue partner surfaces had to be surgically precise.</p>
           </div>
           <div>
-            <p class="eyebrow">My role</p>
-            <p>
-              Led design for Discounting 2.0 across one of Agoda’s
-              highest-revenue partner surfaces, aligning product and business
-              owners while protecting the partner experience.
-            </p>
-            <a class="text-link" href="originals/discounting.html"
-              >Read the complete original case study
-              <svg
-                class="ui-icon"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <use href="images/interface-icons.svg#arrow-up-right" /></svg
-            ></a>
+            <h3>My role</h3>
+            <p>As Senior Product Designer, I led design for the promotions experience, aligning product and business owners while protecting the partner experience.</p>
+            <dl class="discount-project-facts"><div><dt>Team</dt><dd>1 Product Owner, 8 Developers, 1 UX Researcher</dd></div><div><dt>Stakeholders</dt><dd>Sr. Product Owner, multiple Sr. Business Owners</dd></div><div><dt>Platform</dt><dd>Web, responsive</dd></div><div><dt>Duration</dt><dd>2024 – Ongoing</dd></div></dl>
           </div>
         </section>
-        <section class="decisions-section" id="choices">
-          <p class="eyebrow">Key choices</p>
-          <article class="decision">
-            <span aria-hidden="true"
-              ><svg
-                class="ui-icon"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <use href="images/interface-icons.svg#arrow-right" /></svg
-            ></span>
-            <h3>Show the calculation before commitment.</h3>
-            <p>
-              The Net Rate Simulator makes sequential discounting visible on the
-              remaining balance, so a partner can understand the resulting room
-              rate.
-            </p>
-          </article>
-          <article class="decision">
-            <span aria-hidden="true"
-              ><svg
-                class="ui-icon"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <use href="images/interface-icons.svg#arrow-right" /></svg
-            ></span>
-            <h3>Explain the booking, night by night.</h3>
-            <p>
-              A reservation breakdown shows the promotion, percentage and
-              monetary value for each night instead of forcing partners to
-              reverse-engineer their earnings.
-            </p>
-          </article>
-          <article class="decision">
-            <span aria-hidden="true"
-              ><svg
-                class="ui-icon"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <use href="images/interface-icons.svg#arrow-right" /></svg
-            ></span>
-            <h3>Teach the rule at the decision point.</h3>
-            <p>
-              Connect booker conditions to eligible promotions, then show their
-              priority and sequence. Iterate through partner testing,
-              feature-flagged experiments and support feedback.
-            </p>
-          <figure class="decision-artifact"><a class="artifact-image-link" href="images/detail_discounting.png" target="_blank" rel="noopener" aria-label="Open original artifact at full size"><img src="images/detail_discounting.png" width="1000" height="667" loading="lazy" decoding="async" alt="Original promotion-creation screen with Mega Sale and seasonal promotion entry points." /></a><figcaption>Original portfolio asset: promotion discovery and creation entry points. This provides setup context; it is not a sequential-calculation result. <span class="artifact-actions"><a href="images/detail_discounting.png" target="_blank" rel="noopener">Zoom original image</a><a href="originals/discounting.html">Original portfolio context</a></span></figcaption></figure>
-          </article>
+        <dl class="case-shift"><div><dt>Before</dt><dd>Partners had to work out how overlapping promotions affected their earnings.</dd></div><div><dt>The design response</dt><dd>A visible calculation before commitment, a per-night breakdown after booking, and an explanation of the stacking rule.</dd></div></dl>
+
+        <section class="case-story-section" id="process" aria-labelledby="process-title">
+          <div class="case-story-copy"><h2 id="process-title">Align, test, and keep refining.</h2><p>Business alignment and partner research shaped the first release. Experiments and support feedback guided the work after launch.</p></div>
+          <ol class="case-story-list discount-process">
+            <li><h3>Benchmarking &amp; alignment</h3><p>Studied how leading platforms handle discount UX. Ran workshops with 5+ business owners to align on partner impact. Partnered with the Agoda research team.</p></li>
+            <li><h3>User testing</h3><p>Tested discount stacking explanations with 12 partners. Iterated until comprehension hit target.</p></li>
+            <li><h3>Experimentation</h3><p>Shipped behind feature flags. Measured handle time, activation rates, and complaint volume.</p></li>
+            <li><h3>Iterative refinement</h3><p>Continuous improvement based on support tickets and agent feedback over 1.5 years.</p></li>
+          </ol>
+        </section>
+
+        <section class="concept-section case-story-section" id="concept" aria-labelledby="simulator-title">
+          <div class="concept-heading" id="choices"><h2 id="simulator-title">Preview the rate<br />before committing.</h2></div>
+          <p class="concept-description">Partners can test how active promotions affect their room rate before committing. Change the rate or toggle a promotion in this illustrative example.</p>
+          <div class="concept-canvas concept-canvas--discount">
+            <div class="rate-receipt product-surface discount-workspace" data-receipt>
+              <div class="receipt-heading product-toolbar"><h3>Net Rate Simulator</h3><span>Promotions · USD / night</span></div>
+              <div class="product-property"><img src="images/maison-solara-placeholder.webp" width="48" height="40" alt="" loading="lazy" decoding="async" /><span><strong>Maison Solara</strong><small>Boutique · Phuket</small></span></div>
+              <div class="discount-options">
+                <label class="receipt-start" for="case-rate"><span>Starting room rate</span><span class="receipt-money-input"><input id="case-rate" aria-describedby="case-error" data-receipt-rate type="number" min="0" max="1000000" step="0.01" value="150" required disabled /></span></label>
+                <div class="receipt-promotions"><div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="15" checked disabled /><span>Mega Sale<small>Public campaign · 15%</small></span></label><strong data-receipt-cut>−$22.50</strong><p data-receipt-detail>15% of $150.00 · Remaining $127.50</p></div>
+<div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="10" checked disabled /><span>Mobile Exclusive<small>App users · 10%</small></span></label><strong data-receipt-cut>−$12.75</strong><p data-receipt-detail>10% of $127.50 · Remaining $114.75</p></div>
+<div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="5" checked disabled /><span>Member Offer<small>Members only · 5%</small></span></label><strong data-receipt-cut>−$5.74</strong><p data-receipt-detail>5% of $114.75 · Remaining $109.01</p></div></div>
+                <p class="receipt-error" id="case-error" role="status"></p>
+              </div>
+              <aside class="discount-result" aria-label="Rate calculation result"><h4>Rate summary</h4><div class="receipt-total"><span>Room rate after discounts<small>Before commission and taxes</small></span><output data-receipt-net aria-live="off">$109.01</output></div><p class="receipt-savings" data-receipt-savings>You save $40.99 · 27.33% effective discount</p><p class="receipt-note">Each discount applies to the remaining balance, rounded to cents.</p></aside>
+            </div>
+          </div>
+        </section>
+
+        <section class="supporting-artifacts case-story-section" id="booking-breakdown" aria-labelledby="booking-title">
+          <div class="section-heading"><h2 id="booking-title">See the impact,<br />night by night.</h2></div>
+          <div class="case-story-copy"><p>A per-night breakdown names each promotion and shows its percentage, deduction and resulting room rate.</p></div>
+          <div class="night-breakdown booking-breakdown product-surface">
+            <div class="product-toolbar"><h3>Booking breakdown</h3><span>2 nights · USD</span></div>
+            <div class="booking-nights">
+              <article class="booking-night"><h4>Night 1</h4><span class="product-badge">Mega Sale · 15%</span><dl><div><dt>Room rate</dt><dd>$150.00</dd></div><div><dt>Promotion</dt><dd>−$22.50</dd></div><div class="booking-net"><dt>Net rate</dt><dd>$127.50</dd></div></dl></article>
+              <article class="booking-night"><h4>Night 2</h4><span class="product-badge">Mobile Exclusive · 10%</span><dl><div><dt>Room rate</dt><dd>$150.00</dd></div><div><dt>Promotion</dt><dd>−$15.00</dd></div><div class="booking-net"><dt>Net rate</dt><dd>$135.00</dd></div></dl></article>
+            </div>
+            <div class="booking-total"><span>Room rate after discounts · two nights</span><strong>$262.50</strong></div>
+          </div>
+          <p class="artifact-note">Illustrative rates before commission and taxes. Total discounts: $37.50.</p>
+        </section>
+
+        <section class="case-story-section" id="stacking-education" aria-labelledby="education-title">
+          <div class="case-story-copy"><h2 id="education-title">Make the stacking rule visible.</h2><p>Connect the guest's conditions to eligible promotions, then show the order in which each discount applies.</p></div>
+          <div class="stacking-education product-surface">
+            <div class="product-toolbar"><h3>How promotions stack</h3><span>Maison Solara · USD</span></div>
+            <ol class="stacking-steps">
+              <li><div><h4>Guest conditions</h4><p>When a guest searches, their conditions determine which promotions they qualify for.</p><dl class="stacking-conditions"><div><dt>Booking window</dt><dd>Advance booking (2+ days)</dd></div><div><dt>Device</dt><dd>Mobile user</dd></div><div><dt>Country</dt><dd>TH</dd></div><div><dt>Stay</dt><dd>2 nights</dd></div></dl></div></li>
+              <li><div><h4>Matching promotions activate</h4><p>Mega Sale and Mobile Exclusive match. Stacking applies in priority order.</p><div class="stacking-matches"><span class="product-badge">Mega Sale · 15%</span><span class="product-badge">Mobile Exclusive · 10%</span></div><p class="stacking-ineligible">Early Bird · 20% — not eligible tonight.</p></div></li>
+              <li><div><h4>Discounts stack sequentially</h4><p>Each discount applies to the remaining balance, not the original rate, so partners keep more than a flat combined cut.</p><dl class="stacking-ledger"><div><dt>Room rate</dt><dd>$150.00</dd></div><div><dt>Mega Sale · 15%</dt><dd>−$22.50</dd></div><div><dt>Mobile Exclusive · 10%</dt><dd>−$12.75</dd></div><div class="stacking-net"><dt>Room rate after discounts</dt><dd>$114.75</dd></div></dl><p class="stacking-ineligible">Illustrative example, before commission and taxes.</p></div></li>
+            </ol>
+          </div>
         </section>
         <section
           class="evidence-card evidence--discount"
@@ -293,9 +235,6 @@
           aria-labelledby="evidence-title"
         >
           <div class="evidence-heading">
-            <p class="eyebrow">
-              Evidence &amp; outcomes · reported in original portfolio
-            </p>
             <span
               class="evidence-icon evidence-icon--discount"
               data-evidence-icon
@@ -317,7 +256,7 @@
           <h2 id="evidence-title">A clearer rate. Fewer complaints.</h2>
           <dl class="evidence-metrics">
             <div>
-              <dt>Activation lift · original project index</dt>
+              <dt>Activation lift</dt>
               <dd><span class="growth-metric"><span class="sr-only">Increase </span><span>10–12%</span><svg class="ui-icon growth-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#arrow-down" /></svg></span></dd>
             </div>
             <div>
@@ -325,103 +264,21 @@
               <dd>−3%</dd>
             </div>
             <div>
-              <dt>Ongoing impact reported in source</dt>
+              <dt>Ongoing impact</dt>
               <dd>1.5 yrs</dd>
             </div>
           </dl>
-          <p class="evidence-context">
-            Reported outcomes from the original portfolio. The source narrative
-            calls the complaint #1; its before/after chart says “Top 3.” That
-            ranking remains unresolved.
-          </p>
-          <details open>
-            <summary>Research &amp; attribution context</summary>
-            <p>
-              Tested stacking explanations with 12 partners. Workshops involved
-              5+ business owners. Team: 1 Product Owner, 8 Developers and 1 UX
-              Researcher. Shipped behind feature flags; tracked handle time,
-              activation and complaint volume. The source gives no experiment
-              sample sizes, confidence intervals or activation baseline.
-            </p>
-          </details>
-        </section>
-        <section class="concept-section" id="concept">
-          <div class="concept-heading">
-            <div>
-              <p class="eyebrow">Discount calculation</p>
-              <h2>Explore the<br />design in action.</h2>
-            </div>
-            <a class="text-link" href="originals/discounting.html"
-              >Original artifacts
-              <svg
-                class="ui-icon"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <use href="images/interface-icons.svg#arrow-up-right" /></svg
-            ></a>
+          <div class="discount-outcome-comparison" aria-label="Reported complaint category change"><div><span>Before</span><strong>Top 3 complaint category</strong></div><div><span>After</span><strong>Complaint category eliminated</strong></div></div>
+          <div class="case-story-note">
+            <h3>Evidence notes</h3>
+            <p>Activation lift comes from the project index. Experiment sample sizes, confidence intervals and the activation baseline were not published.</p>
+            <p>The source narrative calls the complaint #1; its before/after chart says “Top 3.” The ranking remains unresolved.</p>
+            <p>Calculation note: the source lists $11.25 for a 10% mobile discount on $150. The booking example uses the correct $15.00.</p>
           </div>
-          <p class="concept-description">
-            Interactive portfolio exploration with example values. Compare the
-            behavior with the original project artifacts; this is not a live
-            product.
-          </p>
-          <div class="concept-canvas concept-canvas--discount">
-            <div class="rate-receipt " data-receipt>
- <div class="receipt-heading"><h3>Net Rate Simulator</h3><span>Example receipt · USD / night</span></div>
- <label class="receipt-start" for="case-rate"><span>Starting room rate</span><span class="receipt-money-input"><span aria-hidden="true">$</span><input id="case-rate" aria-describedby="case-error" data-receipt-rate type="number" min="0" max="1000000" step="0.01" value="150" required disabled /></span></label>
- <div class="receipt-promotions"><div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="15" checked disabled /><span>Mega Sale<small>Public campaign</small></span></label><strong data-receipt-cut>−$22.50</strong><p data-receipt-detail>15% of $150.00 · Remaining $127.50</p></div><div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="10" checked disabled /><span>Mobile Exclusive<small>App users</small></span></label><strong data-receipt-cut>−$12.75</strong><p data-receipt-detail>10% of $127.50 · Remaining $114.75</p></div><div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="5" checked disabled /><span>Member Offer<small>Members only</small></span></label><strong data-receipt-cut>−$5.74</strong><p data-receipt-detail>5% of $114.75 · Remaining $109.01</p></div></div>
- <div class="receipt-total"><span>Room rate after discounts<small>Before commission and taxes</small></span><output data-receipt-net aria-live="off">$109.01</output></div>
- <p class="receipt-savings" data-receipt-savings>You save $40.99 · 27.33% effective discount</p>
- <p class="receipt-error" id="case-error" role="status"></p>
- <p class="receipt-note">Each promotion applies to the remaining balance, rounded to cents. Toggle a promotion to compare.</p>
- </div>
-          </div>
-        </section>
-        <section class="supporting-artifacts">
-          <div class="section-heading">
-            <p class="eyebrow">Promotion breakdown · per-night example</p>
-            <h2>The same clarity,<br />night by night.</h2>
-          </div>
-          <div class="night-breakdown">
-            <div>
-              <span>Night 1 · Mega Sale, 15%</span
-              ><strong>$150 − $22.50 = $127.50</strong>
-            </div>
-            <div>
-              <span>Night 2 · Mobile Exclusive, 10%</span
-              ><strong>$150 − $15.00 = $135.00</strong>
-            </div>
-            <div class="night-total">
-              <span>Room rate after discounts · two nights</span
-              ><strong>$262.50</strong>
-            </div>
-          </div>
-          <p class="artifact-note">
-            Illustrative example, before commission and taxes. The original
-            artifact lists a $11.25 mobile discount on a $150 night at 10%; this
-            updated example corrects that arithmetic to $15.00. Total discounts:
-            $37.50.
-          </p>
-          <a class="text-link" href="originals/discounting.html"
-            >View all three original product artifacts
-            <svg
-              class="ui-icon"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <use href="images/interface-icons.svg#arrow-up-right" /></svg
-          ></a>
         </section>
         <div class="case-next">
           <a href="dev-portal.html"
-            >Next case study
+            >Next: Developer Portal &amp; Deployment
             <span aria-hidden="true"
               ><svg
                 class="ui-icon"
@@ -516,5 +373,6 @@
         document.documentElement.dataset.motion = "off";
       });
     </script>
+    <script type="module" src="js/paper-wave.mjs?v=case-wave"></script>
   </body>
 </html>

@@ -46,6 +46,7 @@
   :is(.folio,.resume-page) .nav-identity {font:600 15px/1.45 var(--body);color:var(--glass-ink);min-width:0;max-width:12rem;overflow:hidden;opacity:1;transform:none;transition:max-width 420ms var(--glass-ease),opacity 280ms var(--glass-ease),margin-inline 420ms var(--glass-ease),transform 420ms var(--glass-ease),font-size 420ms var(--glass-ease);}
   :is(.folio,.resume-page) .nav-identity small {font:400 12px/1.5 var(--body);color:var(--glass-muted);}
   :is(.folio,.resume-page) .site-nav:not(.nav-is-scrolled) .nav-identity {max-width:0;margin-inline:-12px;opacity:0;transform:translateY(-6px);pointer-events:none;}
+  :is(.folio,.resume-page) .site-nav.nav-is-scrolled .nav-identity {display:none;}
   :is(.folio,.resume-page) .site-nav nav a {font:500 15px/1.5 var(--body);color:var(--glass-muted);min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;}
   :is(.folio,.resume-page) .site-nav nav a:hover,:is(.folio,.resume-page) .site-nav nav a[aria-current] {color:var(--glass-ink);}
   :is(.folio,.resume-page) .nav-contact {background:var(--glass-ink);color:#101115;border:0;min-height:44px;font:600 15px/1.5 var(--body);padding:10px 18px;gap:10px;}

@@ -19,7 +19,7 @@
   .work-case-link:is(:hover,:focus-visible) .ui-icon {transform:translate(2px,-2px);}
   .work-feature:has(.work-case-link:hover) {border-color:#ffffff2e;}
 
-  .folio .work-archive {padding-top:96px;}
+  .folio .work-archive {padding-top:80px;}
 }
 
 /* Every case gets the wide row the home page gives its last project: copy left, live concept right. */
@@ -35,7 +35,7 @@
   .folio .work-hero h1 {font-size:48px;}
   .folio .work-hero > p:last-child {font-size:16px;}
   .work-feature-list {gap:24px;}
-  .folio .work-archive {padding-top:64px;}
+  .folio .work-archive {padding-top:48px;}
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -74,4 +74,95 @@
 @keyframes hero-line-arrive {
   from {opacity:.35;transform:translateY(14px);}
   to {opacity:1;transform:translateY(0);}
+}
+
+/* Shared project typography and career timeline. */
+@media screen {
+  .work-feature-list {gap:40px;}
+  .work-feature-list .work-feature {gap:28px;}
+  .folio .work-feature .glass-feature-copy h3 {font-size:clamp(28px,2.8vw,36px);line-height:1.18;letter-spacing:-.025em;text-wrap:balance;}
+  .glass-feature-copy .work-role {font-size:13px;letter-spacing:0;margin-bottom:16px;}
+  .glass-feature-copy .work-summary {max-width:48ch;line-height:1.7;}
+  .work-feature .glass-card-metrics {gap:20px;}
+  .work-feature .glass-card-metrics dd {white-space:nowrap;font-size:clamp(24px,2.3vw,32px);}
+  .work-feature .glass-card-metrics dt {font-size:13px;line-height:1.5;}
+  .folio .about-detail .experience {position:relative;margin-top:24px;padding-left:24px;border-left:1px solid var(--glass-line);}
+  .folio .about-detail .experience li {position:relative;padding:0 0 28px;margin:0 0 28px;border:0;border-bottom:1px solid var(--glass-line);}
+  .folio .about-detail .experience li:last-child {margin-bottom:0;padding-bottom:0;border-bottom:0;}
+  .folio .about-detail .experience li::before {content:'';position:absolute;left:-28px;top:6px;width:7px;height:7px;border-radius:50%;background:#717780;}
+  .folio .about-detail .experience li:first-child::before {background:var(--glass-ink);}
+  .folio .about-detail .experience li strong {font-size:18px;font-weight:500;line-height:1.4;}
+  .folio .about-detail .experience li small {margin-top:8px;font-variant-numeric:tabular-nums;}
+}
+
+/* Every project uses the same columns, spacing, stage height and copy alignment. */
+@media screen and (min-width:960px) {
+  .work-feature-list .glass-feature.work-feature {grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;padding:24px;}
+  .work-feature-list .work-feature > .glass-feature-copy {grid-column:1;grid-row:1;max-width:none;padding:20px 8px 12px 16px;}
+  .work-feature-list .work-feature > .glass-demo-stage {grid-column:2;grid-row:1;height:740px;min-height:0;padding:24px;}
+  .work-feature-list .work-feature .glass-card-metrics {margin-top:auto;}
+  .work-feature-list .work-feature .mini-window {padding:24px;}
+}
+
+@media screen and (max-width:959px) {
+  .work-feature-list .work-feature {padding:20px;gap:24px;}
+  .work-feature-list .glass-feature-copy {order:0;}
+  .work-feature-list .glass-demo-stage {order:1;}
+}
+@media screen and (max-width:479px) {
+  .work-feature-list {gap:32px;}
+  .work-feature-list .work-feature {padding:16px;}
+  .folio .work-feature .glass-feature-copy h3 {font-size:28px;}
+  .work-feature .glass-card-metrics {gap:12px;}
+  .folio .work-feature .glass-card-metrics dd {font-size:clamp(18px,5.5vw,24px);}
+}
+
+/* Selected product details carried forward from the original concepts. */
+@media screen {
+  .product-property {display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--glass-line);flex:none;}
+  .product-property > img {width:48px;height:40px;border-radius:7px;object-fit:cover;}
+  .product-property strong {display:block;color:var(--glass-ink);font-size:14px;line-height:1.4;font-weight:500;}
+  .product-property small {display:block;color:var(--glass-muted);font-size:12px;margin-top:3px;}
+  .program-hub .mini-symbol:has(img) {width:40px;height:40px;background:transparent!important;}
+  .program-hub .mini-symbol img {width:40px;height:40px;object-fit:contain;border-radius:10px;}
+  .work-feature-list .glass-feature--deploy .portal-workspace {display:flex;flex-direction:column;gap:20px;}
+  .portal-areas {padding:0 0 16px;border-bottom:1px solid var(--glass-line);}
+  .portal-areas > strong {display:block;font-size:13px;font-weight:600;line-height:1.5;color:var(--glass-ink);margin-bottom:12px;}
+  .portal-areas ul {display:flex;flex-wrap:wrap;gap:4px;padding:0;margin:0;list-style:none;}
+  .portal-areas li {display:flex;align-items:center;gap:6px;padding:6px;border-radius:7px;font-size:12px;color:var(--glass-muted);}
+  .portal-areas li.is-current {background:#ffffff0b;color:var(--glass-ink);}
+  .portal-areas img {width:24px;height:24px;object-fit:contain;border-radius:6px;}
+  .portal-workflow {min-width:0;display:flex;flex-direction:column;flex:1;}
+  .portal-workflow .mini-deploy-detail dl {grid-template-columns:1fr;grid-template-rows:none;}
+  .portal-workflow dd {overflow-wrap:anywhere;}
+  .portal-workflow .mini-deploy-detail {flex:1;}
+}
+@media screen and (max-width:767px) {
+  .work-feature-list .glass-feature--deploy .portal-workspace {grid-template-columns:1fr;gap:20px;}
+  .portal-areas {padding:0 0 16px;border-right:0;border-bottom:1px solid var(--glass-line);}
+  .portal-areas > strong {margin-bottom:12px;}
+  .portal-areas ul {flex-direction:row;flex-wrap:wrap;gap:4px;}
+  .portal-areas li {gap:6px;padding:6px;font-size:12px;}
+  .portal-areas img {width:20px;height:20px;}
+}
+
+/* A consistent reading rhythm beyond the project cards. */
+@media screen {
+  .folio .glass-section-heading {margin-bottom:32px;}
+  .folio :is(.glass-section-heading,.about-section,.work-archive) h2 {font:500 32px/1.25 var(--body);letter-spacing:-.025em;}
+  .folio .glass-feature-copy .glass-metric-note {font-size:13px;line-height:1.6;max-width:46ch;}
+  .folio .about-section,.folio .process-section {padding-top:80px;padding-bottom:0;}
+  .folio .leadership-copy > p {font-size:16px;line-height:1.75;max-width:58ch;margin-top:24px;}
+  .folio .process-list > li {padding:24px;gap:16px;}
+  .folio .process-list > li::before {display:none;}
+  .folio .process-list h3 {font-size:20px;line-height:1.35;}
+  .folio .process-list p {font-size:16px;line-height:1.65;}
+  .folio .about-detail .experience li {padding-bottom:24px;margin-bottom:24px;}
+  .folio .about-detail .experience li:last-child {padding-bottom:0;margin-bottom:0;}
+}
+@media screen and (max-width:767px) {
+  .folio :is(.glass-section-heading,.about-section,.work-archive) h2 {font-size:28px;}
+  .folio .glass-section-heading {margin-bottom:24px;}
+  .folio .about-section,.folio .process-section {padding-top:48px;padding-bottom:0;}
+  .folio .process-list > li {padding:20px;}
 }
