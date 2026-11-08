@@ -1,10 +1,12 @@
 # Nicholas Gwee — Product Design Portfolio
 
-Static HTML, CSS and JavaScript portfolio. The checked-in pages are the editable source; no generator or build step is required.
+Static HTML, CSS and JavaScript portfolio. Pages and styles remain editable source. Generated CSS bundles are checked in, so serving the repository needs no runtime build or external dependencies.
 
 ## Preview and test
 
 Serve this directory with a static HTTP server (for example `python3 -m http.server 4183`) and open http://localhost:4183. Use Node 22 or newer to run `npm test`; the tests have no external dependencies.
+
+After changing source CSS or the shared navigation/background entry modules, run `npm run build:css`. It preserves stylesheet order, refreshes the checked-in `css/bundle-*.css` files, and updates shared asset URLs consistently across the main pages. Edit the original CSS files rather than generated bundles. Run `npm run check:css` to check freshness without writing files; this check also runs with `npm test`.
 
 The homepage contains the identity hero and animated employer logos, the full Work index with three interactive case studies, experience, work process, and the GovTech archive. `projects.html` redirects to the homepage for existing bookmarks. The other main pages are Partner Growth Programs, Discounting 2.0, Developer Portal and Resume. `originals/` preserves linked historical project material. The downloadable PDF and ATS HTML live in `files/`.
 

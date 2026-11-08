@@ -65,24 +65,13 @@
       href="apple-touch-icon.png?v=glass-mark"
     />
 
-    <link rel="stylesheet" href="css/folio.css" />
-    <link rel="stylesheet" href="css/editorial.css" />
-    <link rel="stylesheet" href="css/growth-ui.css" />
-    <link rel="stylesheet" href="css/studio.css" />
-    <link rel="stylesheet" href="css/concepts.css" />
-    <link rel="stylesheet" href="css/project-system.css" />
-    <link rel="stylesheet" href="css/personal-landing.css" />
-    <link rel="stylesheet" href="css/case-studies.css" />
-    <link rel="stylesheet" href="css/link-system.css" />
-    <link rel="stylesheet" href="css/evidence-motion.css" />
-    <link rel="stylesheet" href="css/craft-motion.css" />
-    <link rel="stylesheet" href="css/vesper-tokens.css" />
-    <link rel="stylesheet" href="css/vesper-concepts.css" />
-    <link rel="stylesheet" href="css/glass.css?v=load-once" />
-    <link rel="stylesheet" href="css/case-refined.css" />
-    <link rel="stylesheet" href="css/product-surfaces.css" />
-    <link rel="stylesheet" href="css/case-growth.css" />
-    <link rel="stylesheet" href="css/two-tone.css" />
+    <!-- css-bundles:start -->
+    <link rel="stylesheet" href="css/bundle-shared-base.css?v=912609ce72b2" />
+    <link rel="stylesheet" href="css/bundle-case-layout.css?v=0bd846edffdc" />
+    <link rel="stylesheet" href="css/glass.css?v=ffb437f40d1d" />
+    <link rel="stylesheet" href="css/bundle-case-product.css?v=7e940a21de1d" />
+    <link rel="stylesheet" href="css/bundle-growth-product.css?v=65dcf1b5c198" />
+    <!-- css-bundles:end -->
     <link
       rel="preload"
       as="font"
@@ -505,12 +494,12 @@
       </div>
     </footer>
     <script type="module" src="js/folio.mjs"></script>
-    <script type="module" src="js/glass-demos.mjs?v=12"></script>
+    <script type="module" src="js/glass-demos.mjs?v=18b5a02b37f5"></script>
     <script type="module">
-      import("./js/glass-demos.mjs?v=12").catch(function () {
+      import("./js/glass-demos.mjs?v=18b5a02b37f5").catch(function () {
         document.documentElement.dataset.motion = "off";
       });
     </script>
-    <script type="module" src="js/paper-wave.mjs?v=case-wave"></script>
+    <script type="module" src="js/paper-wave.mjs?v=26cd7de6b4d9"></script>
   </body>
 </html>

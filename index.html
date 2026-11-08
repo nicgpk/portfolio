@@ -104,17 +104,12 @@
       }
     </script>
 
-    <link rel="stylesheet" href="css/folio.css" />
-    <link rel="stylesheet" href="css/editorial.css" />
-    <link rel="stylesheet" href="css/studio.css" />
-    <link rel="stylesheet" href="css/project-system.css" />
-    <link rel="stylesheet" href="css/personal-landing.css" />
-    <link rel="stylesheet" href="css/link-system.css" />
-    <link rel="stylesheet" href="css/craft-motion.css" />
-    <link rel="stylesheet" href="css/glass.css?v=work-once" />
-    <link rel="stylesheet" href="css/work-index.css?v=8" />
-    <link rel="stylesheet" href="css/product-surfaces.css" />
-    <link rel="stylesheet" href="css/two-tone.css" />
+    <!-- css-bundles:start -->
+    <link rel="stylesheet" href="css/bundle-shared-base.css?v=912609ce72b2" />
+    <link rel="stylesheet" href="css/bundle-home-layout.css?v=304501329bf4" />
+    <link rel="stylesheet" href="css/glass.css?v=ffb437f40d1d" />
+    <link rel="stylesheet" href="css/bundle-home-product.css?v=8e6845d34ee9" />
+    <!-- css-bundles:end -->
     <link
       rel="preload"
       as="font"
@@ -532,10 +527,10 @@
       </div>
     </footer>
     <script type="module">
-      import("./js/glass-demos.mjs?v=12").catch(function () {
+      import("./js/glass-demos.mjs?v=18b5a02b37f5").catch(function () {
         document.documentElement.dataset.motion = "off";
       });
     </script>
-    <script type="module" src="js/paper-wave.mjs?v=half-saturation"></script>
+    <script type="module" src="js/paper-wave.mjs?v=26cd7de6b4d9"></script>
   </body>
 </html>

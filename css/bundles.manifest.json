@@ -1,0 +1,189 @@
+{
+  "bundles": {
+    "shared-base": {
+      "file": "css/bundle-shared-base.css",
+      "href": "css/bundle-shared-base.css?v=912609ce72b2",
+      "sources": [
+        "css/folio.css",
+        "css/editorial.css",
+        "css/studio.css"
+      ],
+      "bytes": 102830
+    },
+    "home-layout": {
+      "file": "css/bundle-home-layout.css",
+      "href": "css/bundle-home-layout.css?v=304501329bf4",
+      "sources": [
+        "css/project-system.css",
+        "css/personal-landing.css",
+        "css/link-system.css",
+        "css/craft-motion.css"
+      ],
+      "bytes": 40726
+    },
+    "home-product": {
+      "file": "css/bundle-home-product.css",
+      "href": "css/bundle-home-product.css?v=8e6845d34ee9",
+      "sources": [
+        "css/work-index.css",
+        "css/product-surfaces.css",
+        "css/two-tone.css"
+      ],
+      "bytes": 21088
+    },
+    "case-layout": {
+      "file": "css/bundle-case-layout.css",
+      "href": "css/bundle-case-layout.css?v=0bd846edffdc",
+      "sources": [
+        "css/concepts.css",
+        "css/project-system.css",
+        "css/personal-landing.css",
+        "css/case-studies.css",
+        "css/link-system.css",
+        "css/evidence-motion.css",
+        "css/craft-motion.css"
+      ],
+      "bytes": 78005
+    },
+    "case-product": {
+      "file": "css/bundle-case-product.css",
+      "href": "css/bundle-case-product.css?v=7e940a21de1d",
+      "sources": [
+        "css/case-refined.css",
+        "css/product-surfaces.css"
+      ],
+      "bytes": 20087
+    },
+    "growth-product": {
+      "file": "css/bundle-growth-product.css",
+      "href": "css/bundle-growth-product.css?v=65dcf1b5c198",
+      "sources": [
+        "css/case-growth.css",
+        "css/two-tone.css"
+      ],
+      "bytes": 32274
+    },
+    "discount-product": {
+      "file": "css/bundle-discount-product.css",
+      "href": "css/bundle-discount-product.css?v=dd90604baab2",
+      "sources": [
+        "css/case-discount.css",
+        "css/two-tone.css"
+      ],
+      "bytes": 17385
+    },
+    "developer-concepts": {
+      "file": "css/bundle-developer-concepts.css",
+      "href": "css/bundle-developer-concepts.css?v=36f077448da5",
+      "sources": [
+        "css/vesper-tokens.css",
+        "css/vesper-concepts.css"
+      ],
+      "bytes": 40402
+    },
+    "developer-product": {
+      "file": "css/bundle-developer-product.css",
+      "href": "css/bundle-developer-product.css?v=4bce2557705b",
+      "sources": [
+        "css/case-developer.css",
+        "css/two-tone.css"
+      ],
+      "bytes": 43219
+    },
+    "resume-layout": {
+      "file": "css/bundle-resume-layout.css",
+      "href": "css/bundle-resume-layout.css?v=5bfdbc8b0124",
+      "sources": [
+        "css/teletype.css",
+        "css/resume.css",
+        "css/folio.css",
+        "css/studio.css",
+        "css/link-system.css",
+        "css/resume-portfolio.css",
+        "css/vesper-tokens.css"
+      ],
+      "bytes": 181768
+    }
+  },
+  "shared": {
+    "glass": "css/glass.css?v=ffb437f40d1d",
+    "shader-mount": "js/vendor/paper/shader-mount.js?v=b4e693f2144f",
+    "wave-noise-cache": "js/wave-noise-cache.mjs?v=2aba96eec26c",
+    "paper-wave": "js/paper-wave.mjs?v=26cd7de6b4d9",
+    "glass-demos": "js/glass-demos.mjs?v=18b5a02b37f5"
+  },
+  "routes": {
+    "index.html": {
+      "stylesheets": [
+        "css/bundle-shared-base.css?v=912609ce72b2",
+        "css/bundle-home-layout.css?v=304501329bf4",
+        "css/glass.css?v=ffb437f40d1d",
+        "css/bundle-home-product.css?v=8e6845d34ee9"
+      ],
+      "count": 4
+    },
+    "partner-growth-programs.html": {
+      "stylesheets": [
+        "css/bundle-shared-base.css?v=912609ce72b2",
+        "css/bundle-case-layout.css?v=0bd846edffdc",
+        "css/glass.css?v=ffb437f40d1d",
+        "css/bundle-case-product.css?v=7e940a21de1d",
+        "css/bundle-growth-product.css?v=65dcf1b5c198"
+      ],
+      "count": 5
+    },
+    "discounting.html": {
+      "stylesheets": [
+        "css/bundle-shared-base.css?v=912609ce72b2",
+        "css/bundle-case-layout.css?v=0bd846edffdc",
+        "css/glass.css?v=ffb437f40d1d",
+        "css/bundle-case-product.css?v=7e940a21de1d",
+        "css/bundle-discount-product.css?v=dd90604baab2"
+      ],
+      "count": 5
+    },
+    "dev-portal.html": {
+      "stylesheets": [
+        "css/bundle-shared-base.css?v=912609ce72b2",
+        "css/bundle-case-layout.css?v=0bd846edffdc",
+        "css/bundle-developer-concepts.css?v=36f077448da5",
+        "css/glass.css?v=ffb437f40d1d",
+        "css/bundle-case-product.css?v=7e940a21de1d",
+        "css/bundle-developer-product.css?v=4bce2557705b"
+      ],
+      "count": 6
+    },
+    "resume.html": {
+      "stylesheets": [
+        "css/bundle-resume-layout.css?v=5bfdbc8b0124",
+        "css/glass.css?v=ffb437f40d1d"
+      ],
+      "count": 2
+    }
+  },
+  "sourceDependencies": [
+    "css/case-developer.css",
+    "css/case-discount.css",
+    "css/case-growth.css",
+    "css/case-refined.css",
+    "css/case-studies.css",
+    "css/concepts.css",
+    "css/craft-motion.css",
+    "css/editorial.css",
+    "css/evidence-motion.css",
+    "css/folio.css",
+    "css/link-system.css",
+    "css/motion.css",
+    "css/personal-landing.css",
+    "css/product-surfaces.css",
+    "css/project-system.css",
+    "css/resume-portfolio.css",
+    "css/resume.css",
+    "css/studio.css",
+    "css/teletype.css",
+    "css/two-tone.css",
+    "css/vesper-concepts.css",
+    "css/vesper-tokens.css",
+    "css/work-index.css"
+  ]
+}

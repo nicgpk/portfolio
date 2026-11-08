@@ -41,7 +41,7 @@ test('scroll navigation reads About once and leaves unchanged attributes alone',
       removeAttribute:()=>{writes++;current=null;},
     }};
   });
-  const sync = new Function('about','destinations', `const home=true,innerHeight=1000,position=()=>{};${syncSource};return syncCurrent;`)(about, links);
+  const sync = new Function('about','destinations', `const home=true,innerHeight=1000;${syncSource};return syncCurrent;`)(about, links);
   sync();sync();
   assert.equal(reads, 2);
   assert.equal(writes, 0);
@@ -50,4 +50,22 @@ test('scroll navigation reads About once and leaves unchanged attributes alone',
   assert.equal(reads, 4);
   assert.equal(writes, 2);
   assert.equal(links[1].link.getAttribute(), 'location');
+});
+
+test('navigation coalesces scroll and resize, reading geometry before header writes', () => {
+  const demos = source('glass-demos.mjs');
+  const scheduler = demos.slice(demos.indexOf('  let navFrame=0;'), demos.indexOf('  const home ='));
+  const sync = demos.slice(demos.indexOf('  const syncCurrent = () =>'), demos.indexOf('  const restoreNavigation ='));
+  const events = {}, frames = [], order = [];
+  const about = {getBoundingClientRect: () => {order.push('read'); return {top:900,bottom:1800};}};
+  const header = {classList:{toggle: () => order.push('write')}};
+  const create = new Function('about','header','addEventListener','requestAnimationFrame',
+    `const home=true,innerHeight=1000,scrollY=100,destinations=[];${scheduler}${sync}`);
+  create(about, header, (type, listener) => {events[type] = listener;}, callback => frames.push(callback));
+  events.scroll(); events.scroll(); events.resize();
+  assert.equal(frames.length, 1);
+  frames[0]();
+  assert.deepEqual(order, ['read', 'write']);
+  events.scroll();
+  assert.equal(frames.length, 2);
 });

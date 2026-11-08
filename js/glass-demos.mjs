@@ -667,16 +667,11 @@ if (rises.length && !motionPaused()) {
   }
 }
 
-// The capsule keeps its size. Only its visual focus/active marker travels.
+// The capsule's active links use CSS; no invisible marker needs measuring.
 const header = document.querySelector(".site-nav"),
   nav = header?.querySelector("nav");
 if (nav) {
-  const links = [...nav.querySelectorAll("a")],
-    indicator = document.createElement("span");
-  indicator.className = "nav-motion-indicator";
-  indicator.setAttribute("aria-hidden", "true");
-  indicator.hidden = true;
-  nav.prepend(indicator);
+  const links = [...nav.querySelectorAll("a")];
   // A disclosure on compact screens; without JS the existing route links stay visible.
   const compact = matchMedia("(max-width:767px)");
   const menuButton = document.createElement("button");
@@ -742,51 +737,16 @@ if (nav) {
   );
   compact.addEventListener("change", () => setMenu(false));
   setMenu(false);
-  let pointed = null;
-  let positioned;
-  const position = (force = true) => {
-    const focused = links.includes(document.activeElement)
-      ? document.activeElement
-      : null;
-    const selected =
-      focused ||
-      pointed ||
-      links.find((link) => link.hasAttribute("aria-current"));
-    if (!force && selected === positioned) return;
-    positioned = selected;
-    if (!selected) {
-      indicator.style.opacity = "0";
-      return;
-    }
-    const box = selected.getBoundingClientRect(),
-      parent = nav.getBoundingClientRect();
-    indicator.hidden = false;
-    indicator.style.opacity = "1";
-    indicator.style.width = box.width + "px";
-    indicator.style.transform =
-      "translateX(" + (box.left - parent.left) + "px)";
-  };
-  links.forEach((link) => {
-    link.addEventListener("pointerenter", () => {
-      pointed = link;
-      position();
-    });
-    link.addEventListener("focus", position);
-    link.addEventListener("blur", () => requestAnimationFrame(position));
-  });
-  nav.addEventListener("pointerleave", () => {
-    pointed = null;
-    position();
-  });
   let navFrame=0;
   const scroll = () => {
     navFrame=0;
-    header.classList.toggle("nav-is-scrolled", scrollY > 24);
+    // Finish the necessary geometry read before changing the header's layout.
     syncCurrent();
+    header.classList.toggle("nav-is-scrolled", scrollY > 24);
   };
-  addEventListener("scroll", () => {if(!navFrame)navFrame=requestAnimationFrame(scroll);}, { passive: true });
-  addEventListener("resize", position, { passive: true });
-  new ResizeObserver(position).observe(nav);
+  const scheduleNavigation = () => {if(!navFrame)navFrame=requestAnimationFrame(scroll);};
+  addEventListener("scroll", scheduleNavigation, { passive: true });
+  addEventListener("resize", scheduleNavigation, { passive: true });
   const home = location.pathname.endsWith("/") || /\/index(?:\.html)?$/.test(location.pathname);
   const about = home ? document.querySelector('#about') : null;
   const destinations = links.map(link => ({link,url:new URL(link.href)}));
@@ -803,18 +763,15 @@ if (nav) {
         else link.removeAttribute("aria-current");
       });
     }
-    position(false);
   };
   const restoreNavigation = () => {
     setMenu(false);
-    syncCurrent();
-    requestAnimationFrame(scroll);
+    scheduleNavigation();
   };
   addEventListener("hashchange", restoreNavigation);
   addEventListener("popstate", restoreNavigation);
   addEventListener("pageshow", restoreNavigation);
-  document.fonts.ready.then(syncCurrent);
-  syncCurrent();
+  document.fonts.ready.then(scheduleNavigation);
   scroll();
   if (!motionPaused()) {
     const animation = header.animate(

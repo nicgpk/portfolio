@@ -160,7 +160,7 @@ class ShaderMount {
     this.setupResizeObserver();
   };
   /** Resize handler for when the container div changes size or the max pixel count changes and we want to resize our canvas to match */
-  handleResize = () => {
+  handleResize = (render = true) => {
     let targetPixelWidth = 0;
     let targetPixelHeight = 0;
     const dpr = Math.max(1, window.devicePixelRatio);
@@ -189,7 +189,7 @@ class ShaderMount {
       this.canvasElement.height = newHeight;
       this.resolutionChanged = true;
       this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
-      this.render(performance.now());
+      if (render) this.render(performance.now());
     }
   };
   render = (currentTime) => {
@@ -377,11 +377,18 @@ class ShaderMount {
     this.handleResize();
   };
   /** Update the uniforms that are provided by the outside shader, can be a partial set with only the uniforms that have changed */
-  setUniforms = (newUniforms) => {
+  setUniforms = (newUniforms, render = true) => {
     this.setUniformValues(newUniforms);
     this.providedUniforms = { ...this.providedUniforms, ...newUniforms };
-    this.render(performance.now());
+    if (render) this.render(performance.now());
   };
+  /** Apply a responsive composition and pixel budget before one final render. */
+  setUniformsAndMaxPixelCount(newUniforms, newMaxPixelCount = DEFAULT_MAX_PIXEL_COUNT) {
+    this.setUniforms(newUniforms, false);
+    this.maxPixelCount = newMaxPixelCount;
+    this.handleResize(false);
+    this.render(performance.now());
+  }
   handleDocumentVisibilityChange = () => {
     this.updateCurrentSpeed();
   };

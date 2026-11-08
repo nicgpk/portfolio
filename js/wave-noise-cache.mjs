@@ -1,4 +1,4 @@
-import { createProgram } from './vendor/paper/shader-mount.js';
+import { createProgram } from './vendor/paper/shader-mount.js?v=b4e693f2144f';
 import { vertexShaderSource } from './vendor/paper/vertex-shader.js';
 
 // These two fields depend on position, not time. Keep their original full
@@ -40,6 +40,12 @@ export function cacheWaveNoise(mount, fragment) {
   const originalProgram = mount.program;
   const originalUniforms = { ...mount.providedUniforms };
   const setUniforms = mount.setUniforms, dispose = mount.dispose;
+  // The cached fields use only the coordinate transform and shape branch.
+  // Color, softness, intensity and grain strength are applied by the live pass.
+  const noiseInputs = new Set([
+    'u_shape', 'u_scale', 'u_rotation', 'u_offsetX', 'u_offsetY',
+    'u_originX', 'u_originY', 'u_worldWidth', 'u_worldHeight', 'u_fit',
+  ]);
   const locations = Object.fromEntries(
     [...Object.keys(originalUniforms), 'u_resolution', 'u_pixelRatio']
       .map(name => [name, gl.getUniformLocation(noiseProgram, name)]));
@@ -105,7 +111,14 @@ export function cacheWaveNoise(mount, fragment) {
   mount.setUniformValues(mount.providedUniforms);
   gl.uniform1i(gl.getUniformLocation(waveProgram, 'u_cachedGrain'), 1);
   mount.resolutionChanged = true;
-  mount.setUniforms = values => { dirty = true; setUniforms(values); };
+  mount.setUniforms = (values, render = true) => {
+    // A replacement source image needs the original texture-upload path.
+    if (active && Object.hasOwn(values, 'u_noiseTexture')
+      && values.u_noiseTexture !== originalUniforms.u_noiseTexture) restore();
+    if (active && Object.entries(values).some(([name, value]) => noiseInputs.has(name)
+      && !Object.is(value, mount.providedUniforms[name]))) dirty = true;
+    setUniforms(values, render);
+  };
   mount.dispose = () => {
     if (active) { release(); gl.deleteProgram(originalProgram); active = false; }
     mount.beforeDraw = null; dispose();

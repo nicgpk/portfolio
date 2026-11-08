@@ -27,10 +27,10 @@ for(const host of hosts) {
  const start=async()=>{
   try {
    const [{ShaderMount},{grainGradientFragmentShader,GrainGradientShapes},{getShaderNoiseTexture},{cacheWaveNoise}]=await Promise.all([
-    import('./vendor/paper/shader-mount.js'),
+    import('./vendor/paper/shader-mount.js?v=b4e693f2144f'),
     import('./vendor/paper/shaders/grain-gradient.js'),
     import('./vendor/paper/get-shader-noise-texture.js'),
-    import('./wave-noise-cache.mjs'),
+    import('./wave-noise-cache.mjs?v=2aba96eec26c'),
    ]);
    const noise=await sharedNoise(getShaderNoiseTexture);
    mount=new ShaderMount(host,grainGradientFragmentShader,{
@@ -39,7 +39,7 @@ for(const host of hosts) {
     u_fit:0,u_originX:.5,u_originY:.5,u_worldWidth:0,u_worldHeight:0,
    },{alpha:true,antialias:false,powerPreference:'low-power'},reduced.matches?0:speed,middle?38000:12000,1,pixelBudget());
    cacheWaveNoise(mount,grainGradientFragmentShader);
-   compact.addEventListener('change',()=>{if(failed)return;mount.setUniforms(composition());mount.setMaxPixelCount(pixelBudget());});
+   compact.addEventListener('change',()=>{if(failed)return;mount.setUniformsAndMaxPixelCount(composition(),pixelBudget());});
    host.dataset.waveState=reduced.matches?'static':'animated';
    host.classList.add('is-wave-ready');
    mount.canvasElement.setAttribute('aria-hidden','true');

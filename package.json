@@ -2,6 +2,10 @@
   "name": "nicholas-gwee-portfolio",
   "private": true,
   "type": "module",
-  "scripts": {"test": "node --test tests/*.test.cjs tests/*.test.mjs"},
+  "scripts": {
+    "test": "node scripts/build-css-bundles.mjs --check && node --test tests/*.test.cjs tests/*.test.mjs",
+    "build:css": "node scripts/build-css-bundles.mjs",
+    "check:css": "node scripts/build-css-bundles.mjs --check"
+  },
   "engines": {"node": ">=22"}
 }

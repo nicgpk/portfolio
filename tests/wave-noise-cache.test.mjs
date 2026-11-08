@@ -1,6 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {cacheWaveNoise} from '../js/wave-noise-cache.mjs';
+import {ShaderMount} from '../js/vendor/paper/shader-mount.js';
 import {grainGradientFragmentShader} from '../js/vendor/paper/shaders/grain-gradient.js';
 
 function renderer({supported = true, complete = true} = {}) {
@@ -89,6 +90,12 @@ function renderer({supported = true, complete = true} = {}) {
       u_scale: 0.9,
       u_rotation: 18,
       u_colors: [[0.1, 0.2, 0.3, 1], [0.4, 0.5, 0.6, 1]],
+      u_colorsCount: 2,
+      u_colorBack: [0, 0, 0, 1],
+      u_softness: 0.84, u_intensity: 0.32, u_noise: 0.0308,
+      u_shape: 1, u_offsetX: 0, u_offsetY: 0,
+      u_originX: 0.5, u_originY: 0.5,
+      u_worldWidth: 0, u_worldHeight: 0, u_fit: 0,
     },
     uniformCache: {},
     uniformLocations: {},
@@ -107,7 +114,11 @@ function renderer({supported = true, complete = true} = {}) {
     gl.useProgram(mount.program);
     for (const [name, value] of Object.entries(values)) {
       const location = gl.getUniformLocation(mount.program, name);
-      if (value === noiseImage) {
+      if (value && typeof value === 'object' && 'src' in value) {
+        if (value !== noiseImage) {
+          gl.deleteTexture(mount.textures.get(name));
+          mount.textures.set(name, gl.createTexture());
+        }
         gl.activeTexture(gl.TEXTURE0);
         gl.bindTexture(gl.TEXTURE_2D, mount.textures.get(name));
         gl.uniform1i(location, 0);
@@ -128,11 +139,11 @@ function renderer({supported = true, complete = true} = {}) {
     gl.drawArrays(gl.TRIANGLES, 0, 6);
   };
   // The real mount renders synchronously when a caller changes uniforms.
-  mount.setUniforms = values => {
+  mount.setUniforms = (values, render = true) => {
     forwardedUniforms.push(values);
     mount.setUniformValues(values);
     mount.providedUniforms = {...mount.providedUniforms, ...values};
-    mount.drawFrame();
+    if (render) mount.drawFrame();
   };
   mount.dispose = () => {
     if (!mount.program) return;
@@ -244,6 +255,105 @@ test('setUniforms rebakes with the latest values before its synchronous visible 
   assert.equal(r.allocations.length, 1, 'uniform changes do not resize the cache');
   r.mount.drawFrame();
   assert.equal(r.bakes().length, 2);
+  r.mount.dispose();
+  r.assertReleasedOnce();
+});
+
+test('a responsive composition and pixel budget bake only at the final geometry', () => {
+  const r = renderer();
+  r.install();
+  r.mount.drawFrame();
+  r.mount.speed = 0.18;
+  const values = {u_scale: 0.85, u_rotation: 18, u_colors: [[0, 0, 0, 1], [0.2, 0.3, 0.4, 1]]};
+  r.mount.handleResize = (render = true) => {
+    assert.equal(r.mount.maxPixelCount, 450000);
+    assert.equal(r.mount.providedUniforms.u_scale, 0.85);
+    r.mount.canvasElement.width = 750;
+    r.mount.canvasElement.height = 600;
+    r.mount.renderScale = 0.75;
+    r.mount.resolutionChanged = true;
+    if (render) r.mount.drawFrame();
+  };
+  r.mount.render = () => r.mount.drawFrame();
+
+  ShaderMount.prototype.setUniformsAndMaxPixelCount.call(r.mount, values, 450000);
+
+  assert.deepEqual(r.forwardedUniforms, [values]);
+  assert.equal(r.bakes().length, 2, 'only one additional bake for the batch');
+  assert.equal(r.visible().length, 2, 'only one additional visible frame');
+  assert.deepEqual(r.bakes().at(-1).uniforms.get('u_resolution'), [750, 600]);
+  assert.equal(r.bakes().at(-1).uniforms.get('u_pixelRatio'), 0.75);
+  assert.equal(r.bakes().at(-1).uniforms.get('u_scale'), 0.85);
+  assert.deepEqual(r.visible().at(-1).uniforms.get('u_colors'), values.u_colors.flat());
+  assert.equal(r.visible().at(-1).uniforms.get('u_time'), 1 / 60);
+  assert.equal(r.mount.speed, 0.18);
+  assert.deepEqual(r.allocations.map(({width, height}) => [width, height]),
+    [[640, 360], [750, 600]], 'never allocate an intermediate responsive size');
+  r.mount.dispose();
+  r.assertReleasedOnce();
+});
+
+test('color and appearance updates reuse grain while updating the visible pass', () => {
+  const r = renderer();
+  r.install();
+  r.mount.drawFrame();
+  const values = {
+    u_colors: [[0.7, 0.6, 0.5, 1], [0.2, 0.1, 0, 1]],
+    u_colorsCount: 2, u_colorBack: [0.1, 0.1, 0.1, 1],
+    u_softness: 0.9, u_intensity: 0.4, u_noise: 0.0308,
+  };
+  r.mount.setUniforms(values);
+
+  assert.equal(r.bakes().length, 1);
+  assert.equal(r.allocations.length, 1);
+  assert.equal(r.visible().length, 2);
+  for (const [name, value] of Object.entries(values)) {
+    assert.deepEqual(r.visible().at(-1).uniforms.get(name),
+      Array.isArray(value) ? value.flat() : value);
+  }
+  r.mount.setUniforms({u_scale: 0.9, u_rotation: 18});
+  assert.equal(r.bakes().length, 1, 'unchanged geometry does not invalidate');
+  r.mount.dispose();
+  r.assertReleasedOnce();
+});
+
+test('each changed noise-coordinate input rebakes before its visible frame', () => {
+  const r = renderer();
+  r.install();
+  r.mount.drawFrame();
+  const values = {
+    u_shape: 4, u_scale: 0.65, u_rotation: 48,
+    u_offsetX: 0.2, u_offsetY: -0.1, u_originX: 0.4, u_originY: 0.6,
+    u_worldWidth: 120, u_worldHeight: 80, u_fit: 1,
+  };
+  for (const [name, value] of Object.entries(values)) {
+    const count = r.bakes().length;
+    r.mount.setUniforms({[name]: value});
+    assert.equal(r.bakes().length, count + 1, name);
+    assert.equal(r.bakes().at(-1).uniforms.get(name), value);
+  }
+  assert.equal(r.allocations.length, 1);
+  r.mount.dispose();
+  r.assertReleasedOnce();
+});
+
+test('replacing the source noise image restores the original texture-upload path', () => {
+  const r = renderer();
+  r.install();
+  r.mount.drawFrame();
+  const image = {src: 'replacement-noise-image'};
+  r.mount.setUniforms({u_noiseTexture: image});
+
+  assert.equal(r.mount.program, r.originalProgram);
+  assert.equal(r.mount.beforeDraw, null);
+  assert.equal(r.mount.parentElement.dataset.waveNoiseCache, undefined);
+  assert.equal(r.mount.providedUniforms.u_noiseTexture, image);
+  assert.notEqual(r.mount.textures.get('u_noiseTexture'), r.sourceTexture);
+  assert.equal(r.visible().at(-1).textures.get(0), r.mount.textures.get('u_noiseTexture'));
+  assert.equal(r.visible().at(-1).uniforms.get('u_noiseTexture'), 0);
+  assert.equal(r.bakes().length, 1, 'the replaced image uses normal rendering, not stale grain');
+  r.mount.drawFrame();
+  assert.equal(r.bakes().length, 1);
   r.mount.dispose();
   r.assertReleasedOnce();
 });
