@@ -3,22 +3,25 @@ import { motionPaused } from "./kinetics.mjs";
 // Shared feedback: contents stay visible, values are final before any animation.
 const active = new Set();
 const byElement = new WeakMap();
-const ease = "cubic-bezier(.16,1,.3,1)";
+const ease = "cubic-bezier(.25,.1,.25,1)";
 export function animateFeedback(element, frames, duration) {
   if (!element) return;
   byElement.get(element)?.cancel();
+  byElement.delete(element);
   if (motionPaused() || document.hidden || !element.animate) return;
   const vesper = element.closest("[data-vesper-theme]");
   const tokens = vesper ? getComputedStyle(vesper) : null;
   const animation = element.animate(frames, {
-    duration: tokens
-      ? parseFloat(tokens.getPropertyValue(duration === 360 ? "--duration-medium" : "--duration-fast"))
-      : (duration ?? 220),
+    // Explicit timings also apply inside themed examples; empty tokens fall back.
+    duration: duration ?? (parseFloat(tokens?.getPropertyValue("--duration-medium")) || 420),
     easing: tokens?.getPropertyValue("--ease-standard").trim() || ease,
   });
   byElement.set(element, animation);
   active.add(animation);
-  const done = () => active.delete(animation);
+  const done = () => {
+    active.delete(animation);
+    if (byElement.get(element) === animation) byElement.delete(element);
+  };
   animation.addEventListener("finish", done, { once: true });
   animation.addEventListener("cancel", done, { once: true });
   return animation;
@@ -36,7 +39,7 @@ export function animateRateBar(bar, previous, next) {
         { transform: `scaleX(${Math.max(0, previous) / next})` },
         { transform: "scaleX(1)" },
       ],
-      360,
+      520,
     );
 }
 export function attachIndicator(

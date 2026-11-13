@@ -2,3 +2,16 @@ node_modules/
 .DS_Store
 style.css
 .superpowers/
+.herdr-hover/
+.herdr-build/
+/.herdr/feedback/
+
+# Personal annotation tooling and local verification artifacts.
+/herdr-preview/
+/.preview-review/
+/.companion-installed.png
+/.feedback-installed.png
+/.frame-clock.html
+/.home-profile*
+/.renderer-server*
+/.wave-cost-*

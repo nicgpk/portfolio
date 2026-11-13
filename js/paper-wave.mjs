@@ -1,6 +1,6 @@
 // Paper Shaders 0.0.81, Apache-2.0. Vendored locally; no runtime third-party requests.
 import {getShaderColorFromString} from './vendor/paper/get-shader-color-from-string.js?v=5b4a27c2ff33';
-import {createWorkerWave} from './wave-worker-host.mjs?v=255805e2a59e';
+import {createWorkerWave} from './wave-worker-host.mjs?v=02b1aa4b0ad7';
 const hosts=document.querySelectorAll('[data-paper-wave]');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const compact=matchMedia('(max-width:767px)');
@@ -77,9 +77,10 @@ for(const host of hosts) {
    addEventListener('pageshow',()=>{if(!failed)mount.setSpeed(reduced.matches?0:speed);});
   }catch (error) {console.warn('Portfolio wave fallback:', error.message);host.dataset.waveState='fallback';host.replaceChildren();}
  };
- if(middle||showcase) {
+ if(middle||showcase||host.dataset.paperWave==='footer') {
   const lazy=new IntersectionObserver((entries)=>{if(entries.some(entry=>entry.isIntersecting)){lazy.disconnect();start();}},{rootMargin:'250px'});
   lazy.observe(host);
- }else if(typeof requestIdleCallback==='function') requestIdleCallback(()=>start(),{timeout:1200});
+ }else if(host.hasAttribute('data-wave-eager')) start();
+ else if(typeof requestIdleCallback==='function') requestIdleCallback(()=>start(),{timeout:1200});
  else addEventListener('load',()=>start(),{once:true});
 }

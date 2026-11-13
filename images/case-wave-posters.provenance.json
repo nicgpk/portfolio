@@ -1,0 +1,7 @@
+{
+  "description": "Lightweight stills of this portfolio's existing live wave, displayed while its renderer starts or when JavaScript is unavailable.",
+  "source": "js/paper-wave.mjs, initial frame 12000, reduced motion",
+  "capture": "Chrome at desktop 1881x1304 and mobile 390x844; 1200px atmosphere; navigation hidden; opacity, blur, saturation and mask removed for capture and reapplied by CSS",
+  "processing": "Resize desktop to 1000px wide, retain mobile 390px width, blur 3px, WebP quality 70",
+  "files": ["case-wave-poster.webp", "case-wave-mobile.webp"]
+}

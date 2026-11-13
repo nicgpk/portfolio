@@ -1,0 +1,24 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "created": "2026-11-13",
+  "reference": "images/icon-boost-3d.webp",
+  "processing": "Resized to 256 ? 256 PNG with original alpha preserved; no background replacement.",
+  "assets": {
+    "icon-tenet-activate-3d.png": {
+      "prompt": "Use case: stylized-concept. Asset type: one small 3D icon for a portfolio tenet card. The input image is a STYLE REFERENCE ONLY. Generate a new matching icon with rounded toy-like polished resin, soft studio highlights, a warm peach low circular cylindrical plinth, same slightly elevated three-quarter camera and friendly compact proportions. Genuine transparent background with alpha, no cream backdrop, no floor or surrounding scene. Center the complete object and plinth with 8 percent clear margin. Simple silhouette readable at 64 pixels. No lettering, logos, text, decorative particles or glow. Produce exactly one icon, not a sheet. Subject: a mint-green upright thick circular medallion with a raised ivory checkmark, resting on the peach plinth. Communicates confident self-serve activation.",
+      "source": "exec-4fbdae87-b304-49ba-b285-46652bb3d35a.png"
+    },
+    "icon-tenet-manage-3d.png": {
+      "prompt": "Use case: stylized-concept. Asset type: one small 3D icon for a portfolio tenet card. The input image is a STYLE REFERENCE ONLY. Generate a new matching icon with rounded toy-like polished resin, soft studio highlights, a warm peach low circular cylindrical plinth, same slightly elevated three-quarter camera and friendly compact proportions. Genuine transparent background with alpha, no cream backdrop, no floor or surrounding scene. Center the complete object and plinth with 8 percent clear margin. Simple silhouette readable at 64 pixels. No lettering, logos, text, decorative particles or glow. Produce exactly one icon, not a sheet. Subject: a sky-blue rounded upright square control panel with three raised ivory horizontal slider rails and blue round slider knobs at different positions, resting on the peach plinth. Communicates flexible program settings.",
+      "source": "exec-f74bc008-ff9e-49d4-bbca-eaa0cf0346cd.png"
+    },
+    "icon-tenet-performance-3d.png": {
+      "prompt": "Use case: stylized-concept. Asset type: one small 3D icon for a portfolio tenet card. The input image is a STYLE REFERENCE ONLY. Generate a new matching icon with rounded toy-like polished resin, soft studio highlights, a warm peach low circular cylindrical plinth, same slightly elevated three-quarter camera and friendly compact proportions. Genuine transparent background with alpha, no cream backdrop, no floor or surrounding scene. Center the complete object and plinth with 8 percent clear margin. Simple silhouette readable at 64 pixels. No lettering, logos, text, decorative particles or glow. Produce exactly one icon, not a sheet. Subject: three rounded lavender ascending bar-chart columns with one chunky violet upward arrow rising behind them, resting on the peach plinth. Communicates clear program performance tracking.",
+      "source": "exec-6972bd89-7806-4e47-8e3e-75c1885711fd.png"
+    },
+    "icon-tenet-deactivate-3d.png": {
+      "prompt": "Use case: stylized-concept. Asset type: one small 3D icon for a portfolio tenet card. The input image is a STYLE REFERENCE ONLY. Generate a new matching icon with rounded toy-like polished resin, soft studio highlights, a warm peach low circular cylindrical plinth, same slightly elevated three-quarter camera and friendly compact proportions. Genuine transparent background with alpha, no cream backdrop, no floor or surrounding scene. Center the complete object and plinth with 8 percent clear margin. Simple silhouette readable at 64 pixels. No lettering, logos, text, decorative particles or glow. Produce exactly one icon, not a sheet. Subject: a coral-red upright rounded circular button medallion with a raised ivory universal power symbol (open ring with short vertical stroke at top), resting on the peach plinth. Communicates self-serve deactivation.",
+      "source": "exec-4548b831-43c5-499b-8e71-31a4edec295c.png"
+    }
+  }
+}

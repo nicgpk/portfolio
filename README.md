@@ -1,29 +1,84 @@
 # Nicholas Gwee — Product Design Portfolio
 
-Static HTML, CSS and JavaScript portfolio. Pages and styles remain editable source. Generated CSS bundles are checked in, so serving the repository needs no runtime build or external dependencies.
+Product design leadership, platform strategy, and hands-on interface design across Agoda, GovTech, banking, and visual effects.
 
-## Preview and test
+[View the portfolio](https://nicgpk.github.io/portfolio/) · [Download résumé](files/NicholasGwee_Resume.pdf) · [ATS-friendly résumé](files/ats-resume.html)
 
-Serve this directory with a static HTTP server (for example `python3 -m http.server 4183`) and open http://localhost:4183. Use Node 22 or newer to run `npm test`; the tests have no external dependencies.
+![Desktop preview of Nicholas Gwee’s portfolio](docs/portfolio-preview.jpg)
 
-After changing source CSS or the shared navigation/background modules, run `npm run build:css`. It preserves stylesheet order, refreshes the checked-in `css/bundle-*.css` files, and updates shared asset URLs consistently across the main pages. Background dependencies, including the worker, are versioned together. Edit the original CSS files rather than generated bundles. Run `npm run check:css` to check freshness without writing files; this check also runs with `npm test`.
+## Selected work
 
-The homepage contains the identity hero and animated employer logos, the full Work index with three interactive case studies, experience, work process, and the GovTech archive. `projects.html` redirects to the homepage for existing bookmarks. The other main pages are Partner Growth Programs, Discounting 2.0, Developer Portal and Resume. `originals/` preserves linked historical project material. The downloadable PDF and ATS HTML live in `files/`.
+- **[Partner Growth Programs](partner-growth-programs.html)** — A unified partner hub for discovering, comparing, and activating Agoda’s growth programs.
+- **[Discounting 2.0](discounting.html)** — Clearer promotion setup, stacked-discount rules, and an interactive net-rate simulator.
+- **[Developer Portal & Deployment](dev-portal.html)** — Service creation and private-cloud deployment, with an interactive deployment topology.
 
-The homepage uses the original animated wave palette at 30% saturation with a matching static fallback, skips staggered content entrances, and loads the demo and background enhancement modules. Content remains visible if JavaScript fails. Case-study pages retain their existing effects.
+The homepage brings these case studies together with career experience, working principles, earlier GovTech projects, and a film-poster reel from my visual-effects work.
 
-## Interaction and rendering
+## Built for the browser
 
-Concept demonstrations use illustrative data and do not enroll properties or deploy infrastructure. The receipt applies three discounts sequentially with cent rounding. Required Developer Portal text fields are trimmed and validated. Motion respects reduced-motion preferences and offscreen/tab visibility.
+The site uses **static HTML, CSS, and vanilla JavaScript modules**, with locally hosted fonts, icons, and libraries. No framework, dependency installation, or build step is required to serve the checked-in site.
 
-Paper Shaders 0.0.81 is vendored under `js/vendor/paper/` with its Apache-2.0 LICENSE and NOTICE. WebGL2 backgrounds have static CSS fallbacks. Font and icon licenses are retained alongside their assets. The hotel concept image and chrome program icons are generated illustrations.
+- **Focused layout:** an 860px homepage frame, project summaries and metrics above the interactive demos, and consistent case-study typography.
+- **Interactive examples:** program comparisons, sequential discount calculations with cent rounding, and a deployment walkthrough. Demo data is illustrative; controls do not enroll properties or deploy infrastructure.
+- **Responsive motion:** a pinned project showcase on sufficiently large screens, with a natural reading flow on compact screens or when reduced motion is requested.
+- **Progressive enhancement:** the main content remains readable without JavaScript. The WebGL wave has static image/CSS fallbacks.
+- **Rendering performance:** supported browsers render the wave in an OffscreenCanvas worker, cache static noise, and pause work when hidden, offscreen, or reduced motion is enabled. Main-thread and static fallbacks cover unsupported environments.
+- **Keyboard support:** visible focus states, keyboard-operable demos, and mobile navigation with focus restoration and Escape handling.
 
-The background uses a wave-only shader and caches its static noise. Supported browsers draw through an OffscreenCanvas worker, keeping WebGL setup and animation off the page thread. Unsupported browsers or worker failures use the original main-thread renderer; unavailable WebGL uses the CSS background. Colors, grain, blur, animation speed and responsive pixel budgets are shared with the original rendering. Workers pause when hidden, offscreen or reduced motion is enabled, and release their graphics resources on disposal.
+## Run locally
 
-## Snapshot and verification
+Serve the repository with any static HTTP server. For example, with Python 3:
 
-This export matches portfolio Site version 35, source `e9137437fe37d683f268ae5ddf07a3f9d330968a`. Included runtime files are copied byte-for-byte. Three unused logo files that were actually downloaded HTML error pages are excluded, including one with request diagnostics; test paths are adapted to this repository's root-level static layout. Private hosting configuration and internal review material are not needed to run this site and are excluded.
+```sh
+python -m http.server 4183
+```
 
-Focused tests cover selection timing, interruption/repetition, reveal state, required-text normalization, responsive shader parameters and pixel budgets, worker scheduling and fallback, and graphics resource cleanup. Local WebGL checks compared seven fixed frames with the original shader across desktop, mobile, resized and case-study compositions: channel differences were at most 1/255. Browser checks cover asset loading, receipt interactions, background fallbacks and the resume. Physical iPhone rendering has not been verified; these checks are not full device or accessibility certification.
+Open [localhost:4183](http://localhost:4183). Use an HTTP server rather than opening HTML files directly, so JavaScript modules and workers load correctly.
 
-This review branch does not change the production branch or publish GitHub Pages. Review and explicit deployment approval are separate steps.
+## Edit and verify
+
+Use **Node.js 22 or newer** for the maintenance scripts and tests. There are no npm dependencies to install.
+
+```sh
+# Rebuild checked-in CSS bundles and refresh shared asset versions.
+npm run build:css
+
+# Verify generated files without changing them.
+npm run check:css
+
+# Check bundle freshness and run the test suite.
+npm test
+```
+
+Edit the source stylesheets in `css/`; the build script generates `bundle-*.css` files and updates versioned asset URLs in the main pages. Rebuild after changing CSS or shared background/demo modules, then commit the generated files alongside their sources.
+
+Tests cover demo calculations and validation, interaction interruption, reduced motion, project-scroll transitions, renderer fallbacks, worker scheduling, and graphics-resource cleanup. Browser and device checks complement these tests; they are not a complete accessibility or physical-device certification.
+
+## Repository guide
+
+```text
+index.html                      Homepage and interactive project showcase
+partner-growth-programs.html    Partner Growth Programs case study
+discounting.html                Discounting 2.0 case study
+dev-portal.html                 Developer Portal case study
+resume.html                     Browser-friendly résumé
+css/                            Source styles and generated bundles
+js/                             Interactions, animation, and rendering modules
+images/                         Portfolio imagery and asset provenance
+fonts/                          Locally hosted fonts and licenses
+files/                          PDF and ATS-friendly résumés
+originals/                      Historical project material
+scripts/                        CSS build and verification tooling
+tests/                          Dependency-free Node.js tests
+```
+
+`projects.html` and `partner-programs.html` preserve older entry points. [DESIGN.md](DESIGN.md) documents the visual system, and [PRODUCT.md](PRODUCT.md) describes the portfolio’s audience and purpose.
+
+## Assets and credits
+
+- **Paper Shaders 0.0.81** is vendored under `js/vendor/paper/`, with its Apache-2.0 license and notice.
+- **D3 Shape 3.2.0**, including D3 Path, is vendored for the deployment diagram. Package details and licenses are in [js/vendor/](js/vendor/README.md).
+- Font and icon licenses are retained beside their assets. Generated illustrations and wave stills include provenance files in `images/`.
+- Movie-poster artwork belongs to its respective studios and rights holders. Source information is recorded in [images/film-posters/](images/film-posters/).
+
+Portfolio content, case-study material, and third-party assets retain their respective ownership and licensing.

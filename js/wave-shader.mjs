@@ -135,6 +135,11 @@ void main() {
 
   shape = clamp(shape - .5 / u_colorsCount, 0., 1.);
   float totalShape = smoothstep(0., u_softness + 2. * aa, clamp(shape * u_colorsCount, 0., 1.));
+  // Preserve derivatives above; a zero contribution needs no gradient blending.
+  if (totalShape == 0.) {
+    fragColor = vec4(u_colorBack.rgb * u_colorBack.a, u_colorBack.a);
+    return;
+  }
   float mixer = shape * (u_colorsCount - 1.);
 
   int cntStop = int(u_colorsCount) - 1;

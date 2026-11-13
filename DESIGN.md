@@ -10,6 +10,12 @@ colors:
   product-accent: "#d2d6d9"
   product-line: "#353b40"
   product-control-line: "#6f7981"
+  topology-paper: "#101214"
+  topology-ink: "#eef0f2"
+  topology-muted: "#b9bec3"
+  topology-accent: "#d2d6d9"
+  topology-line: "#6f7981"
+  topology-card: "#1c2023"
 typography:
   display:
     fontFamily: "IBM Plex Sans, sans-serif"
@@ -102,17 +108,17 @@ Case-study narrative section headings use 36px desktop and 28px compact; narrati
 
 ## Layout
 
-Keep current responsive grids and component dimensions. Use one content gutter (24px desktop, 20px compact); small inner panels use 20px or 16px. Align headers, controls and table regions to those gutters. Avoid stacked padded frames. Case studies have text-only, left-aligned heroes within the existing 1160px frame. They have no hero screenshots or chapter bars. Full narrative and product examples remain in the reading flow. The shared compact breakpoint is 767px; individual product layouts have their own existing breakpoints.
+The homepage uses an 860px maximum content frame, including desktop navigation, Work, About, Process, the archive and footer. On scroll, the desktop homepage navigation insets 16px from each of its original edges (828px at the full content width), using its existing width transition. Project cards stack their summary above a full-width interactive demo, followed by results and the case-study link. Demo stages use their content height. Results and the link share a row on desktop and stack on compact screens. Process uses two columns on desktop and one on compact screens. The homepage hero retains its existing 860px measure. Use one content gutter (24px desktop, 20px compact); small inner panels use 20px or 16px. Align headers, controls and table regions to those gutters. Avoid stacked padded frames. Case studies share the 860px maximum homepage frame, using the portfolio-content-width token for heroes, body content, desktop navigation and footer. Story copy fills its containing section or grid column without a separate character-based width limit. Case studies have text-only, left-aligned heroes. They have no hero screenshots or chapter bars. Full narrative and product examples remain in the reading flow. The shared compact breakpoint is 767px; individual product layouts have their own existing breakpoints.
 
 ## Elevation & Depth
 
-Product regions gain depth through exactly two surface backgrounds and borders. Bright outer gradient frames are removed from homepage demos and case-study examples. Keep the portfolio’s existing glass treatments and background atmosphere. The [wave implementation](js/paper-wave.mjs) retains its motion, rendering limits, visibility pausing and reduced-motion behavior; the color extension adds no animation.
+Product demos group content through exactly two surface backgrounds, spacing and typography. Homepage demos use subtle product-line outlines around their frames, program tiles and detail panels, with dividers under headers and between descriptive data rows. Selected programs use an accent outline, filled surface and checkmark; hover strengthens the static 1px outline, with no fill change, press scaling or border-sweep animation. Receipt rows retain dashed separators; deployment steps, sidebar and configuration rows use quiet dividers, and action buttons retain visible control outlines. Case-study examples continue to group most nested regions through tone and spacing. Active steps keep an accent underline. Retain strokes for inputs, data-table rows, topology nodes and focus/error states. Bright outer gradient frames are removed from homepage demos and case-study examples. Keep the portfolio’s existing glass treatments and background atmosphere. The [wave implementation](js/paper-wave.mjs) retains its motion, rendering limits, visibility pausing and reduced-motion behavior; the color extension adds no animation.
 
 The wave reuses time-independent grain in a full-precision GPU cache, rebuilding it after size, pixel-ratio or composition changes. This preserves the existing resolution, grain, palette, blur and animation speed. Devices without floating-point render targets keep the original renderer.
 
 ## Shapes
 
-Product surfaces commonly use gently rounded corners (12px); controls use smaller corners (8px), and badges use compact corners (6px). Preserve established per-component variations rather than changing geometry during color work.
+All product demos use one corner scale: 12px for frames, workspace panels, cards, metric strips and table containers; 8px for controls and interactive rows; 6px for badges. The shared product-radius-panel, product-radius-control and product-radius-badge tokens in product-surfaces.css define this scale. Circular avatars, status dots, ports and step markers retain their circular shape. Table containers keep horizontal scrolling on narrow screens.
 
 ## Components
 
@@ -124,6 +130,16 @@ Product surfaces commonly use gently rounded corners (12px); controls use smalle
 - **Badges:** compact supporting labels, with accent emphasis reserved for meaningful selected or recommended states.
 - **Case-study navigation:** name the destination project in the next-case link; stack it with the all-work link on compact screens.
 - **Working principles:** present a non-sequential list without numbered steps.
+
+### Deployment topology: local high-tech treatment
+
+The homepage deployment graph uses the shared charcoal/graphite palette with a dot grid and silver routing. Its scoped `topology-*` properties alias the existing product tokens: paper maps to product-bg, ink to product-ink, muted to product-muted, accent to product-accent, line to product-control-line, and card to product-raised. The grid, frame and source inset rim use product-line. This high-tech treatment is confined to the graph; it does not change the portfolio's overall visual system.
+
+Use a borderless 12px canvas and 12px nodes. The source is 144 × 128px; regional nodes are capped at 260px wide and 64px tall, centered as a group with 16px gaps. At canvas widths of 360px or less, use a 112px source height and 80px regional rows with 12px gaps. Preserve the left image source, three stacked regional nodes, measured cubic connectors, circular ports and ten-cell replica indicators. Nodes use graphite fill with a single outline: a quiet divider tone for inactive regions and the accent for active nodes. Active connectors have a restrained silver glow. Keep the 32px gap before the detail panel. Titles remain IBM Plex Sans at 14px/600, metadata at 12px, and the image hash uses the existing mono family at 16px/600. Hide replica indicators at canvas widths of 480px or less; at 360px or less, shrink the source and use 12px region labels and hash. Compact viewport padding is 16px vertically and 12px horizontally below 480px.
+
+Node imagery matches the existing navigation's silver 3D objects on warm peach plinths: [container](images/icon-dev-container-3d.png) and [server](images/icon-dev-server-3d.png), both transparent 256px PNGs. The source icon displays at 40px and regional icons at 32px. At canvas widths of 360px or less, they remain visible at 32px and 24px respectively, with the regional icon stacked above its label and metadata. Generation references and prompt provenance are recorded in [deployment-node-icons.provenance.json](images/deployment-node-icons.provenance.json) and the PNG metadata.
+
+Inactive routing uses the control-line tone; rollout and review use the silver accent for paths and active region borders, ports and indicators. State transitions use 420ms ease-out. Rollout alone adds one 1800ms dashed routing animation, with no looping; reduced motion and the existing motion-off setting suppress animation and transitions. The authoritative implementation is [work-index.css](css/work-index.css), with measured connectors in [deployment-topology.mjs](js/deployment-topology.mjs). Keep the graph's grid and routing glow scoped to this component.
 
 ## Do's and Don'ts
 

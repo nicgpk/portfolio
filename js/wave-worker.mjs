@@ -1,4 +1,4 @@
-import { WaveRenderer } from './wave-renderer.mjs?v=f2a7962f5552';
+import { WaveRenderer } from './wave-renderer.mjs?v=2b5ca47330d1';
 import { noiseSrc } from './vendor/paper/get-shader-noise-texture.js?v=d0d1b0de0a4f';
 
 export async function loadNoiseBitmap() {
@@ -11,12 +11,15 @@ export async function loadNoiseBitmap() {
 
 export function createWaveWorkerController(scope, { Renderer = WaveRenderer, loadNoise = loadNoiseBitmap } = {}) {
   let renderer = null, bitmap = null, canvas = null;
-  let frame = 0, speed = 0, lastTime = 0, raf = null;
+  let frame = 0, speed = 0, lastTime = 0, raf = null, rafVersion = 0;
   let uniforms = {}, size = null, debug = false;
   let hasSpeed = false, hasFrame = false, initialized = false, disposed = false;
   let generation = 0;
+  let ownerLeaseMs = 0, ownerDeadline = 0, ownerHighWater = 0, ownerPaused = false;
   const now = () => scope.performance.now();
+  const epoch = time => (Number.isFinite(scope.performance.timeOrigin) ? scope.performance.timeOrigin : 0) + time;
   const stop = () => {
+    rafVersion++;
     if (raf !== null) scope.cancelAnimationFrame(raf);
     raf = null;
   };
@@ -40,13 +43,31 @@ export function createWaveWorkerController(scope, { Renderer = WaveRenderer, loa
     scope.postMessage({ type: 'error', message, frame });
   };
   const contextLost = () => fail(new Error('Wave WebGL context was lost'));
+  const checkOwner = (time = now()) => {
+    if (!ownerLeaseMs) return true;
+    if (!renderer) return false;
+    const paused = ownerDeadline <= epoch(time);
+    if (paused !== ownerPaused) {
+      ownerPaused = paused;
+      stop();
+      // Freeze at the last painted frame; suspended time is never caught up.
+      lastTime = time;
+      scope.postMessage({ type: 'owner-status', paused, frame });
+    }
+    if (paused) stop();
+    return !paused;
+  };
   const schedule = () => {
-    if (!disposed && renderer && speed !== 0 && raf === null) raf = scope.requestAnimationFrame(tick);
+    if (!disposed && renderer && speed !== 0 && raf === null && checkOwner()) {
+      const version = rafVersion;
+      raf = scope.requestAnimationFrame(time => { if (version === rafVersion) tick(time); });
+    }
   };
   const tick = time => {
     raf = null;
     if (disposed || !renderer || speed === 0) return;
     try {
+      if (!checkOwner()) return;
       frame += (time - lastTime) * speed;
       lastTime = time;
       renderer.render(frame);
@@ -55,7 +76,7 @@ export function createWaveWorkerController(scope, { Renderer = WaveRenderer, loa
   };
   const advance = () => {
     const time = now();
-    if (speed !== 0) frame += (time - lastTime) * speed;
+    if (checkOwner(time) && speed !== 0) frame += (time - lastTime) * speed;
     lastTime = time;
   };
   const repaint = () => {
@@ -97,6 +118,10 @@ export function createWaveWorkerController(scope, { Renderer = WaveRenderer, loa
           if (!hasFrame) frame = data.frame ?? 0;
           if (!hasSpeed) speed = data.speed ?? 0;
           if (!Number.isFinite(frame) || !Number.isFinite(speed)) throw new Error('Invalid wave clock');
+          if (data.ownerLeaseMs !== undefined && (!Number.isFinite(data.ownerLeaseMs) || data.ownerLeaseMs < 0))
+            throw new Error('Invalid wave owner lease');
+          ownerLeaseMs = data.ownerLeaseMs ?? 0;
+          ownerPaused = ownerLeaseMs > 0;
           debug = Boolean(data.debug);
           const source = await loadNoise();
           if (disposed || token !== generation) { source.close?.(); return; }
@@ -105,9 +130,30 @@ export function createWaveWorkerController(scope, { Renderer = WaveRenderer, loa
           renderer = new Renderer(canvas, { ...uniforms, u_noiseTexture: bitmap }, { frame });
           renderer.resize(size);
           scope.postMessage({ type: 'ready', cache: Boolean(renderer.cache),
-            cacheMode: renderer.cacheMode, size: { ...size }, frame });
+            cacheMode: renderer.cacheMode, size: { ...size }, frame, ownerPaused });
           lastTime = now();
+          checkOwner(lastTime);
           schedule();
+          break;
+        }
+        case 'owner': {
+          if (!ownerLeaseMs) break;
+          const time = now();
+          // An old lease may have expired while a callback or heartbeat waited.
+          // Observe that boundary before accepting its replacement.
+          if (renderer) checkOwner(time);
+          if (data.deadline === 0) ownerDeadline = 0;
+          else {
+            if (!Number.isFinite(data.deadline) || data.deadline <= epoch(time)) break;
+            const deadline = Math.min(data.deadline, epoch(time) + ownerLeaseMs);
+            if (deadline <= ownerHighWater) break;
+            ownerDeadline = deadline;
+            ownerHighWater = deadline;
+          }
+          if (renderer) {
+            checkOwner(time);
+            schedule();
+          }
           break;
         }
         case 'update':

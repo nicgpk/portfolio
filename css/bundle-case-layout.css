@@ -3012,7 +3012,7 @@ body.case-study {
 /* Source: css/craft-motion.css */
 /* A compact identity and task-led product demonstrations. One red token. */
 :root {
-  --feedback-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --feedback-ease: cubic-bezier(.25,.1,.25,1);
 }
 .folio .studio-hero .hero-stage {
   min-height: 400px;
@@ -3170,7 +3170,7 @@ body.case-study {
   font: 500 14px/1.6 var(--body);
   text-align: left;
   cursor: pointer;
-  transition: background 180ms var(--feedback-ease);
+  transition: background 360ms var(--feedback-ease);
 }
 .preview-choices button:disabled {
   cursor: default;
@@ -3237,7 +3237,7 @@ body.case-study {
   display: block;
   background: var(--accent);
   pointer-events: none;
-  transition: transform 220ms var(--feedback-ease);
+  transition: transform 420ms var(--feedback-ease);
 }
 .choice-indicator--vertical {
   top: 0;
@@ -3429,7 +3429,7 @@ body.case-study {
     .nav-contact
   )
   .ui-icon {
-  transition: transform 180ms var(--feedback-ease);
+  transition: transform 360ms var(--feedback-ease);
 }
 .folio
   :is(
@@ -3451,7 +3451,7 @@ body.case-study {
   border-bottom-color: var(--workspace-line);
 }
 .folio .program-open-label .ui-icon {
-  transition: transform 180ms var(--feedback-ease);
+  transition: transform 360ms var(--feedback-ease);
 }
 .folio .program-tile[open] .program-open-label .ui-icon {
   transform: rotate(180deg);

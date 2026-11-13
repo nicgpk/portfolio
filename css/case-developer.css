@@ -1,3 +1,19 @@
+/* Let the developer story copy fill its available section or grid column. */
+@media screen {
+  .folio.case-refined .case-story-section :is(.case-story-copy,h2,p,li,dd,figcaption,.case-story-note):not(.product-surface *) {max-width:none;}
+}
+
+/* A still of the first shader frame paints while WebGL starts. */
+@media screen {
+  .case-refined .case-atmosphere .case-wave {opacity:.72;transition:none;}
+  .case-wave::before {content:'';position:absolute;inset:0;background:url('../images/case-wave-poster.webp') center/100% 100% no-repeat;transition:opacity 120ms ease-out;}
+  .case-wave.is-wave-ready::before {opacity:0;}
+}
+@media screen and (max-width:767px) {
+  .case-wave::before {background-image:url('../images/case-wave-mobile.webp');}
+}
+@media (prefers-reduced-motion:reduce) {.case-wave::before {transition:none;}}
+
 /* The full deployment workflow extends the same product surface as its preview. */
 @media screen {
   .folio.case-refined .developer-ui {
@@ -39,6 +55,39 @@
   .folio.case-refined .developer-ui .deploy-form label {display:flex;flex-direction:column;gap:8px;min-width:0;color:var(--product-muted,#b9bec3);font:400 13px/1.5 'IBM Plex Sans',sans-serif;}
   .folio.case-refined .developer-ui .deploy-form :is(input,select) {width:100%;min-width:0;min-height:44px;padding:10px 12px;border:1px solid var(--product-control-line,#6f7981);border-radius:8px;background:var(--product-bg,#101214);color:var(--product-ink,#eef0f2);font:400 15px/1.5 'IBM Plex Sans',sans-serif;box-shadow:none;}
   .folio.case-refined .developer-ui .deploy-form :is(input,select):focus-visible {outline:2px solid var(--product-accent,#d2d6d9);outline-offset:3px;}
+  /* Give native selects the same inset and rhythm as the surrounding fields. */
+  .folio.case-refined .developer-ui.product-surface .deploy-form select {
+    appearance:none;
+    padding-inline:12px 44px;
+    cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23b9bec3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 12px center;
+    background-size:20px;
+  }
+  .folio.case-refined .developer-ui .deploy-form select:hover:not(:disabled) {border-color:var(--product-accent,#d2d6d9);}
+  .folio.case-refined .developer-ui .deploy-form select:disabled {cursor:default;}
+  .folio.case-refined .developer-ui .deploy-form option {background:var(--product-bg,#101214);color:var(--product-ink,#eef0f2);}
+  /* Progressive enhancement keeps the real select and its keyboard semantics. */
+  @supports (appearance:base-select) {
+    .folio.case-refined .developer-ui .deploy-form select,
+    .folio.case-refined .developer-ui .deploy-form select::picker(select) {appearance:base-select;}
+    .folio.case-refined .developer-ui .deploy-form select {align-items:center;}
+    .folio.case-refined .developer-ui .deploy-form select::picker-icon {display:none;}
+    .folio.case-refined .developer-ui .deploy-form select::picker(select) {
+      margin-block:6px;
+      padding:4px;
+      border:1px solid var(--product-control-line,#6f7981);
+      border-radius:8px;
+      background:var(--product-bg,#101214);
+      color:var(--product-ink,#eef0f2);
+      font:400 15px/1.5 'IBM Plex Sans',sans-serif;
+    }
+    .folio.case-refined .developer-ui .deploy-form option {min-height:44px;padding:10px 12px;gap:8px;border-radius:var(--product-radius-badge,6px);cursor:pointer;}
+    .folio.case-refined .developer-ui .deploy-form option:is(:hover,:focus,:checked) {background:var(--product-raised,#1c2023);}
+    .folio.case-refined .developer-ui .deploy-form option:focus-visible {outline:2px solid var(--product-accent,#d2d6d9);outline-offset:-2px;}
+    .folio.case-refined .developer-ui .deploy-form option::checkmark {order:1;margin-inline-start:auto;}
+  }
   .folio.case-refined .developer-ui .dev-field-help {margin:12px 0 0!important;color:var(--product-muted,#b9bec3);font:400 12px/1.6 'IBM Plex Sans',sans-serif;}
   .folio.case-refined .developer-ui .dev-guidance {padding:16px;margin:24px 0 0;border:1px solid var(--product-line,#353b40);border-radius:8px;background:var(--product-raised,#1c2023);color:var(--product-muted,#b9bec3);font:400 13px/1.65 'IBM Plex Sans',sans-serif;}
   .folio.case-refined .developer-ui .canary-path {padding:16px;margin:20px 0 0;border:1px solid var(--product-line,#353b40);border-radius:8px;background:var(--product-raised,#1c2023);color:var(--product-ink,#eef0f2)!important;font:500 20px/1.5 'IBM Plex Sans',sans-serif;font-variant-numeric:tabular-nums;}
@@ -98,6 +147,10 @@
   .folio.case-refined .developer-ui .deploy-review > div {grid-template-columns:minmax(0,1fr);gap:6px;padding:16px 0;}
   .folio.case-refined .developer-ui .canary-path {font-size:18px;padding:16px;}
   .dev-research-notes > div {grid-template-columns:minmax(0,1fr);gap:12px;padding:20px 0;}
+}
+
+@media screen and (forced-colors:active) {
+  .folio.case-refined .developer-ui.product-surface .deploy-form select {appearance:auto;background-image:none;padding-inline:12px;}
 }
 
 /* Full original product examples, carried into the current product language. */
@@ -198,7 +251,8 @@
   .folio.case-refined .dev-history-ui .dev-canary {display:flex;flex-wrap:wrap;gap:12px;}
   .folio.case-refined .dev-history-ui .dev-canary-row {display:flex;align-items:center;gap:8px;color:var(--product-muted);font-size:13px;}
   .folio.case-refined .dev-history-ui .dev-canary-row .dev-input {min-width:64px;}
-  .folio.case-refined .dev-history-ui .dev-targets {width:100%;border-collapse:collapse;}
+  .folio.case-refined .dev-history-ui .dev-targets {width:100%;table-layout:fixed;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+  .folio.case-refined .dev-history-ui .dev-targets th:first-child {width:50%;}
   .folio.case-refined .dev-history-ui .dev-num {display:inline-flex;align-items:center;justify-content:center;min-width:48px;min-height:36px;padding:6px 10px;border:1px solid var(--product-control-line,#6f7981);border-radius:6px;}
   .folio.case-refined .dev-history-ui .dev-monitor-box {padding:20px;background:var(--product-raised,#1c2023);border:1px solid var(--product-line);border-radius:8px;}
   .folio.case-refined .dev-history-ui .dev-monitor-box > span {display:block;margin-bottom:16px;color:var(--product-muted);font-size:12px;}
@@ -220,7 +274,7 @@
   .folio.case-refined .dev-process-list strong {font:500 18px/1.5 var(--body);color:var(--glass-ink);}
   .folio.case-refined .dev-process-list p {margin:12px 0 0;font:400 15px/1.75 var(--body);color:var(--glass-muted);}
   .folio.case-refined .dev-research-layout > .case-story-figure {margin:0;}
-  .folio.case-refined #decisions .case-story-copy > .case-story-list {margin:0;}
+  .folio.case-refined #decisions .case-story-copy > .case-story-list {margin:0 0 32px;}
   .folio.case-refined .dev-flow-comparison {min-width:720px;}
   .folio.case-refined .dev-flow-comparison th:first-child {width:20%;}
   .folio.case-refined .dev-results-detail {margin-top:32px;padding-top:28px;border-top:1px solid var(--glass-line);}
@@ -251,6 +305,8 @@
   .folio.case-refined .dev-history-ui .dev-docs {font-size:11px;}
   .folio.case-refined .dev-history-ui .dev-monitor-box {padding:16px;}
   .folio.case-refined .dev-history-ui .dev-targets :is(th,td) {font-size:12px;padding:12px 8px;white-space:normal;}
+  .folio.case-refined .dev-history-ui .dev-targets th:first-child {width:40%;}
+  .folio.case-refined .dev-history-ui .dev-targets :is(th,td):first-child {overflow-wrap:anywhere;}
   .folio.case-refined .dev-deployment-sources {grid-template-columns:minmax(0,1fr);gap:32px;}
   .folio.case-refined .dev-deployment-sources .case-story-figure {max-width:540px;margin-inline:auto;}
 }
@@ -310,8 +366,7 @@
 /* Shared outer gutters; only content cards introduce a smaller inner inset. */
 @media screen {
   .folio.case-refined .dev-history-ui .dev-table :is(th,td) {padding-inline:20px;}
-  .folio.case-refined .dev-history-ui .dev-targets :is(th,td):first-child {padding-left:0;}
-  .folio.case-refined .dev-history-ui .dev-targets :is(th,td):last-child {padding-right:0;}
+  /* Keep the target tables inset like the other product tables. */
   .folio.case-refined .dev-history-ui .dev-targets :is(th,td):nth-child(n+2) {text-align:right;}
 }
 @media screen and (max-width:767px) {

@@ -1,6 +1,6 @@
 import { createProgram } from './vendor/paper/create-program.js?v=a876f9fa3017';
 import { vertexShaderSource } from './vendor/paper/vertex-shader.js?v=cd9856f2e071';
-import { waveFragmentShader } from './wave-shader.mjs?v=10fdfeaaed55';
+import { waveFragmentShader } from './wave-shader.mjs?v=e022c55e4682';
 import { cacheWaveNoise } from './wave-noise-cache.mjs?v=0af8ec7a553f';
 
 const isTexture = value => value && typeof value === 'object'
@@ -23,7 +23,7 @@ export class WaveRenderer {
     this.canvasElement = canvas;
     this.providedUniforms = { ...uniforms };
     this.frame = frame;
-    this.gl = canvas.getContext('webgl2', { alpha: true, antialias: false, powerPreference: 'low-power' });
+    this.gl = canvas.getContext('webgl2', { alpha: true, antialias: false, depth: false, powerPreference: 'low-power' });
     if (!this.gl) throw new Error('Wave WebGL2 context is unavailable');
     try {
       const gl = this.gl;
@@ -119,7 +119,8 @@ export class WaveRenderer {
     this.frame = frame;
     const gl = this.gl;
     this.beforeDraw?.();
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    // The two triangles overwrite every pixel, including transparent background.
+    // Blending and depth testing are disabled; a preceding clear is redundant.
     gl.useProgram(this.program);
     gl.uniform1f(this.uniformLocations.u_time, frame * 1e-3);
     if (this.resolutionChanged) {

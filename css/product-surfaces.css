@@ -4,10 +4,11 @@
     --product-ink:#eef0f2;--product-muted:#b9bec3;--product-bg:#101214;
     --product-raised:#1c2023;--product-line:#353b40;
     --product-accent:#d2d6d9;--product-control-line:#6f7981;
+    --product-radius-panel:12px;--product-radius-control:8px;--product-radius-badge:6px;
     --body:'IBM Plex Sans',sans-serif;
     color:var(--product-ink);background:var(--product-bg);
     font-family:var(--body);font-size:15px;line-height:1.6;
-    border:1px solid var(--product-line);border-radius:12px;
+    border:1px solid var(--product-line);border-radius:var(--product-radius-panel);
     font-variant-numeric:tabular-nums;
   }
   .folio .product-surface.concept-shell {
@@ -19,7 +20,7 @@
     --color-text-accent:var(--product-ink);--color-on-accent:#101216;
     --color-accent-muted:#ffffff0c;--color-icon-accent:var(--product-ink);
     --text-body-size:15px;--text-body-leading:1.65;--text-label-size:14px;
-    --text-supporting-size:13px;--radius-container:12px;--radius-element:8px;
+    --text-supporting-size:13px;--radius-container:var(--product-radius-panel);--radius-element:var(--product-radius-control);
   }
   .folio .product-surface .product-toolbar {
     display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;

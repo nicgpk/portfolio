@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-08T11:03:16.656Z",
+  "generatedAt": "2026-11-12T16:11:00.269Z",
   "title": "Design System: Nicholas Gwee Portfolio",
   "extensions": {
     "colorMeta": {
@@ -35,6 +35,30 @@
       "product-control-line": {
         "role": "neutral",
         "displayName": "Control outline"
+      },
+      "topology-paper": {
+        "role": "neutral",
+        "displayName": "Graph canvas; aliases product-bg"
+      },
+      "topology-ink": {
+        "role": "neutral",
+        "displayName": "Graph primary text; aliases product-ink"
+      },
+      "topology-muted": {
+        "role": "neutral",
+        "displayName": "Graph supporting text; aliases product-muted"
+      },
+      "topology-accent": {
+        "role": "primary",
+        "displayName": "Graph silver source and active routing; aliases product-accent"
+      },
+      "topology-line": {
+        "role": "neutral",
+        "displayName": "Graph inactive routing; aliases product-control-line"
+      },
+      "topology-card": {
+        "role": "neutral",
+        "displayName": "Graph node foundation; aliases product-raised"
       }
     },
     "typographyMeta": {
@@ -68,6 +92,11 @@
         "name": "product-rest",
         "value": "none",
         "purpose": "Product examples use tonal regions and borders; existing portfolio glass treatments remain separate."
+      },
+      {
+        "name": "topology-active-route",
+        "value": "drop-shadow(0 0 3px #d2d6d933)",
+        "purpose": "Graph-only SVG filter on active rollout and review connectors; not a shared elevation token."
       }
     ],
     "motion": [
@@ -75,6 +104,16 @@
         "name": "existing-glass-ease",
         "value": "cubic-bezier(.16,1,.3,1)",
         "purpose": "Existing motion easing, unchanged by the two-tone extension."
+      },
+      {
+        "name": "topology-state",
+        "value": "420ms ease-out",
+        "purpose": "Graph path, port and border state transitions; disabled for reduced motion and motion off."
+      },
+      {
+        "name": "topology-route-signal",
+        "value": "1800ms ease-out",
+        "purpose": "One dashed routing animation on rollout only, enabled with no reduced-motion preference and motion on; never loops."
       }
     ],
     "breakpoints": [
@@ -85,6 +124,14 @@
       {
         "name": "home-metrics-compact",
         "value": "479px"
+      },
+      {
+        "name": "topology-hide-replicas-container",
+        "value": "480px"
+      },
+      {
+        "name": "topology-compact-container",
+        "value": "360px"
       }
     ]
   },

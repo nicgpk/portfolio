@@ -1,0 +1,18 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "created": "2026-11-12",
+  "assets": {
+    "icon-dev-container-3d.png": {
+      "subject": "Silver deployment container on a peach plinth",
+      "prompt": "Use case: stylized-concept. Asset type: a single small 3D product UI icon for a deployment graph. Input images are STYLE REFERENCES ONLY: match their rounded toy-like polished 3D rendering, warm peach circular plinth, soft studio illumination and compact friendly proportions. Subject: a small silver/graphite deployment container cube with clear inset panel seams, resting on that same warm peach round low cylindrical plinth. One object, view from slightly above at a three-quarter angle. Subtle brushed silver gray body and pale charcoal seams, warm peach plinth. Readable silhouette at 48 pixels. Center the whole object tightly in a square composition with 8 percent margin. Genuinely transparent background with preserved alpha, a soft contact shadow confined to immediately under plinth. No floor, no scene, no backdrop, no text, no letters, no logos, no cyan/neon glow. Produce exactly one icon, not a sheet or variants. This is a new matching icon, do not reproduce the clipboard or bar chart subjects from references.",
+      "references": ["icon-dev-manage-3d.webp", "icon-dev-monitor-3d.webp"],
+      "processing": "Generated with native transparency; resized to 256x256 preserving alpha. Exact generation prompt is embedded in the PNG metadata."
+    },
+    "icon-dev-server-3d.png": {
+      "subject": "Silver two-unit server stack on a peach plinth",
+      "prompt": "Use case: stylized-concept. Asset type: a single small 3D product UI icon for regional deployment server nodes. Input images are STYLE REFERENCES ONLY: match their rounded toy-like polished 3D rendering, warm peach circular plinth, soft studio illumination and compact friendly proportions. Subject: a compact vertical stack of TWO rounded graphite/silver server units with tiny soft blue indicator lights and recognizable horizontal front panel slots, resting on that same warm peach low cylindrical round plinth. One server-stack object, view from slightly above at a three-quarter angle. Mostly silver gray/graphite body, tiny blue indicator dots only, warm peach plinth. Strong simple readable silhouette at 32 pixels. Center whole object tightly in a square composition with 8 percent margin. Genuinely transparent background with preserved alpha; soft contact shadow confined immediately below plinth. No floor, no scene, no backdrop, no text, no letters, no logos, no cyan/neon glow. Produce exactly one icon, not a sheet or variants. This is a new matching icon, do not reproduce clipboard or bar chart subjects from references.",
+      "references": ["icon-dev-manage-3d.webp", "icon-dev-monitor-3d.webp"],
+      "processing": "Generated with native transparency; resized to 256x256 preserving alpha. Exact generation prompt is embedded in the PNG metadata."
+    }
+  }
+}

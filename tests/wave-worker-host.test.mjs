@@ -35,7 +35,7 @@ function hostFixture(t, {supported = true} = {}) {
       this.url = url; this.options = options; this.messages = []; this.terminations = 0;
       workers.push(this);
     }
-    postMessage(message, transfer = []) {this.messages.push({message, transfer});}
+    postMessage(message, transfer = []) {this.messages.push({message:structuredClone(message), transfer});}
     terminate() {this.terminations++;}
   }
   const observer = list => class {
@@ -53,7 +53,7 @@ function hostFixture(t, {supported = true} = {}) {
     Worker:supported ? Worker : undefined, OffscreenCanvas:class {}, HTMLCanvasElement:Canvas,
     document, navigator:{userAgent:'Chrome'}, devicePixelRatio:1,
     visualViewport:viewport, innerWidth:1000, outerWidth:1000,
-    performance:{now:() => time}, ResizeObserver:observer(sizes), IntersectionObserver:observer(intersections),
+    performance:{timeOrigin:1700000000000, now:() => time}, ResizeObserver:observer(sizes), IntersectionObserver:observer(intersections),
     requestAnimationFrame:callback => {frames.set(++id, callback); return id;},
     cancelAnimationFrame:frame => frames.delete(frame),
     setTimeout:(callback, delay) => {timers.set(++id, {callback, delay}); return id;},
@@ -76,12 +76,13 @@ function hostFixture(t, {supported = true} = {}) {
   const flush = () => {
     const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(callback => callback(time));
   };
-  const ready = () => {
+  const ready = (ownerPaused = true) => {
     const init = workers[0].messages.find(({message}) => message.type === 'init').message;
-    workers[0].emit('message', {data:{type:'ready', cache:true, cacheMode:'cached', size:init.size, frame:init.frame}});
+    workers[0].emit('message', {data:{type:'ready', cache:true, cacheMode:'cached', size:init.size, frame:init.frame, ownerPaused}});
   };
+  const ownerStatus = (paused, frame = 12000) => workers[0].emit('message', {data:{type:'owner-status', paused, frame}});
   return {host, document, viewport, workers, sizes, intersections, frames, timers, styles,
-    options, resize, flush, ready,
+    options, resize, flush, ready, ownerStatus,
     setTime:value => {time = value;},
     async start(extra) {
       const pending = createWorkerWave(host, options(extra)); resize(); flush(); ready(); return pending;
@@ -114,13 +115,14 @@ test('unsupported workers leave the host untouched for the main renderer fallbac
 test('generic post-ready failure estimates the current phase and cleans pending readback', async t => {
   const f = hostFixture(t), failures = [];
   const api = await f.start({debug:true, onError:failure => failures.push(failure)});
+  f.ownerStatus(false);
   const readback = api.readFrame(18000);
   const rejected = assert.rejects(readback, /fixture worker failed/);
-  f.setTime(2000);
+  f.setTime(1400);
   assert.equal(f.error().prevented, true);
   await rejected;
   assert.equal(failures.length, 1);
-  assert.equal(failures[0].frame, 12180);
+  assert.equal(failures[0].frame, 12072);
   assert.equal(f.workers[0].terminations, 1);
   assert.equal(f.host.canvases.length, 0);
   assert.equal(f.host.dataset.waveRenderer, undefined);
@@ -140,14 +142,111 @@ test('offscreen, reduced-speed and tab visibility gates retain desired speed and
   assert.equal(worker.messages[0].message.speed, 0, 'offscreen initialization never autoplays');
   f.ready(); const api = await pending;
   f.intersections[0].callback([{isIntersecting:true}]);
+  f.ownerStatus(false);
   f.setTime(2000); api.setSpeed(0);
+  f.ownerStatus(true, 12180);
   f.setTime(5000); f.document.hidden = true; f.document.emit('visibilitychange');
   api.setSpeed(0.18);
   assert.deepEqual(worker.messages.filter(({message}) => message.type === 'speed').map(({message}) => message.speed), [0.18, 0]);
   f.setTime(7000); f.document.hidden = false; f.document.emit('visibilitychange');
   assert.equal(worker.messages.at(-1).message.speed, 0.18);
+  f.ownerStatus(false, 12180);
   f.setTime(8000); f.error();
   assert.equal(failures[0].frame, 12360, 'five paused seconds do not advance the fallback phase');
+});
+
+test('owner leases wait for two healthy intervals and renew without speed or render updates', async t => {
+  const f = hostFixture(t), api = await f.start();
+  const messages = () => f.workers[0].messages.map(({message}) => message);
+  const owners = () => messages().filter(message => message.type === 'owner');
+  assert.equal(messages()[0].ownerLeaseMs, 500);
+  for (const time of [1016, 1032]) {f.setTime(time); f.flush();}
+  assert.equal(owners().length, 0, 'the first RAF establishes a baseline and one interval cannot authorize animation');
+  f.setTime(1048); f.flush();
+  assert.deepEqual(owners(), [{type:'owner', deadline:1700000001548}]);
+  f.ownerStatus(false);
+  for (let time = 1064; time <= 1192; time += 16) {f.setTime(time); f.flush();}
+  assert.equal(owners().length, 1, 'healthy frames do not send a heartbeat on every RAF');
+  f.setTime(1208); f.flush();
+  assert.equal(owners().length, 2);
+  assert.equal(owners()[1].deadline, 1700000001708);
+  assert.deepEqual(messages().filter(message => message.type !== 'owner').map(message => message.type), ['init'],
+    'lease renewal does not resend uniforms, resize the renderer or change its configured speed');
+  api.dispose();
+});
+
+test('occluded owner cadence revokes the lease but keeps probing until two healthy intervals resume', async t => {
+  const f = hostFixture(t), api = await f.start();
+  const owners = () => f.workers[0].messages.filter(({message}) => message.type === 'owner').map(({message}) => message.deadline);
+  for (const time of [1016, 1032, 1048]) {f.setTime(time); f.flush();}
+  f.ownerStatus(false);
+  f.setTime(2064); f.flush();
+  f.ownerStatus(true, 12020);
+  assert.equal(owners().at(-1), 0);
+  assert.equal(f.frames.size, 1, 'the suspended worker does not stop the independent owner probe');
+  f.setTime(3080); f.flush();
+  assert.equal(owners().length, 2, 'one-Hz callbacks neither renew nor repeatedly revoke the lease');
+  f.setTime(3096); f.flush();
+  assert.equal(owners().length, 2, 'one healthy interval is insufficient to resume');
+  f.setTime(3112); f.flush();
+  assert.equal(owners().at(-1), 1700000003612);
+  assert.equal(f.workers[0].messages.filter(({message}) => message.type === 'speed').length, 0,
+    'owner liveness never overwrites the external desired speed');
+  api.dispose();
+});
+
+test('hidden, offscreen and reduced-speed owners cancel probes and revoke active leases', async t => {
+  const f = hostFixture(t), api = await f.start();
+  for (const time of [1016, 1032, 1048]) {f.setTime(time); f.flush();}
+  f.document.hidden = true; f.document.emit('visibilitychange');
+  assert.equal(f.frames.size, 0);
+  assert.deepEqual(f.workers[0].messages.at(-1).message, {type:'owner', deadline:0});
+  f.document.hidden = false; f.document.emit('visibilitychange');
+  assert.equal(f.frames.size, 1);
+  api.setSpeed(0);
+  assert.equal(f.frames.size, 0);
+  f.intersections[0].callback([{isIntersecting:false}]);
+  api.setSpeed(0.18);
+  assert.equal(f.frames.size, 0, 'an offscreen owner stays idle when motion preference changes');
+  f.intersections[0].callback([{isIntersecting:true}]);
+  assert.equal(f.frames.size, 1);
+  const leases = f.workers[0].messages.filter(({message}) => message.type === 'owner').length;
+  for (const time of [1064, 1080]) {f.setTime(time); f.flush();}
+  assert.equal(f.workers[0].messages.filter(({message}) => message.type === 'owner').length, leases,
+    're-entering visibility requires a fresh baseline and two healthy intervals');
+  api.dispose();
+  assert.equal(f.frames.size, 0);
+});
+
+test('a suspended owner keeps the exact worker phase during generic failure recovery', async t => {
+  const f = hostFixture(t), failures = [];
+  await f.start({onError:failure => failures.push(failure)});
+  assert.equal(f.host.dataset.waveOwner, 'paused');
+  f.ownerStatus(false);
+  assert.equal(f.host.dataset.waveOwner, 'active');
+  f.setTime(1100); f.ownerStatus(true, 12015);
+  assert.equal(f.host.dataset.waveOwner, 'paused');
+  f.setTime(10000); f.error();
+  assert.equal(failures[0].frame, 12015, 'fallback must not advance through the owner suspension');
+  assert.equal(f.frames.size, 0, 'failure cleans up the liveness probe');
+  assert.equal(f.host.dataset.waveOwner, undefined);
+});
+
+test('owner resume reanchors the phase without catching up suspended wall time', async t => {
+  const f = hostFixture(t), failures = [];
+  await f.start({onError:failure => failures.push(failure)});
+  f.ownerStatus(false);
+  f.setTime(1100); f.ownerStatus(true, 12015);
+  f.setTime(9000); f.ownerStatus(false, 12015);
+  f.setTime(9400); f.error();
+  assert.equal(failures[0].frame, 12087);
+});
+
+test('a static first frame is not extrapolated before the worker acknowledges an owner lease', async t => {
+  const f = hostFixture(t), failures = [];
+  await f.start({onError:failure => failures.push(failure)});
+  f.setTime(10000); f.error();
+  assert.equal(failures[0].frame, 12000);
 });
 
 test('exact protocol failure phase takes precedence over the host estimate', async t => {
@@ -157,6 +256,7 @@ test('exact protocol failure phase takes precedence over the host estimate', asy
   f.workers[0].emit('message', {data:{type:'error', message:'fixture draw failed', frame:12345}});
   assert.equal(failures[0].frame, 12345);
   assert.equal(f.host.canvases.length, 0);
+  assert.equal(f.host.dataset.waveOwner, undefined);
   assert.equal(f.workers[0].terminations, 1);
 });
 
@@ -178,7 +278,7 @@ test('resize and composition updates coalesce without transferring the canvas tw
   api.setUniformsAndMaxPixelCount({u_scale:0.85}, 450000);
   api.setUniformsAndMaxPixelCount({u_rotation:18}, 450000);
   f.resize(300, 600);
-  assert.equal(f.frames.size, 1);
+  assert.equal(f.frames.size, 2, 'the coalesced update and the independent owner probe each have one callback');
   f.flush();
   const messages = f.workers[0].messages;
   assert.equal(messages.filter(({message}) => message.type === 'init').length, 1);
@@ -186,6 +286,80 @@ test('resize and composition updates coalesce without transferring the canvas tw
   assert.deepEqual(messages.at(-1).message.uniforms, {u_scale:0.85, u_rotation:18});
   assert.equal(api.canvasElement.transfers, 1);
   api.dispose();
+});
+
+test('unchanged observations and freshly allocated startup colors leave the worker loop untouched', async t => {
+  const f = hostFixture(t);
+  const uniforms = () => ({u_scale:1.3, u_colors:[[0, 0, 0, 1], [0.1, 0.3, 0.5, 1]]});
+  const api = await f.start({uniforms:uniforms()});
+  for (let i = 0; i < 10; i++) {
+    f.viewport.emit('resize');
+    f.resize();
+    api.setUniformsAndMaxPixelCount(uniforms(), 800000);
+    f.flush();
+  }
+  assert.deepEqual(f.workers[0].messages.map(({message}) => message.type), ['init'],
+    'no update message can trigger an extra worker paint or cancel its scheduled frame');
+  assert.deepEqual(api.size, {width:1000, height:800, renderScale:1});
+});
+
+test('changed color values, including reused mutable arrays, are sent once per final state', async t => {
+  const f = hostFixture(t), colors = [[0, 0, 0, 1], [0.1, 0.3, 0.5, 1]];
+  const api = await f.start({uniforms:{u_scale:1.3, u_colors:colors}});
+  colors[1][2] = 0.6;
+  api.setUniformsAndMaxPixelCount({u_colors:colors}, 800000);
+  f.flush();
+  const messages = f.workers[0].messages;
+  assert.equal(messages.length, 2);
+  assert.equal(messages[0].message.uniforms.u_colors[1][2], 0.5, 'the initial worker snapshot stays unchanged');
+  assert.equal(messages[1].message.uniforms.u_colors[1][2], 0.6);
+  api.setUniformsAndMaxPixelCount({u_colors:colors.map(color => [...color])}, 800000);
+  f.flush();
+  assert.equal(messages.length, 2, 'equal nested values do not cause another draw');
+  api.setUniformsAndMaxPixelCount({u_colors:[[0, 0, 0, 1], [0.1, 0.3, 0.6, 1], [1, 1, 1, 1]]}, 800000);
+  f.flush();
+  assert.equal(messages.length, 3, 'a changed array length remains a real update');
+});
+
+test('physical dimensions, render scale and a lower pixel budget remain independent real updates', async t => {
+  const f = hostFixture(t), api = await f.start();
+  const updates = () => f.workers[0].messages.filter(({message}) => message.type === 'update');
+  f.resize(800, 1000); f.flush();
+  assert.deepEqual(updates().at(-1).message.size, {width:800, height:1000, renderScale:1});
+  f.resize(1600, 2000); f.flush();
+  assert.deepEqual(updates().at(-1).message.size, {width:800, height:1000, renderScale:0.5},
+    'a scale change is sent even when the backing buffer dimensions stay equal');
+  api.setUniformsAndMaxPixelCount({u_scale:1.3}, 450000); f.flush();
+  assert.deepEqual(updates().at(-1).message.size, {width:600, height:750, renderScale:0.375});
+  assert.equal(updates().length, 3);
+  api.setUniformsAndMaxPixelCount({u_scale:1.3}, 450000); f.flush();
+  assert.equal(updates().length, 3);
+});
+
+test('an uncapped budget change avoids a paint but controls the next real resize', async t => {
+  const f = hostFixture(t), api = await f.start();
+  f.resize(300, 200); f.flush();
+  const messages = f.workers[0].messages, before = messages.length;
+  api.setUniformsAndMaxPixelCount({u_scale:1.3}, 450000); f.flush();
+  assert.equal(messages.length, before, 'no new pixels or uniforms need a worker update yet');
+  f.resize(); f.flush();
+  assert.equal(messages.length, before + 1);
+  assert.deepEqual(messages.at(-1).message.size, {width:750, height:600, renderScale:0.75});
+});
+
+test('changed geometry during async initialization and changed startup settings are not deduplicated away', async t => {
+  const f = hostFixture(t), pending = createWorkerWave(f.host, f.options());
+  f.resize(); f.flush();
+  f.resize(300, 600); f.flush();
+  const messages = f.workers[0].messages;
+  assert.deepEqual(messages.map(({message}) => message.type), ['init', 'update']);
+  assert.deepEqual(messages.at(-1).message.size, {width:300, height:600, renderScale:1});
+  f.ready(); const api = await pending;
+  api.setUniformsAndMaxPixelCount({u_scale:0.85}, 450000); f.flush();
+  assert.equal(messages.length, 3, 'the current breakpoint composition wins over stale init settings');
+  assert.equal(messages.at(-1).message.uniforms.u_scale, 0.85);
+  api.setUniformsAndMaxPixelCount({u_scale:0.85}, 450000); f.resize(300, 600); f.flush();
+  assert.equal(messages.length, 3, 'only identical final settings are skipped');
 });
 
 test('disposal rejects pending requests, cancels queued updates and accepts a final acknowledgement', async t => {

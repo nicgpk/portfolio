@@ -22,14 +22,6 @@
   .folio .work-archive {padding-top:80px;}
 }
 
-/* Every case gets the wide row the home page gives its last project: copy left, live concept right. */
-@media screen and (min-width:960px) {
-  .work-feature-list .glass-feature.work-feature {display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);grid-template-rows:none;gap:40px;padding:24px;align-items:stretch;}
-  .work-feature-list .work-feature .glass-feature-copy {display:flex;flex-direction:column;padding:20px 8px 12px 16px;}
-  .work-feature .glass-card-metrics {margin-top:auto;}
-  .work-feature-list .work-feature .glass-demo-stage {height:720px;margin:0;padding:24px;}
-}
-
 @media screen and (max-width:767px) {
   .folio .work-hero {padding:140px 20px 56px;}
   .folio .work-hero h1 {font-size:48px;}
@@ -44,12 +36,15 @@
 
 /* Homepage content paints immediately, even if enhancement scripts fail. */
 @media screen {
+  /* A native sticky runway keeps wave, grain and fallback in sync with scroll. */
+  .work-atmosphere-track {position:absolute;inset:0 0 auto;height:calc(40% + var(--work-pin-distance,0px));z-index:-1;pointer-events:none;}
   .hero-work-surface .glass-atmosphere {
     bottom:auto;
-    height:40%;
+    height:calc(100% - var(--work-pin-distance,0px));
     background:radial-gradient(ellipse 95% 65% at 24% 38%,#204a7e77,transparent 72%),radial-gradient(ellipse 70% 55% at 85% 45%,#cec8bb29,transparent 75%);
     mask-image:linear-gradient(#000 0%,#000 82%,transparent 100%);
   }
+  .work-atmosphere-track.is-work-pinned .glass-atmosphere {position:sticky;top:var(--work-atmosphere-top);}
   .hero-work-surface .glass-atmosphere .paper-wave {height:100%;bottom:0;}
   .work-feature-list .work-feature {
     background:rgba(16,18,22,.15);
@@ -63,13 +58,14 @@
 
 /* One lightweight opening gesture; the text is visible without animation support. */
 @media screen {
-  .glass-hero h1 .hero-line--name {color:inherit;}
+  .glass-hero h1 .hero-line--lead {color:inherit;}
+  .folio .glass-hero > .hero-identity {margin:0 auto 16px;font-size:16px;font-weight:500;line-height:1.5;color:var(--glass-ink);}
 }
 @media screen and (prefers-reduced-motion:no-preference) {
   html:not([data-motion=off]) .glass-hero .hero-line {
     animation:hero-line-arrive 700ms cubic-bezier(.16,1,.3,1) 120ms backwards;
   }
-  html:not([data-motion=off]) .glass-hero .hero-line--name {animation-delay:0ms;}
+  html:not([data-motion=off]) .glass-hero .hero-line--lead {animation-delay:0ms;}
 }
 @keyframes hero-line-arrive {
   from {opacity:.35;transform:translateY(14px);}
@@ -90,18 +86,11 @@
   .folio .about-detail .experience li {position:relative;padding:0 0 28px;margin:0 0 28px;border:0;border-bottom:1px solid var(--glass-line);}
   .folio .about-detail .experience li:last-child {margin-bottom:0;padding-bottom:0;border-bottom:0;}
   .folio .about-detail .experience li::before {content:'';position:absolute;left:-28px;top:6px;width:7px;height:7px;border-radius:50%;background:#717780;}
-  .folio .about-detail .experience li:first-child::before {background:var(--glass-ink);}
+  .folio .about-detail .experience li.experience-current::before {background:var(--glass-ink);}
+  .folio .about-detail .experience li.experience-current::after {content:'';position:absolute;left:-32px;top:2px;width:15px;height:15px;box-sizing:border-box;border:1px solid var(--glass-ink);border-radius:50%;opacity:.55;pointer-events:none;}
+  .folio .about-detail .experience li.experience-current small {color:var(--glass-ink);}
   .folio .about-detail .experience li strong {font-size:18px;font-weight:500;line-height:1.4;}
   .folio .about-detail .experience li small {margin-top:8px;font-variant-numeric:tabular-nums;}
-}
-
-/* Every project uses the same columns, spacing, stage height and copy alignment. */
-@media screen and (min-width:960px) {
-  .work-feature-list .glass-feature.work-feature {grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;padding:24px;}
-  .work-feature-list .work-feature > .glass-feature-copy {grid-column:1;grid-row:1;max-width:none;padding:20px 8px 12px 16px;}
-  .work-feature-list .work-feature > .glass-demo-stage {grid-column:2;grid-row:1;height:740px;min-height:0;padding:24px;}
-  .work-feature-list .work-feature .glass-card-metrics {margin-top:auto;}
-  .work-feature-list .work-feature .mini-window {padding:24px;}
 }
 
 @media screen and (max-width:959px) {
@@ -127,7 +116,6 @@
   .program-hub .mini-symbol img {width:40px;height:40px;object-fit:contain;border-radius:10px;}
   .work-feature-list .glass-feature--deploy .portal-workspace {display:flex;flex-direction:column;gap:20px;}
   .portal-areas {padding:0 0 16px;border-bottom:1px solid var(--glass-line);}
-  .portal-areas > strong {display:block;font-size:13px;font-weight:600;line-height:1.5;color:var(--glass-ink);margin-bottom:12px;}
   .portal-areas ul {display:flex;flex-wrap:wrap;gap:4px;padding:0;margin:0;list-style:none;}
   .portal-areas li {display:flex;align-items:center;gap:6px;padding:6px;border-radius:7px;font-size:12px;color:var(--glass-muted);}
   .portal-areas li.is-current {background:#ffffff0b;color:var(--glass-ink);}
@@ -140,11 +128,77 @@
 @media screen and (max-width:767px) {
   .work-feature-list .glass-feature--deploy .portal-workspace {grid-template-columns:1fr;gap:20px;}
   .portal-areas {padding:0 0 16px;border-right:0;border-bottom:1px solid var(--glass-line);}
-  .portal-areas > strong {margin-bottom:12px;}
   .portal-areas ul {flex-direction:row;flex-wrap:wrap;gap:4px;}
   .portal-areas li {gap:6px;padding:6px;font-size:12px;}
   .portal-areas img {width:20px;height:20px;}
 }
+
+/* A dedicated infrastructure canvas makes the image-to-region relationship explicit. */
+@media screen {
+  .portal-workflow > .deployment-topology {
+    --topology-paper:var(--product-bg);--topology-ink:var(--product-ink);--topology-muted:var(--product-muted);
+    --topology-accent:var(--product-accent);--topology-line:var(--product-control-line);--topology-card:var(--product-raised);
+    flex:none;margin:0 0 32px;padding:20px;border:1px solid var(--product-line);border-radius:12px;
+    color:var(--topology-ink);background:var(--topology-paper);color-scheme:dark;
+    background-image:radial-gradient(circle,var(--product-line) 1px,transparent 1px);background-size:16px 16px;
+  }
+  .deployment-topology ::selection {background:var(--topology-accent);color:var(--topology-paper);}
+  .deployment-topology figcaption {display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.5;font-weight:600;}
+  .topology-heading-icon {width:20px;height:20px;fill:none;stroke:var(--topology-accent);stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;}
+  .topology-canvas {position:relative;container-type:inline-size;height:288px;margin-top:24px;}
+  .topology-links {position:absolute;inset:0;width:100%;height:100%;overflow:visible;fill:none;stroke:var(--topology-line);stroke-width:2;}
+  .topology-links path {vector-effect:non-scaling-stroke;transition:stroke 420ms ease-out;}
+  [data-topology-step="1"] .topology-links,[data-topology-step="2"] .topology-links {stroke:var(--topology-accent);filter:drop-shadow(0 0 3px #d2d6d933);}
+  .topology-node {position:relative;box-sizing:border-box;min-width:0;border-radius:8px;}
+  .topology-node::before {content:'';position:absolute;top:calc(50% - 5px);left:-5px;width:10px;height:10px;box-sizing:border-box;border:2px solid var(--topology-line);border-radius:50%;background:var(--topology-paper);transition:border-color 420ms ease-out,background-color 420ms ease-out;}
+  .topology-source {position:absolute;top:calc(50% - 64px);left:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:min(144px,40cqw);height:128px;padding:12px;border:1px solid var(--topology-accent);background:var(--topology-card);color:var(--topology-ink);}
+  .topology-source::before {right:-5px;left:auto;border-color:var(--topology-accent);background:var(--topology-accent);}
+  .topology-source::after {content:'';position:absolute;inset:6px;border:1px solid var(--product-line);border-radius:4px;pointer-events:none;}
+  .folio .topology-source .topology-image-icon {width:40px;height:40px;object-fit:contain;margin-bottom:0;}
+  .topology-source span {font-size:12px;line-height:1.4;color:var(--topology-muted);}
+  .topology-source code {font:600 16px/1.4 var(--mono,monospace);color:var(--topology-accent);}
+  .topology-regions {position:absolute;inset:0 0 0 auto;width:min(260px,46%);display:grid;grid-template-rows:repeat(3,64px);align-content:center;gap:16px;}
+  .topology-regions .topology-node {display:grid;grid-template-columns:32px minmax(0,1fr) 34px;column-gap:8px;row-gap:4px;align-content:center;padding:10px;background:var(--topology-card);border:1px solid var(--product-control-line);transition:border-color 420ms ease-out;}
+  .folio .topology-regions .topology-region-icon {grid-row:1 / 3;align-self:center;width:32px;height:32px;object-fit:contain;}
+  .topology-regions strong {font-size:14px;line-height:1.4;font-weight:600;}
+  .topology-regions span {font-size:12px;line-height:1.4;color:var(--topology-muted);}
+  .topology-replicas {grid-column:3;grid-row:1 / 3;align-self:center;width:34px;height:18px;fill:var(--topology-line);}
+  .topology-regions .is-active {border-color:var(--topology-accent);}
+  .topology-regions .is-active::before {border-color:var(--topology-accent);background:var(--topology-accent);}
+  .topology-regions .is-active .topology-replicas {fill:var(--topology-accent);}
+  @container (max-width:480px) {
+    .topology-regions .topology-node {grid-template-columns:32px minmax(0,1fr);gap:4px 8px;}
+    .topology-replicas {display:none;}
+  }
+  @container (max-width:360px) {
+    .topology-source {top:calc(50% - 56px);width:40%;height:112px;padding:8px;gap:4px;text-align:center;}
+    .folio .topology-source .topology-image-icon {width:32px;height:32px;}
+    .topology-source code {font-size:12px;}
+    .topology-regions {width:46%;grid-template-rows:repeat(3,80px);gap:12px;}
+    .topology-regions .topology-node {grid-template-columns:minmax(0,1fr);justify-items:center;gap:2px;padding:6px 4px;text-align:center;}
+    .topology-regions strong {font-size:12px;}
+    .folio .topology-regions .topology-region-icon {grid-row:auto;width:24px;height:24px;}
+  }
+  .portal-workflow:has(.deployment-topology) .mini-deploy-detail dl {grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;grid-template-rows:none;margin-top:8px;}
+  .portal-workflow:has(.deployment-topology) .mini-deploy-detail dl div {display:block;padding-block:4px;font-size:12px;}
+  .portal-workflow:has(.deployment-topology) .mini-deploy-detail dd {text-align:left;margin-top:3px;}
+  .folio .glass-demo-stage .portal-workflow:has(.deployment-topology) .mini-deploy-detail > strong {font-size:22px;}
+}
+@media (prefers-reduced-motion:no-preference) {
+  html:not([data-motion=off]) [data-topology-step="1"] .topology-links path {animation:topology-route-signal 1800ms ease-out;}
+}
+@keyframes topology-route-signal {
+  from {stroke-dasharray:6 10;stroke-dashoffset:48;}
+  to {stroke-dasharray:6 10;stroke-dashoffset:0;}
+}
+@media screen and (max-width:479px) {
+  .portal-workflow > .deployment-topology {padding:16px 12px;}
+  .folio .work-feature-list .rate-receipt .receipt-promotion {padding-inline:12px;column-gap:8px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .topology-node,.topology-node::before,.topology-links path,.portal-workflow .mini-stages li {transition:none;}
+}
+html[data-motion=off] :is(.topology-node,.topology-node::before,.topology-links path,.portal-workflow .mini-stages li) {transition:none;}
 
 /* A consistent reading rhythm beyond the project cards. */
 @media screen {
@@ -154,15 +208,180 @@
   .folio .about-section,.folio .process-section {padding-top:80px;padding-bottom:0;}
   .folio .leadership-copy > p {font-size:16px;line-height:1.75;max-width:58ch;margin-top:24px;}
   .folio .process-list > li {padding:24px;gap:16px;}
+  .folio .process-list > li {transition:border-color 380ms var(--glass-ease),background-color 380ms var(--glass-ease);}
   .folio .process-list > li::before {display:none;}
   .folio .process-list h3 {font-size:20px;line-height:1.35;}
   .folio .process-list p {font-size:16px;line-height:1.65;}
   .folio .about-detail .experience li {padding-bottom:24px;margin-bottom:24px;}
   .folio .about-detail .experience li:last-child {padding-bottom:0;margin-bottom:0;}
 }
+@media screen and (hover:hover) and (pointer:fine) {
+  .folio .process-list > li:hover {background:var(--tone-foundation,var(--glass-ground));border-color:var(--tone-control,var(--glass-control-line));}
+}
+@media screen and (prefers-reduced-motion:no-preference) {
+  html:not([data-motion=off]) .folio .experience-current.is-current-visible::after {animation:experience-current-pulse 3600ms ease-out infinite;}
+}
+@keyframes experience-current-pulse {
+  0% {transform:scale(.6);opacity:.7;}
+  80%,100% {transform:scale(1.6);opacity:0;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .folio .process-list > li {transition:none;}
+}
+html[data-motion=off] .folio .process-list > li {transition:none;}
 @media screen and (max-width:767px) {
   .folio :is(.glass-section-heading,.about-section,.work-archive) h2 {font-size:28px;}
   .folio .glass-section-heading {margin-bottom:24px;}
   .folio .about-section,.folio .process-section {padding-top:48px;padding-bottom:0;}
   .folio .process-list > li {padding:20px;}
+}
+
+/* A focused homepage frame: summary and results, full-width concept, then link. */
+@media screen {
+  body.home-narrow {--home-width:var(--portfolio-content-width);}
+  .home-narrow :is(.glass-work,.about-section,.process-section,.archive,.employer-reel,.folio-footer) {max-width:var(--home-width);}
+  .home-narrow .work-feature-list .glass-feature.work-feature {display:flex;flex-direction:column;gap:24px;padding:24px;align-items:stretch;}
+  .home-narrow .work-feature-list .work-feature > .glass-feature-copy {order:0;display:block;padding:8px 0 0;min-height:0;}
+  .home-narrow .glass-feature-copy :is(.work-summary,.glass-metric-note) {max-width:65ch;}
+  .home-narrow .work-feature-list .work-feature > .glass-demo-stage {order:1;height:auto;min-height:0;max-height:none;margin:0;padding:0;}
+  .home-narrow .work-feature-list .work-feature .mini-window {height:auto;min-height:0;padding:24px;}
+  .home-narrow .work-feature-footer {order:2;display:flex;justify-content:flex-end;padding:0;border:0;}
+  .home-narrow .work-feature-list .work-feature .glass-card-metrics {margin:0;padding:0;border:0;}
+  .home-narrow .work-feature-footer .work-case-link {justify-self:start;margin:0;white-space:nowrap;}
+  .home-narrow .process-list {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media screen and (min-width:768px) {
+  body.home-narrow .site-nav {max-width:var(--home-width);}
+  body.home-narrow .site-nav.nav-is-scrolled {width:calc(100% - 96px);max-width:calc(var(--home-width) - 32px);}
+}
+@media screen and (max-width:767px) {
+  .home-narrow .work-feature-list .glass-feature.work-feature {padding:20px;}
+  .home-narrow .work-feature-footer {justify-content:flex-start;}
+  .home-narrow .work-feature-list .work-feature .mini-window {padding:20px;}
+  .home-narrow .process-list {grid-template-columns:1fr;}
+}
+@media screen and (max-width:479px) {
+  .home-narrow .work-feature-list .glass-feature.work-feature {padding:16px;}
+  .home-narrow .work-feature-list .work-feature .mini-window {padding:16px;}
+}
+
+/* Reported results lead each demonstration, within one open metric strip. */
+@media screen {
+  .home-narrow .work-feature-list .work-feature .project-metrics {margin:24px 0 0;padding:20px 0;border-block:0;gap:0;}
+  .home-narrow .work-feature .project-metrics > div {gap:10px;padding-inline:20px;}
+  .home-narrow .work-feature .project-metrics > div:first-child {padding-left:0;}
+  .home-narrow .work-feature .project-metrics > div:last-child {padding-right:0;}
+  .project-metrics > div + div {border-left:1px solid var(--glass-line);}
+  .home-narrow .work-feature .project-metrics dd {display:flex;align-items:center;gap:12px;font-size:32px;line-height:1.15;}
+  .project-metric-icon {display:block;flex:none;width:24px;height:24px;color:var(--glass-muted);}
+  .home-narrow .work-feature .project-metrics dt {font-size:13px;line-height:1.5;}
+}
+@media screen and (max-width:767px) {
+  .home-narrow .work-feature .project-metrics > div {padding-inline:12px;gap:8px;}
+  .home-narrow .work-feature .project-metrics dd {flex-direction:column;align-items:flex-start;gap:10px;font-size:clamp(18px,5.5vw,28px);}
+  .project-metric-icon {width:20px;height:20px;}
+  .home-narrow .work-feature .project-metrics dt {font-size:12px;}
+}
+
+/* A quiet glass reflection eases in and reverses smoothly on pointer exit. */
+@media screen {
+  .home-narrow .work-feature-list .work-feature {position:relative;transition:border-color 420ms cubic-bezier(.4,0,.2,1),background-color 420ms cubic-bezier(.4,0,.2,1);}
+  .home-narrow .work-feature.is-card-linked {cursor:pointer;}
+  .home-narrow .work-feature .glass-demo-stage {cursor:auto;}
+  .home-narrow .work-feature .work-title-link {display:inline;min-height:0;color:inherit;text-decoration:none;}
+  .home-narrow .work-feature::before {content:'';position:absolute;inset:0;z-index:3;pointer-events:none;padding:1px;border-radius:inherit;background:linear-gradient(115deg,transparent 25%,#ffffff0d 39%,#ffffff44 48%,#ffffff22 52%,transparent 66%);background-size:300% 100%;background-position:100% 50%;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;-webkit-mask-composite:xor;opacity:0;transition:opacity 360ms ease,background-position 1600ms cubic-bezier(.4,0,.2,1);}
+  .home-narrow .work-feature:has(:is(.work-title-link,.work-case-link):focus-visible) {border-color:#b9bec3;background-color:rgba(16,18,22,.23);}
+  .home-narrow .work-feature.is-card-pressed {border-color:#d2d6d9;background-color:rgba(16,18,22,.3);}
+}
+@media screen and (hover:hover) and (pointer:fine) {
+  .home-narrow .work-feature-list .work-feature:hover {border-color:#d2d6d93d;background-color:rgba(16,18,22,.18);}
+  .home-narrow .work-feature-list .work-feature.is-card-pressed {border-color:#d2d6d9;background-color:rgba(16,18,22,.3);}
+}
+@media screen and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  html:not([data-motion=off]) .home-narrow .work-feature:hover::before {opacity:.55;background-position:0% 50%;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .home-narrow .work-feature-list .work-feature,.home-narrow .work-feature::before {transition:none;}
+}
+html[data-motion=off] .home-narrow .work-feature-list .work-feature,
+html[data-motion=off] .home-narrow .work-feature::before {transition:none;}
+@media (forced-colors:active) {
+  .home-narrow .work-feature::before {display:none;}
+  .home-narrow .work-feature-list .work-feature:is(:hover,.is-card-pressed),.home-narrow .work-feature:has(:is(.work-title-link,.work-case-link):focus-visible) {border-color:Highlight;}
+}
+
+/* Demo surfaces use tone and spacing; retain open row and section dividers. */
+@media screen and (forced-colors:none) {
+  .folio #work .mini-window.product-surface,
+  .folio #work .mini-window.product-surface :is(.program-hub-tabs button,.program-hub-detail,.receipt-money-input,.topology-node,.mini-deploy-actions button) {border-color:transparent;}
+}
+
+/* A continuous film reel, with a native scrolling fallback. */
+.folio .film-section .glass-section-heading {margin-bottom:12px;}
+.film-section .film-intro {max-width:none;margin:0 0 32px;color:var(--glass-muted);text-wrap:pretty;}
+.film-carousel {min-width:0;}
+.film-track {position:relative;display:flex;gap:24px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--glass-control-line) transparent;padding:4px 0 16px;}
+/* Match the employer reel's transparent edges, including over the footer atmosphere. */
+.film-track {mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.2) 8%,rgba(0,0,0,.7) 16%,#000 24%,#000 76%,rgba(0,0,0,.7) 84%,rgba(0,0,0,.2) 92%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.2) 8%,rgba(0,0,0,.7) 16%,#000 24%,#000 76%,rgba(0,0,0,.7) 84%,rgba(0,0,0,.2) 92%,transparent 100%);mask-size:100% 100%;mask-repeat:no-repeat;mask-mode:alpha;}
+.film-carousel.is-enhanced .film-track {scrollbar-width:none;padding-bottom:12px;}
+.film-carousel.is-enhanced .film-track::-webkit-scrollbar {display:none;}
+.film-carousel.is-looping .film-track {scroll-snap-type:none;}
+.film-card[data-film-copy][hidden] {display:none;}
+.film-track:focus-visible {outline:none;}
+.film-carousel:has(.film-track:focus-visible) {outline:3px solid var(--glass-accent-text);outline-offset:4px;}
+.film-card {box-sizing:border-box;display:flex;align-items:center;flex:0 0 calc((100% - 48px)/3);min-width:0;margin:0;padding:8px;border:1px solid var(--glass-line);border-radius:12px;background:var(--glass-raised);scroll-snap-align:start;}
+/* Natural proportions put the rounding on the artwork, without cropping the poster. */
+.film-card img {display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;border-radius:6px;}
+.film-controls:not([hidden]) {display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:12px;padding-top:16px;border-top:1px solid var(--glass-line);}
+.film-controls .film-position {margin:0;color:var(--glass-muted);font:400 13px/1.5 var(--body);font-variant-numeric:tabular-nums;}
+.film-arrows {display:flex;gap:8px;}
+.film-arrows button {display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--glass-control-line);border-radius:50%;background:var(--glass-ground);color:var(--glass-ink);cursor:pointer;}
+.film-arrows svg {fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.film-arrows button:hover:not(:disabled) {background:var(--glass-raised);border-color:var(--glass-ink);}
+.film-arrows button:disabled {opacity:.35;cursor:default;}
+.film-arrows .film-playback[hidden] {display:none;}
+.film-playback .film-play-icon {display:none;}
+.film-playback[aria-label="Resume movie carousel"] .film-play-icon {display:block;}
+.film-playback[aria-label="Resume movie carousel"] .film-pause-icon {display:none;}
+
+/* Keep one complete project in view while native scroll advances the cards. */
+@media screen {
+  .work-scroll-controls:not([hidden]) {display:flex;align-items:center;gap:12px;}
+  .work-scroll-position {color:var(--glass-muted);font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .work-scroll-controls button {display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--glass-control-line);border-radius:50%;background:var(--glass-ground);color:var(--glass-ink);cursor:pointer;}
+  .work-scroll-controls button:hover:not(:disabled) {background:var(--glass-raised);border-color:var(--glass-ink);}
+  .work-scroll-controls button:disabled {opacity:.35;cursor:default;}
+  .work-scroll-controls svg {fill:none;stroke:currentColor;stroke-width:1.5;}
+  #work.is-work-pinned {box-sizing:content-box;}
+  #work.is-work-pinned .work-scroll-stage {position:sticky;top:104px;}
+  .folio #work.is-work-pinned .glass-section-heading {display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:20px;}
+  #work.is-work-pinned .work-feature-list {display:grid;grid-template-columns:minmax(0,1fr);gap:0;align-items:start;overflow:clip;isolation:isolate;}
+  #work.is-work-pinned .work-feature {grid-area:1 / 1;transform-origin:center top;}
+  .home-narrow #work.is-work-pinned .work-feature {padding:16px;gap:16px;}
+  .home-narrow #work.is-work-pinned .glass-feature-copy {padding:0;}
+  .home-narrow #work.is-work-pinned .work-role {margin-bottom:8px;}
+  .home-narrow #work.is-work-pinned .work-summary {margin-top:12px;}
+  .home-narrow #work.is-work-pinned .project-metrics {margin-top:16px;padding-block:12px;}
+  .home-narrow #work.is-work-pinned .mini-window {padding:16px;}
+  .home-narrow #work.is-work-pinned .portal-workspace {gap:12px;}
+  #work.is-work-pinned .mini-stages {margin-block:8px;}
+  #work.is-work-pinned .mini-deploy-actions {margin-top:12px;}
+  #work.is-work-pinned .portal-workflow > .deployment-topology {padding:16px;margin-bottom:12px;}
+  #work.is-work-pinned .topology-canvas {height:224px;margin-top:12px;}
+  #work.is-work-pinned .portal-workflow .mini-deploy-detail dl {grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+  #work.is-work-pinned .portal-workflow .mini-deploy-detail dl div {display:block;padding-block:4px;}
+  #work.is-work-pinned .portal-workflow .mini-deploy-detail dd {text-align:left;}
+}
+
+@media print {
+  #work {height:auto!important;}
+  .work-scroll-controls {display:none!important;}
+  #work .work-feature {opacity:1!important;transform:none!important;clip-path:none!important;visibility:visible!important;}
+}
+@media (max-width:720px) {
+  .film-card {flex-basis:42%;}
+}
+@media (max-width:480px) {
+  .film-track {gap:16px;}
+  .film-card {flex-basis:76%;}
 }

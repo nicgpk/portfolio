@@ -1,0 +1,35 @@
+{
+  "note": "Promotional movie poster artwork. Rights remain with the respective studios and rights holders.",
+  "posters": [
+    {
+      "file": "avengers.jpg",
+      "title": "Avengers",
+      "sourcePage": "https://www.ebay.co.uk/itm/153363826475",
+      "imageUrl": "https://i.ebayimg.com/images/g/cykAAOSwbWJcV1ut/s-l1200.jpg"
+    },
+    {
+      "file": "transformers.jpg",
+      "title": "Transformers",
+      "sourcePage": "https://www.impawards.com/2007/transformers_ver9.html",
+      "imageUrl": "https://www.impawards.com/2007/posters/transformers_ver9.jpg"
+    },
+    {
+      "file": "bumblebee.jpg",
+      "title": "Bumblebee",
+      "sourcePage": "https://www.impawards.com/2018/bumblebee_ver5.html",
+      "imageUrl": "https://www.impawards.com/2018/posters/bumblebee_ver5.jpg"
+    },
+    {
+      "file": "the-great-wall.jpg",
+      "title": "The Great Wall",
+      "sourcePage": "https://www.impawards.com/2016/great_wall_ver16.html",
+      "imageUrl": "https://www.impawards.com/2016/posters/great_wall_ver16.jpg"
+    },
+    {
+      "file": "ready-player-one.jpg",
+      "title": "Ready Player One",
+      "sourcePage": "https://www.themoviedb.org/movie/333339-ready-player-one/images/posters",
+      "imageUrl": "https://image.tmdb.org/t/p/w500/cuGEnKjjGFN7JTSmFhhmmJndCZu.jpg"
+    }
+  ]
+}

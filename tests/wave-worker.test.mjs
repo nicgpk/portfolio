@@ -8,7 +8,7 @@ function deferred() {
   return {promise, resolve, reject};
 }
 
-function worker({loadNoise, raf = 'supported', constructorError = false} = {}) {
+function worker({loadNoise, raf = 'supported', constructorError = false, timeOrigin = 0} = {}) {
   let time = 1000, nextFrame = 0, bitmapCloses = 0, pixelReads = 0;
   const frames = new Map(), listeners = new Map(), canvasListeners = new Map();
   const messages = [], instances = [], paints = [];
@@ -55,7 +55,7 @@ function worker({loadNoise, raf = 'supported', constructorError = false} = {}) {
     dispose() {this.disposals++;}
   }
   const scope = {
-    performance:{now:() => time},
+    performance:{now:() => time, timeOrigin},
     requestAnimationFrame:callback => {
       if (raf === 'throws') throw new DOMException('Worker rAF is unsupported', 'NotSupportedError');
       frames.set(++nextFrame, callback);
@@ -79,17 +79,19 @@ function worker({loadNoise, raf = 'supported', constructorError = false} = {}) {
     init,
     send:data => controller.handleMessage(data),
     setTime:value => {time = value;},
-    step(value) {
+    step(value, timestamp = value) {
       time = value;
       const callbacks = [...frames.values()];
       frames.clear();
-      callbacks.forEach(callback => callback(value));
+      callbacks.forEach(callback => callback(timestamp));
     },
     loseContext:() => canvasListeners.get('webglcontextlost')?.({}),
     bitmapCloses:() => bitmapCloses,
     pixelReads:() => pixelReads,
     ready:() => messages.filter(({message}) => message.type === 'ready'),
     errors:() => messages.filter(({message}) => message.type === 'error'),
+    ownerStatus:() => messages.filter(({message}) => message.type === 'owner-status').map(({message}) => message),
+    epoch:() => timeOrigin + time,
   };
 }
 
@@ -104,7 +106,7 @@ test('the installed worker message handler paints one static frame before ready'
   assert.equal(w.instances[0].uniforms.u_noiseTexture, w.bitmap);
   assert.deepEqual(w.ready()[0].message, {
     type:'ready', cache:true, cacheMode:'cached',
-    size:{width:64, height:48, renderScale:1}, frame:12000,
+    size:{width:64, height:48, renderScale:1}, frame:12000, ownerPaused:false,
   });
   assert.equal(w.frames.size, 0, 'speed zero has no recurring work');
   w.controller.dispose();
@@ -303,4 +305,219 @@ test('repeated disposal and a late animation callback cannot paint or double rel
   assert.equal(w.paints.length, 1);
   assert.equal(w.frames.size, 0);
   assert.equal(w.messages.filter(({message}) => message.type === 'disposed').length, 1);
+});
+
+test('an enabled owner lease paints the initial static frame but does not autoplay', async () => {
+  const w = worker();
+  await w.send(w.init({speed:0.18, ownerLeaseMs:500}));
+  assert.equal(w.paints.length, 1);
+  assert.equal(w.paints[0].frame, 12000);
+  assert.equal(w.ready()[0].message.ownerPaused, true);
+  assert.deepEqual(w.ownerStatus(), []);
+  assert.equal(w.frames.size, 0);
+  w.controller.dispose();
+});
+
+test('absolute-epoch renewals preserve the running RAF and the animation clock', async () => {
+  const w = worker({timeOrigin:1700000000000});
+  await w.send(w.init({speed:0.18, ownerLeaseMs:500}));
+  w.setTime(1100);
+  await w.send({type:'owner', deadline:w.epoch()+500});
+  assert.deepEqual(w.ownerStatus(), [{type:'owner-status', paused:false, frame:12000}]);
+  w.step(1200);
+  assert.equal(w.paints.at(-1).frame, 12018);
+  const pending = [...w.frames.entries()];
+  const paints = w.paints.length;
+  w.setTime(1250);
+  await w.send({type:'owner', deadline:w.epoch()+500});
+  assert.deepEqual([...w.frames.entries()], pending, 'renewal does not cancel or restart the pending RAF');
+  assert.equal(w.paints.length, paints);
+  assert.equal(w.ownerStatus().length, 1);
+  w.step(1300);
+  assert.equal(w.paints.at(-1).frame, 12036, 'renewal does not reset the clock between painted frames');
+  w.controller.dispose();
+});
+
+test('expiry stops work at the last painted frame and resume excludes suspended time', async () => {
+  const w = worker();
+  await w.send(w.init({speed:0.18, ownerLeaseMs:500}));
+  await w.send({type:'owner', deadline:1500});
+  w.step(1100);
+  assert.equal(w.paints.at(-1).frame, 12018);
+  w.step(1500);
+  assert.equal(w.paints.length, 2, 'the expiry callback does not paint');
+  assert.equal(w.frames.size, 0);
+  assert.deepEqual(w.ownerStatus().at(-1), {type:'owner-status', paused:true, frame:12018});
+  w.step(9000);
+  assert.equal(w.paints.length, 2);
+  w.setTime(9100);
+  await w.send({type:'owner', deadline:9600});
+  assert.equal(w.paints.length, 2, 'resuming schedules but does not repaint');
+  w.step(9200);
+  assert.equal(w.paints.at(-1).frame, 12036);
+  assert.deepEqual(w.ownerStatus().map(status => status.paused), [false, true, false]);
+  w.controller.dispose();
+});
+
+test('an owner revoke freezes immediately and an older future heartbeat cannot revive it', async () => {
+  const w = worker();
+  await w.send(w.init({speed:0.18, ownerLeaseMs:500}));
+  await w.send({type:'owner', deadline:1500});
+  w.step(1100);
+  const late = [...w.frames.values()][0];
+  w.setTime(1150);
+  await w.send({type:'owner', deadline:0});
+  assert.equal(w.frames.size, 0);
+  assert.equal(w.paints.at(-1).frame, 12018);
+  await w.send({type:'owner', deadline:1450});
+  assert.equal(w.frames.size, 0, 'a stale heartbeat sent before revoke is ignored');
+  w.setTime(1200);
+  await w.send({type:'owner', deadline:1700});
+  const pending = [...w.frames.entries()];
+  late(1200);
+  assert.deepEqual([...w.frames.entries()], pending, 'a cancelled callback cannot replace the resumed RAF');
+  assert.equal(w.paints.length, 2);
+  w.step(1300);
+  assert.equal(w.paints.at(-1).frame, 12036);
+  w.controller.dispose();
+});
+
+test('invalid and stale owner deadlines neither extend a lease nor trigger renderer fallback', async () => {
+  const w = worker();
+  await w.send(w.init({speed:0.18, ownerLeaseMs:500}));
+  await w.send({type:'owner', deadline:1500});
+  w.step(1100);
+  const pending = [...w.frames.entries()];
+  w.setTime(1150);
+  for (const deadline of [undefined, null, NaN, Infinity, -1, '1600', 1000, 1250, 1500]) {
+    await w.send({type:'owner', deadline});
+  }
+  assert.deepEqual([...w.frames.entries()], pending);
+  assert.equal(w.errors().length, 0);
+  assert.equal(w.ownerStatus().length, 1);
+  w.step(1400);
+  assert.equal(w.paints.at(-1).frame, 12072);
+  w.step(1500);
+  assert.equal(w.frames.size, 0, 'ignored deadlines cannot prolong the original lease');
+  w.controller.dispose();
+});
+
+test('an excessively future deadline is bounded by the configured lease duration', async () => {
+  const w = worker();
+  await w.send(w.init({speed:0.18, ownerLeaseMs:500}));
+  await w.send({type:'owner', deadline:1000000});
+  w.step(1490);
+  assert.equal(w.paints.length, 2);
+  w.step(1500);
+  assert.equal(w.paints.length, 2);
+  assert.equal(w.frames.size, 0);
+  assert.equal(w.ownerStatus().at(-1).paused, true);
+  w.controller.dispose();
+});
+
+test('a queued RAF checks the current epoch rather than trusting its old timestamp', async () => {
+  const w = worker({timeOrigin:1700000000000});
+  await w.send(w.init({speed:0.18, ownerLeaseMs:500}));
+  await w.send({type:'owner', deadline:w.epoch()+500});
+  // Browsers dequeue a callback before invoking it, even when its timestamp
+  // predates the current performance clock after suspension.
+  w.step(2000, 1100);
+  assert.equal(w.paints.length, 1);
+  assert.equal(w.frames.size, 0);
+  assert.deepEqual(w.ownerStatus().at(-1), {type:'owner-status', paused:true, frame:12000});
+  w.controller.dispose();
+});
+
+test('an early valid owner heartbeat survives decoding, with ready before resume status', async () => {
+  const noise = deferred();
+  const w = worker({loadNoise:() => noise.promise, timeOrigin:1700000000000});
+  const pending = w.send(w.init({speed:0.18, ownerLeaseMs:500}));
+  w.setTime(1100);
+  await w.send({type:'owner', deadline:w.epoch()+500});
+  await w.send({type:'speed', speed:-0.12});
+  await w.send({type:'frame', frame:38000});
+  assert.equal(w.frames.size, 0);
+  assert.deepEqual(w.ownerStatus(), []);
+  w.setTime(1200);
+  noise.resolve(w.bitmap);
+  await pending;
+  assert.equal(w.paints.length, 1);
+  assert.equal(w.paints[0].frame, 38000);
+  assert.equal(w.ready()[0].message.ownerPaused, true);
+  const protocol = w.messages.map(({message}) => message.type);
+  assert.ok(protocol.indexOf('ready') < protocol.indexOf('owner-status'));
+  assert.deepEqual(w.ownerStatus(), [{type:'owner-status', paused:false, frame:38000}]);
+  w.step(1300);
+  assert.equal(w.paints.at(-1).frame, 37988);
+  w.controller.dispose();
+});
+
+test('a lease that expires during decoding cannot start animation when ready', async () => {
+  const noise = deferred();
+  const w = worker({loadNoise:() => noise.promise});
+  const pending = w.send(w.init({speed:0.18, ownerLeaseMs:500}));
+  await w.send({type:'owner', deadline:1500});
+  w.setTime(2000);
+  noise.resolve(w.bitmap);
+  await pending;
+  assert.equal(w.paints.length, 1);
+  assert.equal(w.frames.size, 0);
+  assert.equal(w.ready()[0].message.ownerPaused, true);
+  assert.deepEqual(w.ownerStatus(), []);
+  await w.send({type:'owner', deadline:2500});
+  w.step(2100);
+  assert.equal(w.paints.at(-1).frame, 12018);
+  w.controller.dispose();
+});
+
+test('static updates and desired speed remain independent of an expired owner lease', async () => {
+  const w = worker();
+  await w.send(w.init({speed:0.18, ownerLeaseMs:500}));
+  await w.send({type:'owner', deadline:1500});
+  w.step(1100);
+  w.setTime(2000);
+  await w.send({type:'update', uniforms:{u_scale:0.85}, size:{width:80, height:60, renderScale:1}});
+  assert.equal(w.paints.at(-1).frame, 12018);
+  assert.equal(w.paints.at(-1).uniforms.u_scale, 0.85);
+  assert.equal(w.frames.size, 0);
+  await w.send({type:'speed', speed:0.4});
+  assert.equal(w.frames.size, 0);
+  await w.send({type:'frame', frame:5000});
+  assert.equal(w.paints.at(-1).frame, 5000);
+  assert.equal(w.frames.size, 0);
+  await w.send({type:'owner', deadline:2500});
+  w.step(2100);
+  assert.equal(w.paints.at(-1).frame, 5040);
+  w.controller.dispose();
+});
+
+test('a fresh heartbeat after an unobserved expiry cannot catch up the suspended interval', async () => {
+  const w = worker();
+  await w.send(w.init({speed:0.18, ownerLeaseMs:500}));
+  await w.send({type:'owner', deadline:1500});
+  w.step(1100);
+  w.setTime(2000);
+  await w.send({type:'owner', deadline:2500});
+  assert.equal(w.paints.length, 2);
+  assert.deepEqual(w.ownerStatus().slice(-2), [
+    {type:'owner-status', paused:true, frame:12018},
+    {type:'owner-status', paused:false, frame:12018},
+  ]);
+  assert.equal(w.frames.size, 1);
+  w.step(2100);
+  assert.equal(w.paints.at(-1).frame, 12036);
+  w.controller.dispose();
+});
+
+test('without ownerLeaseMs, owner messages leave legacy animation behavior unchanged', async () => {
+  const w = worker();
+  await w.send(w.init({speed:0.18}));
+  const pending = [...w.frames.entries()];
+  await w.send({type:'owner', deadline:0});
+  assert.deepEqual([...w.frames.entries()], pending);
+  w.step(1100);
+  assert.equal(w.paints.at(-1).frame, 12018);
+  assert.equal(w.ready()[0].message.ownerPaused, false);
+  assert.deepEqual(w.ownerStatus(), []);
+  w.controller.dispose();
 });

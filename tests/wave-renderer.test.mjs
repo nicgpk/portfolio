@@ -6,6 +6,7 @@ function graphics({float = false, complete = true, fragmentFailure = false,
   programFailure = false, linkFailure = false,
   bufferFailure = false, uploadFailure = false} = {}) {
   const resources = [], deletions = new Map(), draws = [], allocations = [], viewports = [];
+  const positions = [], clears = [];
   const textures = new Map(), sampler = new Map(), uniforms = new Map(), contexts = [];
   const state = {program:null, framebuffer:null, textureUnit:0};
   const create = (kind, type) => {
@@ -41,7 +42,7 @@ function graphics({float = false, complete = true, fragmentFailure = false,
     getProgramInfoLog:() => 'fixture program link failed',
     deleteProgram:remove,
     createBuffer:() => bufferFailure ? null : create('buffer'),
-    bindBuffer() {}, bufferData() {}, deleteBuffer:remove,
+    bindBuffer() {}, bufferData:(_, values) => positions.push([...values]), deleteBuffer:remove,
     getAttribLocation:() => 0,
     enableVertexAttribArray() {}, vertexAttribPointer() {},
     getUniformLocation:(program, name) => ({program, name}),
@@ -68,8 +69,8 @@ function graphics({float = false, complete = true, fragmentFailure = false,
     bindFramebuffer:(_, framebuffer) => {state.framebuffer = framebuffer;},
     framebufferTexture2D() {},
     checkFramebufferStatus:() => complete ? gl.FRAMEBUFFER_COMPLETE : 'incomplete',
-    viewport:(...size) => viewports.push(size), clear() {},
-    drawArrays:() => draws.push({program:state.program, framebuffer:state.framebuffer,
+    viewport:(...size) => viewports.push(size), clear:mask => clears.push(mask),
+    drawArrays:(mode, first, count) => draws.push({mode, first, count, program:state.program, framebuffer:state.framebuffer,
       uniforms:new Map(uniforms.get(state.program)), textures:new Map(textures)}),
   };
   const canvas = {width:1, height:1, getContext:(type, attributes) => {
@@ -84,7 +85,7 @@ function graphics({float = false, complete = true, fragmentFailure = false,
     u_worldWidth:0, u_worldHeight:0, u_softness:0.84, u_intensity:0.32, u_noise:0.0308,
   };
   return {
-    gl, canvas, bitmap, provided, resources, allocations, sampler, draws, viewports, contexts,
+    gl, canvas, bitmap, provided, resources, allocations, sampler, draws, viewports, contexts, positions, clears,
     create:() => new WaveRenderer(canvas, provided, {frame:12000}),
     visible:() => draws.filter(draw => draw.framebuffer === null),
     bakes:() => draws.filter(draw => draw.framebuffer !== null),
@@ -97,7 +98,7 @@ function graphics({float = false, complete = true, fragmentFailure = false,
 
 test('GPU engine preserves context settings, source texture sampling and fixed frame', () => {
   const r = graphics(), renderer = r.create();
-  assert.deepEqual(r.contexts, [{type:'webgl2', attributes:{alpha:true, antialias:false, powerPreference:'low-power'}}]);
+  assert.deepEqual(r.contexts, [{type:'webgl2', attributes:{alpha:true, antialias:false, depth:false, powerPreference:'low-power'}}]);
   assert.equal(r.draws.length, 0, 'construction waits for final physical dimensions');
   renderer.resize({width:640, height:360, renderScale:1});
   const image = r.allocations.find(item => item.format === r.gl.RGBA);
@@ -111,6 +112,22 @@ test('GPU engine preserves context settings, source texture sampling and fixed f
   assert.deepEqual(r.visible()[0].uniforms.get('u_resolution'), [640, 360]);
   renderer.setFrame(18000);
   assert.equal(r.visible().at(-1).uniforms.get('u_time'), 18);
+  renderer.dispose();
+  r.assertReleasedOnce();
+});
+
+for (const float of [false, true]) test('full-screen frames overwrite the buffer without a redundant clear: cache ' + float, () => {
+  const r = graphics({float}), renderer = r.create();
+  renderer.resize({width:640, height:360, renderScale:1});
+  renderer.render(12016);
+  renderer.resize({width:800, height:450, renderScale:1});
+
+  assert.deepEqual(r.positions, [[-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]],
+    'two triangles cover the complete clip-space rectangle');
+  assert.equal(r.visible().length, 3);
+  assert.ok(r.visible().every(draw => draw.mode === r.gl.TRIANGLES && draw.first === 0 && draw.count === 6));
+  assert.deepEqual(r.viewports, [[0, 0, 640, 360], [0, 0, 800, 450]]);
+  assert.deepEqual(r.clears, [], 'initial paint, animation and resize all write the complete frame directly');
   renderer.dispose();
   r.assertReleasedOnce();
 });
