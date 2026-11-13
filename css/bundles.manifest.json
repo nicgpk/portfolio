@@ -23,13 +23,13 @@
     },
     "home-product": {
       "file": "css/bundle-home-product.css",
-      "href": "css/bundle-home-product.css?v=306fa21cfb3c",
+      "href": "css/bundle-home-product.css?v=15e669fd037a",
       "sources": [
         "css/work-index.css",
         "css/product-surfaces.css",
         "css/two-tone.css"
       ],
-      "bytes": 45159
+      "bytes": 45900
     },
     "case-layout": {
       "file": "css/bundle-case-layout.css",
@@ -116,7 +116,7 @@
         "css/bundle-shared-base.css?v=912609ce72b2",
         "css/bundle-home-layout.css?v=024a2e2c655f",
         "css/glass.css?v=fca52673fd45",
-        "css/bundle-home-product.css?v=306fa21cfb3c"
+        "css/bundle-home-product.css?v=15e669fd037a"
       ],
       "count": 4
     },

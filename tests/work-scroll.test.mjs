@@ -3,13 +3,13 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 
-async function setup() {
+async function setup({height = 1305, stageHeight = 1000, listHeight = 940, heights = [940,940,940]} = {}) {
   let now = 0, id = 0, writes = 0;
   const frames = new Map(), events = {}, documentEvents = {};
   const style = () => new Proxy({setProperty(name, value) {this[name] = value;}, removeProperty(name) {delete this[name.startsWith('--') ? name : name.replace(/-([a-z])/g, (_, c) => c.toUpperCase())];}}, {
     set(target, key, value) {writes++; target[key] = value; return true;},
   });
-  const cards = Array.from({length:3}, () => ({style:style(), inert:false, offsetHeight:940,
+  const cards = Array.from({length:3}, (_, i) => ({style:style(), inert:false, offsetHeight:heights[i],
     setAttribute() {writes++;}, removeAttribute() {}, contains:() => false,
     scrollIntoView() {}, querySelector:() => ({focus() {}}),
   }));
@@ -17,9 +17,10 @@ async function setup() {
   previous.addEventListener = next.addEventListener = () => {};
   const controls = {querySelector:s => s.includes('previous') ? previous : s.includes('next') ? next : status};
   const atmosphere = {style:style(), classList:{toggle() {}}};
-  const stage = {offsetHeight:1000};
+  const stage = {offsetHeight:stageHeight};
   const root = {style:style(), classList:{toggle() {}},
-    querySelector:s => s.includes('stage') ? stage : s.includes('list') ? {offsetHeight:940} : controls,
+    addEventListener:(type, fn) => {documentEvents[type] = fn;},
+    querySelector:s => s.includes('stage') ? stage : s.includes('list') ? {offsetHeight:listHeight} : controls,
     querySelectorAll:() => cards, closest:() => ({querySelector:() => atmosphere}),
     getBoundingClientRect:() => ({top:504 - context.scrollY}),
   };
@@ -27,7 +28,7 @@ async function setup() {
     fonts:{ready:Promise.resolve()}, querySelector:() => root,
     addEventListener:(type, fn) => {documentEvents[type] = fn;},
   };
-  const context = {document, scrollY:400, innerHeight:1305, performance:{now:() => now},
+  const context = {document, scrollY:400, innerHeight:height, performance:{now:() => now},
     matchMedia:query => ({matches:query.includes('min-width'), addEventListener() {}}),
     requestAnimationFrame:fn => {frames.set(++id, fn); return id;},
     cancelAnimationFrame:key => frames.delete(key),
@@ -38,7 +39,7 @@ async function setup() {
   vm.runInNewContext(readFileSync(new URL('../js/work-scroll.mjs', import.meta.url), 'utf8'), context);
   await Promise.resolve();
   return {cards, frames, document, documentEvents, atmosphere,
-    scroll(progress) {context.scrollY = 400 + Math.round(1305 * .85) * progress; events.scroll();},
+    scroll(progress) {context.scrollY = 400 + Math.round(height * .85) * progress; events.scroll();},
     tick(ms) {now += ms; const pending = [...frames.values()]; frames.clear(); pending.forEach(fn => fn(now));},
     writes:() => writes,
   };
@@ -65,6 +66,26 @@ test('coarse wheel steps slide over frames, reverse continuously, and settle wit
   const writes = x.writes();
   x.scroll(.65); x.tick(1000/60);
   assert.equal(x.writes(), writes, 'unchanged scroll position should not rewrite styles or accessibility state');
+});
+
+test('short desktop viewports read every full card before advancing the stack', async () => {
+  const x = await setup({height:800,stageHeight:672,listHeight:612,heights:[940,1000,900]});
+  const settle = () => {for(let i=0;i<100;i++)x.tick(1000/60);};
+  // First card: 374px reading hold, 328px to expose its complete bottom.
+  x.scroll(702/680);settle();
+  assert.equal(verticalOffset(x.cards[0]),-328);
+  assert.equal(x.cards[0].style.clipPath,'none');
+  assert.equal(x.cards[0].inert,false);
+  // The next card enters from its beginning, then gets its own reading travel.
+  x.scroll(1008/680);settle();
+  assert.equal(verticalOffset(x.cards[1]),0);
+  assert.equal(x.cards[1].inert,false);
+  x.scroll((1008+374+388)/680);settle();
+  assert.ok(Math.abs(verticalOffset(x.cards[1])+388)<.001);
+  x.scroll((1008+1068+288)/680);settle();
+  assert.equal(verticalOffset(x.cards[2]),-288);
+  assert.equal(x.cards[2].inert,false);
+  assert.equal(x.frames.size,0);
 });
 
 test('background geometry stays unchanged through forward and reverse scrolling', async () => {

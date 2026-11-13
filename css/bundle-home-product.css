@@ -48,12 +48,21 @@
   }
   .work-atmosphere-track.is-work-pinned .glass-atmosphere {position:sticky;top:var(--work-atmosphere-top);}
   .hero-work-surface .glass-atmosphere .paper-wave {height:100%;bottom:0;}
+  /* Show the opening wave with the page, then dissolve into its live frame. */
+  .hero-work-surface .paper-wave.hero-wave {opacity:.72;transition:none;}
+  .hero-wave::before {content:'';position:absolute;inset:0;background:url('../images/home-wave-poster.webp') center/100% 100% no-repeat;transition:opacity 240ms ease-out;}
+  .hero-wave.is-wave-ready::before {opacity:0;}
   .work-feature-list .work-feature {
     background:rgba(16,18,22,.15);
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
   }
 }
+@media screen and (max-width:767px) {
+  .hero-work-surface .paper-wave.hero-wave {opacity:.84;}
+  .hero-wave::before {background-image:url('../images/home-wave-mobile.webp');}
+}
+@media (prefers-reduced-motion:reduce) {.hero-wave::before {transition:none;}}
 @media screen {
   html[data-motion=on] body[data-instant-content] :is([data-glass-enter],.work-feature) {opacity:1;}
 }
@@ -346,7 +355,7 @@ html[data-motion=off] .home-narrow .work-feature::before {transition:none;}
 .film-playback[aria-label="Resume movie carousel"] .film-play-icon {display:block;}
 .film-playback[aria-label="Resume movie carousel"] .film-pause-icon {display:none;}
 
-/* Keep one complete project in view while native scroll advances the cards. */
+/* Native scroll reads each complete project, then advances the card stack. */
 @media screen {
   .work-scroll-controls:not([hidden]) {display:flex;align-items:center;gap:12px;}
   .work-scroll-position {color:var(--glass-muted);font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap;}
@@ -355,9 +364,9 @@ html[data-motion=off] .home-narrow .work-feature::before {transition:none;}
   .work-scroll-controls button:disabled {opacity:.35;cursor:default;}
   .work-scroll-controls svg {fill:none;stroke:currentColor;stroke-width:1.5;}
   #work.is-work-pinned {box-sizing:content-box;}
-  #work.is-work-pinned .work-scroll-stage {position:sticky;top:104px;}
-  .folio #work.is-work-pinned .glass-section-heading {display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:20px;}
-  #work.is-work-pinned .work-feature-list {display:grid;grid-template-columns:minmax(0,1fr);gap:0;align-items:start;overflow:clip;isolation:isolate;}
+  #work.is-work-pinned .work-scroll-stage {position:sticky;top:104px;display:flex;flex-direction:column;max-height:var(--work-viewport-height);}
+  .folio #work.is-work-pinned .glass-section-heading {display:flex;flex:none;align-items:center;justify-content:space-between;gap:24px;margin-bottom:20px;}
+  #work.is-work-pinned .work-feature-list {display:grid;flex:1 1 auto;min-height:0;grid-template-columns:minmax(0,1fr);gap:0;align-items:start;overflow:clip;isolation:isolate;}
   #work.is-work-pinned .work-feature {grid-area:1 / 1;transform-origin:center top;}
   .home-narrow #work.is-work-pinned .work-feature {padding:16px;gap:16px;}
   .home-narrow #work.is-work-pinned .glass-feature-copy {padding:0;}

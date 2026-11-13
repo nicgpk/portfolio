@@ -126,11 +126,13 @@
       }
     </script>
 
+    <link rel="preload" as="image" href="images/home-wave-poster.webp" media="(min-width:768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="images/home-wave-mobile.webp" media="(max-width:767px)" fetchpriority="high" />
     <!-- css-bundles:start -->
     <link rel="stylesheet" href="css/bundle-shared-base.css?v=912609ce72b2" />
     <link rel="stylesheet" href="css/bundle-home-layout.css?v=024a2e2c655f" />
     <link rel="stylesheet" href="css/glass.css?v=fca52673fd45" />
-    <link rel="stylesheet" href="css/bundle-home-product.css?v=306fa21cfb3c" />
+    <link rel="stylesheet" href="css/bundle-home-product.css?v=15e669fd037a" />
     <!-- css-bundles:end -->
     <link
       rel="preload"
@@ -162,7 +164,7 @@
     </header>
     <main id="main" class="portfolio-work">
       <div class="glass-intro-surface hero-work-surface" data-atmosphere>
-        <div class="work-atmosphere-track" aria-hidden="true"><div class="glass-atmosphere"><div class="paper-wave" data-paper-wave></div></div></div>
+        <div class="work-atmosphere-track" aria-hidden="true"><div class="glass-atmosphere"><div class="paper-wave hero-wave" data-paper-wave data-wave-eager></div></div></div>
         <section class="glass-hero" aria-labelledby="hero-title">
           <h1 id="hero-title" data-glass-enter>
             <span class="hero-line hero-line--lead">Shaping products.</span>
@@ -584,6 +586,6 @@
     </script>
     <script type="module" src="js/paper-wave.mjs?v=39af3cbcc787"></script>
     <script type="module" src="js/movie-carousel.mjs?v=5"></script>
-    <script type="module" src="js/work-scroll.mjs?v=6"></script>
+    <script type="module" src="js/work-scroll.mjs?v=7"></script>
   </body>
 </html>

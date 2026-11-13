@@ -1,0 +1,7 @@
+{
+  "description": "First-frame stills of the existing homepage wave for immediate display while its live renderer initializes.",
+  "source": "js/paper-wave.mjs, worker frame 12000, unchanged homepage uniforms and pixel budgets",
+  "capture": {"desktop": {"viewport": [2560,1305], "wave": [2560,1593.09375]}, "mobile": {"viewport": [390,1305], "wave": [390,1835.828125]}},
+  "processing": "Capture the raw wave without page content, masks, saturation or CSS blur; resize desktop to 1000px, retain mobile 390px width, blur 3px, WebP quality 70; existing CSS reapplies its effects.",
+  "files": ["home-wave-poster.webp", "home-wave-mobile.webp"]
+}
