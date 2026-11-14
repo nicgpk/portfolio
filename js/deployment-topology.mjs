@@ -1,4 +1,4 @@
-import { linkHorizontal } from './vendor/d3-shape-3.2.0.mjs';
+import { linkHorizontal } from './vendor/d3-shape-3.2.0.mjs?v=3fc80db901d4';
 
 // Measure real node ports so connectors remain attached after any responsive reflow.
 export function initDeploymentTopology(canvas) {

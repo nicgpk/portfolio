@@ -9,4 +9,11 @@ test('rapid replacement cancels stale sweep without losing current state',()=>{c
 test('reduced motion selects immediately without scheduling an animation',()=>{const x=setup();x.pause(true);x.select(2);assert.equal(x.buttons[2].attrs['aria-pressed'],'true');assert.equal(x.frames.size,0);assert.equal(x.timers.size,0);});
 test('hidden page never starts selection animation',()=>{const x=setup();x.document.hidden=true;x.select(1);assert.equal(x.frames.size,0);assert.equal(x.buttons[1].attrs['aria-pressed'],'true');});
 
-test('slow sweep and cleanup stay synchronized',()=>{const js=fs.readFileSync('js/glass-demos.mjs','utf8'),css=fs.readFileSync('css/glass.css','utf8');assert.match(css,/program-selection-sweep 1500ms cubic-bezier\(\.4,0,\.2,1\) 1 both/);assert.match(js,/stopSelectionEffect\(button\),1600/);});
+test('slow sweep and cleanup stay synchronized', async () => {
+  const {tokenDefinitions, resolveDesignTokens} = await import('../scripts/css-values.mjs');
+  const js = fs.readFileSync('js/glass-demos.mjs', 'utf8');
+  const tokens = tokenDefinitions(fs.readFileSync('css/design-tokens.css', 'utf8'));
+  const css = resolveDesignTokens(fs.readFileSync('css/glass.css', 'utf8'), tokens);
+  assert.match(css, /program-selection-sweep 1500ms cubic-bezier\(\.4,0,\.2,1\) 1 both/);
+  assert.match(js, /stopSelectionEffect\(button\),1600/);
+});

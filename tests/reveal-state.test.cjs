@@ -1,17 +1,19 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');const vm=require('node:vm');const fs=require('node:fs');
-function setup(){
- let now=0,id=0,paused=false;const timers=new Map(),listeners={};
+function setup(project=null){
+ let now=0,id=0,paused=false;const timers=new Map(),listeners={},observers=[];
  const control={matches:s=>s.includes('focus-visible'),closest:()=>control};
- const element={dataset:{},classList:{add(){},remove(){}},closest:()=>null,querySelector:()=>null,contains:x=>x===control,getAnimations:()=>[],addEventListener:(type,fn)=>listeners[type]=fn};
+ const element={dataset:{},classList:{add(){},remove(){}},closest:selector=>selector==='.work-feature'?project:null,querySelector:()=>null,querySelectorAll:()=>[],contains:x=>x===control,getAnimations:()=>[],addEventListener:(type,fn)=>listeners[type]=fn};
  const document={hidden:false,activeElement:null};
- const ctx={controllers:[],performance:{now:()=>now},setTimeout:(fn,delay)=>{timers.set(++id,{fn,at:now+delay});return id;},clearTimeout:i=>timers.delete(i),motionPaused:()=>paused,document,queueMicrotask:fn=>fn()};
+ const ctx={controllers:[],performance:{now:()=>now},setTimeout:(fn,delay)=>{timers.set(++id,{fn,at:now+delay});return id;},clearTimeout:i=>timers.delete(i),motionPaused:()=>paused,document,queueMicrotask:fn=>fn(),MutationObserver:class {constructor(callback){observers.push(callback);}observe(){}}};
  vm.createContext(ctx);const source=fs.readFileSync('js/glass-demos.mjs','utf8');vm.runInContext(source.slice(source.indexOf('function register('),source.indexOf('const hero =')),ctx);
  const seen=[];const state=ctx.register(element,3000,[{at:0,run:()=>seen.push(0)},{at:1000,run:()=>seen.push(1)},{at:2000,run:()=>seen.push(2)}]);
  const tick=ms=>{const end=now+ms;while(true){let next=[...timers.entries()].filter(([,v])=>v.at<=end).sort((a,b)=>a[1].at-b[1].at)[0];if(!next)break;timers.delete(next[0]);now=next[1].at;next[1].fn();}now=end;};
- return {state,seen,tick,document,control,element,listeners,pause:v=>paused=v,timers};
+ return {state,seen,tick,document,control,element,listeners,pause:v=>paused=v,timers,projectChanged:()=>observers.forEach(callback=>callback())};
 }
-test('offscreen hold resumes remaining timeline then settles once',()=>{const x=setup();x.state.visible=true;x.state.sync();x.tick(1100);assert.deepEqual(x.seen,[0,1]);x.state.visible=false;x.state.sync();x.tick(5000);assert.deepEqual(x.seen,[0,1]);x.state.visible=true;x.state.sync();x.tick(2000);assert.deepEqual(x.seen,[0,1,2]);assert.equal(x.state.completed,true);assert.equal(x.timers.size,0);x.state.visible=false;x.state.sync();x.state.visible=true;x.state.sync();assert.deepEqual(x.seen,[0,1,2]);});
+test('each reveal restarts the timeline and settles without looping',()=>{const x=setup();x.state.visible=true;x.state.sync();x.tick(1100);assert.deepEqual(x.seen,[0,1]);x.state.visible=false;x.state.sync();x.tick(5000);assert.deepEqual(x.seen,[0,1]);x.state.visible=true;x.state.sync();assert.deepEqual(x.seen,[0,1,0]);x.tick(3100);assert.deepEqual(x.seen,[0,1,0,1,2]);assert.equal(x.state.completed,true);assert.equal(x.timers.size,0);x.state.sync();assert.deepEqual(x.seen,[0,1,0,1,2]);x.state.visible=false;x.state.sync();x.state.visible=true;x.state.sync();assert.deepEqual(x.seen,[0,1,0,1,2,0]);});
 test('manual editing stops preview permanently',()=>{const x=setup();x.state.visible=true;x.state.sync();x.tick(500);x.listeners.input({type:'input',target:x.control});x.tick(5000);assert.equal(x.state.manual,true);assert.deepEqual(x.seen,[0]);assert.equal(x.timers.size,0);});
+test('revealing again preserves a manually edited preview',()=>{const x=setup();x.state.visible=true;x.state.sync();x.tick(1100);x.listeners.input({type:'input',target:x.control});x.state.visible=false;x.state.sync();x.state.visible=true;x.state.sync();x.tick(3100);assert.equal(x.state.manual,true);assert.deepEqual(x.seen,[0,1]);assert.equal(x.timers.size,0);});
+test('reveals stay idle when reduced motion is enabled',()=>{const x=setup();x.pause(true);x.state.visible=true;x.state.sync();x.state.visible=false;x.state.sync();x.state.visible=true;x.state.sync();assert.equal(x.timers.size,0);assert.deepEqual(x.seen,[]);});
 test('reduced motion and hidden documents freeze without resetting',()=>{const x=setup();x.pause(true);x.state.visible=true;x.state.sync();x.tick(4000);assert.deepEqual(x.seen,[]);x.pause(false);x.state.sync();x.tick(1100);x.document.hidden=true;x.state.sync();x.tick(5000);assert.deepEqual(x.seen,[0,1]);x.document.hidden=false;x.state.sync();x.tick(2100);assert.equal(x.state.completed,true);});
 test('keyboard focus holds preview until focus leaves',()=>{const x=setup();x.state.visible=true;x.state.sync();x.tick(500);x.document.activeElement=x.control;x.state.sync();x.tick(4000);assert.deepEqual(x.seen,[0]);x.document.activeElement=null;x.state.sync();x.tick(2700);assert.equal(x.state.completed,true);});
 
@@ -20,3 +22,32 @@ test('pointer engagement freezes autoplay before the click',()=>{const x=setup()
 test('keyboard activation freezes autoplay but tabbing only holds it',()=>{const x=setup();x.state.visible=true;x.state.sync();x.listeners.keydown({type:'keydown',key:'Tab',target:x.control});assert.equal(x.state.manual,false);x.listeners.keydown({type:'keydown',key:' ',target:x.control});x.tick(4000);assert.equal(x.state.manual,true);assert.deepEqual(x.seen,[0]);});
 
 test('follow-up change and focus events preserve feedback after manual takeover',()=>{const x=setup();let cancellations=0;x.element.getAnimations=()=>[{cancel:()=>cancellations++}];x.state.visible=true;x.state.sync();x.listeners.pointerdown({type:'pointerdown',target:x.control});assert.equal(cancellations,1);x.listeners.input({type:'input',target:x.control});x.listeners.change({type:'change',target:x.control});x.listeners.focusout();assert.equal(cancellations,1);});
+
+test('a geometrically visible but inactive pinned project waits before playing',()=>{
+ const project={inert:true,getAttribute:()=>null};
+ const x=setup(project);
+ x.state.visible=true;x.state.sync();x.tick(5000);
+ assert.deepEqual(x.seen,[]);
+ assert.equal(x.timers.size,0);
+ project.inert=false;x.projectChanged();
+ assert.deepEqual(x.seen,[0]);
+ x.tick(1100);
+ assert.deepEqual(x.seen,[0,1]);
+});
+
+test('a pinned project restarts its preview when it becomes active again',()=>{
+ let hidden=null;
+ const project={inert:false,getAttribute:()=>hidden};
+ const x=setup(project);
+ x.state.visible=true;x.state.sync();x.tick(500);
+ hidden='true';x.projectChanged();x.tick(5000);
+ assert.deepEqual(x.seen,[0]);
+ assert.equal(x.timers.size,0);
+ hidden=null;x.projectChanged();
+ assert.deepEqual(x.seen,[0,0]);
+ x.tick(1001);
+ assert.deepEqual(x.seen,[0,0,1]);
+ x.tick(2000);
+ assert.equal(x.state.completed,true);
+ assert.equal(x.timers.size,0);
+});

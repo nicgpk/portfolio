@@ -1,9 +1,9 @@
 /* One reading-link scale and one Lucide icon frame. Long labels may wrap. */
 .folio,
 .resume-page {
-  --link-size: 16px;
-  --link-height: 48px;
-  --link-icon-size: 24px;
+  --link-size: var(--ds-portfolio-body-size);
+  --link-height: var(--ds-size-48);
+  --link-icon-size: var(--ds-size-24);
 }
 .folio .ui-icon,
 .resume-page .ui-icon {
@@ -32,23 +32,23 @@
   ) {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--ds-space-10);
   min-height: var(--link-height);
   max-width: 100%;
   min-width: 0;
-  padding-block: 11px;
+  padding-block: var(--ds-space-11);
   font-size: var(--link-size);
-  line-height: 24px;
+  line-height: var(--ds-leading-1-5);
 }
-.folio :is(.studio-button, .site-nav .nav-contact, .site-nav nav a) {
+.folio :where(.studio-button, .site-nav .nav-contact, .site-nav nav a) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: var(--ds-space-10);
   min-height: var(--link-height);
-  padding-block: 11px;
+  padding-block: var(--ds-space-11);
   font-size: var(--link-size);
-  line-height: 24px;
+  line-height: var(--ds-leading-1-5);
 }
 .folio .site-nav .nav-contact,
 .resume-page .site-nav .nav-contact {
@@ -67,8 +67,8 @@
   font-size: var(--link-size);
 }
 .folio .concept-shell .catalog-glyph svg {
-  width: 32px;
-  height: 32px;
+  width: var(--ds-size-32);
+  height: var(--ds-size-32);
 }
 .folio
   .concept-shell
@@ -80,18 +80,18 @@
     .discount-check
   )
   .ui-icon {
-  width: 24px;
-  height: 24px;
+  width: var(--ds-size-24);
+  height: var(--ds-size-24);
 }
 @media screen {
   .resume-page a:not(.wordmark, .skip-link) {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--ds-space-10);
     min-height: var(--link-height);
-    padding-block: 11px;
+    padding-block: var(--ds-space-11);
     font-size: var(--link-size);
-    line-height: 24px;
+    line-height: var(--ds-leading-1-5);
   }
   body.resume-page .nav-social a {
     display: grid;
@@ -99,19 +99,19 @@
     gap: 0;
     min-height: 0;
     padding: 0;
-    line-height: 1;
+    line-height: var(--ds-leading-1);
   }
 }
 .folio .concept-shell .catalog-glyph {
-  width: 44px;
-  height: 44px;
+  width: var(--ds-size-44);
+  height: var(--ds-size-44);
   flex-shrink: 0;
 }
 .folio .growth-studio .program-tile > summary {
   grid-template-columns: 44px minmax(0, 1fr) 116px 24px;
 }
 .folio .growth-studio .growth-input-wrap > input {
-  padding-left: 36px;
+  padding-left: var(--ds-space-36);
 }
 @media (max-width: 1000px) {
   .folio .growth-studio .program-tile > summary {
@@ -119,27 +119,27 @@
   }
 }
 .folio :is(.workflow-node, .lean-percent) .ui-icon {
-  width: 32px;
-  height: 32px;
+  width: var(--ds-size-32);
+  height: var(--ds-size-32);
 }
 .folio .concept-shell .deploy-actions button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: var(--ds-space-10);
   min-height: var(--link-height);
 }
 @media (max-width: 540px) {
   .folio .site-nav {
-    gap: 8px;
-    padding-inline: 12px;
+    gap: var(--ds-space-8);
+    padding-inline: var(--ds-space-12);
   }
   .folio .site-nav .nav-contact {
-    padding-inline: 12px;
+    padding-inline: var(--ds-space-12);
   }
   .folio .site-nav nav,
   .resume-page .site-nav nav {
-    gap: 12px;
+    gap: var(--ds-space-12);
   }
   .folio .site-nav .nav-contact span {
     margin-left: 0;
@@ -148,6 +148,6 @@
 @media (max-width: 360px) {
   .folio .site-nav nav,
   .resume-page .site-nav nav {
-    gap: 8px;
+    gap: var(--ds-space-8);
   }
 }

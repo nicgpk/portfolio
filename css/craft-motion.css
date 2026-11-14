@@ -1,44 +1,44 @@
 /* A compact identity and task-led product demonstrations. One red token. */
 :root {
-  --feedback-ease: cubic-bezier(.25,.1,.25,1);
+  --feedback-ease: var(--ds-ease-standard);
 }
 .folio .studio-hero .hero-stage {
   min-height: 400px;
-  padding: 32px 24px;
+  padding: var(--ds-space-32) var(--ds-space-24);
 }
 .folio .hero-overline {
-  min-height: 40px;
-  padding-block: 12px;
+  min-height: var(--ds-size-40);
+  padding-block: var(--ds-space-12);
 }
 .folio .hero-message h1 {
-  font-size: clamp(44px, 5.4vw, 72px);
-  line-height: 1.05;
+  font-size: clamp(var(--ds-text-44), 5.4vw, var(--ds-text-72));
+  line-height: var(--ds-leading-1-05);
   letter-spacing: -0.04em;
-  margin-block: 12px 18px;
+  margin-block: var(--ds-space-12) var(--ds-space-18);
 }
 .folio .hero-message h1 span {
   display: inline-block;
   font-size: 0.56em;
-  line-height: 1.4;
-  padding: 6px 16px 8px;
+  line-height: var(--ds-leading-1-4);
+  padding: var(--ds-space-6) var(--ds-space-16) var(--ds-space-8);
   background: var(--accent);
-  color: #fff;
+  color: var(--ds-color-white);
   border-bottom: 0;
 }
 .folio .hero-description {
   max-width: 610px;
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: var(--ds-text-16);
+  line-height: var(--ds-leading-1-65);
 }
 .folio .hero-actions {
-  margin-top: 20px;
+  margin-top: var(--ds-space-20);
 }
 .folio .hero-message > .eyebrow {
   margin-bottom: 0;
-  font-size: 12px;
+  font-size: var(--ds-text-12);
 }
 .folio .motion-toggle {
-  font-size: 12px;
+  font-size: var(--ds-text-12);
 }
 .folio
   :is(
@@ -52,13 +52,13 @@
     .rate-preview-steps > div > span,
     .rate-preview-steps b
   ) {
-  font-size: 12px;
+  font-size: var(--ds-text-12);
 }
 .folio .concept-preview .preview-header > span {
-  font-size: 13px;
+  font-size: var(--ds-text-13);
 }
 .folio .project-showcase {
-  padding: 32px 28px 48px;
+  padding: var(--ds-space-32) var(--ds-space-28) var(--ds-space-48);
 }
 .folio .showcase-intro {
   padding: 0;
@@ -66,13 +66,13 @@
 }
 .folio .showcase-intro :is(h1, h2) {
   margin: 0;
-  font-size: clamp(32px, 3vw, 42px);
+  font-size: clamp(var(--ds-text-32), 3vw, var(--ds-text-42));
 }
 .folio .showcase-stage .showcase-toolbar {
   position: relative;
-  min-height: 64px;
-  padding: 8px 0;
-  margin-bottom: 20px;
+  min-height: var(--ds-size-64);
+  padding: var(--ds-space-8) 0;
+  margin-bottom: var(--ds-space-20);
 }
 .folio .showcase-navigation {
   width: 100%;
@@ -94,39 +94,39 @@
   background: var(--accent);
 }
 .folio .showcase-description {
-  padding: 28px;
+  padding: var(--ds-space-28);
 }
 .folio .showcase-description .showcase-role {
-  font-size: 12px;
-  line-height: 1.6;
+  font-size: var(--ds-text-12);
+  line-height: var(--ds-leading-1-6);
 }
 .folio .showcase-description .showcase-summary > p {
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: var(--ds-text-14);
+  line-height: var(--ds-leading-1-7);
 }
 .folio .showcase-art {
   align-items: center;
-  padding: 24px;
-  background: #f5f5f5;
+  padding: var(--ds-space-24);
+  background: var(--ds-color-sky-sky);
 }
 .folio .concept-preview {
   min-height: 0;
   height: auto;
-  padding: 24px;
+  padding: var(--ds-space-24);
   flex: none;
 }
 .folio .concept-preview .preview-header h4 {
   font-size: var(--ui-title);
 }
 .folio .concept-preview .preview-body {
-  gap: 20px;
-  margin-block: 20px;
+  gap: var(--ds-space-20);
+  margin-block: var(--ds-space-20);
 }
 .folio .concept-preview .preview-detail {
-  padding-left: 20px;
+  padding-left: var(--ds-space-20);
 }
 .folio .concept-preview .preview-note {
-  padding-top: 16px;
+  padding-top: var(--ds-space-16);
 }
 .preview-panels {
   display: grid;
@@ -155,38 +155,38 @@
   border: 0;
   background: transparent;
   color: var(--workspace-ink);
-  font: 500 14px/1.6 var(--body);
+  font: var(--ds-weight-medium) var(--ds-text-14)/var(--ds-leading-1-6) var(--body);
   text-align: left;
   cursor: pointer;
-  transition: background 360ms var(--feedback-ease);
+  transition: background var(--ds-duration-360) var(--feedback-ease);
 }
 .preview-choices button:disabled {
   cursor: default;
   opacity: 1;
 }
 .preview-choices button:hover:enabled {
-  background: #292929;
+  background: var(--ds-color-paper-action);
 }
 .folio .lean-program {
   width: 100%;
-  min-height: 60px;
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--workspace-line);
-  border-radius: 6px;
+  min-height: var(--ds-size-60);
+  padding: var(--ds-space-10) var(--ds-space-12);
+  border-bottom: var(--ds-border-thin) solid var(--workspace-line);
+  border-radius: var(--ds-radius-badge);
 }
 .folio .lean-program strong {
-  font-size: 14px;
+  font-size: var(--ds-text-14);
 }
 .folio .lean-program small {
-  font-size: 12px;
+  font-size: var(--ds-text-12);
 }
 .folio .lean-program.is-selected {
   box-shadow: none;
-  background: #292929;
+  background: var(--ds-color-paper-action);
 }
 .lean-program .ui-icon {
-  width: 24px;
-  height: 24px;
+  width: var(--ds-size-24);
+  height: var(--ds-size-24);
   color: var(--workspace-muted);
   flex: 0 0 24px;
 }
@@ -195,28 +195,28 @@
 }
 .folio .concept-preview .lean-detail {
   border: 0;
-  border-left: 1px solid var(--workspace-line);
+  border-left: var(--ds-border-thin) solid var(--workspace-line);
   border-radius: 0;
   background: transparent;
 }
 .folio .concept-preview .lean-detail h4 {
-  font: 600 var(--ui-section)/1.25 var(--body);
+  font: var(--ds-weight-semibold) var(--ui-section)/var(--ds-leading-1-25) var(--body);
 }
 .folio .concept-preview .lean-detail > p,
 .lean-mechanics > p {
-  font: var(--ui-copy)/1.7 var(--body);
+  font: var(--ui-copy)/var(--ds-leading-1-7) var(--body);
   color: var(--workspace-muted);
 }
 .folio .lean-mechanics {
-  margin-top: 18px;
-  padding-top: 16px;
+  margin-top: var(--ds-space-18);
+  padding-top: var(--ds-space-16);
 }
 .folio .lean-percent .ui-icon {
-  width: 32px;
-  height: 32px;
+  width: var(--ds-size-32);
+  height: var(--ds-size-32);
 }
 .folio .concept-preview .lean-label {
-  margin-bottom: 8px;
+  margin-bottom: var(--ds-space-8);
 }
 .choice-indicator {
   position: absolute;
@@ -225,7 +225,7 @@
   display: block;
   background: var(--accent);
   pointer-events: none;
-  transition: transform 420ms var(--feedback-ease);
+  transition: transform var(--ds-duration-420) var(--feedback-ease);
 }
 .choice-indicator--vertical {
   top: 0;
@@ -235,12 +235,12 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
-  margin-top: 20px;
+  margin-top: var(--ds-space-20);
 }
 .folio .cover-deploy-steps button {
-  min-height: 48px;
-  padding: 10px 8px;
-  font: 12px/1.6 var(--mono);
+  min-height: var(--ds-size-48);
+  padding: var(--ds-space-10) var(--ds-space-8);
+  font: var(--ds-text-12)/var(--ds-leading-1-6) var(--mono);
   text-align: center;
 }
 .folio .cover-deploy-steps .cover-stage-active {
@@ -250,14 +250,14 @@
 .preview-review {
   grid-column: 1 / -1;
   margin: 0;
-  font: 12px/1.65 var(--mono);
+  font: var(--ds-text-12)/var(--ds-leading-1-65) var(--mono);
 }
 .preview-review > div {
   display: grid;
   grid-template-columns: 95px minmax(0, 1fr);
-  gap: 12px;
-  padding-block: 8px;
-  border-bottom: 1px solid var(--workspace-line);
+  gap: var(--ds-space-12);
+  padding-block: var(--ds-space-8);
+  border-bottom: var(--ds-border-thin) solid var(--workspace-line);
 }
 .preview-review dt {
   color: var(--workspace-muted);
@@ -273,16 +273,16 @@
 .preview-discounts {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 20px;
-  padding: 14px 0 0;
+  gap: var(--ds-space-8) var(--ds-space-20);
+  padding: var(--ds-space-14) 0 0;
   margin: 0;
 }
 .preview-discounts label {
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  font: var(--ui-copy)/1.5 var(--body);
+  gap: var(--ds-space-8);
+  min-height: var(--ds-size-44);
+  font: var(--ui-copy)/var(--ds-leading-1-5) var(--body);
   color: var(--workspace-ink);
   cursor: pointer;
 }
@@ -294,57 +294,57 @@
   width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(100px, 160px);
-  font: var(--ui-label)/1.5 var(--mono);
+  font: var(--ui-label)/var(--ds-leading-1-5) var(--mono);
 }
 .folio .preview-rate-field input {
   width: 100%;
   min-width: 0;
 }
 .preview-rate-error {
-  min-height: 24px;
-  margin: 8px 0 0;
-  font: var(--ui-label)/1.5 var(--body);
+  min-height: var(--ds-size-24);
+  margin: var(--ds-space-8) 0 0;
+  font: var(--ui-label)/var(--ds-leading-1-5) var(--body);
   color: var(--workspace-ink);
 }
 .preview-savings {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  padding-block: 16px;
-  border-top: 1px solid var(--workspace-line);
-  font: var(--ui-copy)/1.6 var(--body);
+  gap: var(--ds-space-12);
+  padding-block: var(--ds-space-16);
+  border-top: var(--ds-border-thin) solid var(--workspace-line);
+  font: var(--ui-copy)/var(--ds-leading-1-6) var(--body);
 }
 .preview-savings strong {
-  font: 600 var(--ui-value)/1.3 var(--mono);
+  font: var(--ds-weight-semibold) var(--ui-value)/var(--ds-leading-1-3) var(--mono);
 }
 .preview-targets {
   grid-column: 1 / -1;
-  border-top: 1px solid var(--workspace-line);
-  padding-top: 20px;
+  border-top: var(--ds-border-thin) solid var(--workspace-line);
+  padding-top: var(--ds-space-20);
 }
 .preview-targets table {
   width: 100%;
   border-collapse: collapse;
-  font: var(--ui-copy)/1.6 var(--body);
+  font: var(--ui-copy)/var(--ds-leading-1-6) var(--body);
 }
 .preview-targets caption {
   text-align: left;
   color: var(--workspace-ink);
-  font: 600 16px/1.5 var(--body);
-  padding-bottom: 12px;
+  font: var(--ds-weight-semibold) var(--ds-text-16)/var(--ds-leading-1-5) var(--body);
+  padding-bottom: var(--ds-space-12);
 }
 .preview-targets :is(th, td) {
-  padding: 10px 0;
-  border-bottom: 1px solid var(--workspace-line);
+  padding: var(--ds-space-10) 0;
+  border-bottom: var(--ds-border-thin) solid var(--workspace-line);
   text-align: left;
 }
 .preview-targets thead th {
-  font: var(--ui-label)/1.5 var(--mono);
+  font: var(--ui-label)/var(--ds-leading-1-5) var(--mono);
   color: var(--workspace-muted);
 }
 .preview-targets tbody th {
-  font-weight: 500;
+  font-weight: var(--ds-weight-medium);
 }
 .preview-targets td {
   font-family: var(--mono);
@@ -352,36 +352,36 @@
 .preview-monitoring {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  padding-top: 20px;
+  gap: var(--ds-space-16);
+  padding-top: var(--ds-space-20);
   margin: 0;
 }
 .preview-monitoring > div:first-child {
   grid-column: 1 / -1;
 }
 .preview-monitoring dt {
-  font: var(--ui-label)/1.5 var(--mono);
+  font: var(--ui-label)/var(--ds-leading-1-5) var(--mono);
   color: var(--workspace-muted);
 }
 .preview-monitoring dd {
-  margin: 6px 0 0;
-  font: var(--ui-copy)/1.6 var(--mono);
+  margin: var(--ds-space-6) 0 0;
+  font: var(--ui-copy)/var(--ds-leading-1-6) var(--mono);
   overflow-wrap: anywhere;
 }
 .folio .preview-discounts input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: var(--ds-size-18);
+  height: var(--ds-size-18);
   accent-color: var(--accent);
   margin: 0;
 }
 .folio .rate-preview-result > strong {
-  font-size: clamp(32px, 3vw, 44px);
+  font-size: clamp(var(--ds-text-32), 3vw, var(--ds-text-44));
 }
 .folio .rate-preview-steps strong {
   font-size: var(--ui-value);
 }
 .folio .rate-preview-steps > div {
-  padding-bottom: 18px;
+  padding-bottom: var(--ds-space-18);
 }
 .rate-preview-steps i,
 .discount-ledger i {
@@ -389,22 +389,22 @@
 }
 .folio .showcase-description .evidence-metrics > div:first-child {
   grid-column: 1 / -1;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--ds-space-16);
+  border-bottom: var(--ds-border-thin) solid var(--line);
 }
 .folio .showcase-description .evidence-metrics > div:first-child dd {
-  font-size: 42px;
-  line-height: 1.15;
+  font-size: var(--ds-text-42);
+  line-height: var(--ds-leading-1-15);
 }
 .folio .showcase-description .evidence-metrics dt {
-  font-size: 12px;
+  font-size: var(--ds-text-12);
 }
 .folio .showcase-description .evidence-card {
-  padding: 20px;
-  background: #f7f7f7;
+  padding: var(--ds-space-20);
+  background: var(--ds-color-paper-inset);
 }
 .case-study .evidence-metrics > div:first-child dd {
-  font-size: clamp(42px, 4.6vw, 60px);
+  font-size: clamp(var(--ds-text-42), 4.6vw, var(--ds-text-60));
 }
 .folio
   :is(
@@ -417,7 +417,7 @@
     .nav-contact
   )
   .ui-icon {
-  transition: transform 360ms var(--feedback-ease);
+  transition: transform var(--ds-duration-360) var(--feedback-ease);
 }
 .folio
   :is(
@@ -439,7 +439,7 @@
   border-bottom-color: var(--workspace-line);
 }
 .folio .program-open-label .ui-icon {
-  transition: transform 360ms var(--feedback-ease);
+  transition: transform var(--ds-duration-360) var(--feedback-ease);
 }
 .folio .program-tile[open] .program-open-label .ui-icon {
   transform: rotate(180deg);
@@ -449,7 +449,7 @@
 }
 .folio ::selection {
   background: var(--accent);
-  color: #fff;
+  color: var(--ds-color-white);
 }
 @media (max-width: 1000px) {
   .folio .studio-hero .hero-stage {
@@ -461,48 +461,48 @@
 }
 @media (max-width: 540px) {
   .folio .studio-hero .hero-stage {
-    padding: 28px 18px;
+    padding: var(--ds-space-28) var(--ds-space-18);
     min-height: 380px;
   }
   .folio .hero-message h1 {
-    font-size: clamp(36px, 10vw, 46px);
+    font-size: clamp(var(--ds-text-36), 10vw, var(--ds-text-46));
   }
   .folio .hero-message h1 span {
-    font-size: max(24px, 0.6em);
+    font-size: max(var(--ds-text-24), 0.6em);
   }
   .folio .hero-description {
-    font-size: 15px;
+    font-size: var(--ds-text-15);
   }
   .folio .project-showcase {
-    padding: 28px 18px 32px;
+    padding: var(--ds-space-28) var(--ds-space-18) var(--ds-space-32);
   }
   .folio .showcase-description {
-    padding: 24px 18px;
+    padding: var(--ds-space-24) var(--ds-space-18);
   }
   .folio .showcase-art {
-    padding: 18px;
+    padding: var(--ds-space-18);
   }
   .folio .concept-preview {
-    padding: 18px;
+    padding: var(--ds-space-18);
   }
   .folio .concept-preview .preview-body {
-    gap: 18px;
+    gap: var(--ds-space-18);
   }
   .folio .concept-preview .preview-detail {
-    padding: 18px 0 0;
+    padding: var(--ds-space-18) 0 0;
     border-left: 0;
-    border-top: 1px solid var(--workspace-line);
+    border-top: var(--ds-border-thin) solid var(--workspace-line);
   }
   .folio .preview-review > div {
     grid-template-columns: 80px minmax(0, 1fr);
-    gap: 8px;
+    gap: var(--ds-space-8);
   }
   .folio .preview-discounts {
     gap: 0;
     flex-direction: column;
   }
   .folio .showcase-description .evidence-metrics > div:first-child dd {
-    font-size: 38px;
+    font-size: var(--ds-text-38);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -548,6 +548,6 @@ html[data-motion="off"]
     border-color: Highlight;
   }
   .preview-choices button[aria-selected="true"] {
-    outline: 1px solid Highlight;
+    outline: var(--ds-border-thin) solid Highlight;
   }
 }

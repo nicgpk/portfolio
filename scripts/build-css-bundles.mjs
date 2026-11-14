@@ -15,16 +15,16 @@ const read = file => outputs.get(file) ?? readOnDisk(file);
 const hash = text => createHash('sha256').update(text).digest('hex').slice(0, 12);
 const stripVersion = url => url.split(/[?#]/, 1)[0];
 const bundles = {
-  'shared-base': ['folio', 'editorial', 'studio'],
+  'shared-base': ['design-tokens', 'folio', 'editorial', 'studio'],
   'home-layout': ['project-system', 'personal-landing', 'link-system', 'craft-motion'],
-  'home-product': ['work-index', 'product-surfaces', 'two-tone'],
+  'home-product': ['work-index', 'product-surfaces', 'two-tone', 'demo-motion'],
   'case-layout': ['concepts', 'project-system', 'personal-landing', 'case-studies', 'link-system', 'evidence-motion', 'craft-motion'],
   'case-product': ['case-refined', 'product-surfaces'],
-  'growth-product': ['case-growth', 'two-tone'],
-  'discount-product': ['case-discount', 'two-tone'],
+  'growth-product': ['case-growth', 'two-tone', 'demo-motion'],
+  'discount-product': ['case-discount', 'two-tone', 'demo-motion'],
   'developer-concepts': ['vesper-tokens', 'vesper-concepts'],
-  'developer-product': ['case-developer', 'two-tone'],
-  'resume-layout': ['teletype', 'resume', 'folio', 'studio', 'link-system', 'resume-portfolio', 'vesper-tokens'],
+  'developer-product': ['case-developer', 'two-tone', 'demo-motion'],
+  'resume-layout': ['design-tokens', 'teletype', 'resume', 'folio', 'studio', 'link-system', 'resume-portfolio', 'vesper-tokens'],
 };
 const routes = {
   'index.html': ['shared-base', 'home-layout', 'glass', 'home-product'],
@@ -101,6 +101,13 @@ function versionWaveModule(file) {
 }
 versionWaveModule('js/paper-wave.mjs');
 manifest.waveModules = Object.fromEntries([...moduleHashes].map(([file, version]) => [file, `${file}?v=${version}`]));
+// The demos share one feedback controller. Version their graph together so
+// cached pages never load duplicate motion singletons or stale interaction code.
+const waveFiles = new Set(moduleHashes.keys());
+versionWaveModule('js/glass-demos.mjs');
+versionWaveModule('js/folio.mjs');
+versionWaveModule('js/work-scroll.mjs');
+manifest.demoModules = Object.fromEntries([...moduleHashes].filter(([file]) => !waveFiles.has(file)).map(([file, version]) => [file, `${file}?v=${version}`]));
 for (const name of ['paper-wave', 'glass-demos']) {
   const file = `js/${name}.mjs`;
   manifest.shared[name] = `${file}?v=${hash(read(file))}`;
@@ -149,6 +156,8 @@ for (const [file, sequence] of Object.entries(routes)) {
     const filename = new RegExp(`js/${name}\\.mjs(?:\\?[^'"\\s<]*)?`, 'g');
     html = html.replace(filename, manifest.shared[name]);
   }
+  html = html.replace(/js\/folio\.mjs(?:\?[^'"\s<]*)?/g, manifest.demoModules['js/folio.mjs']);
+  html = html.replace(/js\/work-scroll\.mjs(?:\?[^'"\s<]*)?/g, manifest.demoModules['js/work-scroll.mjs']);
   // Identical font preloads are coalesced by browsers; keep just one declaration.
   const preloaded = new Set();
   html = html.replace(/^[\t ]*<link\b(?=[^>]*\brel\s*=\s*['"]preload['"])(?=[^>]*\bas\s*=\s*['"]font['"])[^>]*>[\t ]*\r?\n?/gm, tag => {

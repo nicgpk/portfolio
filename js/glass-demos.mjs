@@ -1,6 +1,9 @@
-import { stackDiscounts } from "./calculations.mjs";
-import { motionPaused } from "./kinetics.mjs";
-import { animateFeedback, revealFeedback } from "./interaction-motion.mjs?v=3";
+import { stackDiscounts } from "./calculations.mjs?v=a0235d2fae86";
+import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
+import { animateFeedback } from "./interaction-motion.mjs?v=ccec8d8cb84c";
+import "./demo-scenes.mjs?v=0ff3773ee94e";
+import './section-reveals.mjs?v=240eaa00245e';
+import { observeDemoReveals } from './demo-reveal.mjs?v=74b6932daa6c';
 
 // Preserve increase semantics while using the shared arrow icon instead of '+'.
 function renderGrowthText(target, text) {
@@ -61,21 +64,29 @@ const controllers = [];
 const arrivals = new Set();
 const ease = "cubic-bezier(.25,.1,.25,1)";
 
-function settlePhase(element, direction = 1) {
+function settlePhase(element) {
   if (motionPaused() || document.hidden) return;
   const box = element.getBoundingClientRect();
   if (box.bottom <= 0 || box.top >= innerHeight) return;
-  revealFeedback(element, direction);
+  // One layer of motion follows the new information in reading order. Moving
+  // both the panel and its rows compounded the offset and dimmed readable text.
+  const parts = [...element.children].flatMap(node => node.matches('dl') ? [...node.children] : [node]);
+  parts.forEach((node, index) => animateFeedback(node,
+    [{ opacity: .8, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }],
+    420, Math.min(index * 55, 220),
+  ));
 }
 
-// A reveal plays once, then settles. Offscreen, hidden and focus holds retain
-// its clock; actual activation/editing preserves the visitor's own example.
+// Each reveal plays once, then settles. A new reveal restarts the walkthrough;
+// actual activation/editing preserves the visitor's own example.
 function register(element, duration, phases, delay = 0) {
   const host = element.closest(".glass-feature,.glass-hero-product") || element;
+  const project = element.closest(".work-feature");
   const state = {
     element,
     host,
-    target: element.querySelector(".hero-programs,.mini-window") || element,
+    target: element.querySelector(".program-hub-panels,.receipt-promotions,[data-mini-deploy-detail]")
+      || element.querySelector(".hero-programs,.mini-window") || element,
     duration,
     phases,
     elapsed: -delay,
@@ -87,6 +98,7 @@ function register(element, duration, phases, delay = 0) {
     completed: false,
     phaseKey: null,
   };
+  let revealed = false;
   const clock = () =>
     state.elapsed + (state.running ? performance.now() - state.started : 0);
   const freeze = () => {
@@ -128,13 +140,20 @@ function register(element, duration, phases, delay = 0) {
   const controlSelector =
     "button:not([data-motion-toggle]),input,select,textarea";
   state.sync = () => {
+    const inView = state.visible && !project?.inert && project?.getAttribute("aria-hidden") !== "true";
+    if (inView && !revealed && !state.manual) {
+      state.elapsed = -delay;
+      state.phaseKey = null;
+      state.completed = false;
+    }
+    revealed = inView;
     const focused =
       element.contains(document.activeElement) &&
       document.activeElement.matches(
         ":is(" + controlSelector + "):focus-visible",
       );
     const allowed =
-      state.visible &&
+      inView &&
       !state.manual &&
       !state.completed &&
       !focused &&
@@ -192,7 +211,16 @@ function register(element, duration, phases, delay = 0) {
   element.addEventListener("change", takeControl, true);
   element.addEventListener("focusin", state.sync);
   element.addEventListener("focusout", () => queueMicrotask(state.sync));
+  // IntersectionObserver reports geometry, including cards hidden by the pinned
+  // stack. Their previews must wait for the card to become active too.
+  if (project) {
+    new MutationObserver(state.sync).observe(project, {
+      attributes: true,
+      attributeFilter: ["inert", "aria-hidden"],
+    });
+  }
   controllers.push(state);
+  state.sync();
   return state;
 }
 
@@ -295,11 +323,11 @@ if (growth) {
     button.disabled = false;
     button.addEventListener("click", () => select(i));
   });
-  register(growth.closest("[data-glass-demo]"), 8200, [
+  register(growth.closest("[data-glass-demo]"), 6000, [
     { at: 0, run: () => select(0) },
-    { at: 2400, run: () => select(1) },
-    { at: 4800, run: () => select(2) },
-    { at: 7200, run: () => select(0) },
+    { at: 1200, run: () => select(1) },
+    { at: 3000, run: () => select(2) },
+    { at: 4800, run: () => select(0) },
   ]);
 }
 
@@ -309,6 +337,7 @@ for (const receipt of document.querySelectorAll('[data-receipt]')) {
   const rows=[...receipt.querySelectorAll('[data-receipt-row]')];
   const formatter=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'});
   const money=n=>formatter.format(n);
+  let receiptReady = false;
   const update=()=>{
     const start=input.valueAsNumber;
     const valid=input.validity.valid&&Number.isFinite(start);
@@ -322,12 +351,16 @@ for (const receipt of document.querySelectorAll('[data-receipt]')) {
     }
     let balance=start;
     promos.forEach((toggle,i)=>{
+      const previous = rows[i].querySelector('[data-receipt-detail]').textContent;
       const percent=Number(toggle.dataset.receiptPromo),before=balance;
       const result=stackDiscounts(before,toggle.checked?[percent]:[]);
       balance=result.net;
       rows[i].classList.toggle('is-receipt-inactive',!toggle.checked);
       rows[i].querySelector('[data-receipt-cut]').textContent=toggle.checked?'−'+money(result.cuts[0]):'—';
       rows[i].querySelector('[data-receipt-detail]').textContent=toggle.checked?`${percent}% of ${money(before)} · Remaining ${money(balance)}`:'Not applied · Balance unchanged';
+      if (receiptReady && previous !== rows[i].querySelector('[data-receipt-detail]').textContent) {
+        animateFeedback(rows[i].querySelector('[data-receipt-cut]'), [{opacity:.8,transform:'translateY(4px)'},{opacity:1,transform:'translateY(0)'}], 280, i * 35);
+      }
     });
     const total=stackDiscounts(start,promos.filter(x=>x.checked).map(x=>Number(x.dataset.receiptPromo)));
     const net=receipt.querySelector('[data-receipt-net]');
@@ -337,32 +370,33 @@ for (const receipt of document.querySelectorAll('[data-receipt]')) {
     receipt.querySelector('[data-receipt-savings]').textContent=`You save ${money(start-total.net)} · ${total.effective}% effective discount`;
     if(changed){
       animateFeedback(net,
-        [{opacity:.72,transform:'translateY(2px)'},{opacity:1,transform:'translateY(0)'}],
-        520
+        [{opacity:.85,transform:'translateY(2px)'},{opacity:1,transform:'translateY(0)'}],
+        320
       );
     }
+    receiptReady = true;
   };
   [input,...promos].forEach(control=>{control.disabled=false;control.addEventListener('input',()=>{receipt.querySelector('[data-receipt-net]').setAttribute('aria-live','polite');update();});});
   update();
   const example=count=>{
     promos.forEach((toggle,i)=>toggle.checked=i<count);update();
     if(count>0) animateFeedback(rows[count-1],
-      [{opacity:.65,transform:'translateY(3px)'},{opacity:1,transform:'translateY(0)'}],
-      560
+      [{opacity:.85,transform:'translateY(3px)'},{opacity:1,transform:'translateY(0)'}],
+      360
     );
   };
-  register(receipt.closest('[data-glass-demo]')||receipt,9200,[
+  register(receipt.closest('[data-glass-demo]')||receipt,6400,[
     {at:0,run:()=>example(0)},
-    {at:1800,run:()=>example(1)},
-    {at:3900,run:()=>example(2)},
-    {at:6000,run:()=>example(3)},
-  ],350);
+    {at:1000,run:()=>example(1)},
+    {at:2600,run:()=>example(2)},
+    {at:4200,run:()=>example(3)},
+  ]);
 }
 
 const deploy = document.querySelector("[data-mini-deploy]");
 if (deploy) {
   // Keep the optional graph enhancement independent of the rollout controls.
-  import('./deployment-topology.mjs?v=2').then(({ initDeploymentTopology }) => {
+  import('./deployment-topology.mjs?v=4818473a33a5').then(({ initDeploymentTopology }) => {
     initDeploymentTopology(deploy.querySelector('.topology-canvas'));
   }).catch(() => {});
   let step = 0,
@@ -458,13 +492,13 @@ if (deploy) {
   };
   register(
     deploy.closest("[data-glass-demo]"),
-    7000,
+    5000,
     [
       { at: 0, run: () => show(0) },
-      { at: 2200, run: () => show(1) },
-      { at: 4400, run: () => show(2) },
+      { at: 1200, run: () => show(1) },
+      { at: 3000, run: () => show(2) },
     ],
-    300,
+    0,
   );
 }
 
@@ -526,19 +560,10 @@ function syncMotion() {
     arrivals.clear();
   }
 }
-const scenes = new IntersectionObserver(
-  (entries) => {
-    for (const entry of entries) {
-      const state = controllers.find((item) => item.target === entry.target);
-      if (state) {
-        state.visible = entry.isIntersecting && entry.intersectionRatio >= 0.5;
-        state.sync();
-      }
-    }
-  },
-  { threshold: 0.5 },
-);
-controllers.forEach((state) => scenes.observe(state.target));
+observeDemoReveals(controllers.map(state => ({
+  target: state.target,
+  onVisible(visible) { state.visible = visible; state.sync(); },
+})));
 document.addEventListener("portfolio:motionchange", syncMotion);
 document.addEventListener("visibilitychange", syncMotion);
 

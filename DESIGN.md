@@ -19,7 +19,7 @@ colors:
 typography:
   display:
     fontFamily: "IBM Plex Sans, sans-serif"
-    fontSize: "clamp(40px, 4.4vw, 60px)"
+    fontSize: "clamp(2.5rem, 1.5rem + 2.5vw, 3.75rem)"
     fontWeight: 500
     lineHeight: 1.1
     letterSpacing: "-0.035em"
@@ -46,6 +46,16 @@ typography:
     fontSize: "15px"
     fontWeight: 400
     lineHeight: 1.6
+  narrative-body:
+    fontFamily: "IBM Plex Sans, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.75
+  input:
+    fontFamily: "IBM Plex Sans, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.5
   label:
     fontFamily: "IBM Plex Sans, sans-serif"
     fontSize: "14px"
@@ -71,7 +81,7 @@ components:
   input:
     backgroundColor: "{colors.product-bg}"
     textColor: "{colors.product-ink}"
-    typography: "{typography.body}"
+    typography: "{typography.input}"
     rounded: "{rounded.control}"
     height: "44px"
   panel:
@@ -92,6 +102,10 @@ This records the approved two-tone extension of the existing portfolio. Charcoal
 
 The implementation is authoritative: [shared product tokens](css/product-surfaces.css), [final shared color rules](css/two-tone.css), and the [Growth](css/case-growth.css), [Discounting](css/case-discount.css) and [Developer Portal](css/case-developer.css) styles apply the system to actual interfaces.
 
+Reusable values live in [design-tokens.css](css/design-tokens.css), loaded first in both base bundles. The `ds-*` namespace supplies the palette, shared component roles, spacing and typography scales, corners, control sizes, borders, motion, and static surface effects. Its compatibility values preserve existing visual variants; they do not introduce a new palette. The existing `tone-*` and `glass-*` roles alias these values in [glass.css](css/glass.css), and product color and corner roles alias them in [product-surfaces.css](css/product-surfaces.css). Shared product components live there; page styles own layout and the final two-tone rules own component-specific surface treatments. Keep page ID selectors out of shared component styling so they cannot override selection, focus, or validation states.
+
+Use semantic roles such as `ds-panel-padding`, `ds-control-height`, `ds-product-body-size`, and the existing product color roles when their intent matches the component. Use shared scales for other repeated values. Keep intrinsic geometry, structural percentages, and media-query conditions local. Central token definitions and the existing generated Vesper theme tokens are the only color-literal sources on the main routes; `npm run check:tokens` enforces that boundary and validates token references.
+
 ## Colors
 
 Use `product-bg` for component frames, headers and sidebars; `product-raised` for workspaces, panels and selected regions. Alternate these by function. A lighter workspace may contain charcoal cards or controls; a charcoal frame may contain a graphite result panel.
@@ -102,13 +116,23 @@ The page canvas remains `page-canvas`, defined in [glass.css](css/glass.css). Co
 
 ## Typography
 
-Retain IBM Plex Sans and the existing hierarchy. Product body text uses the recorded body role; labels and metadata vary with context, generally 12–14px. Case-study body copy remains 16px with 1.75 line height. Headings, spacing and density follow [case-refined.css](css/case-refined.css) and each existing product surface.
+IBM Plex Sans provides the shared portfolio reading hierarchy. The `ds-portfolio-*` tokens define display, section, project, subsection, lead, body, metadata and caption sizes. Responsive `portfolio-*` aliases in [glass.css](css/glass.css) map the heading roles to their compact values below 768px. These semantic sizes use rem units and the screen root respects the browser's default font size. The résumé's print styles remain separate.
+
+At the default browser font size, display headings range from 40–60px on desktop and 32–40px on compact screens. Section headings use 36/28px, project titles 32/28px, and narrative subheadings 22/20px. Display, section and subsection leading is 1.1, 1.25 and 1.35 respectively. Lead copy stays 18px/1.6; body copy is 16px/1.75; metadata is 14px/1.5; figure captions are 13px/1.6. Navigation stays 14px while scrolling. Reading links use 16px with unitless leading. Career dates and résumé metadata use the body face; monospaced type is reserved for technical content.
+
+Product interfaces keep a distinct compact scale: 15px body, 14px action labels, 12px captions, 18px toolbar titles and 16px editable fields. Small chart ticks and calendar values retain their local scale. Compact Growth navigation wraps to preserve readable labels. Headings, spacing and density follow [case-refined.css](css/case-refined.css) and each existing product surface.
 
 Case-study narrative section headings use 36px desktop and 28px compact; narrative subheadings use 22px and 20px. These rules exclude embedded product UI. Below 480px, homepage metric values use `clamp(18px, 5.5vw, 24px)` to fit narrow cards, as implemented in [work-index.css](css/work-index.css).
 
 ## Layout
 
-The homepage uses an 860px maximum content frame, including desktop navigation, Work, About, Process, the archive and footer. On scroll, the desktop homepage navigation insets 16px from each of its original edges (828px at the full content width), using its existing width transition. Project cards stack their summary above a full-width interactive demo, followed by results and the case-study link. Demo stages use their content height. Results and the link share a row on desktop and stack on compact screens. Process uses two columns on desktop and one on compact screens. The homepage hero retains its existing 860px measure. Use one content gutter (24px desktop, 20px compact); small inner panels use 20px or 16px. Align headers, controls and table regions to those gutters. Avoid stacked padded frames. Case studies share the 860px maximum homepage frame, using the portfolio-content-width token for heroes, body content, desktop navigation and footer. Story copy fills its containing section or grid column without a separate character-based width limit. Case studies have text-only, left-aligned heroes. They have no hero screenshots or chapter bars. Full narrative and product examples remain in the reading flow. The shared compact breakpoint is 767px; individual product layouts have their own existing breakpoints.
+The homepage, case studies and screen resume use an 860px maximum content frame, with 24px page gutters on desktop and 16px on compact screens. The portfolio-content-width token aligns heroes, body content, desktop navigation and footers. On scroll, the desktop homepage navigation insets 16px from each of its original edges (828px at the full content width), using its existing width transition. Project cards stack their summary, results and full-width interactive demo. Demo stages use their content height. Process uses two columns on desktop and one on compact screens. The shared compact breakpoint is 767px; individual product layouts have their own existing breakpoints.
+
+Use 80px desktop and 48px compact spacing between major narrative sections. Give each gap one owner: trim trailing paragraph, figure and nested section margins where section padding already supplies the space. The homepage Work and film sections leave the following section or footer to supply that gap. Footers use 80/48px top padding without an additional top margin. Results strips use their top margin without extra block padding. Keep 24px between related content blocks and 48/32px between the homepage About groups.
+
+Product panels use 24px desktop gutters, 20px compact gutters and 16px on the narrowest screens. Align panel headings, forms, lists and table content; avoid stacked padded frames. Existing dense tables, calendars and topology diagrams retain their local spacing where required. Case-study story copy fills its containing section or grid column without a separate character-based width limit. Case studies have text-only, left-aligned heroes. They have no hero screenshots or chapter bars. Full narrative and product examples remain in the reading flow. Document scroll padding supplies the 112px fixed-header clearance; case-study anchors and form controls do not add a second offset.
+
+The screen resume uses 48/32px between sections and 32/24px between jobs or education entries, split around their dividers. It shares the page frame and stacks its sidebar below 768px. The separate ATS resume has 24/16px browser gutters. Both print layouts remain independent of these screen spacing rules.
 
 ## Elevation & Depth
 
@@ -116,20 +140,35 @@ Product demos group content through exactly two surface backgrounds, spacing and
 
 The wave reuses time-independent grain in a full-precision GPU cache, rebuilding it after size, pixel-ratio or composition changes. This preserves the existing resolution, grain, palette, blur and animation speed. Devices without floating-point render targets keep the original renderer.
 
+Motion follows the restrained duration and easing principles in [NN/g animation guidance](https://www.nngroup.com/articles/animation-duration/) and [IBM Carbon](https://www.carbondesignsystem.com/building-blocks/foundations/motion/overview). The viewport offsets and group choreography are specific to this portfolio.
+
 ## Shapes
 
 All product demos use one corner scale: 12px for frames, workspace panels, cards, metric strips and table containers; 8px for controls and interactive rows; 6px for badges. The shared product-radius-panel, product-radius-control and product-radius-badge tokens in product-surfaces.css define this scale. Circular avatars, status dots, ports and step markers retain their circular shape. Table containers keep horizontal scrolling on narrow screens.
 
 ## Components
 
+- **Project navigation:** the homepage uses the same pinned project stack on phones, tablets and desktop. Native document scrolling exposes every full card before advancing; the previous/next controls and position count follow the active project. Compact layouts keep their full typography and responsive demos, use an 88px mobile header offset (104px on larger screens), and shorten the opening hold. Touch positions track native scrolling directly; mouse wheels retain smoothing. A stable small-viewport cap prevents mobile browser toolbar changes from changing the scroll runway. Viewports shorter than 400px and reduced motion retain the natural reading flow. Hidden project previews wait until their project is active.
+- **Interaction detail:** project titles underline on hover or keyboard focus, case-study arrows move toward their destination, and program selection draws its checkmark once. These effects use the existing neutral tokens and have a static reduced-motion alternative.
+
+- **Editorial reveals:** homepage leadership copy, Experience, How I Work, film and contact content use the same viewport inset and fixed dwell as the demos. Timeline markers arrive before each role's text settles 14px sideways. Principle cards keep their shells still while a brief top-edge trace leads the title and description; adjacent cards stagger by 70ms within their visual row, with no accumulated delay on mobile. Tool badges have their own reveal point. Copy lifts 10-18px, and the film reel opens with a shallow crop reveal that leaves its scrolling intact. Each group enters once per visit, direct jumps keep readable content, focus settles the target, and reduced motion or printing clears effects. Footer utility links stay static. See [section-reveals.mjs](js/section-reveals.mjs).
+
+- **Demo motion:** all 21 product surfaces use finite, local feedback. Content groups prepare a readable starting pose just outside the viewport, then reveal after entering a reading area inset 96-180px from the bottom edge, with a fixed 100ms dwell. Scrolling does not postpone the trigger. Tall examples reveal fields, cards, charts and table sections independently; direct jumps retain readable content without a backwards fade. Shells stay fixed while content settles upward by 10px over 420-520ms, with local 60ms stagger. Live walkthroughs keep a short reading beat between meaningful state changes and relinquish autoplay on input. There are no caption or playback footers, continuous reveal loops, permanent compositor hints or new animation dependencies. Reduced motion and hidden tabs settle the interface. See [demo-reveal.mjs](js/demo-reveal.mjs), [demo-scenes.mjs](js/demo-scenes.mjs) and [demo-controls.mjs](js/demo-controls.mjs).
+
+- **Demo controls:** growth examples support discount depth, audiences, blackout dates, weekdays, reasons and local confirmation feedback. Calendar months use one tab stop with arrow-key navigation. Developer examples offer expandable guidance, component-name filtering and rollout selection; the editable walkthrough remains the source of deployment configuration. Status messages explicitly describe local examples, with no live enrollment, deployment or persistence.
+
 - **Headers and sidebars:** charcoal foundations with readable muted navigation; selected items use graphite and/or the accent.
 - **Cards and workspaces:** use the contrasting tone to distinguish content from its surrounding region. Keep one main content gutter and smaller inner-panel padding; omit extra outer frames.
 - **Primary actions:** foundation or panel fill, ink text and a stronger neutral border. Hover switches between the same two fills; focus uses the accent outline. Secondary actions use the foundation with the control outline.
 - **Inputs:** contrast with their containing region, use the control outline and show a visible accent focus ring (2px, offset 3px). Preserve validation styling and labels.
+- **Keyboard navigation:** portfolio and résumé links use the neutral accent focus ring (3px, offset 4px); product controls use the input focus scale above. Skip links target a programmatically focusable main landmark without adding it to the normal tab order.
 - **Tables and receipts:** distinguish headers, work areas and result panels through tonal regions; retain tabular numerals and all source values.
 - **Badges:** compact supporting labels, with accent emphasis reserved for meaningful selected or recommended states.
 - **Case-study navigation:** name the destination project in the next-case link; stack it with the all-work link on compact screens.
 - **Working principles:** present a non-sequential list without numbered steps.
+- **Homepage orientation:** the hero includes a direct link to selected work. Reduced-motion employer logos use a static grid, with three columns on desktop and two on compact screens, so every employer stays visible.
+- **Film reel:** visible previous/next controls and a pause/resume action accompany the enhanced reel. Pointer and keyboard engagement suspend autoplay; manual navigation keeps it paused. Reduced motion uses a finite shelf with disabled controls at its ends.
+- **Scrollable comparisons:** narrative table regions have accessible names, keyboard focus and the shared focus outline, keeping all columns reachable on compact screens.
 
 ### Deployment topology: local high-tech treatment
 

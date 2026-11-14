@@ -1,4 +1,4 @@
-import { motionPaused } from "./kinetics.mjs";
+import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
 
 const icons = [...document.querySelectorAll("[data-evidence-icon]")];
 const visible = new WeakSet();

@@ -1,10 +1,10 @@
-import { motionPaused } from "./kinetics.mjs";
+import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
 
 // Shared feedback: contents stay visible, values are final before any animation.
 const active = new Set();
 const byElement = new WeakMap();
 const ease = "cubic-bezier(.25,.1,.25,1)";
-export function animateFeedback(element, frames, duration) {
+export function animateFeedback(element, frames, duration, delay = 0) {
   if (!element) return;
   byElement.get(element)?.cancel();
   byElement.delete(element);
@@ -15,6 +15,8 @@ export function animateFeedback(element, frames, duration) {
     // Explicit timings also apply inside themed examples; empty tokens fall back.
     duration: duration ?? (parseFloat(tokens?.getPropertyValue("--duration-medium")) || 420),
     easing: tokens?.getPropertyValue("--ease-standard").trim() || ease,
+    delay,
+    fill: "backwards",
   });
   byElement.set(element, animation);
   active.add(animation);
@@ -25,6 +27,21 @@ export function animateFeedback(element, frames, duration) {
   animation.addEventListener("finish", done, { once: true });
   animation.addEventListener("cancel", done, { once: true });
   return animation;
+}
+// Cancel only effects owned by this module, leaving other scene clocks alone.
+export function cancelFeedback(root) {
+  for (const animation of active) {
+    const target = animation.effect?.target;
+    if (target && (target === root || root.contains(target))) animation.cancel();
+  }
+}
+export function sequenceFeedback(elements, direction = 1) {
+  return [...elements].slice(0, 8).map((element, index) =>
+    animateFeedback(element, [
+      { opacity: .55, transform: `translateX(${direction * 10}px)` },
+      { opacity: 1, transform: 'translateX(0)' },
+    ], 360, Math.min(index * 35, 175)),
+  ).filter(Boolean);
 }
 export const revealFeedback = (element, direction = 1) =>
   animateFeedback(element, [

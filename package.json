@@ -3,9 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node scripts/build-css-bundles.mjs --check && node --test tests/*.test.cjs tests/*.test.mjs",
+    "test": "node scripts/build-css-bundles.mjs --check && node scripts/check-design-tokens.mjs && node --test tests/*.test.cjs tests/*.test.mjs",
     "build:css": "node scripts/build-css-bundles.mjs",
-    "check:css": "node scripts/build-css-bundles.mjs --check"
+    "check:css": "node scripts/build-css-bundles.mjs --check",
+    "check:tokens": "node scripts/check-design-tokens.mjs"
   },
   "engines": {"node": ">=22"}
 }

@@ -5,7 +5,7 @@
       document.documentElement.dataset.motion = matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches
-        — "off"
+        ? "off"
         : "on";
     </script>
     <meta charset="UTF-8" />
@@ -71,8 +71,8 @@
       href="apple-touch-icon.png?v=glass-mark"
     />
     <!-- css-bundles:start -->
-    <link rel="stylesheet" href="css/bundle-resume-layout.css?v=5bfdbc8b0124" />
-    <link rel="stylesheet" href="css/glass.css?v=fca52673fd45" />
+    <link rel="stylesheet" href="css/bundle-resume-layout.css?v=532a399cfbe6" />
+    <link rel="stylesheet" href="css/glass.css?v=d449d99649ff" />
     <!-- css-bundles:end -->
     <script type="application/ld+json">
       {
@@ -528,9 +528,9 @@
         &middot; <a href="https://github.com/nicgpk">GitHub</a>
       </div>
     </footer>
-    <script type="module" src="js/glass-demos.mjs?v=3f19c3c21d13"></script>
+    <script type="module" src="js/glass-demos.mjs?v=2015b5190973"></script>
     <script type="module">
-      import("./js/glass-demos.mjs?v=3f19c3c21d13").catch(function () {
+      import("./js/glass-demos.mjs?v=2015b5190973").catch(function () {
         document.documentElement.dataset.motion = "off";
       });
     </script>

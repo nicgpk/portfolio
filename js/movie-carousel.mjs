@@ -2,6 +2,10 @@ const carousel = document.querySelector('.film-carousel');
 
 if (carousel) {
   const track = carousel.querySelector('.film-track');
+  const controls = carousel.querySelector('.film-controls');
+  const previous = controls?.querySelector('[data-film-previous]');
+  const next = controls?.querySelector('[data-film-next]');
+  const playback = controls?.querySelector('[data-film-playback]');
   const cards = [...track.querySelectorAll('.film-card')];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   // One repeated set keeps the join identical, without repeating accessible slides.
@@ -31,6 +35,17 @@ if (carousel) {
   const offsets = () => cards.map(card => card.offsetLeft - cards[0].offsetLeft);
   const maxScroll = () => Math.max(0, track.scrollWidth - track.clientWidth);
   const motionAllowed = () => !reducedMotion.matches && document.documentElement.dataset.motion !== 'off';
+  const updateControls = () => {
+    if (previous) previous.disabled = !looping && track.scrollLeft <= 2;
+    if (next) next.disabled = !looping && track.scrollLeft >= maxScroll() - 2;
+    if (playback) {
+      playback.hidden = !looping;
+      const label = paused ? 'Resume reel' : 'Pause reel';
+      if (playback.textContent !== label) {
+        playback.textContent = label;
+      }
+    }
+  };
   const tick = time => {
     if (lastTime) offset = (offset + Math.min(time - lastTime, 64) * .02) % cycleWidth;
     lastTime = time;
@@ -38,7 +53,7 @@ if (carousel) {
     frame = requestAnimationFrame(tick);
   };
   const sync = () => {
-    const shouldRun = looping && cycleWidth > 0 && visible && !document.hidden && !paused && !hovered && document.activeElement !== track;
+    const shouldRun = looping && cycleWidth > 0 && visible && !document.hidden && !paused && !hovered && !carousel.contains(document.activeElement);
     if (shouldRun !== running) {
       running = shouldRun;
       cancelAnimationFrame(frame);
@@ -52,6 +67,7 @@ if (carousel) {
   const measure = () => {
     cycleWidth = looping ? copies[0].offsetLeft - cards[0].offsetLeft : 0;
     offset = cycleWidth ? track.scrollLeft % cycleWidth : track.scrollLeft;
+    updateControls();
     sync();
   };
   const setMotion = () => {
@@ -59,16 +75,17 @@ if (carousel) {
     // Preserve the current film when switching to the finite, manual shelf.
     const left = cycleWidth ? track.scrollLeft % cycleWidth : track.scrollLeft;
     looping = allowed;
+    if (!allowed && document.activeElement === playback) track.focus({preventScroll: true});
     copies.forEach(copy => {copy.hidden = !allowed;});
     carousel.classList.toggle('is-looping', looping);
     track.scrollLeft = left;
     measure();
   };
-  const pause = () => {paused = true; sync();};
+  const pause = () => {paused = true; updateControls(); sync();};
   const scrollTo = left => track.scrollTo({left, behavior: motionAllowed() ? 'smooth' : 'instant'});
   const move = direction => {
     pause();
-    if (looping) {
+    if (looping && cycleWidth > 0) {
       let left = track.scrollLeft % cycleWidth;
       // Use the identical second set to move backwards through the join.
       if (direction < 0 && left <= 2) left += cycleWidth;
@@ -86,10 +103,18 @@ if (carousel) {
       if (target !== undefined) scrollTo(target);
     }
   };
-  track.addEventListener('pointerenter', event => {if (event.pointerType === 'mouse') {hovered = true; sync();}});
-  track.addEventListener('pointerleave', () => {hovered = false; sync();});
-  track.addEventListener('focus', sync);
-  track.addEventListener('blur', sync);
+  previous?.addEventListener('click', () => move(-1));
+  next?.addEventListener('click', () => move(1));
+  playback?.addEventListener('click', () => {
+    paused = !paused;
+    updateControls();
+    sync();
+  });
+  carousel.addEventListener('pointerenter', event => {if (event.pointerType === 'mouse') {hovered = true; sync();}});
+  carousel.addEventListener('pointerleave', () => {hovered = false; sync();});
+  carousel.addEventListener('focusin', sync);
+  carousel.addEventListener('focusout', () => queueMicrotask(sync));
+  track.addEventListener('scroll', updateControls, {passive: true});
   track.addEventListener('pointerdown', pause, {passive: true});
   track.addEventListener('wheel', event => {
     if (Math.abs(event.deltaX) > Math.abs(event.deltaY) || event.shiftKey) pause();
@@ -117,4 +142,5 @@ if (carousel) {
   new MutationObserver(setMotion).observe(document.documentElement, {attributes: true, attributeFilter: ['data-motion']});
   carousel.classList.add('is-enhanced');
   setMotion();
+  if (controls) controls.hidden = false;
 }

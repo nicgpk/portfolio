@@ -20,7 +20,9 @@ The site uses **static HTML, CSS, and vanilla JavaScript modules**, with locally
 
 - **Focused layout:** an 860px homepage frame, project summaries and metrics above the interactive demos, and consistent case-study typography.
 - **Interactive examples:** program comparisons, sequential discount calculations with cent rounding, and a deployment walkthrough. Demo data is illustrative; controls do not enroll properties or deploy infrastructure.
-- **Responsive motion:** a pinned project showcase on sufficiently large screens, with a natural reading flow on compact screens or when reduced motion is requested.
+- **Demo motion:** all 21 product screens play finite motion on reveal and replay after leaving and re-entering view, without caption or playback footers. Growth settings, calendar choices, catalog filtering and rollout selection respond to input; feedback settles when interrupted, hidden or offscreen. Reduced motion preserves the complete interface and working controls.
+- **Responsive motion:** a shared pinned project showcase on phones, tablets and desktop, with native touch scrolling, complete card reading, and a natural flow for very short windows or reduced motion.
+- **Section reveals:** Experience enters along its timeline, working principles reveal their borders and text in sequence, and leadership, film and contact content settle into view. Each group waits for its own viewport offset and plays once, with keyboard and reduced-motion fallbacks.
 - **Progressive enhancement:** the main content remains readable without JavaScript. The WebGL wave has static image/CSS fallbacks.
 - **Rendering performance:** supported browsers render the wave in an OffscreenCanvas worker, cache static noise, and pause work when hidden, offscreen, or reduced motion is enabled. Main-thread and static fallbacks cover unsupported environments.
 - **Keyboard support:** visible focus states, keyboard-operable demos, and mobile navigation with focus restoration and Escape handling.
@@ -46,13 +48,24 @@ npm run build:css
 # Verify generated files without changing them.
 npm run check:css
 
+# Check color-token usage, token references, and load order.
+npm run check:tokens
+
 # Check bundle freshness and run the test suite.
 npm test
 ```
 
 Edit the source stylesheets in `css/`; the build script generates `bundle-*.css` files and updates versioned asset URLs in the main pages. Rebuild after changing CSS or shared background/demo modules, then commit the generated files alongside their sources.
 
-Tests cover demo calculations and validation, interaction interruption, reduced motion, project-scroll transitions, renderer fallbacks, worker scheduling, and graphics-resource cleanup. Browser and device checks complement these tests; they are not a complete accessibility or physical-device certification.
+Keep reusable design values in `css/design-tokens.css`. Start with its shared roles and palette when changing content widths, page gutters, panel padding, control height, product type, focus rings, or theme colors. Its scales cover spacing, type, weights, leading, tracking, corners, control and icon sizes, borders, and motion. The numeric suffix of a scale token describes its initial pixel or millisecond value; consumers use `var(...)`, so its value can later use another compatible unit. Compatibility colors and effect tokens preserve the existing page variants and artwork treatments.
+
+The `--tone-*` and `--glass-*` variables in `css/glass.css` alias the shared tokens; product components consume them through the `--product-*` aliases in `css/product-surfaces.css`. That stylesheet owns shared demo components such as `.product-property`, form controls, and product focus rings. Use `css/work-index.css` for homepage layout and `css/two-tone.css` for component-specific tonal treatments. Prefer fixing the owning rule to adding another override; avoid page IDs in reusable component selectors, which can suppress selected, focus, and validation states.
+
+Both base bundles load design tokens before component styles, without adding a stylesheet request. `check:tokens` covers all stylesheets shipped on the five main routes, rejects component color literals and missing or cyclic `--ds-*` references, and checks token load order. Literal colors belong in the central token file or the existing generated Vesper theme tokens. `transparent`, `currentColor`, and system colors remain valid semantic CSS values. Structural zeros, percentages, fractions, asset geometry, and media-query breakpoints stay local; CSS custom properties cannot supply media-query conditions. Historical styles not loaded by the main routes are outside this check.
+
+The repository's `.editorconfig` keeps source files in UTF-8 with LF line endings and two-space indentation in editors that support it. Markdown retains intentional trailing spaces.
+
+Tests cover design-token contracts, demo calculations and validation, interaction interruption, reduced motion, project-scroll transitions, renderer fallbacks, worker scheduling, and graphics-resource cleanup. Browser and device checks complement these tests; they are not a complete accessibility or physical-device certification.
 
 ## Repository guide
 

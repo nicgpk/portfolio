@@ -62,6 +62,22 @@
     li { margin: 0 0 2pt; }
     .note { font-size: 9.5pt; margin: 1pt 0 0; }
     .skills-line { font-size: 9.5pt; margin: 0 0 3pt; }
+    /* Comfortable browser gutters; the compact print document stays unchanged. */
+    @media screen {
+      body { max-width: 860px; width: calc(100% - 48px); margin: 32px auto; }
+      .contact { margin-bottom: 24px; overflow-wrap: anywhere; }
+      h2 { margin: 24px 0 12px; padding-bottom: 8px; }
+      section p { margin-bottom: 12px; }
+      .job { margin-bottom: 24px; }
+      .job-dates { margin-bottom: 8px; }
+      ul { margin-left: 20px; }
+      li { margin-bottom: 6px; }
+      .skills-line { margin-bottom: 8px; }
+      section > :last-child, .job:last-child, li:last-child { margin-bottom: 0; }
+    }
+    @media screen and (max-width: 767px) {
+      body { width: calc(100% - 32px); margin-block: 24px; }
+    }
   </style>
 </head>
 <body>

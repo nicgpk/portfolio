@@ -1,11 +1,11 @@
 /* motion.css — Portfolio motion system. Loaded via teletype.css */
 
 :root {
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-  --motion-fast: 180ms;
-  --motion-med: 420ms;
-  --motion-slow: 700ms;
+  --ease-out-expo: var(--ds-ease-out-expo-long);
+  --ease-out-quart: var(--ds-ease-out-quart);
+  --motion-fast: var(--ds-duration-180-variant-2);
+  --motion-med: var(--ds-duration-420);
+  --motion-slow: var(--ds-duration-700-variant-2);
 }
 
 /* ----- Scroll earners only (featured, products, results) ----- */
@@ -15,7 +15,7 @@
   transition:
     opacity var(--motion-slow) var(--ease-out-expo),
     transform var(--motion-slow) var(--ease-out-expo);
-  transition-delay: calc(var(--motion-i, 0) * 55ms);
+  transition-delay: calc(var(--motion-i, 0) * var(--ds-duration-55));
 }
 
 .js-motion .motion-item.is-inview {
@@ -33,11 +33,11 @@
   opacity: 0;
   transform: translateY(40px);
   transition:
-    opacity 780ms var(--ease-out-expo),
-    transform 780ms var(--ease-out-expo),
+    opacity var(--ds-duration-780) var(--ease-out-expo),
+    transform var(--ds-duration-780) var(--ease-out-expo),
     box-shadow var(--motion-med) var(--ease-out-expo),
     border-color var(--motion-fast) ease;
-  transition-delay: calc(var(--motion-i, 0) * 90ms);
+  transition-delay: calc(var(--motion-i, 0) * var(--ds-duration-90));
 }
 .js-motion .featured.motion-item.is-inview {
   opacity: 1;
@@ -59,9 +59,9 @@
   opacity: 0;
   transform: translateY(28px);
   transition:
-    opacity 720ms var(--ease-out-expo),
-    transform 720ms var(--ease-out-expo);
-  transition-delay: calc(var(--motion-i, 0) * 90ms + 140ms);
+    opacity var(--ds-duration-720) var(--ease-out-expo),
+    transform var(--ds-duration-720) var(--ease-out-expo);
+  transition-delay: calc(var(--motion-i, 0) * var(--ds-duration-90) + var(--ds-duration-140));
 }
 .js-motion .featured.is-inview .featured-shot {
   opacity: 1;
@@ -168,9 +168,9 @@
   --enter-rx: 0deg;
   --enter-y: 0px;
   transition:
-    opacity 0.75s var(--ease-out-expo),
-    transform 0.75s var(--ease-out-expo),
-    box-shadow 0.35s ease;
+    opacity var(--ds-duration-750) var(--ease-out-expo),
+    transform var(--ds-duration-750) var(--ease-out-expo),
+    box-shadow var(--ds-duration-350) ease;
 }
 
 .js-motion .hero-product.is-inview .hero-product-frame {
@@ -185,9 +185,9 @@
 
 .js-motion .hero-product.is-inview.is-tilting .hero-product-frame {
   transition:
-    opacity 0.75s var(--ease-out-expo),
-    transform 0.12s linear,
-    box-shadow 0.35s ease;
+    opacity var(--ds-duration-750) var(--ease-out-expo),
+    transform var(--ds-duration-120-variant-2) linear,
+    box-shadow var(--ds-duration-350) ease;
 }
 
 .js-motion .hero-product .hero-product-kpi,
@@ -200,31 +200,31 @@
 }
 
 .js-motion .hero-product.is-inview .hero-product-toolbar {
-  animation: motion-rise 0.55s 0.12s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-550) var(--ds-duration-120-variant-2) var(--ease-out-expo) both;
 }
 .js-motion .hero-product.is-inview .hero-product-kpi:nth-child(1) {
-  animation: motion-rise 0.55s 0.22s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-550) var(--ds-duration-220) var(--ease-out-expo) both;
 }
 .js-motion .hero-product.is-inview .hero-product-kpi:nth-child(2) {
-  animation: motion-rise 0.55s 0.28s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-550) var(--ds-duration-280) var(--ease-out-expo) both;
 }
 .js-motion .hero-product.is-inview .hero-product-kpi:nth-child(3) {
-  animation: motion-rise 0.55s 0.34s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-550) var(--ds-duration-340) var(--ease-out-expo) both;
 }
 .js-motion .hero-product.is-inview .hero-product-section-head {
-  animation: motion-rise 0.55s 0.4s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-550) var(--ds-duration-400) var(--ease-out-expo) both;
 }
 .js-motion .hero-product.is-inview .hero-product-card.is-featured {
-  animation: motion-rise-scale 0.65s 0.46s var(--ease-out-expo) both;
+  animation: motion-rise-scale var(--ds-duration-650) var(--ds-duration-460) var(--ease-out-expo) both;
 }
 .js-motion .hero-product.is-inview .hero-product-card.is-secondary:nth-child(2) {
-  animation: motion-rise 0.55s 0.54s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-550) var(--ds-duration-540) var(--ease-out-expo) both;
 }
 .js-motion .hero-product.is-inview .hero-product-card.is-secondary:nth-child(3) {
-  animation: motion-rise 0.55s 0.6s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-550) var(--ds-duration-600) var(--ease-out-expo) both;
 }
 .js-motion .hero-product.is-inview .hero-product-peek {
-  animation: motion-rise 0.55s 0.68s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-550) var(--ds-duration-680) var(--ease-out-expo) both;
 }
 
 .js-motion .hero-product-pill:hover,
@@ -251,9 +251,9 @@
   opacity: 1;
   transform: none;
   transition:
-    opacity 0.7s var(--ease-out-expo),
-    transform 0.7s var(--ease-out-expo),
-    box-shadow 0.35s ease;
+    opacity var(--ds-duration-700) var(--ease-out-expo),
+    transform var(--ds-duration-700) var(--ease-out-expo),
+    box-shadow var(--ds-duration-350) ease;
 }
 
 .js-motion .disc-product .disc-product-toolbar,
@@ -269,43 +269,43 @@
 }
 
 .js-motion .disc-product.is-inview .disc-product-toolbar {
-  animation: motion-rise 0.5s 0.1s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-500) var(--ds-duration-100) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-sim-main {
-  animation: motion-rise 0.55s 0.18s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-550) var(--ds-duration-180) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-rate-box {
-  animation: motion-rise 0.45s 0.24s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-450) var(--ds-duration-240) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-promo-row:nth-child(2) {
-  animation: motion-rise 0.45s 0.3s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-450) var(--ds-duration-300) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-promo-row:nth-child(3) {
-  animation: motion-rise 0.45s 0.36s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-450) var(--ds-duration-360-variant-2) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-promo-row:nth-child(4) {
-  animation: motion-rise 0.45s 0.42s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-450) var(--ds-duration-420-variant-2) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-sim-total {
-  animation: motion-rise-scale 0.55s 0.48s var(--ease-out-expo) both;
+  animation: motion-rise-scale var(--ds-duration-550) var(--ds-duration-480) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-bd-card:nth-child(1) {
-  animation: motion-rise 0.55s 0.18s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-550) var(--ds-duration-180) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-bd-card:nth-child(2) {
-  animation: motion-rise 0.55s 0.26s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-550) var(--ds-duration-260) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-bd-footer {
-  animation: motion-rise 0.5s 0.34s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-500) var(--ds-duration-340) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-flow-step:nth-child(1) {
-  animation: motion-rise 0.5s 0.16s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-500) var(--ds-duration-160) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-flow-step:nth-child(2) {
-  animation: motion-rise 0.5s 0.24s var(--ease-out-expo) both;
+  animation: motion-rise var(--ds-duration-500) var(--ds-duration-240) var(--ease-out-expo) both;
 }
 .js-motion .disc-product.is-inview .disc-flow-step:nth-child(3) {
-  animation: motion-rise-scale 0.55s 0.32s var(--ease-out-expo) both;
+  animation: motion-rise-scale var(--ds-duration-550) var(--ds-duration-320) var(--ease-out-expo) both;
 }
 
 .js-motion .disc-promo-row {
@@ -361,7 +361,7 @@
 .js-motion .bar-h-fill {
   transform: scaleX(0.08);
   transform-origin: left center;
-  transition: transform 0.85s var(--ease-out-expo);
+  transition: transform var(--ds-duration-850) var(--ease-out-expo);
 }
 .js-motion .bar-h.is-inview .bar-h-fill,
 .js-motion .bar-h.motion-item.is-inview .bar-h-fill {
@@ -373,9 +373,9 @@
   opacity: 0;
   transform: translateY(10px);
   transition:
-    opacity 0.55s var(--ease-out-expo),
-    transform 0.55s var(--ease-out-expo);
-  transition-delay: calc(var(--motion-i, 0) * 60ms);
+    opacity var(--ds-duration-550) var(--ease-out-expo),
+    transform var(--ds-duration-550) var(--ease-out-expo);
+  transition-delay: calc(var(--motion-i, 0) * var(--ds-duration-60));
 }
 .js-motion .results-board.is-inview .results-metric-value {
   opacity: 1;
@@ -383,8 +383,8 @@
 }
 .js-motion .results-trend-fill {
   transform: scaleX(0.06);
-  transition: transform 0.9s var(--ease-out-expo);
-  transition-delay: calc(var(--motion-i, 0) * 80ms);
+  transition: transform var(--ds-duration-900) var(--ease-out-expo);
+  transition-delay: calc(var(--motion-i, 0) * var(--ds-duration-80));
 }
 .js-motion .results-board.is-inview .results-trend-fill,
 .js-motion .results-trend.is-inview .results-trend-fill {
@@ -394,9 +394,9 @@
   opacity: 0;
   transform: translateY(8px);
   transition:
-    opacity 0.5s var(--ease-out-expo),
-    transform 0.5s var(--ease-out-expo);
-  transition-delay: calc(var(--motion-i, 0) * 70ms);
+    opacity var(--ds-duration-500) var(--ease-out-expo),
+    transform var(--ds-duration-500) var(--ease-out-expo);
+  transition-delay: calc(var(--motion-i, 0) * var(--ds-duration-70));
 }
 .js-motion .results-board.is-inview .results-delta-row {
   opacity: 1;
@@ -408,9 +408,9 @@
   opacity: 0;
   transform: translateY(8px);
   transition:
-    opacity 480ms var(--ease-out-expo),
-    transform 480ms var(--ease-out-expo);
-  transition-delay: calc(var(--motion-i, 0) * 70ms);
+    opacity var(--ds-duration-480-variant-2) var(--ease-out-expo),
+    transform var(--ds-duration-480-variant-2) var(--ease-out-expo);
+  transition-delay: calc(var(--motion-i, 0) * var(--ds-duration-70));
 }
 .js-motion .ai-tools.is-inview .ai-tool {
   opacity: 1;

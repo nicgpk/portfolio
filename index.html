@@ -129,10 +129,10 @@
     <link rel="preload" as="image" href="images/home-wave-poster.webp" media="(min-width:768px)" fetchpriority="high" />
     <link rel="preload" as="image" href="images/home-wave-mobile.webp" media="(max-width:767px)" fetchpriority="high" />
     <!-- css-bundles:start -->
-    <link rel="stylesheet" href="css/bundle-shared-base.css?v=912609ce72b2" />
-    <link rel="stylesheet" href="css/bundle-home-layout.css?v=024a2e2c655f" />
-    <link rel="stylesheet" href="css/glass.css?v=fca52673fd45" />
-    <link rel="stylesheet" href="css/bundle-home-product.css?v=15e669fd037a" />
+    <link rel="stylesheet" href="css/bundle-shared-base.css?v=0bddd45abc44" />
+    <link rel="stylesheet" href="css/bundle-home-layout.css?v=b536ab2ef0a0" />
+    <link rel="stylesheet" href="css/glass.css?v=d449d99649ff" />
+    <link rel="stylesheet" href="css/bundle-home-product.css?v=c7323687733e" />
     <!-- css-bundles:end -->
     <link
       rel="preload"
@@ -162,7 +162,7 @@
         </ul>
       </div>
     </header>
-    <main id="main" class="portfolio-work">
+    <main id="main" class="portfolio-work" tabindex="-1">
       <div class="glass-intro-surface hero-work-surface" data-atmosphere>
         <div class="work-atmosphere-track" aria-hidden="true"><div class="glass-atmosphere"><div class="paper-wave hero-wave" data-paper-wave data-wave-eager></div></div></div>
         <section class="glass-hero" aria-labelledby="hero-title">
@@ -176,6 +176,11 @@
             platforms that serve millions of accommodation partners and generate
             six-figure annual revenue.
           </p>
+          <div class="glass-hero-actions">
+            <a class="hero-secondary" href="#work">View selected work
+              <svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#arrow-down" /></svg>
+            </a>
+          </div>
         </section>
         <div class="employer-reel" role="img" aria-label="Booking Holdings, Agoda, Government Technology Agency Singapore, OCBC Bank, Lucasfilm, and Disney">
           <div class="employer-reel-window">
@@ -504,6 +509,13 @@
               <img src="images/film-posters/ready-player-one.jpg" alt="Ready Player One movie poster" width="600" height="900" loading="lazy" decoding="async" />
             </figure>
           </div>
+          <div class="film-controls" hidden>
+            <button class="film-playback" type="button" data-film-playback aria-controls="film-track">Pause reel</button>
+            <div class="film-arrows" role="group" aria-label="Browse film projects">
+              <button type="button" data-film-previous aria-controls="film-track" aria-label="Previous film"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#arrow-left" /></svg></button>
+              <button type="button" data-film-next aria-controls="film-track" aria-label="Next film"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#arrow-right" /></svg></button>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -580,12 +592,12 @@
       </div>
     </footer>
     <script type="module">
-      import("./js/glass-demos.mjs?v=3f19c3c21d13").catch(function () {
+      import("./js/glass-demos.mjs?v=2015b5190973").catch(function () {
         document.documentElement.dataset.motion = "off";
       });
     </script>
     <script type="module" src="js/paper-wave.mjs?v=39af3cbcc787"></script>
-    <script type="module" src="js/movie-carousel.mjs?v=5"></script>
-    <script type="module" src="js/work-scroll.mjs?v=7"></script>
+    <script type="module" src="js/movie-carousel.mjs?v=6"></script>
+    <script type="module" src="js/work-scroll.mjs?v=fd33f1965466"></script>
   </body>
 </html>

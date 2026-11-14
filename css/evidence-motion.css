@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: var(--ds-space-16);
+  margin-bottom: var(--ds-space-20);
 }
 .folio .evidence-heading :is(h4, .eyebrow) {
   margin: 0;
@@ -13,21 +13,21 @@
   display: grid;
   place-items: center;
   flex: 0 0 40px;
-  width: 40px;
-  height: 40px;
+  width: var(--ds-size-40);
+  height: var(--ds-size-40);
   color: var(--accent);
 }
 .folio .evidence-icon .ui-icon {
-  width: 32px;
-  height: 32px;
+  width: var(--ds-size-32);
+  height: var(--ds-size-32);
 }
 .folio .evidence-icon[data-evidence-ready] .ui-icon {
-  animation: evidence-draw 900ms cubic-bezier(0.16, 1, 0.3, 1) 1;
+  animation: evidence-draw var(--ds-duration-900-variant-2) var(--ds-ease-out-expo-long) 1;
   animation-play-state: paused;
 }
 .evidence-icon[data-evidence-ready] .evidence-linework :is(path, circle) {
   stroke-dasharray: 100;
-  animation: evidence-path 900ms cubic-bezier(0.16, 1, 0.3, 1) 1;
+  animation: evidence-path var(--ds-duration-900-variant-2) var(--ds-ease-out-expo-long) 1;
   animation-play-state: paused;
 }
 .folio .evidence-icon.is-playing .ui-icon,

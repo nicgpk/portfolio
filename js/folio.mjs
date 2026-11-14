@@ -1,16 +1,18 @@
-import { normalizeRequiredText } from "./form-validation.mjs";
-import { stackDiscounts } from "./calculations.mjs";
-import { setActionLabel } from "./interface-icons.mjs";
-import { motionPaused } from "./kinetics.mjs";
-if (document.querySelector("[data-evidence-icon]")) import("./evidence-motion.mjs");
-if (document.querySelector(".project-showcase:not(.work-stack)")) import("./showcase.mjs");
-if (document.querySelector("[data-cloud-scene]")) import("./clouds.mjs");
-if (document.querySelector("[data-preview-picker], [data-discount-preview]")) import("./project-previews.mjs");
+import { normalizeRequiredText } from "./form-validation.mjs?v=8392fafdc2a6";
+import { stackDiscounts } from "./calculations.mjs?v=a0235d2fae86";
+import { setActionLabel } from "./interface-icons.mjs?v=f961f8003e9e";
+import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
+if (document.querySelector("[data-evidence-icon]")) import("./evidence-motion.mjs?v=a13d7fb58763");
+if (document.querySelector(".project-showcase:not(.work-stack)")) import("./showcase.mjs?v=5cd514558bbd");
+if (document.querySelector("[data-cloud-scene]")) import("./clouds.mjs?v=da168fb35e6a");
+if (document.querySelector("[data-preview-picker], [data-discount-preview]")) import("./project-previews.mjs?v=f966d5344d78");
 import {
   revealFeedback,
   attachIndicator,
   animateRateBar,
-} from "./interaction-motion.mjs";
+  animateFeedback,
+  sequenceFeedback,
+} from "./interaction-motion.mjs?v=ccec8d8cb84c";
 
 document.querySelectorAll("[data-discovery]").forEach((root) => {
   const search = root.querySelector("[data-program-search]"),
@@ -223,6 +225,7 @@ if (developer) {
     if (step === 2) review();
     if (focus) {
       revealFeedback(stages[step], direction);
+      sequenceFeedback(stages[step].querySelectorAll('.deploy-fields > *, .deploy-review > div'), direction);
       const title = stages[step].querySelector("h2");
       title.tabIndex = -1;
       title.focus({ preventScroll: true });
@@ -252,6 +255,7 @@ if (developer) {
       status.textContent =
         "Preview complete. No service was deployed and no data was saved.";
       status.dataset.status = "complete";
+      animateFeedback(status, [{ opacity: .4, transform: 'translateY(4px)' }, { opacity: 1, transform: 'translateY(0)' }], 320);
     }
   });
   back.addEventListener("click", () => {

@@ -1,4 +1,4 @@
-import { motionPaused } from "./kinetics.mjs";
+import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
 
 // Native overflow for touch/trackpads, with scoped mouse-wheel paging on desktop.
 for (const root of document.querySelectorAll(".project-showcase:not(.work-stack)")) {

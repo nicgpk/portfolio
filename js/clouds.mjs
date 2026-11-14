@@ -1,8 +1,8 @@
-import { motionPaused } from "./kinetics.mjs";
+import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
 import {
   heroBackgrounds,
   selectedHeroBackground,
-} from "./hero-backgrounds.mjs";
+} from "./hero-backgrounds.mjs?v=5a550209a4f7";
 
 const hero = document.querySelector("[data-cloud-scene]");
 if (hero) {
@@ -78,7 +78,7 @@ if (hero) {
       loading = true;
       try {
         const [{ createHalftoneRenderer }, image] = await Promise.all([
-          import("./halftone.mjs"),
+          import("./halftone.mjs?v=ded9f633579e"),
           background
             ? Promise.resolve(null)
             : new Promise((resolve, reject) => {

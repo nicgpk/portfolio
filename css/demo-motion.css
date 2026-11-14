@@ -1,0 +1,73 @@
+/* Product feedback stays local; all content is visible before enhancement. */
+@media screen {
+  .folio .demo-interactive button:disabled {cursor:default;opacity:.5;}
+  .folio .demo-interactive :is(button,a,input,select,summary) {
+    transition:color var(--ds-duration-150) var(--ds-ease-out-expo),
+      border-color var(--ds-duration-150) var(--ds-ease-out-expo),
+      background-color var(--ds-duration-150) var(--ds-ease-out-expo);
+  }
+  .folio .demo-interactive :is(button,a) .ui-icon {
+    transition:transform var(--ds-duration-250) var(--ds-ease-out-expo);
+  }
+  .folio .demo-interactive .demo-result {
+    margin:var(--ds-space-16) 0 0;padding:var(--ds-space-12) var(--ds-space-16);
+    border:var(--ds-border-thin) solid var(--product-control-line);
+    border-radius:var(--product-radius-control);background:var(--product-bg);
+    color:var(--product-ink);font-size:var(--ds-text-13);line-height:var(--ds-leading-1-6);
+  }
+  .folio .demo-interactive .demo-result:empty {margin:0;padding:0;border:0;}
+  .folio .demo-interactive .pb-ex-slider {display:flex;align-items:center;gap:var(--ds-space-12);margin-inline:0;}
+  .folio .product-surface input.demo-range {
+    flex:1;min-width:0;width:100%;min-height:var(--ds-control-height);padding:0;border:0;
+    background:transparent;accent-color:var(--product-accent);cursor:ew-resize;
+  }
+  .demo-range-value {min-width:3ch;color:var(--product-ink);font-variant-numeric:tabular-nums;}
+  .folio .demo-interactive :is(.pb-ex-seg,.pb-ex-days) > button {
+    padding:var(--ds-space-8);border:var(--ds-border-thin) solid var(--product-control-line);
+    background:var(--product-bg);color:var(--product-muted);cursor:pointer;font-size:var(--ds-text-12);
+  }
+  .folio .demo-interactive :is(.pb-ex-seg,.pb-ex-days) > button.is-on {
+    background:var(--product-raised);color:var(--product-ink);border-color:var(--product-accent);
+  }
+  .folio .demo-interactive button.pb-ex-day {
+    min-height:var(--ds-size-28);padding:0;border:var(--ds-border-thin) solid transparent;
+    border-radius:var(--product-radius-badge);background:transparent;color:var(--product-muted);
+    font-size:var(--ds-text-11);cursor:pointer;
+  }
+  .folio .demo-interactive button.pb-ex-day.is-selected {
+    background:var(--product-raised);color:var(--product-ink);border-color:var(--product-control-line);
+  }
+  .folio .demo-interactive :is(.pb-ex-btn,.hero-product-btn,.pb-ex-link) {cursor:pointer;}
+  .folio .demo-interactive .pb-ex-link {padding:var(--ds-space-8) 0;background:transparent;border:0;text-align:left;}
+  .pb-ex-faq summary {cursor:pointer;color:var(--product-ink);font-weight:var(--ds-weight-medium);}
+  .pb-ex-faq summary::marker {color:var(--product-muted);}
+  .pb-ex-faq[open] > span {display:block;margin-top:var(--ds-space-8);}
+  .pb-ex-col {transform-origin:center bottom;}
+  .folio .demo-interactive button.dev-feat-what {
+    padding:var(--ds-space-4) var(--ds-space-8);background:transparent;color:var(--product-muted);
+    border:var(--ds-border-thin) solid var(--product-control-line);cursor:pointer;font-size:var(--ds-text-11);
+  }
+  .folio .demo-interactive .dev-seg > button {
+    padding:var(--ds-space-8) var(--ds-space-12);background:var(--product-bg);color:var(--product-muted);
+    border:var(--ds-border-thin) solid var(--product-control-line);cursor:pointer;
+  }
+  .folio .demo-interactive .dev-seg > button.is-on {background:var(--product-raised);color:var(--product-ink);border-color:var(--product-accent);}
+  .folio .demo-interactive input.demo-search {width:100%;min-width:0;padding-inline:var(--ds-space-12);}
+  .demo-interactive [hidden] {display:none !important;}
+  .demo-interactive :is(.receipt-promotion,.mini-stages li,.deploy-steps li) {
+    transition:opacity var(--ds-duration-220) var(--ds-ease-out-expo),border-color var(--ds-duration-220) var(--ds-ease-out-expo);
+  }
+}
+@media (hover:hover) and (pointer:fine) {
+  .folio .demo-interactive :is(.pb-ex-seg,.pb-ex-days) > button:hover,
+  .folio .demo-interactive button.pb-ex-day:hover {border-color:var(--product-accent);color:var(--product-ink);}
+}
+@media (prefers-reduced-motion:reduce) {
+  .folio .demo-interactive *, .folio .demo-interactive *::before, .folio .demo-interactive *::after {transition:none !important;animation:none !important;}
+}
+html[data-motion="off"] .demo-interactive *,
+html[data-motion="off"] .demo-interactive *::before,
+html[data-motion="off"] .demo-interactive *::after {transition:none !important;animation:none !important;}
+@media print {
+  .demo-result {display:none;}
+}

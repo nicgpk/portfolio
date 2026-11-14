@@ -404,7 +404,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--spacing-3) var(--spacing-6);
-  min-height: 72px;
+  min-height: var(--ds-size-72);
   padding: var(--spacing-4) var(--concept-gap);
   background: var(--color-background-surface);
   border-bottom: var(--border-width) solid var(--color-border);
@@ -494,8 +494,8 @@
   display: inline-grid;
   place-content: center;
   flex: 0 0 20px;
-  width: 20px;
-  height: 20px;
+  width: var(--ds-size-20);
+  height: var(--ds-size-20);
   min-height: 0;
   padding: 0;
   margin: 0;
@@ -510,7 +510,7 @@
   width: 6px;
   height: 11px;
   border: solid var(--color-on-accent);
-  border-width: 0 2px 2px 0;
+  border-width: 0 var(--ds-border-strong) var(--ds-border-strong) 0;
   transform: translateY(-1px) rotate(45deg);
 }
 .folio .concept-shell [data-vesper-component="button"] {
@@ -539,7 +539,7 @@
   outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-outline-color);
   outline-offset: var(--focus-outline-offset);
 }
-.folio .concept-shell .v-field > input:focus-visible { outline-offset: -1px; }
+.folio .concept-shell .v-field > input:focus-visible { outline-offset: calc(-1 * var(--ds-space-1)); }
 .folio .concept-shell :is(.form-error,.preview-rate-error) {
   color: var(--color-on-error);
   background: var(--color-error-muted);
@@ -565,12 +565,12 @@
 .folio .concept-shell .program-tile[open] .catalog-glyph { color: var(--color-icon-accent); }
 .folio .concept-shell .program-detail { padding: var(--spacing-4); background: var(--color-background-card); border-top: var(--border-width) solid var(--color-border); color: var(--color-text-secondary); font: var(--text-body-size) / var(--text-body-leading) var(--font-family-body); }
 .folio .concept-shell .program-detail { border-radius: 0 0 var(--radius-container) var(--radius-container); }
-.folio .concept-shell .promo-toggle { min-height: 64px; padding: var(--spacing-3); margin: var(--spacing-2) 0; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-element); background: var(--color-background-body); }
+.folio .concept-shell .promo-toggle { min-height: var(--ds-size-64); padding: var(--spacing-3); margin: var(--spacing-2) 0; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-element); background: var(--color-background-body); }
 .folio .concept-shell .promo-toggle:has(input:checked) { background: var(--color-background-muted); border-color: var(--color-border); box-shadow: var(--shadow-inset-selected); }
 .folio .concept-shell .promo-toggle.ineligible { opacity: 1; color: var(--color-text-disabled); background: var(--color-background-body); }
 .folio .concept-shell .discount-percent { color: var(--color-text-primary); background: var(--color-background-gray); border-radius: var(--radius-element); font-family: var(--font-family-body); }
 .folio .concept-shell :is(.discount-promotion-copy small,.discount-exclusions,.discount-rule,.discount-field-unit,.discount-ledger small,.discount-ledger-heading,.discount-ineligible-label) { color: var(--color-text-secondary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
-.folio .concept-shell :is(.discount-total output,.rate-preview-result > strong) { color: var(--color-text-primary); font: var(--text-heading-1-weight) clamp(31px,3vw,49px) / 1.25 var(--font-family-heading); letter-spacing: normal; overflow-wrap: anywhere; }
+.folio .concept-shell :is(.discount-total output,.rate-preview-result > strong) { color: var(--color-text-primary); font: var(--text-heading-1-weight) clamp(31px,3vw,49px) /var(--ds-leading-1-25) var(--font-family-heading); letter-spacing: normal; overflow-wrap: anywhere; }
 .folio .concept-shell .calc-effective { color: var(--color-text-accent); font: var(--text-body-size) / var(--text-body-leading) var(--font-family-body); }
 .folio .concept-shell :is(.calc-formula,.rate-preview-formula) { padding: var(--spacing-3); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-element); background: var(--color-background-muted); color: var(--color-text-primary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-code); overflow-wrap: anywhere; }
 .folio .concept-shell .discount-summary { border-left: var(--border-width) solid var(--color-border); }
@@ -604,7 +604,7 @@
 .folio .concept-preview .lean-detail-heading > span:first-child { font-family: var(--font-family-body); }
 .folio .concept-preview .lean-label > span { color: var(--color-text-secondary); }
 .folio .concept-preview .lean-percent { color: var(--color-icon-accent); }
-.folio .concept-preview .lean-program { width: 100%; min-height: 64px; padding: var(--spacing-2) var(--spacing-3); border: 0; border-radius: var(--radius-element); background: transparent; text-align: left; }
+.folio .concept-preview .lean-program { width: 100%; min-height: var(--ds-size-64); padding: var(--spacing-2) var(--spacing-3); border: 0; border-radius: var(--radius-element); background: transparent; text-align: left; }
 .folio .concept-preview .lean-program strong { color: var(--color-text-primary); font: var(--text-label-weight) var(--text-label-size) / var(--text-label-leading) var(--font-family-body); }
 .folio .concept-preview .lean-program small { color: var(--color-text-secondary); font: var(--text-supporting-size) / var(--text-supporting-leading) var(--font-family-body); }
 .folio .concept-shell [data-vesper-component="tab"] { appearance: none; min-width: 0; color: var(--color-text-secondary); cursor: pointer; border-radius: var(--radius-element); transition: background-color var(--duration-fast) var(--ease-standard),color var(--duration-fast) var(--ease-standard); }
