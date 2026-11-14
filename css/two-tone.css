@@ -23,7 +23,6 @@
   .folio .product-badge {background:var(--product-bg);color:var(--product-muted);}
 
   .folio .work-feature-list .work-feature > .glass-demo-stage {padding:0;background:transparent;}
-  .folio .work-feature-list .work-feature .mini-window {padding:var(--ds-panel-padding);}
   .folio .mini-window.product-surface {background:var(--product-bg);border-color:var(--product-line);box-shadow:none;}
   .folio .mini-window.product-surface .mini-window-bar {color:var(--product-ink);border-color:var(--product-line);}
   .folio .mini-window.product-surface .product-property {border-color:var(--product-line);}
@@ -76,11 +75,7 @@
   .folio .site-nav .nav-contact:is(:hover,:focus-visible) {background:var(--tone-panel);border-color:var(--tone-control);color:var(--tone-ink);}
   .folio .folio-footer .footer-email {color:var(--tone-accent);}
 }
-@media screen and (min-width:960px) and (forced-colors:none) {
-  .folio .work-feature-list .work-feature > .glass-feature-copy {padding-top:var(--ds-space-24);}
-}
 @media screen and (max-width:767px) and (forced-colors:none) {
-  .folio .work-feature-list .work-feature .mini-window {padding:var(--ds-panel-padding-compact);}
   .folio.case-refined .case-shift > div {padding:var(--ds-panel-padding-compact);}
 }
 

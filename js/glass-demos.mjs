@@ -1,8 +1,8 @@
 import { stackDiscounts } from "./calculations.mjs?v=a0235d2fae86";
 import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
 import { animateFeedback } from "./interaction-motion.mjs?v=ccec8d8cb84c";
-import "./demo-scenes.mjs?v=0ff3773ee94e";
-import './section-reveals.mjs?v=240eaa00245e';
+import "./demo-scenes.mjs?v=b6c4b5521db7";
+import './section-reveals.mjs?v=ec874ea890e9';
 import { observeDemoReveals } from './demo-reveal.mjs?v=74b6932daa6c';
 
 // Preserve increase semantics while using the shared arrow icon instead of '+'.
@@ -753,11 +753,20 @@ if (nav) {
     }
   });
   nav.addEventListener("click", (event) => {
-    if (event.target.closest("a")) setMenu(false, compact.matches);
+    if (!event.target.closest("a") || event.defaultPrevented || event.button !== 0
+      || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    // Let the link's native activation finish before its parent becomes inert.
+    // Navigation owns focus; only an explicit dismissal returns it to Menu.
+    setTimeout(() => setMenu(false), 0);
   });
-  header.addEventListener("focusout", () => queueMicrotask(() => {
-    if (!header.contains(document.activeElement)) setMenu(false);
-  }));
+  header.addEventListener("focusout", (event) => {
+    if (header.contains(event.relatedTarget)) return;
+    // During native touch focus transfer, activeElement can briefly be body.
+    // Wait for the next focus target and pending link activation to settle.
+    setTimeout(() => {
+      if (!header.contains(document.activeElement)) setMenu(false);
+    }, 0);
+  });
   document.addEventListener(
     "pointerdown",
     (event) => {

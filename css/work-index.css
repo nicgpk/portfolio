@@ -290,6 +290,13 @@ html[data-motion=off] .folio .process-list > li {transition:none;}
   .home-narrow .work-feature-list .glass-feature.work-feature {padding:var(--ds-space-16);}
   .home-narrow .work-feature-list .work-feature .mini-window {padding:var(--ds-space-16);}
 }
+@media screen and (max-width:359px) {
+  .home-narrow .program-hub .program-hub-tabs {grid-template-columns:minmax(0,1fr);gap:var(--ds-space-8);}
+  .home-narrow .program-hub .program-hub-tabs button {flex-direction:row;align-items:center;justify-content:flex-start;gap:var(--ds-space-12);min-height:var(--ds-size-72);padding:var(--ds-space-12) var(--ds-space-40) var(--ds-space-12) var(--ds-space-12);font-size:var(--ds-product-label-size);}
+  .home-narrow .program-hub .program-hub-tabs button > span:nth-child(2) {flex:1;}
+  .home-narrow .program-hub .program-hub-tabs button > .selection-check {top:50%;right:var(--ds-space-12);transform:translateY(-50%);}
+  .home-narrow .program-hub-head {flex-wrap:wrap;}
+}
 
 /* Reported results lead each demonstration, within one open metric strip. */
 @media screen {

@@ -153,7 +153,11 @@
   .case-story-copy {max-width:none;}
   /* Section padding owns the gap after the final narrative block. */
   .folio.case-refined :is(.case-story-section,.case-story-copy) > :last-child:not(.product-surface,.product-surface *) {margin-bottom:0;}
+  /* Bare demos and their captions need a gap after the copy's final margin is trimmed. */
+  .folio.case-refined .case-story-section > .case-story-copy + .product-surface {margin-top:var(--ds-space-24);}
+  .folio.case-refined .case-story-section > .product-surface + p.artifact-note {margin-top:var(--ds-space-12);padding-top:0;}
   .case-story-split {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-40) var(--ds-space-56);margin:var(--ds-space-32) 0;align-items:start;}
+  .folio.case-refined .case-story-section > .case-story-split:first-child {margin-top:0;}
   .case-story-split > * {min-width:0;}
   .folio.case-refined .case-story-split h3:first-child {margin-top:0;}
   .folio.case-refined .case-story-figure {display:block;margin:var(--ds-space-32) 0;min-width:0;}
@@ -170,6 +174,7 @@
   .folio.case-refined .case-story-list dt {margin:0 0 var(--ds-space-10);font:var(--ds-weight-medium) var(--ds-text-20)/var(--ds-leading-1-4) var(--body);color:var(--glass-ink);}
   .folio.case-refined .case-story-list dd {max-width:72ch;margin:0;}
   .folio.case-refined .case-story-note {max-width:80ch;margin:var(--ds-space-32) 0;padding:var(--ds-space-20) 0;border-block:var(--ds-border-thin) solid var(--glass-line);font:var(--ds-weight-regular) var(--ds-text-14)/var(--ds-leading-1-75) var(--body);color:var(--glass-muted);}
+  .folio.case-refined .case-story-section p.case-story-note {margin:var(--ds-space-24) 0;}
   .case-story-table-wrap {max-width:100%;overflow-x:auto;margin:var(--ds-space-32) 0;border:var(--ds-border-thin) solid var(--glass-line);border-radius:var(--ds-radius-panel);scrollbar-width:thin;scrollbar-color:var(--ds-color-case-story-table-wrap-text) var(--ds-color-workspace-inset);}
   .case-story-table-wrap:focus-visible {outline:var(--ds-focus-width) solid var(--glass-focus);outline-offset:var(--ds-focus-offset);}
   .case-story-table-wrap {overscroll-behavior-inline:contain;}
@@ -194,6 +199,7 @@
   .folio.case-refined :is(#decisions,#choices,#concept,#evidence) {scroll-margin-top:0;}
   .folio.case-refined .case-story-section h2:where(:not(.product-surface *)) {font-size:var(--portfolio-section-size);margin-bottom:var(--ds-space-24);}
   .folio.case-refined .case-story-section h3:not(.product-surface *) {font-size:var(--portfolio-subsection-size);margin-top:var(--ds-space-28);}
+  .folio.case-refined .case-story-split h3:first-child {margin-top:0;}
   .case-story-split {grid-template-columns:1fr;gap:var(--ds-space-24);margin:var(--ds-space-24) 0;}
   .folio.case-refined .case-story-figure {margin:var(--ds-space-24) 0;}
   .folio.case-refined .case-story-table :is(td,th) {padding:var(--ds-space-16);min-width:150px;}

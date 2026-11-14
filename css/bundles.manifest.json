@@ -24,14 +24,14 @@
     },
     "home-product": {
       "file": "css/bundle-home-product.css",
-      "href": "css/bundle-home-product.css?v=c7323687733e",
+      "href": "css/bundle-home-product.css?v=9dbee779ebbb",
       "sources": [
         "css/work-index.css",
         "css/product-surfaces.css",
         "css/two-tone.css",
         "css/demo-motion.css"
       ],
-      "bytes": 60707
+      "bytes": 61068
     },
     "case-layout": {
       "file": "css/bundle-case-layout.css",
@@ -49,32 +49,32 @@
     },
     "case-product": {
       "file": "css/bundle-case-product.css",
-      "href": "css/bundle-case-product.css?v=937dc4efd7bb",
+      "href": "css/bundle-case-product.css?v=c7f9105fa754",
       "sources": [
         "css/case-refined.css",
         "css/product-surfaces.css"
       ],
-      "bytes": 28881
+      "bytes": 29463
     },
     "growth-product": {
       "file": "css/bundle-growth-product.css",
-      "href": "css/bundle-growth-product.css?v=f830909459a0",
+      "href": "css/bundle-growth-product.css?v=7300639418c0",
       "sources": [
         "css/case-growth.css",
         "css/two-tone.css",
         "css/demo-motion.css"
       ],
-      "bytes": 51943
+      "bytes": 51624
     },
     "discount-product": {
       "file": "css/bundle-discount-product.css",
-      "href": "css/bundle-discount-product.css?v=c229cced280f",
+      "href": "css/bundle-discount-product.css?v=9f03839c9feb",
       "sources": [
         "css/case-discount.css",
         "css/two-tone.css",
         "css/demo-motion.css"
       ],
-      "bytes": 30864
+      "bytes": 30513
     },
     "developer-concepts": {
       "file": "css/bundle-developer-concepts.css",
@@ -87,17 +87,17 @@
     },
     "developer-product": {
       "file": "css/bundle-developer-product.css",
-      "href": "css/bundle-developer-product.css?v=1340a5aeb759",
+      "href": "css/bundle-developer-product.css?v=49ec1c09a269",
       "sources": [
         "css/case-developer.css",
         "css/two-tone.css",
         "css/demo-motion.css"
       ],
-      "bytes": 68582
+      "bytes": 68269
     },
     "resume-layout": {
       "file": "css/bundle-resume-layout.css",
-      "href": "css/bundle-resume-layout.css?v=532a399cfbe6",
+      "href": "css/bundle-resume-layout.css?v=5dfebe94d98d",
       "sources": [
         "css/design-tokens.css",
         "css/teletype.css",
@@ -108,21 +108,21 @@
         "css/resume-portfolio.css",
         "css/vesper-tokens.css"
       ],
-      "bytes": 247632
+      "bytes": 248090
     }
   },
   "shared": {
-    "glass": "css/glass.css?v=d449d99649ff",
+    "glass": "css/glass.css?v=457595b354bd",
     "paper-wave": "js/paper-wave.mjs?v=39af3cbcc787",
-    "glass-demos": "js/glass-demos.mjs?v=2015b5190973"
+    "glass-demos": "js/glass-demos.mjs?v=0c6c6c52a999"
   },
   "routes": {
     "index.html": {
       "stylesheets": [
         "css/bundle-shared-base.css?v=0bddd45abc44",
         "css/bundle-home-layout.css?v=b536ab2ef0a0",
-        "css/glass.css?v=d449d99649ff",
-        "css/bundle-home-product.css?v=c7323687733e"
+        "css/glass.css?v=457595b354bd",
+        "css/bundle-home-product.css?v=9dbee779ebbb"
       ],
       "count": 4
     },
@@ -130,9 +130,9 @@
       "stylesheets": [
         "css/bundle-shared-base.css?v=0bddd45abc44",
         "css/bundle-case-layout.css?v=6aaa2db086fd",
-        "css/glass.css?v=d449d99649ff",
-        "css/bundle-case-product.css?v=937dc4efd7bb",
-        "css/bundle-growth-product.css?v=f830909459a0"
+        "css/glass.css?v=457595b354bd",
+        "css/bundle-case-product.css?v=c7f9105fa754",
+        "css/bundle-growth-product.css?v=7300639418c0"
       ],
       "count": 5
     },
@@ -140,9 +140,9 @@
       "stylesheets": [
         "css/bundle-shared-base.css?v=0bddd45abc44",
         "css/bundle-case-layout.css?v=6aaa2db086fd",
-        "css/glass.css?v=d449d99649ff",
-        "css/bundle-case-product.css?v=937dc4efd7bb",
-        "css/bundle-discount-product.css?v=c229cced280f"
+        "css/glass.css?v=457595b354bd",
+        "css/bundle-case-product.css?v=c7f9105fa754",
+        "css/bundle-discount-product.css?v=9f03839c9feb"
       ],
       "count": 5
     },
@@ -151,16 +151,16 @@
         "css/bundle-shared-base.css?v=0bddd45abc44",
         "css/bundle-case-layout.css?v=6aaa2db086fd",
         "css/bundle-developer-concepts.css?v=e0b002f0816b",
-        "css/glass.css?v=d449d99649ff",
-        "css/bundle-case-product.css?v=937dc4efd7bb",
-        "css/bundle-developer-product.css?v=1340a5aeb759"
+        "css/glass.css?v=457595b354bd",
+        "css/bundle-case-product.css?v=c7f9105fa754",
+        "css/bundle-developer-product.css?v=49ec1c09a269"
       ],
       "count": 6
     },
     "resume.html": {
       "stylesheets": [
-        "css/bundle-resume-layout.css?v=532a399cfbe6",
-        "css/glass.css?v=d449d99649ff"
+        "css/bundle-resume-layout.css?v=5dfebe94d98d",
+        "css/glass.css?v=457595b354bd"
       ],
       "count": 2
     }
@@ -185,13 +185,13 @@
     "js/calculations.mjs": "js/calculations.mjs?v=a0235d2fae86",
     "js/kinetics.mjs": "js/kinetics.mjs?v=2178cec3bf8c",
     "js/interaction-motion.mjs": "js/interaction-motion.mjs?v=ccec8d8cb84c",
-    "js/demo-controls.mjs": "js/demo-controls.mjs?v=b38479500abc",
+    "js/demo-controls.mjs": "js/demo-controls.mjs?v=66fefdc7b2fc",
     "js/demo-reveal.mjs": "js/demo-reveal.mjs?v=74b6932daa6c",
-    "js/demo-scenes.mjs": "js/demo-scenes.mjs?v=0ff3773ee94e",
-    "js/section-reveals.mjs": "js/section-reveals.mjs?v=240eaa00245e",
+    "js/demo-scenes.mjs": "js/demo-scenes.mjs?v=b6c4b5521db7",
+    "js/section-reveals.mjs": "js/section-reveals.mjs?v=ec874ea890e9",
     "js/vendor/d3-shape-3.2.0.mjs": "js/vendor/d3-shape-3.2.0.mjs?v=3fc80db901d4",
     "js/deployment-topology.mjs": "js/deployment-topology.mjs?v=4818473a33a5",
-    "js/glass-demos.mjs": "js/glass-demos.mjs?v=2015b5190973",
+    "js/glass-demos.mjs": "js/glass-demos.mjs?v=0c6c6c52a999",
     "js/form-validation.mjs": "js/form-validation.mjs?v=8392fafdc2a6",
     "js/interface-icons.mjs": "js/interface-icons.mjs?v=f961f8003e9e",
     "js/evidence-motion.mjs": "js/evidence-motion.mjs?v=a13d7fb58763",

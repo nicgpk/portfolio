@@ -202,11 +202,11 @@
   .folio .archive-evidence {color:var(--glass-muted);background:transparent;border-color:var(--glass-line);}
   .folio .folio-footer {max-width:var(--ds-content-width-wide);margin:0 auto;min-height:0;padding:var(--ds-space-80) 0 var(--ds-space-32);background:transparent;border:0;color:var(--glass-ink);}
   .folio .footer-landscape {display:none;}
-  .folio .footer-invitation {position:static;max-width:none;}
+  .folio .footer-invitation {position:static;max-width:none;padding-bottom:0;}
   .folio .footer-invitation h2 {margin:0 0 var(--ds-space-24);font:var(--ds-weight-medium) var(--portfolio-section-size)/var(--ds-leading-1-25) var(--body);letter-spacing:var(--ds-tracking-minus-0-025);}
   .folio .footer-invitation p,.folio .footer-bottom {color:var(--glass-muted);}
   .folio .footer-email {font:var(--ds-weight-medium) var(--ds-portfolio-body-size)/var(--ds-leading-1-5) var(--body);color:var(--glass-ink);}
-  .folio .footer-bottom {font:var(--ds-weight-regular) var(--ds-portfolio-meta-size)/var(--ds-leading-1-5) var(--body);position:static;border-color:var(--glass-line);margin-top:var(--ds-space-32);padding-top:var(--ds-space-16);}
+  .folio .footer-bottom {font:var(--ds-weight-regular) var(--ds-portfolio-meta-size)/var(--ds-leading-1-5) var(--body);position:static;border-color:var(--glass-line);margin-top:var(--ds-space-48);padding-top:0;}
   .folio .eyebrow {font:var(--ds-weight-medium) var(--ds-text-13)/var(--ds-leading-1-5) var(--body);color:var(--glass-muted);letter-spacing:0;text-transform:none;}
   .folio .leadership-copy > .eyebrow,.folio .archive .section-heading > .eyebrow,.folio .footer-invitation > .eyebrow,.folio .concept-heading .eyebrow {display:none;}
   .folio .text-link,.folio .back-link {color:var(--glass-ink);font:var(--ds-weight-medium) var(--ds-text-16)/var(--ds-text-24) var(--body);}
@@ -387,7 +387,7 @@
   .folio .about-section h2,.folio .archive h2 {font-size:var(--ds-text-30);}
   .folio .about-detail {padding:0;}
   .folio .folio-footer {padding:var(--ds-space-48) 0 var(--ds-space-24);}
-  .folio .footer-bottom {margin-top:var(--ds-space-24);padding-top:var(--ds-space-8);}
+  .folio .footer-bottom {margin-top:var(--ds-space-32);}
   .folio .footer-email {font-size:var(--ds-text-16);}
   .folio .case-hero {padding:var(--ds-space-132) 0 var(--ds-space-44);}
   .folio .case-hero-layout {gap:var(--ds-space-32);}

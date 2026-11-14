@@ -292,6 +292,13 @@ html[data-motion=off] .folio .process-list > li {transition:none;}
   .home-narrow .work-feature-list .glass-feature.work-feature {padding:var(--ds-space-16);}
   .home-narrow .work-feature-list .work-feature .mini-window {padding:var(--ds-space-16);}
 }
+@media screen and (max-width:359px) {
+  .home-narrow .program-hub .program-hub-tabs {grid-template-columns:minmax(0,1fr);gap:var(--ds-space-8);}
+  .home-narrow .program-hub .program-hub-tabs button {flex-direction:row;align-items:center;justify-content:flex-start;gap:var(--ds-space-12);min-height:var(--ds-size-72);padding:var(--ds-space-12) var(--ds-space-40) var(--ds-space-12) var(--ds-space-12);font-size:var(--ds-product-label-size);}
+  .home-narrow .program-hub .program-hub-tabs button > span:nth-child(2) {flex:1;}
+  .home-narrow .program-hub .program-hub-tabs button > .selection-check {top:50%;right:var(--ds-space-12);transform:translateY(-50%);}
+  .home-narrow .program-hub-head {flex-wrap:wrap;}
+}
 
 /* Reported results lead each demonstration, within one open metric strip. */
 @media screen {
@@ -541,7 +548,6 @@ html[data-motion=off] .home-narrow .work-feature .work-title-link {transition:no
   .folio .product-badge {background:var(--product-bg);color:var(--product-muted);}
 
   .folio .work-feature-list .work-feature > .glass-demo-stage {padding:0;background:transparent;}
-  .folio .work-feature-list .work-feature .mini-window {padding:var(--ds-panel-padding);}
   .folio .mini-window.product-surface {background:var(--product-bg);border-color:var(--product-line);box-shadow:none;}
   .folio .mini-window.product-surface .mini-window-bar {color:var(--product-ink);border-color:var(--product-line);}
   .folio .mini-window.product-surface .product-property {border-color:var(--product-line);}
@@ -594,11 +600,7 @@ html[data-motion=off] .home-narrow .work-feature .work-title-link {transition:no
   .folio .site-nav .nav-contact:is(:hover,:focus-visible) {background:var(--tone-panel);border-color:var(--tone-control);color:var(--tone-ink);}
   .folio .folio-footer .footer-email {color:var(--tone-accent);}
 }
-@media screen and (min-width:960px) and (forced-colors:none) {
-  .folio .work-feature-list .work-feature > .glass-feature-copy {padding-top:var(--ds-space-24);}
-}
 @media screen and (max-width:767px) and (forced-colors:none) {
-  .folio .work-feature-list .work-feature .mini-window {padding:var(--ds-panel-padding-compact);}
   .folio.case-refined .case-shift > div {padding:var(--ds-panel-padding-compact);}
 }
 

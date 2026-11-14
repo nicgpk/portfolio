@@ -252,10 +252,11 @@ function enhanceDeveloper(root) {
   }
   for (const node of root.querySelectorAll('.dev-wiz-foot .dev-btn')) {
     const button = buttonFrom(node);
+    button.textContent = 'Try walkthrough';
     button.addEventListener('click', () => {
       // The complete editable flow remains the single source of configuration.
       goTo('concept');
     });
-    button.setAttribute('aria-label', 'Try this step in the deployment walkthrough');
+    button.setAttribute('aria-label', 'Try walkthrough: deployment configuration');
   }
 }

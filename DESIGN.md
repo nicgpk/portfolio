@@ -132,7 +132,9 @@ Use 80px desktop and 48px compact spacing between major narrative sections. Give
 
 Product panels use 24px desktop gutters, 20px compact gutters and 16px on the narrowest screens. Align panel headings, forms, lists and table content; avoid stacked padded frames. Existing dense tables, calendars and topology diagrams retain their local spacing where required. Case-study story copy fills its containing section or grid column without a separate character-based width limit. Case studies have text-only, left-aligned heroes. They have no hero screenshots or chapter bars. Full narrative and product examples remain in the reading flow. Document scroll padding supplies the 112px fixed-header clearance; case-study anchors and form controls do not add a second offset.
 
-The screen resume uses 48/32px between sections and 32/24px between jobs or education entries, split around their dividers. It shares the page frame and stacks its sidebar below 768px. The separate ATS resume has 24/16px browser gutters. Both print layouts remain independent of these screen spacing rules.
+The screen resume uses 48/32px between sections and 32/24px between jobs or education entries, split around their dividers. It shares the page frame and stacks its sidebar below 768px. Its screen section grid keeps a consistent label rail that grows with enlarged reading text; role and date rows wrap when they need room. The separate ATS resume has 24/16px browser gutters. Both print layouts remain independent of these screen spacing rules.
+
+Contact copy and footer utility links share one 48px desktop / 32px compact gap, owned by the utility row's top margin. The invitation adds no trailing padding.
 
 ## Elevation & Depth
 
@@ -156,6 +158,8 @@ All product demos use one corner scale: 12px for frames, workspace panels, cards
 - **Demo motion:** all 21 product surfaces use finite, local feedback. Content groups prepare a readable starting pose just outside the viewport, then reveal after entering a reading area inset 96-180px from the bottom edge, with a fixed 100ms dwell. Scrolling does not postpone the trigger. Tall examples reveal fields, cards, charts and table sections independently; direct jumps retain readable content without a backwards fade. Shells stay fixed while content settles upward by 10px over 420-520ms, with local 60ms stagger. Live walkthroughs keep a short reading beat between meaningful state changes and relinquish autoplay on input. There are no caption or playback footers, continuous reveal loops, permanent compositor hints or new animation dependencies. Reduced motion and hidden tabs settle the interface. See [demo-reveal.mjs](js/demo-reveal.mjs), [demo-scenes.mjs](js/demo-scenes.mjs) and [demo-controls.mjs](js/demo-controls.mjs).
 
 - **Demo controls:** growth examples support discount depth, audiences, blackout dates, weekdays, reasons and local confirmation feedback. Calendar months use one tab stop with arrow-key navigation. Developer examples offer expandable guidance, component-name filtering and rollout selection; the editable walkthrough remains the source of deployment configuration. Status messages explicitly describe local examples, with no live enrollment, deployment or persistence.
+
+- **Compact controls:** below 360px, homepage program choices become full-width horizontal rows so labels remain readable. Growth FAQ and reason rows and Developer specimen actions use the shared 44px minimum target and 14px label role. Enhanced specimen actions say “Try walkthrough” to identify their destination.
 
 - **Headers and sidebars:** charcoal foundations with readable muted navigation; selected items use graphite and/or the accent.
 - **Cards and workspaces:** use the contrasting tone to distinguish content from its surrounding region. Keep one main content gutter and smaller inner-panel padding; omit extra outer frames.
