@@ -135,12 +135,14 @@
       }
     </script>
 
+    <link rel="preload" as="image" href="images/case-wave-poster.webp" media="(min-width:768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="images/case-wave-mobile.webp" media="(max-width:767px)" fetchpriority="high" />
     <!-- css-bundles:start -->
     <link rel="stylesheet" href="css/bundle-shared-base.css?v=0bddd45abc44" />
     <link rel="stylesheet" href="css/bundle-case-layout.css?v=6aaa2db086fd" />
-    <link rel="stylesheet" href="css/glass.css?v=457595b354bd" />
-    <link rel="stylesheet" href="css/bundle-case-product.css?v=c7f9105fa754" />
-    <link rel="stylesheet" href="css/bundle-growth-product.css?v=7300639418c0" />
+    <link rel="stylesheet" href="css/glass.css?v=9ec0400c6c67" />
+    <link rel="stylesheet" href="css/bundle-case-product.css?v=b2b51656ada5" />
+    <link rel="stylesheet" href="css/bundle-growth-product.css?v=b29a810b3d84" />
     <!-- css-bundles:end -->
     <link
       rel="preload"
@@ -171,7 +173,7 @@
       </div>
     </header>
     <main id="main" tabindex="-1">
-      <div class="glass-atmosphere case-atmosphere" aria-hidden="true"><div class="paper-wave" data-paper-wave></div></div>
+      <div class="glass-atmosphere case-atmosphere" aria-hidden="true"><div class="paper-wave case-wave" data-paper-wave data-wave-eager></div></div>
       <section class="case-hero case-hero--growth">
         <a class="back-link" href="index.html"
           ><svg

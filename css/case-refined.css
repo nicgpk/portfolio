@@ -57,6 +57,7 @@
   .case-refined .concept-heading .eyebrow {display:none;}
   .folio.case-refined .concept-description {font:var(--ds-weight-regular) var(--ds-portfolio-body-size)/var(--ds-portfolio-body-leading) var(--body);color:var(--glass-muted);max-width:65ch;margin:0 0 var(--ds-space-24);}
   .folio.case-refined .concept-canvas {padding:var(--ds-space-24);border:var(--ds-border-thin) solid var(--glass-line);border-radius:var(--ds-radius-card);background:var(--ds-effect-concept-canvas-background);}
+  .folio.case-refined .concept-canvas.concept-canvas--discount {padding:0;margin-inline:0;border:0;background:transparent;}
   .folio.case-refined .concept-shell {
     --body:var(--ds-font-body);--font-family-body:var(--ds-font-body);--font-family-heading:var(--ds-font-body);
     --color-background-body:var(--ds-color-workspace-inset);--color-background-surface:var(--ds-color-workspace-inset);--color-background-card:var(--ds-color-concept-shell-color-background-card);--color-background-muted:var(--ds-color-workspace-muted);

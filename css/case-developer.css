@@ -3,17 +3,6 @@
   .folio.case-refined .case-story-section :is(.case-story-copy,h2,p,li,dd,figcaption,.case-story-note):not(.product-surface *) {max-width:none;}
 }
 
-/* A still of the first shader frame paints while WebGL starts. */
-@media screen {
-  .case-refined .case-atmosphere .case-wave {opacity:.72;transition:none;}
-  .case-wave::before {content:'';position:absolute;inset:0;background:url('../images/case-wave-poster.webp') center/100% 100% no-repeat;transition:opacity var(--ds-duration-120) ease-out;}
-  .case-wave.is-wave-ready::before {opacity:0;}
-}
-@media screen and (max-width:767px) {
-  .case-wave::before {background-image:url('../images/case-wave-mobile.webp');}
-}
-@media (prefers-reduced-motion:reduce) {.case-wave::before {transition:none;}}
-
 /* The full deployment workflow extends the same product surface as its preview. */
 @media screen {
   .folio.case-refined .developer-ui {
