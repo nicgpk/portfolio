@@ -153,10 +153,13 @@ for (const root of roots) {
     localScenes.push(scene);
   }
   const takeControl = event => {
+    // Keep the scene ready when a touch becomes a vertical scroll.
+    if (event.type === 'pointerdown' && event.pointerType === 'touch') return;
     if (!event.target.closest('button,input,select,summary,a')) return;
     localScenes.forEach(scene => scene.takeControl());
   };
   root.addEventListener('pointerdown', takeControl, true);
+  root.addEventListener('click', takeControl, true);
   root.addEventListener('focusin', takeControl, true);
   root.addEventListener('input', takeControl, true);
 }

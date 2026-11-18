@@ -371,6 +371,19 @@ html[data-motion=off] .home-narrow .work-feature::before {transition:none;}
 .film-arrows button:disabled {opacity:.35;cursor:default;}
 .film-playback[hidden] {display:none;}
 
+/* The scroll-driven mask values belong to the list, not the cards inside it. */
+@property --work-fade-top {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --work-fade-bottom {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
 /* Native scroll reads each complete project, then advances the card stack. */
 @media screen {
   .work-scroll-controls:not([hidden]) {display:flex;align-items:center;gap:var(--ds-space-12);}

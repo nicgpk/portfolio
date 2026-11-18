@@ -89,6 +89,24 @@ test('manual film navigation stops autoplay and supports the loop join', async (
   assert.equal(reel.playback.textContent, 'Resume reel');
 });
 
+test('only a horizontal touch drag pauses the film reel', () => {
+  const {track, playback, frames} = setup();
+  const touch = (clientX, clientY) => ({touches: [{identifier: 1, clientX, clientY}]});
+  track.events.pointerdown({pointerType: 'touch'});
+  track.events.touchstart(touch(100, 100));
+  track.events.touchmove(touch(103, 101));
+  track.events.touchmove(touch(105, 85));
+  track.events.touchmove(touch(125, 85));
+  track.events.touchend();
+  assert.equal(playback.textContent, 'Pause reel');
+  assert.equal(frames.size, 1, 'vertical scrolling keeps autoplay running');
+
+  track.events.touchstart(touch(100, 100));
+  track.events.touchmove(touch(90, 98));
+  assert.equal(playback.textContent, 'Resume reel');
+  assert.equal(frames.size, 0, 'horizontal scrolling takes control of the reel');
+});
+
 test('reduced motion exposes a finite shelf with accurate arrow boundaries', () => {
   const reel = setup({reduced: true});
   assert.equal(reel.playback.hidden, true);

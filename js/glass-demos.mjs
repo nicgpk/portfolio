@@ -1,8 +1,8 @@
 import { stackDiscounts } from "./calculations.mjs?v=a0235d2fae86";
 import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
 import { animateFeedback } from "./interaction-motion.mjs?v=ccec8d8cb84c";
-import "./demo-scenes.mjs?v=b6c4b5521db7";
-import './section-reveals.mjs?v=ec874ea890e9';
+import "./demo-scenes.mjs?v=c2e09de1b685";
+import './section-reveals.mjs?v=975f4da3e992';
 import { observeDemoReveals } from './demo-reveal.mjs?v=74b6932daa6c';
 
 // Preserve increase semantics while using the shared arrow icon instead of '+'.
@@ -192,10 +192,11 @@ function register(element, duration, phases, delay = 0) {
                 : "Preview plays when revealed";
   };
   const takeControl = (event) => {
+    // A touch can turn into a page scroll. Wait for a click or an edit.
+    if (event.type === "pointerdown" && event.pointerType === "touch") return;
     if (event.type === "keydown" && !["Enter", " "].includes(event.key)) return;
     const control = event.target.closest(controlSelector);
     if (!control || !element.contains(control)) return;
-    if (event.type === "click" && !control.matches("button")) return;
     state.manual = true;
     state.sync();
     element

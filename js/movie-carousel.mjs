@@ -31,6 +31,7 @@ if (carousel) {
   let offset = 0;
   let lastTime = 0;
   let frame = 0;
+  let touchStart = null;
 
   const offsets = () => cards.map(card => card.offsetLeft - cards[0].offsetLeft);
   const maxScroll = () => Math.max(0, track.scrollWidth - track.clientWidth);
@@ -115,7 +116,29 @@ if (carousel) {
   carousel.addEventListener('focusin', sync);
   carousel.addEventListener('focusout', () => queueMicrotask(sync));
   track.addEventListener('scroll', updateControls, {passive: true});
-  track.addEventListener('pointerdown', pause, {passive: true});
+  track.addEventListener('pointerdown', event => {
+    if (event.pointerType !== 'touch') pause();
+  }, {passive: true});
+  // Touch moves keep reporting direction when the browser takes over scrolling.
+  track.addEventListener('touchstart', event => {
+    touchStart = event.touches.length === 1 ? event.touches[0] : null;
+  }, {passive: true});
+  track.addEventListener('touchmove', event => {
+    if (!touchStart) return;
+    const touch = event.touches[0];
+    if (event.touches.length !== 1 || touch.identifier !== touchStart.identifier) {
+      touchStart = null;
+      return;
+    }
+    const horizontal = Math.abs(touch.clientX - touchStart.clientX);
+    const vertical = Math.abs(touch.clientY - touchStart.clientY);
+    if (Math.max(horizontal, vertical) < 8) return;
+    touchStart = null;
+    if (horizontal > vertical) pause();
+  }, {passive: true});
+  const clearTouch = () => {touchStart = null;};
+  track.addEventListener('touchend', clearTouch, {passive: true});
+  track.addEventListener('touchcancel', clearTouch, {passive: true});
   track.addEventListener('wheel', event => {
     if (Math.abs(event.deltaX) > Math.abs(event.deltaY) || event.shiftKey) pause();
   }, {passive: true});

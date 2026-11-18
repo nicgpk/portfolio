@@ -24,14 +24,14 @@
     },
     "home-product": {
       "file": "css/bundle-home-product.css",
-      "href": "css/bundle-home-product.css?v=9dbee779ebbb",
+      "href": "css/bundle-home-product.css?v=117b56f7c0d3",
       "sources": [
         "css/work-index.css",
         "css/product-surfaces.css",
         "css/two-tone.css",
         "css/demo-motion.css"
       ],
-      "bytes": 61068
+      "bytes": 61340
     },
     "case-layout": {
       "file": "css/bundle-case-layout.css",
@@ -114,7 +114,7 @@
   "shared": {
     "glass": "css/glass.css?v=9ec0400c6c67",
     "paper-wave": "js/paper-wave.mjs?v=39af3cbcc787",
-    "glass-demos": "js/glass-demos.mjs?v=0c6c6c52a999"
+    "glass-demos": "js/glass-demos.mjs?v=8e1cfae4cd40"
   },
   "routes": {
     "index.html": {
@@ -122,7 +122,7 @@
         "css/bundle-shared-base.css?v=0bddd45abc44",
         "css/bundle-home-layout.css?v=b536ab2ef0a0",
         "css/glass.css?v=9ec0400c6c67",
-        "css/bundle-home-product.css?v=9dbee779ebbb"
+        "css/bundle-home-product.css?v=117b56f7c0d3"
       ],
       "count": 4
     },
@@ -187,11 +187,11 @@
     "js/interaction-motion.mjs": "js/interaction-motion.mjs?v=ccec8d8cb84c",
     "js/demo-controls.mjs": "js/demo-controls.mjs?v=66fefdc7b2fc",
     "js/demo-reveal.mjs": "js/demo-reveal.mjs?v=74b6932daa6c",
-    "js/demo-scenes.mjs": "js/demo-scenes.mjs?v=b6c4b5521db7",
-    "js/section-reveals.mjs": "js/section-reveals.mjs?v=ec874ea890e9",
+    "js/demo-scenes.mjs": "js/demo-scenes.mjs?v=c2e09de1b685",
+    "js/section-reveals.mjs": "js/section-reveals.mjs?v=975f4da3e992",
     "js/vendor/d3-shape-3.2.0.mjs": "js/vendor/d3-shape-3.2.0.mjs?v=3fc80db901d4",
     "js/deployment-topology.mjs": "js/deployment-topology.mjs?v=4818473a33a5",
-    "js/glass-demos.mjs": "js/glass-demos.mjs?v=0c6c6c52a999",
+    "js/glass-demos.mjs": "js/glass-demos.mjs?v=8e1cfae4cd40",
     "js/form-validation.mjs": "js/form-validation.mjs?v=8392fafdc2a6",
     "js/interface-icons.mjs": "js/interface-icons.mjs?v=f961f8003e9e",
     "js/evidence-motion.mjs": "js/evidence-motion.mjs?v=a13d7fb58763",

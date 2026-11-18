@@ -19,6 +19,22 @@ test('keyboard focus holds preview until focus leaves',()=>{const x=setup();x.st
 
 test('pointer engagement freezes autoplay before the click',()=>{const x=setup();x.state.visible=true;x.state.sync();x.tick(500);x.listeners.pointerdown({type:'pointerdown',target:x.control});x.tick(4000);assert.equal(x.state.manual,true);assert.deepEqual(x.seen,[0]);assert.equal(x.timers.size,0);});
 
+test('touch contact keeps the preview playing until a tap activates the control', () => {
+ const x = setup();
+ x.state.visible = true;
+ x.state.sync();
+ x.listeners.pointerdown({type:'pointerdown',pointerType:'touch',target:x.control});
+ x.tick(1100);
+ assert.equal(x.state.manual, false);
+ assert.deepEqual(x.seen, [0, 1]);
+
+ x.listeners.click({type:'click',target:x.control});
+ x.tick(2200);
+ assert.equal(x.state.manual, true);
+ assert.deepEqual(x.seen, [0, 1]);
+ assert.equal(x.timers.size, 0);
+});
+
 test('keyboard activation freezes autoplay but tabbing only holds it',()=>{const x=setup();x.state.visible=true;x.state.sync();x.listeners.keydown({type:'keydown',key:'Tab',target:x.control});assert.equal(x.state.manual,false);x.listeners.keydown({type:'keydown',key:' ',target:x.control});x.tick(4000);assert.equal(x.state.manual,true);assert.deepEqual(x.seen,[0]);});
 
 test('follow-up change and focus events preserve feedback after manual takeover',()=>{const x=setup();let cancellations=0;x.element.getAnimations=()=>[{cancel:()=>cancellations++}];x.state.visible=true;x.state.sync();x.listeners.pointerdown({type:'pointerdown',target:x.control});assert.equal(cancellations,1);x.listeners.input({type:'input',target:x.control});x.listeners.change({type:'change',target:x.control});x.listeners.focusout();assert.equal(cancellations,1);});
