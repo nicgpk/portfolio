@@ -31,6 +31,10 @@ if (root) {
     return {index, local: Math.max(0, position - (starts[index] || 0))};
   }
 
+  function holdFor(index) {
+    return index < cards.length - 1 ? step * holdRatio : 0;
+  }
+
   function render(time, immediate = false) {
     frame = 0;
     if (!pinned) return;
@@ -46,7 +50,7 @@ if (root) {
     const {index, local} = segment(displayed * step);
     // Read the entire card at its original type size before the next arrives.
     // Shorter viewports add native document scroll distance, not a nested pane.
-    const hold = index < cards.length - 1 ? step * holdRatio : 0;
+    const hold = holdFor(index);
     const readOffset = Math.max(0, Math.min(reading[index], local - hold));
     const fraction = index < cards.length - 1
       ? Math.max(0, Math.min(1, (local - hold - reading[index]) / (step * (1 - holdRatio)))) : 0;
@@ -146,8 +150,9 @@ if (root) {
     const retained = Math.max(0, active);
     const position = step ? Math.max(0, Math.min(scrollTravel, scrollY - start)) : 0;
     const retainedSegment = segment(position);
-    const oldLength = reading[retainedSegment.index] + (retainedSegment.index < cards.length - 1 ? step : 0);
-    const retainedFraction = oldLength > 0 ? retainedSegment.local / oldLength : 0;
+    const oldHold = holdFor(retainedSegment.index);
+    const oldReading = reading[retainedSegment.index];
+    const oldStep = step;
     const wasInStage = wasPinned && scrollY >= start && scrollY <= start + scrollTravel;
     // Share the sequence across sizes. Short landscape windows and reduced
     // motion retain the complete natural flow instead of a cramped pin.
@@ -166,8 +171,7 @@ if (root) {
     root.classList.toggle('is-work-pinned', pinned);
     controls.hidden = !pinned;
     if (projectNav) projectNav.hidden = !pinned;
-    // Compact CSS caps the stage with 100svh. Derive the runway from that stable
-    // size so a mobile browser toolbar hiding doesn't change the scroll clock.
+    // Use the available stage after the browser toolbar or safe area is accounted for.
     const viewportHeight = compact && pinned ? Math.min(innerHeight, height + top + 24) : innerHeight;
     step = Math.round(viewportHeight * .85);
     measuredWidth = innerWidth;
@@ -192,9 +196,18 @@ if (root) {
       atmosphereTrack?.classList.toggle('is-work-pinned', true);
       if (wasInStage) {
         const index = retainedSegment.index;
-        const length = reading[index] + (index < cards.length - 1 ? step : 0);
-        const restoreTop = start + starts[index] + retainedFraction * length;
-        // A no-op scrollTo can stop native touch momentum during toolbar resize.
+        const hold = holdFor(index);
+        const readPosition = retainedSegment.local - oldHold;
+        // Keep the same point in the card or the same progress through a handoff.
+        let local = hold + Math.min(reading[index], readPosition);
+        if (readPosition < 0) {
+          local = retainedSegment.local / oldHold * hold;
+        } else if (index < cards.length - 1 && readPosition > oldReading) {
+          const progress = (readPosition - oldReading) / (oldStep - oldHold);
+          local += progress * (step - hold);
+        }
+        const restoreTop = start + starts[index] + local;
+        // Avoid interrupting native touch momentum when the position is already correct.
         if (Math.abs(restoreTop - scrollY) > .5) window.scrollTo({top: restoreTop, behavior: 'instant'});
       }
       render(performance.now(), true);
@@ -247,7 +260,7 @@ if (root) {
     if (index < 0) return;
     const viewport = list.getBoundingClientRect(), target = event.target.getBoundingClientRect();
     const {index: current, local} = segment(displayed * step);
-    const hold = index < cards.length - 1 ? step * holdRatio : 0;
+    const hold = holdFor(index);
     const pan = current === index ? Math.max(0, Math.min(reading[index], local - hold)) : 0;
     const delta = target.top < viewport.top ? target.top - viewport.top
       : target.bottom > viewport.bottom ? target.bottom - viewport.bottom : 0;

@@ -433,8 +433,8 @@ html[data-motion=off] .home-narrow .work-feature::before {transition:none;}
 }
 
 @media screen and (max-width:1023px) {
-  @supports (height:100svh) {
-    #work.is-work-pinned .work-scroll-stage {max-height:min(var(--work-viewport-height),calc(100svh - var(--work-sticky-top,88px) - 24px));}
+  @supports (height:100dvh) {
+    #work.is-work-pinned .work-scroll-stage {max-height:calc(100dvh - var(--work-sticky-top,88px) - max(24px, env(safe-area-inset-bottom, 0px)));}
   }
 }
 

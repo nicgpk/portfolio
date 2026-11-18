@@ -53,7 +53,13 @@ async function setup({width = 1440, height = 1305, coarse = false, stageHeight =
     scrollPosition:() => context.scrollY,
     scrollCalls:() => scrollCalls,
     scroll(progress) {context.scrollY = 504 - (width < 768 ? 88 : 104) + Math.round(height * .85) * progress; events.scroll();},
-    resize({width:nextWidth=context.innerWidth,height:nextHeight=context.innerHeight}={}) {context.innerWidth=nextWidth;context.innerHeight=nextHeight;events.resize();},
+    resize({width:nextWidth=context.innerWidth,height:nextHeight=context.innerHeight,stageHeight=stage.offsetHeight,listHeight=list.offsetHeight}={}) {
+      context.innerWidth=nextWidth;
+      context.innerHeight=nextHeight;
+      stage.offsetHeight=stageHeight;
+      list.offsetHeight=listHeight;
+      events.resize();
+    },
     tick(ms) {now += ms; const pending = [...frames.values()]; frames.clear(); pending.forEach(fn => fn(now));},
     writes:() => writes,
   };
@@ -212,7 +218,7 @@ for (const [width,height,stageHeight,listHeight] of [[320,640,528,442],[390,844,
   });
 }
 
-test('mobile toolbar resizing preserves the stable stage and reading position', async () => {
+test('a resize with the same stage geometry preserves native touch momentum', async () => {
   const x=await setup({width:390,height:844,coarse:true,stageHeight:732,listHeight:672,heights:[1500,1400,1600]});
   x.scroll(1);x.tick(16);
   const before={scroll:x.scrollPosition(),transform:x.cards[0].style.transform,runway:x.root.style.height};
@@ -220,7 +226,33 @@ test('mobile toolbar resizing preserves the stable stage and reading position', 
   assert.equal(x.root.style.height,before.runway);
   assert.equal(x.scrollPosition(),before.scroll);
   assert.equal(x.cards[0].style.transform,before.transform);
-  assert.equal(x.scrollCalls(),0,'a stable toolbar resize must not interrupt native touch momentum');
+  assert.equal(x.scrollCalls(),0,'unchanged stage geometry needs no scroll correction');
+});
+
+test('mobile toolbar collapse expands the stage without shifting the text being read', async () => {
+  const x=await setup({width:390,height:748,coarse:true,stageHeight:636,listHeight:576,heights:[1500,1400,1600]});
+  const step=Math.round(748*.85);
+  x.scroll(.2+260/step);x.tick(16);
+  const oldHeight=x.root.style.height;
+  x.resize({height:844,stageHeight:732,listHeight:672});
+  assert.notEqual(x.root.style.height,oldHeight);
+  assert.ok(Math.abs(verticalOffset(x.cards[0])+260)<.01);
+  assert.equal(x.cards[0].inert,false);
+  x.resize({height:748,stageHeight:636,listHeight:576});
+  assert.equal(x.root.style.height,oldHeight);
+  assert.ok(Math.abs(verticalOffset(x.cards[0])+260)<.01);
+});
+
+test('mobile toolbar collapse preserves the active project during a handoff', async () => {
+  const x=await setup({width:390,height:748,coarse:true,stageHeight:636,listHeight:576,heights:[1500,1400,1600]});
+  const step=Math.round(748*.85);
+  x.scroll(.2+(1500-576)/step+.8*.473);x.tick(16);
+  const tilt=card=>Number(card.style.transform.match(/rotateX\(([^d]+)deg\)/)[1]);
+  const before=tilt(x.cards[0]);
+  assert.equal(x.cards[0].inert,false);
+  x.resize({height:844,stageHeight:732,listHeight:672});
+  assert.equal(x.cards[0].inert,false);
+  assert.ok(Math.abs(tilt(x.cards[0])-before)<.001);
 });
 
 test('touch card movement notifies reveal observers after the new positions are painted', async () => {
