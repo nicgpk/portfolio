@@ -1,8 +1,8 @@
 import { stackDiscounts } from "./calculations.mjs?v=a0235d2fae86";
 import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
-import { animateFeedback } from "./interaction-motion.mjs?v=ccec8d8cb84c";
-import "./demo-scenes.mjs?v=c2e09de1b685";
-import './section-reveals.mjs?v=975f4da3e992';
+import { animateFeedback } from "./interaction-motion.mjs?v=38b6b647ccc1";
+import "./demo-scenes.mjs?v=7b5e3e9fb19b";
+import './section-reveals.mjs?v=908c6ecebcd3';
 import { observeDemoReveals } from './demo-reveal.mjs?v=74b6932daa6c';
 
 // Preserve increase semantics while using the shared arrow icon instead of '+'.
@@ -723,19 +723,11 @@ if (nav) {
   header.classList.add("nav-has-menu");
   const setMenu = (open, returnFocus = false) => {
     open = open && compact.matches;
+    if (open) header.classList.add("has-menu-opened");
     header.classList.toggle("is-menu-open", open);
     menuButton.setAttribute("aria-expanded", String(open));
     nav.inert = compact.matches && !open;
     if (returnFocus) menuButton.focus();
-    if (open) {
-      animateFeedback(nav,
-        [
-          { opacity: 0.8, transform: "translateY(-6px)" },
-          { opacity: 1, transform: "translateY(0)" },
-        ],
-        360,
-      );
-    } else nav.getAnimations().forEach(animation => animation.cancel());
   };
   menuButton.addEventListener("click", () =>
     setMenu(menuButton.getAttribute("aria-expanded") !== "true"),

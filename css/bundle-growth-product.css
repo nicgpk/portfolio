@@ -473,12 +473,12 @@
 @media screen {
   .folio .demo-interactive button:disabled {cursor:default;opacity:.5;}
   .folio .demo-interactive :is(button,a,input,select,summary) {
-    transition:color var(--ds-duration-150) var(--ds-ease-out-expo),
-      border-color var(--ds-duration-150) var(--ds-ease-out-expo),
-      background-color var(--ds-duration-150) var(--ds-ease-out-expo);
+    transition:color var(--ds-duration-150) var(--ds-ease-in-out),
+      border-color var(--ds-duration-150) var(--ds-ease-in-out),
+      background-color var(--ds-duration-150) var(--ds-ease-in-out);
   }
   .folio .demo-interactive :is(button,a) .ui-icon {
-    transition:transform var(--ds-duration-250) var(--ds-ease-out-expo);
+    transition:transform var(--ds-duration-250) var(--ds-ease-in-out);
   }
   .folio .demo-interactive .demo-result {
     margin:var(--ds-space-16) 0 0;padding:var(--ds-space-12) var(--ds-space-16);
@@ -526,7 +526,7 @@
   .folio .demo-interactive input.demo-search {width:100%;min-width:0;padding-inline:var(--ds-space-12);}
   .demo-interactive [hidden] {display:none !important;}
   .demo-interactive :is(.receipt-promotion,.mini-stages li,.deploy-steps li) {
-    transition:opacity var(--ds-duration-220) var(--ds-ease-out-expo),border-color var(--ds-duration-220) var(--ds-ease-out-expo);
+    transition:opacity var(--ds-duration-220) var(--ds-ease-in-out),border-color var(--ds-duration-220) var(--ds-ease-in-out);
   }
 }
 @media (hover:hover) and (pointer:fine) {

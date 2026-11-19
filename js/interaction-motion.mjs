@@ -3,7 +3,7 @@ import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
 // Shared feedback: contents stay visible, values are final before any animation.
 const active = new Set();
 const byElement = new WeakMap();
-const ease = "cubic-bezier(.25,.1,.25,1)";
+const ease = "cubic-bezier(.4,0,.2,1)";
 export function animateFeedback(element, frames, duration, delay = 0) {
   if (!element) return;
   byElement.get(element)?.cancel();
@@ -13,7 +13,7 @@ export function animateFeedback(element, frames, duration, delay = 0) {
   const tokens = vesper ? getComputedStyle(vesper) : null;
   const animation = element.animate(frames, {
     // Explicit timings also apply inside themed examples; empty tokens fall back.
-    duration: duration ?? (parseFloat(tokens?.getPropertyValue("--duration-medium")) || 420),
+    duration: duration ?? (parseFloat(tokens?.getPropertyValue("--duration-medium")) || 280),
     easing: tokens?.getPropertyValue("--ease-standard").trim() || ease,
     delay,
     fill: "backwards",
@@ -38,9 +38,9 @@ export function cancelFeedback(root) {
 export function sequenceFeedback(elements, direction = 1) {
   return [...elements].slice(0, 8).map((element, index) =>
     animateFeedback(element, [
-      { opacity: .55, transform: `translateX(${direction * 10}px)` },
+      { opacity: .72, transform: `translateX(${direction * 6}px)` },
       { opacity: 1, transform: 'translateX(0)' },
-    ], 360, Math.min(index * 35, 175)),
+    ], 260, Math.min(index * 24, 96)),
   ).filter(Boolean);
 }
 export const revealFeedback = (element, direction = 1) =>
@@ -56,7 +56,7 @@ export function animateRateBar(bar, previous, next) {
         { transform: `scaleX(${Math.max(0, previous) / next})` },
         { transform: "scaleX(1)" },
       ],
-      520,
+      320,
     );
 }
 export function attachIndicator(

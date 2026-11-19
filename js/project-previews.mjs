@@ -3,7 +3,7 @@ import {
   attachIndicator,
   revealFeedback,
   animateRateBar,
-} from "./interaction-motion.mjs?v=ccec8d8cb84c";
+} from "./interaction-motion.mjs?v=38b6b647ccc1";
 
 for (const root of document.querySelectorAll("[data-preview-picker]")) {
   const controls = [...root.querySelectorAll("[data-preview-choice]")];

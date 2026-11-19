@@ -1,4 +1,4 @@
-import { animateFeedback, revealFeedback, sequenceFeedback } from './interaction-motion.mjs?v=ccec8d8cb84c';
+import { animateFeedback, revealFeedback, sequenceFeedback } from './interaction-motion.mjs?v=38b6b647ccc1';
 import { motionPaused } from './kinetics.mjs?v=2178cec3bf8c';
 
 function buttonFrom(node) {

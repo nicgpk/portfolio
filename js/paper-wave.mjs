@@ -16,6 +16,7 @@ for(const host of hosts) {
  let fallbackInProgress=false;
  const middle=host.dataset.paperWave==='midpage';
  const showcase=['showcase','resume'].includes(host.dataset.paperWave);
+ const hero=host.classList.contains('hero-wave');
  const speed=showcase?.12:middle?-.12:.18;
  const composition=()=>{
   const warm=compact.matches?'#cec8bb66':'#cec8bb';
@@ -23,7 +24,8 @@ for(const host of hosts) {
   return {u_colors:colors.map(getShaderColorFromString),u_colorsCount:colors.length,
     u_scale:showcase?.85:compact.matches?(middle?.7:.85):(middle?.9:1.3),
     u_rotation:showcase?48:compact.matches?(middle?112:18):(middle?128:18),
-    u_offsetX:middle?(compact.matches?.08:.22):0,u_offsetY:middle?(compact.matches?-.04:-.12):0};
+    u_offsetX:middle?(compact.matches?.08:.22):0,
+    u_offsetY:middle?(compact.matches?-.04:-.12):hero&&compact.matches?-.24:0};
  };
  const pixelBudget=()=>showcase?(compact.matches?300000:450000):compact.matches?(middle?350000:450000):(middle?500000:800000);
  const start=async()=>{

@@ -5,14 +5,14 @@ import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
 if (document.querySelector("[data-evidence-icon]")) import("./evidence-motion.mjs?v=a13d7fb58763");
 if (document.querySelector(".project-showcase:not(.work-stack)")) import("./showcase.mjs?v=5cd514558bbd");
 if (document.querySelector("[data-cloud-scene]")) import("./clouds.mjs?v=da168fb35e6a");
-if (document.querySelector("[data-preview-picker], [data-discount-preview]")) import("./project-previews.mjs?v=f966d5344d78");
+if (document.querySelector("[data-preview-picker], [data-discount-preview]")) import("./project-previews.mjs?v=1ccb0e947c93");
 import {
   revealFeedback,
   attachIndicator,
   animateRateBar,
   animateFeedback,
   sequenceFeedback,
-} from "./interaction-motion.mjs?v=ccec8d8cb84c";
+} from "./interaction-motion.mjs?v=38b6b647ccc1";
 
 document.querySelectorAll("[data-discovery]").forEach((root) => {
   const search = root.querySelector("[data-program-search]"),

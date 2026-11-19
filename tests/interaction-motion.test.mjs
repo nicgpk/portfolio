@@ -38,7 +38,9 @@ test('explicit reveal timing survives a theme and missing tokens use a finite fa
   const themed = setup({'--duration-medium':'600ms'});
   assert.equal(themed.play(700).options.duration, 700);
   assert.equal(themed.play().options.duration, 600);
-  assert.equal(setup({}).play().options.duration, 420);
+  const fallback = setup({}).play();
+  assert.equal(fallback.options.duration, 280);
+  assert.equal(fallback.options.easing, 'cubic-bezier(.4,0,.2,1)');
 });
 
 test('rapid input replaces feedback rather than stacking animations', () => {
