@@ -20,7 +20,7 @@ if (root) {
   const painted = [];
   const progressPainted = [];
   let edgePainted = '';
-  let masked = null;
+  let fadeMode = null;
 
   function segment(position) {
     let index = 0;
@@ -77,24 +77,38 @@ if (root) {
     });
     // Let whole cards travel past one another, with a little breathing room.
     // Their bounds never overlap, so transparent glass needs no moving cut line.
+    const outgoingTop = -readOffset - travel * mix;
+    const outgoingBottom = outgoingTop + cardHeights[index] * (1 - .14 * mix);
     const incomingOffset = mix === 1 ? 0 : travel * (1 - mix) + 48 * Math.sin(Math.PI * mix);
-    const fadeTop = Math.min(32, readOffset + travel * mix, incomingOffset);
-    const bottom = mix > 0 && incomingOffset < travel
+    const incomingBottom = index < cards.length - 1
       ? incomingOffset + cardHeights[index + 1] * (.9 + .1 * mix)
-      : cardHeights[index] * (1 - .14 * mix) - readOffset - travel * mix;
-    const fadeBottom = Math.min(24, Math.max(0, bottom - travel));
+      : 0;
+    const maxFadeTop = Math.min(48, travel * .1);
+    const maxFadeBottom = Math.min(64, travel * .12);
+    const fadeTop = Math.min(maxFadeTop, Math.max(0, -outgoingTop), incomingOffset);
+    const outgoingOverflow = Math.max(0, outgoingBottom - travel);
+    const incomingOverflow = mix > 0 && incomingOffset < travel
+      ? Math.max(0, incomingBottom - travel)
+      : 0;
+    const fadeBottom = outgoingOverflow > 0
+      ? Math.min(maxFadeBottom, outgoingOverflow)
+      : incomingOverflow > 0
+        ? Math.min(maxFadeBottom, incomingOverflow, Math.max(0, travel - outgoingBottom))
+        : 0;
     const edges = `${fadeTop.toFixed(2)}px ${fadeBottom.toFixed(2)}px`;
     if (edges !== edgePainted) {
       list.style.setProperty('--work-fade-top', `${fadeTop.toFixed(2)}px`);
       list.style.setProperty('--work-fade-bottom', `${fadeBottom.toFixed(2)}px`);
       edgePainted = edges;
     }
-    // A mask creates a backdrop root. Remove it at rest so the glass can still
-    // blur the wave behind the list, including at fractional scroll positions.
-    const crossingEdge = fadeTop > .5;
-    if (masked !== crossingEdge) {
-      list.style.maskImage = crossingEdge ? '' : 'none';
-      masked = crossingEdge;
+    const hasTop = fadeTop > .5;
+    const hasBottom = fadeBottom > .5;
+    const nextFadeMode = hasTop && hasBottom ? 'both' : hasTop ? 'top' : hasBottom ? 'bottom' : '';
+    if (fadeMode !== nextFadeMode) {
+      if (nextFadeMode) list.dataset.workFade = nextFadeMode;
+      else delete list.dataset.workFade;
+      list.style.maskImage = nextFadeMode ? '' : 'none';
+      fadeMode = nextFadeMode;
     }
     let geometryChanged = false;
     cards.forEach((card, i) => {
@@ -241,7 +255,8 @@ if (root) {
       progressPainted.length = 0;
       if (wasPinned) status.textContent = '';
       edgePainted = '';
-      masked = null;
+      fadeMode = null;
+      delete list.dataset.workFade;
       list.style.removeProperty('mask-image');
       list.style.removeProperty('--work-fade-top');
       list.style.removeProperty('--work-fade-bottom');

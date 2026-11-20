@@ -2,14 +2,14 @@
   "bundles": {
     "shared-base": {
       "file": "css/bundle-shared-base.css",
-      "href": "css/bundle-shared-base.css?v=0c21d510b38c",
+      "href": "css/bundle-shared-base.css?v=bbfdfdea265e",
       "sources": [
         "css/design-tokens.css",
         "css/folio.css",
         "css/editorial.css",
         "css/studio.css"
       ],
-      "bytes": 166809
+      "bytes": 167883
     },
     "home-layout": {
       "file": "css/bundle-home-layout.css",
@@ -24,14 +24,14 @@
     },
     "home-product": {
       "file": "css/bundle-home-product.css",
-      "href": "css/bundle-home-product.css?v=1fe557943b76",
+      "href": "css/bundle-home-product.css?v=169c964f8615",
       "sources": [
         "css/work-index.css",
         "css/product-surfaces.css",
         "css/two-tone.css",
         "css/demo-motion.css"
       ],
-      "bytes": 73461
+      "bytes": 75187
     },
     "case-layout": {
       "file": "css/bundle-case-layout.css",
@@ -100,7 +100,7 @@
     },
     "resume-layout": {
       "file": "css/bundle-resume-layout.css",
-      "href": "css/bundle-resume-layout.css?v=c593929015fa",
+      "href": "css/bundle-resume-layout.css?v=1ace43b9a872",
       "sources": [
         "css/design-tokens.css",
         "css/teletype.css",
@@ -111,7 +111,7 @@
         "css/resume-portfolio.css",
         "css/vesper-tokens.css"
       ],
-      "bytes": 250792
+      "bytes": 251866
     }
   },
   "shared": {
@@ -122,16 +122,16 @@
   "routes": {
     "index.html": {
       "stylesheets": [
-        "css/bundle-shared-base.css?v=0c21d510b38c",
+        "css/bundle-shared-base.css?v=bbfdfdea265e",
         "css/bundle-home-layout.css?v=cef072dfdf52",
         "css/glass.css?v=fa438886e47d",
-        "css/bundle-home-product.css?v=1fe557943b76"
+        "css/bundle-home-product.css?v=169c964f8615"
       ],
       "count": 4
     },
     "partner-growth-programs.html": {
       "stylesheets": [
-        "css/bundle-shared-base.css?v=0c21d510b38c",
+        "css/bundle-shared-base.css?v=bbfdfdea265e",
         "css/bundle-case-layout.css?v=30a88338f471",
         "css/glass.css?v=fa438886e47d",
         "css/bundle-case-product.css?v=91eba5b82e99",
@@ -141,7 +141,7 @@
     },
     "discounting.html": {
       "stylesheets": [
-        "css/bundle-shared-base.css?v=0c21d510b38c",
+        "css/bundle-shared-base.css?v=bbfdfdea265e",
         "css/bundle-case-layout.css?v=30a88338f471",
         "css/glass.css?v=fa438886e47d",
         "css/bundle-case-product.css?v=91eba5b82e99",
@@ -151,7 +151,7 @@
     },
     "dev-portal.html": {
       "stylesheets": [
-        "css/bundle-shared-base.css?v=0c21d510b38c",
+        "css/bundle-shared-base.css?v=bbfdfdea265e",
         "css/bundle-case-layout.css?v=30a88338f471",
         "css/bundle-developer-concepts.css?v=e0b002f0816b",
         "css/glass.css?v=fa438886e47d",
@@ -162,7 +162,7 @@
     },
     "resume.html": {
       "stylesheets": [
-        "css/bundle-resume-layout.css?v=c593929015fa",
+        "css/bundle-resume-layout.css?v=1ace43b9a872",
         "css/glass.css?v=fa438886e47d"
       ],
       "count": 2
@@ -204,7 +204,7 @@
     "js/clouds.mjs": "js/clouds.mjs?v=da168fb35e6a",
     "js/project-previews.mjs": "js/project-previews.mjs?v=1ccb0e947c93",
     "js/folio.mjs": "js/folio.mjs?v=9d82c7487480",
-    "js/work-scroll.mjs": "js/work-scroll.mjs?v=699f7b65c585"
+    "js/work-scroll.mjs": "js/work-scroll.mjs?v=2fcf360b080a"
   },
   "sourceDependencies": [
     "css/case-developer.css",

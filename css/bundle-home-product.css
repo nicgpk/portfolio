@@ -43,10 +43,9 @@
   /* Keep the still beneath the canvas so initialization and recovery share a backdrop. */
   .hero-work-surface .paper-wave.hero-wave {opacity:.72;transition:none;}
   .hero-wave::before {content:'';position:absolute;inset:0;background:url('../images/home-wave-poster.webp') center/100% 100% no-repeat;}
+  /* Bake the brightness darken into alpha compositing so scroll masks never create a backdrop-root color shift. */
   .work-feature-list .work-feature {
-    background:color-mix(in srgb,var(--ds-color-workspace-muted) 20%,transparent);
-    backdrop-filter:brightness(.78);
-    -webkit-backdrop-filter:brightness(.78);
+    background:var(--ds-color-work-card-surface);
     box-shadow:var(--ds-effect-work-card-shadow);
   }
 }
@@ -358,10 +357,6 @@ html[data-motion=off] .home-narrow .work-feature::before {transition:none;}
 .film-track {mask-image:var(--ds-effect-film-track-mask-image);-webkit-mask-image:var(--ds-effect-film-track-mask-image);mask-size:100% 100%;mask-repeat:no-repeat;mask-mode:alpha;}
 .film-track:focus-visible {outline:none;}
 .film-carousel:has(.film-track:focus-visible) {outline:var(--ds-focus-width) solid var(--glass-focus);outline-offset:var(--ds-focus-offset);}
-.film-playback {min-height:var(--ds-size-44);padding:var(--ds-space-8) 0;border:0;background:transparent;color:var(--glass-muted);font:var(--ds-weight-medium) var(--ds-portfolio-meta-size)/var(--ds-leading-1-5) var(--body);cursor:pointer;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:var(--ds-space-4);}
-.film-playback:not([hidden]) {display:block;margin-left:auto;}
-.film-playback:is(:hover,:focus-visible) {color:var(--glass-ink);text-decoration-color:currentColor;}
-@media print {.film-playback:not([hidden]) {display:none;}}
 .film-card {box-sizing:border-box;display:flex;align-items:center;flex:0 0 calc((100% - 48px)/3);min-width:0;margin:0;padding:var(--ds-space-8);border:var(--ds-border-thin) solid var(--glass-line);border-radius:var(--ds-radius-panel);background:var(--glass-raised);scroll-snap-align:start;}
 /* Natural proportions put the rounding on the artwork, without cropping the poster. */
 .film-card img {display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;border-radius:var(--ds-radius-badge);}
@@ -389,9 +384,20 @@ html[data-motion=off] .home-narrow .work-feature::before {transition:none;}
   .work-project-nav button[aria-current] .work-project-track {background:var(--glass-muted);}
   #work.is-work-pinned {box-sizing:content-box;}
   #work.is-work-pinned .work-scroll-stage {position:sticky;top:var(--work-sticky-top,104px);display:flex;flex-direction:column;max-height:var(--work-viewport-height);}
-  #work.is-work-pinned .work-feature-list {position:relative;display:grid;flex:1 1 auto;min-width:0;min-height:0;grid-template-columns:minmax(0,1fr);gap:0;align-items:start;overflow:clip;isolation:isolate;mask-image:linear-gradient(to bottom,transparent,var(--glass-ink) var(--work-fade-top,0px));}
-  /* A bottom overlay softens the crop while tall cards still blur the wave. */
-  #work.is-work-pinned .work-feature-list::after {--work-fade-bottom:inherit;content:'';position:absolute;inset:auto 0 0;z-index:4;pointer-events:none;height:var(--work-fade-bottom,0px);background:linear-gradient(transparent,var(--glass-ground));}
+  #work.is-work-pinned .work-feature-list {position:relative;display:grid;flex:1 1 auto;min-width:0;min-height:0;grid-template-columns:minmax(0,1fr);gap:0;align-items:start;overflow:clip;isolation:isolate;mask-mode:alpha;}
+  /* Alpha masks dissolve scrolling edges directly into the wave without a solid overlay seam. */
+  #work.is-work-pinned .work-feature-list[data-work-fade="top"] {
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0px,var(--ds-mask-fade-1) calc(var(--work-fade-top,0px) * .25),var(--ds-mask-fade-2) calc(var(--work-fade-top,0px) * .5),var(--ds-mask-fade-3) calc(var(--work-fade-top,0px) * .75),var(--ds-color-white) var(--work-fade-top,0px));
+    mask-image:linear-gradient(to bottom,transparent 0px,var(--ds-mask-fade-1) calc(var(--work-fade-top,0px) * .25),var(--ds-mask-fade-2) calc(var(--work-fade-top,0px) * .5),var(--ds-mask-fade-3) calc(var(--work-fade-top,0px) * .75),var(--ds-color-white) var(--work-fade-top,0px));
+  }
+  #work.is-work-pinned .work-feature-list[data-work-fade="bottom"] {
+    -webkit-mask-image:linear-gradient(to bottom,var(--ds-color-white) calc(100% - var(--work-fade-bottom,0px)),var(--ds-mask-fade-3) calc(100% - var(--work-fade-bottom,0px) * .75),var(--ds-mask-fade-2) calc(100% - var(--work-fade-bottom,0px) * .5),var(--ds-mask-fade-1) calc(100% - var(--work-fade-bottom,0px) * .25),transparent 100%);
+    mask-image:linear-gradient(to bottom,var(--ds-color-white) calc(100% - var(--work-fade-bottom,0px)),var(--ds-mask-fade-3) calc(100% - var(--work-fade-bottom,0px) * .75),var(--ds-mask-fade-2) calc(100% - var(--work-fade-bottom,0px) * .5),var(--ds-mask-fade-1) calc(100% - var(--work-fade-bottom,0px) * .25),transparent 100%);
+  }
+  #work.is-work-pinned .work-feature-list[data-work-fade="both"] {
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0px,var(--ds-mask-fade-1) calc(var(--work-fade-top,0px) * .25),var(--ds-mask-fade-2) calc(var(--work-fade-top,0px) * .5),var(--ds-mask-fade-3) calc(var(--work-fade-top,0px) * .75),var(--ds-color-white) var(--work-fade-top,0px),var(--ds-color-white) calc(100% - var(--work-fade-bottom,0px)),var(--ds-mask-fade-3) calc(100% - var(--work-fade-bottom,0px) * .75),var(--ds-mask-fade-2) calc(100% - var(--work-fade-bottom,0px) * .5),var(--ds-mask-fade-1) calc(100% - var(--work-fade-bottom,0px) * .25),transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0px,var(--ds-mask-fade-1) calc(var(--work-fade-top,0px) * .25),var(--ds-mask-fade-2) calc(var(--work-fade-top,0px) * .5),var(--ds-mask-fade-3) calc(var(--work-fade-top,0px) * .75),var(--ds-color-white) var(--work-fade-top,0px),var(--ds-color-white) calc(100% - var(--work-fade-bottom,0px)),var(--ds-mask-fade-3) calc(100% - var(--work-fade-bottom,0px) * .75),var(--ds-mask-fade-2) calc(100% - var(--work-fade-bottom,0px) * .5),var(--ds-mask-fade-1) calc(100% - var(--work-fade-bottom,0px) * .25),transparent 100%);
+  }
   #work.is-work-pinned .work-feature {grid-area:1 / 1;transform-origin:center top;backface-visibility:hidden;}
 }
 

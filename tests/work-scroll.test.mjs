@@ -23,7 +23,7 @@ async function setup({width = 1440, height = 1305, coarse = false, stageHeight =
   }));
   const atmosphere = {style:style(), classList:{toggle() {}}};
   const stage = {offsetHeight:stageHeight};
-  const list = {offsetHeight:listHeight, style:style()};
+  const list = {offsetHeight:listHeight, style:style(), dataset:{}};
   const root = {style:style(), classList:{toggle() {}},
     contains:element => element === document.activeElement,
     dispatchEvent:event => notices.push({type:event.type,transforms:cards.map(card=>card.style.transform)}),
@@ -209,6 +209,7 @@ test('turning motion off cancels a pending blend and restores all cards', async 
   assert.equal(x.list.style['--work-fade-top'], undefined);
   assert.equal(x.list.style['--work-fade-bottom'], undefined);
   assert.equal(x.list.style.maskImage, undefined);
+  assert.equal(x.list.dataset.workFade, undefined);
   for (const card of x.cards) {
     assert.equal(card.inert, false);
     assert.equal(card.style.opacity, undefined);
@@ -323,8 +324,12 @@ test('whole glass cards stay separated throughout both handoffs and reverse with
       for (let i=0; i<100; i++) x.tick(1000/60);
       assert.equal(x.cards[index].style.visibility, 'hidden');
       assert.equal(x.cards[index + 1].style.transform, 'translate3d(0,0px,0) perspective(1600px) rotateX(0deg) scale(1)');
+      const nextOverflows = heights[index + 1] > 940;
       assert.equal(x.list.style['--work-fade-top'], '0.00px', 'settled titles are not faded');
-      assert.equal(x.list.style.maskImage, 'none', 'settled glass has no enclosing backdrop root');
+      assert.equal(x.list.dataset.workFade, nextOverflows ? 'bottom' : undefined);
+      assert.equal(x.list.style.maskImage, nextOverflows ? '' : 'none', 'only active fades apply a mask');
+      if (nextOverflows) assert(Number.parseFloat(x.list.style['--work-fade-bottom']) > 0, 'overflowing card keeps a soft bottom mask');
+      else assert.equal(x.list.style['--work-fade-bottom'], '0.00px', 'fitting card has no bottom fade');
     }
   }
 });
@@ -384,4 +389,52 @@ test('tall desktop viewports center shorter stages while tight and compact viewp
   assert.equal(tight.root.style['--work-sticky-top'], '104px');
   const mobile = await setup({width: 390, height: 844, coarse: true, stageHeight: 600, listHeight: 540, heights: [540, 540, 540]});
   assert.equal(mobile.root.style['--work-sticky-top'], '88px');
+});
+
+test('bottom fade ramps smoothly without clipping the outgoing card and transitions across tall card phases', async () => {
+  const settle = x => {for (let i = 0; i < 100; i++) x.tick(1000 / 60);};
+
+  const fitting = await setup({width: 1920, height: 1080, stageHeight: 800, listHeight: 740, heights: [740, 740, 740]});
+  assert.equal(fitting.list.style['--work-fade-bottom'], '0.00px');
+  assert.equal(fitting.list.dataset.workFade, undefined);
+  assert.equal(fitting.list.style.maskImage, 'none');
+
+  fitting.scroll(.55 + .45 * .01); settle(fitting);
+  const earlyFadeBottom = Number.parseFloat(fitting.list.style['--work-fade-bottom']);
+  const outgoingScale = Number(fitting.cards[0].style.transform.match(/scale\(([^)]+)/)[1]);
+  const outgoingBottom = verticalOffset(fitting.cards[0]) + 740 * outgoingScale;
+  assert(earlyFadeBottom > 0);
+  assert(earlyFadeBottom <= 740 - outgoingBottom + 1e-6, 'bottom fade must not clip into the outgoing card');
+
+  fitting.scroll(.55 + .45 * .5); settle(fitting);
+  assert.equal(fitting.list.dataset.workFade, 'both');
+  assert.equal(fitting.list.style['--work-fade-bottom'], '64.00px');
+
+  fitting.scroll(1); settle(fitting);
+  assert.equal(fitting.list.style['--work-fade-bottom'], '0.00px');
+  assert.equal(fitting.list.dataset.workFade, undefined);
+  assert.equal(fitting.list.style.maskImage, 'none');
+
+  const tall = await setup({height: 800, stageHeight: 672, listHeight: 612, heights: [940, 1000, 900]});
+  assert.equal(tall.list.dataset.workFade, 'bottom');
+  assert.equal(tall.list.style['--work-fade-bottom'], '64.00px');
+  assert.equal(tall.list.style['--work-fade-top'], '0.00px');
+
+  tall.scroll((374 + 160) / 680); settle(tall);
+  assert.equal(tall.list.dataset.workFade, 'both');
+  assert.equal(tall.list.style['--work-fade-bottom'], '64.00px');
+  assert.equal(tall.list.style['--work-fade-top'], '48.00px');
+
+  tall.scroll((374 + 328) / 680); settle(tall);
+  assert.equal(tall.list.dataset.workFade, 'top');
+  assert.equal(tall.list.style['--work-fade-bottom'], '0.00px');
+  assert.equal(tall.list.style['--work-fade-top'], '48.00px');
+});
+
+test('work cards avoid backdrop-filter color shifts and opaque bottom overlay seams', () => {
+  const css = readFileSync(new URL('../css/work-index.css', import.meta.url), 'utf8');
+  const cardRule = css.match(/\.work-feature-list\s+\.work-feature\s*\{[^}]*\}/);
+  assert.ok(cardRule, 'expected .work-feature-list .work-feature rule');
+  assert.equal(/backdrop-filter/i.test(cardRule[0]), false, 'work cards must not depend on backdrop-filter brightness');
+  assert.equal(/#work\.is-work-pinned\s+\.work-feature-list::after/.test(css), false, 'opaque ::after overlay must be removed');
 });
