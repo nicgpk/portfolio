@@ -2,40 +2,40 @@
   "bundles": {
     "shared-base": {
       "file": "css/bundle-shared-base.css",
-      "href": "css/bundle-shared-base.css?v=0bddd45abc44",
+      "href": "css/bundle-shared-base.css?v=0c21d510b38c",
       "sources": [
         "css/design-tokens.css",
         "css/folio.css",
         "css/editorial.css",
         "css/studio.css"
       ],
-      "bytes": 164046
+      "bytes": 166809
     },
     "home-layout": {
       "file": "css/bundle-home-layout.css",
-      "href": "css/bundle-home-layout.css?v=b536ab2ef0a0",
+      "href": "css/bundle-home-layout.css?v=cef072dfdf52",
       "sources": [
         "css/project-system.css",
         "css/personal-landing.css",
         "css/link-system.css",
         "css/craft-motion.css"
       ],
-      "bytes": 49410
+      "bytes": 49326
     },
     "home-product": {
       "file": "css/bundle-home-product.css",
-      "href": "css/bundle-home-product.css?v=effeec779bfd",
+      "href": "css/bundle-home-product.css?v=1fe557943b76",
       "sources": [
         "css/work-index.css",
         "css/product-surfaces.css",
         "css/two-tone.css",
         "css/demo-motion.css"
       ],
-      "bytes": 61414
+      "bytes": 73461
     },
     "case-layout": {
       "file": "css/bundle-case-layout.css",
-      "href": "css/bundle-case-layout.css?v=6aaa2db086fd",
+      "href": "css/bundle-case-layout.css?v=30a88338f471",
       "sources": [
         "css/concepts.css",
         "css/project-system.css",
@@ -45,36 +45,38 @@
         "css/evidence-motion.css",
         "css/craft-motion.css"
       ],
-      "bytes": 98796
+      "bytes": 98621
     },
     "case-product": {
       "file": "css/bundle-case-product.css",
-      "href": "css/bundle-case-product.css?v=b2b51656ada5",
+      "href": "css/bundle-case-product.css?v=91eba5b82e99",
       "sources": [
         "css/case-refined.css",
         "css/product-surfaces.css"
       ],
-      "bytes": 29587
+      "bytes": 31004
     },
     "growth-product": {
       "file": "css/bundle-growth-product.css",
-      "href": "css/bundle-growth-product.css?v=4e6e0bad38d2",
+      "href": "css/bundle-growth-product.css?v=626dbb80533f",
       "sources": [
         "css/case-growth.css",
         "css/two-tone.css",
-        "css/demo-motion.css"
+        "css/demo-motion.css",
+        "css/demo-backdrops.css"
       ],
-      "bytes": 51313
+      "bytes": 56620
     },
     "discount-product": {
       "file": "css/bundle-discount-product.css",
-      "href": "css/bundle-discount-product.css?v=5e7ce63d87ae",
+      "href": "css/bundle-discount-product.css?v=29e48bc41d27",
       "sources": [
         "css/case-discount.css",
         "css/two-tone.css",
-        "css/demo-motion.css"
+        "css/demo-motion.css",
+        "css/demo-backdrops.css"
       ],
-      "bytes": 30501
+      "bytes": 36993
     },
     "developer-concepts": {
       "file": "css/bundle-developer-concepts.css",
@@ -87,17 +89,18 @@
     },
     "developer-product": {
       "file": "css/bundle-developer-product.css",
-      "href": "css/bundle-developer-product.css?v=594b4856d777",
+      "href": "css/bundle-developer-product.css?v=87e4f424922b",
       "sources": [
         "css/case-developer.css",
         "css/two-tone.css",
-        "css/demo-motion.css"
+        "css/demo-motion.css",
+        "css/demo-backdrops.css"
       ],
-      "bytes": 67660
+      "bytes": 75088
     },
     "resume-layout": {
       "file": "css/bundle-resume-layout.css",
-      "href": "css/bundle-resume-layout.css?v=5dfebe94d98d",
+      "href": "css/bundle-resume-layout.css?v=c593929015fa",
       "sources": [
         "css/design-tokens.css",
         "css/teletype.css",
@@ -108,59 +111,59 @@
         "css/resume-portfolio.css",
         "css/vesper-tokens.css"
       ],
-      "bytes": 248090
+      "bytes": 250792
     }
   },
   "shared": {
-    "glass": "css/glass.css?v=84ec5c91cc38",
+    "glass": "css/glass.css?v=fa438886e47d",
     "paper-wave": "js/paper-wave.mjs?v=c1c8a76541ec",
-    "glass-demos": "js/glass-demos.mjs?v=a88ae85ed1f5"
+    "glass-demos": "js/glass-demos.mjs?v=e2a81608fb95"
   },
   "routes": {
     "index.html": {
       "stylesheets": [
-        "css/bundle-shared-base.css?v=0bddd45abc44",
-        "css/bundle-home-layout.css?v=b536ab2ef0a0",
-        "css/glass.css?v=84ec5c91cc38",
-        "css/bundle-home-product.css?v=effeec779bfd"
+        "css/bundle-shared-base.css?v=0c21d510b38c",
+        "css/bundle-home-layout.css?v=cef072dfdf52",
+        "css/glass.css?v=fa438886e47d",
+        "css/bundle-home-product.css?v=1fe557943b76"
       ],
       "count": 4
     },
     "partner-growth-programs.html": {
       "stylesheets": [
-        "css/bundle-shared-base.css?v=0bddd45abc44",
-        "css/bundle-case-layout.css?v=6aaa2db086fd",
-        "css/glass.css?v=84ec5c91cc38",
-        "css/bundle-case-product.css?v=b2b51656ada5",
-        "css/bundle-growth-product.css?v=4e6e0bad38d2"
+        "css/bundle-shared-base.css?v=0c21d510b38c",
+        "css/bundle-case-layout.css?v=30a88338f471",
+        "css/glass.css?v=fa438886e47d",
+        "css/bundle-case-product.css?v=91eba5b82e99",
+        "css/bundle-growth-product.css?v=626dbb80533f"
       ],
       "count": 5
     },
     "discounting.html": {
       "stylesheets": [
-        "css/bundle-shared-base.css?v=0bddd45abc44",
-        "css/bundle-case-layout.css?v=6aaa2db086fd",
-        "css/glass.css?v=84ec5c91cc38",
-        "css/bundle-case-product.css?v=b2b51656ada5",
-        "css/bundle-discount-product.css?v=5e7ce63d87ae"
+        "css/bundle-shared-base.css?v=0c21d510b38c",
+        "css/bundle-case-layout.css?v=30a88338f471",
+        "css/glass.css?v=fa438886e47d",
+        "css/bundle-case-product.css?v=91eba5b82e99",
+        "css/bundle-discount-product.css?v=29e48bc41d27"
       ],
       "count": 5
     },
     "dev-portal.html": {
       "stylesheets": [
-        "css/bundle-shared-base.css?v=0bddd45abc44",
-        "css/bundle-case-layout.css?v=6aaa2db086fd",
+        "css/bundle-shared-base.css?v=0c21d510b38c",
+        "css/bundle-case-layout.css?v=30a88338f471",
         "css/bundle-developer-concepts.css?v=e0b002f0816b",
-        "css/glass.css?v=84ec5c91cc38",
-        "css/bundle-case-product.css?v=b2b51656ada5",
-        "css/bundle-developer-product.css?v=594b4856d777"
+        "css/glass.css?v=fa438886e47d",
+        "css/bundle-case-product.css?v=91eba5b82e99",
+        "css/bundle-developer-product.css?v=87e4f424922b"
       ],
       "count": 6
     },
     "resume.html": {
       "stylesheets": [
-        "css/bundle-resume-layout.css?v=5dfebe94d98d",
-        "css/glass.css?v=84ec5c91cc38"
+        "css/bundle-resume-layout.css?v=c593929015fa",
+        "css/glass.css?v=fa438886e47d"
       ],
       "count": 2
     }
@@ -185,13 +188,13 @@
     "js/calculations.mjs": "js/calculations.mjs?v=a0235d2fae86",
     "js/kinetics.mjs": "js/kinetics.mjs?v=2178cec3bf8c",
     "js/interaction-motion.mjs": "js/interaction-motion.mjs?v=38b6b647ccc1",
-    "js/demo-controls.mjs": "js/demo-controls.mjs?v=2c0d979c51e0",
+    "js/demo-controls.mjs": "js/demo-controls.mjs?v=8e0c447272d1",
     "js/demo-reveal.mjs": "js/demo-reveal.mjs?v=74b6932daa6c",
-    "js/demo-scenes.mjs": "js/demo-scenes.mjs?v=7b5e3e9fb19b",
-    "js/section-reveals.mjs": "js/section-reveals.mjs?v=908c6ecebcd3",
+    "js/demo-scenes.mjs": "js/demo-scenes.mjs?v=719ac52cd56c",
+    "js/section-reveals.mjs": "js/section-reveals.mjs?v=08ff154fd289",
     "js/vendor/d3-shape-3.2.0.mjs": "js/vendor/d3-shape-3.2.0.mjs?v=3fc80db901d4",
     "js/deployment-topology.mjs": "js/deployment-topology.mjs?v=4818473a33a5",
-    "js/glass-demos.mjs": "js/glass-demos.mjs?v=a88ae85ed1f5",
+    "js/glass-demos.mjs": "js/glass-demos.mjs?v=e2a81608fb95",
     "js/form-validation.mjs": "js/form-validation.mjs?v=8392fafdc2a6",
     "js/interface-icons.mjs": "js/interface-icons.mjs?v=f961f8003e9e",
     "js/evidence-motion.mjs": "js/evidence-motion.mjs?v=a13d7fb58763",
@@ -201,7 +204,7 @@
     "js/clouds.mjs": "js/clouds.mjs?v=da168fb35e6a",
     "js/project-previews.mjs": "js/project-previews.mjs?v=1ccb0e947c93",
     "js/folio.mjs": "js/folio.mjs?v=9d82c7487480",
-    "js/work-scroll.mjs": "js/work-scroll.mjs?v=917657c7650b"
+    "js/work-scroll.mjs": "js/work-scroll.mjs?v=699f7b65c585"
   },
   "sourceDependencies": [
     "css/case-developer.css",
@@ -211,6 +214,7 @@
     "css/case-studies.css",
     "css/concepts.css",
     "css/craft-motion.css",
+    "css/demo-backdrops.css",
     "css/demo-motion.css",
     "css/design-tokens.css",
     "css/editorial.css",

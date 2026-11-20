@@ -1,169 +1,85 @@
-const carousel = document.querySelector('.film-carousel');
+const track = document.querySelector('.film-track');
 
-if (carousel) {
-  const track = carousel.querySelector('.film-track');
-  const controls = carousel.querySelector('.film-controls');
-  const previous = controls?.querySelector('[data-film-previous]');
-  const next = controls?.querySelector('[data-film-next]');
-  const playback = controls?.querySelector('[data-film-playback]');
+if (track) {
   const cards = [...track.querySelectorAll('.film-card')];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  // One repeated set keeps the join identical, without repeating accessible slides.
-  const copies = cards.map(card => {
-    const copy = card.cloneNode(true);
-    copy.dataset.filmCopy = '';
-    copy.setAttribute('aria-hidden', 'true');
-    copy.removeAttribute('aria-label');
-    copy.removeAttribute('role');
-    copy.removeAttribute('aria-roledescription');
-    copy.inert = true;
-    copy.querySelector('img').alt = '';
-    track.append(copy);
-    return copy;
-  });
+  const root = document.documentElement;
+  const maxScroll = () => track.scrollWidth - track.clientWidth;
+  const motionAllowed = () => !reducedMotion.matches && root.dataset.motion !== 'off';
+  const stops = () => cards.map(card => Math.min(card.offsetLeft - cards[0].offsetLeft, maxScroll()));
+  const nextStop = () => stops().find(left => left > track.scrollLeft + 2);
 
-  let visible = false;
-  let hovered = false;
-  let paused = false;
-  let looping = false;
-  let running = false;
-  let cycleWidth = 0;
-  let offset = 0;
-  let lastTime = 0;
-  let frame = 0;
-  let touchStart = null;
-
-  const offsets = () => cards.map(card => card.offsetLeft - cards[0].offsetLeft);
-  const maxScroll = () => Math.max(0, track.scrollWidth - track.clientWidth);
-  const motionAllowed = () => !reducedMotion.matches && document.documentElement.dataset.motion !== 'off';
-  const updateControls = () => {
-    if (previous) previous.disabled = !looping && track.scrollLeft <= 2;
-    if (next) next.disabled = !looping && track.scrollLeft >= maxScroll() - 2;
-    if (playback) {
-      playback.hidden = !looping;
-      const label = paused ? 'Resume reel' : 'Pause reel';
-      if (playback.textContent !== label) {
-        playback.textContent = label;
-      }
-    }
-  };
-  const tick = time => {
-    if (lastTime) offset = (offset + Math.min(time - lastTime, 64) * .02) % cycleWidth;
-    lastTime = time;
-    track.scrollLeft = offset;
-    frame = requestAnimationFrame(tick);
-  };
-  const sync = () => {
-    const shouldRun = looping && cycleWidth > 0 && visible && !document.hidden && !paused && !hovered && !carousel.contains(document.activeElement);
-    if (shouldRun !== running) {
-      running = shouldRun;
-      cancelAnimationFrame(frame);
-      if (running) {
-        offset = track.scrollLeft % cycleWidth;
-        lastTime = 0;
-        frame = requestAnimationFrame(tick);
-      }
-    }
-  };
-  const measure = () => {
-    cycleWidth = looping ? copies[0].offsetLeft - cards[0].offsetLeft : 0;
-    offset = cycleWidth ? track.scrollLeft % cycleWidth : track.scrollLeft;
-    updateControls();
-    sync();
-  };
-  const setMotion = () => {
-    const allowed = motionAllowed();
-    // Preserve the current film when switching to the finite, manual shelf.
-    const left = cycleWidth ? track.scrollLeft % cycleWidth : track.scrollLeft;
-    looping = allowed;
-    if (!allowed && document.activeElement === playback) track.focus({preventScroll: true});
-    copies.forEach(copy => {copy.hidden = !allowed;});
-    carousel.classList.toggle('is-looping', looping);
-    track.scrollLeft = left;
-    measure();
-  };
-  const pause = () => {paused = true; updateControls(); sync();};
-  const scrollTo = left => track.scrollTo({left, behavior: motionAllowed() ? 'smooth' : 'instant'});
-  const move = direction => {
-    pause();
-    if (looping && cycleWidth > 0) {
-      let left = track.scrollLeft % cycleWidth;
-      // Use the identical second set to move backwards through the join.
-      if (direction < 0 && left <= 2) left += cycleWidth;
-      track.scrollLeft = left;
-      const stops = [...offsets(), ...offsets().map(stop => stop + cycleWidth)];
-      const target = direction > 0
-        ? stops.find(stop => stop > left + 2)
-        : stops.findLast(stop => stop < left - 2);
-      if (target !== undefined) scrollTo(target);
-    } else {
-      const stops = [...new Set(offsets().map(left => Math.min(left, maxScroll())))];
-      const target = direction > 0
-        ? stops.find(left => left > track.scrollLeft + 2)
-        : stops.findLast(left => left < track.scrollLeft - 2);
-      if (target !== undefined) scrollTo(target);
-    }
-  };
-  previous?.addEventListener('click', () => move(-1));
-  next?.addEventListener('click', () => move(1));
-  playback?.addEventListener('click', () => {
-    paused = !paused;
-    updateControls();
-    sync();
-  });
-  carousel.addEventListener('pointerenter', event => {if (event.pointerType === 'mouse') {hovered = true; sync();}});
-  carousel.addEventListener('pointerleave', () => {hovered = false; sync();});
-  carousel.addEventListener('focusin', sync);
-  carousel.addEventListener('focusout', () => queueMicrotask(sync));
-  track.addEventListener('scroll', updateControls, {passive: true});
-  track.addEventListener('pointerdown', event => {
-    if (event.pointerType !== 'touch') pause();
-  }, {passive: true});
-  // Touch moves keep reporting direction when the browser takes over scrolling.
-  track.addEventListener('touchstart', event => {
-    touchStart = event.touches.length === 1 ? event.touches[0] : null;
-  }, {passive: true});
-  track.addEventListener('touchmove', event => {
-    if (!touchStart) return;
-    const touch = event.touches[0];
-    if (event.touches.length !== 1 || touch.identifier !== touchStart.identifier) {
-      touchStart = null;
-      return;
-    }
-    const horizontal = Math.abs(touch.clientX - touchStart.clientX);
-    const vertical = Math.abs(touch.clientY - touchStart.clientY);
-    if (Math.max(horizontal, vertical) < 8) return;
-    touchStart = null;
-    if (horizontal > vertical) pause();
-  }, {passive: true});
-  const clearTouch = () => {touchStart = null;};
-  track.addEventListener('touchend', clearTouch, {passive: true});
-  track.addEventListener('touchcancel', clearTouch, {passive: true});
-  track.addEventListener('wheel', event => {
-    if (Math.abs(event.deltaX) > Math.abs(event.deltaY) || event.shiftKey) pause();
-  }, {passive: true});
   track.addEventListener('keydown', event => {
     if (event.altKey || event.ctrlKey || event.metaKey) return;
     if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
     event.preventDefault();
-    pause();
-    if (event.key === 'Home') scrollTo(0);
-    else if (event.key === 'End') scrollTo(looping ? offsets().at(-1) : maxScroll());
-    else move(event.key === 'ArrowRight' ? 1 : -1);
+
+    let target;
+    if (event.key === 'Home') {
+      target = 0;
+    } else if (event.key === 'End') {
+      target = maxScroll();
+    } else {
+      target = event.key === 'ArrowRight'
+        ? nextStop()
+        : stops().findLast(left => left < track.scrollLeft - 2);
+    }
+
+    if (target === undefined) return;
+    track.scrollTo({left: target, behavior: motionAllowed() ? 'smooth' : 'instant'});
   });
-  new ResizeObserver(measure).observe(track);
-  new IntersectionObserver(([entry]) => {
-    visible = entry.isIntersecting;
-    // Decode the whole reel before later films enter, without loading it at the hero.
-    if (visible) track.querySelectorAll('img').forEach(img => {img.loading = 'eager';});
-    sync();
-  }).observe(track);
-  document.addEventListener('visibilitychange', sync);
-  document.addEventListener('portfolio:motionchange', setMotion);
-  reducedMotion.addEventListener('change', setMotion);
-  // Also support motion preference changes before the shared module is available.
-  new MutationObserver(setMotion).observe(document.documentElement, {attributes: true, attributeFilter: ['data-motion']});
-  carousel.classList.add('is-enhanced');
-  setMotion();
-  if (controls) controls.hidden = false;
+
+  const playback = document.querySelector('.film-playback');
+  if (playback) {
+    let visible = false;
+    let paused = false;
+    let hovered = matchMedia('(hover: hover)').matches && track.matches(':hover');
+    let timer;
+
+    function schedule() {
+      clearTimeout(timer);
+      if (!visible || paused || hovered || document.activeElement === track || document.hidden || playback.hidden) return;
+
+      timer = setTimeout(() => {
+        const next = nextStop();
+        track.scrollTo({left: next ?? 0, behavior: next === undefined ? 'instant' : 'smooth'});
+        schedule();
+      }, 4000);
+    }
+
+    function updatePlayback() {
+      const unavailable = !motionAllowed() || maxScroll() <= 2;
+      if (unavailable && document.activeElement === playback) track.focus({preventScroll: true});
+      playback.hidden = unavailable;
+      schedule();
+    }
+
+    playback.addEventListener('click', () => {
+      paused = !paused;
+      playback.textContent = paused ? 'Resume reel' : 'Pause reel';
+      schedule();
+    });
+    track.addEventListener('pointerenter', event => {
+      if (event.pointerType === 'touch') return;
+      hovered = true;
+      schedule();
+    });
+    track.addEventListener('pointerleave', event => {
+      if (event.pointerType === 'touch') return;
+      hovered = false;
+      schedule();
+    });
+    // Keep a full interval free for swiping, trackpad scrolling, and reading a poster.
+    for (const event of ['focus', 'blur', 'pointerdown', 'scroll']) track.addEventListener(event, schedule);
+    document.addEventListener('visibilitychange', schedule);
+    reducedMotion.addEventListener('change', updatePlayback);
+    new MutationObserver(updatePlayback).observe(root, {attributeFilter: ['data-motion']});
+    new ResizeObserver(updatePlayback).observe(track);
+    new IntersectionObserver(([entry]) => {
+      visible = entry.intersectionRatio >= .5;
+      schedule();
+    }, {threshold: .5}).observe(track);
+
+    updatePlayback();
+  }
 }

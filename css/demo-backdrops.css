@@ -1,0 +1,60 @@
+/* Blur the photograph behind the panel while the live demo stays sharp. */
+@media screen and (forced-colors:none) {
+  [data-demo-backdrop="growth"] {
+    --demo-photo:url('../images/demo-growth-terraces.webp');
+  }
+
+  [data-demo-backdrop="discounting"] {
+    --demo-photo:url('../images/demo-discounting-gorge.webp');
+  }
+
+  [data-demo-backdrop="developer"] {
+    --demo-photo:url('../images/demo-developer-basin.webp');
+  }
+
+  .folio [data-demo-backdrop],
+  .folio.case-refined .concept-canvas[data-demo-backdrop] {
+    display:block;
+    min-width:0;
+    padding:var(--demo-inset-block,var(--ds-space-48)) var(--demo-inset-inline,clamp(var(--ds-space-16),5.5%,var(--ds-space-48)));
+    overflow:hidden;
+    border-radius:var(--ds-radius-card);
+    background:var(--ds-effect-demo-backdrop-shade), var(--demo-photo) center / cover no-repeat var(--ds-color-foundation);
+  }
+
+  .growth-pattern-figure[data-demo-backdrop] {
+    --demo-inset-block:var(--ds-space-32);
+  }
+
+  .folio [data-demo-backdrop] > .product-surface,
+  .folio.case-refined .concept-canvas[data-demo-backdrop] > .product-surface {
+    --product-bg:var(--ds-color-demo-glass-inset);
+    --product-raised:var(--ds-color-demo-glass-raised);
+    --product-muted:var(--ds-color-demo-glass-muted);
+    --product-line:var(--ds-color-demo-glass-divider);
+    --product-control-line:var(--ds-color-demo-glass-control);
+    --color-on-accent:var(--ds-color-primary-cta-ink);
+    min-width:0;
+    background:var(--ds-effect-demo-glass-fill);
+    border:var(--ds-border-thin) solid var(--ds-color-demo-glass-edge);
+    border-radius:var(--ds-radius-panel);
+    box-shadow:var(--ds-effect-demo-glass-shadow);
+    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:blur(18px);
+  }
+
+  .folio [data-demo-backdrop] .developer-ui .deploy-steps li[aria-current] > span {
+    color:var(--ds-color-primary-cta-ink);
+  }
+}
+
+@media screen and (max-width:767px) and (forced-colors:none) {
+  [data-demo-backdrop] {
+    --demo-inset-inline:var(--ds-space-10);
+    --demo-inset-block:var(--ds-space-24);
+  }
+}
+
+@media screen and (max-width:359px) and (forced-colors:none) {
+  [data-demo-backdrop] {--demo-inset-inline:var(--ds-space-6);}
+}

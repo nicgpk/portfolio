@@ -3,19 +3,17 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 
-async function setup({width = 1440, height = 1305, coarse = false, stageHeight = 1000, listHeight = 940, heights = [940,940,940]} = {}) {
+async function setup({width = 1440, height = 1305, coarse = false, stageHeight = 1000, listHeight = 940, heights = [940,940,940], naturalTop = 504} = {}) {
   let now = 0, id = 0, writes = 0, scrollCalls = 0;
   const frames = new Map(), events = {}, documentEvents = {}, notices = [];
   const style = () => new Proxy({setProperty(name, value) {this[name] = value;}, removeProperty(name) {delete this[name.startsWith('--') ? name : name.replace(/-([a-z])/g, (_, c) => c.toUpperCase())];}}, {
     set(target, key, value) {writes++; target[key] = value; return true;},
   });
+  const status = {};
   const cards = Array.from({length:3}, (_, i) => ({style:style(), inert:false, offsetHeight:heights[i],
     setAttribute() {writes++;}, removeAttribute() {}, contains:() => false,
     scrollIntoView() {}, querySelector:() => ({focus() {}}),
   }));
-  const previous = {}, next = {}, status = {};
-  previous.addEventListener = next.addEventListener = () => {};
-  const controls = {querySelector:s => s.includes('previous') ? previous : s.includes('next') ? next : status};
   const navEvents = {};
   const projectNav = {hidden:true, addEventListener:(type, fn) => {navEvents[type] = fn;}};
   const projectButtons = Array.from({length:3}, () => ({style:style(), attributes:{}, events:{},
@@ -30,9 +28,9 @@ async function setup({width = 1440, height = 1305, coarse = false, stageHeight =
     contains:element => element === document.activeElement,
     dispatchEvent:event => notices.push({type:event.type,transforms:cards.map(card=>card.style.transform)}),
     addEventListener:(type, fn) => {documentEvents[type] = fn;},
-    querySelector:s => s === '.work-project-nav' ? projectNav : s.includes('stage') ? stage : s.includes('list') ? list : controls,
+    querySelector:s => s === '.work-project-nav' ? projectNav : s.includes('stage') ? stage : s.includes('list') ? list : status,
     querySelectorAll:s => s === '[data-work-index]' ? projectButtons : cards, closest:() => ({querySelector:() => atmosphere}),
-    getBoundingClientRect:() => ({top:504 - context.scrollY}),
+    getBoundingClientRect:() => ({top:naturalTop - context.scrollY}),
   };
   const document = {hidden:false, activeElement:null, documentElement:{dataset:{motion:'on'}},
     fonts:{ready:Promise.resolve()}, querySelector:() => root,
@@ -49,10 +47,13 @@ async function setup({width = 1440, height = 1305, coarse = false, stageHeight =
   context.window = {scrollTo:({top}) => {scrollCalls++; context.scrollY = top;}};
   vm.runInNewContext(readFileSync(new URL('../js/work-scroll.mjs', import.meta.url), 'utf8'), context);
   await Promise.resolve();
-  return {cards, list, frames, root, notices, document, documentEvents, atmosphere, projectButtons, projectNav, navEvents,
+  const stickyTop = () => Number.parseFloat(root.style['--work-sticky-top']) || (context.innerWidth < 768 ? 88 : 104);
+  const scrollStart = () => naturalTop - stickyTop();
+  return {cards, status, list, frames, root, notices, document, documentEvents, atmosphere, projectButtons, projectNav, navEvents,
+    stickyTop, scrollStart,
     scrollPosition:() => context.scrollY,
     scrollCalls:() => scrollCalls,
-    scroll(progress) {context.scrollY = 504 - (width < 768 ? 88 : 104) + Math.round(height * .85) * progress; events.scroll();},
+    scroll(progress) {context.scrollY = scrollStart() + Math.round(context.innerHeight * .85) * progress; events.scroll();},
     resize({width:nextWidth=context.innerWidth,height:nextHeight=context.innerHeight,stageHeight=stage.offsetHeight,listHeight=list.offsetHeight}={}) {
       context.innerWidth=nextWidth;
       context.innerHeight=nextHeight;
@@ -97,16 +98,30 @@ test('project navigation follows reading progress and supports direct and keyboa
   assert.equal(x.projectButtons[0].style['--project-progress'], '0.4000');
   assert.equal(x.projectButtons[1].style['--project-progress'], '0.0000');
   x.projectButtons[2].events.click();
-  assert.equal(x.scrollPosition(), 400 + 2 * Math.round(1305 * .85));
+  assert.equal(x.scrollPosition(), x.scrollStart() + 2 * Math.round(1305 * .85));
   let prevented = false;
   x.navEvents.keydown({target:x.projectButtons[2], key:'Home', preventDefault() {prevented = true;}});
   assert.equal(prevented, true);
   assert.equal(x.projectButtons[0].focused, true);
-  assert.equal(x.scrollPosition(), 400);
+  assert.equal(x.scrollPosition(), x.scrollStart());
   x.document.documentElement.dataset.motion = 'off';
   x.documentEvents['portfolio:motionchange']();
   assert.equal(x.projectNav.hidden, true);
   assert(x.projectButtons.every(button => button.attributes['aria-current'] === undefined));
+});
+
+test('native scrolling announces each selected project', async () => {
+  const x = await setup();
+  assert.equal(x.status.textContent, '1 of 3');
+  x.scroll(1);
+  for (let i = 0; i < 100; i++) x.tick(1000 / 60);
+  assert.equal(x.status.textContent, '2 of 3');
+  x.scroll(2);
+  for (let i = 0; i < 100; i++) x.tick(1000 / 60);
+  assert.equal(x.status.textContent, '3 of 3');
+  x.document.documentElement.dataset.motion = 'off';
+  x.documentEvents['portfolio:motionchange']();
+  assert.equal(x.status.textContent, '');
 });
 
 test('very short landscape windows retain natural reading flow', async () => {
@@ -131,8 +146,15 @@ test('short desktop viewports read every full card before advancing the stack', 
   assert.equal(x.cards[1].inert,false);
   x.scroll((1008+374+388)/680);settle();
   assert.ok(Math.abs(verticalOffset(x.cards[1])+388)<.001);
-  x.scroll((1008+1068+288)/680);settle();
-  assert.equal(verticalOffset(x.cards[2]),-288);
+  // Final card: 374px opening hold before panning 288px, then 136px closing hold.
+  x.scroll((1008+1068+187)/680);settle();
+  assert.equal(verticalOffset(x.cards[2]),0);
+  assert.equal(x.cards[2].inert,false);
+  x.scroll((1008+1068+374+288)/680);settle();
+  assert.ok(Math.abs(verticalOffset(x.cards[2])+288)<.001);
+  assert.equal(x.cards[2].inert,false);
+  x.scroll((1008+1068+374+288+136)/680);settle();
+  assert.ok(Math.abs(verticalOffset(x.cards[2])+288)<.001);
   assert.equal(x.cards[2].inert,false);
   assert.equal(x.frames.size,0);
 });
@@ -140,8 +162,8 @@ test('short desktop viewports read every full card before advancing the stack', 
 test('background geometry stays unchanged through forward and reverse scrolling', async () => {
   const x = await setup();
   const geometry = {...x.atmosphere.style};
-  assert.equal(geometry['--work-pin-distance'], '2218px');
-  assert.equal(geometry['--work-atmosphere-top'], '-400px');
+  assert.equal(geometry['--work-pin-distance'], '2827.95px');
+  assert.equal(geometry['--work-atmosphere-top'], '-320px');
   for (const progress of [0, .8, 1, 2, 1, 0]) {
     x.scroll(progress);
     for (let i=0; i<60; i++) x.tick(1000/60);
@@ -206,11 +228,11 @@ for (const [width,height,stageHeight,listHeight] of [[320,640,528,442],[390,844,
     let start=0;
     for(let i=0;i<3;i++) {
       const reading=heights[i]-listHeight;
-      x.scroll((start+(i<2?step*.2:0)+reading)/step);x.tick(16);
+      x.scroll((start+step*.2+reading)/step);x.tick(16);
       assert.ok(Math.abs(verticalOffset(x.cards[i])+reading)<.01,'native document scroll exposes the full card');
       assert.equal(x.cards[i].inert,false);
       assert.equal(x.frames.size,0,'touch positions have no trailing wheel smoothing');
-      start+=reading+(i<2?step:0);
+      start+=reading+(i<2?step:step*.4);
     }
     x.scroll(0);x.tick(16);
     assert.equal(verticalOffset(x.cards[0]),0);
@@ -305,4 +327,61 @@ test('whole glass cards stay separated throughout both handoffs and reverse with
       assert.equal(x.list.style.maskImage, 'none', 'settled glass has no enclosing backdrop root');
     }
   }
+});
+
+test('last card holds on desktop even when it fits without overflow', async () => {
+  const x = await setup({width: 1920, height: 1080, stageHeight: 800, listHeight: 740, heights: [740, 740, 740]});
+  const settle = () => {for (let i = 0; i < 100; i++) x.tick(1000 / 60);};
+  const step = Math.round(1080 * .85);
+  assert.equal(Number.parseFloat(x.root.style.height), 800 + step * 2 + step * .55);
+  x.scroll(2); settle();
+  assert.equal(x.cards[2].style.visibility, 'visible');
+  assert.equal(x.cards[2].inert, false);
+  assert.equal(verticalOffset(x.cards[2]), 0);
+  assert.equal(x.projectButtons[2].style['--project-progress'], '0.0000');
+  x.scroll(2 + .55 * .5); settle();
+  assert.equal(x.cards[2].style.visibility, 'visible');
+  assert.equal(x.cards[2].inert, false);
+  assert.equal(verticalOffset(x.cards[2]), 0);
+  assert.equal(x.projectButtons[2].style['--project-progress'], '0.5000');
+  x.scroll(2 + .55); settle();
+  assert.equal(x.cards[2].inert, false);
+  assert.equal(x.projectButtons[2].style['--project-progress'], '1.0000');
+});
+
+test('last card preserves opening hold, reading pan, and closing hold across resizes', async () => {
+  const x = await setup({width: 1440, height: 800, stageHeight: 672, listHeight: 612, heights: [700, 700, 900]});
+  const settle = () => {for (let i = 0; i < 100; i++) x.tick(1000 / 60);};
+  const step = 680;
+  const s2 = (88 + step) * 2;
+  // Opening hold
+  x.scroll((s2 + 187) / step); settle();
+  assert.equal(verticalOffset(x.cards[2]), 0);
+  assert.equal(x.cards[2].inert, false);
+  x.resize({height: 760, stageHeight: 632, listHeight: 572});
+  assert.equal(verticalOffset(x.cards[2]), 0);
+  assert.equal(x.cards[2].inert, false);
+  // Restore 800px and test closing hold
+  x.resize({height: 800, stageHeight: 672, listHeight: 612});
+  x.scroll((s2 + 374 + 288 + 68) / step); settle();
+  assert.equal(verticalOffset(x.cards[2]), -288);
+  assert.equal(x.cards[2].inert, false);
+  const progress = Number.parseFloat(x.projectButtons[2].style['--project-progress']);
+  assert(progress > .8 && progress < 1);
+  x.resize({height: 760, stageHeight: 632, listHeight: 572});
+  assert.equal(verticalOffset(x.cards[2]), -(900 - 572));
+  assert.equal(x.cards[2].inert, false);
+});
+
+test('tall desktop viewports center shorter stages while tight and compact viewports stay at baseTop', async () => {
+  const tall = await setup({width: 1920, height: 1200, stageHeight: 780, listHeight: 720, heights: [720, 720, 720], naturalTop: 540});
+  assert.equal(tall.root.style['--work-sticky-top'], '235px');
+  assert.equal(tall.scrollStart(), 540 - 235);
+  const nearTop = await setup({width: 1920, height: 1200, stageHeight: 780, listHeight: 720, heights: [720, 720, 720], naturalTop: 150});
+  assert.equal(nearTop.root.style['--work-sticky-top'], '150px');
+  assert.equal(nearTop.scrollStart(), 0);
+  const tight = await setup({width: 1440, height: 800, stageHeight: 672, listHeight: 612, heights: [612, 612, 612]});
+  assert.equal(tight.root.style['--work-sticky-top'], '104px');
+  const mobile = await setup({width: 390, height: 844, coarse: true, stageHeight: 600, listHeight: 540, heights: [540, 540, 540]});
+  assert.equal(mobile.root.style['--work-sticky-top'], '88px');
 });

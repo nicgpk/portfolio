@@ -130,10 +130,10 @@
     <link rel="preload" as="image" href="images/home-wave-poster.webp" media="(min-width:768px)" fetchpriority="high" />
     <link rel="preload" as="image" href="images/home-wave-mobile.webp?v=662903390a81" media="(max-width:767px)" fetchpriority="high" />
     <!-- css-bundles:start -->
-    <link rel="stylesheet" href="css/bundle-shared-base.css?v=0bddd45abc44" />
-    <link rel="stylesheet" href="css/bundle-home-layout.css?v=b536ab2ef0a0" />
-    <link rel="stylesheet" href="css/glass.css?v=84ec5c91cc38" />
-    <link rel="stylesheet" href="css/bundle-home-product.css?v=effeec779bfd" />
+    <link rel="stylesheet" href="css/bundle-shared-base.css?v=0c21d510b38c" />
+    <link rel="stylesheet" href="css/bundle-home-layout.css?v=cef072dfdf52" />
+    <link rel="stylesheet" href="css/glass.css?v=fa438886e47d" />
+    <link rel="stylesheet" href="css/bundle-home-product.css?v=1fe557943b76" />
     <!-- css-bundles:end -->
     <link
       rel="preload"
@@ -148,8 +148,6 @@
     <header class="site-nav">
       <a class="wordmark" href="index.html" aria-label="Nicholas Gwee home"
         ><span class="header-logo-mark" aria-hidden="true">&gt;</span></a
-      ><span class="nav-identity"
-        >Nicholas Gwee<small>Product Design Lead</small></span
       >
       <nav aria-label="Main navigation">
         <a href="index.html" aria-current="page">Work</a
@@ -175,7 +173,7 @@
           <p data-glass-enter>
             From Singapore, based in Bangkok. I lead design teams and build
             platforms that serve millions of accommodation partners and generate
-            six-figure annual revenue.
+            nine-figure annual revenue.
           </p>
         </section>
         <div class="employer-reel" role="img" aria-label="Booking Holdings, Agoda, Government Technology Agency Singapore, OCBC Bank, Lucasfilm, and Disney">
@@ -201,14 +199,9 @@
           </div>
         </div>
       <section id="work" class="glass-work work-projects" aria-labelledby="work-title">
+        <h2 id="work-title" class="sr-only">Selected work.</h2>
+        <span class="work-scroll-position sr-only" aria-live="polite" aria-atomic="true"></span>
         <div class="work-scroll-stage">
-        <div class="glass-section-heading"><h2 id="work-title">Selected work.</h2>
-          <div class="work-scroll-controls" hidden>
-            <span class="work-scroll-position" aria-live="polite" aria-atomic="true">1 of 3</span>
-            <button type="button" data-work-previous aria-label="Previous project"><svg width="20" height="20" aria-hidden="true"><use href="images/interface-icons.svg#arrow-left" /></svg></button>
-            <button type="button" data-work-next aria-label="Next project"><svg width="20" height="20" aria-hidden="true"><use href="images/interface-icons.svg#arrow-right" /></svg></button>
-          </div>
-        </div>
         <div class="glass-feature-grid work-feature-list">
           <article
             class="glass-feature glass-feature--growth work-feature"
@@ -217,8 +210,10 @@
             aria-labelledby="work-growth-title"
           >
             <div class="glass-feature-copy">
-              <p class="work-role">Product Design Lead · Agoda</p>
-              <h3 id="work-growth-title"><a class="work-title-link" href="partner-growth-programs.html">Partner Growth Programs</a></h3>
+              <div>
+                <p class="work-role">Product Design Lead · Agoda</p>
+                <h3 id="work-growth-title"><a class="work-title-link" href="partner-growth-programs.html">Partner Growth Programs</a></h3>
+              </div>
               <p class="work-summary">I set the design direction for one hub where Agoda partners can find, compare and activate all eight growth programs.</p>
               <dl class="glass-card-metrics project-metrics" data-project-metrics aria-label="Partner Growth Programs metrics">
                 <div><dt>Activation within 24h</dt><dd><svg class="project-metric-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#trending-up" /></svg><span>12%</span></dd></div>
@@ -229,7 +224,7 @@
             <div class="glass-demo-stage">
               <div class="mini-window program-hub product-surface" data-mini-growth>
                 <div class="mini-window-bar">
-                  <span>Growth programs</span><span>Partner workspace</span>
+                  <span>Growth programs</span>
                 </div>
                 <div class="product-property"><img src="images/maison-solara-placeholder.webp" width="48" height="40" alt="" loading="lazy" decoding="async" /><span><strong>Maison Solara</strong><small>Boutique · Phuket</small></span></div>
                 <div class="mini-programs program-hub-tabs" role="group" aria-label="Compare programs">
@@ -238,7 +233,7 @@
                 <div class="program-hub-panels">
                   <section class="program-hub-detail is-shown" data-mini-program-panel aria-label="Promotions">
                     <div class="program-hub-head">
-                      <h4>Promotions</h4>
+                      <div><h4>Promotions</h4><span class="program-hub-uplift">+15% est. room nights</span></div>
                       <span class="program-hub-status" data-status="Recommended">Recommended</span>
                     </div>
                     <p class="program-hub-summary">Set a discount. Agoda adds a deal badge, boosts rank and amplifies it across email, push and deal pages.</p>
@@ -251,7 +246,7 @@
                   </section>
                   <section class="program-hub-detail" data-mini-program-panel aria-label="Boost Rank">
                     <div class="program-hub-head">
-                      <h4>Boost Rank</h4>
+                      <div><h4>Boost Rank</h4><span class="program-hub-uplift">Pay per booking · no lock-in</span></div>
                       <span class="program-hub-status" data-status="Off">Off</span>
                     </div>
                     <p class="program-hub-summary">Run a short campaign for chosen guests and stay dates. Pay only when a booking lands, with no lock-in.</p>
@@ -264,7 +259,7 @@
                   </section>
                   <section class="program-hub-detail" data-mini-program-panel aria-label="Marketing Program">
                     <div class="program-hub-head">
-                      <h4>Marketing Program</h4>
+                      <div><h4>Marketing Program</h4><span class="program-hub-uplift">+24% est. net revenue</span></div>
                       <span class="program-hub-status" data-status="Active">Active</span>
                     </div>
                     <p class="program-hub-summary">Commit to a higher commission. Agoda deploys its full marketing suite for the property.</p>
@@ -278,12 +273,6 @@
                 </div>
               </div>
             </div>
-            <div class="work-feature-footer">
-              <a class="text-link work-case-link" href="partner-growth-programs.html" aria-label="Read the case study: Partner Growth Programs"
-                >Read the case study
-                <svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#arrow-up-right" /></svg></a
-              >
-            </div>
           </article>
           <article
             class="glass-feature glass-feature--rate work-feature"
@@ -292,8 +281,10 @@
             aria-labelledby="work-discount-title"
           >
             <div class="glass-feature-copy">
-              <p class="work-role">Senior Product Designer · Agoda</p>
-              <h3 id="work-discount-title"><a class="work-title-link" href="discounting.html">Discounting 2.0</a></h3>
+              <div>
+                <p class="work-role">Senior Product Designer · Agoda</p>
+                <h3 id="work-discount-title"><a class="work-title-link" href="discounting.html">Discounting 2.0</a></h3>
+              </div>
               <p class="work-summary">I redesigned Agoda’s partner promotion tools with a rate simulator, nightly breakdowns and clearer rules for combining discounts.</p>
               <dl class="glass-card-metrics project-metrics" data-project-metrics aria-label="Discounting 2.0 metrics">
                 <div><dt>Activation lift</dt><dd><svg class="project-metric-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#trending-up" /></svg><span>10–12%</span></dd></div>
@@ -303,20 +294,25 @@
             </div>
             <div class="glass-demo-stage">
               <div class="rate-receipt mini-window product-surface" data-receipt>
- <div class="receipt-heading"><h3>Net Rate Simulator</h3></div>
- <div class="product-property"><img src="images/maison-solara-placeholder.webp" width="48" height="40" alt="" loading="lazy" decoding="async" /><span><strong>Maison Solara</strong><small>Boutique · Phuket</small></span></div>
- <label class="receipt-start" for="work-rate"><span>Starting room rate</span><span class="receipt-money-input"><span aria-hidden="true">$</span><input id="work-rate" aria-describedby="work-error" data-receipt-rate type="number" min="0" max="1000000" step="0.01" value="150" required disabled /></span></label>
- <div class="receipt-promotions"><div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="15" checked disabled /><span>Mega Sale<small>Public campaign · 15%</small></span></label><strong data-receipt-cut>−$22.50</strong><p data-receipt-detail>15% of $150.00 · Remaining $127.50</p></div><div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="10" checked disabled /><span>Mobile Exclusive<small>App users · 10%</small></span></label><strong data-receipt-cut>−$12.75</strong><p data-receipt-detail>10% of $127.50 · Remaining $114.75</p></div><div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="5" checked disabled /><span>Member Offer<small>Members only · 5%</small></span></label><strong data-receipt-cut>−$5.74</strong><p data-receipt-detail>5% of $114.75 · Remaining $109.01</p></div></div>
- <div class="receipt-total"><span>Room rate after discounts<small>Before commission and taxes</small></span><output data-receipt-net aria-live="off">$109.01</output></div>
- <p class="receipt-savings" data-receipt-savings>You save $40.99 · 27.33% effective discount</p>
- <p class="receipt-error" id="work-error" role="status"></p>
- </div>
-            </div>
-            <div class="work-feature-footer">
-              <a class="text-link work-case-link" href="discounting.html" aria-label="Read the case study: Discounting 2.0"
-                >Read the case study
-                <svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#arrow-up-right" /></svg></a
-              >
+                <div class="receipt-heading"><h3>Net Rate Simulator</h3></div>
+                <label class="receipt-start" for="work-rate"><span>Starting room rate</span><span class="receipt-money-input"><span aria-hidden="true">$</span><input id="work-rate" aria-describedby="work-error" data-receipt-rate type="number" min="0" max="1000000" step="0.01" value="150" required disabled /></span></label>
+                <div class="receipt-promotions">
+                  <div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="15" checked disabled /><span>Mega Sale<small>Public campaign · 15%</small></span></label><strong data-receipt-cut>−$22.50</strong><p data-receipt-detail>15% of $150.00 · Remaining $127.50</p></div>
+                  <div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="10" checked disabled /><span>Mobile Exclusive<small>App users · 10%</small></span></label><strong data-receipt-cut>−$12.75</strong><p data-receipt-detail>10% of $127.50 · Remaining $114.75</p></div>
+                  <div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="5" checked disabled /><span>Member Offer<small>Members only · 5%</small></span></label><strong data-receipt-cut>−$5.74</strong><p data-receipt-detail>5% of $114.75 · Remaining $109.01</p></div>
+                </div>
+                <div class="receipt-stack-visual" data-receipt-visual aria-hidden="true">
+                  <div class="receipt-stack-bar">
+                    <span class="receipt-seg-net" data-receipt-seg style="width:72.67%"></span>
+                    <span class="receipt-seg-cut--1" data-receipt-seg style="width:15%"></span>
+                    <span class="receipt-seg-cut--2" data-receipt-seg style="width:8.5%"></span>
+                    <span class="receipt-seg-cut--3" data-receipt-seg style="width:3.83%"></span>
+                  </div>
+                </div>
+                <div class="receipt-total"><span>Room rate after discounts<small>Before commission and taxes</small></span><output data-receipt-net aria-live="off">$109.01</output></div>
+                <p class="receipt-savings" data-receipt-savings>You save $40.99 · 27.33% effective discount</p>
+                <p class="receipt-error" id="work-error" role="status"></p>
+              </div>
             </div>
           </article>
           <article
@@ -326,8 +322,10 @@
             aria-labelledby="work-dev-title"
           >
             <div class="glass-feature-copy">
-              <p class="work-role">Senior Product Designer · Agoda Engineering</p>
-              <h3 id="work-dev-title"><a class="work-title-link" href="dev-portal.html">Developer Portal &amp; Deployment</a></h3>
+              <div>
+                <p class="work-role">Senior Product Designer · Agoda Engineering</p>
+                <h3 id="work-dev-title"><a class="work-title-link" href="dev-portal.html">Developer Portal &amp; Deployment</a></h3>
+              </div>
               <p class="work-summary">As Agoda’s first designer in DevOps, I led the design of simpler workflows for service creation and private-cloud deployment.</p>
               <dl class="glass-card-metrics project-metrics" data-project-metrics aria-label="Developer Portal metrics">
                 <div><dt>Service creation</dt><dd><svg class="project-metric-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#clock" /></svg><span>6m 8s</span></dd></div>
@@ -348,42 +346,20 @@
                   <li>Review</li>
                 </ol>
                 <figure class="deployment-topology" aria-label="Example deployment topology: image 98ds12df connects to Hong Kong, Singapore and Amsterdam, with 10 replicas in each region. The canary rollout progresses from 10 to 20 to 30 percent.">
-                  <figcaption><svg class="topology-heading-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="8" width="5" height="8" rx="1" /><rect x="17" y="2" width="5" height="5" rx="1" /><rect x="17" y="17" width="5" height="5" rx="1" /><path d="M7 12h5M12 12V4.5h5M12 12v7.5h5" /></svg>Deployment topology</figcaption>
+                  <figcaption><svg class="topology-heading-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="8" width="5" height="8" rx="1" /><rect x="17" y="2" width="5" height="5" rx="1" /><rect x="17" y="17" width="5" height="5" rx="1" /><path d="M7 12h5M12 12V4.5h5M12 12v7.5h5" /></svg><span>Deployment topology</span><span class="topology-phase-badge" data-topology-badge>Staging · 30 replicas</span></figcaption>
                   <div class="topology-canvas">
                     <svg class="topology-links" aria-hidden="true" focusable="false"></svg>
                     <div class="topology-source topology-node is-active" data-topology-node><img class="topology-image-icon" src="images/icon-dev-container-3d.png" width="256" height="256" loading="lazy" decoding="async" alt="" /><span>Container image</span><code>98ds12df</code></div>
                     <div class="topology-regions">
-                      <div class="topology-node" data-topology-node><img class="topology-region-icon" src="images/icon-dev-server-3d.png" width="256" height="256" loading="lazy" decoding="async" alt="" /><strong>Hong Kong</strong><span>10 replicas</span><svg class="topology-replicas" viewBox="0 0 34 18" aria-hidden="true"><path d="M1 1h4v4H1zM8 1h4v4H8zM15 1h4v4h-4zM22 1h4v4h-4zM29 1h4v4h-4zM1 12h4v4H1zM8 12h4v4H8zM15 12h4v4h-4zM22 12h4v4h-4zM29 12h4v4h-4z" /></svg></div>
-                      <div class="topology-node" data-topology-node><img class="topology-region-icon" src="images/icon-dev-server-3d.png" width="256" height="256" loading="lazy" decoding="async" alt="" /><strong>Singapore</strong><span>10 replicas</span><svg class="topology-replicas" viewBox="0 0 34 18" aria-hidden="true"><path d="M1 1h4v4H1zM8 1h4v4H8zM15 1h4v4h-4zM22 1h4v4h-4zM29 1h4v4h-4zM1 12h4v4H1zM8 12h4v4H8zM15 12h4v4h-4zM22 12h4v4h-4zM29 12h4v4h-4z" /></svg></div>
-                      <div class="topology-node" data-topology-node><img class="topology-region-icon" src="images/icon-dev-server-3d.png" width="256" height="256" loading="lazy" decoding="async" alt="" /><strong>Amsterdam</strong><span>10 replicas</span><svg class="topology-replicas" viewBox="0 0 34 18" aria-hidden="true"><path d="M1 1h4v4H1zM8 1h4v4H8zM15 1h4v4h-4zM22 1h4v4h-4zM29 1h4v4h-4zM1 12h4v4H1zM8 12h4v4H8zM15 12h4v4h-4zM22 12h4v4h-4zM29 12h4v4h-4z" /></svg></div>
+                      <div class="topology-node" data-topology-node><img class="topology-region-icon" src="images/icon-dev-server-3d.png" width="256" height="256" loading="lazy" decoding="async" alt="" /><strong>Hong Kong</strong><span data-topology-region-meta>10 replicas · Ready</span><svg class="topology-replicas" viewBox="0 0 34 18" aria-hidden="true"><path d="M1 1h4v4H1zM8 1h4v4H8zM15 1h4v4h-4zM22 1h4v4h-4zM29 1h4v4h-4zM1 12h4v4H1zM8 12h4v4H8zM15 12h4v4h-4zM22 12h4v4h-4zM29 12h4v4h-4z" /></svg></div>
+                      <div class="topology-node" data-topology-node><img class="topology-region-icon" src="images/icon-dev-server-3d.png" width="256" height="256" loading="lazy" decoding="async" alt="" /><strong>Singapore</strong><span data-topology-region-meta>10 replicas · Ready</span><svg class="topology-replicas" viewBox="0 0 34 18" aria-hidden="true"><path d="M1 1h4v4H1zM8 1h4v4H8zM15 1h4v4h-4zM22 1h4v4h-4zM29 1h4v4h-4zM1 12h4v4H1zM8 12h4v4H8zM15 12h4v4h-4zM22 12h4v4h-4zM29 12h4v4h-4z" /></svg></div>
+                      <div class="topology-node" data-topology-node><img class="topology-region-icon" src="images/icon-dev-server-3d.png" width="256" height="256" loading="lazy" decoding="async" alt="" /><strong>Amsterdam</strong><span data-topology-region-meta>10 replicas · Ready</span><svg class="topology-replicas" viewBox="0 0 34 18" aria-hidden="true"><path d="M1 1h4v4H1zM8 1h4v4H8zM15 1h4v4h-4zM22 1h4v4h-4zM29 1h4v4h-4zM1 12h4v4H1zM8 12h4v4H8zM15 12h4v4h-4zM22 12h4v4h-4zM29 12h4v4h-4z" /></svg></div>
                     </div>
                   </div>
                 </figure>
                 <div class="mini-deploy-detail" data-mini-deploy-detail><p>Environment</p><strong>staging-mesh</strong><dl><div><dt>Cluster pool</dt><dd>Mesh</dd></div><div><dt>CPU requests</dt><dd>24 cores</dd></div><div><dt>Memory requests</dt><dd>24 Gi</dd></div><div><dt>Repository</dt><dd>actions/ansible-runner</dd></div><div><dt>Image tag</dt><dd>98ds12df</dd></div><div><dt>Environment</dt><dd>staging-mesh</dd></div></dl></div>
-                <div class="mini-deploy-actions">
-                  <button type="button" data-mini-back disabled>Back</button
-                  ><button type="button" data-mini-next disabled>
-                    Show rollout
-                    <svg
-                      class="ui-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                      focusable="false"
-                    >
-                      <use href="images/interface-icons.svg#arrow-right" />
-                    </svg>
-                  </button>
-                </div>
                 </div>
               </div>
-            </div>
-            <div class="work-feature-footer">
-              <a class="text-link work-case-link" href="dev-portal.html" aria-label="Read the case study: Developer Portal &amp; Deployment"
-                >Read the case study
-                <svg class="ui-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#arrow-up-right" /></svg></a
-              >
             </div>
           </article>
         </div>
@@ -446,30 +422,29 @@
       <section class="process-section" id="process" aria-labelledby="process-title">
         <div class="glass-section-heading">
           <h2 id="process-title">How I work.</h2>
-          <p>The principles I bring to every team, problem and handoff.</p>
         </div>
         <ul class="process-list">
-          <li>
+          <li data-tag="Approach">
             <h3>Choose the right approach</h3>
             <p>I match methods and research depth to the problem, the evidence we need and the time available.</p>
           </li>
-          <li>
+          <li data-tag="Research">
             <h3>Stay close to users</h3>
             <p>I combine discovery interviews and usability tests with funnel, clickstream and NPS signals.</p>
           </li>
-          <li>
+          <li data-tag="Delivery">
             <h3>Balance vision and delivery</h3>
             <p>I set a longer-term direction and prioritise delivery around evidence, capacity and stakeholder alignment.</p>
           </li>
-          <li>
+          <li data-tag="Outcomes">
             <h3>Connect design to outcomes</h3>
             <p>I tie design decisions to clear goals: conversion, retention, revenue and operational efficiency.</p>
           </li>
-          <li>
+          <li data-tag="Leadership">
             <h3>Build effective teams</h3>
             <p>I hire and coach designers, creating the conditions for strong work and shared craft across the team.</p>
           </li>
-          <li>
+          <li data-tag="AI Craft">
             <h3>Extend craft with AI</h3>
             <p>I use AI tools across research synthesis, critique, prototyping and production handoff.</p>
             <ul class="process-tools" aria-label="Design tools">
@@ -485,6 +460,7 @@
       <section class="archive work-archive film-section" aria-labelledby="archive-title">
         <div class="glass-section-heading">
           <h2 id="archive-title">A previous chapter in film.</h2>
+          <button class="film-playback" type="button" aria-controls="film-track" hidden>Pause reel</button>
         </div>
         <p class="film-intro">Before product design, I worked in look development at Lucasfilm, shaping how digital characters and objects look on screen through textures, materials, and how they respond to light. Here are a few films I contributed to.</p>
         <div class="film-carousel" role="region" aria-roledescription="carousel" aria-label="Film projects">
@@ -504,13 +480,6 @@
             <figure class="film-card" role="group" aria-roledescription="slide" aria-label="5 of 5: Ready Player One">
               <img src="images/film-posters/ready-player-one.jpg" alt="Ready Player One movie poster" width="600" height="900" loading="lazy" decoding="async" />
             </figure>
-          </div>
-          <div class="film-controls" hidden>
-            <button class="film-playback" type="button" data-film-playback aria-controls="film-track">Pause reel</button>
-            <div class="film-arrows" role="group" aria-label="Browse film projects">
-              <button type="button" data-film-previous aria-controls="film-track" aria-label="Previous film"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#arrow-left" /></svg></button>
-              <button type="button" data-film-next aria-controls="film-track" aria-label="Next film"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/interface-icons.svg#arrow-right" /></svg></button>
-            </div>
           </div>
         </div>
       </section>
@@ -588,12 +557,12 @@
       </div>
     </footer>
     <script type="module">
-      import("./js/glass-demos.mjs?v=a88ae85ed1f5").catch(function () {
+      import("./js/glass-demos.mjs?v=e2a81608fb95").catch(function () {
         document.documentElement.dataset.motion = "off";
       });
     </script>
     <script type="module" src="js/paper-wave.mjs?v=c1c8a76541ec"></script>
-    <script type="module" src="js/movie-carousel.mjs?v=7"></script>
-    <script type="module" src="js/work-scroll.mjs?v=917657c7650b"></script>
+    <script type="module" src="js/movie-carousel.mjs?v=9"></script>
+    <script type="module" src="js/work-scroll.mjs?v=699f7b65c585"></script>
   </body>
 </html>

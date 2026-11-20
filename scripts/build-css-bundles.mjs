@@ -20,10 +20,10 @@ const bundles = {
   'home-product': ['work-index', 'product-surfaces', 'two-tone', 'demo-motion'],
   'case-layout': ['concepts', 'project-system', 'personal-landing', 'case-studies', 'link-system', 'evidence-motion', 'craft-motion'],
   'case-product': ['case-refined', 'product-surfaces'],
-  'growth-product': ['case-growth', 'two-tone', 'demo-motion'],
-  'discount-product': ['case-discount', 'two-tone', 'demo-motion'],
+  'growth-product': ['case-growth', 'two-tone', 'demo-motion', 'demo-backdrops'],
+  'discount-product': ['case-discount', 'two-tone', 'demo-motion', 'demo-backdrops'],
   'developer-concepts': ['vesper-tokens', 'vesper-concepts'],
-  'developer-product': ['case-developer', 'two-tone', 'demo-motion'],
+  'developer-product': ['case-developer', 'two-tone', 'demo-motion', 'demo-backdrops'],
   'resume-layout': ['design-tokens', 'teletype', 'resume', 'folio', 'studio', 'link-system', 'resume-portfolio', 'vesper-tokens'],
 };
 const routes = {

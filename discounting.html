@@ -133,11 +133,11 @@
     <link rel="preload" as="image" href="images/case-wave-poster.webp" media="(min-width:768px)" fetchpriority="high" />
     <link rel="preload" as="image" href="images/case-wave-mobile.webp" media="(max-width:767px)" fetchpriority="high" />
     <!-- css-bundles:start -->
-    <link rel="stylesheet" href="css/bundle-shared-base.css?v=0bddd45abc44" />
-    <link rel="stylesheet" href="css/bundle-case-layout.css?v=6aaa2db086fd" />
-    <link rel="stylesheet" href="css/glass.css?v=84ec5c91cc38" />
-    <link rel="stylesheet" href="css/bundle-case-product.css?v=b2b51656ada5" />
-    <link rel="stylesheet" href="css/bundle-discount-product.css?v=5e7ce63d87ae" />
+    <link rel="stylesheet" href="css/bundle-shared-base.css?v=0c21d510b38c" />
+    <link rel="stylesheet" href="css/bundle-case-layout.css?v=30a88338f471" />
+    <link rel="stylesheet" href="css/glass.css?v=fa438886e47d" />
+    <link rel="stylesheet" href="css/bundle-case-product.css?v=91eba5b82e99" />
+    <link rel="stylesheet" href="css/bundle-discount-product.css?v=29e48bc41d27" />
     <!-- css-bundles:end -->
     <link rel="preload" as="font" type="font/woff2" href="fonts/ibm-plex-sans.woff2" crossorigin />
   </head>
@@ -225,18 +225,29 @@
         <section class="concept-section case-story-section" id="concept" aria-labelledby="simulator-title">
           <div class="concept-heading" id="choices"><h2 id="simulator-title">Try the net rate simulator.</h2></div>
           <p class="concept-description">Change the starting rate or toggle a promotion to see how stacked discounts affect the room rate. The figures are illustrative.</p>
-          <div class="concept-canvas concept-canvas--discount">
+          <div class="concept-canvas concept-canvas--discount" data-demo-backdrop="discounting">
             <div class="rate-receipt product-surface discount-workspace" data-receipt>
-              <div class="receipt-heading product-toolbar"><h3>Net Rate Simulator</h3><span>Promotions · USD / night</span></div>
-              <div class="product-property"><img src="images/maison-solara-placeholder.webp" width="48" height="40" alt="" loading="lazy" decoding="async" /><span><strong>Maison Solara</strong><small>Boutique · Phuket</small></span></div>
+              <div class="receipt-heading product-toolbar"><h3>Net Rate Simulator</h3></div>
               <div class="discount-options">
-                <label class="receipt-start" for="case-rate"><span>Starting room rate</span><span class="receipt-money-input"><input id="case-rate" aria-describedby="case-error" data-receipt-rate type="number" min="0" max="1000000" step="0.01" value="150" required disabled /></span></label>
+                <label class="receipt-start" for="case-rate"><span>Starting room rate (USD)</span><span class="receipt-money-input"><input id="case-rate" aria-describedby="case-error" data-receipt-rate type="number" min="0" max="1000000" step="0.01" value="150" required disabled /></span></label>
                 <div class="receipt-promotions"><div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="15" checked disabled /><span>Mega Sale<small>Public campaign · 15%</small></span></label><strong data-receipt-cut>−$22.50</strong><p data-receipt-detail>15% of $150.00 · Remaining $127.50</p></div>
 <div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="10" checked disabled /><span>Mobile Exclusive<small>App users · 10%</small></span></label><strong data-receipt-cut>−$12.75</strong><p data-receipt-detail>10% of $127.50 · Remaining $114.75</p></div>
 <div class="receipt-promotion" data-receipt-row><label><input type="checkbox" data-receipt-promo="5" checked disabled /><span>Member Offer<small>Members only · 5%</small></span></label><strong data-receipt-cut>−$5.74</strong><p data-receipt-detail>5% of $114.75 · Remaining $109.01</p></div></div>
                 <p class="receipt-error" id="case-error" role="status"></p>
               </div>
-              <aside class="discount-result" aria-label="Rate calculation result"><h4>Rate summary</h4><div class="receipt-total"><span>Room rate after discounts<small>Before commission and taxes</small></span><output data-receipt-net aria-live="off">$109.01</output></div><p class="receipt-savings" data-receipt-savings>You save $40.99 · 27.33% effective discount</p><p class="receipt-note">Each discount applies to the remaining balance, rounded to cents.</p></aside>
+              <aside class="discount-result" aria-label="Rate calculation result">
+                <div class="receipt-total"><span>Room rate after discounts<small>Before commission and taxes</small></span><output data-receipt-net aria-live="off">$109.01</output></div>
+                <div class="receipt-stack-visual" data-receipt-visual aria-hidden="true">
+                  <div class="receipt-stack-bar">
+                    <span class="receipt-seg-net" data-receipt-seg style="width:72.67%"></span>
+                    <span class="receipt-seg-cut--1" data-receipt-seg style="width:15%"></span>
+                    <span class="receipt-seg-cut--2" data-receipt-seg style="width:8.5%"></span>
+                    <span class="receipt-seg-cut--3" data-receipt-seg style="width:3.83%"></span>
+                  </div>
+                </div>
+                <p class="receipt-savings" data-receipt-savings>You save $40.99 · 27.33% effective discount</p>
+                <p class="receipt-note">Each discount applies to the remaining balance, rounded to cents.</p>
+              </aside>
             </div>
           </div>
         </section>
@@ -244,26 +255,30 @@
         <section class="supporting-artifacts case-story-section" id="booking-breakdown" aria-labelledby="booking-title">
           <div class="section-heading"><h2 id="booking-title">See the rate for each night.</h2></div>
           <div class="case-story-copy"><p>For each night, the breakdown lists the promotions, their discount percentages and deductions, and the resulting room rate.</p></div>
-          <div class="night-breakdown booking-breakdown product-surface">
-            <div class="product-toolbar"><h3>Booking breakdown</h3><span>2 nights · USD</span></div>
-            <div class="booking-nights">
-              <article class="booking-night"><h4>Night 1</h4><span class="product-badge">Mega Sale · 15%</span><dl><div><dt>Room rate</dt><dd>$150.00</dd></div><div><dt>Promotion</dt><dd>−$22.50</dd></div><div class="booking-net"><dt>Net rate</dt><dd>$127.50</dd></div></dl></article>
-              <article class="booking-night"><h4>Night 2</h4><span class="product-badge">Mobile Exclusive · 10%</span><dl><div><dt>Room rate</dt><dd>$150.00</dd></div><div><dt>Promotion</dt><dd>−$15.00</dd></div><div class="booking-net"><dt>Net rate</dt><dd>$135.00</dd></div></dl></article>
+          <div data-demo-backdrop="discounting">
+            <div class="night-breakdown booking-breakdown product-surface">
+              <div class="product-toolbar"><h3>Booking breakdown</h3><span>2 nights · USD</span></div>
+              <div class="booking-nights">
+                <article class="booking-night"><h4>Night 1</h4><span class="product-badge">Mega Sale · 15%</span><dl><div><dt>Room rate</dt><dd>$150.00</dd></div><div><dt>Promotion</dt><dd>−$22.50</dd></div><div class="booking-net"><dt>Net rate</dt><dd>$127.50</dd></div></dl></article>
+                <article class="booking-night"><h4>Night 2</h4><span class="product-badge">Mobile Exclusive · 10%</span><dl><div><dt>Room rate</dt><dd>$150.00</dd></div><div><dt>Promotion</dt><dd>−$15.00</dd></div><div class="booking-net"><dt>Net rate</dt><dd>$135.00</dd></div></dl></article>
+              </div>
+              <div class="booking-total"><span>Room rate after discounts · two nights</span><strong>$262.50</strong></div>
             </div>
-            <div class="booking-total"><span>Room rate after discounts · two nights</span><strong>$262.50</strong></div>
           </div>
           <p class="artifact-note">These illustrative rates exclude commission and taxes. The discounts total $37.50.</p>
         </section>
 
         <section class="case-story-section" id="stacking-education" aria-labelledby="education-title">
           <div class="case-story-copy"><h2 id="education-title">Show how discounts stack.</h2><p>The guide shows which promotions match the guest’s conditions and the order in which the discounts apply.</p></div>
-          <div class="stacking-education product-surface">
-            <div class="product-toolbar"><h3>How promotions stack</h3><span>Maison Solara · USD</span></div>
-            <ol class="stacking-steps">
-              <li><div><h4>Guest conditions</h4><p>When a guest searches, their conditions determine which promotions they qualify for.</p><dl class="stacking-conditions"><div><dt>Booking window</dt><dd>Advance booking (2+ days)</dd></div><div><dt>Device</dt><dd>Mobile user</dd></div><div><dt>Country</dt><dd>TH</dd></div><div><dt>Stay</dt><dd>2 nights</dd></div></dl></div></li>
-              <li><div><h4>Matching promotions activate</h4><p>Mega Sale and Mobile Exclusive match. Stacking applies in priority order.</p><div class="stacking-matches"><span class="product-badge">Mega Sale · 15%</span><span class="product-badge">Mobile Exclusive · 10%</span></div><p class="stacking-ineligible">Early Bird · 20% — not eligible tonight.</p></div></li>
-              <li><div><h4>Discounts stack sequentially</h4><p>Each discount applies to the remaining balance, not the original rate, so partners keep more than a flat combined cut.</p><dl class="stacking-ledger"><div><dt>Room rate</dt><dd>$150.00</dd></div><div><dt>Mega Sale · 15%</dt><dd>−$22.50</dd></div><div><dt>Mobile Exclusive · 10%</dt><dd>−$12.75</dd></div><div class="stacking-net"><dt>Room rate after discounts</dt><dd>$114.75</dd></div></dl><p class="stacking-ineligible">Illustrative example, before commission and taxes.</p></div></li>
-            </ol>
+          <div data-demo-backdrop="discounting">
+            <div class="stacking-education product-surface">
+              <div class="product-toolbar"><h3>How promotions stack</h3><span>Maison Solara · USD</span></div>
+              <ol class="stacking-steps">
+                <li><div><h4>Guest conditions</h4><p>When a guest searches, their conditions determine which promotions they qualify for.</p><dl class="stacking-conditions"><div><dt>Booking window</dt><dd>Advance booking (2+ days)</dd></div><div><dt>Device</dt><dd>Mobile user</dd></div><div><dt>Country</dt><dd>TH</dd></div><div><dt>Stay</dt><dd>2 nights</dd></div></dl></div></li>
+                <li><div><h4>Matching promotions activate</h4><p>Mega Sale and Mobile Exclusive match. Stacking applies in priority order.</p><div class="stacking-matches"><span class="product-badge">Mega Sale · 15%</span><span class="product-badge">Mobile Exclusive · 10%</span></div><p class="stacking-ineligible">Early Bird · 20% — not eligible tonight.</p></div></li>
+                <li><div><h4>Discounts stack sequentially</h4><p>Each discount applies to the remaining balance, not the original rate, so partners keep more than a flat combined cut.</p><dl class="stacking-ledger"><div><dt>Room rate</dt><dd>$150.00</dd></div><div><dt>Mega Sale · 15%</dt><dd>−$22.50</dd></div><div><dt>Mobile Exclusive · 10%</dt><dd>−$12.75</dd></div><div class="stacking-net"><dt>Room rate after discounts</dt><dd>$114.75</dd></div></dl><p class="stacking-ineligible">Illustrative example, before commission and taxes.</p></div></li>
+              </ol>
+            </div>
           </div>
         </section>
         <section
@@ -399,9 +414,9 @@
       </div>
     </footer>
     <script type="module" src="js/folio.mjs?v=9d82c7487480"></script>
-    <script type="module" src="js/glass-demos.mjs?v=a88ae85ed1f5"></script>
+    <script type="module" src="js/glass-demos.mjs?v=e2a81608fb95"></script>
     <script type="module">
-      import("./js/glass-demos.mjs?v=a88ae85ed1f5").catch(function () {
+      import("./js/glass-demos.mjs?v=e2a81608fb95").catch(function () {
         document.documentElement.dataset.motion = "off";
       });
     </script>

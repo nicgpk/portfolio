@@ -3,137 +3,149 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 
-function setup({reduced = false} = {}) {
-  const frames = new Map();
-  let frameId = 0, observer, motionChanged;
-  const element = () => ({
-    events: {}, attributes: {}, hidden: false,
-    addEventListener(type, listener) {this.events[type] = listener;},
-    setAttribute(name, value) {this.attributes[name] = value;},
-    removeAttribute(name) {delete this.attributes[name];},
+const source = readFileSync(new URL('../js/movie-carousel.mjs', import.meta.url), 'utf8');
+
+function setup({reduced = false, motion = 'on'} = {}) {
+  const cards = Array.from({length: 5}, (_, index) => ({offsetLeft: index * 280}));
+  const events = () => ({
+    listeners: new Map(),
+    addEventListener(type, listener) {this.listeners.set(type, listener);},
+    emit(type, values = {}) {this.listeners.get(type)?.(values);},
   });
-  const makeCard = index => ({...element(), offsetLeft: index * 280, dataset: {}, image: {},
-    querySelector() {return this.image;},
-    cloneNode() {return makeCard(index + 5);},
-  });
-  const cards = Array.from({length: 5}, (_, index) => makeCard(index));
-  const copies = [];
-  const previous = element(), next = element(), playback = element();
-  const controls = {...element(), hidden: true,
-    querySelector: selector => selector.includes('previous') ? previous : selector.includes('next') ? next : playback,
+  const playback = {...events(), hidden: true, textContent: 'Pause reel'};
+  const preference = {...events(), matches: reduced};
+  let intersectionChanged;
+  let nextTimer;
+  const track = {
+    ...events(),
+    clientWidth: 600, scrollWidth: 1400, scrollLeft: 0,
+    matches: () => false,
+    querySelectorAll: () => cards,
+    scrollTo({left, behavior}) {
+      this.scrollLeft = left;
+      this.behavior = behavior;
+    },
   };
-  let position = 0;
-  const track = {...element(), clientWidth: 600,
-    get scrollWidth() {return copies[0]?.hidden ? 1400 : 2800;},
-    get scrollLeft() {return position;},
-    set scrollLeft(left) {position = Math.max(0, Math.min(left, this.scrollWidth - this.clientWidth));},
-    querySelectorAll: selector => selector === '.film-card' ? cards : [...cards, ...copies].map(card => card.image),
-    append: copy => copies.push(copy),
-    scrollTo({left, behavior}) {this.scrollLeft = left; this.behavior = behavior; this.events.scroll?.();},
-    focus() {document.activeElement = track; carousel.events.focusin();},
+  const document = {
+    ...events(),
+    documentElement: {dataset: {motion}},
+    querySelector: selector => selector === '.film-track' ? track : playback,
   };
-  const carousel = {...element(),
-    querySelector: selector => selector === '.film-track' ? track : controls,
-    classList: {add() {}, toggle() {}},
-    contains: node => [track, previous, next, playback].includes(node),
-  };
-  const document = {...element(), hidden: false, activeElement: null,
-    documentElement: {dataset: {motion: 'on'}}, querySelector: () => carousel,
-  };
-  const preference = {matches: reduced, addEventListener(type, callback) {motionChanged = callback;}};
-  vm.runInNewContext(readFileSync(new URL('../js/movie-carousel.mjs', import.meta.url), 'utf8'), {
-    document, matchMedia: () => preference, queueMicrotask,
-    requestAnimationFrame: callback => {frames.set(++frameId, callback); return frameId;},
-    cancelAnimationFrame: id => frames.delete(id),
-    ResizeObserver: class {observe() {}},
+  vm.runInNewContext(source, {
+    document,
+    matchMedia: query => query.includes('reduced-motion') ? preference : {matches: false},
     MutationObserver: class {observe() {}},
-    IntersectionObserver: class {constructor(callback) {observer = callback;} observe() {}},
+    ResizeObserver: class {observe() {}},
+    IntersectionObserver: class {
+      constructor(callback) {intersectionChanged = callback;}
+      observe() {}
+    },
+    setTimeout(callback, delay) {
+      assert.equal(delay, 4000);
+      nextTimer = callback;
+      return callback;
+    },
+    clearTimeout(timer) {if (nextTimer === timer) nextTimer = undefined;},
   });
-  observer([{isIntersecting: true}]);
-  return {frames, previous, next, playback, controls, track, copies,
-    focused: () => document.activeElement,
-    focus(node) {document.activeElement = node; carousel.events.focusin();},
-    async blur() {document.activeElement = null; carousel.events.focusout(); await Promise.resolve();},
-    reduce(value) {preference.matches = value; motionChanged();},
+
+  return {
+    track,
+    playback,
+    preference,
+    document,
+    show(ratio) {intersectionChanged([{intersectionRatio: ratio}]);},
+    advance() {
+      const callback = nextTimer;
+      if (!callback) return false;
+      nextTimer = undefined;
+      callback();
+      return true;
+    },
+    press(key, modifiers = {}) {
+      let prevented = false;
+      track.emit('keydown', {key, ...modifiers, preventDefault() {prevented = true;}});
+      return prevented;
+    },
   };
 }
 
-test('film controls pause autoplay while focused and respect an explicit pause', async () => {
-  const reel = setup();
-  assert.equal(reel.controls.hidden, false);
-  assert.equal(reel.frames.size, 1);
-  reel.focus(reel.playback);
-  assert.equal(reel.frames.size, 0, 'focus on controls stops scrolling');
-  reel.playback.events.click();
-  assert.equal(reel.playback.textContent, 'Resume reel');
-  await reel.blur();
-  assert.equal(reel.frames.size, 0, 'an explicit pause survives focus leaving');
-  reel.focus(reel.playback);
-  reel.playback.events.click();
-  assert.equal(reel.frames.size, 0, 'resume waits until controls lose focus');
-  await reel.blur();
-  assert.equal(reel.frames.size, 1);
+test('film reel arrow keys move between posters and stop at the ends', () => {
+  const {track, press} = setup();
+  press('ArrowLeft');
+  assert.equal(track.scrollLeft, 0);
+  press('ArrowRight');
+  assert.equal(track.scrollLeft, 280);
+  assert.equal(track.behavior, 'smooth');
+  press('ArrowRight');
+  press('ArrowRight');
+  assert.equal(track.scrollLeft, 800);
+  press('ArrowRight');
+  assert.equal(track.scrollLeft, 800);
+  press('ArrowLeft');
+  assert.equal(track.scrollLeft, 560);
 });
 
-test('manual film navigation stops autoplay and supports the loop join', async () => {
-  const reel = setup();
-  reel.focus(reel.previous);
-  reel.previous.events.click();
-  assert.equal(reel.track.scrollLeft, 1120, 'previous from the start reaches the last original film');
-  reel.next.events.click();
-  assert.equal(reel.track.scrollLeft, 1400, 'next crosses to the identical first copy');
-  reel.next.events.click();
-  assert.equal(reel.track.scrollLeft, 280, 'the next step normalizes the repeated set');
-  await reel.blur();
-  assert.equal(reel.frames.size, 0);
-  assert.equal(reel.playback.textContent, 'Resume reel');
+test('Home and End reach both ends, including with motion disabled', () => {
+  for (const options of [{reduced: true}, {motion: 'off'}]) {
+    const {track, press} = setup(options);
+    assert.equal(press('End'), true);
+    assert.equal(track.scrollLeft, 800);
+    assert.equal(track.behavior, 'instant');
+    press('Home');
+    assert.equal(track.scrollLeft, 0);
+  }
 });
 
-test('only a horizontal touch drag pauses the film reel', () => {
-  const {track, playback, frames} = setup();
-  const touch = (clientX, clientY) => ({touches: [{identifier: 1, clientX, clientY}]});
-  track.events.pointerdown({pointerType: 'touch'});
-  track.events.touchstart(touch(100, 100));
-  track.events.touchmove(touch(103, 101));
-  track.events.touchmove(touch(105, 85));
-  track.events.touchmove(touch(125, 85));
-  track.events.touchend();
-  assert.equal(playback.textContent, 'Pause reel');
-  assert.equal(frames.size, 1, 'vertical scrolling keeps autoplay running');
+test('the film reel leaves other keys and browser shortcuts alone', () => {
+  const {track, press} = setup();
+  assert.equal(press('ArrowDown'), false);
+  assert.equal(press('ArrowRight', {altKey: true}), false);
+  assert.equal(track.scrollLeft, 0);
+});
 
-  track.events.touchstart(touch(100, 100));
-  track.events.touchmove(touch(90, 98));
+test('the visible film reel advances to each snap position and loops back', () => {
+  const {track, playback, show, advance} = setup();
+  assert.equal(playback.hidden, false);
+  show(.49);
+  assert.equal(advance(), false);
+  show(.5);
+  for (const left of [280, 560, 800, 0]) {
+    assert.equal(advance(), true);
+    assert.equal(track.scrollLeft, left);
+  }
+  show(0);
+  assert.equal(advance(), false);
+});
+
+test('film autoplay respects interaction, explicit pause, and motion preferences', () => {
+  const {track, playback, preference, document, show, advance} = setup();
+  show(1);
+  track.emit('pointerenter', {pointerType: 'mouse'});
+  assert.equal(advance(), false);
+  track.emit('pointerleave', {pointerType: 'mouse'});
+
+  document.activeElement = track;
+  track.emit('focus');
+  assert.equal(advance(), false);
+  document.activeElement = null;
+  track.emit('blur');
+
+  playback.emit('click');
   assert.equal(playback.textContent, 'Resume reel');
-  assert.equal(frames.size, 0, 'horizontal scrolling takes control of the reel');
-});
+  show(0);
+  show(1);
+  assert.equal(advance(), false);
+  playback.emit('click');
+  assert.equal(playback.textContent, 'Pause reel');
+  assert.equal(advance(), true);
 
-test('reduced motion exposes a finite shelf with accurate arrow boundaries', () => {
-  const reel = setup({reduced: true});
-  assert.equal(reel.playback.hidden, true);
-  assert.equal(reel.frames.size, 0);
-  assert(reel.copies.every(copy => copy.hidden));
-  assert.equal(reel.previous.disabled, true);
-  assert.equal(reel.next.disabled, false);
-  reel.next.events.click();
-  assert.equal(reel.track.scrollLeft, 280);
-  assert.equal(reel.track.behavior, 'instant');
-  assert.equal(reel.previous.disabled, false);
-  reel.next.events.click();
-  reel.next.events.click();
-  assert.equal(reel.track.scrollLeft, 800);
-  assert.equal(reel.next.disabled, true);
-  reel.previous.events.click();
-  assert.equal(reel.next.disabled, false);
-});
-
-test('switching motion off preserves the film and focus when hiding playback', () => {
-  const reel = setup();
-  reel.track.scrollLeft = 1680;
-  reel.focus(reel.playback);
-  reel.reduce(true);
-  assert.equal(reel.track.scrollLeft, 280);
-  assert.equal(reel.playback.hidden, true);
-  assert.equal(reel.frames.size, 0);
-  assert.equal(reel.previous.disabled, false);
-  assert.equal(reel.focused(), reel.track, 'keyboard focus remains on a visible element');
+  document.hidden = true;
+  document.emit('visibilitychange');
+  assert.equal(advance(), false);
+  document.hidden = false;
+  document.emit('visibilitychange');
+  preference.matches = true;
+  preference.emit('change');
+  assert.equal(playback.hidden, true);
+  assert.equal(advance(), false);
 });

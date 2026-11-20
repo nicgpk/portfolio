@@ -15,6 +15,10 @@
     background:var(--ds-effect-case-atmosphere-background);
     mask-image:var(--ds-effect-case-atmosphere-mask-image);
   }
+  .case-refined .case-atmosphere::after {
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:var(--ds-effect-case-hero-scrim);
+  }
   .case-refined .case-atmosphere .paper-wave {height:100%;bottom:0;}
   .folio.case-refined .case-hero {max-width:var(--portfolio-content-width);width:calc(100% - 2 * var(--ds-page-gutter));padding:var(--ds-space-144) 0 var(--ds-space-64);margin:0 auto;border:0;background:transparent;}
   .folio.case-refined .case-hero::before {display:none;}
@@ -154,9 +158,9 @@
   .case-story-copy {max-width:none;}
   /* Section padding owns the gap after the final narrative block. */
   .folio.case-refined :is(.case-story-section,.case-story-copy) > :last-child:not(.product-surface,.product-surface *) {margin-bottom:0;}
-  /* Bare demos and their captions need a gap after the copy's final margin is trimmed. */
-  .folio.case-refined .case-story-section > .case-story-copy + .product-surface {margin-top:var(--ds-space-24);}
-  .folio.case-refined .case-story-section > .product-surface + p.artifact-note {margin-top:var(--ds-space-12);padding-top:0;}
+  /* Demos outside figures need a gap after the copy's final margin is trimmed. */
+  .folio.case-refined .case-story-section > .case-story-copy + :is(.product-surface,div[data-demo-backdrop]) {margin-top:var(--ds-space-24);}
+  .folio.case-refined .case-story-section > :is(.product-surface,div[data-demo-backdrop]) + p.artifact-note {margin-top:var(--ds-space-12);padding-top:0;}
   .case-story-split {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-40) var(--ds-space-56);margin:var(--ds-space-32) 0;align-items:start;}
   .folio.case-refined .case-story-section > .case-story-split:first-child {margin-top:0;}
   .case-story-split > * {min-width:0;}

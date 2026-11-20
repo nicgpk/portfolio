@@ -139,12 +139,12 @@
     </script>
 
     <!-- css-bundles:start -->
-    <link rel="stylesheet" href="css/bundle-shared-base.css?v=0bddd45abc44" />
-    <link rel="stylesheet" href="css/bundle-case-layout.css?v=6aaa2db086fd" />
+    <link rel="stylesheet" href="css/bundle-shared-base.css?v=0c21d510b38c" />
+    <link rel="stylesheet" href="css/bundle-case-layout.css?v=30a88338f471" />
     <link rel="stylesheet" href="css/bundle-developer-concepts.css?v=e0b002f0816b" />
-    <link rel="stylesheet" href="css/glass.css?v=84ec5c91cc38" />
-    <link rel="stylesheet" href="css/bundle-case-product.css?v=b2b51656ada5" />
-    <link rel="stylesheet" href="css/bundle-developer-product.css?v=594b4856d777" />
+    <link rel="stylesheet" href="css/glass.css?v=fa438886e47d" />
+    <link rel="stylesheet" href="css/bundle-case-product.css?v=91eba5b82e99" />
+    <link rel="stylesheet" href="css/bundle-developer-product.css?v=87e4f424922b" />
     <!-- css-bundles:end -->
     <link rel="preload" as="font" type="font/woff2" href="fonts/ibm-plex-sans.woff2" crossorigin />
   </head>
@@ -209,14 +209,10 @@
         </div>
       </section>
       <div class="case-body"><dl class="case-scope"><div><dt>Team</dt><dd>1 Product Owner, 4–5 Engineers, 1 Frontend Engineer</dd></div><div><dt>Platform</dt><dd>Web</dd></div><div><dt>Duration</dt><dd>3 quarters</dd></div><div><dt>My contribution</dt><dd>First designer in DevOps. Led the initial Developer Portal and Deployment design across domain research, information architecture, interaction and visual design.</dd></div></dl>
-<section class="case-story-section" id="decisions" aria-labelledby="dev-decisions-title"><h2 id="dev-decisions-title">A fragmented platform made service creation slow.</h2><div class="case-story-copy"><p>Creating a service on Agoda’s internal platform took 1–2 working days. Deploying to private cloud relied on Slack and informal know-how. A flat list of links made key workflows hard to find. Leadership had no System Usability Scale (SUS) baseline to measure design improvements.</p></div><div class="case-story-copy"><h3>Design goals</h3><ul class="case-story-list"><li>Make developer experience measurable.</li><li>Support migration from servers to private cloud.</li><li>Make critical work easier to find.</li></ul></div><dl class="case-shift"><div><dt>Before</dt><dd>Service creation took 1–2 working days, without a usability baseline.</dd></div><div><dt>The design response</dt><dd>Task-based navigation, a searchable catalog, in-context guidance and a staged deployment workflow.</dd></div></dl></section><section class="case-story-section" id="research" aria-labelledby="dev-research-title"><h2 id="dev-research-title">What was slowing developers down?</h2><div class="case-story-copy"><p>I studied how developers worked and where they got stuck.</p><p>Developers needed gradual rollouts and help when permissions or unclear terms blocked them. Release managers needed to pick up infrequent workflows when they rotated back into the role.</p></div><div class="case-story-split dev-research-layout"><ol class="case-story-list dev-process-list"><li><strong>Developer interviews</strong><p>Interviewed 15+ developers and learned Kubernetes, Docker and CI/CD to understand their work.</p></li><li><strong>Heuristic evaluation</strong><p>Used Nielsen’s heuristics to document 47 usability issues.</p></li><li><strong>Usability baseline</strong><p>Set a SUS baseline of 61.9 and measured again every two quarters.</p></li><li><strong>Delivery in two phases</strong><p>Phase 1 addressed immediate blockers. Phase 2 focused on automation and approvals.</p></li></ol><figure class="case-story-figure"><a href="images/dev_pc_research.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_pc_research.png" width="972" height="1063" loading="lazy" decoding="async" alt="Developer interview research synthesis board" /></a><figcaption>Themes from 15+ developer interviews.</figcaption></figure></div></section><section class="case-story-section" id="choices" aria-labelledby="dev-choices-title"><h2 id="dev-choices-title">Navigation built around developer tasks.</h2><div class="case-story-copy"><p>Task-based navigation and a searchable catalog gave developers a structure they could learn and the team could measure. Manage, Plan, Build, Secure and Monitor follow the development lifecycle. The FAQ keeps documentation accessible.</p><p>The home page groups services, databases, ownership and integrations. It also covers team OKRs, testing, versioning, security and post-deployment monitoring, with quick links and help nearby.</p></div><p class="case-story-note">Product demos. Names, records and configuration values are illustrative.</p><figure class="case-story-figure dev-product-figure"><div class="dev-history-ui product-surface" role="img" aria-label="Developer portal home with task domain cards">
+<section class="case-story-section" id="decisions" aria-labelledby="dev-decisions-title"><h2 id="dev-decisions-title">A fragmented platform made service creation slow.</h2><div class="case-story-copy"><p>Creating a service on Agoda’s internal platform took 1–2 working days. Deploying to private cloud relied on Slack and informal know-how. A flat list of links made key workflows hard to find. Leadership had no System Usability Scale (SUS) baseline to measure design improvements.</p></div><div class="case-story-copy"><h3>Design goals</h3><ul class="case-story-list"><li>Make developer experience measurable.</li><li>Support migration from servers to private cloud.</li><li>Make critical work easier to find.</li></ul></div><dl class="case-shift"><div><dt>Before</dt><dd>Service creation took 1–2 working days, without a usability baseline.</dd></div><div><dt>The design response</dt><dd>Task-based navigation, a searchable catalog, in-context guidance and a staged deployment workflow.</dd></div></dl></section><section class="case-story-section" id="research" aria-labelledby="dev-research-title"><h2 id="dev-research-title">What was slowing developers down?</h2><div class="case-story-copy"><p>I studied how developers worked and where they got stuck.</p><p>Developers needed gradual rollouts and help when permissions or unclear terms blocked them. Release managers needed to pick up infrequent workflows when they rotated back into the role.</p></div><div class="case-story-split dev-research-layout"><ol class="case-story-list dev-process-list"><li><strong>Developer interviews</strong><p>Interviewed 15+ developers and learned Kubernetes, Docker and CI/CD to understand their work.</p></li><li><strong>Heuristic evaluation</strong><p>Used Nielsen’s heuristics to document 47 usability issues.</p></li><li><strong>Usability baseline</strong><p>Set a SUS baseline of 61.9 and measured again every two quarters.</p></li><li><strong>Delivery in two phases</strong><p>Phase 1 addressed immediate blockers. Phase 2 focused on automation and approvals.</p></li></ol><figure class="case-story-figure"><a href="images/dev_pc_research.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_pc_research.png" width="972" height="1063" loading="lazy" decoding="async" alt="Developer interview research synthesis board" /></a><figcaption>Themes from 15+ developer interviews.</figcaption></figure></div></section><section class="case-story-section" id="choices" aria-labelledby="dev-choices-title"><h2 id="dev-choices-title">Navigation built around developer tasks.</h2><div class="case-story-copy"><p>Task-based navigation and a searchable catalog gave developers a structure they could learn and the team could measure. Manage, Plan, Build, Secure and Monitor follow the development lifecycle. The FAQ keeps documentation accessible.</p><p>The home page groups services, databases, ownership and integrations. It also covers team OKRs, testing, versioning, security and post-deployment monitoring, with quick links and help nearby.</p></div><p class="case-story-note">Product demos. Names, records and configuration values are illustrative.</p><figure class="case-story-figure dev-product-figure" data-demo-backdrop="developer"><div class="dev-history-ui product-surface" role="img" aria-label="Developer portal home with task domain cards">
                 <div class="dev-topbar">
                   <div class="dev-brand"><span class="dev-brand-mark">&lt;&gt;</span> Developer portal</div>
-                  <div class="dev-topbar-right">
-                    <div class="dev-search">Search</div>
-                    <div class="dev-feedback">Give feedback</div>
-                    <div class="dev-avatar" aria-hidden="true"></div>
-                  </div>
+                  <div class="dev-avatar" aria-hidden="true">EN</div>
                 </div>
                 <div class="dev-shell">
                   <aside class="dev-sidebar">
@@ -237,15 +233,11 @@
                     <div class="dev-fab" aria-hidden="true"></div>
                   </div>
                 </div>
-              </div></figure><div class="case-story-copy"><h3>Component details in one table.</h3><p>The catalog shows each component’s owner, manager, booking impact, source and last commit. Engineers can switch between My components and All components and filter by label or ownership.</p></div><figure class="case-story-figure dev-product-figure"><div class="dev-history-ui product-surface" role="img" aria-label="Component catalog with filters and ownership table">
+              </div></figure><div class="case-story-copy"><h3>Component details in one table.</h3><p>The catalog shows each component’s owner, manager, booking impact, source and last commit. Engineers can switch between My components and All components and filter by label or ownership.</p></div><figure class="case-story-figure dev-product-figure" data-demo-backdrop="developer"><div class="dev-history-ui product-surface" role="group" aria-label="Component catalog with filters and ownership table">
                 <div class="dev-topbar">
                   <div class="dev-brand"><span class="dev-brand-mark">&lt;&gt;</span> Developer portal</div>
                   <div class="dev-nav"><span class="is-active">Catalog</span><span>Team</span><span>Development Lifecycle</span></div>
-                  <div class="dev-topbar-right">
-                    <div class="dev-search">Search</div>
-                    <div class="dev-feedback">Give feedback</div>
-                    <div class="dev-avatar" aria-hidden="true"></div>
-                  </div>
+                  <div class="dev-avatar" aria-hidden="true">EN</div>
                 </div>
                 <div class="dev-shell">
                   <aside class="dev-sidebar">
@@ -271,7 +263,7 @@
                         <span class="dev-select">Booking impact ▾</span>
                         <span class="dev-search-inline">Search component name</span>
                       </div>
-                      <div class="dev-table-wrap">
+                      <div class="dev-table-wrap" role="region" tabindex="0" aria-label="Component ownership table">
                         <table class="dev-table">
                           <thead><tr><th>Name</th><th>Owner</th><th>Manager</th><th>Booking impact</th><th>Source</th><th>Last commit</th></tr></thead>
                           <tbody>
@@ -282,33 +274,33 @@
                           </tbody>
                         </table>
                       </div>
-                      <div class="dev-table-foot"><span>Showing 10 of 1,609 components</span><span>1 / 161</span></div>
+                      <div class="dev-table-foot">Sample components</div>
                     </div>
                   </div>
                 </div>
-              </div></figure></section><section class="case-story-section" id="service-creation" aria-labelledby="dev-service-creation-title"><h2 id="dev-service-creation-title">A guided path to create a service.</h2><div class="case-story-copy"><p>The wizard asked for repository setup, ownership and tags together. Missing admin groups meant offline Active Directory (AD) requests. Unclear platform and system tags caused ownership problems. Developers left the wizard for documentation or help.</p><p>Phase 1 prioritized guidance while engineering addressed the automation backlog. Phase 2 focused on deeper changes to ownership, tagging and approvals.</p></div><div class="case-story-table-wrap" role="region" tabindex="0" aria-labelledby="service-comparison-caption"><table class="case-story-table dev-flow-comparison"><caption id="service-comparison-caption">Service creation before and after</caption><thead><tr><th scope="col">Moment</th><th scope="col">Before</th><th scope="col">Design response</th></tr></thead><tbody><tr><th scope="row">Find the starting point</th><td>Create service was hard to find in the flat link directory.</td><td>Manage, Plan, Build, Secure and Monitor created a task-based map.</td></tr><tr><th scope="row">Start the form</th><td>The wizard asked for repository, ownership and tags upfront. It needed guidance and a way to resume.</td><td>Skip unused repository steps, guide developers through blockers and let them resume later.</td></tr><tr><th scope="row">Resolve ownership</th><td>Missing admin groups stopped progress and required an offline AD request.</td><td>Save progress so developers can resume after long handoffs.</td></tr><tr><th scope="row">Understand tags</th><td>Undocumented platform and system tags caused downstream ownership failures.</td><td>Explain ownership and security groups in the wizard. Revisit unnecessary requirements in Phase 2.</td></tr><tr><th scope="row">Recover from blockers</th><td>Developers lost their place when they left to search docs or ask in Slack.</td><td>Add guidance in the wizard and link to a searchable catalog of ownership, source and impact.</td></tr><tr><th scope="row">Measure improvement</th><td>Service creation took 1–2 working days, without a SUS baseline.</td><td>Reported creation time fell to 6m 8s. SUS rose from 61.9 to 68.8.</td></tr></tbody></table></div><div class="case-story-split"><div class="case-story-copy"><h3>Phase 1 clarified setup and permissions.</h3><ul class="case-story-list"><li>Skip optional repository setup.</li><li>Show documentation where developers get stuck.</li><li>Let developers resume after waiting on a request.</li><li>Put frequently used pages and quick links on the home page.</li></ul></div><div class="case-story-copy"><h3>Phase 2 focused on deeper workflow changes.</h3><ul class="case-story-list"><li>Revisit ownership and remove unnecessary requirements.</li><li>Reconsider tags developers did not know how to apply.</li><li>Plan longer-term automation and approval workflows.</li></ul></div></div><div class="dev-source-sequence"><figure class="case-story-figure"><a href="images/dev_service+fix+1.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+1.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation catalog and ownership flow" /></a><figcaption>Guidance at repository and ownership decisions.</figcaption></figure><figure class="case-story-figure"><a href="images/dev_service+fix+2.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+2.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation ownership and tagging flow" /></a><figcaption>Unclear ownership and tagging requirements.</figcaption></figure><figure class="case-story-figure"><a href="images/dev_service+fix+3.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+3.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation guidance and request flow" /></a><figcaption>Missing guidance and handoffs during service creation.</figcaption></figure></div></section><section class="case-story-section" id="deployment" aria-labelledby="dev-deployment-title"><h2 id="dev-deployment-title">Private-cloud deployment in three steps.</h2><div class="case-story-copy"><p>The workflow guides developers as they move legacy services from servers to private cloud. Environment, Rollout and Review separate setup, rollout choices and final confirmation.</p><h3>1. Configure the environment.</h3><p>Environment groups the environment name, cluster pool, Docker repository, image tag, health checks, and CPU and memory requests. Guidance explains startup and liveness probes next to the container settings.</p></div><figure class="case-story-figure dev-product-figure"><div class="dev-history-ui product-surface" role="img" aria-label="Environment setup wizard step">
+              </div></figure></section><section class="case-story-section" id="service-creation" aria-labelledby="dev-service-creation-title"><h2 id="dev-service-creation-title">A guided path to create a service.</h2><div class="case-story-copy"><p>The wizard asked for repository setup, ownership and tags together. Missing admin groups meant offline Active Directory (AD) requests. Unclear platform and system tags caused ownership problems. Developers left the wizard for documentation or help.</p><p>Phase 1 prioritized guidance while engineering addressed the automation backlog. Phase 2 focused on deeper changes to ownership, tagging and approvals.</p></div><div class="case-story-table-wrap" role="region" tabindex="0" aria-labelledby="service-comparison-caption"><table class="case-story-table dev-flow-comparison"><caption id="service-comparison-caption">Service creation before and after</caption><thead><tr><th scope="col">Moment</th><th scope="col">Before</th><th scope="col">Design response</th></tr></thead><tbody><tr><th scope="row">Find the starting point</th><td>Create service was hard to find in the flat link directory.</td><td>Manage, Plan, Build, Secure and Monitor created a task-based map.</td></tr><tr><th scope="row">Start the form</th><td>The wizard asked for repository, ownership and tags upfront. It needed guidance and a way to resume.</td><td>Skip unused repository steps, guide developers through blockers and let them resume later.</td></tr><tr><th scope="row">Resolve ownership</th><td>Missing admin groups stopped progress and required an offline AD request.</td><td>Save progress so developers can resume after long handoffs.</td></tr><tr><th scope="row">Understand tags</th><td>Undocumented platform and system tags caused downstream ownership failures.</td><td>Explain ownership and security groups in the wizard. Revisit unnecessary requirements in Phase 2.</td></tr><tr><th scope="row">Recover from blockers</th><td>Developers lost their place when they left to search docs or ask in Slack.</td><td>Add guidance in the wizard and link to a searchable catalog of ownership, source and impact.</td></tr><tr><th scope="row">Measure improvement</th><td>Service creation took 1–2 working days, without a SUS baseline.</td><td>Reported creation time fell to 6m 8s. SUS rose from 61.9 to 68.8.</td></tr></tbody></table></div><div class="case-story-split"><div class="case-story-copy"><h3>Phase 1 clarified setup and permissions.</h3><ul class="case-story-list"><li>Skip optional repository setup.</li><li>Show documentation where developers get stuck.</li><li>Let developers resume after waiting on a request.</li><li>Put frequently used pages and quick links on the home page.</li></ul></div><div class="case-story-copy"><h3>Phase 2 focused on deeper workflow changes.</h3><ul class="case-story-list"><li>Revisit ownership and remove unnecessary requirements.</li><li>Reconsider tags developers did not know how to apply.</li><li>Plan longer-term automation and approval workflows.</li></ul></div></div><div class="dev-source-sequence"><figure class="case-story-figure"><a href="images/dev_service+fix+1.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+1.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation catalog and ownership flow" /></a><figcaption>Guidance at repository and ownership decisions.</figcaption></figure><figure class="case-story-figure"><a href="images/dev_service+fix+2.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+2.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation ownership and tagging flow" /></a><figcaption>Unclear ownership and tagging requirements.</figcaption></figure><figure class="case-story-figure"><a href="images/dev_service+fix+3.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+3.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation guidance and request flow" /></a><figcaption>Missing guidance and handoffs during service creation.</figcaption></figure></div></section><section class="case-story-section" id="deployment" aria-labelledby="dev-deployment-title"><h2 id="dev-deployment-title">Private-cloud deployment in three steps.</h2><div class="case-story-copy"><p>The workflow guides developers as they move legacy services from servers to private cloud. Environment, Rollout and Review separate setup, rollout choices and final confirmation.</p><h3>1. Configure the environment.</h3><p>Environment groups the environment name, cluster pool, Docker repository, image tag, health checks, and CPU and memory requests. Guidance explains startup and liveness probes next to the container settings.</p></div><figure class="case-story-figure dev-product-figure" data-demo-backdrop="developer"><div class="dev-history-ui product-surface" role="img" aria-label="Environment setup wizard step">
                 <div class="dev-wizard">
                   <div class="dev-wiz-bar">
                     <span class="dev-wiz-close">×</span>
                     <span class="dev-wiz-name">devops-safe-app</span>
                     <div class="dev-wiz-steps"><span class="is-active">1. Environment</span><span>2. Rollout</span><span>3. Review</span></div>
-                    <div class="dev-avatar" aria-hidden="true"></div>
+                    <div class="dev-avatar" aria-hidden="true">EN</div>
                   </div>
                   <div class="dev-wiz-body">
                     <div class="dev-crumb">Home <span>&gt;</span> Components <span>&gt;</span> devops-safe-app</div>
                     <div class="dev-wiz-card">
                       <div class="dev-wiz-sec">
-                        <div class="dev-wiz-sec-head"><div><h4>Container ports</h4></div><span class="dev-docs">Link to docs ↗</span></div>
+                        <div class="dev-wiz-sec-head"><h4>Environment &amp; cluster</h4></div>
                         <div class="dev-fields">
-                          <div class="dev-field"><span class="dev-field-label">Environment name</span><div class="dev-input is-ph">Name your environment</div></div>
+                          <div class="dev-field"><span class="dev-field-label">Environment name</span><div class="dev-input dev-mono">staging-mesh</div></div>
                           <div class="dev-field"><span class="dev-field-label">Cluster Pool</span><div class="dev-select-field">Mesh ▾</div></div>
                         </div>
                       </div>
                       <div class="dev-wiz-sec">
                         <div class="dev-wiz-sec-head"><div><h4>Docker image</h4></div></div>
                         <div class="dev-fields">
-                          <div class="dev-field"><span class="dev-field-label">Repository</span><div class="dev-select-field">Select repository ▾</div></div>
-                          <div class="dev-field"><span class="dev-field-label">Image tag</span><div class="dev-select-field">98ds12df · Latest</div></div>
+                          <div class="dev-field"><span class="dev-field-label">Repository</span><div class="dev-select-field dev-mono">actions/ansible-runner ▾</div></div>
+                          <div class="dev-field"><span class="dev-field-label">Image tag</span><div class="dev-select-field dev-mono">98ds12df · Latest</div></div>
                         </div>
                       </div>
                       <div class="dev-wiz-sec">
@@ -329,18 +321,18 @@
                     <div class="dev-wiz-foot"><span class="dev-btn">Next →</span></div>
                   </div>
                 </div>
-              </div></figure><div class="case-story-copy"><h3>2. Control the rollout.</h3><p>Developers choose Canary or Rolling update. The canary example progresses through 10%, 20% and 30%, with replica counts and rollout order per data center. Monitoring connects to Slack and includes a 300-second ramp-up and a 900-second monitoring period.</p></div><figure class="case-story-figure dev-product-figure"><div class="dev-history-ui product-surface" role="img" aria-label="Rollout setup wizard with canary and DC targets">
+              </div></figure><div class="case-story-copy"><h3>2. Control the rollout.</h3><p>Developers choose Canary or Rolling update. The canary example progresses through 10%, 20% and 30%, with replica counts and rollout order per data center. Monitoring connects to Slack and includes a 300-second ramp-up and a 900-second monitoring period.</p></div><figure class="case-story-figure dev-product-figure" data-demo-backdrop="developer"><div class="dev-history-ui product-surface" role="img" aria-label="Rollout setup wizard with canary and DC targets">
                 <div class="dev-wizard">
                   <div class="dev-wiz-bar">
                     <span class="dev-wiz-close">×</span>
                     <span class="dev-wiz-name">devops-safe-app</span>
-                    <div class="dev-wiz-steps"><span>1. Environment</span><span class="is-active">2. Rollout</span><span>3. Review</span></div>
-                    <div class="dev-avatar" aria-hidden="true"></div>
+                    <div class="dev-wiz-steps"><span class="is-done">1. Environment</span><span class="is-active">2. Rollout</span><span>3. Review</span></div>
+                    <div class="dev-avatar" aria-hidden="true">EN</div>
                   </div>
                   <div class="dev-wiz-body">
                     <div class="dev-wiz-card">
                       <div class="dev-wiz-sec">
-                        <div class="dev-wiz-sec-head"><div><h4>Deployment strategy</h4><p>All fields required unless optional</p></div><span class="dev-docs">Link to docs ↗</span></div>
+                        <div class="dev-wiz-sec-head"><h4>Deployment strategy</h4><p>All fields required unless optional</p></div>
                         <div class="dev-seg"><span class="is-on">Canary</span><span>Rolling update</span></div>
                         <div class="dev-canary">
                           <div class="dev-canary-row"><div class="dev-input">10</div>%</div>
@@ -375,13 +367,13 @@
                     <div class="dev-wiz-foot"><span class="dev-btn">Next →</span></div>
                   </div>
                 </div>
-              </div></figure><div class="case-story-copy"><h3>3. Inspect the full configuration.</h3><p>Review shows the repository, image, resources, readiness, rollout strategy, monitoring and targets before deployment.</p></div><figure class="case-story-figure dev-product-figure"><div class="dev-history-ui product-surface" role="img" aria-label="Review and deploy confirmation">
+              </div></figure><div class="case-story-copy"><h3>3. Inspect the full configuration.</h3><p>Review shows the repository, image, resources, readiness, rollout strategy, monitoring and targets before deployment.</p></div><figure class="case-story-figure dev-product-figure" data-demo-backdrop="developer"><div class="dev-history-ui product-surface" role="img" aria-label="Review and deploy confirmation">
                 <div class="dev-wizard">
                   <div class="dev-wiz-bar">
                     <span class="dev-wiz-close">×</span>
                     <span class="dev-wiz-name">devops-safe-app</span>
-                    <div class="dev-wiz-steps"><span>1. Environment</span><span>2. Rollout</span><span class="is-active">3. Review</span></div>
-                    <div class="dev-avatar" aria-hidden="true"></div>
+                    <div class="dev-wiz-steps"><span class="is-done">1. Environment</span><span class="is-done">2. Rollout</span><span class="is-active">3. Review</span></div>
+                    <div class="dev-avatar" aria-hidden="true">EN</div>
                   </div>
                   <div class="dev-wiz-body">
                     <div class="dev-wiz-card">
@@ -389,12 +381,12 @@
                       <div class="dev-review-block">
                         <h5>Environment setup</h5>
                         <dl class="dev-kv">
-                          <div><dt>Environment name</dt><dd>staging-mesh</dd></div>
+                          <div><dt>Environment name</dt><dd class="dev-mono">staging-mesh</dd></div>
                           <div><dt>Cluster Pool</dt><dd>Mesh</dd></div>
-                          <div><dt>Repository</dt><dd>actions/ansible-runner</dd></div>
-                          <div><dt>Image tag</dt><dd>98ds12df · Latest</dd></div>
+                          <div><dt>Repository</dt><dd class="dev-mono">actions/ansible-runner</dd></div>
+                          <div><dt>Image tag</dt><dd class="dev-mono">98ds12df · Latest</dd></div>
                           <div><dt>CPU / Memory</dt><dd>24 Core · 24 Gi</dd></div>
-                          <div><dt>Readiness</dt><dd>exec · command abc</dd></div>
+                          <div><dt>Readiness</dt><dd class="dev-mono">exec · curl :3000/health</dd></div>
                         </dl>
                       </div>
                       <div class="dev-review-block">
@@ -402,8 +394,8 @@
                         <dl class="dev-kv">
                           <div><dt>Strategy</dt><dd>Canary</dd></div>
                           <div><dt>Steps</dt><dd>10% → 20% → 30%</dd></div>
-                          <div><dt>Timeout</dt><dd>900 · 15mins</dd></div>
-                          <div><dt>Slack</dt><dd>#devops_safe_app</dd></div>
+                          <div><dt>Timeout</dt><dd>900s · 15 mins</dd></div>
+                          <div><dt>Slack</dt><dd class="dev-mono">#devops_safe_app</dd></div>
                         </dl>
                         <table class="dev-targets">
                           <thead><tr><th>Targets</th><th>Replicas</th><th>Order</th></tr></thead>
@@ -418,15 +410,11 @@
                     <div class="dev-wiz-foot"><span class="dev-btn">Deploy</span></div>
                   </div>
                 </div>
-              </div></figure></section><section class="case-story-section" id="service-detail" aria-labelledby="dev-service-detail-title"><h2 id="dev-service-detail-title">Service details and actions in one place.</h2><div class="case-story-copy"><p>The service detail page groups environments, monitoring and deployment so developers can find key tasks. Catalog, Deployment, Integrations and Security provide the supporting navigation.</p><p>The table shows each environment’s cluster pool, image version, pod health, updater and status. Desired, In progress, Pending and Error show the current state. Engineers can open Monitoring, Quick Deploy or New Environment from the same view.</p></div><figure class="case-story-figure dev-product-figure"><div class="dev-history-ui product-surface" role="img" aria-label="Service detail for abacus with environments table">
+              </div></figure></section><section class="case-story-section" id="service-detail" aria-labelledby="dev-service-detail-title"><h2 id="dev-service-detail-title">Service details and actions in one place.</h2><div class="case-story-copy"><p>The service detail page groups environments, monitoring and deployment so developers can find key tasks. Catalog, Deployment, Integrations and Security provide the supporting navigation.</p><p>The table shows each environment’s cluster pool, image version, pod health, updater and status. Desired, In progress, Pending and Error show the current state. Engineers can open Monitoring, Quick Deploy or New Environment from the same view.</p></div><figure class="case-story-figure dev-product-figure" data-demo-backdrop="developer"><div class="dev-history-ui product-surface" role="group" aria-label="Service detail for abacus with environments table">
                 <div class="dev-topbar">
                   <div class="dev-brand"><span class="dev-brand-mark">&lt;&gt;</span> Developer portal</div>
                   <div class="dev-nav"><span class="is-active">Catalog</span><span>Team</span><span>Development Lifecycle</span></div>
-                  <div class="dev-topbar-right">
-                    <div class="dev-search">Search</div>
-                    <div class="dev-feedback">Give feedback</div>
-                    <div class="dev-avatar" aria-hidden="true"></div>
-                  </div>
+                  <div class="dev-avatar" aria-hidden="true">EN</div>
                 </div>
                 <div class="dev-shell">
                   <aside class="dev-sidebar">
@@ -455,7 +443,7 @@
                     <div class="dev-banner"><span class="dev-banner-dot">i</span><div>Request for infra is a required re-deployment step. You may also request for more resource. <span class="dev-static-link">Requesting resource</span></div></div>
                     <div class="dev-panel">
                       <div class="dev-tabs"><span class="dev-tab is-active">Environments</span><span class="dev-tab">Recent activity</span></div>
-                      <div class="dev-table-wrap">
+                      <div class="dev-table-wrap" role="region" tabindex="0" aria-label="Deployment environments table">
                         <table class="dev-table">
                           <thead><tr><th>Environment</th><th>Cluster pool</th><th>Image version</th><th>Pods</th><th>Update by</th><th>Env status</th></tr></thead>
                           <tbody>
@@ -467,7 +455,6 @@
                           </tbody>
                         </table>
                       </div>
-                      <div class="dev-table-foot"><span>Showing 10 of 15 environments</span><span>1 / 2</span></div>
                     </div>
                     <div class="dev-fab" aria-hidden="true"></div>
                   </div>
@@ -480,7 +467,7 @@
             </div>
           </div>
           <p class="concept-description">Try environment setup, rollout and review using sample data.</p>
-          <div class="concept-canvas concept-canvas--dev">
+          <div class="concept-canvas concept-canvas--dev" data-demo-backdrop="developer">
             <div
               class="developer-ui concept-shell product-surface"
               data-vesper-theme="portfolio-vesper-contrast-red"
@@ -850,9 +837,9 @@
       </div>
     </footer>
     <script type="module" src="js/folio.mjs?v=9d82c7487480"></script>
-    <script type="module" src="js/glass-demos.mjs?v=a88ae85ed1f5"></script>
+    <script type="module" src="js/glass-demos.mjs?v=e2a81608fb95"></script>
     <script type="module">
-      import("./js/glass-demos.mjs?v=a88ae85ed1f5").catch(function () {
+      import("./js/glass-demos.mjs?v=e2a81608fb95").catch(function () {
         document.documentElement.dataset.motion = "off";
       });
     </script>

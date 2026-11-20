@@ -1732,10 +1732,6 @@
 .folio :is(input, textarea) {
   caret-color: var(--accent);
 }
-.folio ::selection {
-  background: var(--accent);
-  color: var(--ds-color-white);
-}
 @media (max-width: 1000px) {
   .folio .studio-hero .hero-stage {
     min-height: 380px;

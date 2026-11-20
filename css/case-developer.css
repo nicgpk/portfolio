@@ -157,10 +157,8 @@
   .folio.case-refined .dev-history-ui .dev-brand-mark {display:grid;place-items:center;flex:none;width:var(--ds-size-28);height:var(--ds-size-28);border:var(--ds-border-thin) solid var(--product-line);border-radius:var(--ds-radius-legacy-control);color:var(--product-muted);font-size:var(--ds-text-12);}
   .folio.case-refined .dev-history-ui .dev-nav {display:flex;flex-wrap:wrap;gap:var(--ds-space-20);color:var(--product-muted);font-size:var(--ds-text-13);}
   .folio.case-refined .dev-history-ui .dev-nav .is-active {color:var(--product-ink);font-weight:var(--ds-weight-medium);}
-  .folio.case-refined .dev-history-ui .dev-topbar-right {display:flex;align-items:center;gap:var(--ds-space-12);flex-wrap:wrap;margin-left:auto;}
-  .folio.case-refined .dev-history-ui :is(.dev-search,.dev-feedback) {display:flex;align-items:center;min-height:var(--ds-size-36);padding:var(--ds-space-7) var(--ds-space-12);border:var(--ds-border-thin) solid var(--product-line);border-radius:var(--ds-radius-legacy-control);color:var(--product-muted);font-size:var(--ds-text-12);}
-  .folio.case-refined .dev-history-ui .dev-search {min-width:112px;}
-  .folio.case-refined .dev-history-ui .dev-avatar {flex:none;width:var(--ds-size-28);height:var(--ds-size-28);border:var(--ds-border-thin) solid var(--product-control-line,var(--ds-color-control-border));border-radius:50%;background:var(--product-raised,var(--ds-color-panel));}
+  .folio.case-refined .dev-history-ui .dev-topbar > .dev-avatar {margin-inline-start:auto;}
+  .folio.case-refined .dev-history-ui .dev-avatar {flex:none;display:grid;place-items:center;width:var(--ds-size-28);height:var(--ds-size-28);border:var(--ds-border-thin) solid var(--product-control-line,var(--ds-color-control-border));border-radius:50%;background:var(--product-raised,var(--ds-color-panel));color:var(--product-muted);font:var(--ds-weight-medium) var(--ds-text-11)/var(--ds-leading-1) var(--body);letter-spacing:0.03em;}
   .folio.case-refined .dev-history-ui .dev-shell {display:grid;grid-template-columns:176px minmax(0,1fr);}
   .folio.case-refined .dev-history-ui .dev-sidebar {display:flex;flex-direction:column;gap:var(--ds-space-24);min-width:0;padding:var(--ds-space-24);border-right:var(--ds-border-thin) solid var(--product-line);}
   .folio.case-refined .dev-history-ui .dev-welcome {color:var(--product-muted);font-size:var(--ds-text-12);}
@@ -174,7 +172,7 @@
   .folio.case-refined .dev-history-ui .dev-main {min-width:0;padding:var(--ds-space-24);}
   .folio.case-refined .dev-history-ui .dev-home-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ds-space-16);}
   .folio.case-refined .dev-history-ui .dev-feat {min-width:0;padding:var(--ds-space-20);border:var(--ds-border-thin) solid var(--product-line);border-radius:var(--ds-radius-legacy-panel);background:var(--product-raised,var(--ds-color-panel));}
-  .folio.case-refined .dev-history-ui .dev-feat-head {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--ds-space-12);margin-bottom:var(--ds-space-20);}
+  .folio.case-refined .dev-history-ui .dev-feat-head {display:flex;flex-direction:column;align-items:flex-start;gap:var(--ds-space-2);margin-bottom:var(--ds-space-12);}
   .folio.case-refined .dev-history-ui .dev-feat-title {display:flex;align-items:center;gap:var(--ds-space-10);color:var(--product-ink);font-size:var(--ds-text-16);font-weight:var(--ds-weight-medium);}
   .folio.case-refined .dev-history-ui .dev-feat-icon {display:block;width:var(--ds-size-28);height:var(--ds-size-28);flex:none;object-fit:contain;}
   .folio.case-refined .dev-history-ui .dev-feat-what {font-size:var(--ds-text-12);color:var(--product-muted);}
@@ -200,14 +198,15 @@
   .folio.case-refined .dev-history-ui input.dev-search-inline {font-size:var(--ds-product-input-size);}
   .folio.case-refined .dev-history-ui .dev-search-inline {margin-left:auto;}
   .folio.case-refined .dev-history-ui .dev-table-wrap {width:100%;overflow-x:auto;overscroll-behavior-inline:contain;}
-  .folio.case-refined .dev-history-ui .dev-table {width:100%;min-width:700px;border-collapse:collapse;}
+  .folio.case-refined .dev-history-ui .dev-table-wrap:focus-visible {outline:var(--ds-product-focus-width) solid var(--product-accent);outline-offset:calc(-1 * var(--ds-product-focus-width));}
+  .folio.case-refined .dev-history-ui .dev-table {width:100%;min-width:540px;border-collapse:collapse;}
   .folio.case-refined .dev-history-ui :is(.dev-table,.dev-targets) :is(th,td) {padding:var(--ds-space-14) var(--ds-space-16);text-align:left;border-bottom:var(--ds-border-thin) solid var(--product-line);font:var(--ds-weight-regular) var(--ds-text-13)/var(--ds-leading-1-6) var(--body);white-space:nowrap;}
   .folio.case-refined .dev-history-ui .dev-table :is(th,td):first-child {padding-left:var(--ds-space-20);}
   .folio.case-refined .dev-history-ui .dev-table :is(th,td):last-child {padding-right:var(--ds-space-20);}
   .folio.case-refined .dev-history-ui :is(.dev-table,.dev-targets) th {color:var(--product-muted);background:var(--product-raised,var(--ds-color-panel));font-weight:var(--ds-weight-medium);}
   .folio.case-refined .dev-history-ui .dev-table .dev-static-link {color:var(--product-ink);}
   .folio.case-refined .dev-history-ui .dev-table td .dev-tag {margin-top:var(--ds-space-6);}
-  .folio.case-refined .dev-history-ui .dev-table-foot {display:flex;justify-content:space-between;gap:var(--ds-space-16);padding:var(--ds-space-16) var(--ds-space-20);color:var(--product-muted);font-size:var(--ds-text-12);}
+  .folio.case-refined .dev-history-ui .dev-table-foot {padding:var(--ds-space-16) var(--ds-space-20);color:var(--product-muted);font-size:var(--ds-text-12);}
   .folio.case-refined .dev-history-ui .dev-side-nav {display:flex;flex-direction:column;gap:var(--ds-space-8);font-size:var(--ds-text-13);}
   .folio.case-refined .dev-history-ui .dev-side-item {padding:var(--ds-space-8);border-radius:var(--ds-radius-badge);color:var(--product-muted);}
   .folio.case-refined .dev-history-ui .dev-side-item.is-active {background:var(--product-raised,var(--ds-color-panel));color:var(--product-ink);}
@@ -231,10 +230,9 @@
   .folio.case-refined .dev-history-ui .dev-wiz-card {padding:var(--ds-space-20);border:var(--ds-border-thin) solid var(--product-line);border-radius:var(--ds-radius-legacy-panel);background:var(--product-raised,var(--ds-color-panel));}
   .folio.case-refined .dev-history-ui .dev-wiz-sec {margin:0 0 var(--ds-space-24);padding:0 0 var(--ds-space-24);border-bottom:var(--ds-border-thin) solid var(--product-line);}
   .folio.case-refined .dev-history-ui .dev-wiz-sec:last-child {margin-bottom:0;padding-bottom:0;border-bottom:0;}
-  .folio.case-refined .dev-history-ui .dev-wiz-sec-head {display:flex;align-items:baseline;justify-content:space-between;gap:var(--ds-space-16);margin:0 0 var(--ds-space-20);}
+  .folio.case-refined .dev-history-ui .dev-wiz-sec-head {margin-bottom:var(--ds-space-20);}
   .folio.case-refined .dev-history-ui .dev-wiz-sec-head h4 {margin:0;color:var(--product-ink);font:var(--ds-weight-medium) var(--ds-text-16)/var(--ds-leading-1-5) var(--body);}
   .folio.case-refined .dev-history-ui .dev-wiz-sec-head p {margin:var(--ds-space-6) 0 0;color:var(--product-muted);font:var(--ds-weight-regular) var(--ds-text-13)/var(--ds-leading-1-6) var(--body);}
-  .folio.case-refined .dev-history-ui .dev-docs {flex:none;color:var(--product-muted);font-size:var(--ds-text-12);}
   .folio.case-refined .dev-history-ui .dev-fields {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--ds-space-24);}
   .folio.case-refined .dev-history-ui .dev-field {min-width:0;}
   .folio.case-refined .dev-history-ui .dev-field-label {display:block;margin:0 0 var(--ds-space-8);color:var(--product-muted);font-size:var(--ds-text-13);}
@@ -285,19 +283,18 @@
   .folio.case-refined .dev-history-ui .dev-help {margin:0;padding:0;border:0;}
   .folio.case-refined .dev-history-ui .dev-side-links {flex-direction:row;flex-wrap:wrap;}
   .folio.case-refined .dev-history-ui .dev-side-nav {grid-column:1/-1;flex-direction:row;flex-wrap:wrap;}
-  .folio.case-refined .dev-history-ui .dev-side-sub {padding:var(--ds-space-8);}
+  /* A stacked sidebar reads as a tab row; nested items and help links only add noise. */
+  .folio.case-refined .dev-history-ui :is(.dev-side-sub,.dev-sidebar > .dev-help) {display:none;}
   .folio.case-refined .dev-history-ui .dev-wiz-steps {order:3;flex-basis:100%;margin:0;}
 }
 @media screen and (max-width:767px) {
   .folio.case-refined .dev-history-ui :is(.dev-topbar,.dev-wiz-bar) {padding:var(--ds-space-20);gap:var(--ds-space-16);}
-  .folio.case-refined .dev-history-ui .dev-topbar-right {width:100%;margin:0;}
   .folio.case-refined .dev-history-ui .dev-wiz-bar .dev-avatar {margin-left:auto;}
   .folio.case-refined .dev-history-ui .dev-sidebar {padding:var(--ds-space-20);}
   .folio.case-refined .dev-history-ui :is(.dev-main,.dev-wiz-body) {padding:var(--ds-space-20);}
   .folio.case-refined .dev-history-ui .dev-wiz-card {padding:var(--ds-space-16);}
   .folio.case-refined .dev-history-ui .dev-fields {grid-template-columns:minmax(0,1fr);gap:var(--ds-space-16);}
   .folio.case-refined .dev-history-ui .dev-kv {grid-template-columns:minmax(0,1fr);gap:var(--ds-space-16);}
-  .folio.case-refined .dev-history-ui .dev-docs {font-size:var(--ds-text-11);}
   .folio.case-refined .dev-history-ui .dev-monitor-box {padding:var(--ds-space-16);}
   .folio.case-refined .dev-history-ui .dev-targets :is(th,td) {font-size:var(--ds-text-12);padding:var(--ds-space-12) var(--ds-space-8);white-space:normal;}
   .folio.case-refined .dev-history-ui .dev-targets th:first-child {width:40%;}
@@ -310,7 +307,6 @@
   .folio.case-refined .dev-history-ui .dev-feat {padding:var(--ds-space-16);}
   .folio.case-refined .dev-history-ui .dev-page-title {font-size:var(--ds-text-22);}
   .folio.case-refined .dev-history-ui .dev-wiz-steps {font-size:var(--ds-text-12);gap:var(--ds-space-12);}
-  .folio.case-refined .dev-history-ui .dev-wiz-sec-head {align-items:start;flex-direction:column;gap:var(--ds-space-8);}
 }
 
 @media screen and (max-width:479px) {
@@ -337,15 +333,16 @@
   .folio.case-refined .developer-ui .deploy-steps li[aria-current] > span {background:var(--product-bg,var(--ds-color-foundation));border-color:var(--product-accent,var(--ds-color-accent));color:var(--product-accent,var(--ds-color-accent));}
   .folio.case-refined .developer-ui .deploy-steps li[data-complete] > span {background:var(--product-bg,var(--ds-color-foundation));border-color:var(--product-accent,var(--ds-color-accent));color:var(--product-accent,var(--ds-color-accent));}
   .folio.case-refined .developer-ui :is(.dev-guidance,.canary-path,.deploy-review) {background:var(--product-bg,var(--ds-color-foundation));border-color:var(--product-line,var(--ds-color-divider));}
+  .folio.case-refined .developer-ui .dev-guidance {border-left:3px solid var(--ds-color-status-rec-border);padding-left:var(--ds-space-16);color:var(--product-ink);}
   .folio.case-refined .developer-ui .canary-path {color:var(--product-accent,var(--ds-color-accent))!important;}
-  .folio.case-refined .developer-ui .dev-next {background:var(--product-bg,var(--ds-color-foundation));color:var(--product-accent,var(--ds-color-accent));border-color:var(--product-accent,var(--ds-color-accent));}
-  .folio.case-refined .developer-ui .dev-next:hover {background:var(--product-raised,var(--ds-color-panel));border-color:var(--product-ink,var(--ds-color-ink));}
+  .folio.case-refined .developer-ui .dev-next {background:var(--ds-color-primary-cta-bg);color:var(--ds-color-primary-cta-ink);border-color:var(--ds-color-primary-cta-bg);}
+  .folio.case-refined .developer-ui .dev-next:hover {background:var(--ds-color-primary-cta-hover);border-color:var(--ds-color-primary-cta-hover);color:var(--ds-color-primary-cta-ink);}
   .folio.case-refined .developer-ui .dev-back {background:var(--product-bg,var(--ds-color-foundation));}
 
   .folio.case-refined .dev-history-ui :is(.dev-topbar,.dev-sidebar,.dev-wiz-bar) {background:var(--product-bg,var(--ds-color-foundation));}
   .folio.case-refined .dev-history-ui :is(.dev-main,.dev-wiz-body) {background:var(--product-raised,var(--ds-color-panel));}
   .folio.case-refined .dev-history-ui :is(.dev-feat,.dev-panel,.dev-wiz-card) {background:var(--product-bg,var(--ds-color-foundation));border-color:var(--product-line,var(--ds-color-divider));}
-  .folio.case-refined .dev-history-ui :is(.dev-search,.dev-feedback,.dev-brand-mark) {background:var(--product-raised,var(--ds-color-panel));border-color:var(--product-line,var(--ds-color-divider));}
+  .folio.case-refined .dev-history-ui .dev-brand-mark {background:var(--product-raised,var(--ds-color-panel));border-color:var(--product-line,var(--ds-color-divider));}
   .folio.case-refined .dev-history-ui :is(.dev-badge-new,.dev-tag,.dev-ver) {background:var(--product-raised,var(--ds-color-panel));color:var(--product-muted,var(--ds-color-muted));}
   .folio.case-refined .dev-history-ui .dev-side-item.is-active {background:var(--product-raised,var(--ds-color-panel));color:var(--product-accent,var(--ds-color-accent));}
   .folio.case-refined .dev-history-ui .dev-side-sub .is-active {color:var(--product-accent,var(--ds-color-accent));}
@@ -364,12 +361,20 @@
   .folio.case-refined .dev-history-ui .dev-monitor-box > .dev-field {margin-bottom:var(--ds-space-20)!important;}
   .folio.case-refined .dev-history-ui .dev-monitor-box .dev-input {background:var(--product-raised,var(--ds-color-panel));}
   .folio.case-refined .dev-history-ui .dev-wiz-steps .is-active {color:var(--product-accent,var(--ds-color-accent));text-decoration-color:var(--product-accent,var(--ds-color-accent));}
-  .folio.case-refined .dev-history-ui .dev-wiz-foot .dev-btn {background:var(--product-bg,var(--ds-color-foundation));color:var(--product-accent,var(--ds-color-accent));border-color:var(--product-accent,var(--ds-color-accent));}
+  .folio.case-refined .dev-history-ui .dev-wiz-steps .is-done {color:var(--product-muted);}
+  .folio.case-refined .dev-history-ui .dev-wiz-steps .is-done::before {content:'\2713  ';color:var(--ds-color-status-active-text);font-weight:var(--ds-weight-semibold);}
+  .folio.case-refined .dev-history-ui .dev-mono,
+  .folio.case-refined .dev-history-ui .dev-table td:first-child .dev-static-link {font-family:var(--mono);font-size:var(--ds-text-12);}
+  .folio.case-refined .dev-history-ui .dev-page-head .dev-btn {border:var(--ds-border-thin) solid var(--product-control-line);background:var(--product-raised);color:var(--product-ink);font-size:var(--ds-text-13);}
+  .folio.case-refined .dev-history-ui .dev-wiz-foot .dev-btn {background:var(--ds-color-primary-cta-bg);color:var(--ds-color-primary-cta-ink);border-color:var(--ds-color-primary-cta-bg);}
+  .folio.case-refined .dev-history-ui .dev-wiz-foot .dev-btn:hover {background:var(--ds-color-primary-cta-hover);border-color:var(--ds-color-primary-cta-hover);color:var(--ds-color-primary-cta-ink);}
 }
 
 /* Shared outer gutters; only content cards introduce a smaller inner inset. */
 @media screen {
-  .folio.case-refined .dev-history-ui .dev-table :is(th,td) {padding-inline:var(--ds-space-20);}
+  .folio.case-refined .dev-history-ui .dev-table :is(th,td) {padding:var(--ds-space-12) var(--ds-space-10);font-size:var(--ds-text-12);white-space:nowrap;}
+  .folio.case-refined .dev-history-ui .dev-table :is(th,td):first-child {padding-left:var(--ds-space-14);}
+  .folio.case-refined .dev-history-ui .dev-table :is(th,td):last-child {padding-right:var(--ds-space-14);}
   /* Keep the target tables inset like the other product tables. */
   .folio.case-refined .dev-history-ui .dev-targets :is(th,td):nth-child(n+2) {text-align:right;}
 }

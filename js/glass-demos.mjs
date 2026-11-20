@@ -1,8 +1,8 @@
 import { stackDiscounts } from "./calculations.mjs?v=a0235d2fae86";
 import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
 import { animateFeedback } from "./interaction-motion.mjs?v=38b6b647ccc1";
-import "./demo-scenes.mjs?v=7b5e3e9fb19b";
-import './section-reveals.mjs?v=908c6ecebcd3';
+import "./demo-scenes.mjs?v=719ac52cd56c";
+import './section-reveals.mjs?v=08ff154fd289';
 import { observeDemoReveals } from './demo-reveal.mjs?v=74b6932daa6c';
 
 // Preserve increase semantics while using the shared arrow icon instead of '+'.
@@ -336,6 +336,9 @@ for (const receipt of document.querySelectorAll('[data-receipt]')) {
   const input=receipt.querySelector('[data-receipt-rate]');
   const promos=[...receipt.querySelectorAll('[data-receipt-promo]')];
   const rows=[...receipt.querySelectorAll('[data-receipt-row]')];
+  const net=receipt.querySelector('[data-receipt-net]');
+  const visual=receipt.querySelector('[data-receipt-visual]');
+  const segments=visual?.querySelectorAll('[data-receipt-seg]') ?? [];
   const formatter=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'});
   const money=n=>formatter.format(n);
   let receiptReady = false;
@@ -343,19 +346,22 @@ for (const receipt of document.querySelectorAll('[data-receipt]')) {
     const start=input.valueAsNumber;
     const valid=input.validity.valid&&Number.isFinite(start);
     input.setAttribute('aria-invalid',String(!valid));
+    if(visual) visual.hidden=!valid||start===0;
     receipt.querySelector('.receipt-error').textContent=valid?'':'Enter a rate from $0 to $1,000,000, with up to two decimal places.';
     if(!valid){
-      receipt.querySelector('[data-receipt-net]').getAnimations().forEach(animation=>animation.cancel());
-      receipt.querySelector('[data-receipt-net]').textContent='—';
+      net.getAnimations().forEach(animation=>animation.cancel());
+      net.textContent='—';
       receipt.querySelector('[data-receipt-savings]').textContent='Result unavailable';
       rows.forEach(row=>{row.querySelector('[data-receipt-cut]').textContent='—';row.querySelector('[data-receipt-detail]').textContent='Check the starting rate';});return;
     }
     let balance=start;
+    const promoCuts=[];
     promos.forEach((toggle,i)=>{
       const previous = rows[i].querySelector('[data-receipt-detail]').textContent;
       const percent=Number(toggle.dataset.receiptPromo),before=balance;
       const result=stackDiscounts(before,toggle.checked?[percent]:[]);
       balance=result.net;
+      promoCuts.push(toggle.checked?result.cuts[0]:0);
       rows[i].classList.toggle('is-receipt-inactive',!toggle.checked);
       rows[i].querySelector('[data-receipt-cut]').textContent=toggle.checked?'−'+money(result.cuts[0]):'—';
       rows[i].querySelector('[data-receipt-detail]').textContent=toggle.checked?`${percent}% of ${money(before)} · Remaining ${money(balance)}`:'Not applied · Balance unchanged';
@@ -364,11 +370,16 @@ for (const receipt of document.querySelectorAll('[data-receipt]')) {
       }
     });
     const total=stackDiscounts(start,promos.filter(x=>x.checked).map(x=>Number(x.dataset.receiptPromo)));
-    const net=receipt.querySelector('[data-receipt-net]');
     const nextNet=money(total.net);
     const changed=net.textContent!==nextNet;
     net.textContent=nextNet;
     receipt.querySelector('[data-receipt-savings]').textContent=`You save ${money(start-total.net)} · ${total.effective}% effective discount`;
+    if(start>0){
+      const amounts=[total.net,...promoCuts];
+      segments.forEach((segment,index)=>{
+        segment.style.width=`${(amounts[index]/start*100).toFixed(2)}%`;
+      });
+    }
     if(changed){
       animateFeedback(net,
         [{opacity:.85,transform:'translateY(2px)'},{opacity:1,transform:'translateY(0)'}],
@@ -377,7 +388,7 @@ for (const receipt of document.querySelectorAll('[data-receipt]')) {
     }
     receiptReady = true;
   };
-  [input,...promos].forEach(control=>{control.disabled=false;control.addEventListener('input',()=>{receipt.querySelector('[data-receipt-net]').setAttribute('aria-live','polite');update();});});
+  [input,...promos].forEach(control=>{control.disabled=false;control.addEventListener('input',()=>{net.setAttribute('aria-live','polite');update();});});
   update();
   const example=count=>{
     promos.forEach((toggle,i)=>toggle.checked=i<count);update();
@@ -386,25 +397,21 @@ for (const receipt of document.querySelectorAll('[data-receipt]')) {
       360
     );
   };
-  register(receipt.closest('[data-glass-demo]')||receipt,6400,[
-    {at:0,run:()=>example(0)},
-    {at:1000,run:()=>example(1)},
-    {at:2600,run:()=>example(2)},
-    {at:4200,run:()=>example(3)},
+  register(receipt.closest('[data-glass-demo]')||receipt,5200,[
+    {at:0,run:()=>example(1)},
+    {at:1400,run:()=>example(2)},
+    {at:3000,run:()=>example(3)},
   ]);
 }
 
 const deploy = document.querySelector("[data-mini-deploy]");
 if (deploy) {
-  // Keep the optional graph enhancement independent of the rollout controls.
+  // Keep the walkthrough usable if the topology enhancement fails to load.
   import('./deployment-topology.mjs?v=4818473a33a5').then(({ initDeploymentTopology }) => {
     initDeploymentTopology(deploy.querySelector('.topology-canvas'));
   }).catch(() => {});
-  let step = 0,
-    renderedStep = -1;
-  const next = deploy.querySelector("[data-mini-next]"),
-    back = deploy.querySelector("[data-mini-back]"),
-    detail = deploy.querySelector("[data-mini-deploy-detail]");
+  let renderedStep = -1;
+  const detail = deploy.querySelector("[data-mini-deploy-detail]");
   const content = [
     [
       "Environment",
@@ -443,9 +450,20 @@ if (deploy) {
       ],
     ],
   ];
-  const render = () => {
+  const topologyStepLabels = [
+    ['Staging · 30 replicas', '10 replicas · Ready'],
+    ['Canary · 10% → 20% → 30%', '10 replicas · Canary 10%'],
+    ['Verified · Ready to ship', '10 replicas · Verified'],
+  ];
+  const render = (step) => {
     const [label, title, rows] = content[step];
     deploy.dataset.topologyStep = String(step);
+    const [phaseText, regionMeta] = topologyStepLabels[step] || topologyStepLabels[0];
+    const phaseBadge = deploy.querySelector('[data-topology-badge]');
+    if (phaseBadge) phaseBadge.textContent = phaseText;
+    deploy.querySelectorAll('[data-topology-region-meta]').forEach(node => {
+      node.textContent = regionMeta;
+    });
     deploy.querySelectorAll('[data-topology-node]').forEach((node, index) => {
       node.classList.toggle('is-active', step > 0 || index === 0);
     });
@@ -472,32 +490,17 @@ if (deploy) {
           ? el.setAttribute("aria-current", "step")
           : el.removeAttribute("aria-current"),
       );
-    back.disabled = step === 0;
-    next.disabled = false;
-    next.textContent = ["Show rollout", "Show review", "Restart example"][step];
-    if (renderedStep >= 0 && renderedStep !== step) settlePhase(detail, step > renderedStep ? 1 : -1);
+    if (renderedStep >= 0 && renderedStep !== step) settlePhase(detail);
     renderedStep = step;
   };
-  next.addEventListener("click", () => {
-    step = (step + 1) % 3;
-    render();
-  });
-  back.addEventListener("click", () => {
-    step = Math.max(0, step - 1);
-    render();
-  });
-  render();
-  const show = (i) => {
-    step = i;
-    render();
-  };
+  render(0);
   register(
     deploy.closest("[data-glass-demo]"),
     5000,
     [
-      { at: 0, run: () => show(0) },
-      { at: 1200, run: () => show(1) },
-      { at: 3000, run: () => show(2) },
+      { at: 0, run: () => render(0) },
+      { at: 1200, run: () => render(1) },
+      { at: 3000, run: () => render(2) },
     ],
     0,
   );
@@ -830,7 +833,7 @@ if (nav) {
 
 // Card chrome opens its case study; the product examples keep their own input.
 for (const card of document.querySelectorAll('.work-feature')) {
-  const link = card.querySelector('.work-case-link');
+  const link = card.querySelector('.work-title-link');
   if (!link) continue;
   card.classList.add('is-card-linked');
   const interactive = '.glass-demo-stage,a,button,input,select,textarea,label,summary,[role="button"],[role="link"],[contenteditable]';

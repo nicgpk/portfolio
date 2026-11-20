@@ -461,10 +461,6 @@ body.case-study {
 .case-study .case-hero a:focus-visible {
   outline-color: var(--ink);
 }
-.case-study ::selection {
-  background: var(--accent);
-  color: var(--ds-color-ink-ink);
-}
 @media (max-width: 1100px) {
   .case-study .case-hero {
     padding: var(--ds-space-24) var(--ds-space-32) var(--ds-space-40);

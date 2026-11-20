@@ -1,0 +1,21 @@
+{
+  "generator": "OpenAI ImageGen (built-in)",
+  "format": "1440 × 960 WebP",
+  "assets": [
+    {
+      "file": "demo-growth-terraces.webp",
+      "project": "Partner Growth Programs",
+      "prompt": "Photorealistic-natural, original monochrome landscape photograph for a wide 3:2 portfolio demo backdrop. An aerial view over terraced hills that unfold in quiet, finely textured contour bands, with a pale diagonal edge of mist across the distant ridgeline. Dark graphite slopes and silvery grey light, natural atmospheric depth and fine film grain. Keep the center gently lit and low contrast for a glass UI panel, with terrain detail at the outer edges and in the central vertical crop. Understated black-and-white editorial photography. The photograph fills the entire frame. No text, people, signs, interfaces, panels, or borders."
+    },
+    {
+      "file": "demo-discounting-gorge.webp",
+      "project": "Discounting 2.0",
+      "prompt": "Photorealistic-natural, original monochrome landscape photograph for a wide 3:2 portfolio demo backdrop. Look across a wide basalt gorge, with layered shelves of dark volcanic stone and a thin river far below. Oblique framing, with diagonal folds and strata catching soft overcast light and an open hazy center. Dark graphite shadows, silver-grey highlights and fine film grain. Keep detail near the edges and readable through a narrow central crop. Understated black-and-white editorial photography. The photograph fills the entire frame. No text, people, signs, interfaces, panels, or borders."
+    },
+    {
+      "file": "demo-developer-basin.webp",
+      "project": "Developer Portal & Deployment",
+      "prompt": "Photorealistic-natural, original monochrome landscape photograph for a wide 3:2 portfolio demo backdrop. A broad view across a rugged alpine basin where branching ridgelines descend into a mist-covered valley. Distinct dark rock ridges bracket the frame while soft, diffused silver light settles in the valley. Dark graphite shadows, cool grey highlights, natural textures and fine film grain. A calm center for a glass UI panel, with clear terrain silhouettes around it and in a narrow crop. Understated black-and-white editorial photography. The photograph fills the entire frame. No text, people, signs, interfaces, panels, or borders."
+    }
+  ]
+}

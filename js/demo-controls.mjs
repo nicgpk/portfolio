@@ -78,6 +78,8 @@ function enhanceGrowth(root) {
     const output = document.createElement('output');
     output.className = 'demo-range-value';
     const sync = () => {
+      const pct = ((Number(input.value) - Number(input.min)) / (Number(input.max) - Number(input.min))) * 100;
+      input.style.setProperty('--range-pct', `${pct}%`);
       output.textContent = `${input.value}%`;
       input.setAttribute('aria-valuetext', `${input.value}% discount`);
       if (chapter === 'pattern-analytics') {

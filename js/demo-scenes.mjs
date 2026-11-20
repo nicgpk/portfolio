@@ -1,6 +1,6 @@
 import { motionPaused } from './kinetics.mjs?v=2178cec3bf8c';
 import { animateFeedback, cancelFeedback } from './interaction-motion.mjs?v=38b6b647ccc1';
-import { enhanceDemoControls } from './demo-controls.mjs?v=2c0d979c51e0';
+import { enhanceDemoControls } from './demo-controls.mjs?v=8e0c447272d1';
 import { observeDemoReveals } from './demo-reveal.mjs?v=74b6932daa6c';
 
 // Finite reading sequences prepare only just outside the viewport. The HTML

@@ -6,15 +6,12 @@ if (root) {
   const list = root.querySelector('.work-feature-list');
   const atmosphereTrack = root.closest('.hero-work-surface')?.querySelector('.work-atmosphere-track');
   const cards = [...root.querySelectorAll('.work-feature')];
-  const controls = root.querySelector('.work-scroll-controls');
-  const previous = controls.querySelector('[data-work-previous]');
-  const next = controls.querySelector('[data-work-next]');
-  const status = controls.querySelector('.work-scroll-position');
+  const status = root.querySelector('.work-scroll-position');
   const projectNav = root.querySelector('.work-project-nav');
   const projectButtons = [...root.querySelectorAll('[data-work-index]')];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const coarse = matchMedia('(pointer: coarse)');
-  let top = 104, holdRatio = .55;
+  let top = 104, holdRatio = .55, compact = false;
   let measuredWidth = 0, measuredHeight = 0;
   let pinned = false, start = 0, step = 0, active = -1, frame = 0;
   let displayed = 0, lastTime = 0;
@@ -31,8 +28,18 @@ if (root) {
     return {index, local: Math.max(0, position - (starts[index] || 0))};
   }
 
-  function holdFor(index) {
-    return index < cards.length - 1 ? step * holdRatio : 0;
+  function holdFor() {
+    return step * holdRatio;
+  }
+
+  function exitHoldFor(index) {
+    return index === cards.length - 1 && (reading[index] > 0 || compact) ? step * .2 : 0;
+  }
+
+  function segmentLength(index) {
+    return index < cards.length - 1
+      ? reading[index] + step
+      : holdFor() + reading[index] + exitHoldFor(index);
   }
 
   function render(time, immediate = false) {
@@ -50,7 +57,7 @@ if (root) {
     const {index, local} = segment(displayed * step);
     // Read the entire card at its original type size before the next arrives.
     // Shorter viewports add native document scroll distance, not a nested pane.
-    const hold = holdFor(index);
+    const hold = holdFor();
     const readOffset = Math.max(0, Math.min(reading[index], local - hold));
     const fraction = index < cards.length - 1
       ? Math.max(0, Math.min(1, (local - hold - reading[index]) / (step * (1 - holdRatio)))) : 0;
@@ -58,7 +65,7 @@ if (root) {
     const selected = Math.min(cards.length - 1, index + (mix >= .5 ? 1 : 0));
     // The rail shares the card clock: it shows reading progress, not autoplay.
     projectButtons.forEach((button, i) => {
-      const length = reading[i] + (i < cards.length - 1 ? step : 0);
+      const length = segmentLength(i);
       const progress = length > 0
         ? Math.max(0, Math.min(1, (displayed * step - starts[i]) / length))
         : i <= index ? 1 : 0;
@@ -72,8 +79,9 @@ if (root) {
     // Their bounds never overlap, so transparent glass needs no moving cut line.
     const incomingOffset = mix === 1 ? 0 : travel * (1 - mix) + 48 * Math.sin(Math.PI * mix);
     const fadeTop = Math.min(32, readOffset + travel * mix, incomingOffset);
-    const bottom = mix > 0 ? incomingOffset + cardHeights[index + 1] * (.9 + .1 * mix)
-      : cardHeights[index] - readOffset;
+    const bottom = mix > 0 && incomingOffset < travel
+      ? incomingOffset + cardHeights[index + 1] * (.9 + .1 * mix)
+      : cardHeights[index] * (1 - .14 * mix) - readOffset - travel * mix;
     const fadeBottom = Math.min(24, Math.max(0, bottom - travel));
     const edges = `${fadeTop.toFixed(2)}px ${fadeBottom.toFixed(2)}px`;
     if (edges !== edgePainted) {
@@ -112,8 +120,6 @@ if (root) {
       });
       active = selected;
       status.textContent = `${active + 1} of ${cards.length}`;
-      previous.disabled = active === 0;
-      next.disabled = active === cards.length - 1;
       projectButtons.forEach((button, i) => {
         if (i === active) button.setAttribute('aria-current', 'step');
         else button.removeAttribute('aria-current');
@@ -150,33 +156,42 @@ if (root) {
     const retained = Math.max(0, active);
     const position = step ? Math.max(0, Math.min(scrollTravel, scrollY - start)) : 0;
     const retainedSegment = segment(position);
-    const oldHold = holdFor(retainedSegment.index);
-    const oldReading = reading[retainedSegment.index];
+    const oldHold = holdFor();
+    const oldExitHold = exitHoldFor(retainedSegment.index);
+    const oldReading = reading[retainedSegment.index] || 0;
     const oldStep = step;
     const wasInStage = wasPinned && scrollY >= start && scrollY <= start + scrollTravel;
     // Share the sequence across sizes. Short landscape windows and reduced
     // motion retain the complete natural flow instead of a cramped pin.
-    const compact = innerWidth < 1024;
-    top = innerWidth < 768 ? 88 : 104;
+    compact = innerWidth < 1024;
+    const baseTop = innerWidth < 768 ? 88 : 104;
+    top = baseTop;
     holdRatio = compact ? .2 : .55;
     const enabled = innerWidth >= 320 && innerHeight >= 400 && !reduced.matches && document.documentElement.dataset.motion !== 'off';
     root.style.setProperty('--work-sticky-top', `${top}px`);
-    root.style.setProperty('--work-viewport-height', `${Math.max(1, innerHeight - top - 24)}px`);
+    root.style.setProperty('--work-viewport-height', `${Math.max(1, innerHeight - baseTop - 24)}px`);
     root.classList.toggle('is-work-pinned', enabled);
-    controls.hidden = !enabled;
     if (projectNav) projectNav.hidden = !enabled;
     // Flex bounds the stage; overflowing card content gets its own scroll time.
     const height = stage.offsetHeight;
     pinned = enabled && height > 0;
     root.classList.toggle('is-work-pinned', pinned);
-    controls.hidden = !pinned;
     if (projectNav) projectNav.hidden = !pinned;
+    const naturalTop = root.getBoundingClientRect().top + scrollY;
+    if (pinned && !compact) {
+      // Optically center shorter stages on tall desktop screens without letting
+      // the pin start before the top of the document.
+      const extra = Math.max(0, innerHeight - baseTop - 24 - height);
+      const maxOffset = Math.max(0, Math.round(naturalTop - baseTop));
+      top = baseTop + Math.min(Math.round(extra * .45), maxOffset);
+      root.style.setProperty('--work-sticky-top', `${top}px`);
+    }
     // Use the available stage after the browser toolbar or safe area is accounted for.
     const viewportHeight = compact && pinned ? Math.min(innerHeight, height + top + 24) : innerHeight;
     step = Math.round(viewportHeight * .85);
     measuredWidth = innerWidth;
     measuredHeight = viewportHeight;
-    start = root.getBoundingClientRect().top + scrollY - top;
+    start = naturalTop - top;
     if (pinned) {
       travel = list.offsetHeight;
       cardHeights = cards.map(card => card.offsetHeight);
@@ -184,7 +199,7 @@ if (root) {
       scrollTravel = 0;
       starts = cards.map((_, i) => {
         const offset = scrollTravel;
-        scrollTravel += reading[i] + (i < cards.length - 1 ? step : 0);
+        scrollTravel += segmentLength(i);
         return offset;
       });
       root.style.height = `${height + scrollTravel}px`;
@@ -196,15 +211,19 @@ if (root) {
       atmosphereTrack?.classList.toggle('is-work-pinned', true);
       if (wasInStage) {
         const index = retainedSegment.index;
-        const hold = holdFor(index);
+        const hold = holdFor();
+        const exitHold = exitHoldFor(index);
         const readPosition = retainedSegment.local - oldHold;
         // Keep the same point in the card or the same progress through a handoff.
-        let local = hold + Math.min(reading[index], readPosition);
+        let local = hold + Math.min(reading[index], Math.max(0, readPosition));
         if (readPosition < 0) {
-          local = retainedSegment.local / oldHold * hold;
+          local = oldHold > 0 ? retainedSegment.local / oldHold * hold : 0;
         } else if (index < cards.length - 1 && readPosition > oldReading) {
           const progress = (readPosition - oldReading) / (oldStep - oldHold);
           local += progress * (step - hold);
+        } else if (index === cards.length - 1 && readPosition > oldReading && oldExitHold > 0) {
+          const progress = Math.min(1, (readPosition - oldReading) / oldExitHold);
+          local += progress * exitHold;
         }
         const restoreTop = start + starts[index] + local;
         // Avoid interrupting native touch momentum when the position is already correct.
@@ -220,6 +239,7 @@ if (root) {
       atmosphereTrack?.style.removeProperty('--work-atmosphere-top');
       painted.length = 0;
       progressPainted.length = 0;
+      if (wasPinned) status.textContent = '';
       edgePainted = '';
       masked = null;
       list.style.removeProperty('mask-image');
@@ -242,8 +262,6 @@ if (root) {
   function go(index) {
     if (pinned) window.scrollTo({top: start + starts[Math.max(0, Math.min(cards.length - 1, index))], behavior: 'smooth'});
   }
-  previous.addEventListener('click', () => go(active - 1));
-  next.addEventListener('click', () => go(active + 1));
   projectButtons.forEach((button, index) => button.addEventListener('click', () => go(index)));
   projectNav?.addEventListener('keydown', event => {
     const index = projectButtons.indexOf(event.target);
@@ -260,7 +278,7 @@ if (root) {
     if (index < 0) return;
     const viewport = list.getBoundingClientRect(), target = event.target.getBoundingClientRect();
     const {index: current, local} = segment(displayed * step);
-    const hold = holdFor(index);
+    const hold = holdFor();
     const pan = current === index ? Math.max(0, Math.min(reading[index], local - hold)) : 0;
     const delta = target.top < viewport.top ? target.top - viewport.top
       : target.bottom > viewport.bottom ? target.bottom - viewport.bottom : 0;

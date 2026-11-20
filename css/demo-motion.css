@@ -18,15 +18,44 @@
   .folio .demo-interactive .demo-result:empty {margin:0;padding:0;border:0;}
   .folio .demo-interactive .pb-ex-slider {display:flex;align-items:center;gap:var(--ds-space-12);margin-inline:0;}
   .folio .product-surface input.demo-range {
-    flex:1;min-width:0;width:100%;min-height:var(--ds-control-height);padding:0;border:0;
-    background:transparent;accent-color:var(--product-accent);cursor:ew-resize;
+    flex:1;min-width:0;width:100%;height:6px;min-height:var(--ds-control-height);padding:0;border:0;
+    -webkit-appearance:none;appearance:none;background:transparent;cursor:ew-resize;
   }
-  .demo-range-value {min-width:3ch;color:var(--product-ink);font-variant-numeric:tabular-nums;}
-  .folio .demo-interactive :is(.pb-ex-seg,.pb-ex-days) > button {
-    padding:var(--ds-space-8);border:var(--ds-border-thin) solid var(--product-control-line);
+  .folio .product-surface input.demo-range::-webkit-slider-runnable-track {
+    height:6px;border-radius:var(--ds-radius-pill);
+    background:linear-gradient(to right,var(--ds-color-primary-cta-bg) 0%,var(--ds-color-primary-cta-bg) var(--range-pct,50%),var(--ds-color-slider-track) var(--range-pct,50%),var(--ds-color-slider-track) 100%);
+  }
+  .folio .product-surface input.demo-range::-webkit-slider-thumb {
+    -webkit-appearance:none;appearance:none;width:18px;height:18px;margin-top:-6px;border-radius:50%;
+    border:var(--ds-border-strong) solid var(--product-bg);background:var(--ds-color-slider-thumb);
+    box-shadow:var(--ds-effect-slider-thumb-shadow);
+  }
+  .folio .product-surface input.demo-range::-moz-range-track {
+    height:6px;border-radius:var(--ds-radius-pill);background:var(--ds-color-slider-track);
+  }
+  .folio .product-surface input.demo-range::-moz-range-progress {
+    height:6px;border-radius:var(--ds-radius-pill);background:var(--ds-color-primary-cta-bg);
+  }
+  .folio .product-surface input.demo-range::-moz-range-thumb {
+    width:18px;height:18px;border-radius:50%;border:var(--ds-border-strong) solid var(--product-bg);
+    background:var(--ds-color-slider-thumb);box-shadow:var(--ds-effect-slider-thumb-shadow);
+  }
+  .demo-range-value {min-width:3.2ch;text-align:right;color:var(--product-ink);font-weight:var(--ds-weight-semibold);font-variant-numeric:tabular-nums;}
+  .folio .demo-interactive .pb-ex-seg {
+    padding:var(--ds-space-4);border:var(--ds-border-thin) solid var(--product-line);border-radius:var(--product-radius-control);background:var(--product-bg);gap:var(--ds-space-4);
+  }
+  .folio .demo-interactive .pb-ex-seg > button {
+    padding:var(--ds-space-8);border:var(--ds-border-thin) solid transparent;border-radius:var(--ds-radius-badge);
+    background:transparent;color:var(--product-muted);cursor:pointer;font-size:var(--ds-text-12);
+  }
+  .folio .demo-interactive .pb-ex-seg > button.is-on {
+    background:var(--product-raised);color:var(--product-ink);border-color:var(--product-control-line);box-shadow:var(--ds-effect-product-panel-specular);
+  }
+  .folio .demo-interactive .pb-ex-days > button {
+    padding:var(--ds-space-8);border:var(--ds-border-thin) solid var(--product-line);
     background:var(--product-bg);color:var(--product-muted);cursor:pointer;font-size:var(--ds-text-12);
   }
-  .folio .demo-interactive :is(.pb-ex-seg,.pb-ex-days) > button.is-on {
+  .folio .demo-interactive .pb-ex-days > button.is-on {
     background:var(--product-raised);color:var(--product-ink);border-color:var(--product-accent);
   }
   .folio .demo-interactive button.pb-ex-day {
@@ -35,7 +64,7 @@
     font-size:var(--ds-text-11);cursor:pointer;
   }
   .folio .demo-interactive button.pb-ex-day.is-selected {
-    background:var(--product-raised);color:var(--product-ink);border-color:var(--product-control-line);
+    background:var(--ds-color-blackout-bg);color:var(--ds-color-blackout-text);border-color:var(--ds-color-blackout-border);font-weight:var(--ds-weight-semibold);
   }
   .folio .demo-interactive :is(.pb-ex-btn,.hero-product-btn,.pb-ex-link) {cursor:pointer;}
   .folio .demo-interactive .pb-ex-link {padding:var(--ds-space-8) 0;background:transparent;border:0;text-align:left;}
@@ -44,8 +73,11 @@
   .pb-ex-faq[open] > span {display:block;margin-top:var(--ds-space-8);}
   .pb-ex-col {transform-origin:center bottom;}
   .folio .demo-interactive button.dev-feat-what {
-    padding:var(--ds-space-4) var(--ds-space-8);background:transparent;color:var(--product-muted);
-    border:var(--ds-border-thin) solid var(--product-control-line);cursor:pointer;font-size:var(--ds-text-11);
+    min-height:var(--ds-control-height);padding:var(--ds-space-4) var(--ds-space-8);margin-inline:calc(-1 * var(--ds-space-8));background:transparent;color:var(--product-muted);
+    border:var(--ds-border-thin) solid transparent;border-radius:var(--product-radius-control);cursor:pointer;font-size:var(--ds-text-12);text-decoration:underline;text-decoration-color:var(--product-line);text-underline-offset:var(--ds-space-4);
+  }
+  .folio .demo-interactive button.dev-feat-what:is(:hover,:focus-visible) {
+    color:var(--product-ink);text-decoration-color:var(--product-accent);background:var(--product-bg);
   }
   .folio .demo-interactive .dev-seg > button {
     padding:var(--ds-space-8) var(--ds-space-12);background:var(--product-bg);color:var(--product-muted);
