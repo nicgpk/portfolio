@@ -329,6 +329,9 @@ html[data-motion=off] .folio .process-list > li {transition:none;}
 @media screen and (hover:hover) and (pointer:fine) {
   .home-narrow .work-feature-list .work-feature:hover {border-color:var(--ds-color-work-feature-list-work-feature-hover-text);}
 }
+@media screen and (pointer:coarse) and (forced-colors:none) {
+  .home-narrow .work-feature.is-card-linked {-webkit-tap-highlight-color:var(--ds-overlay-white-7-1);}
+}
 @media screen {
   .home-narrow .work-feature-list .work-feature.is-card-pressed {border-color:var(--ds-color-accent);}
 }
@@ -396,7 +399,11 @@ html[data-motion=off] .home-narrow .work-feature::before {transition:none;}
     -webkit-mask-image:linear-gradient(to bottom,transparent 0px,var(--ds-mask-fade-1) calc(var(--work-fade-top,0px) * .25),var(--ds-mask-fade-2) calc(var(--work-fade-top,0px) * .5),var(--ds-mask-fade-3) calc(var(--work-fade-top,0px) * .75),var(--ds-color-white) var(--work-fade-top,0px),var(--ds-color-white) calc(100% - var(--work-fade-bottom,0px)),var(--ds-mask-fade-3) calc(100% - var(--work-fade-bottom,0px) * .75),var(--ds-mask-fade-2) calc(100% - var(--work-fade-bottom,0px) * .5),var(--ds-mask-fade-1) calc(100% - var(--work-fade-bottom,0px) * .25),transparent 100%);
     mask-image:linear-gradient(to bottom,transparent 0px,var(--ds-mask-fade-1) calc(var(--work-fade-top,0px) * .25),var(--ds-mask-fade-2) calc(var(--work-fade-top,0px) * .5),var(--ds-mask-fade-3) calc(var(--work-fade-top,0px) * .75),var(--ds-color-white) var(--work-fade-top,0px),var(--ds-color-white) calc(100% - var(--work-fade-bottom,0px)),var(--ds-mask-fade-3) calc(100% - var(--work-fade-bottom,0px) * .75),var(--ds-mask-fade-2) calc(100% - var(--work-fade-bottom,0px) * .5),var(--ds-mask-fade-1) calc(100% - var(--work-fade-bottom,0px) * .25),transparent 100%);
   }
-  #work.is-work-pinned .work-feature {grid-area:1 / 1;transform-origin:center top;backface-visibility:hidden;}
+  #work.is-work-pinned .work-feature {grid-area:1 / 1;transform-origin:center top;}
+}
+
+@media screen and (pointer:fine) {
+  #work.is-work-pinned .work-feature {backface-visibility:hidden;will-change:transform,opacity;}
 }
 
 /* The stack is shared across devices; desktop balances spacing and card height. */
@@ -504,12 +511,8 @@ html[data-motion=off] .home-narrow .work-feature::before {transition:none;}
   }
 }
 
-/* Filled surfaces and spacing group demo content. Strokes mark controls and active states. */
+/* Keep secondary rows quiet inside the demo frame and raised panels. */
 @media screen and (forced-colors:none) {
-  #work .mini-window.product-surface,
-  #work .program-hub-detail {border-color:transparent;box-shadow:none;}
-  #work .product-surface :is(.receipt-total,.mini-deploy-detail) {box-shadow:none;}
-
   #work .program-hub-tabs button[aria-pressed=false] {background:var(--ds-overlay-white-3-1);border-color:transparent;}
   #work .program-hub-tabs button[aria-pressed=false]:is(:hover,:focus-visible):enabled {background:var(--product-raised);}
   #work :is(.program-hub-status,.program-exchange > div) {border-color:transparent;}

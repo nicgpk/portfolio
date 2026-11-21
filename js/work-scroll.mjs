@@ -42,44 +42,21 @@ if (root) {
       : holdFor() + reading[index] + exitHoldFor(index);
   }
 
-  function render(time, immediate = false) {
-    frame = 0;
-    if (!pinned) return;
-    const target = Math.max(0, Math.min(scrollTravel / step, (scrollY - start) / step));
-    // Wheel deltas arrive in discrete steps. Ease the visual position by elapsed
-    // time so both mouse wheels and high-refresh trackpads blend continuously.
-    const elapsed = Math.max(0, time - lastTime);
-    displayed += (target - displayed) * (1 - Math.exp(-elapsed / 140));
-    // Native touch scrolling already supplies smooth positions, including its
-    // momentum. Adding wheel smoothing makes the cards lag behind the finger.
-    if (immediate || coarse.matches || document.hidden || Math.abs(target - displayed) * step < .5) displayed = target;
-    lastTime = time;
-    const {index, local} = segment(displayed * step);
-    // Read the entire card at its original type size before the next arrives.
-    // Shorter viewports add native document scroll distance, not a nested pane.
-    const hold = holdFor();
-    const readOffset = Math.max(0, Math.min(reading[index], local - hold));
-    const fraction = index < cards.length - 1
-      ? Math.max(0, Math.min(1, (local - hold - reading[index]) / (step * (1 - holdRatio)))) : 0;
-    const mix = fraction * fraction * (3 - 2 * fraction);
-    const selected = Math.min(cards.length - 1, index + (mix >= .5 ? 1 : 0));
-    // The rail shares the card clock: it shows reading progress, not autoplay.
-    projectButtons.forEach((button, i) => {
-      const length = segmentLength(i);
-      const progress = length > 0
-        ? Math.max(0, Math.min(1, (displayed * step - starts[i]) / length))
-        : i <= index ? 1 : 0;
-      const value = progress.toFixed(4);
-      if (progressPainted[i] !== value) {
-        button.style.setProperty('--project-progress', value);
-        progressPainted[i] = value;
-      }
-    });
-    // Let whole cards travel past one another, with a little breathing room.
-    // Their bounds never overlap, so transparent glass needs no moving cut line.
-    const outgoingTop = -readOffset - travel * mix;
+  function scrollProgress() {
+    return Math.max(0, Math.min(scrollTravel / step, (scrollY - start) / step));
+  }
+
+  function clearFades() {
+    edgePainted = '';
+    fadeMode = null;
+    delete list.dataset.workFade;
+    list.style.removeProperty('mask-image');
+    list.style.removeProperty('--work-fade-top');
+    list.style.removeProperty('--work-fade-bottom');
+  }
+
+  function paintFades(index, mix, outgoingTop, incomingOffset) {
     const outgoingBottom = outgoingTop + cardHeights[index] * (1 - .14 * mix);
-    const incomingOffset = mix === 1 ? 0 : travel * (1 - mix) + 48 * Math.sin(Math.PI * mix);
     const incomingBottom = index < cards.length - 1
       ? incomingOffset + cardHeights[index + 1] * (.9 + .1 * mix)
       : 0;
@@ -110,16 +87,61 @@ if (root) {
       list.style.maskImage = nextFadeMode ? '' : 'none';
       fadeMode = nextFadeMode;
     }
+  }
+
+  function render(time, immediate = false) {
+    frame = 0;
+    if (!pinned) return;
+    const target = scrollProgress();
+    const touch = coarse.matches;
+    // Native touch momentum already gives us smooth positions. Ease only the
+    // discrete wheel deltas, using elapsed time for high-refresh displays.
+    if (immediate || touch || document.hidden) displayed = target;
+    else {
+      const elapsed = Math.max(0, time - lastTime);
+      displayed += (target - displayed) * (1 - Math.exp(-elapsed / 140));
+      if (Math.abs(target - displayed) * step < .5) displayed = target;
+    }
+    lastTime = time;
+    const {index, local} = segment(displayed * step);
+    // Read the entire card at its original type size before the next arrives.
+    // Shorter viewports add native document scroll distance, not a nested pane.
+    const hold = holdFor();
+    const readOffset = Math.max(0, Math.min(reading[index], local - hold));
+    const fraction = index < cards.length - 1
+      ? Math.max(0, Math.min(1, (local - hold - reading[index]) / (step * (1 - holdRatio)))) : 0;
+    const mix = fraction * fraction * (3 - 2 * fraction);
+    const selected = Math.min(cards.length - 1, index + (mix >= .5 ? 1 : 0));
+    // The rail shares the card clock: it shows reading progress, not autoplay.
+    projectButtons.forEach((button, i) => {
+      const length = segmentLength(i);
+      const progress = length > 0
+        ? Math.max(0, Math.min(1, (displayed * step - starts[i]) / length))
+        : i <= index ? 1 : 0;
+      const value = progress.toFixed(4);
+      if (progressPainted[i] !== value) {
+        button.style.setProperty('--project-progress', value);
+        progressPainted[i] = value;
+      }
+    });
+    // Leave a small gap between cards. On touch the stage clips the flat slide
+    // at its bounds, avoiding a repainted gradient mask on every scroll frame.
+    const outgoingTop = -readOffset - travel * mix;
+    const incomingOffset = mix === 1 ? 0 : travel * (1 - mix) + (touch ? 24 : 48) * Math.sin(Math.PI * mix);
+    if (!touch) paintFades(index, mix, outgoingTop, incomingOffset);
     let geometryChanged = false;
     cards.forEach((card, i) => {
       const outgoing = i === index;
       const incoming = i === index + 1;
-      const offset = incoming ? incomingOffset : outgoing ? -readOffset - travel * mix : 0;
-      const scale = outgoing ? 1 - .14 * mix : incoming ? .9 + .1 * mix : 1;
-      const tilt = outgoing ? -6 * mix : incoming ? 8 * (1 - mix) : 0;
+      const offset = incoming ? incomingOffset : outgoing ? outgoingTop : 0;
       const opacity = outgoing ? 1 - .65 * mix : 1;
       const visibility = (outgoing && mix < 1) || (incoming && mix > 0) ? 'visible' : 'hidden';
-      const transform = `translate3d(0,${offset}px,0) perspective(1600px) rotateX(${tilt}deg) scale(${scale})`;
+      let transform = visibility === 'visible' || !touch ? `translate3d(0,${offset}px,0)` : 'none';
+      if (!touch) {
+        const scale = outgoing ? 1 - .14 * mix : incoming ? .9 + .1 * mix : 1;
+        const tilt = outgoing ? -6 * mix : incoming ? 8 * (1 - mix) : 0;
+        transform += ` perspective(1600px) rotateX(${tilt}deg) scale(${scale})`;
+      }
       const last = painted[i];
       if (last?.opacity !== opacity) card.style.opacity = String(opacity);
       if (last?.transform !== transform) { card.style.transform = transform; geometryChanged = true; }
@@ -150,7 +172,7 @@ if (root) {
   }
 
   function schedule() {
-    if (pinned && !document.hidden && !frame) {
+    if (pinned && !document.hidden && !frame && displayed !== scrollProgress()) {
       lastTime = performance.now();
       frame = requestAnimationFrame(render);
     }
@@ -217,7 +239,7 @@ if (root) {
         return offset;
       });
       root.style.height = `${height + scrollTravel}px`;
-      cards.forEach(card => {card.style.willChange = 'transform, opacity';});
+      if (coarse.matches && fadeMode !== null) clearFades();
       // The browser pins the entire background in the same scroll transaction
       // as the stage. JavaScript only supplies geometry when layout changes.
       atmosphereTrack?.style.setProperty('--work-pin-distance', `${scrollTravel}px`);
@@ -254,18 +276,13 @@ if (root) {
       painted.length = 0;
       progressPainted.length = 0;
       if (wasPinned) status.textContent = '';
-      edgePainted = '';
-      fadeMode = null;
-      delete list.dataset.workFade;
-      list.style.removeProperty('mask-image');
-      list.style.removeProperty('--work-fade-top');
-      list.style.removeProperty('--work-fade-bottom');
+      clearFades();
       projectButtons.forEach(button => {
         button.style.removeProperty('--project-progress');
         button.removeAttribute('aria-current');
       });
       cards.forEach(card => {
-        for (const property of ['opacity', 'transform', 'clip-path', 'visibility', 'will-change']) card.style.removeProperty(property);
+        for (const property of ['opacity', 'transform', 'visibility']) card.style.removeProperty(property);
         card.inert = false;
         card.removeAttribute('aria-hidden');
       });
@@ -310,6 +327,7 @@ if (root) {
     else schedule();
   });
   reduced.addEventListener('change', measure);
+  coarse.addEventListener('change', measure);
   document.addEventListener('portfolio:motionchange', measure);
   new MutationObserver(measure).observe(document.documentElement, {attributes: true, attributeFilter: ['data-motion']});
   // Wait for final text metrics to avoid shifting the document during font load.
