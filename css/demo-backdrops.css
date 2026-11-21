@@ -1,4 +1,4 @@
-/* Blur the photograph behind the panel while the live demo stays sharp. */
+/* Let the photograph carry through the shell around solid controls and panels. */
 @media screen and (forced-colors:none) {
   [data-demo-backdrop="growth"] {
     --demo-photo:url('../images/demo-growth-terraces.webp');
@@ -28,7 +28,7 @@
 
   .folio [data-demo-backdrop] > .product-surface,
   .folio.case-refined .concept-canvas[data-demo-backdrop] > .product-surface {
-    --product-bg:var(--ds-color-demo-glass-inset);
+    --product-bg:var(--ds-color-foundation);
     --product-raised:var(--ds-color-demo-glass-raised);
     --product-muted:var(--ds-color-demo-glass-muted);
     --product-line:var(--ds-color-demo-glass-divider);
@@ -39,12 +39,18 @@
     border:var(--ds-border-thin) solid var(--ds-color-demo-glass-edge);
     border-radius:var(--ds-radius-panel);
     box-shadow:var(--ds-effect-demo-glass-shadow);
-    -webkit-backdrop-filter:blur(18px);
-    backdrop-filter:blur(18px);
   }
 
   .folio [data-demo-backdrop] .developer-ui .deploy-steps li[aria-current] > span {
     color:var(--ds-color-primary-cta-ink);
+  }
+}
+
+@media screen and (min-width:768px) and (pointer:fine) and (forced-colors:none) {
+  .folio [data-demo-backdrop] > .product-surface,
+  .folio.case-refined .concept-canvas[data-demo-backdrop] > .product-surface {
+    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:blur(18px);
   }
 }
 

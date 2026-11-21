@@ -87,6 +87,10 @@ test('coarse wheel steps slide over frames, reverse continuously, and settle wit
   const writes = x.writes();
   x.scroll(.65); x.tick(1000/60);
   assert.equal(x.writes(), writes, 'unchanged scroll position should not rewrite styles or accessibility state');
+  x.scroll(-1);
+  for (let i=0; i<100; i++) x.tick(1000/60);
+  x.scroll(-.5);
+  assert.equal(x.frames.size, 0, 'scrolling outside the stage does not queue work');
 });
 
 test('project navigation follows reading progress and supports direct and keyboard jumps', async () => {
@@ -270,12 +274,14 @@ test('mobile toolbar collapse preserves the active project during a handoff', as
   const x=await setup({width:390,height:748,coarse:true,stageHeight:636,listHeight:576,heights:[1500,1400,1600]});
   const step=Math.round(748*.85);
   x.scroll(.2+(1500-576)/step+.8*.473);x.tick(16);
-  const tilt=card=>Number(card.style.transform.match(/rotateX\(([^d]+)deg\)/)[1]);
-  const before=tilt(x.cards[0]);
+  const before=Number(x.cards[0].style.opacity);
+  assert.match(x.cards[0].style.transform, /^translate3d\(0,[^,]+,0\)$/);
+  assert.equal(x.list.dataset.workFade, undefined);
+  assert.equal(x.list.style['--work-fade-top'], undefined);
   assert.equal(x.cards[0].inert,false);
   x.resize({height:844,stageHeight:732,listHeight:672});
   assert.equal(x.cards[0].inert,false);
-  assert.ok(Math.abs(tilt(x.cards[0])-before)<.001);
+  assert.ok(Math.abs(Number(x.cards[0].style.opacity)-before)<.001);
 });
 
 test('touch card movement notifies reveal observers after the new positions are painted', async () => {

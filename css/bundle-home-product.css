@@ -331,6 +331,9 @@ html[data-motion=off] .folio .process-list > li {transition:none;}
 @media screen and (hover:hover) and (pointer:fine) {
   .home-narrow .work-feature-list .work-feature:hover {border-color:var(--ds-color-work-feature-list-work-feature-hover-text);}
 }
+@media screen and (pointer:coarse) and (forced-colors:none) {
+  .home-narrow .work-feature.is-card-linked {-webkit-tap-highlight-color:var(--ds-overlay-white-7-1);}
+}
 @media screen {
   .home-narrow .work-feature-list .work-feature.is-card-pressed {border-color:var(--ds-color-accent);}
 }
@@ -398,7 +401,11 @@ html[data-motion=off] .home-narrow .work-feature::before {transition:none;}
     -webkit-mask-image:linear-gradient(to bottom,transparent 0px,var(--ds-mask-fade-1) calc(var(--work-fade-top,0px) * .25),var(--ds-mask-fade-2) calc(var(--work-fade-top,0px) * .5),var(--ds-mask-fade-3) calc(var(--work-fade-top,0px) * .75),var(--ds-color-white) var(--work-fade-top,0px),var(--ds-color-white) calc(100% - var(--work-fade-bottom,0px)),var(--ds-mask-fade-3) calc(100% - var(--work-fade-bottom,0px) * .75),var(--ds-mask-fade-2) calc(100% - var(--work-fade-bottom,0px) * .5),var(--ds-mask-fade-1) calc(100% - var(--work-fade-bottom,0px) * .25),transparent 100%);
     mask-image:linear-gradient(to bottom,transparent 0px,var(--ds-mask-fade-1) calc(var(--work-fade-top,0px) * .25),var(--ds-mask-fade-2) calc(var(--work-fade-top,0px) * .5),var(--ds-mask-fade-3) calc(var(--work-fade-top,0px) * .75),var(--ds-color-white) var(--work-fade-top,0px),var(--ds-color-white) calc(100% - var(--work-fade-bottom,0px)),var(--ds-mask-fade-3) calc(100% - var(--work-fade-bottom,0px) * .75),var(--ds-mask-fade-2) calc(100% - var(--work-fade-bottom,0px) * .5),var(--ds-mask-fade-1) calc(100% - var(--work-fade-bottom,0px) * .25),transparent 100%);
   }
-  #work.is-work-pinned .work-feature {grid-area:1 / 1;transform-origin:center top;backface-visibility:hidden;}
+  #work.is-work-pinned .work-feature {grid-area:1 / 1;transform-origin:center top;}
+}
+
+@media screen and (pointer:fine) {
+  #work.is-work-pinned .work-feature {backface-visibility:hidden;will-change:transform,opacity;}
 }
 
 /* The stack is shared across devices; desktop balances spacing and card height. */
@@ -506,12 +513,8 @@ html[data-motion=off] .home-narrow .work-feature::before {transition:none;}
   }
 }
 
-/* Filled surfaces and spacing group demo content. Strokes mark controls and active states. */
+/* Keep secondary rows quiet inside the demo frame and raised panels. */
 @media screen and (forced-colors:none) {
-  #work .mini-window.product-surface,
-  #work .program-hub-detail {border-color:transparent;box-shadow:none;}
-  #work .product-surface :is(.receipt-total,.mini-deploy-detail) {box-shadow:none;}
-
   #work .program-hub-tabs button[aria-pressed=false] {background:var(--ds-overlay-white-3-1);border-color:transparent;}
   #work .program-hub-tabs button[aria-pressed=false]:is(:hover,:focus-visible):enabled {background:var(--product-raised);}
   #work :is(.program-hub-status,.program-exchange > div) {border-color:transparent;}
@@ -651,12 +654,12 @@ html[data-motion=off] .home-narrow .work-feature .work-title-link {transition:no
   .folio .product-badge {background:var(--product-bg);color:var(--product-muted);}
 
   .folio .work-feature-list .work-feature > .glass-demo-stage {padding:0;background:transparent;}
-  .folio .mini-window.product-surface {background:var(--product-bg);border-color:var(--product-line);box-shadow:var(--ds-effect-product-surface-shadow);}
+  .folio .mini-window.product-surface {background:var(--ds-color-demo-glass-shell);border-color:var(--ds-overlay-white-14-1);box-shadow:var(--ds-effect-product-surface-shadow);}
   .folio .mini-window.product-surface .mini-window-bar {color:var(--product-ink);border-color:var(--product-line);}
   .folio .mini-window.product-surface .receipt-heading {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--ds-space-12);}
   .folio .mini-window.product-surface .product-property {border-color:var(--product-line);}
   .folio .mini-window.product-surface .product-property small {color:var(--product-muted);}
-  .folio .program-hub.product-surface .program-hub-detail {background:var(--product-raised);border-color:var(--product-line);box-shadow:var(--ds-effect-product-panel-specular);}
+  .folio .program-hub.product-surface .program-hub-detail {background:var(--product-raised);border-color:var(--ds-overlay-white-14-1);box-shadow:var(--ds-effect-product-panel-specular);}
   .folio .program-hub.product-surface .program-hub-head {align-items:flex-start;}
   .folio .program-hub.product-surface .program-hub-uplift {display:block;margin-top:var(--ds-space-3);font-size:var(--ds-text-12);font-weight:var(--ds-weight-medium);color:var(--ds-color-status-active-text);}
   .folio .program-hub.product-surface .program-hub-next {align-items:center;}
@@ -672,8 +675,8 @@ html[data-motion=off] .home-narrow .work-feature .work-title-link {transition:no
   .folio .program-hub.product-surface .program-hub-status[data-status="Active"] {background:var(--ds-color-status-active-bg);border-color:var(--ds-color-status-active-border);color:var(--ds-color-status-active-text);}
   .folio .program-hub.product-surface .program-hub-status[data-status="Active"]::before {content:'';width:6px;height:6px;border-radius:50%;background:currentColor;}
   .folio .program-hub.product-surface .program-hub-detail > p {color:var(--product-muted);}
-  .folio .mini-window.product-surface .receipt-money-input {border-color:var(--product-control-line);}
-  .folio .mini-window.product-surface .receipt-total {padding:var(--ds-space-16);background:var(--product-raised);border-radius:var(--ds-radius-legacy-panel);box-shadow:var(--ds-effect-product-panel-specular);}
+  .folio .mini-window.product-surface .receipt-money-input {background:var(--product-bg);border-color:var(--product-control-line);}
+  .folio .mini-window.product-surface .receipt-total {padding:var(--ds-space-16);background:var(--product-raised);}
   .folio .mini-window.product-surface .receipt-total output {color:var(--product-ink);}
   .folio .mini-window.product-surface .receipt-promotion {border-color:var(--product-line);}
   .folio .mini-window.product-surface .receipt-promotion > strong {color:var(--ds-color-discount-cut);}
@@ -691,7 +694,8 @@ html[data-motion=off] .home-narrow .work-feature .work-title-link {transition:no
   .folio .portal-workspace.product-surface .portal-areas {border-color:var(--product-line);}
   .folio .portal-workspace.product-surface .portal-areas li.is-current {background:var(--product-raised);}
   .folio .mini-window.product-surface .mini-stages li[aria-current] {color:var(--product-accent);border-color:var(--product-accent);}
-  .folio .mini-window.product-surface .mini-deploy-detail {padding:var(--ds-space-16);background:var(--product-raised);border-radius:var(--ds-radius-legacy-panel);box-shadow:var(--ds-effect-product-panel-specular);}
+  .folio .mini-window.product-surface .mini-deploy-detail {padding:var(--ds-space-16);background:var(--product-raised);}
+  .folio .mini-window.product-surface :is(.receipt-total,.mini-deploy-detail) {border:var(--ds-border-thin) solid var(--ds-overlay-white-14-1);box-shadow:var(--ds-effect-product-panel-specular);}
   .folio .mini-window.product-surface .mini-deploy-actions button:last-child {background:var(--ds-color-primary-cta-bg);border-color:var(--ds-color-primary-cta-bg);color:var(--ds-color-primary-cta-ink);}
 
   .folio.case-refined .concept-canvas {margin-inline:0;padding:0;border:0;background:transparent;border-radius:0;}
@@ -731,7 +735,7 @@ html[data-motion=off] .home-narrow .work-feature .work-title-link {transition:no
   .folio .mini-window.product-surface .mini-deploy-detail dl div {border-color:var(--product-line);}
   .folio .mini-window.product-surface .mini-stages li {border-color:var(--product-line);}
   .folio .mini-window.product-surface .mini-stages li[aria-current] {border-color:var(--product-accent);}
-  .folio .portal-workflow > .deployment-topology {border-color:transparent;}
+  .folio .portal-workflow > .deployment-topology {border-color:var(--ds-overlay-white-11-0);}
   .folio .topology-source::after {display:none;}
   .folio .topology-regions .topology-node {border-color:var(--product-line);}
   .folio .topology-regions .topology-node.is-active {border-color:var(--ds-color-status-rec-border);}
@@ -741,24 +745,27 @@ html[data-motion=off] .home-narrow .work-feature .work-title-link {transition:no
   .folio .mini-window.product-surface .mini-deploy-actions button:last-child:hover:enabled {background:var(--ds-color-primary-cta-hover);border-color:var(--ds-color-primary-cta-hover);color:var(--ds-color-primary-cta-ink);}
 
   .folio.case-refined :is(.growth-overview,.pb-ex-shell) :is(.pb-ex-bar,.hero-product-kpis,.hero-product-kpi) {border-color:transparent;}
-  .folio.case-refined :is(.growth-overview,.pb-ex-shell) .hero-product-card {border-color:transparent;}
-  .folio.case-refined :is(.growth-overview,.pb-ex-shell) .hero-product-card.is-rec {border-color:transparent;}
+  .folio.case-refined :is(.growth-overview,.pb-ex-shell) .hero-product-card {border-color:var(--product-line);box-shadow:var(--ds-effect-product-panel-specular);}
+  .folio.case-refined :is(.growth-overview,.pb-ex-shell) .hero-product-card:is(.is-rec,.is-featured) {background:var(--tone-panel);border-color:var(--ds-overlay-white-18-0);}
   .folio.case-refined :is(.growth-overview,.pb-ex-shell) :is(.hero-product-card-stats,.hero-product-card-stats > div) {border-color:transparent;}
-  .folio.case-refined .pb-ex-shell .pb-ex-card {border-color:transparent;}
+  .folio.case-refined .pb-ex-shell .pb-ex-card {border-color:var(--product-line);box-shadow:var(--ds-effect-product-panel-specular);}
   .folio.case-refined .pb-ex-shell :is(.pb-ex-seg > span,.pb-ex-days > span) {border-color:transparent;}
 
   .folio.case-refined .discount-workspace :is(.receipt-heading,.receipt-start,.receipt-promotion) {border-color:transparent;}
-  .folio.case-refined .discount-workspace .discount-result {border-color:transparent;background:var(--product-bg);}
-  .folio.case-refined .booking-breakdown > :is(.product-toolbar,.booking-total) {border-color:transparent;}
+  .folio.case-refined .discount-workspace .discount-options {background:transparent;}
+  .folio.case-refined .discount-workspace .discount-result,
+  .folio.case-refined .booking-breakdown > .booking-total {border-color:var(--product-line);background:var(--tone-panel);box-shadow:var(--ds-effect-product-panel-specular);}
   .folio.case-refined .stacking-education :is(.stacking-steps > li,.stacking-conditions > div) {border-color:transparent;}
   .folio.case-refined .stacking-education .stacking-steps > li::before {border-color:transparent;}
 
-  .folio.case-refined .dev-history-ui :is(.dev-topbar,.dev-sidebar,.dev-wiz-bar,.dev-feat,.dev-panel,.dev-wiz-card,.dev-banner,.dev-seg,.dev-filters) {border-color:transparent;}
+  .folio.case-refined .dev-history-ui :is(.dev-topbar,.dev-sidebar,.dev-wiz-bar,.dev-banner,.dev-seg,.dev-filters) {border-color:transparent;}
   .folio.case-refined .dev-history-ui :is(.dev-tabs,.dev-table-foot) {border-color:transparent;}
   .folio.case-refined .dev-history-ui .dev-btn {border-color:transparent;}
   .folio.case-refined .dev-history-ui .dev-page-head .dev-btn {border-color:var(--product-control-line);}
   .folio.case-refined .dev-history-ui .dev-wiz-foot .dev-btn {border-color:transparent;}
-  .folio.case-refined .developer-ui :is(.dev-toolbar,.developer-sidebar,.deploy-steps,.canary-path,.deploy-review,.deploy-field-group,.deploy-actions) {border-color:transparent;}
+  .folio.case-refined .developer-ui :is(.dev-toolbar,.developer-sidebar,.deploy-steps,.deploy-field-group,.deploy-actions) {border-color:transparent;}
+  .folio.case-refined .dev-history-ui :is(.dev-feat,.dev-panel,.dev-wiz-card),
+  .folio.case-refined .developer-ui :is(.canary-path,.deploy-review) {border-color:var(--product-line);background:var(--tone-panel);box-shadow:var(--ds-effect-product-panel-specular);}
   .folio.case-refined .developer-ui .dev-guidance {border-color:transparent;border-left-color:var(--ds-color-status-rec-border);}
   .folio.case-refined .developer-ui .deploy-steps li > span {border-color:transparent;}
   .folio.case-refined .developer-ui .deploy-steps li[aria-current] > span {background:var(--product-accent);color:var(--product-bg);}

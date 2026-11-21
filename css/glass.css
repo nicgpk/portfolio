@@ -546,7 +546,11 @@ html[data-motion=on] [data-section-rise].is-risen {opacity:1;transform:none;tran
   .folio .footer-bottom {border-top-color:transparent;}
 }
 @media screen and (max-width:767px) {
+  :is(.folio,.resume-page) .site-nav {transition:none;}
   :is(.folio,.resume-page) .site-nav.nav-is-scrolled {width:calc(100% - var(--ds-size-48));max-width:560px;}
+  :is(.folio,.resume-page) .site-nav::before,
+  :is(.folio,.resume-page) .site-nav.nav-is-scrolled::before,
+  :is(.folio,.resume-page) .site-nav::after {-webkit-backdrop-filter:none;backdrop-filter:none;}
   :is(.folio,.resume-page) .site-nav::after {top:-12px;}
   .hero-property-photo {width:var(--ds-size-64);height:52px;}
   .hero-property {gap:var(--ds-space-10);}
@@ -566,10 +570,12 @@ html[data-motion=on] [data-section-rise].is-risen {opacity:1;transform:none;tran
 @supports not (backdrop-filter:blur(1px)) {
   :is(.folio,.resume-page) .site-nav.nav-is-scrolled::before {background:var(--ds-color-site-nav-nav-is-scrolled-before-background);}
 }
+@media screen and (min-width:768px) {
+  :is(.folio,.resume-page) .site-nav :is(nav a,.nav-contact,.wordmark,.header-logo-mark) {transition:font-size var(--ds-duration-280-variant-2) var(--glass-ease),padding var(--ds-duration-280-variant-2) var(--glass-ease),min-height var(--ds-duration-280-variant-2) var(--glass-ease),min-width var(--ds-duration-280-variant-2) var(--glass-ease);}
+}
 @media screen {
   :is(.folio,.resume-page) .site-nav nav {gap:var(--ds-space-8);}
   :is(.folio,.resume-page) .site-nav nav a {padding:var(--ds-space-12) var(--ds-space-18);border-radius:var(--ds-radius-pill);}
-  :is(.folio,.resume-page) .site-nav :is(nav a,.nav-contact,.wordmark,.header-logo-mark) {transition:font-size var(--ds-duration-280-variant-2) var(--glass-ease),padding var(--ds-duration-280-variant-2) var(--glass-ease),min-height var(--ds-duration-280-variant-2) var(--glass-ease),min-width var(--ds-duration-280-variant-2) var(--glass-ease);}
   :is(.folio,.resume-page) .site-nav.nav-is-scrolled {height:auto;min-height:52px;padding:var(--ds-space-6) var(--ds-space-14);gap:var(--ds-space-12);}
   :is(.folio,.resume-page) .site-nav.nav-is-scrolled .wordmark {min-width:var(--ds-size-36);min-height:var(--ds-size-36);}
   :is(.folio,.resume-page) .site-nav.nav-is-scrolled .nav-identity {font-size:var(--ds-text-13);line-height:var(--ds-leading-1-15);}

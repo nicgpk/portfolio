@@ -27,7 +27,8 @@ for(const host of hosts) {
     u_offsetX:middle?(compact.matches?.08:.22):0,
     u_offsetY:middle?(compact.matches?-.04:-.12):hero&&compact.matches?-.24:0};
  };
- const pixelBudget=()=>showcase?(compact.matches?300000:450000):compact.matches?(middle?350000:450000):(middle?500000:800000);
+ // The soft wave can render fewer pixels on phones without changing its clock or composition.
+ const pixelBudget=()=>compact.matches?(showcase?180000:middle?210000:270000):(showcase?450000:middle?500000:800000);
  const start=async()=>{
   const initialFrame=middle?38000:12000;
   const uniforms=()=>({
