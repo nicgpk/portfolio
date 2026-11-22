@@ -89,6 +89,22 @@
   .demo-interactive :is(.receipt-promotion,.mini-stages li,.deploy-steps li) {
     transition:opacity var(--ds-duration-220) var(--ds-ease-in-out),border-color var(--ds-duration-220) var(--ds-ease-in-out);
   }
+  .demo-rail-nav:not([hidden]) {display:flex;align-items:center;justify-content:space-between;gap:var(--ds-space-12);margin-top:var(--ds-space-8);}
+  .demo-rail-position {font:var(--ds-weight-regular) var(--ds-text-12)/var(--ds-leading-1-5) var(--body);color:var(--product-muted);font-variant-numeric:tabular-nums;}
+  .demo-rail-controls {display:flex;gap:var(--ds-space-8);}
+  .folio .product-surface .demo-rail-controls button {
+    display:grid;place-items:center;width:var(--ds-size-44);height:var(--ds-size-44);min-height:var(--ds-control-height);padding:0;
+    border:var(--ds-border-thin) solid var(--product-control-line);border-radius:var(--product-radius-control);
+    background:var(--product-bg);color:var(--product-ink);cursor:pointer;
+  }
+  .folio .product-surface .demo-rail-controls button:hover:not(:disabled) {background:var(--product-raised);border-color:var(--product-accent);}
+  .folio .product-surface .demo-rail-controls button:disabled {opacity:.4;cursor:default;}
+  .demo-rail-controls svg {width:var(--ds-size-20);height:var(--ds-size-20);}
+}
+@media screen and (max-width:767px) {
+  .folio .demo-interactive .demo-result {margin-top:var(--ds-space-10);padding:var(--ds-space-8) var(--ds-space-12);font-size:var(--ds-text-12);}
+  .folio .demo-interactive button.pb-ex-day {min-height:var(--ds-size-24);font-size:var(--ds-text-10);}
+  .folio .demo-interactive .pb-ex-days > button {padding:var(--ds-space-6) var(--ds-space-2);font-size:var(--ds-text-11);}
 }
 @media (hover:hover) and (pointer:fine) {
   .folio .demo-interactive :is(.pb-ex-seg,.pb-ex-days) > button:hover,

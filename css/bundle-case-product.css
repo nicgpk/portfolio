@@ -278,12 +278,15 @@
   .folio .product-surface th {color:var(--product-muted);font-weight:var(--ds-weight-medium);text-align:left;}
 }
 @media screen and (max-width:767px) {
-  .folio .product-surface .product-toolbar {padding:var(--ds-space-16) var(--ds-panel-padding-compact);gap:var(--ds-space-8) var(--ds-space-16);}
+  .folio .product-surface .product-toolbar {min-height:0;padding:var(--ds-space-12) var(--ds-space-14);gap:var(--ds-space-4) var(--ds-space-12);}
+  .product-toolbar > :is(strong,h2,h3) {font-size:var(--ds-text-16);}
+  .folio .product-surface :is(th,td) {padding:var(--ds-space-10) var(--ds-space-12);font-size:var(--ds-text-13);}
+  .receipt-stack-visual {margin-bottom:var(--ds-space-10);}
   .product-section-title {font-size:var(--ds-text-22);}
 }
 
 @media screen and (max-width:479px) {
-  .folio .product-surface .product-toolbar {padding-inline:var(--ds-space-16);}
+  .folio .product-surface .product-toolbar {padding:var(--ds-space-10) var(--ds-space-12);}
 }
 @media screen and (prefers-reduced-motion:no-preference) {
   html:not([data-motion="off"]) .receipt-stack-bar > span {transition:width var(--ds-duration-380) var(--ds-ease-out-expo);}

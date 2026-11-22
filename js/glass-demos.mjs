@@ -1,8 +1,8 @@
 import { stackDiscounts } from "./calculations.mjs?v=a0235d2fae86";
 import { motionPaused } from "./kinetics.mjs?v=2178cec3bf8c";
 import { animateFeedback } from "./interaction-motion.mjs?v=38b6b647ccc1";
-import "./demo-scenes.mjs?v=719ac52cd56c";
-import './section-reveals.mjs?v=08ff154fd289';
+import "./demo-scenes.mjs?v=74dbb2792744";
+import './section-reveals.mjs?v=cffccb5471d2';
 import { observeDemoReveals } from './demo-reveal.mjs?v=74b6932daa6c';
 
 // Preserve increase semantics while using the shared arrow icon instead of '+'.

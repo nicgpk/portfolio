@@ -174,17 +174,19 @@
   .topology-regions .is-active::before {border-color:var(--ds-color-visibility);background:var(--ds-color-visibility);}
   .topology-regions .is-active .topology-replicas {fill:var(--ds-color-visibility);}
   @container (max-width:480px) {
-    .topology-regions .topology-node {grid-template-columns:32px minmax(0,1fr);gap:var(--ds-space-4) var(--ds-space-8);}
+    .topology-regions .topology-node {grid-template-columns:24px minmax(0,1fr);gap:var(--ds-space-2) var(--ds-space-6);}
     .topology-replicas {display:none;}
   }
   @container (max-width:360px) {
-    .topology-source {top:calc(50% - 56px);width:40%;height:112px;padding:var(--ds-space-8);gap:var(--ds-space-4);text-align:center;}
-    .folio .topology-source .topology-image-icon {width:var(--ds-size-32);height:var(--ds-size-32);}
+    .topology-source {top:calc(50% - 46px);width:35%;height:92px;padding:var(--ds-space-6);gap:var(--ds-space-3);text-align:center;}
+    .folio .topology-source .topology-image-icon {width:var(--ds-size-24);height:var(--ds-size-24);}
+    .topology-source span {font-size:var(--ds-text-10);line-height:var(--ds-leading-1-25);}
     .topology-source code {font-size:var(--ds-text-12);}
-    .topology-regions {width:46%;grid-template-rows:repeat(3,80px);gap:var(--ds-space-12);}
-    .topology-regions .topology-node {grid-template-columns:minmax(0,1fr);justify-items:center;gap:var(--ds-space-2);padding:var(--ds-space-6) var(--ds-space-4);text-align:center;}
-    .topology-regions strong {font-size:var(--ds-text-12);}
-    .folio .topology-regions .topology-region-icon {grid-row:auto;width:var(--ds-size-24);height:var(--ds-size-24);}
+    .topology-regions {width:56%;grid-template-rows:repeat(3,60px);gap:var(--ds-space-8);}
+    .topology-regions .topology-node {grid-template-columns:20px minmax(0,1fr);justify-items:start;column-gap:var(--ds-space-6);row-gap:var(--ds-space-1);padding:var(--ds-space-5) var(--ds-space-6);text-align:left;}
+    .folio .topology-regions .topology-region-icon {grid-row:1 / 3;align-self:center;width:var(--ds-size-20);height:var(--ds-size-20);}
+    .topology-regions strong {font-size:var(--ds-text-11);line-height:var(--ds-leading-1-25);}
+    .topology-regions span {font-size:var(--ds-text-10);line-height:var(--ds-leading-1-25);}
   }
   .portal-workflow:has(.deployment-topology) .mini-deploy-detail dl {grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--ds-space-16);grid-template-rows:none;margin-top:var(--ds-space-8);}
   .portal-workflow:has(.deployment-topology) .mini-deploy-detail dl div {display:block;padding-block:var(--ds-space-4);font-size:var(--ds-text-12);}
@@ -199,8 +201,8 @@
   to {stroke-dasharray:6 10;stroke-dashoffset:0;}
 }
 @media screen and (max-width:479px) {
-  .portal-workflow > .deployment-topology {padding:var(--ds-space-16) var(--ds-space-12);}
-  .folio .work-feature-list .rate-receipt .receipt-promotion {padding-inline:var(--ds-space-12);column-gap:var(--ds-space-8);}
+  .portal-workflow > .deployment-topology {padding:var(--ds-space-10) var(--ds-space-12);}
+  .folio .work-feature-list .rate-receipt .receipt-promotion {padding-inline:var(--ds-space-10);column-gap:var(--ds-space-8);}
 }
 @media (prefers-reduced-motion:reduce) {
   .topology-node,.topology-node::before,.topology-links path,.portal-workflow .mini-stages li {transition:none;}
@@ -282,20 +284,78 @@ html[data-motion=off] .folio .process-list > li {transition:none;}
   body.home-narrow .site-nav.nav-is-scrolled {width:calc(100% - var(--ds-size-96));max-width:calc(var(--home-width) - var(--ds-size-32));}
 }
 @media screen and (max-width:767px) {
-  .home-narrow .work-feature-list .glass-feature.work-feature {padding:var(--ds-space-20);}
-  .home-narrow .work-feature-list .work-feature .mini-window {padding:var(--ds-space-20);}
+  .home-narrow .work-feature-list .glass-feature.work-feature {padding:var(--ds-space-14);gap:var(--ds-space-14);}
+  .glass-feature-copy .work-role {margin-bottom:var(--ds-space-4);font-size:var(--ds-text-13);}
+  .folio .work-feature .glass-feature-copy h3 {font-size:var(--ds-text-24);line-height:var(--ds-leading-1-2);}
+  .glass-feature-copy .work-summary {margin-top:var(--ds-space-8);font-size:var(--ds-text-14);line-height:var(--ds-leading-1-5);}
+  .home-narrow .work-feature-list .work-feature .mini-window {padding:var(--ds-space-14);}
+  .glass-demo-stage .mini-window-bar,.glass-demo-stage .rate-receipt .receipt-heading {padding-bottom:var(--ds-space-10);}
+  .glass-demo-stage .mini-window-bar > span:first-child,.glass-demo-stage .rate-receipt .receipt-heading h3 {font-size:var(--ds-text-16);}
+  .program-hub > .product-property {padding:var(--ds-space-8) 0 0;gap:var(--ds-space-8);}
+  .program-hub > .product-property > img {width:var(--ds-size-32);height:var(--ds-size-28);}
+  .program-hub > .product-property > span {display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--ds-space-2) var(--ds-space-8);}
+  .program-hub > .product-property small {margin-top:0;}
+  .program-hub .program-hub-tabs {margin-top:var(--ds-space-10);gap:var(--ds-space-6);}
+  .program-hub .program-hub-tabs button {min-height:var(--ds-size-72);padding:var(--ds-space-8);gap:var(--ds-space-6);font-size:var(--ds-text-12);}
+  .program-hub .mini-symbol:has(img),.program-hub .mini-symbol img {width:var(--ds-size-28);height:var(--ds-size-28);}
+  .program-hub .program-hub-tabs button > .selection-check {top:6px;right:6px;}
+  .program-hub-panels {margin-top:var(--ds-space-10);}
+  .program-hub-detail {padding:var(--ds-space-12);}
+  .folio .program-hub-head h4 {font-size:var(--ds-text-17);}
+  .folio .program-hub-summary {margin-top:var(--ds-space-6);font-size:var(--ds-text-13);line-height:var(--ds-leading-1-45);}
+  .program-hub .program-exchange {margin:var(--ds-space-8) 0;}
+  .program-hub .program-exchange div {grid-template-columns:76px minmax(0,1fr);gap:var(--ds-space-8);padding:var(--ds-space-6) 0;}
+  .program-exchange dt {font-size:var(--ds-text-11);}
+  .program-exchange dd {font-size:var(--ds-text-13);line-height:var(--ds-leading-1-4);}
+  .folio .program-hub-next {padding-top:var(--ds-space-8);font-size:var(--ds-text-13);}
+  .work-feature-list .rate-receipt .receipt-start {padding-block:var(--ds-space-8);}
+  .work-feature-list .rate-receipt .receipt-promotion small {margin-top:var(--ds-space-1);font-size:var(--ds-text-11);}
+  .work-feature-list .rate-receipt .receipt-promotion > p {font-size:var(--ds-text-11);line-height:var(--ds-leading-1-35);}
+  .work-feature-list .rate-receipt .receipt-stack-visual {margin-bottom:var(--ds-space-8);}
+  .work-feature-list .rate-receipt .receipt-total {flex-direction:row;align-items:baseline;justify-content:space-between;gap:var(--ds-space-8);}
+  .work-feature-list .glass-feature--deploy .portal-workspace {gap:var(--ds-space-10);}
+  .portal-areas {padding:0 0 var(--ds-space-8);}
+  .portal-areas ul {flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:var(--ds-space-4);}
+  .portal-areas li {flex:none;gap:var(--ds-space-4);padding:var(--ds-space-4) var(--ds-space-6);font-size:var(--ds-text-11);}
+  .portal-areas img {width:var(--ds-size-16);height:var(--ds-size-16);}
+  .portal-workflow .mini-stages {margin:var(--ds-space-6) 0;}
+  .portal-workflow .mini-stages li {padding-block:var(--ds-space-4);}
+  .portal-workflow > .deployment-topology {margin-bottom:var(--ds-space-10);padding:var(--ds-space-10) var(--ds-space-12);}
+  .deployment-topology figcaption {font-size:var(--ds-text-13);gap:var(--ds-space-4) var(--ds-space-8);}
+  .topology-canvas {height:184px;margin-top:var(--ds-space-10);}
+  .topology-source {top:calc(50% - 48px);height:96px;padding:var(--ds-space-8);gap:var(--ds-space-4);}
+  .folio .topology-source .topology-image-icon {width:var(--ds-size-28);height:var(--ds-size-28);}
+  .topology-source span {font-size:var(--ds-text-11);}
+  .topology-source code {font-size:var(--ds-text-13);}
+  .topology-regions {grid-template-rows:repeat(3,54px);gap:var(--ds-space-8);}
+  .topology-regions .topology-node {grid-template-columns:24px minmax(0,1fr);padding:var(--ds-space-6) var(--ds-space-8);column-gap:var(--ds-space-6);row-gap:var(--ds-space-2);}
+  .folio .topology-regions .topology-region-icon {width:var(--ds-size-24);height:var(--ds-size-24);}
+  .topology-regions strong {font-size:var(--ds-text-12);line-height:var(--ds-leading-1-25);}
+  .topology-regions span {font-size:var(--ds-text-11);line-height:var(--ds-leading-1-25);}
+  .portal-workflow:has(.deployment-topology) .mini-deploy-detail {min-height:0;}
+  .folio .glass-demo-stage .portal-workflow:has(.deployment-topology) .mini-deploy-detail > strong {font-size:var(--ds-text-18);}
+  .portal-workflow:has(.deployment-topology) .mini-deploy-detail dl {margin-top:var(--ds-space-6);gap:var(--ds-space-2) var(--ds-space-10);}
+  .portal-workflow:has(.deployment-topology) .mini-deploy-detail dl div {padding-block:var(--ds-space-3);font-size:var(--ds-text-11);}
+  .portal-workflow:has(.deployment-topology) .mini-deploy-detail dd {margin-top:var(--ds-space-1);font-size:var(--ds-text-12);}
   .home-narrow .process-list {grid-template-columns:1fr;}
 }
 @media screen and (max-width:479px) {
-  .home-narrow .work-feature-list .glass-feature.work-feature {padding:var(--ds-space-16);}
-  .home-narrow .work-feature-list .work-feature .mini-window {padding:var(--ds-space-16);}
+  .home-narrow .work-feature-list .glass-feature.work-feature {padding:var(--ds-space-14);}
+  .home-narrow .work-feature-list .work-feature .mini-window {padding:var(--ds-space-12);}
+  .program-hub .program-exchange div {grid-template-columns:76px minmax(0,1fr);gap:var(--ds-space-8);padding:var(--ds-space-6) 0;}
 }
 @media screen and (max-width:359px) {
-  .home-narrow .program-hub .program-hub-tabs {grid-template-columns:minmax(0,1fr);gap:var(--ds-space-8);}
-  .home-narrow .program-hub .program-hub-tabs button {flex-direction:row;align-items:center;justify-content:flex-start;gap:var(--ds-space-12);min-height:var(--ds-size-72);padding:var(--ds-space-12) var(--ds-space-40) var(--ds-space-12) var(--ds-space-12);font-size:var(--ds-product-label-size);}
+  .topology-canvas {height:204px;}
+  .home-narrow .work-feature .project-metrics > div {padding-inline:var(--ds-space-6);}
+  .project-metric-icon {display:none;}
+  .home-narrow .program-hub .program-hub-tabs {grid-template-columns:minmax(0,1fr);gap:var(--ds-space-6);}
+  .home-narrow .program-hub .program-hub-tabs button {flex-direction:row;align-items:center;justify-content:flex-start;gap:var(--ds-space-10);min-height:var(--ds-size-48);padding:var(--ds-space-8) var(--ds-space-36) var(--ds-space-8) var(--ds-space-10);font-size:var(--ds-product-label-size);}
   .home-narrow .program-hub .program-hub-tabs button > span:nth-child(2) {flex:1;}
   .home-narrow .program-hub .program-hub-tabs button > .selection-check {top:50%;right:var(--ds-space-12);transform:translateY(-50%);}
   .home-narrow .program-hub-head {flex-wrap:wrap;}
+  .program-hub .program-exchange div {grid-template-columns:70px minmax(0,1fr);}
+  .work-feature-list .rate-receipt .receipt-total {flex-direction:row;align-items:baseline;justify-content:space-between;gap:var(--ds-space-8);}
+  .work-feature-list .rate-receipt .receipt-total output {font-size:var(--ds-text-21);}
 }
 
 /* Reported results lead each demonstration, within one open metric strip. */
@@ -310,10 +370,11 @@ html[data-motion=off] .folio .process-list > li {transition:none;}
   .home-narrow .work-feature .project-metrics dt {font-size:var(--ds-text-13);line-height:var(--ds-leading-1-5);}
 }
 @media screen and (max-width:767px) {
-  .home-narrow .work-feature .project-metrics > div {padding-inline:var(--ds-space-12);gap:var(--ds-space-8);}
-  .home-narrow .work-feature .project-metrics dd {flex-direction:column;align-items:flex-start;gap:var(--ds-space-10);font-size:clamp(var(--ds-text-18),5.5vw,var(--ds-text-24));}
-  .project-metric-icon {width:var(--ds-size-20);height:var(--ds-size-20);}
-  .home-narrow .work-feature .project-metrics dt {font-size:var(--ds-text-12);}
+  .home-narrow .work-feature-list .work-feature .project-metrics {margin-top:var(--ds-space-12);}
+  .home-narrow .work-feature .project-metrics > div {padding-inline:var(--ds-space-10);gap:var(--ds-space-4);}
+  .home-narrow .work-feature .project-metrics dd {flex-direction:row;align-items:center;gap:var(--ds-space-6);font-size:clamp(var(--ds-text-16),4.6vw,var(--ds-text-21));}
+  .project-metric-icon {width:var(--ds-size-16);height:var(--ds-size-16);}
+  .home-narrow .work-feature .project-metrics dt {font-size:var(--ds-text-11);line-height:var(--ds-leading-1-35);}
 }
 
 /* A quiet glass reflection eases in and reverses smoothly on pointer exit. */

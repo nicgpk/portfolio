@@ -36,6 +36,97 @@ function goTo(id) {
   destination.scrollIntoView({ block: 'start', behavior: motionPaused() ? 'instant' : 'smooth' });
 }
 
+function enhanceHorizontalRail(track, label, itemNoun) {
+  if (!track || track.nextElementSibling?.classList.contains('demo-rail-nav')) return;
+  const items = [...track.children];
+  if (items.length < 2) return;
+
+  const nav = document.createElement('div');
+  nav.className = 'demo-rail-nav';
+  nav.hidden = true;
+
+  const position = document.createElement('span');
+  position.className = 'demo-rail-position';
+  position.setAttribute('role', 'status');
+  position.setAttribute('aria-live', 'polite');
+  position.setAttribute('aria-atomic', 'true');
+  position.textContent = `1 of ${items.length}`;
+
+  const controls = document.createElement('div');
+  controls.className = 'demo-rail-controls';
+
+  const makeNavButton = (direction, pathData) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.dataset[direction === 'Previous' ? 'railPrev' : 'railNext'] = '';
+    button.setAttribute('aria-label', `${direction} ${itemNoun}`);
+    button.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="${pathData}"/></svg>`;
+    return button;
+  };
+
+  const previous = makeNavButton('Previous', 'm14 6-6 6 6 6');
+  const next = makeNavButton('Next', 'm10 6 6 6-6 6');
+  previous.disabled = true;
+  controls.append(previous, next);
+  nav.append(position, controls);
+  track.after(nav);
+
+  let current = 0;
+  let frame = 0;
+
+  const update = () => {
+    const origin = items[0].getBoundingClientRect().left;
+    const offsets = items.map(item => item.getBoundingClientRect().left - origin);
+    current = offsets.reduce((best, offset, index) =>
+      Math.abs(offset - track.scrollLeft) < Math.abs(offsets[best] - track.scrollLeft) ? index : best, 0);
+    const text = `${current + 1} of ${items.length}`;
+    if (position.textContent !== text) position.textContent = text;
+    previous.disabled = current === 0;
+    next.disabled = current === items.length - 1;
+  };
+
+  const syncScrollable = () => {
+    const scrollable = track.scrollWidth > track.clientWidth + 4;
+    nav.hidden = !scrollable;
+    if (scrollable) {
+      track.tabIndex = 0;
+      track.setAttribute('role', 'region');
+      track.setAttribute('aria-label', label);
+      update();
+    } else {
+      track.removeAttribute('tabindex');
+      track.removeAttribute('role');
+      track.removeAttribute('aria-label');
+    }
+  };
+
+  const moveTo = index => {
+    const clamped = Math.max(0, Math.min(items.length - 1, index));
+    const left = items[clamped].getBoundingClientRect().left - items[0].getBoundingClientRect().left;
+    track.scrollTo({ left, behavior: motionPaused() ? 'instant' : 'smooth' });
+  };
+
+  previous.addEventListener('click', () => moveTo(current - 1));
+  next.addEventListener('click', () => moveTo(current + 1));
+  track.addEventListener('keydown', event => {
+    if (event.target !== track || nav.hidden) return;
+    const destinations = { ArrowLeft: current - 1, ArrowRight: current + 1, Home: 0, End: items.length - 1 };
+    if (!Object.hasOwn(destinations, event.key)) return;
+    event.preventDefault();
+    moveTo(destinations[event.key]);
+  });
+  track.addEventListener('scroll', () => {
+    if (nav.hidden) return;
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(update);
+  }, { passive: true });
+
+  if (typeof ResizeObserver === 'function') {
+    new ResizeObserver(syncScrollable).observe(track);
+  }
+  syncScrollable();
+}
+
 export function enhanceDemoControls(root) {
   // Mount live regions before interaction so screen readers observe updates.
   if (root.matches('.pb-ex-shell,.growth-overview,.dev-history-ui')) resultFor(root);
@@ -197,6 +288,12 @@ function enhanceGrowth(root) {
       if (result) result.textContent = 'Settings changed. Review the updated configuration before confirming.';
     });
   }
+
+  if (root.matches('.growth-overview')) {
+    enhanceHorizontalRail(root.querySelector('.hero-product-cards:not(#growth-recommendations)'), 'Recommended programs', 'recommended program');
+  }
+  enhanceHorizontalRail(root.querySelector('.pb-ex-cal'), 'Blackout date months', 'month');
+  enhanceHorizontalRail(root.querySelector('.pb-ex-compare'), 'Program comparison', 'option');
 }
 
 function enhanceDeveloper(root) {
@@ -261,4 +358,5 @@ function enhanceDeveloper(root) {
     });
     button.setAttribute('aria-label', 'Try walkthrough: deployment configuration');
   }
+  enhanceHorizontalRail(root.querySelector('.dev-home-grid'), 'Developer Portal domains', 'domain');
 }
