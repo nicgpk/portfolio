@@ -1,4 +1,4 @@
-import { createScene } from './demo-scenes.mjs?v=719ac52cd56c';
+import { createScene } from './demo-scenes.mjs?v=74dbb2792744';
 import { observeDemoReveals } from './demo-reveal.mjs?v=74b6932daa6c';
 
 const ease = 'cubic-bezier(.22,.61,.36,1)';

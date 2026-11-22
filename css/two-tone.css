@@ -88,6 +88,11 @@
 }
 @media screen and (max-width:767px) and (forced-colors:none) {
   .folio.case-refined .case-shift > div {padding:var(--ds-panel-padding-compact);}
+  .folio .work-feature-list .rate-receipt .receipt-promotions {gap:var(--ds-space-2);margin-bottom:var(--ds-space-8);}
+  .folio .work-feature-list .rate-receipt .receipt-promotion {padding:var(--ds-space-8) var(--ds-space-10);row-gap:var(--ds-space-2);}
+  .folio .mini-window.product-surface .receipt-total {padding:var(--ds-space-10) var(--ds-space-12);}
+  .folio .work-feature-list .rate-receipt .receipt-savings {margin-top:var(--ds-space-8);padding-inline:var(--ds-space-10);}
+  .folio .mini-window.product-surface .mini-deploy-detail {padding:var(--ds-space-10) var(--ds-space-12);}
 }
 
 /* Subtle strokes separate homepage demo regions, controls and data rows. */

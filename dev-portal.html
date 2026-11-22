@@ -143,8 +143,8 @@
     <link rel="stylesheet" href="css/bundle-case-layout.css?v=30a88338f471" />
     <link rel="stylesheet" href="css/bundle-developer-concepts.css?v=e0b002f0816b" />
     <link rel="stylesheet" href="css/glass.css?v=cf1de73ba5f3" />
-    <link rel="stylesheet" href="css/bundle-case-product.css?v=91eba5b82e99" />
-    <link rel="stylesheet" href="css/bundle-developer-product.css?v=e9364d6a515d" />
+    <link rel="stylesheet" href="css/bundle-case-product.css?v=ae9d0c840a95" />
+    <link rel="stylesheet" href="css/bundle-developer-product.css?v=3f767ec85521" />
     <!-- css-bundles:end -->
     <link rel="preload" as="font" type="font/woff2" href="fonts/ibm-plex-sans.woff2" crossorigin />
   </head>
@@ -278,7 +278,52 @@
                     </div>
                   </div>
                 </div>
-              </div></figure></section><section class="case-story-section" id="service-creation" aria-labelledby="dev-service-creation-title"><h2 id="dev-service-creation-title">A guided path to create a service.</h2><div class="case-story-copy"><p>The wizard asked for repository setup, ownership and tags together. Missing admin groups meant offline Active Directory (AD) requests. Unclear platform and system tags caused ownership problems. Developers left the wizard for documentation or help.</p><p>Phase 1 prioritized guidance while engineering addressed the automation backlog. Phase 2 focused on deeper changes to ownership, tagging and approvals.</p></div><div class="case-story-table-wrap" role="region" tabindex="0" aria-labelledby="service-comparison-caption"><table class="case-story-table dev-flow-comparison"><caption id="service-comparison-caption">Service creation before and after</caption><thead><tr><th scope="col">Moment</th><th scope="col">Before</th><th scope="col">Design response</th></tr></thead><tbody><tr><th scope="row">Find the starting point</th><td>Create service was hard to find in the flat link directory.</td><td>Manage, Plan, Build, Secure and Monitor created a task-based map.</td></tr><tr><th scope="row">Start the form</th><td>The wizard asked for repository, ownership and tags upfront. It needed guidance and a way to resume.</td><td>Skip unused repository steps, guide developers through blockers and let them resume later.</td></tr><tr><th scope="row">Resolve ownership</th><td>Missing admin groups stopped progress and required an offline AD request.</td><td>Save progress so developers can resume after long handoffs.</td></tr><tr><th scope="row">Understand tags</th><td>Undocumented platform and system tags caused downstream ownership failures.</td><td>Explain ownership and security groups in the wizard. Revisit unnecessary requirements in Phase 2.</td></tr><tr><th scope="row">Recover from blockers</th><td>Developers lost their place when they left to search docs or ask in Slack.</td><td>Add guidance in the wizard and link to a searchable catalog of ownership, source and impact.</td></tr><tr><th scope="row">Measure improvement</th><td>Service creation took 1–2 working days, without a SUS baseline.</td><td>Reported creation time fell to 6m 8s. SUS rose from 61.9 to 68.8.</td></tr></tbody></table></div><div class="case-story-split"><div class="case-story-copy"><h3>Phase 1 clarified setup and permissions.</h3><ul class="case-story-list"><li>Skip optional repository setup.</li><li>Show documentation where developers get stuck.</li><li>Let developers resume after waiting on a request.</li><li>Put frequently used pages and quick links on the home page.</li></ul></div><div class="case-story-copy"><h3>Phase 2 focused on deeper workflow changes.</h3><ul class="case-story-list"><li>Revisit ownership and remove unnecessary requirements.</li><li>Reconsider tags developers did not know how to apply.</li><li>Plan longer-term automation and approval workflows.</li></ul></div></div><div class="dev-source-sequence"><figure class="case-story-figure"><a href="images/dev_service+fix+1.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+1.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation catalog and ownership flow" /></a><figcaption>Guidance at repository and ownership decisions.</figcaption></figure><figure class="case-story-figure"><a href="images/dev_service+fix+2.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+2.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation ownership and tagging flow" /></a><figcaption>Unclear ownership and tagging requirements.</figcaption></figure><figure class="case-story-figure"><a href="images/dev_service+fix+3.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+3.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation guidance and request flow" /></a><figcaption>Missing guidance and handoffs during service creation.</figcaption></figure></div></section><section class="case-story-section" id="deployment" aria-labelledby="dev-deployment-title"><h2 id="dev-deployment-title">Private-cloud deployment in three steps.</h2><div class="case-story-copy"><p>The workflow guides developers as they move legacy services from servers to private cloud. Environment, Rollout and Review separate setup, rollout choices and final confirmation.</p><h3>1. Configure the environment.</h3><p>Environment groups the environment name, cluster pool, Docker repository, image tag, health checks, and CPU and memory requests. Guidance explains startup and liveness probes next to the container settings.</p></div><figure class="case-story-figure dev-product-figure" data-demo-backdrop="developer"><div class="dev-history-ui product-surface" role="img" aria-label="Environment setup wizard step">
+              </div></figure></section><section class="case-story-section" id="service-creation" aria-labelledby="dev-service-creation-title"><h2 id="dev-service-creation-title">A guided path to create a service.</h2><div class="case-story-copy"><p>The wizard asked for repository setup, ownership and tags together. Missing admin groups meant offline Active Directory (AD) requests. Unclear platform and system tags caused ownership problems. Developers left the wizard for documentation or help.</p><p>Phase 1 prioritized guidance while engineering addressed the automation backlog. Phase 2 focused on deeper changes to ownership, tagging and approvals.</p></div>
+        <div class="case-story-table-wrap">
+          <table class="case-story-table dev-flow-comparison" role="table">
+            <caption>Service creation before and after</caption>
+            <thead role="rowgroup">
+              <tr role="row">
+                <th scope="col" role="columnheader">Moment</th>
+                <th scope="col" role="columnheader">Before</th>
+                <th scope="col" role="columnheader">Design response</th>
+              </tr>
+            </thead>
+            <tbody role="rowgroup">
+              <tr role="row">
+                <th scope="row" role="rowheader">Find the starting point</th>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Before</span>Create service was hard to find in the flat link directory.</td>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Design response</span>Manage, Plan, Build, Secure and Monitor created a task-based map.</td>
+              </tr>
+              <tr role="row">
+                <th scope="row" role="rowheader">Start the form</th>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Before</span>The wizard asked for repository, ownership and tags upfront. It needed guidance and a way to resume.</td>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Design response</span>Skip unused repository steps, guide developers through blockers and let them resume later.</td>
+              </tr>
+              <tr role="row">
+                <th scope="row" role="rowheader">Resolve ownership</th>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Before</span>Missing admin groups stopped progress and required an offline AD request.</td>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Design response</span>Save progress so developers can resume after long handoffs.</td>
+              </tr>
+              <tr role="row">
+                <th scope="row" role="rowheader">Understand tags</th>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Before</span>Undocumented platform and system tags caused downstream ownership failures.</td>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Design response</span>Explain ownership and security groups in the wizard. Revisit unnecessary requirements in Phase 2.</td>
+              </tr>
+              <tr role="row">
+                <th scope="row" role="rowheader">Recover from blockers</th>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Before</span>Developers lost their place when they left to search docs or ask in Slack.</td>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Design response</span>Add guidance in the wizard and link to a searchable catalog of ownership, source and impact.</td>
+              </tr>
+              <tr role="row">
+                <th scope="row" role="rowheader">Measure improvement</th>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Before</span>Service creation took 1–2 working days, without a SUS baseline.</td>
+                <td role="cell"><span class="dev-flow-comparison-label" aria-hidden="true">Design response</span>Reported creation time fell to 6m 8s. SUS rose from 61.9 to 68.8.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="case-story-split"><div class="case-story-copy"><h3>Phase 1 clarified setup and permissions.</h3><ul class="case-story-list"><li>Skip optional repository setup.</li><li>Show documentation where developers get stuck.</li><li>Let developers resume after waiting on a request.</li><li>Put frequently used pages and quick links on the home page.</li></ul></div><div class="case-story-copy"><h3>Phase 2 focused on deeper workflow changes.</h3><ul class="case-story-list"><li>Revisit ownership and remove unnecessary requirements.</li><li>Reconsider tags developers did not know how to apply.</li><li>Plan longer-term automation and approval workflows.</li></ul></div></div><div class="dev-source-sequence"><figure class="case-story-figure"><a href="images/dev_service+fix+1.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+1.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation catalog and ownership flow" /></a><figcaption>Guidance at repository and ownership decisions.</figcaption></figure><figure class="case-story-figure"><a href="images/dev_service+fix+2.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+2.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation ownership and tagging flow" /></a><figcaption>Unclear ownership and tagging requirements.</figcaption></figure><figure class="case-story-figure"><a href="images/dev_service+fix+3.png" target="_blank" rel="noopener" aria-label="Open design artifact at full size (opens in a new tab)"><img src="images/dev_service+fix+3.png" width="1000" height="584" loading="lazy" decoding="async" alt="Annotated service creation guidance and request flow" /></a><figcaption>Missing guidance and handoffs during service creation.</figcaption></figure></div></section><section class="case-story-section" id="deployment" aria-labelledby="dev-deployment-title"><h2 id="dev-deployment-title">Private-cloud deployment in three steps.</h2><div class="case-story-copy"><p>The workflow guides developers as they move legacy services from servers to private cloud. Environment, Rollout and Review separate setup, rollout choices and final confirmation.</p><h3>1. Configure the environment.</h3><p>Environment groups the environment name, cluster pool, Docker repository, image tag, health checks, and CPU and memory requests. Guidance explains startup and liveness probes next to the container settings.</p></div><figure class="case-story-figure dev-product-figure" data-demo-backdrop="developer"><div class="dev-history-ui product-surface" role="img" aria-label="Environment setup wizard step">
                 <div class="dev-wizard">
                   <div class="dev-wiz-bar">
                     <span class="dev-wiz-close">×</span>
@@ -837,9 +882,9 @@
       </div>
     </footer>
     <script type="module" src="js/folio.mjs?v=9d82c7487480"></script>
-    <script type="module" src="js/glass-demos.mjs?v=e2a81608fb95"></script>
+    <script type="module" src="js/glass-demos.mjs?v=369b0d454262"></script>
     <script type="module">
-      import("./js/glass-demos.mjs?v=e2a81608fb95").catch(function () {
+      import("./js/glass-demos.mjs?v=369b0d454262").catch(function () {
         document.documentElement.dataset.motion = "off";
       });
     </script>
